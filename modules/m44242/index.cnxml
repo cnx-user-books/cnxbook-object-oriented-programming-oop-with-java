@@ -1,0 +1,4834 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3026: GradientPaint and other Java2D Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44242</md:content-id>
+  <md:title>Java3026: GradientPaint and other Java2D Classes</md:title>
+  <md:abstract>Learn to use a variety of Java2D classes including GradientPaint.</md:abstract>
+  <md:uuid>ae930bd7-6178-47d7-9aad-d4f621e98a91</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 10:05:32 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video link
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Required graphic output. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Required text output. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. A drawing of an ellipse.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob03.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob03Runner. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the method named process. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Translate the origin to the center of the image. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Draw the black horizontal and vertical axes.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Draw the solid green filled ellipse in the upper-left quadrant.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Draw a circle with a gradient fill in the upper-right quadrant.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Code for the remaining two quadrants..
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module you will learn to use the 
+
+<emphasis id="strong1000" effect="bold">
+GradientPaint
+
+</emphasis>
+ 
+	class along with a variety of other Java2D classes.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1002" effect="bold">
+Prob03
+
+</emphasis>
+ that uses the class definition 
+shown in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along 
+with the image file named 
+
+<emphasis id="strong1003" effect="bold">
+Prob03.jpg
+
+</emphasis>
+ to produce the graphic 
+output image shown in 
+
+<link id="a1028" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+<emphasis id="em1003" effect="italics">
+(Note that the image 
+in the file named Prob03.jpg is a blank white image. You could also create this 
+blank image using one of the constructors for the 
+
+<emphasis id="strong1004" effect="bold">
+Picture
+
+</emphasis>
+ class.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Required graphic output.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image showing four circles with different gradient patterns in each circle." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/javaexam3.03a.jpg" width="312" height="432"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1006" effect="bold">
+Circles with gradient paint
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+The program draws four circles in the quadrants of a Cartesian coordinate 
+system. One is filled with solid green. The other three are filled with cyclic 
+gradient paint from green to blue.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+The number of cycles varies in each circle, as do the axes along which the 
+gradient occurs.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+The background is set to Color.RED.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1007" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named
+
+
+<emphasis id="strong1008" effect="bold">
+Prob03
+
+</emphasis>
+ shown in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1009" effect="bold">
+Required text output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+In addition to the output image mentioned above, your program must display 
+your name and the other line of text shown in 
+
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Required text output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename Prob03.jpg height 300 width 300</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1018">
+<emphasis id="strong1010" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+I will discuss and explain this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1031" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of 
+the module. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1011" effect="bold">
+The driver class named Prob03
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+The driver class containing the main method is shown in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob03.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Prob03{
+  public static void main(String[] args){
+    new Prob03Runner().run();
+  }//end main method
+}//end class Prob03</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1022">
+If you have been studying the earlier modules in this series, no 
+	explanation of 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ should be required.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1012" effect="bold">
+Beginning of the class named Prob03Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+The class named 
+
+<emphasis id="strong1013" effect="bold">
+Prob03Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1034" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob03Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob03Runner{
+  public Prob03Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+
+  public void run(){
+    Picture pic = new Picture("Prob03.jpg");
+//  Picture pic = new Picture(300,300);
+
+    pic.setAllPixelsToAColor(Color.RED);
+
+    process(pic);
+
+    //Add your name and display the output picture.
+    pic.addMessage("Display your name here.",10,20);
+    pic.explore();
+    System.out.println(pic);
+  }//end run</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1025">
+<emphasis id="strong1014" effect="bold">
+Avoiding use of a blank input image file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+This program was originally written using an early version of Ericson's class 
+library that didn't support the second statement in the 
+
+<emphasis id="strong1015" effect="bold">
+run
+
+</emphasis>
+ 
+method. 
+
+<emphasis id="em1004" effect="italics">
+(That statement was disabled by turning it into a comment in 
+
+</emphasis>
+ 
+
+<link id="a1035" target-id="Listing_2">
+
+
+
+
+<emphasis id="em1005" effect="italics">
+<link id="a1036" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1006" effect="italics">
+)
+
+</emphasis>
+ As a result, with that library, it was 
+necessary to read an image file containing a blank white image to create a
+
+
+<emphasis id="strong1016" effect="bold">
+Picture
+
+</emphasis>
+ object with a blank white image.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1017" effect="bold">
+No longer a problem
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+That problem was rectified with an update to her library and the disabled 
+statement can be substituted for the statement immediately above it. If you do 
+that, you won't need the input image file.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Except for that, and the call to the method named 
+
+<emphasis id="strong1018" effect="bold">
+process
+
+</emphasis>
+, you should already understand all of the 
+code in 
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1019" effect="bold">
+Beginning of the method named process
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The method named 
+
+<emphasis id="strong1020" effect="bold">
+process
+
+</emphasis>
+ begins in 
+
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the method named process.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  private void process(Picture pic){
+
+    Graphics2D g2 = (Graphics2D)(pic.getGraphics());
+
+    int width = pic.getWidth();
+    int height = pic.getHeight();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1032">
+<emphasis id="strong1021" effect="bold">
+Java2D graphics
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+This is basically a module on the use of classes from the Java2D section of 
+the standard class library. 
+
+<emphasis id="em1007" effect="italics">
+(See my lessons 300 through 324 on Java2D 
+graphics 
+
+<link id="a1039" url="http://www.dickbaldwin.com/tocadv.htm">
+
+here
+
+</link>
+
+.)
+
+</emphasis>
+ Classes 
+from Ericson's library are used mainly to support the display aspects of the 
+program.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1022" effect="bold">
+What are Java2D graphics?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+Although the capabilities provided by Java2D graphics are wide and varied, in 
+one way or another, they generally have to do with the creation of images by 
+drawing.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1023" effect="bold">
+A graphics context is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+In order to use the methods that will be using, it is necessary to gain 
+access to the graphics context of an object as type 
+
+<emphasis id="strong1024" effect="bold">
+Graphics2D
+
+</emphasis>
+. 
+The first statement in 
+
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls Ericson's 
+
+<emphasis id="strong1025" effect="bold">
+getGraphics
+
+</emphasis>
+ 
+method to gain access to the graphics context of a 
+
+<emphasis id="strong1026" effect="bold">
+Picture
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1027" effect="bold">
+A cast to type Graphics2D is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+However, the 
+
+<emphasis id="strong1028" effect="bold">
+getGraphics
+
+</emphasis>
+ method returns a reference to the 
+graphics context as type 
+
+<emphasis id="strong1029" effect="bold">
+Graphics
+
+</emphasis>
+. In order for us to use it to 
+do what we want to do, we must cast it to type 
+
+<emphasis id="strong1030" effect="bold">
+Graphics2D
+
+</emphasis>
+. This 
+gives us access to many more methods that would be the case without the cast.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1031" effect="bold">
+Save as type Graphics2D in a variable named g2
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The graphics context for the 
+
+<emphasis id="strong1032" effect="bold">
+Picture
+
+</emphasis>
+ object is saved in 
+
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ as type 
+
+<emphasis id="strong1033" effect="bold">
+Graphics2D
+
+</emphasis>
+. The reference is saved in the 
+reference variable named 
+
+<emphasis id="strong1034" effect="bold">
+g2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1035" effect="bold">
+Save the width and height of the Picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The last two statements in 
+
+<link id="a1042" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ get and save the 
+
+<emphasis id="strong1036" effect="bold">
+width
+
+</emphasis>
+ 
+and the 
+
+<emphasis id="strong1037" effect="bold">
+height
+
+</emphasis>
+ of the image encapsulated in the 
+
+<emphasis id="strong1038" effect="bold">
+Picture
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1039" effect="bold">
+Translate the origin to the center of the image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+By default, the origin 
+
+<emphasis id="em1008" effect="italics">
+(with coordinates of 0,0)
+
+</emphasis>
+ is in the 
+upper-left corner of the image. However, we would like to be able to work with a 
+coordinate system in which the origin is at the center.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1040" effect="bold">
+translate
+
+</emphasis>
+ method to move the origin to 
+the center of the image.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Translate the origin to the center of the image.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    g2.translate(width/2,height/2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1047">
+<emphasis id="em1009" effect="italics">
+(Fortunately, you already understand affine transforms. Otherwise, 
+	you might not be able to understand the documentation for the 
+
+<emphasis id="strong1041" effect="bold">
+
+	translate
+
+</emphasis>
+ method.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1042" effect="bold">
+From this point forward...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+From this point forward, we can think of the coordinates of the pixel at the 
+very center of the object as having values of 0,0. Locations to the left of 
+center have negative X coordinates and locations above the center have negative 
+Y coordinates.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1043" effect="bold">
+Draw the black horizontal and vertical axes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The next thing we want to do is to draw the black horizontal and vertical 
+axes that you see in the center of the image in 
+
+<link id="a1044" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+This is accomplished by the code in 
+
+<link id="a1045" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Draw the black horizontal and vertical axes.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">    //Set the drawing color to black
+    g2.setColor(Color.BLACK);
+
+    //Draw x-axis
+    g2.draw(new Line2D.Double(-width/2, 0.0,
+                               width/2, 0.0));
+
+    //Draw y-axis
+    g2.draw(new Line2D.Double(0.0, -width/2,
+                              0.0,  height/2));</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1052">
+<emphasis id="strong1044" effect="bold">
+Set the drawing color to black
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+<link id="a1046" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ begins by calling the 
+
+<emphasis id="strong1045" effect="bold">
+setColor
+
+</emphasis>
+ 
+method to set the drawing color to Color.BLACK.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="em1010" effect="italics">
+(BLACK is a static constant in the 
+
+<emphasis id="strong1046" effect="bold">
+Color
+
+</emphasis>
+ class that 
+represents the color black.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1047" effect="bold">
+A new Line2D.Double object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+The fourth line of code in 
+
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ instantiates a 
+new object of the 
+
+<emphasis id="strong1048" effect="bold">
+Line2D.Double
+
+</emphasis>
+ class. This object represents a line extending 
+between two points specified by coordinate values passed as parameters to the 
+constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1049" effect="bold">
+A black horizontal line
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+The first pair of coordinate values specifies the left end of the black 
+horizontal line in 
+
+<link id="a1048" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The second pair of 
+coordinate values specifies the right end of the black horizontal line in
+
+
+<link id="a1049" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="em1011" effect="italics">
+(See my 
+
+<link id="a1050" url="http://www.dickbaldwin.com/java/Java300.htm">
+
+Lesson 
+Number 300
+
+</link>
+
+ for an explanation of the somewhat unusual name of a class 
+consisting of two words separated by a period: 
+
+<emphasis id="strong1050" effect="bold">
+Line2D.Double
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1051" effect="bold">
+Pass the line object to the Draw method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+The new object's reference is passed to the 
+
+<emphasis id="strong1052" effect="bold">
+draw
+
+</emphasis>
+ method, 
+which is responsible for causing the line to be drawn on the graphics context.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1053" effect="bold">
+A black vertical axis
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+The last statement in 
+
+<link id="a1051" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ draws the black 
+vertical line shown in 
+
+<link id="a1052" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1054" effect="bold">
+Coordinates relative to the origin at the center
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+Note that in both cases, the end points of the line are specified using 
+coordinate values that are relative to the origin, which is positioned at the 
+center of the drawing context.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1055" effect="bold">
+Draw the solid green filled ellipse in the upper-left quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+In case you are unfamiliar with the term, an 
+
+<emphasis id="em1012" effect="italics">
+ellipse
+
+</emphasis>
+ is the 2D shape 
+shown in the upper-left quadrant of 
+
+<link id="a1053" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. A circle is an ellipse with the 
+major and minor axes having the same lengths.
+
+</para>
+
+
+
+
+	
+
+<para id="p1068">
+<emphasis id="strong1056" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - A drawing of an ellipse.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+<media id="media1001" alt="Image showing three circles and one ellipse." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/javaexam3.03b.jpg" width="312" height="432"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1057" effect="bold">
+There is no circle class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+Java does not provide a 
+
+<emphasis id="strong1058" effect="bold">
+Circle2D.Double
+
+</emphasis>
+ class but it does 
+provide an 
+
+<emphasis id="strong1059" effect="bold">
+Ellipse2D.Double
+
+</emphasis>
+ class, which you can use to draw 
+circles.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="em1013" effect="italics">
+(The 
+
+<emphasis id="strong1060" effect="bold">
+Graphics
+
+</emphasis>
+ class also provides a 
+
+<emphasis id="strong1061" effect="bold">
+drawOval
+
+</emphasis>
+ 
+method that can be used to draw circles but those circles won't suffice for what 
+we will be doing in this module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1062" effect="bold">
+Four constructor parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+The constructor for the 
+
+<emphasis id="strong1063" effect="bold">
+Ellipse2D.Double
+
+</emphasis>
+ class requires four 
+parameters of type 
+
+<emphasis id="strong1064" effect="bold">
+double
+
+</emphasis>
+. The first two parameters are the X 
+and Y coordinates of the upper-left corner of an imaginary rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The next two parameters are the 
+
+<emphasis id="strong1065" effect="bold">
+width
+
+</emphasis>
+ and the 
+
+<emphasis id="strong1066" effect="bold">
+height
+
+</emphasis>
+ 
+of the imaginary rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+The sides of the imaginary rectangle are parallel to the X and Y axes, but 
+can be rotated using affine transforms.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1067" effect="bold">
+An ellipse inside an imaginary rectangle
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The ellipse is constructed inside the imaginary rectangle such that it is 
+symmetrical about its horizontal and vertical axes and it touches all four sides 
+of the rectangle. 
+
+<emphasis id="em1014" effect="italics">
+(The documentation refers to the rectangle as a framing 
+rectangle.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1068" effect="bold">
+How do you construct a circle?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+If the rectangle is actually a square, then the ellipse becomes a circle.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1069" effect="bold">
+Construct an ellipse inside an imaginary square
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+The first statement in 
+
+<link id="a1054" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ constructs an 
+object of type 
+
+<emphasis id="strong1070" effect="bold">
+Ellipse2D.Double
+
+</emphasis>
+ inside a 128x128 square that just fits in the upper 
+left quadrant of our Cartesian coordinate system shown in 
+
+<link id="a1055" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The circle 
+object's reference is saved in the reference variable named 
+
+<emphasis id="strong1071" effect="bold">
+circle1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Draw the solid green filled ellipse in the upper-left quadrant.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    //Upper left quadrant
+    Ellipse2D.Double circle1 =
+             new Ellipse2D.Double(-128,-128,128,128);
+
+    //Solid GREEN fill
+    g2.setPaint(Color.GREEN);
+
+    g2.fill(circle1);
+
+    g2.draw(circle1);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1083">
+<emphasis id="strong1072" effect="bold">
+Set the painting color
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+The statement near the middle of 
+
+<link id="a1056" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ sets the 
+painting color to 
+
+<emphasis id="strong1073" effect="bold">
+Color.GREEN
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="em1015" effect="italics">
+(Note that 
+
+</emphasis>
+<link id="a1057" target-id="Listing_6">
+
+
+<emphasis id="em1016" effect="italics">
+<link id="a1058" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1017" effect="italics">
+ calls
+
+
+</emphasis>
+<emphasis id="strong1074" effect="bold">
+<emphasis id="em1018" effect="italics">
+setPaint
+
+</emphasis>
+</emphasis>
+<emphasis id="em1019" effect="italics">
+ whereas 
+
+<link id="a1059" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+ calls 
+
+</emphasis>
+<emphasis id="strong1075" effect="bold">
+<emphasis id="em1020" effect="italics">
+setColor
+
+</emphasis>
+</emphasis>
+<emphasis id="em1021" effect="italics">
+. I will leave it as an 
+exercise for the student to study the documentation in order to understand the 
+difference between 
+
+<emphasis id="strong1076" effect="bold">
+setColor
+
+</emphasis>
+ and 
+
+<emphasis id="strong1077" effect="bold">
+setPaint
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1078" effect="bold">
+Fill the circle referred to by circle1
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+The second statement from the bottom in 
+
+<link id="a1060" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ 
+calls the 
+
+<emphasis id="strong1079" effect="bold">
+fill
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1080" effect="bold">
+Graphics2D
+
+</emphasis>
+ class passing the circle object's 
+reference as a parameter. Although this can get quite complex, in this simple 
+case, it causes the circle object to be filled with the paint color 
+
+<emphasis id="em1022" effect="italics">
+(green)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1081" effect="bold">
+Draw the filled circle object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+Finally, the last statement in 
+
+<link id="a1061" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ calls the
+
+
+<emphasis id="strong1082" effect="bold">
+draw
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1083" effect="bold">
+Graphics2D
+
+</emphasis>
+ class to cause the filled circle to be 
+drawn inside the framing rectangle that was specified when the circle was 
+constructed. This results in the filled green circle in the upper-left quadrant 
+in 
+
+<link id="a1062" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1084" effect="bold">
+Draw a circle with a gradient fill in the upper-right quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+This is where things tend to get a little complicated.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+If you compare the circles in the upper-left and upper-right quadrants in
+
+
+<link id="a1063" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, you will see that they look considerably 
+different.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1085" effect="bold">
+Difference caused by parameter to the setPaint method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+If you compare the code in 
+
+<link id="a1064" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ with the code in 
+
+
+<link id="a1065" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, you will see 
+that except for the coordinate values that position the circle, the only 
+difference is the parameter that is passed to the 
+
+<emphasis id="strong1086" effect="bold">
+setPaint
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Draw a circle with a gradient fill in the upper-right quadrant.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">    //Upper right quadrant
+    //Gradient GREEN to BLUE, cyclic along horizontal
+    // axis.
+    Ellipse2D.Double circle2 =
+       new Ellipse2D.Double(0.0,-128,128,128);
+    g2.setPaint(new GradientPaint(
+                    64,0,Color.GREEN,
+                    64,-32,Color.BLUE,true));
+    g2.fill(circle2);
+    g2.draw(circle2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1095">
+<emphasis id="strong1087" effect="bold">
+A simple color paint versus a gradient paint
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+<link id="a1066" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ passes an object of the simple 
+
+<emphasis id="strong1088" effect="bold">
+
+Color
+
+</emphasis>
+ class 
+representing the color green to the 
+
+<emphasis id="strong1089" effect="bold">
+setPaint
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<link id="a1067" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ passes an object of the 
+
+<emphasis id="strong1090" effect="bold">
+
+GradientPaint
+
+</emphasis>
+ class to the 
+
+<emphasis id="strong1091" effect="bold">
+setPaint
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Therefore, we need to understand the behavior of an object of the 
+
+<emphasis id="strong1092" effect="bold">
+
+GradientPaint
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1093" effect="bold">
+Constructor parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+There are four overloaded constructors for the 
+
+<emphasis id="strong1094" effect="bold">
+GradientPaint
+
+</emphasis>
+ 
+class. The constructor used in 
+
+<link id="a1068" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ is one of the most complicated. It 
+requires the following parameters:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1026">
+x1 - x coordinate of the first specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1027">
+y1 - y coordinate of the first specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1028">
+color1 - Color at the first specified Point
+
+</item>
+
+
+	
+
+<item id="li1029">
+x2 - x coordinate of the second specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1030">
+y2 - y coordinate of the second specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1031">
+color2 - Color at the second specified Point
+
+</item>
+
+
+	
+
+<item id="li1032">
+cyclic - true if the gradient pattern should cycle repeatedly between 
+	the two colors; false otherwise
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1095" effect="bold">
+Two points and two colors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1102">
+Basically, the class allows you to specify two points and two colors 
+
+<emphasis id="em1023" effect="italics">
+
+(plus one additional boolean parameter)
+
+</emphasis>
+ when you construct an object of the 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+One of the colors is associated with each point.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1096" effect="bold">
+An imaginary line segment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1105">
+Think of the two points as being at the ends of an imaginary line segment, 
+which can be at any angle relative to the horizontal.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1097" effect="bold">
+Colors at the ends of the line segment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+When a shape is drawn using a gradient fill, one of the colors will appear at 
+one end of the line segment and the other color will appear at the other end of 
+the line segment.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1098" effect="bold">
+The color will change
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+The color will change gradually from one color to the other along the 
+imaginary line segment connecting the two points.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1099" effect="bold">
+Perpendicular color bands on the sides
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+The colors extend out to the sides of the imaginary line segment in bands 
+that are perpendicular to the line segment.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1100" effect="bold">
+The cyclic parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1113">
+If the last 
+
+<emphasis id="em1024" effect="italics">
+(cyclic)
+
+</emphasis>
+ parameter is set to false, the color will only 
+change along the imaginary line segment. Areas beyond each end of the line 
+segment will be the colors that are specified for the points at the ends of the 
+line segment.
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="em1025" effect="italics">
+(This parameter was not set to false for any of the circles in 
+
+<link id="a1069" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1101" effect="bold">
+If the cyclic parameter is true...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+The pattern of color change that occurs along the line segment will extend in 
+a cyclic fashion beyond the ends of the line segment all the way to infinity.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1102" effect="bold">
+Compare constructor parameters with upper-right quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1118">
+Now consider the parameter values used in 
+
+<link id="a1070" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ 
+and compare them with the image in the upper-right quadrant in 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1103" effect="bold">
+A simple color paint versus a gradient paint
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+<link id="a1071" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ passes an object of the simple 
+
+<emphasis id="strong1104" effect="bold">
+Color
+
+</emphasis>
+ class 
+representing the color green to the 
+
+<emphasis id="strong1105" effect="bold">
+setPaint
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1121">
+<link id="a1072" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ passes an object of the 
+
+<emphasis id="strong1106" effect="bold">
+GradientPaint
+
+</emphasis>
+ class to the
+
+
+<emphasis id="strong1107" effect="bold">
+setPaint
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+Therefore, we need to understand the behavior of an object of the 
+
+<emphasis id="strong1108" effect="bold">
+
+GradientPaint
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1109" effect="bold">
+Constructor parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1124">
+There are four overloaded constructors for the 
+
+<emphasis id="strong1110" effect="bold">
+GradientPaint
+
+</emphasis>
+ 
+class. The constructor highlighted in yellow in 
+
+<link id="a1073" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ is one of the most 
+complicated. It requires the following parameters:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1033">
+x1 - x coordinate of the first specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1034">
+y1 - y coordinate of the first specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1035">
+color1 - Color at the first specified Point
+
+</item>
+
+
+	
+
+<item id="li1036">
+x2 - x coordinate of the second specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1037">
+y2 - y coordinate of the second specified Point in user space
+
+</item>
+
+
+	
+
+<item id="li1038">
+color2 - Color at the second specified Point
+
+</item>
+
+
+	
+
+<item id="li1039">
+cyclic - true if the gradient pattern should cycle repeatedly between 
+	the two colors; false otherwise
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1111" effect="bold">
+Two points and two colors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+Basically, the class allows you to specify two points and two colors 
+
+<emphasis id="em1026" effect="italics">
+
+(plus one additional boolean parameter)
+
+</emphasis>
+ when you construct an object of the 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+One of the colors is associated with each point.
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1112" effect="bold">
+An imaginary line segment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1129">
+Think of the two points as being at the ends of an imaginary line segment, 
+which can be at any angle relative to the horizontal.
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1113" effect="bold">
+Colors at the ends of the line segment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1131">
+When a shape is drawn using a gradient fill, one of the colors will appear at 
+one end of the line segment and the other color will appear at the other end of 
+the line segment.
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1114" effect="bold">
+The color will change
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1133">
+The color will change from one color to the other along the imaginary line 
+segment connecting the two points.
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1115" effect="bold">
+Perpendicular color bands on the sides
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+The colors extend out to the sides of the imaginary line segment in bands 
+that are perpendicular to the line segment.
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1116" effect="bold">
+The cyclic parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+If the last 
+
+<emphasis id="em1027" effect="italics">
+(cyclic)
+
+</emphasis>
+ parameter is set to false, the color will only 
+change along the imaginary line segment. Areas beyond each end of the line 
+segment will be the colors that are specified for the points at the ends of the 
+line segment.
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="em1028" effect="italics">
+(This parameter was not set to false for any of the circles in 
+
+<link id="a1074" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1117" effect="bold">
+If the cyclic parameter is true...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1140">
+The pattern of color change that occurs along the line segment will extend in 
+a cyclic fashion beyond the ends of the line segment all the way to infinity.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1118" effect="bold">
+Compare constructor parameters with upper-right quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+Now consider the parameter values used in 
+
+<link id="a1075" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ 
+and compare them with the image in the upper-right quadrant in
+
+
+<link id="a1076" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1119" effect="bold">
+The location of the first point
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1144">
+The diameter of each circle in 
+
+<link id="a1077" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ is 128 
+pixels. The first point for the upper-right quadrant in 
+
+<link id="a1078" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+ is on the X axis at the point where the circle touches the X axis. 
+This point is specified to have a color of green.
+
+</para>
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1120" effect="bold">
+The location of the second point
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1146">
+The second point is 32 pixels directly above the first point. Therefore, the 
+imaginary line segment is perpendicular to the X axis. It extends from the X 
+axis one-fourth of the way to the top of the circle. The second point is 
+specified to have a color of blue.
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1121" effect="bold">
+The color change
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1148">
+As a result, the color changes from green to blue along the 32-pixel line 
+segment. Color bands extend to the right and left, perpendicular to the line 
+segment.
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1122" effect="bold">
+The cyclic parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1150">
+The cyclic parameter is set to true, so the pattern repeats along the 
+remaining vertical dimension of the circle. The color changes from blue back to 
+green along the next 32-pixel vertical distance causing the circle to be green 
+at the center.
+
+</para>
+
+
+
+
+
+<para id="p1151">
+The pattern repeats again resulting in a blue band three-fourths of the way 
+from the bottom to the top of the circle and a green band at the top of the 
+circle.
+
+</para>
+
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1123" effect="bold">
+That's all there is to it
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1153">
+Now that you know the scheme, you should be able to examine the code in
+
+
+<link id="a1079" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ for the remaining two quadrants and 
+understand how the constructor parameters resulted in the color patterns that 
+you see in 
+
+<link id="a1080" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Code for the remaining two quadrants.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">    //Lower left quadrant
+    //Gradient GREEN to BLUE, cyclic along vertical axis.
+    //horizontal axis
+    Ellipse2D.Double circle3 =
+       new Ellipse2D.Double(-128,0.0,128,128);
+    g2.setPaint(
+            new GradientPaint(
+                    -128,-64,Color.GREEN,
+                    -107,-64,Color.BLUE,true));
+    g2.fill(circle3);
+    g2.draw(circle3);
+
+    //Lower right quadrant
+    //Gradient GREEN to BLUE, cyclic along
+    // 45 degree angle
+    Ellipse2D.Double circle4 =
+        new Ellipse2D.Double(0,0,128,128);
+    g2.setPaint(
+            new GradientPaint(
+                    19,19,Color.GREEN,
+                    64,64,Color.BLUE,true));
+
+    g2.fill(circle4);
+    g2.draw(circle4);
+
+  }//end process
+
+}//end class Prob03Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1154">
+<emphasis id="strong1124" effect="bold">
+An interesting anomaly
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1155">
+I will point out one interesting anomaly, however. Even though we shifted the 
+origin to the center, we did not change the direction that represents positive 
+values on the Y axis.
+
+</para>
+
+
+
+
+
+<para id="p1156">
+Coordinates above the center are negative and coordinates below the center 
+are positive.
+
+</para>
+
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1125" effect="bold">
+Where is the line segment?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1158">
+If you examine the constructor parameters for the lower-left quadrant in
+
+
+<link id="a1081" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+, you will see that the imaginary line segment 
+isn't in the lower-left quadrant.
+
+</para>
+
+
+
+
+
+<para id="p1159">
+The line segment is 21 pixels in length, parallel to the horizontal axis. 
+However, it is 64 pixels above the horizontal axis. That is not in the 
+lower-left quadrant.
+
+</para>
+
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1126" effect="bold">
+The effect is...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1161">
+The effect is as though the color gradient fills the universe, and is based 
+on a line segment placed anywhere in the universe.
+
+</para>
+
+
+
+
+
+<para id="p1162">
+However, we only see the color gradient through the shape that we specify as 
+a parameter to the 
+
+<emphasis id="strong1127" effect="bold">
+fill
+
+</emphasis>
+ method. In other words, that shape is a 
+window through which we can see a background consisting of gradient color 
+changes.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1128" effect="bold">
+Our window is in the lower-left quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1164">
+In this case, that shape is the circle in the lower-left quadrant, so we see 
+the gradient color effect in the lower-left quadrant.
+
+</para>
+
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1129" effect="bold">
+How about the bottom-right quadrant
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1166">
+I stated earlier that the imaginary line segment can be at any angle relative 
+to the horizontal axis.
+
+</para>
+
+
+
+
+
+<para id="p1167">
+For the bottom right quadrant, the line segment is 64 pixels in length. It 
+lies along a line that goes through the origin and is at 45 degrees clockwise 
+relative to the horizontal.
+
+</para>
+
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1130" effect="bold">
+Where is the line segment positioned?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1169">
+One end of the line segment is at the center of the circle. The other end of 
+the line segment is at the point where the 45-degree line intersects the edge of 
+the circle closest to the origin.
+
+</para>
+
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1131" effect="bold">
+You can take it from there
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1171">
+You should be able to take it from there and explain the color gradient in 
+the circle in the lower-right quadrant. Recall that the diameter of the circle 
+is 128 pixels. The length of the line segment is 64 pixels or one-half the 
+diameter.
+
+</para>
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1132" effect="bold">
+The end of the class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1173">
+<link id="a1082" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ signals the end of the class named 
+
+<emphasis id="strong1133" effect="bold">
+
+Prob03Runner
+
+</emphasis>
+ 
+and the end of the program.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1174">
+I encourage you to copy the code from 
+
+<link id="a1083" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. For example, try setting the cyclic 
+constructor parameter to false and observe the effect. Make certain that you can 
+explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+<para id="p1175">
+Click 
+
+<link id="a1084" url="Prob03.jpg">
+
+Prob03.jpg
+
+</link>
+
+ to download the input image file if 
+you elect to use it.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1176">
+In this module, you learned to use the 
+
+<emphasis id="strong1134" effect="bold">
+GradientPaint
+
+</emphasis>
+ class 
+along with a variety of other Java2D classes.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1177">
+In the next module, you will Learn how to use shapes to clip images during 
+the drawing process.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video link
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1178">
+While not a requirement of the course, you can select the following link to 
+view an optional online video lecture on the material in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1040">
+<link id="a1085" url="http://vimeo.com/channels/itse2321/21220418">
+
+ITSE 2321 Lecture 
+	13
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1179">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1135" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1041">
+Module name: Java OOP: GradientPaint and other Java2D Classes
+
+</item>
+
+
+					
+
+<item id="li1042">
+File: Java3026.htm
+
+
+</item>
+
+
+					
+
+<item id="li1043">
+Published: 08/04/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1136" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1180">
+<emphasis id="strong1137" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1181">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1182">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1183">
+<emphasis id="strong1138" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1184">
+A complete listing of the program discussed in this module is provided in
+
+
+<link id="a1086" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1009">
+
+
+
+<row id="tr1018">
+
+
+
+<entry id="th1009">
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1139" effect="bold">
+Complete program listing
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1009">
+
+
+
+<row id="tr1019">
+
+
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">/*File Prob03 Copyright 2008 R.G.Baldwin
+*********************************************************/
+import java.awt.geom.Line2D;
+import java.awt.geom.Ellipse2D;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GradientPaint;
+
+public class Prob03{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob03Runner().run();
+  }//end main method
+}//end class Prob03
+//======================================================//
+
+class Prob03Runner{
+  public Prob03Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture pic = new Picture("Prob03.jpg");
+    pic.setAllPixelsToAColor(Color.RED);
+
+    process(pic);
+    //Add your name and display the output picture.
+    pic.addMessage("Display your name here.",10,20);
+    pic.explore();
+    System.out.println(pic);
+  }//end run
+  //----------------------------------------------------//
+
+  private void process(Picture pic){
+
+    Graphics2D g2 = (Graphics2D)(pic.getGraphics());
+
+    int width = pic.getWidth();
+    int height = pic.getHeight();
+
+    //Translate origin to center of Frame
+    g2.translate(width/2,height/2);
+    g2.setColor(Color.BLACK);
+    //Draw x-axis
+    g2.draw(new Line2D.Double(-width/2,0.0,width/2,0.0));
+    //Draw y-axis
+    g2.draw(new Line2D.Double(0.0,-width/2,0.0,height/2));
+
+    //Upper left quadrant, Solid GREEN fill
+    Ellipse2D.Double circle1 =
+      new Ellipse2D.Double(-128,-128,128,128);
+    g2.setPaint(Color.GREEN);
+    g2.fill(circle1);
+    g2.draw(circle1);
+
+    //Upper right quadrant
+    //Gradient GREEN to BLUE, cyclic along horizontal
+    // axis.
+    Ellipse2D.Double circle2 =
+       new Ellipse2D.Double(0.0,-128,128,128);
+    g2.setPaint(new GradientPaint(
+                    64,0,Color.GREEN,
+                    64,-32,Color.BLUE,true));
+    g2.fill(circle2);
+    g2.draw(circle2);
+
+
+    //Lower left quadrant
+    //Gradient GREEN to BLUE, cyclic along vertical axis.
+    //horizontal axis
+    Ellipse2D.Double circle3 =
+       new Ellipse2D.Double(-128,0.0,128,128);
+    g2.setPaint(
+            new GradientPaint(
+                    -128,-64,Color.GREEN,
+                    -107,-64,Color.BLUE,true));
+    g2.fill(circle3);
+    g2.draw(circle3);
+
+    //Lower right quadrant
+    //Gradient GREEN to BLUE, cyclic along
+    // 45 degree angle
+    Ellipse2D.Double circle4 =
+        new Ellipse2D.Double(0,0,128,128);
+    g2.setPaint(
+            new GradientPaint(
+                    19,19,Color.GREEN,
+                    64,64,Color.BLUE,true));
+
+    g2.fill(circle4);
+    g2.draw(circle4);
+
+  }//end process
+
+}//end class Prob03Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1185">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

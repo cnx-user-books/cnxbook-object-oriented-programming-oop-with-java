@@ -1,0 +1,3445 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1602: Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44150</md:content-id>
+  <md:title>Java1602: Classes</md:title>
+  <md:abstract>Baldwin concentrates on a discussion of the Java class. He shows you how to write a very simple program that simulates the manufacture and use of the car radio introduced in an earlier module.</md:abstract>
+  <md:uuid>8d130645-0b31-4898-80ba-cfa9ff5980c0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed Mar 30 18:00:37 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listings">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is the second in a collection of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+	and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Screen output. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The class named Radio01.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Constructing a Radio object. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Programming the radio buttons. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Pressing a button on the radio. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The Radio class.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. An instance variable.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The setStationNumber method.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The playStation method.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The program named Radio01.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module will concentrate primarily on a discussion of the Java 
+	
+
+<emphasis id="strong1000" effect="bold">
+class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+A simple Java program will be discussed to illustrate the definition and use of two different classes. Taken in combination, these two classes simulate the manufacture and 
+the use of the car radio object discussed in an earlier module.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+You will see how to write code to create a new 
+
+<emphasis id="strong1001" effect="bold">
+Radio
+
+</emphasis>
+ object by applying the 
+
+
+<emphasis id="strong1002" effect="bold">
+new
+
+</emphasis>
+ operator to the class named 
+
+<emphasis id="strong1003" effect="bold">
+Radio
+
+</emphasis>
+. You will also see how to save that object's reference in a reference variable of type 
+
+
+<emphasis id="strong1004" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+You will see how to write code that is used to simulate the association of a radio button with a particular radio station.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+You will see how to write code that is used to simulate the pressing of a radio button to play the radio station associated with that button.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+You will see the definition of a class named 
+
+<emphasis id="strong1005" effect="bold">
+Radio01
+
+</emphasis>
+. This class consists simply of the 
+
+
+<emphasis id="strong1006" effect="bold">
+main
+
+</emphasis>
+ method. The 
+
+<emphasis id="strong1007" effect="bold">
+main
+
+</emphasis>
+ method of a Java application is executed by the Java Virtual Machine when the application is run. Thus, it is the driver for the entire application.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+You will see the definition of a class named 
+
+<emphasis id="strong1008" effect="bold">
+Radio
+
+</emphasis>
+. This class includes one instance variable and two instance methods.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="em1003" effect="italics">
+(The instance variable is a reference variable that refers to a special kind of object that I refer to as an array object. I will provide a very brief discussion on array objects in this module. I will have more to say about array objects in a subsequent module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+I will also provide a short discussion of class variables, which are not used in this program. I will explain that the use of class variables can often lead to undesirable side effects.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Finally, I will provide a very brief discussion of the syntax of a simple class definition in Java. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1014">
+<emphasis id="strong1009" effect="bold">
+What is a class?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+I explained in an earlier module that a class is a plan from which many objects can be created. I likened the class definition to the plans from which millions of nearly identical car radios can be produced.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1010" effect="bold">
+A simple Java program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+In order to help you to get started on the right foot, and in support of future discussions, it will be advantageous to provide and discuss a simple Java program in this module.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1011" effect="bold">
+The car radio example
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+Harking back to an earlier module, 
+
+<link id="a1022" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+, near the end of this module, shows the code for a simple Java application that simulates the manufacture and use of a car radio.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1012" effect="bold">
+Explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+In order to help you to focus specifically on important sections of code, I will explain the 
+code for this program in fragments.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1013" effect="bold">
+Top-level classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+This program contains two top-level class definitions. 
+
+<emphasis id="em1004" effect="italics">
+(Java also supports inner classes as opposed to top-level classes. Inner classes will be explained in detail in subsequent modules in this series.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1014" effect="bold">
+The class named Radio01
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+One of those class definitions, named 
+
+<emphasis id="strong1015" effect="bold">
+Radio01
+
+</emphasis>
+, is shown in its entirety in 
+
+
+<link id="a1023" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The other class named 
+
+<emphasis id="strong1016" effect="bold">
+Radio
+
+</emphasis>
+ will be discussed later. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The class named Radio01.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">public class Radio01{
+  public static void main(
+                        String[] args){
+    Radio myObjRef = new Radio();
+    myObjRef.setStationNumber(3,93.5);
+    myObjRef.playStation(3);
+  }//end main
+}//end class Radio01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+The class named 
+
+<emphasis id="strong1017" effect="bold">
+Radio01
+
+</emphasis>
+ consists simply of the 
+
+<emphasis id="strong1018" effect="bold">
+main
+
+</emphasis>
+ method. The 
+	
+
+<emphasis id="strong1019" effect="bold">
+main
+
+</emphasis>
+ method of a Java application is executed by the Java Virtual Machine when the application is run. Thus, it is the driver for the entire application.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1020" effect="bold">
+The driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The code in  
+
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ simulates the manufacturer of the radio and the use of the radio by the end user.
+
+Without getting into a lot of detail regarding Java syntax, I will further subdivide and discuss this code in the following listings.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1021" effect="bold">
+Constructing a Radio object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+As discussed in a previous module, the code in 
+
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ applies the 
+
+
+<emphasis id="strong1022" effect="bold">
+new
+
+</emphasis>
+ operator to the constructor for the 
+
+<emphasis id="strong1023" effect="bold">
+Radio
+
+</emphasis>
+ class, causing a new object to be created according to the plans specified in the class named 
+
+
+<emphasis id="strong1024" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Constructing a Radio object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    Radio myObjRef = new Radio();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1025" effect="bold">
+Saving a reference to the Radio object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+Also as discussed in a previous module, the code in 
+
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ declares a reference variable of type 
+
+
+<emphasis id="strong1026" effect="bold">
+Radio
+
+</emphasis>
+ and stores the new object's reference in that variable.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1027" effect="bold">
+Programming the radio buttons
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+The code in 
+
+<link id="a1027" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is new to this discussion. This statement simulates the process of associating a particular radio station with a particular button 
+- programming a button on the radio. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+As I explained in a previous module, this is accomplished for my car radio by manually tuning the radio to a desired station and then holding the radio button down until it beeps.
+
+You have probably done something similar to this to the radio in your car. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Programming the radio buttons.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">    myObjRef.setStationNumber(3, 93.5);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1036">
+The statement in 
+
+<link id="a1028" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ accomplishes the association of a simulated button to a simulated radio station by calling the method named
+	
+
+<emphasis id="strong1028" effect="bold">
+setStationNumber
+
+</emphasis>
+ on the reference to the 
+
+<emphasis id="strong1029" effect="bold">
+Radio
+
+</emphasis>
+ object. 
+	
+
+<emphasis id="em1005" effect="italics">
+(Recall that this sends a message to the object asking it to change its state.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The parameters passed to the method cause radio button number 3 to be associated with the frequency 93.5 MHz.
+
+
+<emphasis id="em1006" effect="italics">
+(The value 93.5 is stored in the variable that represents button number 3.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1030" effect="bold">
+Sending a message to the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+Using typical OOP jargon, the statement in 
+
+<link id="a1029" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ sends a message to the 
+
+
+<emphasis id="strong1031" effect="bold">
+Radio
+
+</emphasis>
+ object, asking it to change its state according to the values passed as parameters.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1032" effect="bold">
+Pressing a button on the radio
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+Finally, the code in 
+
+<link id="a1030" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the method named
+
+
+<emphasis id="strong1033" effect="bold">
+playStation
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1034" effect="bold">
+Radio
+
+</emphasis>
+ object, passing the integer value 3 
+
+
+<emphasis id="em1007" effect="italics">
+(the button number)
+
+</emphasis>
+ as a parameter. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Pressing a button on the radio.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    myObjRef.playStation(3);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1042">
+<emphasis id="strong1035" effect="bold">
+Another message
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+This code sends a message to the object asking it to perform an action.
+
+In this case, the action requested by the message is:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+Tune yourself to the frequency previously associated with button number 3
+
+</item>
+
+
+	
+
+<item id="li1023">
+Play the radio station that you find at that frequency through the speakers
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1036" effect="bold">
+How does this simulated radio play?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+This simple program doesn't actually play music. As you will see later, this causes the 
+message shown in 
+
+<link id="a1031" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ to appear on the computer screen, simulating the selection and playing of a specific radio station.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Screen output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+							
+
+<code id="pre1004" display="block">Playing the station at 93.5 Mhz</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1037" effect="bold">
+The Radio class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+<link id="a1032" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the class definition for the 
+
+<emphasis id="strong1038" effect="bold">
+Radio
+
+</emphasis>
+ class in its entirety. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The Radio class
+.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">class Radio{
+  //This class simulates the plans from
+  // which the radio object is created.
+  protected double[] stationNumber = 
+                         new double[5];
+                            
+  public void setStationNumber(
+                int index,double freq){
+    stationNumber[index] = freq;
+  }//end method setStationNumber
+  
+  public void playStation(int index){
+    System.out.println(
+            "Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+  }//end method playStation
+  
+}//end class Radio</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1048">
+Note that the code in 
+
+<link id="a1033" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ does not contain an explicit constructor. If you don't define a constructor when you define a new class, a default version of the constructor is provided on your behalf. That is the case for this simple program.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="em1008" effect="italics">
+(Constructors will be explained in detail in subsequent modules.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1039" effect="bold">
+The plans for an object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The code in 
+
+<link id="a1034" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ provides the plans from which 
+one or more objects that simulate physical radios can be constructed.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+An object instantiated 
+
+<emphasis id="em1009" effect="italics">
+(an object is an instance of a class)
+
+</emphasis>
+ from the code in 
+
+<link id="a1035" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ simulates a physical radio. I will subdivide this code into fragments and discuss it in the following listings.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1040" effect="bold">
+An instance variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+In a previous module, I explained that we often say that an object is an instance of a class.
+
+<emphasis id="em1010" effect="italics">
+ (A physical radio is one instance of the plans used to produce it.)
+
+</emphasis>
+
+
+The code in 
+
+<link id="a1036" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ shows the declaration and initialization of what is commonly referred to as an 
+
+
+<emphasis id="em1011" effect="italics">
+instance variable
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. An instance variable.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">  protected double[] stationNumber = 
+                         new double[5];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1055">
+<emphasis id="strong1041" effect="bold">
+Why call it an instance variable?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+The name instance variable comes from the fact that every instance of the class 
+
+
+<emphasis id="em1012" effect="italics">
+(object)
+
+</emphasis>
+ has one. 
+
+<emphasis id="em1013" effect="italics">
+(Every radio produced from the same set of plans has the ability to associate a frequency with each selector button on the front of the radio.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1042" effect="bold">
+Class variables - an aside
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Note that Java also supports something called a 
+
+<emphasis id="em1014" effect="italics">
+class variable
+
+</emphasis>
+, which is different from an instance variable.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+Class variables are shared among all of the objects created from a given class. Stated differently, no matter how many objects are instantiated from a class definition, they all share a single copy of each class variable.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+There is no analogy to a class variable in a physical radio object. Radios are installed in different cars separated from each other by thousands of miles. Therefore, there can be no sharing of anything among different physical radio objects.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="em1015" effect="italics">
+(Well, that may not be entirely true. In today's technology, different radio objects could potentially share something at a common location via satellite communications, but my car radio doesn't do anything like that.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1043" effect="bold">
+Class variables can cause undesirable side effects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+While class variables are relatively easy to use in Java, they are difficult to explain from an OOP viewpoint.
+
+Also, it is my opinion that from a good overall design viewpoint, class variables should be used very sparingly, if at all.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+Therefore, for the first several modules, I will exclude the possibility of class variables in this series of modules. 
+
+
+<emphasis id="em1016" effect="italics">
+(I will explain the use of class variables in Java in a subsequent module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1044" effect="bold">
+Reference to an array object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+Now, let's get back to the instance variable named 
+
+<emphasis id="strong1045" effect="bold">
+stationNumber
+
+</emphasis>
+ shown in 
+
+<link id="a1037" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Without getting into a lot of detail, this variable is also a reference variable, referring to an array object.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The array object encapsulates a simple one-dimensional array with five elements of type 
+
+
+<emphasis id="strong1046" effect="bold">
+double
+
+</emphasis>
+. 
+
+<emphasis id="em1017" effect="italics">
+(Java array indices begin with zero, so the index values for this array extend from 0 to 4 inclusive. I will also discuss array objects in more detail in a subsequent module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1047" effect="bold">
+Persistence
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The array object is where the data is stored that associates the frequency of a radio station with the simulated physical button on the front of the radio.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+Each element in the array corresponds to one frequency-selector button on the front of the radio. Hence, the radio simulated by an object of the 
+
+
+<emphasis id="strong1048" effect="bold">
+Radio
+
+</emphasis>
+ class has five simulated frequency-selector buttons.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+The array object exists when the code in 
+
+<link id="a1038" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ has finished executing. Each element in the array has been 
+automatically initialized to a value of 0.0 
+
+
+<emphasis id="em1018" effect="italics">
+(double-precision float value of zero)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1049" effect="bold">
+The setStationNumber method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+<link id="a1039" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ shows the setStationNumber method in its entirety 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. The setStationNumber method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">  public void setStationNumber(
+                int index,double freq){
+    stationNumber[index] = freq;
+  }//end method setStationNumber</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1074">
+<emphasis id="strong1050" effect="bold">
+Associates radio station with button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+This is the method that is used to simulate the behavior of having the user associate a particular button with a particular radio station. 
+
+
+<emphasis id="em1019" effect="italics">
+(Recall that this is accomplished on my car radio by manually tuning the radio to a specific station and then holding the button down until it beeps. Your car radio probably operates in some similar way.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+This method receives two incoming parameters:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1024">
+An integer that corresponds to a button number 
+
+<emphasis id="em1020" effect="italics">
+(button numbers are assumed to begin with 0 and extend through 4 in order to match array indexes)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1025">
+A frequency value to be associated with the indicated button.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1051" effect="bold">
+Save the frequency value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The code in the method stores the frequency value in an element of the array object discussed earlier.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+The element number is specified by the value of index shown in square brackets in the assignment expression. 
+
+
+<emphasis id="em1021" effect="italics">
+(This syntax is similar to storing a value in an array element in most programming languages that I am familiar with.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1052" effect="bold">
+Pressing a radio button to select a station
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1040" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1053" effect="bold">
+playStation
+
+</emphasis>
+ method. This is the method that simulates the result of having the user press a button on the front of the radio to select a particular radio station for play. 
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. The playStation method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">  public void playStation(int index){
+    System.out.println(
+            "Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+  }//end method playStation</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1082">
+<emphasis id="strong1054" effect="bold">
+Selecting and playing a radio station
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+The method receives an integer index value as an incoming parameter. This index corresponds to the number of the button pressed by the user.
+
+This method simulates the playing of the radio station by 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1026">
+extracting the appropriate frequency value from the array object, and
+
+</item>
+
+
+	
+
+<item id="li1027">
+displaying that value on the computer screen along with some surrounding text.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1084">
+When called by code in the 
+
+<emphasis id="strong1055" effect="bold">
+main
+
+</emphasis>
+ method of this program, this method produces the 
+message shown in 
+
+<link id="a1041" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ on the computer screen
+
+</para>
+
+
+
+
+
+<para id="p1085">
+That summarizes the code and the behavior of this simple program.
+
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1056" effect="bold">
+Class definition syntax
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+There are a number of items that can appear in a class definition, including the following:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1028">
+Instance variables
+    
+
+</item>
+
+
+	
+
+<item id="li1029">
+Class variables
+    
+
+</item>
+
+
+	
+
+<item id="li1030">
+Instance methods
+    
+
+</item>
+
+
+	
+
+<item id="li1031">
+Class methods
+    
+
+</item>
+
+
+	
+
+<item id="li1032">
+Constructors
+    
+
+</item>
+
+
+	
+
+<item id="li1033">
+Static initializer blocks
+    
+
+</item>
+
+
+	
+
+<item id="li1034">
+Inner classes
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1057" effect="bold">
+Let's keep it simple
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+In order to make these modules as easy to understand as possible, the first several modules will ignore the possibility of class variables, class methods, static initializer blocks, and inner classes.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+As mentioned in the earlier discussion of class variables, these elements aren't particularly difficult to use, but they create a lot of complications when attempting to explain OOP from the viewpoint of Java programming.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+Therefore, the first several modules in the series will assume that class definitions are limited to the following elements:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1035">
+Instance variables
+
+</item>
+
+
+	
+
+<item id="li1036">
+Instance methods
+
+</item>
+
+
+	
+
+<item id="li1037">
+Constructors
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1058" effect="bold">
+A constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+A constructor is used only once in the lifetime of an object. It participates in the task of creating 
+
+
+<emphasis id="em1022" effect="italics">
+(instantiating)
+
+</emphasis>
+ and initializing the object. Following instantiation, the state and behavior of an object depends entirely on instance variables, class variables, instance methods, and class methods.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1059" effect="bold">
+Instance variables and methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+The class named 
+
+<emphasis id="strong1060" effect="bold">
+Radio
+
+</emphasis>
+ discussed earlier contains
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1038">
+one instance variable named 
+
+<emphasis id="strong1061" effect="bold">
+stationNumber
+
+</emphasis>
+, and
+
+</item>
+
+
+	
+
+<item id="li1039">
+two instance methods named 
+
+<emphasis id="strong1062" effect="bold">
+setStationNumber
+
+</emphasis>
+ and 
+
+<emphasis id="strong1063" effect="bold">
+playStation
+
+</emphasis>
+.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1096">
+This module has concentrated primarily on a discussion of the Java class.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+A simple Java program was discussed to illustrate the definition and use of two different classes. Taken in combination, these two classes simulate the manufacture and use of the car radio object 
+introduced in an earlier module.
+
+</para>
+
+
+
+
+
+<para id="p1098">
+You saw how to write code to create a new 
+
+<emphasis id="strong1064" effect="bold">
+Radio
+
+</emphasis>
+ object by applying the 
+
+
+<emphasis id="strong1065" effect="bold">
+new
+
+</emphasis>
+ operator to the class named 
+
+<emphasis id="strong1066" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+You also saw how to save that object's reference in a reference variable of type 
+
+
+<emphasis id="strong1067" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+You saw how to write code 
+
+<emphasis id="em1023" effect="italics">
+(in an instance method named 
+
+<emphasis id="strong1068" effect="bold">
+setStationNumber
+
+</emphasis>
+)
+
+</emphasis>
+ used to simulate the association of a radio button with a particular radio station.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+You saw how to write code 
+
+<emphasis id="em1024" effect="italics">
+(in an instance method named 
+
+<emphasis id="strong1069" effect="bold">
+playStation
+
+</emphasis>
+)
+
+</emphasis>
+ to simulate the pressing of a radio button to play the radio station associated with that button.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+You saw the definition of the class named 
+
+<emphasis id="strong1070" effect="bold">
+Radio01
+
+</emphasis>
+, which consists simply of the 
+
+
+<emphasis id="strong1071" effect="bold">
+main
+
+</emphasis>
+ method. The 
+
+<emphasis id="strong1072" effect="bold">
+main
+
+</emphasis>
+ method of a Java application is executed by the Java Virtual Machine when the application is run.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+You saw the definition of the class named 
+
+<emphasis id="strong1073" effect="bold">
+Radio
+
+</emphasis>
+. This class includes one instance variable and two instance methods. 
+
+
+<emphasis id="em1025" effect="italics">
+(The instance variable is a reference variable that refers to a special kind of object that I refer to as an array object. I provided a very brief discussion on array objects. I will have more to say on this topic in a subsequent module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+I provided a short discussion of class variables, which are not used in this program. I explained that the use of class variables 
+can often lead to undesirable side effects.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+Finally, I provided a very brief discussion of the syntax of a simple class definition in Java. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1106">
+Recall that in order to understand OOP, you must understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1040">
+Encapsulation
+    
+
+</item>
+
+
+	
+
+<item id="li1041">
+Inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1042">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1107">
+The next module will begin a discussion of inheritance. Overall, the discussion of inheritance will require more than one module.
+
+In the next module, I will discuss how the definition of a class defines a new data type. I will show you how to extend an existing class. I will explain what is inherited through inheritance. I will discuss code reuse and explicit constructors.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+Finally, I will illustrate all of the above in a simple program that extends the 
+
+
+<emphasis id="strong1074" effect="bold">
+Radio
+
+</emphasis>
+ class discussed in this module into a new class named 
+
+
+<emphasis id="strong1075" effect="bold">
+Combo
+
+</emphasis>
+ that simulates an upgraded radio containing a tape player.
+
+
+<emphasis id="em1026" effect="italics">
+(Yes, at one point in history, car radios did contain tape players.)
+
+</emphasis>
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1109">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1076" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1043">
+Module name: Java OOP: Classes
+
+</item>
+
+
+					
+
+<item id="li1044">
+File: Java1602.htm
+
+
+</item>
+
+
+					
+
+<item id="li1045">
+Published: 12/24/01
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1077" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1110">
+<emphasis id="strong1078" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1111">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1112">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1113">
+<emphasis id="strong1079" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1114">
+<link id="a1042" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ provides a complete listing of the program named 
+
+<emphasis id="strong1080" effect="bold">
+Radio01
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. The program named Radio01.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">/*File Radio01.java
+Copyright 2001, R.G.Baldwin
+Simulates manufacture and use of a 
+car radio.
+
+This program produces the following
+output on the computer screen:
+  
+Playing the station at 93.5 Mhz
+**************************************/
+
+public class Radio01{
+  //This class simulates the 
+  // manufacturer and the human user
+  public static void main(
+                        String[] args){
+    Radio myObjRef = new Radio();
+    myObjRef.setStationNumber(3,93.5);
+    myObjRef.playStation(3);
+  }//end main
+}//end class Radio01
+  //---------------------------------//
+
+class Radio{
+  //This class simulates the plans from
+  // which the radio object is created.
+  protected double[] stationNumber = 
+                         new double[5];
+                            
+  public void setStationNumber(
+                int index,double freq){
+    stationNumber[index] = freq;
+  }//end method setStationNumber
+  
+  public void playStation(int index){
+    System.out.println(
+            "Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+  }//end method playStation
+  
+}//end class Radio</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1115">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

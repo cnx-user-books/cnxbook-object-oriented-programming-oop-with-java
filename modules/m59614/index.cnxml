@@ -1,0 +1,4810 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java087 Swing, Understanding getContentPane() and other JFrame Layers</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m59614</md:content-id>
+  <md:title>Java087 Swing, Understanding getContentPane() and other JFrame Layers</md:title>
+  <md:abstract>The purpose of this lesson is to help you understand why you need to use getContentPane() or some similar method call to add components to a JFrame object, remove components from a JFrame object, or set the layout for a JFrame object. Note that this also applies to container objects of type JInternalFrame and JDialog as well.</md:abstract>
+  <md:uuid>801173c1-c4de-4b98-852e-bb7c89277cc9</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Jul 10 12:16:18 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="General_discussion">
+
+General discussion
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1009">
+<link id="a1009" target-id="Synopsis">
+
+Synopsis
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="More_detailed_discussion">
+
+More detailed discussion
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+<item id="li1012">
+<link id="a1012" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listings">
+
+Complete program listing
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the 
+	
+
+<link id="a1015" url="http://cnx.org/contents/Rl23r3Lw:qfO9iJX-">
+
+Event Handling
+
+</link>
+
+ 
+	section of the book titled
+	
+
+<link id="a1016" url="http://cnx.org/contents/Rl23r3Lw:JVTd7bX1">
+
+ITSE2317 - Java Programming (Intermediate)
+
+</link>
+
+. The 
+	
+
+<emphasis id="strong1000" effect="bold">
+Event Handling
+
+</emphasis>
+ section explains how to write programs that handle 
+	events in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+Students in Prof. Baldwin's 
+
+<emphasis id="strong1001" effect="bold">
+ITSE 2317 Intermediate Java Programming
+
+</emphasis>
+ 
+classes at ACC are responsible for knowing and understanding all of the material 
+in this lesson. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+
+
+<item id="li1015">
+<link id="a1017" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Graphic screen output for the program named 
+SwingPane01.
+
+
+</item>
+
+
+
+
+<item id="li1016">
+<link id="a1018" target-id="Figure_2">
+
+Figure 2.
+
+</link>
+
+
+ Screen output after clicking green button.
+
+
+</item>
+
+
+
+
+<item id="li1017">
+<link id="a1019" target-id="Figure_3">
+
+Figure 3.
+
+</link>
+
+
+ Text output.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+
+
+<item id="li1018">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1.
+
+</link>
+
+
+ Import declarations.
+
+
+</item>
+
+
+
+
+<item id="li1019">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2.
+
+</link>
+
+
+ Beginning of the class named SwingPane01.
+
+
+</item>
+
+
+
+
+<item id="li1020">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3.
+
+</link>
+
+
+ Beginning of the constructor.
+
+
+</item>
+
+
+
+
+<item id="li1021">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4.
+
+</link>
+
+
+ Get and display types of panes.
+
+
+</item>
+
+
+
+
+<item id="li1022">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5.
+
+</link>
+
+
+ Instantiate JLabel and JTextField objects.
+
+
+</item>
+
+
+
+
+<item id="li1023">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6.
+
+</link>
+
+
+ Instantiate a green JButton object.
+
+
+</item>
+
+
+
+
+<item id="li1024">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7.
+
+</link>
+
+
+ Instantiate a yellow JButton object.
+
+
+</item>
+
+
+
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8.
+
+</link>
+
+
+ The end of the constructor.
+
+
+</item>
+
+
+
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9.
+
+</link>
+
+
+ The class named MyActionListener.
+
+
+</item>
+
+
+
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10.
+
+</link>
+
+
+ Complete listing of SwingPane01.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+Previous lessons involving Swing told you that when you add a component to a
+
+
+<emphasis id="strong1002" effect="bold">
+JFrame
+
+</emphasis>
+ object, unlike with the 
+
+<emphasis id="strong1003" effect="bold">
+AWT
+
+</emphasis>
+, you must 
+use statements similar to the following.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<code id="pre1000" display="block">
+myJFrameObject.getContentPane().add(myChildComponent);
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1006">
+As you have probably suspected, there is a lot more to it than just inserting
+
+
+<emphasis id="strong1004" effect="bold">
+getContentPane() 
+
+</emphasis>
+between the object reference and the 
+
+<emphasis id="strong1005" effect="bold">
+
+add
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+The purpose of this lesson is to help you understand why you need to use
+
+
+<emphasis id="strong1006" effect="bold">
+getContentPane
+
+</emphasis>
+ or some similar method call to add components 
+to a 
+
+<emphasis id="strong1007" effect="bold">
+JFrame
+
+</emphasis>
+ object, remove components from a 
+
+<emphasis id="strong1008" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object, or set the layout for a 
+
+<emphasis id="strong1009" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Note that this also applies to container objects of type 
+
+<emphasis id="strong1010" effect="bold">
+
+JInternalFrame
+
+</emphasis>
+ and 
+
+<emphasis id="strong1011" effect="bold">
+JDialog
+
+</emphasis>
+ as well. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_discussion" effect="bold">
+
+General discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+When programming with the 
+
+<emphasis id="strong1012" effect="bold">
+AWT
+
+</emphasis>
+, you can place a 
+
+<emphasis id="strong1013" effect="bold">
+Panel
+
+</emphasis>
+ 
+object in a 
+
+<emphasis id="strong1014" effect="bold">
+Frame
+
+</emphasis>
+ object and place other components on the
+
+
+<emphasis id="strong1015" effect="bold">
+Panel
+
+</emphasis>
+ object if you wish, or you can simply place other 
+components directly on the viewable area of the 
+
+<emphasis id="strong1016" effect="bold">
+Frame
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1010">
+The viewable area of 
+
+<emphasis id="strong1017" effect="bold">
+Frame
+
+</emphasis>
+ or a 
+
+<emphasis id="strong1018" effect="bold">
+JFrame
+
+</emphasis>
+ is the 
+
+
+<emphasis id="em1003" effect="italics">
+bounds
+
+</emphasis>
+ minus the 
+
+<emphasis id="em1004" effect="italics">
+insets
+
+</emphasis>
+. Insets are used to account for the space covered by the borders and the values of the insets on all four sides are available by invoking the method named
+
+
+<emphasis id="strong1019" effect="bold">
+getInsets()
+
+</emphasis>
+ on the object.
+
+</para>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1011">
+However, you cannot place components directly on the viewable area of a 
+
+<emphasis id="strong1020" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+An object of type 
+
+<emphasis id="strong1021" effect="bold">
+JRootPane
+
+</emphasis>
+ is automatically placed in the
+
+
+<emphasis id="strong1022" effect="bold">
+JFrame
+
+</emphasis>
+ completely covering the viewable area of the 
+
+<emphasis id="strong1023" effect="bold">
+
+JFrame
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+One way or another, if you want to place components in the 
+
+<emphasis id="strong1024" effect="bold">
+JFrame
+
+</emphasis>
+, 
+you must deal with the 
+
+<emphasis id="strong1025" effect="bold">
+JRootPane
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+One way to deal with it, and this is the way that you will find recommended 
+in many current discussions on the subject, is simply ignore the technical 
+details and insert a call to the 
+
+<emphasis id="strong1026" effect="bold">
+getContentPane
+
+</emphasis>
+ method 
+between the reference to the 
+
+<emphasis id="strong1027" effect="bold">
+JFrame
+
+</emphasis>
+ and the 
+
+<emphasis id="strong1028" effect="bold">
+add
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+My preference is to first understand why you need to 
+do that, and in those cases where that is the appropriate thing to do, go ahead 
+and do it. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+In those cases where invoking 
+
+<emphasis id="strong1029" effect="bold">
+getContentPane 
+
+</emphasis>
+is not the 
+most appropriate thing to do, do the thing that is most appropriate. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Note: You will find much discussion in this lesson about some components 
+being on top of other components. These discussions apply only to Swing 
+lightweight components. Remember that heavyweight 
+
+<emphasis id="em1005" effect="italics">
+(AWT)
+
+</emphasis>
+ components are always on top 
+of lightweight 
+
+<emphasis id="em1006" effect="italics">
+(Swing)
+
+</emphasis>
+ components regardless of what the text in this lesson may 
+say. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Synopsis" effect="bold">
+
+Synopsis
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1018">
+<emphasis id="strong1030" effect="bold">
+JRootPane
+
+</emphasis>
+ is a container. The instance of 
+
+<emphasis id="strong1031" effect="bold">
+JRootPane
+
+</emphasis>
+ that is automatically placed in a
+
+
+<emphasis id="strong1032" effect="bold">
+JFrame
+
+</emphasis>
+ object contains at least two other objects. 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1028">
+An object of type 
+
+<emphasis id="strong1033" effect="bold">
+JLayeredPane
+
+</emphasis>
+ that we will refer to 
+	simply as the 
+
+<emphasis id="strong1034" effect="bold">
+<emphasis id="em1007" effect="italics">
+layeredPane
+
+</emphasis>
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1029">
+An object of type 
+
+<emphasis id="strong1035" effect="bold">
+JPanel
+
+</emphasis>
+ that we will refer to simply 
+	as the 
+
+<emphasis id="strong1036" effect="bold">
+<emphasis id="em1008" effect="italics">
+glassPane
+
+</emphasis>
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1019">
+
+There is also an optional 
+
+<emphasis id="em1009" effect="italics">
+menuBar
+
+</emphasis>
+ object that comes in here somewhere, but since it is not essential for understanding what is going on at this level, I have elected to defer the discussion until the discussion on Swing menus.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1020">
+The 
+
+<emphasis id="em1010" effect="italics">
+layeredPane
+
+</emphasis>
+ and the 
+
+<emphasis id="em1011" effect="italics">
+glassPane
+
+</emphasis>
+ also fill 
+the viewable area of the 
+
+<emphasis id="strong1037" effect="bold">
+JFrame
+
+</emphasis>
+ object. The 
+
+<emphasis id="em1012" effect="italics">
+glassPane
+
+</emphasis>
+ 
+is on top of the 
+
+<emphasis id="em1013" effect="italics">
+layeredPane
+
+</emphasis>
+, and as the name might imply, it 
+is 
+
+<emphasis id="em1014" effect="italics">
+normally
+
+</emphasis>
+ transparent. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+Components on the 
+
+<emphasis id="em1015" effect="italics">
+layeredPane
+
+</emphasis>
+ are visible through the
+
+
+<emphasis id="em1016" effect="italics">
+glassPane
+
+</emphasis>
+. Mouse events are capable of penetrating the
+
+
+<emphasis id="em1017" effect="italics">
+glassPane
+
+</emphasis>
+ and reaching components on the 
+
+<emphasis id="em1018" effect="italics">
+layeredPane
+
+</emphasis>
+ 
+as long as the 
+
+<emphasis id="em1019" effect="italics">
+glassPane
+
+</emphasis>
+ is transparent. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The 
+
+<emphasis id="em1020" effect="italics">
+layeredPane
+
+</emphasis>
+ contains another component of type 
+
+<emphasis id="strong1038" effect="bold">
+
+JPanel
+
+</emphasis>
+ that we will refer to as the 
+
+<emphasis id="strong1039" effect="bold">
+<emphasis id="em1021" effect="italics">
+contentPane
+
+</emphasis>
+</emphasis>
+. 
+This is the same pane that we are dealing with when we invoke the 
+
+<emphasis id="strong1040" effect="bold">
+
+getContentPane
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1041" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The 
+
+<emphasis id="em1022" effect="italics">
+layeredPane
+
+</emphasis>
+ has a very interesting behavior. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+In the same sense that we can add components to the 
+
+<emphasis id="em1023" effect="italics">
+contentPane
+
+</emphasis>
+, 
+we can also add components to the 
+
+<emphasis id="em1024" effect="italics">
+layeredPane
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+When we add components to the 
+
+<emphasis id="em1025" effect="italics">
+contentPane
+
+</emphasis>
+, they are all 
+added at the same layer and components added first are painted on top of 
+components added later. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+However, when we add components to the 
+
+<emphasis id="em1026" effect="italics">
+layeredPane
+
+</emphasis>
+, we can 
+specify the layer number that we want the component to be drawn on. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Components drawn on layers with high 
+
+<emphasis id="em1027" effect="italics">
+(algebraically signed)
+
+</emphasis>
+ numbers are 
+painted on top of components on layers with smaller 
+
+<emphasis id="em1028" effect="italics">
+(algebraically signed)
+
+</emphasis>
+ 
+numbers. 
+
+</para>
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1028">
+
+Large negative numbers are smaller than small positive numbers in this case with 
+the smallest allowable layer number being -29999.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1029">
+In addition, a variety of methods are available to move components from one 
+layer to another at runtime. This gives us the ability to not only control the 
+order in which components are painted initially, but also to modify that order 
+later at runtime. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+This layering concept is a much more powerful approach than simply inserting
+
+
+<emphasis id="strong1042" effect="bold">
+getContentPane
+
+</emphasis>
+ between the reference to the 
+
+<emphasis id="strong1043" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object and the invocation of the 
+
+<emphasis id="strong1044" effect="bold">
+add
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1031">
+
+Layering has a long history of beneficial results in computer graphics such as 
+Computer Aided Design and game programming.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+<para id="p1032">
+So, where does the 
+
+<emphasis id="em1029" effect="italics">
+contentPane
+
+</emphasis>
+ object that belongs to the
+
+
+<emphasis id="em1030" effect="italics">
+layeredPane
+
+</emphasis>
+ fit into this? 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Components on the 
+
+<emphasis id="em1031" effect="italics">
+contentPane
+
+</emphasis>
+ are painted behind all 
+components that may be added directly to the 
+
+<emphasis id="em1032" effect="italics">
+layeredPane
+
+</emphasis>
+. In 
+fact, the layer position for the 
+
+<emphasis id="em1033" effect="italics">
+contentPane
+
+</emphasis>
+ is effectively 
+layer number -30000. The smallest layer number that can be used to place a 
+component directly on a layer is -29999. 
+
+<emphasis id="em1034" effect="italics">
+(We will place one there in our sample 
+program later.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="More_detailed_discussion" effect="bold">
+
+More detailed discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1034">
+As mentioned earlier, a 
+
+<emphasis id="strong1045" effect="bold">
+JRootPane
+
+</emphasis>
+ contains a 
+
+<emphasis id="em1035" effect="italics">
+glassPane
+
+</emphasis>
+ 
+
+<emphasis id="em1036" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1046" effect="bold">
+<emphasis id="em1037" effect="italics">
+JPanel
+
+</emphasis>
+</emphasis>
+<emphasis id="em1038" effect="italics">
+) 
+
+</emphasis>
+and a 
+
+<emphasis id="em1039" effect="italics">
+layeredPane
+
+</emphasis>
+ 
+
+
+<emphasis id="em1040" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1047" effect="bold">
+<emphasis id="em1041" effect="italics">
+JLayeredPane
+
+</emphasis>
+</emphasis>
+). The 
+
+<emphasis id="em1042" effect="italics">
+layeredPane
+
+</emphasis>
+ contains an 
+optional 
+
+<emphasis id="em1043" effect="italics">
+menuBar
+
+</emphasis>
+ 
+
+<emphasis id="em1044" effect="italics">
+(
+
+<emphasis id="strong1048" effect="bold">
+JMenuBar
+
+</emphasis>
+)
+
+</emphasis>
+ and a 
+
+<emphasis id="em1045" effect="italics">
+contentPane
+
+</emphasis>
+ 
+
+<emphasis id="em1046" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1049" effect="bold">
+<emphasis id="em1047" effect="italics">
+JPanel
+
+</emphasis>
+</emphasis>
+). 
+The 
+
+<emphasis id="em1048" effect="italics">
+menuBar
+
+</emphasis>
+ component is optional and may or may exist at any given time. The 
+
+
+<emphasis id="em1049" effect="italics">
+layeredPane
+
+</emphasis>
+, 
+
+<emphasis id="em1050" effect="italics">
+contentPane
+
+</emphasis>
+, and 
+
+<emphasis id="em1051" effect="italics">
+glassPane
+
+</emphasis>
+ 
+will always be available. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+The syntax for dealing with these panes is somewhat different 
+from what you are accustomed to. For example, the typical syntax for adding a 
+component to a container would look something like the following: 
+
+</para>
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<code id="pre1001" display="block">
+parentContainer.add(childObject);
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1036">
+However, the required syntax for dealing with these panes is more like one of the 
+following: 
+
+</para>
+
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+
+
+<code id="pre1002" display="block">
+myJFrameObject.getContentPane().add(myChildComponent);
+
+myJFrameObject.getLayeredPane().add(
+                    myChildComponent, new Integer(5));
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1037">
+The first statement above adds a component to the 
+
+<emphasis id="em1052" effect="italics">
+contentPane
+
+</emphasis>
+. 
+The second statement adds a component to layer number 5 of the 
+
+<emphasis id="em1053" effect="italics">
+layeredPane
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The same concepts apply when removing components, setting layout managers, 
+etc. 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+The 
+
+<emphasis id="em1054" effect="italics">
+contentPane
+
+</emphasis>
+ has a 
+
+<emphasis id="strong1050" effect="bold">
+BorderLayout
+
+</emphasis>
+ manager 
+by default. The 
+
+<emphasis id="em1055" effect="italics">
+layeredPane
+
+</emphasis>
+ has no layout manager 
+
+<emphasis id="em1056" effect="italics">
+(null) 
+
+</emphasis>
+by 
+default as you will see in the sample program that follows later in this lesson.
+
+
+</para>
+
+
+
+
+
+<para id="p1040">
+If a 
+
+<emphasis id="strong1051" effect="bold">
+JMenuBar
+
+</emphasis>
+ component is set on the 
+
+<emphasis id="strong1052" effect="bold">
+JRootPane
+
+</emphasis>
+, 
+it is positioned along the upper edge of the frame. The 
+
+<emphasis id="em1057" effect="italics">
+contentPane
+
+</emphasis>
+ 
+is adjusted in location and size to fill the remaining area. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+If you examine the documentation for 
+
+<emphasis id="strong1053" effect="bold">
+JLayeredPane
+
+</emphasis>
+, you will 
+see that the class has the following fields which are all 
+
+<emphasis id="em1058" effect="italics">
+public static final
+
+</emphasis>
+
+
+
+<emphasis id="strong1054" effect="bold">
+Integer
+
+</emphasis>
+ symbolic constants. 
+
+</para>
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+	
+
+<list id="ul1009" list-type="bulleted">
+
+		
+
+<item id="li1030">
+<emphasis id="strong1055" effect="bold">
+DEFAULT_LAYER
+
+</emphasis>
+ - Object defining the Default layer. 
+		Equivalent to new Integer(0).
+
+</item>
+
+
+		
+
+<item id="li1031">
+<emphasis id="strong1056" effect="bold">
+PALETTE_LAYER
+
+</emphasis>
+ - Object defining the Palette layer. 
+		Equivalent to new Integer(100). 
+
+</item>
+
+
+		
+
+<item id="li1032">
+<emphasis id="strong1057" effect="bold">
+MODAL_LAYER
+
+</emphasis>
+ - Object defining the Modal layer. 
+		Equivalent to new Integer(200). 
+
+</item>
+
+
+		
+
+<item id="li1033">
+<emphasis id="strong1058" effect="bold">
+POPUP_LAYER
+
+</emphasis>
+ - Object defining the Popup layer. 
+		Equivalent to new Integer(300). 
+
+</item>
+
+
+		
+
+<item id="li1034">
+<emphasis id="strong1059" effect="bold">
+DRAG_LAYER
+
+</emphasis>
+ - Object defining the Drag layer. 
+		Equivalent to new Integer(400). 
+
+</item>
+
+
+		
+
+<item id="li1035">
+<emphasis id="strong1060" effect="bold">
+FRAME_CONTENT_LAYER
+
+</emphasis>
+ - Object defining the Frame 
+		Content layer. This layer is normally only used to position the 
+
+<emphasis id="strong1061" effect="bold">
+
+		contentPane
+
+</emphasis>
+ 
+		and menuBar components of 
+
+<emphasis id="strong1062" effect="bold">
+JFrame
+
+</emphasis>
+. Equivalent to new 
+		Integer(-30000).
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1042">
+The 
+
+<emphasis id="strong1063" effect="bold">
+JMenuBar
+
+</emphasis>
+ and the 
+
+<emphasis id="em1059" effect="italics">
+contentPane
+
+</emphasis>
+ are added 
+to the 
+
+<emphasis id="em1060" effect="italics">
+layeredPane
+
+</emphasis>
+ component at the following layer (-30000):
+
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">JLayeredPane.FRAME_CONTENT_LAYER</code>
+
+
+
+
+<para id="p1043">
+As mentioned earlier, the 
+
+<emphasis id="em1061" effect="italics">
+layeredPane
+
+</emphasis>
+ object is an instance 
+of the 
+
+<emphasis id="strong1064" effect="bold">
+JLayeredPane
+
+</emphasis>
+ class. The purpose of this object is to be 
+the parent of all children of the 
+
+<emphasis id="strong1065" effect="bold">
+JRootPane
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+Also, as mentioned earlier, this object provides the ability to add 
+components at several layers. This is very useful when working with popup menus, 
+dialog boxes, during dragging, or for any other situation in which you might 
+want to separate graphic objects onto different layers for display purposes. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Also as indicated earlier, the 
+
+<emphasis id="em1062" effect="italics">
+glassPane
+
+</emphasis>
+ is always added as 
+the first child of the 
+
+<emphasis id="strong1066" effect="bold">
+JRootPane
+
+</emphasis>
+. This causes the 
+
+<emphasis id="strong1067" effect="bold">
+
+glassPane
+
+</emphasis>
+ to always be on the top of the stack. By default, the 
+
+<emphasis id="strong1068" effect="bold">
+
+glassPane
+
+</emphasis>
+ is not visible and is transparent. Thus, mouse events can 
+normally penetrate the 
+
+<emphasis id="em1063" effect="italics">
+glassPane
+
+</emphasis>
+ and impinge upon the 
+components below it. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+It is theoretically possible to draw components on the 
+
+<emphasis id="em1064" effect="italics">
+glassPane
+
+</emphasis>
+ 
+
+<emphasis id="em1065" effect="italics">
+(although I haven't been able to purposely do it as of 5/12/98).
+
+</emphasis>
+ When this is 
+done, those components shadow the components below them preventing mouse events 
+from impinging on the components down below. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Components drawn on the 
+
+<emphasis id="em1066" effect="italics">
+glassPane
+
+</emphasis>
+ will always be above all 
+other lightweight components in the stacking order of components 
+
+<emphasis id="em1067" effect="italics">
+(but not over 
+top of heavyweight components).
+
+</emphasis>
+ Thus, the 
+
+<emphasis id="em1068" effect="italics">
+glassPane
+
+</emphasis>
+ can be used 
+to assure that such components as popup menus and tool tips are always on top of 
+the other components on the screen. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+As mentioned earlier, by default, the 
+
+<emphasis id="em1069" effect="italics">
+glassPane
+
+</emphasis>
+ is not 
+visible. Developers should use setVisible on the 
+
+<emphasis id="em1070" effect="italics">
+glassPane
+
+</emphasis>
+ to 
+control when the 
+
+<emphasis id="em1071" effect="italics">
+glassPane
+
+</emphasis>
+ displays over the other children.
+
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The layout manager used by 
+
+<emphasis id="strong1069" effect="bold">
+JRootPane
+
+</emphasis>
+ insures that 
+the following is true: 
+
+</para>
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+
+	
+
+<list id="ul1010" list-type="bulleted">
+
+		
+
+<item id="li1036">
+The 
+
+<emphasis id="strong1070" effect="bold">
+glassPane
+
+</emphasis>
+, if present, fills the entire 
+		viewable area of the 
+
+<emphasis id="strong1071" effect="bold">
+JRootPane
+
+</emphasis>
+ (bounds - insets).
+
+</item>
+
+
+		
+
+<item id="li1037">
+The 
+
+<emphasis id="strong1072" effect="bold">
+layeredPane
+
+</emphasis>
+ fills the entire viewable area of 
+		the 
+
+<emphasis id="strong1073" effect="bold">
+JRootPane
+
+</emphasis>
+. (bounds - insets)
+
+</item>
+
+
+		
+
+<item id="li1038">
+The 
+
+<emphasis id="strong1074" effect="bold">
+menuBar
+
+</emphasis>
+ is positioned at the upper edge of the
+		
+
+<emphasis id="strong1075" effect="bold">
+layeredPane
+
+</emphasis>
+().
+
+</item>
+
+
+		
+
+<item id="li1039">
+The 
+
+<emphasis id="strong1076" effect="bold">
+contentPane
+
+</emphasis>
+ fills the entire viewable area, 
+		minus the 
+
+<emphasis id="strong1077" effect="bold">
+MenuBar
+
+</emphasis>
+, if present.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1050">
+If you replace the layout manager of the 
+
+<emphasis id="strong1078" effect="bold">
+JRootPane
+
+</emphasis>
+ with a different layout manager, 
+you are responsible for managing all of those views. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+So now we know that the 
+
+<emphasis id="strong1079" effect="bold">
+JRootPane
+
+</emphasis>
+ object contains an object 
+of type 
+
+<emphasis id="strong1080" effect="bold">
+JLayeredPane
+
+</emphasis>
+. While 
+
+<emphasis id="strong1081" effect="bold">
+JLayeredPane
+
+</emphasis>
+ manages it's list of children like
+a
+
+
+<emphasis id="strong1082" effect="bold">
+Container
+
+</emphasis>
+, it also allows for the definition of several 
+layers within itself. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+Children in the same layer are managed exactly like the normal 
+
+<emphasis id="strong1083" effect="bold">
+
+Container
+
+</emphasis>
+ object. However, children in higher layers display above the 
+children in lower layers. Each layer has a distinct integer number. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+Apparently each Swing 
+
+<emphasis id="strong1084" effect="bold">
+Component
+
+</emphasis>
+ has a layer attribute 
+
+<emphasis id="em1072" effect="italics">
+(but I 
+haven't been able to find out anything about it other than as described below).
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1054">
+There are at least three ways to set the layer attribute on a 
+
+<emphasis id="strong1085" effect="bold">
+
+Component
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1040">
+Passing an Integer object with a literal integer value during the add 
+call: 
+
+<emphasis id="strong1086" effect="bold">
+layeredPane.add(child,new Integer(10));
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1041">
+Passing one of the symbolic constants mentioned earlier during the add 
+call: 
+
+<emphasis id="strong1087" effect="bold">
+layeredPane.add(child,JLayeredPane.DEFAULT_LAYER)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1042">
+Calling the following set method on the 
+
+<emphasis id="strong1088" effect="bold">
+JLayeredPane
+
+</emphasis>
+ that 
+will be the parent of the component and passing the name of the component and an
+	
+
+<emphasis id="strong1089" effect="bold">
+int
+
+</emphasis>
+ that specifies the layer number:
+
+
+<emphasis id="strong1090" effect="bold">
+layeredPaneParent.setLayer(child,10)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1055">
+In this third case, the 
+layer should be set before adding the child to the parent. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+Layers with higher numbers display on top of layers with lower numbers. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Higher and lower in this case includes the algebraic sign of the layer. For 
+example, a large negative number is a lower layer than a small positive number.
+
+
+</para>
+
+
+
+
+
+<para id="p1058">
+These layers are simply a logical construct and layout managers 
+will affect all child components without regard for layer settings. Therefore, 
+to take advantage of this layering capability, you may need to design your own 
+layout manager or use absolute layout 
+
+<emphasis id="em1073" effect="italics">
+(null layout manager)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+We will see some examples in the sample program that follows. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+The primary purpose of this program is to illustrate the use of both the
+
+
+<emphasis id="em1074" effect="italics">
+contentPane
+
+</emphasis>
+ and the 
+
+<emphasis id="em1075" effect="italics">
+layeredPane
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+The program places a 
+
+<emphasis id="strong1091" effect="bold">
+JFrame
+
+</emphasis>
+ object on the screen as the 
+primary GUI as shown in 
+
+<link id="a1030" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1009" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Graphic screen output for the program named 
+SwingPane01.
+
+
+<para id="p1062">
+
+
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/swingpane01a.jpg" width="301" height="201"/>
+</media>
+
+
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1063">
+A red 
+
+<emphasis id="strong1092" effect="bold">
+JTextField
+
+</emphasis>
+ object and a 
+
+<emphasis id="strong1093" effect="bold">
+JLabel
+
+</emphasis>
+ object are placed on 
+the 
+
+<emphasis id="em1076" effect="italics">
+contentPane
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1094" effect="bold">
+JFrame
+
+</emphasis>
+ object. The
+
+
+<emphasis id="strong1095" effect="bold">
+JTextField
+
+</emphasis>
+ object is placed in the 
+
+<emphasis id="em1077" effect="italics">
+Center
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1096" effect="bold">
+JFrame
+
+</emphasis>
+ 
+using the default border layout. The 
+
+<emphasis id="strong1097" effect="bold">
+JLabel
+
+</emphasis>
+ is placed in the 
+
+
+<emphasis id="em1078" effect="italics">
+South
+
+</emphasis>
+ position on the 
+
+<emphasis id="strong1098" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+A green 
+
+<emphasis id="strong1099" effect="bold">
+JButton
+
+</emphasis>
+ object and a yellow 
+
+<emphasis id="strong1100" effect="bold">
+JButton
+
+</emphasis>
+ object are 
+placed on the 
+
+<emphasis id="em1079" effect="italics">
+layeredPane
+
+</emphasis>
+. Apparently the default layout for 
+the 
+
+<emphasis id="em1080" effect="italics">
+layeredPane
+
+</emphasis>
+ is absolute or null. The 
+
+<emphasis id="strong1101" effect="bold">
+JButton
+
+</emphasis>
+ 
+objects are purposely placed so as to partially overlap. Both buttons appear on 
+top of the red 
+
+<emphasis id="strong1102" effect="bold">
+JTextField
+
+</emphasis>
+ object on the 
+
+<emphasis id="em1081" effect="italics">
+contentPane
+
+</emphasis>
+. 
+
+
+<emphasis id="em1082" effect="italics">
+(Components on layered panes are always on top of components on the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1103" effect="bold">
+
+
+
+<emphasis id="em1083" effect="italics">
+contentPane
+
+</emphasis>
+</emphasis>
+<emphasis id="em1084" effect="italics">
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The green 
+
+<emphasis id="strong1104" effect="bold">
+JButton
+
+</emphasis>
+ is initially placed at layer position +1 
+on the layered pane and the yellow 
+
+<emphasis id="strong1105" effect="bold">
+JButton
+
+</emphasis>
+ is initially placed 
+at layer position -29999 which is the limit in the negative direction. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Action listeners are registered on the two buttons. When the top 
+
+<emphasis id="em1085" effect="italics">
+(green)
+
+</emphasis>
+ button is 
+clicked, the action is to swap the layer positions of the two buttons causing 
+the yellow button to move to the top as shown in 
+
+<link id="a1031" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<note id="note1010" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ Screen output after clicking green button.
+
+
+<para id="p1067">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/swingpane01b.jpg" width="301" height="201"/>
+</media>
+
+
+</para>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1068">
+The program was originally tested using JDK 1.1.6 and Swing 1.0.1 under Windows 95. 
+More recently it was tested using Java 8 under Windows 7.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+Several lines of code are included in the program to investigate the parent child 
+relationships of the various panes. The text output from this part of the 
+program, when run using Java 8, is shown in 
+
+<link id="a1032" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1011" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3.
+
+</emphasis>
+
+ Text output.
+
+
+<code id="pre1004" display="block">
+Root pane is: class javax.swing.JRootPane
+Parent of root pane is SwingPane01[frame0,0,0,0x0,invalid,hidden,layout=java.awt
+.BorderLayout,title=,resizable,normal,defaultCloseOperation=HIDE_ON_CLOSE,rootPa
+ne=javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swing.JRootPane$RootLayou
+t,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minimumSize=
+,preferredSize=],rootPaneCheckingEnabled=true]
+
+Glass pane is: class javax.swing.JPanel
+Parent of glass pane is javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.swin
+g.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maxi
+mumSize=,minimumSize=,preferredSize=]
+
+Layered pane is: class javax.swing.JLayeredPane
+Parent of layered pane is javax.swing.JRootPane[,0,0,0x0,invalid,layout=javax.sw
+ing.JRootPane$RootLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,ma
+ximumSize=,minimumSize=,preferredSize=]
+
+Content pane is: class javax.swing.JPanel
+Parent of content pane is javax.swing.JLayeredPane[null.layeredPane,0,0,0x0,inva
+lid,alignmentX=0.0,alignmentY=0.0,border=,flags=0,maximumSize=,minimumSize=,pref
+erredSize=,optimizedDrawingPossible=true]
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1070">
+The JavaSoft documentation indicates that the 
+
+<emphasis id="em1086" effect="italics">
+contentPane
+
+</emphasis>
+ is 
+placed at an equivalent layer position of -30000 in the 
+
+<emphasis id="em1087" effect="italics">
+layeredPane
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1071">
+The 
+
+<emphasis id="em1088" effect="italics">
+glassPane
+
+</emphasis>
+ is something of a mystery to me at this point 
+in time (5/12/98). I was unable to draw on the 
+
+<emphasis id="em1089" effect="italics">
+glassPane
+
+</emphasis>
+. An 
+attempt to place either a 
+
+<emphasis id="strong1106" effect="bold">
+JButton
+
+</emphasis>
+ object or a 
+
+<emphasis id="strong1107" effect="bold">
+JToolTip
+
+</emphasis>
+ 
+object on the 
+
+<emphasis id="em1090" effect="italics">
+glassPane
+
+</emphasis>
+ was rejected by the compiler with error 
+messages that the 
+
+<emphasis id="strong1108" effect="bold">
+JButton
+
+</emphasis>
+ and the 
+
+<emphasis id="strong1109" effect="bold">
+JToolTip
+
+</emphasis>
+ 
+could not be converted to type 
+
+<emphasis id="strong1110" effect="bold">
+JPopupMenu
+
+</emphasis>
+. I don't know if this 
+is proper behavior or a bug. 
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1072">
+I will discuss and explain this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1033" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+. 
+
+<link id="a1034" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ shows the import declarations 
+required to 
+import the Swing and AWT packages using Java 8. 
+
+<emphasis id="em1091" effect="italics">
+(The older import 
+declaration is shown as a comment.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<note id="note1012" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1.
+
+</emphasis>
+
+ Import declarations.
+
+
+<code id="pre1005" display="block">
+import java.awt.*;
+import java.awt.event.*;
+//import com.sun.java.swing.*;//JDK 1.1 version
+import javax.swing.*;//JDK 1.2 version
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1073">
+The class definition for 
+
+<emphasis id="strong1111" effect="bold">
+SwingPane01
+
+</emphasis>
+ begins in 
+
+<link id="a1035" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<note id="note1013" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2.
+
+</emphasis>
+
+ Beginning of the class named SwingPane01.
+
+
+<code id="pre1006" display="block">
+class SwingPane01 extends JFrame{
+  JLayeredPane theLayeredPane;
+  JButton greenButton;
+  JButton yellowButton;
+  
+  public static void main(String[] args){
+    new SwingPane01();
+  }//end main
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1074">
+As you can see in 
+
+<link id="a1036" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+, the controlling class in this program is 
+an object of type 
+
+<emphasis id="strong1112" effect="bold">
+JFrame
+
+</emphasis>
+ because it extends 
+
+<emphasis id="strong1113" effect="bold">
+JFrame
+
+</emphasis>
+. 
+This fragment also declares some instance variables that are required later in 
+the 
+
+<emphasis id="strong1114" effect="bold">
+ActionEvent
+
+</emphasis>
+ handler to swap the two buttons between layers.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The 
+
+<emphasis id="strong1115" effect="bold">
+main
+
+</emphasis>
+ method is also included in this fragment 
+simply to provide continuity. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<link id="a1037" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ shows the beginning of the constructor where much of the 
+work in this program is accomplished. 
+
+</para>
+
+
+
+
+
+<note id="note1014" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3.
+
+</emphasis>
+
+ Beginning of the constructor.
+
+
+<code id="pre1007" display="block">
+  SwingPane01(){//constructor
+    //Get a ref to the layered pane for later use.
+    theLayeredPane = this.getLayeredPane();
+    int frameWidth = 300;
+    int frameHeight = 200;
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1077">
+<link id="a1038" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ begins by getting a reference to the
+
+
+<emphasis id="em1092" effect="italics">
+layeredPane
+
+</emphasis>
+ to make it more convenient to work with it later. 
+The width and height values for the 
+
+<emphasis id="strong1116" effect="bold">
+JFrame
+
+</emphasis>
+ object are set in 
+this fragment as well. 
+
+</para>
+
+
+
+
+
+
+<para id="p1078">
+<link id="a1039" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ shows the code that is used to discover and display the 
+types of the different panes along with the parent-child relationships in the 
+hierarchy of panes. This is the code that produced most of the text output shown 
+in 
+
+<link id="a1040" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1015" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4.
+
+</emphasis>
+
+ Get and display types of panes.
+
+
+<code id="pre1008" display="block">
+    System.out.println("Root pane is: " + 
+                            this.getRootPane().getClass());
+    System.out.println("Parent of root pane is " + 
+                    this.getRootPane().getParent() + "\n");
+
+    System.out.println("Glass pane is: " + 
+                           this.getGlassPane().getClass());
+    System.out.println("Parent of glass pane is " + 
+                   this.getGlassPane().getParent() + "\n");
+
+    System.out.println("Layered pane is: " + 
+                         this.getLayeredPane().getClass());
+    System.out.println("Parent of layered pane is " + 
+                 this.getLayeredPane().getParent() + "\n");
+                         
+    System.out.println("Content pane is: " + 
+                         this.getContentPane().getClass());
+    System.out.println("Parent of content pane is " + 
+                 this.getContentPane().getParent() + "\n");
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1079">
+This code is all pretty intuitive. You should be able to 
+surmise what it is doing simply from the names of the methods being invoked. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<link id="a1041" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ instantiates a 
+
+<emphasis id="strong1117" effect="bold">
+JLabel
+
+</emphasis>
+ object and a 
+
+<emphasis id="strong1118" effect="bold">
+
+JTextField
+
+</emphasis>
+ object and places them on the 
+
+<emphasis id="em1093" effect="italics">
+contentPane
+
+</emphasis>
+. 
+
+
+</para>
+
+
+
+
+
+
+<note id="note1016" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5.
+
+</emphasis>
+
+ Instantiate JLabel and JTextField objects.
+
+
+<code id="pre1009" display="block">
+    JLabel theLabel = new JLabel(
+         "  Click buttons to swap their layer positions.");
+    this.getContentPane().add(theLabel,"South");
+    
+    //Put a red JTextField in the Center of the JFrame on
+    // the content pane.
+    JTextField redTextField = new JTextField(
+                        "    redTextField on contentPane");
+    redTextField.setBackground(Color.red);
+    this.getContentPane().add(redTextField,"Center");
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1081">
+The default layout manager for the 
+
+<emphasis id="em1094" effect="italics">
+contentPane
+
+</emphasis>
+ is 
+
+<emphasis id="strong1119" effect="bold">
+
+BorderLayout
+
+</emphasis>
+. This code places the red 
+
+<emphasis id="strong1120" effect="bold">
+JTextField
+
+</emphasis>
+ in 
+the 
+
+<emphasis id="strong1121" effect="bold">
+Center
+
+</emphasis>
+ position of the 
+
+<emphasis id="em1095" effect="italics">
+contentPane
+
+</emphasis>
+ and 
+places the 
+
+<emphasis id="strong1122" effect="bold">
+JLabel
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1123" effect="bold">
+South
+
+</emphasis>
+ position.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+For the 
+
+<emphasis id="em1096" effect="italics">
+metal
+
+</emphasis>
+ Look and Feel, the 
+
+<emphasis id="strong1124" effect="bold">
+JLabel 
+
+</emphasis>
+appears to be part of the border at the bottom of the 
+
+<emphasis id="strong1125" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object as shown in 
+
+<link id="a1042" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+The 
+
+<emphasis id="em1097" effect="italics">
+South
+
+</emphasis>
+ 
+
+<emphasis id="strong1126" effect="bold">
+JLabel
+
+</emphasis>
+ provides instructions regarding 
+the use of the 
+
+<emphasis id="strong1127" effect="bold">
+JButton
+
+</emphasis>
+ objects that will also be placed on the
+
+
+<emphasis id="strong1128" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<link id="a1043" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ instantiates a green 
+
+<emphasis id="strong1129" effect="bold">
+JButton
+
+</emphasis>
+ object and 
+places it on the 
+
+<emphasis id="em1098" effect="italics">
+layeredPane
+
+</emphasis>
+ at layer number one (1). 
+
+</para>
+
+
+
+
+
+
+<note id="note1017" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6.
+
+</emphasis>
+
+ Instantiate a green JButton object.
+
+
+<code id="pre1010" display="block">
+    greenButton = new JButton(
+                            "greenButton on Layered Pane");
+    greenButton.setBackground(Color.green);
+    greenButton.setBounds(10,10,240,40);
+    greenButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(greenButton,new Integer(1));
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1085">
+Note that 
+the 
+
+<emphasis id="strong1130" effect="bold">
+setBounds
+
+</emphasis>
+ method is used to establish the location and 
+size of the button in absolute pixel coordinates. Recall that I said earlier 
+that apparently the default layout manager for the 
+
+<emphasis id="em1099" effect="italics">
+layeredPane
+
+</emphasis>
+ 
+is null. Otherwise, it would have been necessary for me to set it to null before 
+placing this object on an absolute location and size basis. 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+Also note that an 
+
+<emphasis id="strong1131" effect="bold">
+ActionListener
+
+</emphasis>
+ object is registered on the 
+
+<emphasis id="strong1132" effect="bold">
+
+JButton
+
+</emphasis>
+ object. We will see the class that defines the behavior of the 
+listener object later. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<link id="a1044" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ instantiates a yellow 
+
+<emphasis id="strong1133" effect="bold">
+JButton
+
+</emphasis>
+ object and places it on 
+the 
+
+<emphasis id="em1100" effect="italics">
+layeredPane
+
+</emphasis>
+ at layer number -29999. This is the bottom-most 
+layer of all programmable layers in the 
+
+<emphasis id="em1101" effect="italics">
+layeredPane
+
+</emphasis>
+. The 
+
+<emphasis id="strong1134" effect="bold">
+
+contentPane
+
+</emphasis>
+ falls immediately below this layer. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1018" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7.
+
+</emphasis>
+
+ Instantiate a yellow JButton object.
+
+
+<code id="pre1011" display="block">
+    yellowButton = new JButton(
+                           "yellowButton on Layered Pane");
+    yellowButton.setBackground(Color.yellow);
+    yellowButton.setBounds(40,20,240,40);
+    yellowButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(yellowButton,new Integer(-29999));
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1088">
+<link id="a1045" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ sets the title, size, visibility, etc., of the 
+
+<emphasis id="strong1135" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object and register an anonymous listener to terminate the program when the user 
+closes the 
+
+<emphasis id="strong1136" effect="bold">
+JFrame
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1019" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8.
+
+</emphasis>
+
+ The end of the constructor.
+
+
+<code id="pre1012" display="block">
+    this.setTitle("Copyright 1998, R.G.Baldwin");
+    this.setSize(frameWidth,frameHeight);
+    this.setVisible(true);
+    //===================================================//
+    //Anonymous inner class to terminate program.
+    this.addWindowListener(new WindowAdapter(){
+        public void windowClosing(WindowEvent e){
+          System.exit(0);}});//end addWindowListener
+          
+  }//end constructor
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1089">
+<link id="a1046" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ also signals the end of the constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<link id="a1047" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1137" effect="bold">
+ActionListener
+
+</emphasis>
+ class from which listener 
+objects are registered on the two 
+
+<emphasis id="strong1138" effect="bold">
+JButton
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1020" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9.
+
+</emphasis>
+
+ The class named MyActionListener.
+
+
+<code id="pre1013" display="block">
+  class MyActionListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if(e.getActionCommand().equals(
+                           "greenButton on Layered Pane")){
+        theLayeredPane.setLayer(greenButton,-29999);
+        theLayeredPane.setLayer(yellowButton,1);
+      }else{
+        theLayeredPane.setLayer(greenButton,1);
+        theLayeredPane.setLayer(yellowButton,-29999);
+      }//end else
+    }//end actionPerformed()
+  }//end class MyActionListener
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1091">
+This is a 
+standard listener class that defines the 
+
+<emphasis id="strong1139" effect="bold">
+actionPerformed
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+The behavior of the 
+
+<emphasis id="strong1140" effect="bold">
+actionPerformed
+
+</emphasis>
+ method in this case is 
+to cause the layer positions of the two 
+
+<emphasis id="strong1141" effect="bold">
+JButton
+
+</emphasis>
+ objects to be 
+swapped whenever the button on top is clicked. This causes the 
+
+<emphasis id="strong1142" effect="bold">
+JButton
+
+</emphasis>
+ 
+object immediately below the one on the top to move to the top of the stack. 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+Note that this method invokes the 
+
+<emphasis id="strong1143" effect="bold">
+setLayer
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1144" effect="bold">
+JLayeredPane
+
+</emphasis>
+ class to rearrange the positions of the two
+
+
+<emphasis id="strong1145" effect="bold">
+JButton
+
+</emphasis>
+ objects at runtime. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+<link id="a1048" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+ shows a complete listing of the program named 
+
+<emphasis id="strong1146" effect="bold">
+SwingPane01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1021" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10.
+
+</emphasis>
+
+ Complete listing of SwingPane01.
+
+
+<code id="pre1014" display="block">
+/*File SwingPane01 Copyright 1998, R.G.Baldwin
+Updated 7/10/16 for Java 8 compatibility.
+
+Revised 1/12/99 for JDK 1.2 Swing compatibility
+
+The purpose of this program is to illustrate the use of
+the content pane and the layered pane.
+
+The program places a JFrame object on the screen as the
+primary GUI.
+
+A red JTextField and a white JLabel are placed on the 
+content pane on the JFrame object.  (The white label is
+actually rendered as gray in the metal L&amp;F.)
+  
+The JTextField is placed in the Center of the JFrame using
+the default border layout.  The JLabel is placed in the
+South position on the JFrame object.
+
+A green JButton and a yellow JButton are placed on the
+layered pane of the JFrame object.  Apparently the default
+layout for the layered pane is absolute or null.  The 
+JButton objects are purposely placed so as to partially
+overlap.  Both buttons appear on top of the JTextField
+object on the content pane.
+
+The green JButton is initially placed at layer position +1
+on the layered pane and the yellow JButton is initially 
+placed at layer position -29999 which is the limit in the 
+negative direction.
+
+Action listeners are registered on the two buttons.  When
+the top button is clicked, the action is to swap the layer
+positions of the two buttons causing the other one to
+move to the top layer position.
+
+Several lines of code are included to investigate the
+parent child relationships of the various panes.  The
+output from this part of the program follows.  Note that
+line breaks were manually inserted here to force the
+material to fit in this format.
+
+
+Root pane is: class com.sun.java.swing.JRootPane
+Parent of root pane is SwingPane01
+     [frame0,0,0,0x0,invalid,hidden,
+     layout=java.awt.BorderLayout,resizable,title=]
+
+Glass pane is: class com.sun.java.swing.JPanel
+Parent of glass pane is com.sun.java.swing.JRootPane
+     [,0,0,0x0,invalid,
+     layout=com.sun.java.swing.JRootPane$RootLayout]
+
+Layered pane is: class com.sun.java.swing.JLayeredPane
+Parent of layered pane is com.sun.java.swing.JRootPane
+     [,0,0,0x0,invalid,
+     layout=com.sun.java.swing.JRootPane$RootLayout]
+
+Content pane is: class com.sun.java.swing.JPanel
+Parent of content pane is com.sun.java.swing.JLayeredPane
+     [null.layeredPane,0,0,0x0,invalid]
+
+An interpretation of the above is:
+  The root pane is a child of the JFrame object.
+  The glass page is a child of the root pane.
+  The layered pane is a child of the root pane.
+  The content pane is a child of the layered pane.
+  
+  The root pane is of type JRootPane.
+  The glass pane is of type JPanel.
+  The layered pane is of type JLayeredPane.
+  The content pane is of type JPanel.
+  
+The JavaSoft documentation indicates that the content pane
+is placed at layer position -30000 in the layered pane.
+
+The glass pane is something of a mystery at this point.
+I was unable to draw upon the glass pane.  An attempt to 
+place either a JButton object or a JToolTip object on the
+glass plane was rejected by the compiler with error
+messages that the JButton and the JToolTip could not be
+converted to type JPopupMenu.
+
+Tested using JDK 1.1.6 and Swing 1.0.1 under Win95.
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+//import com.sun.java.swing.*;//JDK 1.1 version
+import javax.swing.*;//JDK 1.2 version
+
+class SwingPane01 extends JFrame{//subclass JFrame
+  JLayeredPane theLayeredPane;
+  JButton greenButton;
+  JButton yellowButton;
+  
+  public static void main(String[] args){
+    new SwingPane01();
+  }//end main
+  //-----------------------------------------------------//
+  
+  SwingPane01(){//constructor
+    //Get a ref to the layered pane for later use.
+    theLayeredPane = this.getLayeredPane();
+    int frameWidth = 300;
+    int frameHeight = 200;
+    
+    //Get and display types of different panes along with
+    // parent-child hierarchy.
+    System.out.println("Root pane is: " + 
+                            this.getRootPane().getClass());
+    System.out.println("Parent of root pane is " + 
+                    this.getRootPane().getParent() + "\n");
+
+    System.out.println("Glass pane is: " + 
+                           this.getGlassPane().getClass());
+    System.out.println("Parent of glass pane is " + 
+                   this.getGlassPane().getParent() + "\n");
+
+    System.out.println("Layered pane is: " + 
+                         this.getLayeredPane().getClass());
+    System.out.println("Parent of layered pane is " + 
+                 this.getLayeredPane().getParent() + "\n");
+                         
+    System.out.println("Content pane is: " + 
+                         this.getContentPane().getClass());
+    System.out.println("Parent of content pane is " + 
+                 this.getContentPane().getParent() + "\n");
+          
+
+    //Put instructions in a JLabel on the content pane.
+    JLabel theLabel = new JLabel(
+         "  Click buttons to swap their layer positions.");
+    this.getContentPane().add(theLabel,"South");
+    
+    //Put a red JTextField in the Center of the JFrame on
+    // the content pane.
+    JTextField redTextField = new JTextField(
+                        "    redTextField on contentPane");
+    redTextField.setBackground(Color.red);
+    this.getContentPane().add(redTextField,"Center");
+    
+    //Put a green JButton on the layered pane at a layer
+    // position of +1.
+    greenButton = new JButton(
+                            "greenButton on Layered Pane");
+    greenButton.setBackground(Color.green);
+    greenButton.setBounds(10,10,240,40);
+    greenButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(greenButton,new Integer(1));
+      
+    //Put a yellow JButton on the layered pane at a layer
+    // position of -29999.
+    yellowButton = new JButton(
+                           "yellowButton on Layered Pane");
+    yellowButton.setBackground(Color.yellow);
+    yellowButton.setBounds(40,20,240,40);
+    yellowButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(yellowButton,new Integer(-29999));
+
+    //Set title, size, and visibility of JFrame object.   
+    this.setTitle("Copyright 1998, R.G.Baldwin");
+    this.setSize(frameWidth,frameHeight);
+    this.setVisible(true);
+    //===================================================//
+    //Anonymous inner class to terminate program.
+    this.addWindowListener(new WindowAdapter(){
+        public void windowClosing(WindowEvent e){
+          System.exit(0);}});//end addWindowListener
+          
+  }//end constructor
+  //=====================================================//
+  
+  //Inner class for listener objects which swap the layer
+  // positions of the two JButton objects when the one on
+  // the top is clicked.
+  class MyActionListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if(e.getActionCommand().equals(
+                           "greenButton on Layered Pane")){
+        theLayeredPane.setLayer(greenButton,-29999);
+        theLayeredPane.setLayer(yellowButton,1);
+      }else{
+        theLayeredPane.setLayer(greenButton,1);
+        theLayeredPane.setLayer(yellowButton,-29999);
+      }//end else
+    }//end actionPerformed()
+  }//end class MyActionListener
+
+}//end class SwingPane01
+//=======================================================//
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1095">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1147" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1043">
+Module name: Java087 Swing, Understanding 
+					getContentPane() and other JFrame Layers
+
+</item>
+
+
+					
+
+<item id="li1044">
+File: Java087.htm
+
+</item>
+
+
+					
+
+<item id="li1045">
+Originally published: 1997
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1148" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1096">
+<emphasis id="strong1149" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1097">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1098">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1099">
+<emphasis id="strong1150" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1100">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

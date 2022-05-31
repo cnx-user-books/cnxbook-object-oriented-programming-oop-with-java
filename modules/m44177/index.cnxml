@@ -1,0 +1,3614 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1612: Runtime Polymorphism through Inheritance</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44177</md:content-id>
+  <md:title>Java1612: Runtime Polymorphism through Inheritance</md:title>
+  <md:abstract>With runtime polymorphism, the selection of a method for execution is based on the actual type of object whose reference is stored in a reference variable, and not on the type of the reference variable on which the method is called.</md:abstract>
+  <md:uuid>b93d365e-65ec-40c7-a8f0-7843703bccff</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Mar 31 12:36:11 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Definition of the class named A.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Definition of the class named B. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the driver class named Poly03. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Polymorphic behavior. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Source of a compiler error.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. A new object of type A.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+What is polymorphism?
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+The meaning of the word 
+
+<emphasis id="em1003" effect="italics">
+polymorphism
+
+</emphasis>
+ is something like 
+
+<emphasis id="em1004" effect="italics">
+one name, many forms
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+How does Java implement polymorphism?
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+In some cases, multiple methods have the same name, but different formal argument lists 
+
+
+<emphasis id="em1005" effect="italics">
+(overloaded methods, which were discussed in a previous module)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+In other cases, multiple methods have the same name, same return type, and same formal argument list 
+
+
+<emphasis id="em1006" effect="italics">
+(overridden methods)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1002" effect="bold">
+Three distinct forms of polymorphism
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+From a practical programming viewpoint, polymorphism manifests itself in three distinct forms in Java:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1019">
+Method overriding through class inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1020">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+I covered method overloading as one form of polymorphism 
+
+<emphasis id="em1007" effect="italics">
+(compile-time polymorphism)
+
+</emphasis>
+ in a previous module.  I also explained automatic type conversion and the use of the cast operator for type conversion in a previous module. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1003" effect="bold">
+In this module ...
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+I will begin the discussion of runtime polymorphism through method overriding and 
+class inheritance in this module.  I will cover interfaces in a 
+future module. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1004" effect="bold">
+The essence of runtime polymorphic behavior
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+With runtime polymorphism based on method overriding,
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1021">
+the decision as to which version of a method will be executed is based on 
+
+</item>
+
+
+	
+
+<item id="li1022">
+the actual type of the object whose reference is stored in the reference variable, and 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<emphasis id="strong1005" effect="bold">
+not
+
+</emphasis>
+ on the type of the reference variable on which the method is called.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1006" effect="bold">
+Late binding
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The decision as to which version of the method to call cannot be made at compile time.  That decision must be deferred and made at runtime.  This is sometimes referred to as 
+
+
+<emphasis id="em1008" effect="italics">
+late binding
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1019">
+<emphasis id="strong1007" effect="bold">
+Operational description of runtime polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+Here is an operational description of runtime polymorphism as implemented in Java through 
+class inheritance and method overriding:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1024">
+Assume that a class named 
+
+<emphasis id="strong1008" effect="bold">
+SuperClass
+
+</emphasis>
+ defines a method named 
+	
+
+<emphasis id="strong1009" effect="bold">
+method
+
+</emphasis>
+.
+    
+
+</item>
+
+
+	
+
+<item id="li1025">
+Assume that a class named 
+
+<emphasis id="strong1010" effect="bold">
+SubClass
+
+</emphasis>
+ extends 
+
+<emphasis id="strong1011" effect="bold">
+SuperClass
+
+</emphasis>
+ and overrides the method named 
+	
+
+<emphasis id="strong1012" effect="bold">
+method
+
+</emphasis>
+.
+    
+
+</item>
+
+
+	
+
+<item id="li1026">
+Assume that a reference to an object of the class named 
+
+<emphasis id="strong1013" effect="bold">
+SubClass
+
+</emphasis>
+ is assigned to a reference variable named 
+	
+
+<emphasis id="strong1014" effect="bold">
+ref
+
+</emphasis>
+ of type 
+
+<emphasis id="strong1015" effect="bold">
+SuperClass
+
+</emphasis>
+.
+    
+
+</item>
+
+
+	
+
+<item id="li1027">
+Assume that the method named 
+
+<emphasis id="strong1016" effect="bold">
+method
+
+</emphasis>
+ is then called on the reference variable using the following syntax:
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1028">
+<emphasis id="strong1017" effect="bold">
+ref.method()
+    
+
+</emphasis>
+
+    
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1029">
+<emphasis id="strong1018" effect="bold">
+<emphasis id="em1009" effect="italics">
+Result:
+
+</emphasis>
+</emphasis>
+  The version of the method named 
+	
+
+<emphasis id="strong1019" effect="bold">
+method
+
+</emphasis>
+ that will actually be executed is the 
+
+<emphasis id="em1010" effect="italics">
+overridden
+
+</emphasis>
+ version in the class named
+	
+
+<emphasis id="strong1020" effect="bold">
+SubClass
+
+</emphasis>
+, and is not the version that is defined in the class named 
+	
+
+<emphasis id="strong1021" effect="bold">
+SuperClass, 
+
+</emphasis>
+even though the reference to the object of type
+	
+
+<emphasis id="strong1022" effect="bold">
+SubClass
+
+</emphasis>
+ is stored in a variable of type 
+
+<emphasis id="strong1023" effect="bold">
+SuperClass
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1021">
+This is runtime polymorphism in a nutshell, which is sometimes also referred to as late-binding.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1024" effect="bold">
+Runtime polymorphism is very powerful 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1023">
+As you gain more experience with Java, you will learn that much of the power of OOP using Java is centered on runtime polymorphism using class inheritance, interfaces, and method overriding.  
+	
+
+<emphasis id="em1011" effect="italics">
+(The use of interfaces for polymorphism will be discussed in a future module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1025" effect="bold">
+An important attribute of runtime polymorphism
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+The decision as to which version of the method to execute 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1030">
+is based on the actual type of object whose reference is stored in the reference variable, 
+	and
+
+</item>
+
+
+	
+
+<item id="li1031">
+is not based on the type of the reference variable on which the method is called.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1026" effect="bold">
+Why is it called runtime polymorphism?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+The reason that this type of polymorphism is often referred to as 
+
+<emphasis id="em1012" effect="italics">
+runtime polymorphism
+
+</emphasis>
+ is because the decision as to which version of the method to execute cannot be made until runtime.  The decision cannot be made at compile time.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1027" effect="bold">
+Why defer the decision?
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The decision cannot be made at compile time because the compiler has no way of knowing 
+
+
+<emphasis id="em1013" effect="italics">
+(when the program is compiled) 
+
+</emphasis>
+the actual type of the object whose reference will be stored in the reference variable . 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+In an extreme case, for example, the object might be de-serialized at runtime from a network connection of which the compiler has no knowledge.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1028" effect="bold">
+Could be either type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1032">
+For the situation described above, that de-serialized object could just as easily be of type 
+	
+
+<emphasis id="strong1029" effect="bold">
+SuperClass
+
+</emphasis>
+ as of type 
+
+<emphasis id="strong1030" effect="bold">
+SubClass
+
+</emphasis>
+.  In either case, it would be valid to assign the object's reference to the same superclass reference variable. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+If the object were of the 
+
+<emphasis id="strong1031" effect="bold">
+SuperClass
+
+</emphasis>
+ type, then a call to the method named 
+
+
+<emphasis id="strong1032" effect="bold">
+method
+
+</emphasis>
+ on the reference would cause the version of the method defined in 
+
+
+<emphasis id="strong1033" effect="bold">
+SuperClass
+
+</emphasis>
+, and not the version defined in 
+
+<emphasis id="strong1034" effect="bold">
+SubClass
+
+</emphasis>
+, to be executed.  
+
+
+<emphasis id="em1014" effect="italics">
+(The version executed is determined by the type of the object and not by the type of the reference variable containing the reference to the object.)
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1035" effect="bold">
+Sample Program
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+Let's take a look at a sample program that illustrates runtime polymorphism using class inheritance and overridden methods.  The name of the program is 
+
+
+<emphasis id="strong1036" effect="bold">
+Poly03
+
+</emphasis>
+.  A complete listing of the program is shown in 
+
+
+<link id="a1018" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ near the end of the module. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the definition of a class named 
+
+
+<emphasis id="strong1037" effect="bold">
+A
+
+</emphasis>
+, which extends the class named 
+
+<emphasis id="strong1038" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="em1015" effect="italics">
+(Remember that any class that doesn't extend some other class automatically extends 
+
+
+<emphasis id="strong1039" effect="bold">
+Object
+
+</emphasis>
+ by default, and it is not necessary to show that explicitly as I did in this example.)
+
+</emphasis>
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Definition of the class 
+				named A.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class A extends Object{
+  public void m(){
+    System.out.println("m in class A");
+  }//end method m()
+}//end class A</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1038">
+The class named 
+
+<emphasis id="strong1040" effect="bold">
+A
+
+</emphasis>
+ defines a method named 
+
+<emphasis id="strong1041" effect="bold">
+m()
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1042" effect="bold">
+Behavior of the method
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The behavior of the method, as defined in the class named 
+
+<emphasis id="strong1043" effect="bold">
+A
+
+</emphasis>
+, is to display a message indicating that it has been called, and that it is defined in the class named 
+
+
+<emphasis id="strong1044" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+This message will allow us to determine which version of the method is executed in each case discussed later.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1045" effect="bold">
+The class named B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the definition of a class named 
+
+
+<emphasis id="strong1046" effect="bold">
+B
+
+</emphasis>
+ that extends the class named 
+
+<emphasis id="strong1047" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Definition of the class 
+				named B.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">class B extends A{
+  public void m(){
+    System.out.println("m in class B");
+  }//end method m()
+}//end class B</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1044">
+The class named 
+
+<emphasis id="strong1048" effect="bold">
+B
+
+</emphasis>
+ overrides 
+
+<emphasis id="em1016" effect="italics">
+(redefines)
+
+</emphasis>
+ the method named 
+	
+
+<emphasis id="strong1049" effect="bold">
+m()
+
+</emphasis>
+, which it inherits from the class named 
+
+<emphasis id="strong1050" effect="bold">
+A
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1051" effect="bold">
+Behavior of the overridden version of the method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+Like the inherited version, the overridden version displays a message indicating that it has been called.  However, the message is different from the message displayed by the inherited version discussed above.  The overridden version tells us that it is defined in the class named 
+
+
+<emphasis id="strong1052" effect="bold">
+B
+
+</emphasis>
+. 
+
+<emphasis id="em1017" effect="italics">
+(The behavior of the overridden version of the method is appropriate for an object instantiated from the class named 
+
+
+<emphasis id="strong1053" effect="bold">
+B
+
+</emphasis>
+.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Again, this message will allow us to determine which version of the method is executed in each case discussed later.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1054" effect="bold">
+The driver class
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the beginning of the driver class named 
+
+
+<emphasis id="strong1055" effect="bold">
+Poly03
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Beginning of the driver 
+				class named Poly03.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">public class Poly03{
+  public static void main(String[] args){
+    Object var = new B();
+    ((B)var).m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1050">
+<emphasis id="strong1056" effect="bold">
+A new object of the class B
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+The code in the 
+
+<emphasis id="strong1057" effect="bold">
+main
+
+</emphasis>
+ method begins by instantiating a new object of the class named 
+
+
+<emphasis id="strong1058" effect="bold">
+B
+
+</emphasis>
+, and assigning the object's reference to a reference variable of type 
+
+
+<emphasis id="strong1059" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="em1018" effect="italics">
+(Recall that this is legal because an object's reference can be assigned to any reference variable whose type is a superclass of the class from which the object was instantiated.  The class named 
+
+
+<emphasis id="strong1060" effect="bold">
+Object
+
+</emphasis>
+ is the superclass of all classes.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1061" effect="bold">
+Downcast and call the method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+If you read the earlier module on casting, it will come as no surprise to you that the second statement in the 
+
+
+<emphasis id="strong1062" effect="bold">
+main
+
+</emphasis>
+ method, which casts the reference down to type 
+
+<emphasis id="strong1063" effect="bold">
+B
+
+</emphasis>
+ and calls the method named 
+
+
+<emphasis id="strong1064" effect="bold">
+m()
+
+</emphasis>
+ on it, will compile and execute successfully. 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1065" effect="bold">
+Which version is executed?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The execution of the method produces the following output on the computer screen:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">m in class B </code>
+
+
+
+
+<para id="p1057">
+By examining the output, you can confirm that the version of the method that was overridden in the class named 
+
+
+<emphasis id="strong1066" effect="bold">
+B
+
+</emphasis>
+ is the version that was executed. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1067" effect="bold">
+Why was this version executed? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1059">
+This should also come as no surprise to you.  The cast converts the type of the reference from type 
+	
+
+<emphasis id="strong1068" effect="bold">
+Object
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1069" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+You can always call a public method belonging to an object using a reference to the object whose type is the same as the class from which the object was instantiated.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1070" effect="bold">
+Not runtime polymorphic behavior
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Just for the record, the above call to the method does not constitute runtime polymorphism 
+
+
+<emphasis id="em1019" effect="italics">
+(in my opinion)
+
+</emphasis>
+.  I included that call to the method to serve as a backdrop for what follows. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1071" effect="bold">
+Runtime polymorphic behavior
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+However, the following call to the method does constitute runtime polymorphism. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The statement in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ casts the reference down to type 
+
+
+<emphasis id="strong1072" effect="bold">
+A
+
+</emphasis>
+ and calls the method named 
+
+<emphasis id="strong1073" effect="bold">
+m()
+
+</emphasis>
+ on that reference.  
+
+</para>
+
+
+
+
+
+<para id="p1066">
+It may not come as a surprise to you that the 
+call to the method shown in 
+
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also compiles and runs successfully. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Polymorphic behavior.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">((A)var).m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1067">
+<emphasis id="strong1074" effect="bold">
+The method output
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Here is the punch line.  Not only does the statement in 
+
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ compile and run successfully, it produces the following output, 
+
+
+<emphasis id="em1020" effect="italics">
+(which is exactly the same output as before)
+
+</emphasis>
+:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">m in class B </code>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1075" effect="bold">
+Same method executed in both cases
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+It is important to note that this output, 
+
+<emphasis id="em1021" effect="italics">
+(produced by casting the reference variable to type 
+
+
+<emphasis id="strong1076" effect="bold">
+A
+
+</emphasis>
+ instead of type 
+
+<emphasis id="strong1077" effect="bold">
+B
+
+</emphasis>
+)
+
+</emphasis>
+, is exactly the same as that produced by the earlier call to the method when the reference was cast to type 
+
+
+<emphasis id="strong1078" effect="bold">
+B
+
+</emphasis>
+.  This means that the same version of the method was executed in both cases.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1071">
+This confirms that, even though the type of the reference was converted to type 
+
+
+<emphasis id="strong1079" effect="bold">
+A
+
+</emphasis>
+, 
+
+<emphasis id="em1022" effect="italics">
+(rather than type 
+
+<emphasis id="strong1080" effect="bold">
+Object
+
+</emphasis>
+ or type 
+
+
+<emphasis id="strong1081" effect="bold">
+B
+
+</emphasis>
+)
+
+</emphasis>
+, the overridden version of the method defined in class 
+
+
+<emphasis id="strong1082" effect="bold">
+B
+
+</emphasis>
+ was actually executed.
+
+    
+
+</para>
+
+
+
+
+
+<para id="p1072">
+This is an example of runtime polymorphic behavior.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1073">
+The version of the method that was executed was based on 
+
+
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1032">
+the actual type of the object, 
+
+<emphasis id="strong1083" effect="bold">
+B
+
+</emphasis>
+, and 
+
+</item>
+
+
+	
+
+<item id="li1033">
+not on the type of the reference, 
+
+<emphasis id="strong1084" effect="bold">
+A
+
+</emphasis>
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1074">
+This is an extremely powerful and useful concept.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1085" effect="bold">
+Another call to the method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1076">
+Now take a look at the statement in 
+
+<link id="a1025" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.  Will this statement compile and execute successfully?  If so, which version of the method will be executed? 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Source of a compiler 
+				error.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1006" display="block">var.m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1086" effect="bold">
+Compiler error
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1078">
+The code in 
+
+<link id="a1026" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ attempts, unsuccessfully, to call the method named 
+
+
+<emphasis id="strong1087" effect="bold">
+m()
+
+</emphasis>
+ using the reference variable named 
+
+<emphasis id="strong1088" effect="bold">
+var
+
+</emphasis>
+, which is of type 
+
+
+<emphasis id="strong1089" effect="bold">
+Object
+
+</emphasis>
+. The result is a compiler error, which, depending on your 
+version of the JDK, will be similar to the following:
+
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">Poly03.java:40: cannot resolve symbol
+symbol  : method m  ()
+location: class java.lang.Object
+    var.m();
+       ^ </code>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1090" effect="bold">
+Some important rules
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+The 
+
+<emphasis id="strong1091" effect="bold">
+Object
+
+</emphasis>
+ class does not define a method named 
+
+<emphasis id="strong1092" effect="bold">
+m()
+
+</emphasis>
+.  Therefore, the overridden method named 
+
+
+<emphasis id="strong1093" effect="bold">
+m()
+
+</emphasis>
+ in the class named 
+
+<emphasis id="strong1094" effect="bold">
+B
+
+</emphasis>
+ is not an overridden version of a method that is defined in the class named 
+
+
+<emphasis id="strong1095" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1096" effect="bold">
+Necessary, but not sufficient
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+Runtime polymorphism based on class inheritance requires that the type of the reference variable be a superclass of the class from which the object 
+
+
+<emphasis id="em1023" effect="italics">
+(on which the method will be called)
+
+</emphasis>
+ is instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+However, while necessary, that is not sufficient.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The type of the reference variable must also be a class that either 
+
+<emphasis id="strong1097" effect="bold">
+
+
+
+<emphasis id="em1024" effect="italics">
+defines or inherits
+
+</emphasis>
+</emphasis>
+ the method that will ultimately be called on the object. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1098" effect="bold">
+This method is not defined in the Object class 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+	
+
+<para id="p1086">
+Since the class named 
+
+<emphasis id="strong1099" effect="bold">
+Object
+
+</emphasis>
+ neither defines nor 
+	inherits the method named 
+
+<emphasis id="strong1100" effect="bold">
+m()
+
+</emphasis>
+, a reference of type 
+
+<emphasis id="strong1101" effect="bold">
+Object
+
+</emphasis>
+ does not qualify as a participant in runtime polymorphic behavior in this case.  The attempt to use it as a participant resulted in the compiler error given above.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1102" effect="bold">
+One additional scenario
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1088">
+Before leaving this topic, let's look at one additional scenario to help you distinguish what is, and what is not, runtime polymorphism.  Consider the code shown in 
+
+
+<link id="a1027" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. A new object of type A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1008" display="block">    var = new A();
+    ((A)var).m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1089">
+<emphasis id="strong1103" effect="bold">
+A new object of type A
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+The code in  
+
+
+<link id="a1028" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ instantiates a new object of the class named 
+
+
+<emphasis id="strong1104" effect="bold">
+A
+
+</emphasis>
+, and stores the object's reference in the original reference variable named
+
+
+<emphasis id="strong1105" effect="bold">
+var
+
+</emphasis>
+ of type 
+
+<emphasis id="strong1106" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="em1025" effect="italics">
+(As a side note, this overwrites the previous contents of the reference variable with a new reference and causes the object whose reference was previously stored there to become eligible for garbage collection.)
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1107" effect="bold">
+Downcast and call the method
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+Then the code in  
+
+
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ casts the reference down to type 
+
+<emphasis id="strong1108" effect="bold">
+A
+
+</emphasis>
+, 
+
+
+<emphasis id="em1026" effect="italics">
+(the type of the object to which the reference refers)
+
+</emphasis>
+, and calls the method named 
+
+
+<emphasis id="strong1109" effect="bold">
+m()
+
+</emphasis>
+ on the downcast reference. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1110" effect="bold">
+The output
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+As you would probably predict, this produces the following output on the computer screen:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1009" display="block">m in class A </code>
+
+
+
+
+<para id="p1096">
+In this case, the version of the method defined in the class named 
+
+<emphasis id="strong1111" effect="bold">
+A
+
+</emphasis>
+, 
+
+
+<emphasis id="em1027" effect="italics">
+(not the version defined in 
+
+</emphasis>
+<emphasis id="strong1112" effect="bold">
+<emphasis id="em1028" effect="italics">
+B
+
+</emphasis>
+</emphasis>
+) was executed. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1113" effect="bold">
+Not polymorphic behavior 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1098">
+In my view, this is not polymorphic behavior 
+
+<emphasis id="em1029" effect="italics">
+(at least it isn't a very useful form of polymorphic behavior)
+
+</emphasis>
+.  This code simply converts the type of the reference from type 
+	
+
+<emphasis id="strong1114" effect="bold">
+Object
+
+</emphasis>
+ to the type of the class from which the object was instantiated, and calls one of its methods.  Nothing special takes place regarding a selection among different versions of the method.
+
+    
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1115" effect="bold">
+Some authors may disagree
+
+    
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+While some authors might argue that this is technically runtime polymorphic behavior, in my view at least, it does not illustrate the real benefits of runtime polymorphic behavior.  The benefits of runtime polymorphic behavior generally accrue when the actual type of the object is a subclass of the type of the reference variable containing the reference to the object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1116" effect="bold">
+Once again, what is runtime polymorphism?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+As I have discussed in this module, runtime polymorphic behavior based on 
+class inheritance occurs when
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1034">
+The type of the reference is a superclass of the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1035">
+The version of the method that is executed is the version that is either defined in, or inherited into, the class from which the object was instantiated.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1117" effect="bold">
+More than you ever wanted to hear
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1104">
+And that is probably more than you ever wanted to hear about runtime polymorphism based on 
+	class inheritance.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1105">
+A future module will discuss runtime polymorphism based on the Java interface.  From a practical viewpoint, you will find the rules to be similar but somewhat different in the case of the Java interface. 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1118" effect="bold">
+A very important concept
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+As an example of the importance of runtime polymorphism in Java, the entire event-driven graphical user interface 
+structure of Java is based on runtime polymorphism involving the Java interface.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1108">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1109">
+From a practical programming viewpoint, polymorphism manifests itself in three distinct forms in Java:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1036">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1037">
+Method overriding through class inheritance 
+
+</item>
+
+
+	
+
+<item id="li1038">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1110">
+This module discusses method overriding through class inheritance.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+With runtime polymorphism based on method overriding, the decision as to which version of a method will be executed is based on the actual type of object whose reference is stored in the reference variable, and not on the type of the reference variable on which the method is called.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1112">
+The decision as to which version of the method to call cannot be made at compile time.  That decision must be deferred and made at runtime.  This is sometimes referred to as late binding.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1113">
+This is illustrated in the sample program discussed in this module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1114">
+In the next module, I will continue my discussion of the implementation of polymorphism using method overriding through 
+class inheritance, and I will concentrate on a special case in that category. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+Specifically, I will discuss the use of the 
+
+<emphasis id="strong1119" effect="bold">
+Object
+
+</emphasis>
+ class as a completely generic type for storing references to objects of subclass types, and explain how that results in a very useful form of runtime polymorphism. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1116">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1120" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1039">
+Module name: Java OOP: Runtime Polymorphism through Class 
+					Inheritance
+
+</item>
+
+
+					
+
+<item id="li1040">
+File: Java1612.htm
+
+
+</item>
+
+
+					
+
+<item id="li1041">
+Published: 02/27/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1121" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1117">
+<emphasis id="strong1122" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1118">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1119">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1120">
+<emphasis id="strong1123" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1121">
+A complete listing of the program is shown in 
+
+<link id="a1030" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. 
+
+<link id="a1031" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+: Complete program listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1010" display="block">/*File Poly03.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates downcasting
+and polymorphic behavior
+
+Program output is:
+  
+m in class B
+m in class B
+m in class A
+**************************************/
+
+class A extends Object{
+  public void m(){
+    System.out.println("m in class A");
+  }//end method m()
+}//end class A
+//===================================//
+
+class B extends A{
+  public void m(){
+    System.out.println("m in class B");
+  }//end method m()
+}//end class B
+//===================================//
+
+public class Poly03{
+  public static void main(String[] args){
+    Object var = new B();
+    //Following will compile and run
+    ((B)var).m();
+    //Following will also compile 
+    // and run due to polymorphic
+    // behavior.
+    ((A)var).m();
+    //Following will not compile
+    //var.m();
+    //Instantiate obj of class A
+    var = new A();
+    //Call the method on it
+    ((A)var).m();    
+  }//end main
+}//end class Poly03</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1122">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

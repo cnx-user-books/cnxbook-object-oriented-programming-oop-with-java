@@ -1,0 +1,2040 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1554 Completing the First Assignment</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m63203</md:content-id>
+  <md:title>Java1554 Completing the First Assignment</md:title>
+  <md:abstract>This lesson helps students navigate through the learning process so that they can complete the first assignment on or before the deadline.</md:abstract>
+  <md:uuid>e688941c-33f0-4004-a8de-1ba6f5044874</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Oct 03 12:22:30 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="General_background_information">
+
+General 
+	background information
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1008">
+<link id="a1008" target-id="Orientation_and_the_rules_of_the_road">
+
+Orientation and the rules of 
+the road
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="Configure_your_computer">
+
+Configure your computer
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="Review_programming_fundamentals_in_Java">
+
+Review programming 
+fundamentals in Java
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Learn_objectoriented_programming_fundamentals">
+
+Learn 
+object-oriented programming fundamentals
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+<item id="li1013">
+<link id="a1013" target-id="Working_with_turtles_in_general">
+
+Working with turtles in general
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Drawing_a_circle_with_a_turtle">
+
+Drawing a circle with a turtle
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Complete_program_listings">
+
+Complete program listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+Many students in this course have difficulty getting started and fail to 
+	submit the first assignment by the prescribed deadline. Many 
+
+<emphasis id="em1003" effect="italics">
+(but not 
+	all)
+
+</emphasis>
+ of those students either withdraw too late to get a refund or fail the course 
+	altogether.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The purpose of this lesson is to lay out a set of steps that students can 
+follow in order
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+to get started promptly, and 
+
+</item>
+
+
+	
+
+<item id="li1019">
+to submit a correct copy of the first 
+assignment before the deadline. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+Note that this lesson won't write the first 
+assignment for you. Rather, it will help you navigate the learning process so 
+that you can accomplish that on your own. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+
+
+<item id="li1020">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Graphic output from Turtles01.
+
+
+</item>
+
+
+
+
+<item id="li1021">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2.
+
+</link>
+
+
+ Graphic output from Circles01.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+
+
+<item id="li1022">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Turtles01.
+
+
+</item>
+
+
+
+
+<item id="li1023">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The class named Turtles01Runner.
+
+
+</item>
+
+
+
+
+<item id="li1024">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The class named Circles01.
+
+
+</item>
+
+
+
+
+<item id="li1025">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The class named Circles01Runner.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1006">
+This section will describe the things that you need to do before you 
+	begin writing code for the first assignment. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Orientation_and_the_rules_of_the_road" effect="bold">
+
+Orientation and the rules of 
+the road
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+As of September 2016, 
+
+<link id="a1024" url="http://www.austincc.edu/">
+
+Austin Community College
+
+</link>
+
+ uses a 
+learning management system 
+
+<emphasis id="em1004" effect="italics">
+(LMS)
+
+</emphasis>
+ 
+known as
+
+
+<link id="a1025" url="http://www.blackboard.com/learning-management-system/blackboard-learn.aspx">
+
+
+Blackboard 
+
+<emphasis id="em1005" effect="italics">
+(Bb)
+
+</emphasis>
+</link>
+
+. When you enroll in this course, you will have access to the 
+course in Bb. The first thing that you should do is to open the course in Bb and 
+read all of the announcements, paying particular attention to the requirement 
+for online orientation.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+The next thing that you should do is go to the
+
+
+<link id="a1026" url="http://www.austincc.edu/baldwin/">
+
+page
+
+</link>
+
+ on the college website 
+containing links to all of the courses that I teach. Locate your course among 
+the various courses listed there. Select the link that points to the syllabus 
+page for my courses. Then select the link to the syllabus for your course and read 
+the syllabus. Make certain that you understand all of the information provided 
+in the syllabus. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Once you understand the information in the syllabus, return to the
+
+
+<link id="a1027" url="http://www.austincc.edu/baldwin/">
+
+page
+
+</link>
+
+ containing links to all of 
+the courses that I teach. Locate your course among the various courses listed 
+there and select the link that points to the 
+
+<emphasis id="strong1000" effect="bold">
+Main page
+
+</emphasis>
+ for your 
+course. Read that page and all of the pages referenced by links on that page. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+By 
+this point, you should fully understand the rules of the road for this course. 
+Go back to your course in Bb and complete the orientation test.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+If you have questions along the way, be sure to ask those questions.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Configure_your_computer" effect="bold">
+
+Configure your computer
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+The next step is to configure your computer to make it compatible with the 
+requirements of this course. Go to
+
+
+<link id="a1028" url="http://cnx.org/contents/dzOvxPFw:s3zdocvh">
+
+Java 1560: Configuring Your Computer
+
+</link>
+
+. 
+Study that lesson carefully. Make absolutely certain that you can replicate all 
+of the procedures and results shown there with the possible exception of the 
+material in the section titled 
+
+
+<link id="a1029" url="http://cnx.org/contents/dzOvxPFw:s3zdocvh#Compare_the_graphic_output_from_each_of_two_Java_programs">
+
+
+Compare the graphic output from each of two Java programs
+
+</link>
+
+. 
+
+<emphasis id="em1006" effect="italics">
+(I exclude 
+that section only because you don't have the output from two Java programs to 
+compare at this point.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+Once you have accomplished that, you should probably skip ahead and confirm 
+that you can replicate the procedures and results described in the lesson titled 
+
+
+<link id="a1030" url="http://cnx.org/contents/dzOvxPFw:0xo_9JXz">
+
+Java3000: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+. 
+You could hold off and do that later if you prefer but you definitely need to 
+accomplish that before you begin to write your first assignment program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Review_programming_fundamentals_in_Java" effect="bold">
+
+Review programming 
+fundamentals in Java
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+Now that you have your computer configured, it is time to begin learning how 
+to use the Java programming language for object-oriented programming. The first 
+step is to review the Ebook titled 
+
+<link id="a1031" url="http://cnx.org/contents/EHRr6hjR">
+
+Programming Fundamentals with Java
+
+</link>
+
+  in whatever depth you need 
+in order to transfer 
+your prior knowledge of programming fundamentals to the Java programming language. 
+
+
+<emphasis id="em1007" effect="italics">
+(Note that the previous text refers to 
+
+</emphasis>
+ 
+
+<emphasis id="strong1001" effect="bold">
+<emphasis id="em1008" effect="italics">
+programming fundamentals
+
+</emphasis>
+</emphasis>
+<emphasis id="em1009" effect="italics">
+ 
+and not to 
+
+</emphasis>
+ 
+
+<emphasis id="strong1002" effect="bold">
+<emphasis id="em1010" effect="italics">
+object-oriented programming fundamentals
+
+</emphasis>
+</emphasis>
+<emphasis id="em1011" effect="italics">
+. 
+That is the topic of the next section.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Learn_objectoriented_programming_fundamentals" effect="bold">
+
+Learn 
+object-oriented programming fundamentals
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+This is where things become more interesting. At this point, you 
+will need to begin studying three portions of two different Ebooks in parallel 
+and to integrate what you 
+learn in your mind.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+First and foremost, you need to begin studying the material that begins at 
+
+
+<link id="a1032" url="http://cnx.org/contents/dzOvxPFw:rOlnsVRr">
+
+Java1600: Objects and Encapsulation
+
+</link>
+
+ 
+in order to start understanding the important aspects of 
+object-oriented programming.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+In conjunction with that, you need to start taking the assessment tests in the Ebook 
+titled 
+
+<link id="a1033" url="http://cnx.org/contents/1CVBGBJj">
+
+Java OOP Self-Assessment
+
+</link>
+
+ to confirm your knowledge of that material.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+Once you start feeling comfortable that you are gaining an understanding of 
+OOP from a largely theoretical viewpoint, you need to study the following six 
+lessons for the purpose of applying the OOP concepts to 
+
+
+<emphasis id="more_meaningful_programs" effect="bold">
+
+more meaningful 
+programs
+
+</emphasis>
+
+.
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1026">
+<link id="a1034" url="http://cnx.org/contents/dzOvxPFw:0xo_9JXz">
+
+Java3000: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1035" url="http://cnx.org/contents/dzOvxPFw:qJgLGFl5">
+
+Java3000r Review
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1036" url="http://cnx.org/contents/dzOvxPFw:WpmhN38H">
+
+Java3002: Creating and Manipulating Turtles and Pictures in a World Object
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1037" url="http://cnx.org/contents/dzOvxPFw:C0a0NBaZ">
+
+Java3002r Review
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1038" url="http://cnx.org/contents/dzOvxPFw:Sc6k8KyF">
+
+Java3003: Drawing Graphs with Turtles and Pixels
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1039" url="http://cnx.org/contents/dzOvxPFw:nezOEDSQ#Program_1">
+
+Program 1
+
+</link>
+
+ 
+	in the section titled 
+
+<link id="a1040" url="http://cnx.org/contents/dzOvxPFw:nezOEDSQ">
+
+Java OOP: ITSE 2321 Practice Group 1
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1019">
+By the time you understand the material in the six lessons listed
+	
+
+<link id="a1041" target-id="more_meaningful_programs">
+
+above
+
+</link>
+
+, you should be fully capable 
+	of writing and submitting a correct version of the first assignment. 
+	However, in case you need more help in that regard, I am going to provide 
+	two sample programs, each of which deals with part of the requirements of 
+	the first programming assignment. It will be up to you to understand and to 
+	integrate the concepts illustrated by these sample programs into a single 
+	program that satisfies the requirements of the first assignment.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Note that in addition to these two sample programs and the sample programs in 
+the lessons listed 
+
+<link id="a1042" target-id="more_meaningful_programs">
+
+above
+
+</link>
+
+, there are many 
+other sample programs in the section of the Ebook that begins
+
+
+<link id="a1043" url="http://cnx.org/contents/dzOvxPFw:nezOEDSQ">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<section id="h21005">
+<title>
+<emphasis id="Working_with_turtles_in_general" effect="bold">
+
+Working with turtles in general
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+Most of the programming assignments in this course are structured as follows. 
+Along with a program specification document, I provide a short Java source code 
+file containing a class definition that I often refer to as the driver class. I 
+also provide any necessary image files. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The student is not allowed to make any changes to the driver class. Instead, 
+the student must write one or more source code files which, when compiled and 
+executed in conjunction with the driver class, will produce the required output. 
+In the program that I describe here, the driver class is named 
+
+<emphasis id="strong1003" effect="bold">
+Turtles01
+
+</emphasis>
+ 
+and the code that the student would be required to write would be in the class 
+named 
+
+<emphasis id="strong1004" effect="bold">
+Turtles01Runner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The student only submits the source code files for the classes defined by the 
+student. In this program, that code would be in a file named 
+
+<emphasis id="strong1005" effect="bold">
+
+Turtles01Runner.java
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<link id="a1044" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ and 
+
+<link id="a1045" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ near the end of the lesson show the source code for 
+the driver class and the 
+
+<emphasis id="strong1006" effect="bold">
+Turtles01Runner
+
+</emphasis>
+ class for this 
+program.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+This program produces the output image shown in 
+
+<link id="a1046" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Graphic output from Turtles01.
+
+
+<para id="p1026">
+<media id="media1000" alt="MISSING IMAGE" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/turtles01output.jpg" width="379" height="294"/>
+</media>
+
+
+</para>
+
+
+
+ 
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1027">
+Once you have access to the first assignment, you should be able to some 
+similarities between the output image in 
+
+<link id="a1047" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ and the required output image 
+for the first assignment.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Drawing_a_circle_with_a_turtle" effect="bold">
+
+Drawing a circle with a turtle
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+Like the previous program, the program presented in this section has a driver 
+class named 
+
+<emphasis id="strong1007" effect="bold">
+Circles01
+
+</emphasis>
+ and another class named 
+
+<emphasis id="strong1008" effect="bold">
+
+Circles01Runner
+
+</emphasis>
+. The source code for those two class definitions is 
+shown in 
+
+<link id="a1048" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ and 
+
+<link id="a1049" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The output image produced by this program is shown in 
+
+<link id="a1050" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ Graphic output from Circles01.
+
+
+<para id="p1030">
+<media id="media1001" alt="MISSING IMAGE" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/circles01.jpg" width="259" height="286"/>
+</media>
+
+
+</para>
+
+
+ 
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1031">
+I encourage you to copy the code from 
+
+<link id="a1051" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ through 
+
+<link id="a1052" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+. Compile 
+and execute the code for each program and confirm 
+that you get the same results as those shown in 
+
+<link id="a1053" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ and 
+
+<link id="a1054" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+. 
+
+<emphasis id="em1012" effect="italics">
+
+(Click 
+
+<link id="a1055" url="Turtles01.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the image file required by 
+the Turtles program.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The driver class named Turtles01.
+
+
+<code id="pre1000" display="block">
+/*File Turtles01 Copyright 2010 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+
+public class Turtles01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Turtles01Runner obj = new Turtles01Runner();
+    obj.run();
+  }//end main
+}//end class Turtles01
+//End program specifications.</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The class named Turtles01Runner.
+
+
+<code id="pre1001" display="block">
+/*File Turtles01Runner Copyright 2016 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+
+class Turtles01Runner{
+  //Declare the World and Turtle objects.
+  private World mars;
+  private Turtle aTurtle;
+
+  public void run(){
+    //Replace the default all-white picture with another
+    // picture.
+    Picture picture = new Picture("Turtles01.jpg");
+    mars =
+        new World(picture.getWidth(),picture.getHeight());
+    mars.setPicture(picture);
+    aTurtle = new Turtle(mars);
+
+    aTurtle.penDown();
+    aTurtle.setPenColor(Color.GREEN);
+    aTurtle.setPenWidth(1);
+    aTurtle.forward(110);
+    
+    aTurtle.turn(-90);
+    aTurtle.setPenWidth(2);
+    aTurtle.setPenColor(Color.RED);
+    aTurtle.forward(110);
+
+    aTurtle.turn(-90);
+    aTurtle.setPenWidth(3);
+    aTurtle.setPenColor(Color.YELLOW);
+    aTurtle.forward(110);
+    
+    aTurtle.setPenWidth(4);
+    aTurtle.setPenColor(Color.BLUE);
+    aTurtle.forward(110);
+
+    aTurtle.turn(-90);
+    aTurtle.setPenWidth(5);
+    aTurtle.setPenColor(Color.GREEN);
+    aTurtle.forward(110);
+
+  }//end run method
+}//end class Turtles01Runner</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The class named Circles01.
+
+
+<code id="pre1002" display="block">
+/*File Circles01 Copyright 2016 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+
+public class Circles01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Circles01Runner obj = new Circles01Runner();
+    obj.run();
+  }//end main
+}//end class Circles01
+//End program specifications.</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The class named Circles01Runner.
+
+
+<code id="pre1003" display="block">
+/*File Circles01Runner Copyright 2016 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+
+class Circles01Runner{
+  //Declare the World and Turtle objects.
+  private World mars;
+  private Turtle aTurtle;
+
+  public void run(){
+    mars = new World(240,240);
+    aTurtle = new Turtle(mars);
+    double radius = 110;
+
+    aTurtle.turn(90);
+    aTurtle.penUp();
+    aTurtle.setPenColor(Color.RED);
+    aTurtle.setPenWidth(1);
+    aTurtle.forward((int)radius);
+    
+    //Draw the semicircle
+    aTurtle.penDown();
+    aTurtle.setPenWidth(3);
+    double dY = 0.0;
+    double dX = radius;
+    while(dX &gt; -radius){
+      dX-=1;
+      dY = Math.sqrt(radius*radius - dX*dX);
+      aTurtle.moveTo((int)dX+mars.getWidth()/2,
+                     (int)dY+mars.getHeight()/2);
+    }//end while loop
+  }//end run method
+}//end class Circles01Runner</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1033">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1009" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1032">
+Module name: Java1554 Completing the First Assignment
+
+</item>
+
+
+					
+
+<item id="li1033">
+File: Java1554.htm
+
+</item>
+
+
+					
+
+<item id="li1034">
+Published: 10/02/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1010" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1034">
+<emphasis id="strong1011" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1035">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1036">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1037">
+<emphasis id="strong1012" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1038">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

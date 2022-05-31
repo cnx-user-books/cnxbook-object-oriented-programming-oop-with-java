@@ -1,0 +1,3519 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4060r: Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48121</md:content-id>
+  <md:title>Java4060r: Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java4060: Duplicate Elements, Ordered Collections, Sorted Collections, and Interface Specialization.</md:abstract>
+  <md:uuid>96c20b80-6fe4-4efa-b2b9-ea510dcdf0d5</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed Apr 06 12:34:49 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1012" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question10">
+
+10
+
+</link>
+
+, 
+		
+
+<link id="a1014" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question12">
+
+12
+
+</link>
+
+, 
+		
+
+<link id="a1016" target-id="question13">
+
+13
+
+</link>
+
+, 
+		
+
+<link id="a1017" target-id="question14">
+
+14
+
+</link>
+
+, 
+		
+
+<link id="a1018" target-id="question15">
+
+15
+
+</link>
+
+,
+		
+
+<link id="a1019" target-id="question16">
+
+16
+
+</link>
+
+,
+		
+
+<link id="a1020" target-id="question17">
+
+17
+
+</link>
+
+, 
+		
+
+<link id="a1021" target-id="question18">
+
+18
+
+</link>
+
+,
+		
+
+<link id="a1022" target-id="question19">
+
+19
+
+</link>
+
+,
+		
+
+<link id="a1023" target-id="question20">
+
+20
+
+</link>
+
+,
+		
+
+<link id="a1024" target-id="question21">
+
+21
+
+</link>
+
+,
+		
+
+<link id="a1025" target-id="question22">
+
+22
+
+</link>
+
+,
+		
+
+<link id="a1026" target-id="question23">
+
+23
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1027" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1028" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one in a collection of modules on Java Collections designed for 
+teaching 
+
+<emphasis id="em1003" effect="italics">
+ITSE2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+ at Austin Community 
+College in Austin, TX.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module contains review questions and answers keyed to the module titled
+
+
+<link id="a1029" url="http://cnx.org/contents/TAVNBSqr">
+
+Java4060: Duplicate Elements, Ordered Collections, Sorted Collections, and 
+Interface Specialization
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+Once you study that module, you should be able to answer the review 
+questions in this module.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+The questions and the answers in this module are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1006">
+True or False? The Java Collections Framework defines eight core interfaces, 
+in two distinct trees.
+
+</para>
+
+
+
+
+
+
+<para id="p1007">
+<link id="a1030" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+True or False? All eight of the core interfaces are rooted in the interface 
+named 
+
+<emphasis id="strong1001" effect="bold">
+Collection
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1031" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False? A 
+
+<emphasis id="strong1002" effect="bold">
+Set
+
+</emphasis>
+ object can contain duplicate elements, but a 
+
+<emphasis id="strong1003" effect="bold">
+
+List
+
+</emphasis>
+ object cannot contain duplicate elements.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1032" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? The 
+
+<emphasis id="strong1004" effect="bold">
+TreeSet
+
+</emphasis>
+ class is a direct implementation of the 
+
+<emphasis id="strong1005" effect="bold">
+
+Collection
+
+</emphasis>
+ interface. 
+
+<emphasis id="em1004" effect="italics">
+(See the Java documentation.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1033" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+True or False? The interface hierarchy for the Java Collections Framework is 
+shown below with indentation used to show a parent-child relationship:
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1007">
+Collection 	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+Set
+		
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1009">
+SortedSet
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1010">
+List
+
+</item>
+
+
+		
+
+<item id="li1011">
+Queue
+
+</item>
+
+
+		
+
+<item id="li1012">
+Deque
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1013">
+Map
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1014">
+SortedMap
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1015">
+<link id="a1034" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+True or False? The 
+
+<emphasis id="strong1006" effect="bold">
+ArrayList
+
+</emphasis>
+ class is a direct 
+implementation of the Collection interface. 
+
+<emphasis id="em1005" effect="italics">
+(See the Java documentation.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+<link id="a1035" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+True or False? In Java, a 
+
+<emphasis id="strong1007" effect="bold">
+Set
+
+</emphasis>
+ is a collection that contains no duplicate 
+elements. The 
+
+<emphasis id="strong1008" effect="bold">
+Set
+
+</emphasis>
+ interface models the mathematical 
+
+<emphasis id="em1006" effect="italics">
+set
+
+</emphasis>
+ 
+abstraction.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<link id="a1036" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1020">
+True or False? In Java, a 
+
+<emphasis id="strong1009" effect="bold">
+List
+
+</emphasis>
+ is an ordered collection 
+
+<emphasis id="em1007" effect="italics">
+(also 
+known as a sequence)
+
+</emphasis>
+. The user of the 
+
+<emphasis id="strong1010" effect="bold">
+List
+
+</emphasis>
+ interface has 
+precise control over where in the list each element is inserted. The user can 
+access elements by their integer index 
+
+<emphasis id="em1008" effect="italics">
+(position in the list)
+
+</emphasis>
+, and 
+search for elements in the list.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1021">
+<link id="a1037" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or False? The term 
+
+<emphasis id="em1009" effect="italics">
+ordered
+
+</emphasis>
+ is a synonym for 
+
+<emphasis id="em1010" effect="italics">
+sorted
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<link id="a1038" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+True or False? An 
+
+<emphasis id="em1011" effect="italics">
+ordered
+
+</emphasis>
+ collection is one in which the position of 
+each element is determined by its value relative to the values of its 
+predecessors and successors.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<link id="a1039" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+True or False? A 
+
+<emphasis id="em1012" effect="italics">
+sorted
+
+</emphasis>
+ collection is one in which the position 
+of each element is determined by its value relative to the values of its 
+predecessors and successors.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<link id="a1040" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+True or False? Ascending sort order is always required for a Java collection.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<link id="a1041" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+True or False? Ascending sort order is always required for a Java collection 
+that implements the 
+
+<emphasis id="strong1011" effect="bold">
+SortedSet
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1042" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+True or False? If a 
+
+<emphasis id="strong1012" effect="bold">
+SortedSet
+
+</emphasis>
+ object contains references to 
+
+<emphasis id="strong1013" effect="bold">
+
+String
+
+</emphasis>
+ objects, the 
+
+<emphasis id="em1013" effect="italics">
+natural ascending sort
+
+</emphasis>
+ would take the 
+difference between upper case and lower case characters into account. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<link id="a1043" target-id="answer14">
+
+Answer 14
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+True or False? A 
+
+<emphasis id="strong1014" effect="bold">
+SortedSet
+
+</emphasis>
+ object containing references to 
+
+<emphasis id="strong1015" effect="bold">
+
+String
+
+</emphasis>
+ objects will always take the difference between upper case and lower 
+case characters into account when establishing the sort order.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<link id="a1044" target-id="answer15">
+
+Answer 15
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="question16" effect="bold">
+
+Question 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+True or False? Specific sub-interfaces of the 
+
+<emphasis id="strong1016" effect="bold">
+Collection
+
+</emphasis>
+ interface can 
+define requirements that do not apply to all sub-interfaces of the 
+
+<emphasis id="strong1017" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<link id="a1045" target-id="answer16">
+
+Answer 16
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="question17" effect="bold">
+
+Question 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+True or False? A collection that implements the 
+
+<emphasis id="strong1018" effect="bold">
+List
+
+</emphasis>
+ interface 
+maintains its elements in ascending alphanumeric order.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<link id="a1046" target-id="answer17">
+
+Answer 17
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="question18" effect="bold">
+
+Question 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+True or False? A collection that implements the 
+
+<emphasis id="strong1019" effect="bold">
+List
+
+</emphasis>
+ interface is an 
+unordered collection.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1047" target-id="answer18">
+
+Answer 18
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="question19" effect="bold">
+
+Question 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+True or False? A collection that implements the 
+
+<emphasis id="strong1020" effect="bold">
+List
+
+</emphasis>
+ interface is 
+allowed to contain duplicate values.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1048" target-id="answer19">
+
+Answer 19
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="question20" effect="bold">
+
+Question 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+True or False? The contracts of the methods in the 
+
+<emphasis id="strong1021" effect="bold">
+List
+
+</emphasis>
+ interface are 
+the same as the contracts of the methods inherited from the 
+
+<emphasis id="strong1022" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<link id="a1049" target-id="answer20">
+
+Answer 20
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="question21" effect="bold">
+
+Question 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+True or False? The 
+
+<emphasis id="strong1023" effect="bold">
+iterator
+
+</emphasis>
+ method for the 
+
+<emphasis id="strong1024" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface returns an iterator over the elements in the collection in proper 
+sequence, where the sequence is determined by the numeric index.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<link id="a1050" target-id="answer21">
+
+Answer 21
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="question22" effect="bold">
+
+Question 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+True or False? The 
+
+<emphasis id="strong1025" effect="bold">
+iterator
+
+</emphasis>
+ method for the 
+
+<emphasis id="strong1026" effect="bold">
+List
+
+</emphasis>
+ interface 
+returns an iterator over the elements in the collection in proper sequence, 
+where the sequence is determined by the numeric index.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<link id="a1051" target-id="answer22">
+
+Answer 22
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="question23" effect="bold">
+
+Question 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+True or False? The 
+
+<emphasis id="strong1027" effect="bold">
+SortedSet
+
+</emphasis>
+ interface 
+
+<emphasis id="em1014" effect="italics">
+"guarantees that its 
+iterator will traverse the set in ascending element order, sorted according to 
+the natural ordering of its elements (see 
+
+<emphasis id="strong1028" effect="bold">
+Comparable
+
+</emphasis>
+), or by a
+
+
+<emphasis id="strong1029" effect="bold">
+Comparator
+
+</emphasis>
+ provided at sorted set creation time."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+<link id="a1052" target-id="answer23">
+
+Answer 23
+
+</link>
+
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1030" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1054">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21023">
+<title>
+<emphasis id="answer23" effect="bold">
+
+Answer 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1056">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<link id="a1053" target-id="question23">
+
+Back to Question 23
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer22" effect="bold">
+
+Answer 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<link id="a1054" target-id="question22">
+
+Back to Question 22
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer21" effect="bold">
+
+Answer 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+False. The 
+
+<emphasis id="strong1031" effect="bold">
+iterator
+
+</emphasis>
+ method for the 
+
+<emphasis id="strong1032" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface returns an iterator over the elements in the collection where there 
+are no guarantees concerning the order in which the elements are returned by the 
+methods of the 
+
+<emphasis id="strong1033" effect="bold">
+Iterator
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<link id="a1055" target-id="question21">
+
+Back to Question 21
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer20" effect="bold">
+
+Answer 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1062">
+False. According to Oracle, 
+
+<emphasis id="em1015" effect="italics">
+"The 
+
+<emphasis id="strong1034" effect="bold">
+List
+
+</emphasis>
+ interface places additional 
+stipulations, beyond those specified in the 
+
+<emphasis id="strong1035" effect="bold">
+Collection
+
+</emphasis>
+ interface, on the 
+contracts of the 
+
+<emphasis id="strong1036" effect="bold">
+iterator
+
+</emphasis>
+, 
+
+<emphasis id="strong1037" effect="bold">
+add
+
+</emphasis>
+, 
+
+<emphasis id="strong1038" effect="bold">
+remove
+
+</emphasis>
+, 
+
+<emphasis id="strong1039" effect="bold">
+equals
+
+</emphasis>
+, and
+
+
+<emphasis id="strong1040" effect="bold">
+hashCode
+
+</emphasis>
+ methods."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+<link id="a1056" target-id="question20">
+
+Back to Question 20
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer19" effect="bold">
+
+Answer 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+True. Unlike a collection that implements the 
+
+<emphasis id="strong1041" effect="bold">
+Set
+
+</emphasis>
+ interface, a 
+collection that implements the 
+
+<emphasis id="strong1042" effect="bold">
+List
+
+</emphasis>
+ interface is typically allowed to 
+contain duplicate values.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<link id="a1057" target-id="question19">
+
+Back to Question 19
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21028">
+<title>
+<emphasis id="answer18" effect="bold">
+
+Answer 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+False. A collection that implements the 
+
+<emphasis id="strong1043" effect="bold">
+List
+
+</emphasis>
+ interface is an ordered 
+collection 
+
+<emphasis id="em1016" effect="italics">
+(also known as a sequence)
+
+</emphasis>
+. According to Oracle, 
+
+<emphasis id="em1017" effect="italics">
+"The user 
+of the interface has precise control over where in the list each element is 
+inserted." 
+
+</emphasis>
+Elements can be inserted and retrieved on the basis of their 
+integer index 
+
+<emphasis id="em1018" effect="italics">
+(position in the list)
+
+</emphasis>
+ using the following methods: 
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1015">
+<emphasis id="strong1044" effect="bold">
+add(int index, Object element)
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1016">
+<emphasis id="strong1045" effect="bold">
+get(int index)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1067">
+Valid index values are positive integers that begin with zero.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Another version of the 
+
+<emphasis id="strong1046" effect="bold">
+add
+
+</emphasis>
+ method takes a reference to an object as an 
+incoming parameter and appends the specified element to the end of the 
+collection.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<link id="a1058" target-id="question18">
+
+Back to Question 18
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21029">
+<title>
+<emphasis id="answer17" effect="bold">
+
+Answer 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+False. Unlike collections that implement the 
+
+<emphasis id="strong1047" effect="bold">
+SortedSet
+
+</emphasis>
+ interface, the 
+order of the elements in a collection that implements the 
+
+<emphasis id="strong1048" effect="bold">
+List
+
+</emphasis>
+ interface 
+is not based on the values of the objects referred to by the elements in the 
+list. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<link id="a1059" target-id="question17">
+
+Back to Question 17
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21030">
+<title>
+<emphasis id="answer16" effect="bold">
+
+Answer 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1072">
+True. For example, the 
+
+<emphasis id="strong1049" effect="bold">
+add
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1050" effect="bold">
+Set
+
+</emphasis>
+ interface 
+stipulates the following:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1019" effect="italics">
+"Adds the specified element to this set if it is not already present."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1073">
+On the other hand, the 
+
+<emphasis id="strong1051" effect="bold">
+add
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1052" effect="bold">
+Collection
+
+</emphasis>
+ interface 
+simply states:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1020" effect="italics">
+"Ensures that this collection contains the specified element."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1074">
+Thus, the contract for the 
+
+<emphasis id="strong1053" effect="bold">
+add
+
+</emphasis>
+ method of an object of a class that 
+implements the 
+
+<emphasis id="strong1054" effect="bold">
+Set
+
+</emphasis>
+ interface is more specialized than the contract for 
+the 
+
+<emphasis id="strong1055" effect="bold">
+add
+
+</emphasis>
+ method of an object of a class that implements the 
+
+<emphasis id="strong1056" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<link id="a1060" target-id="question16">
+
+Back to Question 16
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21031">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1076">
+False. You can cause the sort order to ignore case by providing an object of 
+a class that implements the 
+
+<emphasis id="strong1057" effect="bold">
+Comparator
+
+</emphasis>
+ interface, and which defines the 
+
+<emphasis id="strong1058" effect="bold">
+compare 
+method 
+
+</emphasis>
+and the 
+
+<emphasis id="strong1059" effect="bold">
+equals
+
+</emphasis>
+ method in such a way as to eliminate case 
+considerations for comparisons of 
+
+<emphasis id="strong1060" effect="bold">
+String
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<link id="a1061" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21032">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<link id="a1062" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21033">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+False. Implementations of the interface named 
+
+<emphasis id="strong1061" effect="bold">
+SortedSet 
+
+</emphasis>
+do maintain 
+their elements in sorted order. However, that order is not necessarily 
+ascending. When an object is instantiated from a class that implements the 
+
+<emphasis id="strong1062" effect="bold">
+
+SortedSet
+
+</emphasis>
+ interface, the sorting order 
+for that object can be established by providing an object instantiated from a 
+class that implements the 
+
+<emphasis id="strong1063" effect="bold">
+Comparator
+
+</emphasis>
+ interface. In that case, the author 
+of the class that implements the 
+
+<emphasis id="strong1064" effect="bold">
+Comparator
+
+</emphasis>
+ interface determines the 
+order imposed on the elements in the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1063" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21034">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+False. Not all implementations of the 
+
+<emphasis id="strong1065" effect="bold">
+Collection
+
+</emphasis>
+ interface maintain 
+the elements in ascending sort order. Some may, and others do not. For example, 
+implementations of the 
+
+<emphasis id="strong1066" effect="bold">
+List
+
+</emphasis>
+ interface 
+
+<emphasis id="em1021" effect="italics">
+(such as
+
+
+<emphasis id="strong1067" effect="bold">
+ArrayList
+
+</emphasis>
+)
+
+</emphasis>
+ do not maintain their elements in sorted order 
+at all. In other words, the position of an element in an 
+
+<emphasis id="strong1068" effect="bold">
+ArrayList
+
+</emphasis>
+ does 
+not depend on the value of the element.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<link id="a1064" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21035">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<link id="a1065" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21036">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+False. An 
+
+<emphasis id="em1022" effect="italics">
+ordered
+
+</emphasis>
+ collection is one in which each element in the 
+collection has a specific position specified by an index. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<link id="a1066" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21037">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1088">
+False. An 
+
+<emphasis id="em1023" effect="italics">
+ordered
+
+</emphasis>
+ collection is not the same as a 
+
+<emphasis id="em1024" effect="italics">
+sorted
+
+</emphasis>
+ 
+collection. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<link id="a1067" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21038">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1090">
+True, according to Oracle.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1091">
+<link id="a1068" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21039">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1092">
+True, according to Oracle.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<link id="a1069" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21040">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+False.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1069" effect="bold">
+ArrayList class:
+
+</emphasis>
+
+				
+
+<code id="pre1000" display="block">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;
+  implements List&lt;E&gt;, RandomAccess, Cloneable, Serializable</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1095">
+The Java Collections Framework doesn't provide any direct implementations of 
+the 
+
+<emphasis id="strong1070" effect="bold">
+Collection
+
+</emphasis>
+ interface. All of the implementations of the interfaces in 
+the 
+
+<emphasis id="strong1071" effect="bold">
+Collection
+
+</emphasis>
+ hierarchy implement one of the sub-interfaces of 
+the 
+
+<emphasis id="strong1072" effect="bold">
+Collection
+
+</emphasis>
+ interface. In the case of the 
+
+<emphasis id="strong1073" effect="bold">
+ArrayList
+
+</emphasis>
+ class, that 
+sub-interface is the 
+
+<emphasis id="strong1074" effect="bold">
+List
+
+</emphasis>
+ interface, which extends the 
+
+<emphasis id="strong1075" effect="bold">
+Collection
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<link id="a1070" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21041">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1097">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<link id="a1071" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21042">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1099">
+False. The 
+
+<emphasis id="strong1076" effect="bold">
+TreeSet
+
+</emphasis>
+ class is not a direct implementation of the 
+
+<emphasis id="strong1077" effect="bold">
+
+Collection
+
+</emphasis>
+ interface. Rather, the 
+
+<emphasis id="strong1078" effect="bold">
+TreeSet
+
+</emphasis>
+ class is a direct 
+implementation of the 
+
+<emphasis id="strong1079" effect="bold">
+SortedSet
+
+</emphasis>
+ interface. The 
+
+<emphasis id="strong1080" effect="bold">
+SortedSet
+
+</emphasis>
+ interface 
+extends the 
+
+<emphasis id="strong1081" effect="bold">
+Set
+
+</emphasis>
+ interface, and the 
+
+<emphasis id="strong1082" effect="bold">
+Set
+
+</emphasis>
+ interface extends the 
+
+<emphasis id="strong1083" effect="bold">
+
+Collection
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<link id="a1072" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21043">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1101">
+False. A 
+
+<emphasis id="strong1084" effect="bold">
+Set
+
+</emphasis>
+ object cannot contain duplicate elements, but a 
+
+<emphasis id="strong1085" effect="bold">
+List
+
+</emphasis>
+ 
+object can contain duplicate elements.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<link id="a1073" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21044">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1103">
+False. One of the trees, which consists of six interfaces, is rooted in the 
+interface named 
+
+<emphasis id="strong1086" effect="bold">
+Collection
+
+</emphasis>
+. The other tree, which consists of 
+two interfaces, is rooted in the interface named 
+
+<emphasis id="strong1087" effect="bold">
+Map
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<link id="a1074" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21045">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1105">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<link id="a1075" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1107">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1088" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1008" list-type="bulleted">
+
+				
+
+<item id="li1017">
+Module name: Java4060r: Review
+
+</item>
+
+
+				
+
+<item id="li1018">
+File: Java4060r.htm 
+
+</item>
+
+
+				
+
+<item id="li1019">
+Published: 11/30/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1089" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1108">
+<emphasis id="strong1090" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1109">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1110">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1111">
+<emphasis id="strong1091" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1112">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

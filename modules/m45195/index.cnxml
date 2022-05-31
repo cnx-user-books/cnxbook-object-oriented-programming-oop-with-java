@@ -1,0 +1,3355 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0210: Java OOP: Operators</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45195</md:content-id>
+  <md:title>Jb0210: Java OOP: Operators</md:title>
+  <md:abstract>Earlier modules have touched briefly on the topic of operators. This module discusses Java operators in depth.</md:abstract>
+  <md:uuid>ef4ade38-71db-4cfa-a565-958f83d6a747</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 13:56:51 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Operators">
+
+Operators
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Arithmetic_operators">
+
+Arithmetic operators
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Relational_and_conditional_logical_operators">
+
+Relational and 
+		conditional (logical) operators
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Bitwise_operators">
+
+Bitwise operators
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Assignment_operators">
+
+Assignment operators
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+Earlier modules have touched briefly on the topic of 
+
+<emphasis id="strong1000" effect="bold">
+operators
+
+</emphasis>
+. This 
+	module discusses Java 
+
+<emphasis id="strong1001" effect="bold">
+operators
+
+</emphasis>
+ in depth. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Illustration of prefix and postfix notation. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Illustration of relational operators.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+The first step in learning to use a new programming language is usually to 
+learn the foundation concepts such as 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1014">
+variables, 
+
+</item>
+
+
+	
+
+<item id="li1015">
+operators, 
+
+</item>
+
+
+	
+
+<item id="li1016">
+types, 
+
+</item>
+
+
+	
+
+<item id="li1017">
+expressions, 
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+flow-of-control, etc. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+This module concentrates on the 
+
+<emphasis id="strong1002" effect="bold">
+operators
+
+</emphasis>
+ 
+used in Java. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Operators" effect="bold">
+
+Operators
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Unary and binary operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Java provides a set of operators that can be used to perform an action on one, two, 
+or 
+
+<link id="a1014" target-id="ternary_">
+
+three
+
+</link>
+
+ operands. An operator that operates on one operand is called a 
+
+<emphasis id="em1003" effect="italics">
+unary
+
+</emphasis>
+ 
+operator. An operator that operates on two operands is called a 
+
+<emphasis id="em1004" effect="italics">
+binary
+
+</emphasis>
+ 
+operator. An operator that operates on three operands is called a 
+
+<emphasis id="em1005" effect="italics">
+ternary
+
+</emphasis>
+ 
+operator.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Some operators can behave either as a unary or as a binary operator. The best 
+known such operator is probably the minus sign 
+
+<emphasis id="em1006" effect="italics">
+(-)
+
+</emphasis>
+. As a binary operator, the minus sign 
+causes its right operand to be subtracted from its left operand. As a unary 
+operator, the minus sign causes the algebraic sign of the right operand to be 
+changed. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1004" effect="bold">
+A 
+
+<emphasis id="ternary_" effect="bold">
+
+ternary
+
+</emphasis>
+
+ operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Java has only one operator that takes three operands. It is a conditional operator, which I 
+sometimes refer to as a cheap 
+
+<emphasis id="strong1005" effect="bold">
+if
+
+</emphasis>
+ statement.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+The first operand is a 
+
+<emphasis id="strong1006" effect="bold">
+boolean
+
+</emphasis>
+ expression, which is followed by a question 
+mark character 
+
+<emphasis id="em1007" effect="italics">
+(?)
+
+</emphasis>
+. The question mark is followed by a second operand, which is 
+followed by a colon character 
+
+<emphasis id="em1008" effect="italics">
+(:)
+
+</emphasis>
+. The colon character is followed by the third 
+operand.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+If the 
+
+<emphasis id="strong1007" effect="bold">
+boolean
+
+</emphasis>
+ expression evaluates to true, the value of the operand following the ? is 
+returned. Otherwise, the value of the operand following the : is returned.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+An example of the syntax follows:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1008" effect="bold">
+Ternary operator syntax
+
+</emphasis>
+
+				
+
+<para id="p1014">
+boolean expression ? value1 : value2
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1015">
+<emphasis id="strong1009" effect="bold">
+Overloaded operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+Unlike C++, Java does not support the creation of overloaded operators in 
+program code. 
+
+<emphasis id="em1009" effect="italics">
+(If you don't know what this means, don't worry about it.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1010" effect="bold">
+Operators from previous programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The statements in the following note box illustrate the use of the following 
+operators from Java 
+
+<emphasis id="programs_in_earlier_modules" effect="bold">
+
+programs in earlier modules
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1019">
+=  
+
+</item>
+
+
+	
+
+<item id="li1020">
+!=  
+
+</item>
+
+
+	
+
+<item id="li1021">
++  
+
+</item>
+
+
+	
+
+<item id="li1022">
+(char)
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Operators_from_previous_programs" effect="bold">
+
+Operators from previous programs
+
+</emphasis>
+
+
+</emphasis>
+
+				
+
+<code id="pre1000" display="block">
+int ch1, ch2 = '0';
+while( (ch1 = System.in.read() ) != '#') ch2 = ch1;
+System.out.println("The char before the # was " 
+                                        + (char)ch2);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1019">
+<emphasis id="strong1012" effect="bold">
+The plus and cast operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+Of particular interest in this 
+
+<link id="a1015" target-id="programs_in_earlier_modules">
+
+list
+
+</link>
+
+ 
+is the plus sign 
+
+<emphasis id="em1010" effect="italics">
+(+)
+
+</emphasis>
+ and the cast operator 
+
+<emphasis id="em1011" effect="italics">
+(char)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+In Java, the plus sign can be 
+used to perform arithmetic addition. It can also be used to concatenate strings. When the plus sign is used in 
+the manner shown 
+
+<link id="a1016" target-id="Operators_from_previous_programs">
+
+above
+
+</link>
+
+, the operand on the right is automatically converted to a character 
+string before being concatenated with the operand on the left. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The cast operator is used 
+
+<link id="a1017" target-id="Operators_from_previous_programs">
+
+in this case
+
+</link>
+
+ to purposely convert the integer value 
+contained in the 
+
+<emphasis id="strong1013" effect="bold">
+int
+
+</emphasis>
+ variable 
+
+<emphasis id="strong1014" effect="bold">
+ch2
+
+</emphasis>
+ to a character type suitable for concatenating 
+with the string on the left of the plus sign. Otherwise, Java would attempt to 
+convert and display the value of the 
+
+<emphasis id="strong1015" effect="bold">
+int
+
+</emphasis>
+ variable as a series of digits representing the 
+
+
+<emphasis id="em1012" effect="italics">
+numeric value
+
+</emphasis>
+ of the character because the character is stored in a variable of 
+type 
+
+<emphasis id="strong1016" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1023">
+<emphasis id="strong1017" effect="bold">
+The increment operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+An extremely important 
+
+<emphasis id="em1013" effect="italics">
+unary
+
+</emphasis>
+ operator is the increment operator 
+identified by two plus characters with no space between them 
+
+<emphasis id="em1014" effect="italics">
+(++)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+The increment operator causes the value of its operand to be increased by 
+one.
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1018" effect="bold">
+The decrement operator
+
+</emphasis>
+
+				
+
+<para id="p1026">
+There is also a decrement operator 
+
+<emphasis id="em1015" effect="italics">
+(--)
+
+</emphasis>
+ that causes 
+				the value of its operand to be decreased by one.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1027">
+The increment and decrement operators are used in both 
+
+<emphasis id="em1016" effect="italics">
+prefix
+
+</emphasis>
+ and 
+
+<emphasis id="em1017" effect="italics">
+postfix
+
+</emphasis>
+ notation.
+
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1019" effect="bold">
+<emphasis id="Prefix_and_postfix_increment_operators" effect="bold">
+
+Prefix and postfix increment 
+and decrement operators
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+With the 
+
+<emphasis id="em1018" effect="italics">
+prefix 
+
+</emphasis>
+version, the operand appears to the right of the 
+operator 
+
+<emphasis id="em1019" effect="italics">
+( ++X)
+
+</emphasis>
+, while with the 
+
+<emphasis id="em1020" effect="italics">
+postfix
+
+</emphasis>
+ version, the operand 
+appears to the left of the operator 
+
+<emphasis id="em1021" effect="italics">
+(X++)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1020" effect="bold">
+What's the difference in prefix and postfix?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The difference in prefix and postfix has to do with the point in the sequence 
+of operations that 
+the increment 
+
+<emphasis id="em1022" effect="italics">
+(or decrement)
+
+</emphasis>
+ actually occurs if the operator and its operand appear as part of 
+a larger overall expression. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="em1023" effect="italics">
+(There is effectively no difference if the operator and its operand do 
+not appear as part of a larger overall expression.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1021" effect="bold">
+Prefix behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+With the 
+
+<emphasis id="em1024" effect="italics">
+prefix
+
+</emphasis>
+ version, the variable is incremented 
+
+<emphasis id="em1025" effect="italics">
+(or 
+decremented)
+
+</emphasis>
+ before it is used 
+to evaluate the larger overall expression. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1022" effect="bold">
+Postfix behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+With the 
+
+<emphasis id="em1026" effect="italics">
+postfix
+
+</emphasis>
+ version, the variable is used to evaluate the larger 
+overall expression before it is incremented 
+
+<emphasis id="em1027" effect="italics">
+(or decremented)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1023" effect="bold">
+Illustration of prefix and postfix behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+The use of both the 
+
+<emphasis id="em1028" effect="italics">
+prefix
+
+</emphasis>
+ and 
+
+<emphasis id="em1029" effect="italics">
+postfix
+
+</emphasis>
+ versions of the 
+increment operator is illustrated in the Java program shown in
+
+
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The output produced by the program is show 
+in the comments at the beginning of the program.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Illustration of prefix 
+				and postfix notation.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">
+/*File incr01.java Copyright 1997, n
+Illustrates the use of the prefix and the postfix increment
+operator.
+
+The output from the program follows:
+
+a = 5
+b = 5
+a + b++ = 10
+b = 6
+
+c = 5
+d = 5
+c + ++d = 11
+d = 6
+
+*********************************************************/
+class incr01 { //define the controlling class
+  public static void main(String[] args){ //main method
+    int a = 5, b = 5, c = 5, d = 5;
+    System.out.println("a = " + a );
+    System.out.println("b = " + b );
+    System.out.println("a + b++ = " + (a + b++) );
+    System.out.println("b = " + b );
+    System.out.println();
+
+    System.out.println("c = " + c );
+    System.out.println("d = " + d );
+    System.out.println("c + ++d = " + (c + ++d) );
+    System.out.println("d = " + d );    
+  }//end main
+}//End incr01 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1024" effect="bold">
+Binary operators and infix notation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+Binary operators use 
+
+<emphasis id="em1030" effect="italics">
+infix
+
+</emphasis>
+ notation, which means that the operator 
+appears between its operands. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1025" effect="bold">
+General behavior of an operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+As a result of performing the specified action, an operator can be said to 
+return a value 
+
+<emphasis id="em1031" effect="italics">
+(or evaluate to a value)
+
+</emphasis>
+ of a given type. The type of 
+value returned depends on the operator and the type of the operands. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1026" effect="bold">
+Evaluating to a value
+
+</emphasis>
+
+				
+
+<para id="p1043">
+To evaluate to a value means that after the action is performed, the operator and its operands are effectively replaced in the expression by the value that is returned. 
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1044">
+<emphasis id="strong1027" effect="bold">
+Operator categories
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+I will divide Java's operators into the following categories for further 
+discussion: 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1023">
+arithmetic operators
+
+</item>
+
+
+	
+
+<item id="li1024">
+relational and conditional 
+
+<emphasis id="em1032" effect="italics">
+(logical)
+
+</emphasis>
+ operators
+
+</item>
+
+
+	
+
+<item id="li1025">
+bitwise operators
+
+</item>
+
+
+	
+
+<item id="li1026">
+assignment operators
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Arithmetic_operators" effect="bold">
+
+Arithmetic operators
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+Java supports various arithmetic operators on all floating point and integer 
+numbers.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1028" effect="bold">
+The binary arithmetic operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+The following table lists the 
+
+<emphasis id="em1033" effect="italics">
+binary
+
+</emphasis>
+ arithmetic operators supported by 
+Java. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1029" effect="bold">
+The binary arithmetic operators
+
+</emphasis>
+
+				
+
+<code id="pre1002" display="block">
+Operator    Description                              
+   
+   +        Adds its operands                        
+   -        Subtracts the right operand from the left 
+            operand
+   *        Multiplies the operands                  
+   /        Divides the left operand by the right operand
+   %        Remainder of dividing the left operand by 
+            the right operand</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1049">
+<emphasis id="strong1030" effect="bold">
+String concatenation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+As mentioned earlier, the plus operator 
+
+<emphasis id="em1034" effect="italics">
+(+)
+
+</emphasis>
+ is also used to 
+concatenate strings as in the following code fragment: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1031" effect="bold">
+<emphasis id="String_concatenation" effect="bold">
+
+String concatenation
+
+</emphasis>
+
+
+
+
+</emphasis>
+
+				
+
+<code id="pre1003" display="block">
+"MyVariable has a value of  " 
+                      + MyVariable + " in this program."</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1051">
+<emphasis id="strong1032" effect="bold">
+Coercion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+Note that 
+
+<link id="a1019" target-id="String_concatenation">
+
+this operation
+
+</link>
+
+ also coerces the 
+value of 
+
+<emphasis id="strong1033" effect="bold">
+MyVariable
+
+</emphasis>
+ to a string representation for use in the 
+expression only. However, the value stored in the variable is not modified in any lasting 
+way. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1034" effect="bold">
+Unary arithmetic operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+Java supports the following 
+
+<emphasis id="em1035" effect="italics">
+unary
+
+</emphasis>
+ arithmetic operators.
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1055">
+<emphasis id="strong1035" effect="bold">
+Unary arithmetic operators
+
+</emphasis>
+ 
+
+</para>
+
+
+
+				
+
+<code id="pre1004" display="block">
+Operator    Description                              
+
+   +        Indicates a positive value       
+   -        Negates, or changes algebraic sign
+   ++       Adds one to the operand, 
+            both prefix and postfix
+   --       Subtracts one from operand, 
+            both prefix and postfix</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1056">
+The result of the increment and decrement operators being either 
+
+<emphasis id="em1036" effect="italics">
+
+	prefix
+
+</emphasis>
+ or 
+
+<emphasis id="em1037" effect="italics">
+postfix
+
+</emphasis>
+ was discussed
+	
+
+<link id="a1020" target-id="Prefix_and_postfix_increment_operators">
+
+earlier
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Relational_and_conditional_logical_operators" effect="bold">
+
+Relational and 
+conditional (logical) operators
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1036" effect="bold">
+Binary Relational operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Java supports the set of 
+
+<emphasis id="em1038" effect="italics">
+binary 
+
+</emphasis>
+relational operators shown 
+in the following table. Relational operators in Java return either 
+
+<emphasis id="em1039" effect="italics">
+true
+
+</emphasis>
+ or 
+
+<emphasis id="em1040" effect="italics">
+false
+
+</emphasis>
+ as a 
+
+<emphasis id="strong1037" effect="bold">
+boolean
+
+</emphasis>
+ type. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1038" effect="bold">
+Binary Relational operators
+
+</emphasis>
+
+				
+
+<code id="pre1005" display="block">
+Operator    Returns true if   
+   &gt;        Left operand is greater than right operand
+   &gt;=       Left operand is greater than or equal to 
+            right operand
+   &lt;        Left operand is less than right operand  
+   &lt;=       Left operand is less than or equal to 
+            right operand
+   ==       Left operand is equal to right operand   
+   !=       Left operand is not equal to right operand</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1059">
+<emphasis id="strong1039" effect="bold">
+Conditional expressions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+Relational operators are frequently used in the conditional expressions of 
+control statement such as the one in the code fragment shown below.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1040" effect="bold">
+Conditional expressions
+
+
+</emphasis>
+
+				
+
+<code id="pre1006" display="block">
+if(LeftVariable &lt;= RightVariable). . .</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1061">
+<emphasis id="strong1041" effect="bold">
+Illustration of relational operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+The program shown in 
+
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ illustrates the 
+result of applying relational operators in Java. The output is shown in the 
+comments at the beginning of the program. Note that the program automatically 
+displays 
+
+<emphasis id="strong1042" effect="bold">
+true
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1043" effect="bold">
+false
+
+</emphasis>
+ as a result of applying the relational operators. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Illustration of relational operators.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1007" display="block">
+/*File relat01.java Copyright 1997, R.G.Baldwin
+Illustrates relational operators.
+
+Output is
+
+The relational 6&lt;5 is false
+The relational 6&gt;5 is true
+
+*********************************************************/
+class relat01 { //define the controlling class
+  public static void main(String[] args){ //main method
+    System.out.println("The relational 6&lt;5 is " 
+      +(6&lt;5));
+    System.out.println("The relational 6&gt;5 is " 
+      +(6&gt;5));
+  }//end main
+}//End relat01 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1044" effect="bold">
+Conditional operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+The relational operators are often combined with another set of operators 
+
+<emphasis id="em1041" effect="italics">
+
+(referred to as conditional or logical operators)
+
+</emphasis>
+ to construct more complex 
+expressions. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Java supports three such operators as shown in the following table. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1045" effect="bold">
+<emphasis id="Conditional_operators" effect="bold">
+
+Conditional 
+				or logical operators
+
+</emphasis>
+
+
+</emphasis>
+
+				
+
+<code id="pre1008" display="block">
+Operator  Typical Use            Returns true if     
+   &amp;&amp;     Left &amp;&amp; Right     Left and Right are both true
+   ||     Left || Right     Either Left or Right is true
+   !      ! Right           Right is false</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1066">
+The operands shown in the 
+
+<link id="a1022" target-id="Conditional_operators">
+
+table
+
+</link>
+
+ must 
+	be 
+
+<emphasis id="strong1046" effect="bold">
+boolean
+
+</emphasis>
+<emphasis id="em1042" effect="italics">
+ 
+
+</emphasis>
+types, or must have 
+	been created by the evaluation of an expression that returns a 
+
+<emphasis id="strong1047" effect="bold">
+
+	boolean
+
+</emphasis>
+ 
+	type.
+
+</para>
+
+
+
+	
+	
+
+<para id="p1067">
+<emphasis id="strong1048" effect="bold">
+Left to right evaluation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+An important characteristic of the behavior of the logical 
+
+<emphasis id="strong1049" effect="bold">
+<emphasis id="em1043" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+ 
+and
+the logical 
+
+<emphasis id="strong1050" effect="bold">
+<emphasis id="em1044" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+ operators is that the expressions are evaluated from left to 
+right, and the evaluation of the expression is terminated as soon as the result 
+of evaluating the expression can be determined. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+For example, in the following expression, if the variable 
+
+<emphasis id="strong1051" effect="bold">
+a
+
+</emphasis>
+ 
+is less than the variable 
+
+<emphasis id="strong1052" effect="bold">
+b
+
+</emphasis>
+ , there is no need to evaluate the 
+right operand of the 
+
+<emphasis id="strong1053" effect="bold">
+||
+
+</emphasis>
+ to determine that the result of 
+evaluating the entire expression would be 
+
+<emphasis id="strong1054" effect="bold">
+true
+
+</emphasis>
+. Therefore, evaluation will terminate as soon as the answer can be 
+determined. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1055" effect="bold">
+Left to right evaluation
+
+</emphasis>
+
+				
+
+<code id="pre1009" display="block">
+(a &lt; b) || (c &lt; d)</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1070">
+<emphasis id="strong1056" effect="bold">
+Don't confuse bitwise and with logical and
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+As discussed in the next section, the symbols shown below are the bitwise 
+
+<emphasis id="strong1057" effect="bold">
+
+
+
+<emphasis id="em1045" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+ and the bitwise 
+
+<emphasis id="strong1058" effect="bold">
+<emphasis id="em1046" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1059" effect="bold">
+Bitwise 
+
+<emphasis id="em1047" effect="italics">
+and
+
+</emphasis>
+ and bitwise 
+
+<emphasis id="em1048" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+
+				
+
+<code id="pre1010" display="block">
+&amp; bitwise and
+| bitwise or</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1072">
+One author states that in Java, the bitwise 
+
+<emphasis id="strong1060" effect="bold">
+<emphasis id="em1049" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+ operator can be used 
+as a synonym for the logical 
+
+<emphasis id="strong1061" effect="bold">
+<emphasis id="em1050" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+ and the bitwise
+
+
+<emphasis id="strong1062" effect="bold">
+<emphasis id="em1051" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+ can be used as a 
+synonym for the logical 
+
+<emphasis id="em1052" effect="italics">
+<emphasis id="strong1063" effect="bold">
+inclusive or
+
+</emphasis>
+</emphasis>
+ if both of the operands are 
+
+<emphasis id="strong1064" effect="bold">
+boolean
+
+</emphasis>
+. 
+
+<emphasis id="em1053" effect="italics">
+(I 
+recommend that you don't do that because it could cause confusion for someone 
+reading your code.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Note however that according to a different author, in this case, the 
+evaluation of the expression is not terminated until all operands have been 
+evaluated, thus eliminating the possible advantage of the left-to-right 
+evaluation. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Bitwise_operators" effect="bold">
+
+Bitwise operators
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+Java provides a set of operators that perform actions on their operands one 
+bit at a time as shown in the following table. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1065" effect="bold">
+Bitwise operators
+
+</emphasis>
+
+				
+
+<code id="pre1011" display="block">
+Operator   Typical Use         Operation                  
+
+ &gt;&gt;     OpLeft &gt;&gt; Dist      Shift bits of OpLeft right 
+                            by Dist bits (signed)  
+ &lt;&lt;     OpLeft &lt;&lt; Dist      Shift bits of OpLeft left 
+                            by Dist bits
+ &gt;&gt;&gt;    OpLeft &gt;&gt;&gt; Dist     Shift bits of OpLeft right 
+                            by Dist bits (unsigned)
+ &amp;      OpLeft &amp; OpRight    Bitwise and of the 
+                            two operands
+ |      OpLeft | OpRight    Bitwise </code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1075">
+<emphasis id="strong1066" effect="bold">
+Populating vacated bits for shift operations
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+The 
+
+<emphasis id="em1054" effect="italics">
+signed
+
+</emphasis>
+ right shift operation populates the vacated bits 
+with the sign bit, while the left shift and the 
+
+<emphasis id="em1055" effect="italics">
+unsigned
+
+</emphasis>
+ right shift 
+populate the vacated bits with zeros. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+In all cases, bits shifted off the end are lost. 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1067" effect="bold">
+The rule for bitwise 
+
+<emphasis id="em1056" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+The bitwise 
+
+<emphasis id="strong1068" effect="bold">
+and
+
+</emphasis>
+ operation operates according to the rule 
+that the bitwise 
+
+<emphasis id="strong1069" effect="bold">
+and
+
+</emphasis>
+ of two 1 bits is a 1 bit. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+Any other 
+combination results in a 0 bit. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1070" effect="bold">
+Bitwise inclusive
+
+</emphasis>
+<emphasis id="em1057" effect="italics">
+<emphasis id="strong1071" effect="bold">
+ 
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1072" effect="bold">
+<emphasis id="em1058" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+For the 
+
+<emphasis id="em1059" effect="italics">
+inclusive or
+
+</emphasis>
+, if either bit is a 1, the result is a 1. 
+
+
+</para>
+
+
+
+
+
+<para id="p1083">
+Otherwise, the result is a 0. 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1073" effect="bold">
+Bitwise exclusive
+
+</emphasis>
+<emphasis id="em1060" effect="italics">
+<emphasis id="strong1074" effect="bold">
+ 
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1075" effect="bold">
+<emphasis id="em1061" effect="italics">
+or
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1085">
+For the 
+
+<emphasis id="em1062" effect="italics">
+exclusive or
+
+</emphasis>
+, if either but not both bits is a 1, the result 
+is a 1. 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+Otherwise, the result is a 0. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+Another way to state this is if the bits 
+are different, the result is a 1. If the two bits are the same, the result is a 
+0. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1076" effect="bold">
+The complement operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+Finally, the complement operator changes each 1 to a 0 and changes each 0 to 
+a 1. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Assignment_operators" effect="bold">
+
+Assignment operators
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1077" effect="bold">
+Simple assignment operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+The 
+
+<emphasis id="em1063" effect="italics">
+(=)
+
+</emphasis>
+ is a value assigning 
+
+<emphasis id="em1064" effect="italics">
+binary 
+
+</emphasis>
+operator in Java. 
+The value stored in memory and represented by the right operand is copied into 
+the memory represented by the left operand. 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1078" effect="bold">
+Using the assignment operator with reference variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+You need to be careful and think about what you are doing when you use the 
+assignment operator with reference variables in Java. If you assign one 
+reference variable to another, you simply end up with two reference variables 
+that refer to the same object. You do not end up with two different objects. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="em1065" effect="italics">
+(If what you need is another copy of the object, you may be able to use the
+
+
+</emphasis>
+
+
+
+<emphasis id="strong1079" effect="bold">
+<emphasis id="em1066" effect="italics">
+clone
+
+</emphasis>
+</emphasis>
+<emphasis id="em1067" effect="italics">
+ 
+method to accomplish that.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1080" effect="bold">
+Shortcut assignment operators
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+Java supports the following list of 
+
+<emphasis id="em1068" effect="italics">
+shortcut
+
+</emphasis>
+ 
+assignment operators. These operators allow you to perform an assignment and 
+another operation with a single operator. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1081" effect="bold">
+Shortcut assignment operators
+
+</emphasis>
+
+
+
+<code id="pre1012" display="block">
++= 
+-= 
+*= 
+/= 
+%= 
+&amp;= 
+|= 
+^= 
+&lt;&lt;= 
+&gt;&gt;= 
+&gt;&gt;&gt;=
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1097">
+For example, the two statements that follow perform the same operation. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1082" effect="bold">
+Illustration of shortcut assignment operation
+
+</emphasis>
+
+				
+
+<code id="pre1013" display="block">
+x += y;
+x = x + y;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1098">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1083" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1027">
+Module name: Jb0210: Java OOP: Operators
+
+</item>
+
+
+					
+
+<item id="li1028">
+File: Jb0210
+
+
+</item>
+
+
+					
+
+<item id="li1029">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1030">
+Published at cnx.org: 11/23/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1084" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1099">
+<emphasis id="strong1085" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1100">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1101">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1102">
+<emphasis id="strong1086" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1103">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

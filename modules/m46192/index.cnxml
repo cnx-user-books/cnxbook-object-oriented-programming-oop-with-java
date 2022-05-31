@@ -1,0 +1,4774 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4120: The Comparator Interface, Part 4</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46192</md:content-id>
+  <md:title>Java4120: The Comparator Interface, Part 4</md:title>
+  <md:abstract>This module shows you how to extract the contents of a collection into an array, and how to use a Comparator object to sort the contents of the array into reverse natural order. The module also shows you how to sort the contents of the array into natural order without the use of a Comparator object.</md:abstract>
+  <md:uuid>a7251afa-74f3-4090-9cb5-18ab8501b938</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Apr 07 12:34:58 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="An_array_is_a_container">
+
+An array is a container
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="An_opportune_time">
+
+An opportune time
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+
+
+<item id="li1010">
+<link id="a1010" target-id="Beginning_with_a_quiz_">
+
+Beginning with a quiz
+
+</link>
+
+ 
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Similar_to_previous_programs">
+
+Similar to previous programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="A_new_Vector_object_">
+
+A new Vector object
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="A_Vector_is_a_List_">
+
+A Vector is a List
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="The_fillIt_method_">
+
+The fillIt method
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Iteration_on_a_Vector_">
+
+Iteration on a Vector
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="The_output_">
+
+The output
+
+
+</link>
+
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1017">
+<link id="a1017" target-id="The_toArray_method">
+
+The toArray method
+
+</link>
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="The_contract_">
+
+The contract
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Elements_are_returned_in_ascending_index_order">
+
+Elements are returned in ascending index order
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="A_safe_array_">
+
+A "safe" array
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Displaying_the_contents_of_the_array_">
+
+Display the contents of the array
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1022">
+<link id="a1022" target-id="Sorting_the_array_into_natural_order">
+
+Sorting the array into natural order
+
+</link>
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="The_Comparable_interface_and_polymorphic_behavior_">
+
+The Comparable interface and polymorphic behavior
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Display_the_sorted_array_data_">
+
+Display the sorted array data
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="The_natural_order_for_String_objects">
+
+The natural order for String objects
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1026">
+<link id="a1026" target-id="Sort_the_array_with_a_Comparator_">
+
+Sort the array with a Comparator
+
+</link>
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="What_does_Oracle_have_to_say_about_this_">
+
+What does Oracle have to say about this?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" target-id="TheComparator_class_">
+
+The class named TheComparator
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1029" target-id="Display_the_array_contents_again">
+
+Display the array contents again
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Could_have_sorted_differently_">
+
+Could have sorted differently
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1031">
+<link id="a1031" target-id="Display_the_collection_data_again">
+
+Display the collection data again
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1032">
+<link id="a1032" target-id="The_bottom_line">
+
+The bottom line
+
+</link>
+
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1034" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1035" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1036" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module shows you how to extract the contents of a collection into an 
+array, and how to use a 
+
+<emphasis id="strong1000" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the contents 
+of the array into reverse natural order. The module also shows you how to sort 
+the contents of the array into natural order without the use of a 
+
+<emphasis id="strong1001" effect="bold">
+
+Comparator
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1037" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1038" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named Comparator 05. 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1040" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. A new Vector object. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Call the fillIt method. 
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The fillIt method. 
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1043" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Iteration on a Vector. 
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1044" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Call the toArray method. 
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1045" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display the contents of the array. 
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1046" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Sorting the array into natural order. 
+
+</item>
+
+
+	
+
+<item id="li1045">
+<link id="a1047" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Display the sorted array data. 
+
+</item>
+
+
+	
+
+<item id="li1046">
+<link id="a1048" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Sort the array with a Comparator. 
+
+</item>
+
+
+	
+
+<item id="li1047">
+<link id="a1049" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. The class named TheComparator. 
+
+</item>
+
+
+	
+
+<item id="li1048">
+<link id="a1050" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Display the contents again.
+
+</item>
+
+
+	
+
+<item id="li1049">
+<link id="a1051" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Display the collection data again.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+The primary purpose of recent modules in this series was to teach you about the 
+interactions between the 
+
+<emphasis id="strong1002" effect="bold">
+Comparator
+
+</emphasis>
+ interface and the Collections 
+Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+This module departs somewhat from that primary purpose and teaches 
+you how to use a 
+
+<emphasis id="strong1003" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the contents of an array 
+containing references to objects. Technically speaking, an array is not part of 
+the core Collections Framework. However, it is definitely a first cousin to the 
+Framework. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="An_array_is_a_container" effect="bold">
+
+An array is a container
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+As you should already know, an array is a container that can be used to 
+store a collection of primitive values or a collection of references to objects. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+The 
+
+<emphasis id="strong1004" effect="bold">
+Collection
+
+</emphasis>
+ interface declares a method named 
+
+<emphasis id="strong1005" effect="bold">
+toArray
+
+</emphasis>
+, which 
+can be called on a 
+
+<emphasis id="strong1006" effect="bold">
+Collection
+
+</emphasis>
+ object to 
+
+<emphasis id="em1003" effect="italics">
+"return an array containing 
+all of the elements in this collection whose runtime type is that of the 
+specified array"
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="An_opportune_time" effect="bold">
+
+An opportune time
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+Since you are studying this sub-series of modules to learn about the uses of 
+the 
+
+<emphasis id="strong1007" effect="bold">
+Comparator
+
+</emphasis>
+ interface, this seems like an opportune time to teach you 
+how to get an array from a collection, and how to use the 
+
+<emphasis id="strong1008" effect="bold">
+Comparator
+
+</emphasis>
+ 
+interface to sort the contents of the array. 
+
+<emphasis id="em1004" effect="italics">
+(While I'm at it, I will also 
+teach you how to sort the elements in an array of object references into natural 
+order without the use of a Comparator object.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1052" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1005" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Beginning_with_a_quiz_" effect="bold">
+
+Beginning with a quiz 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1013">
+See if you can write down the output 
+produced by the program shown in 
+
+<link id="a1053" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1009" effect="bold">
+The program named Comparator 05
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">//File Comparator05.java
+//Copyright 2001, R.G.Baldwin
+import java.util.*;
+import java.io.Serializable;
+
+public class Comparator05{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparator05
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+    Object[] array;
+
+    ref = new Vector();
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    System.out.println("Collection data");
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+    System.out.println();
+
+    array = ref.toArray();
+    System.out.println("Raw array data");
+    display(array);
+
+    //Sort the array into natural order
+    // and display it.
+    Arrays.sort(array);
+    System.out.println("Natural order sorted " +
+                                  "array data");
+    display(array);
+
+    //Sort the array into custom order
+    // and display it.
+    Arrays.sort(array, new TheComparator());
+    System.out.println("Custom order sorted " +
+                                 "array data");
+    display(array);
+
+    iter = ref.iterator();
+    System.out.println("Collection data");
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+
+  static void display(Object[] array){
+    for(int i = 0; i &lt; array.length;i++){
+      System.out.print(array[i] + " ");
+    }//end for loop
+    System.out.println();
+  }//end display()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+
+class TheComparator implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+
+    int result = ((String)o1).compareTo(((String)o2));
+    return result*(-1);
+  }//end compare()
+}//end class TheComparator
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1014">
+If you wrote down the following for the program output, you already 
+understand most of the material covered in this module and you can probably skip 
+this module and move on to the next module.
+
+</para>
+
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1001" display="block">Collection data
+Joe Bill Tom JOE BILL TOM 
+Raw array data
+Joe Bill Tom JOE BILL TOM 
+Natural order sorted array data
+BILL Bill JOE Joe TOM Tom 
+Custom order sorted array data
+Tom TOM Joe JOE Bill BILL 
+Collection data
+Joe Bill Tom JOE BILL TOM</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1015">
+If you didn't write down the correct output for the program in 
+
+<link id="a1054" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, you 
+should probably continue with your study of this module. 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="Similar_to_previous_programs" effect="bold">
+
+Similar to previous programs
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1016">
+Although this program is somewhat more complex, the overall structure of this 
+program is similar to programs that I have discussed in previous modules. 
+Therefore, I will concentrate on those aspects of this program that 
+differentiate it from the programs in previous modules. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="A_new_Vector_object_" effect="bold">
+
+A new Vector object 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1017">
+The code in 
+
+<link id="a1055" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates a new object of the 
+
+<emphasis id="strong1010" effect="bold">
+Vector
+
+</emphasis>
+ class 
+and stores a reference to that object in the variable named 
+
+<emphasis id="strong1011" effect="bold">
+ref
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. A new Vector 
+				object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">    ref = new Vector();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1018">
+The 
+
+<emphasis id="strong1012" effect="bold">
+Vector
+
+</emphasis>
+ class was part of Java long before the Collections 
+Framework was released. However, with the release of the Collections Framework, 
+the 
+
+<emphasis id="strong1013" effect="bold">
+Vector
+
+</emphasis>
+ class was upgraded to implement the 
+
+<emphasis id="strong1014" effect="bold">
+Collection 
+
+</emphasis>
+
+interface and the 
+
+<emphasis id="strong1015" effect="bold">
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="A_Vector_is_a_List_" effect="bold">
+
+A Vector is a List 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+Therefore, a 
+
+<emphasis id="strong1016" effect="bold">
+Vector
+
+</emphasis>
+ is a 
+
+<emphasis id="strong1017" effect="bold">
+List
+
+</emphasis>
+, and adheres to the various 
+contracts of the 
+
+<emphasis id="strong1018" effect="bold">
+List
+
+</emphasis>
+ interface. For example, since it is not a 
+
+<emphasis id="strong1019" effect="bold">
+Set
+
+</emphasis>
+, 
+it doesn't prohibit duplicate elements. Because it is a 
+
+<emphasis id="strong1020" effect="bold">
+List
+
+</emphasis>
+, it is an 
+
+<emphasis id="em1006" effect="italics">
+
+ordered
+
+</emphasis>
+ collection. The position of each element in the collection is 
+determined by a numeric index associated with the element and is independent of 
+the value of the element. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_fillIt_method_" effect="bold">
+
+The fillIt method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1020">
+As has been the case in several of the programs in previous modules, the code 
+in 
+
+<link id="a1056" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ passes the 
+
+<emphasis id="strong1021" effect="bold">
+Vector
+
+</emphasis>
+ object's reference to a method named 
+
+<emphasis id="strong1022" effect="bold">
+
+fillIt
+
+</emphasis>
+ where the 
+
+<emphasis id="strong1023" effect="bold">
+Vector
+
+</emphasis>
+ is populated with the names of several 
+people. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Call the 
+				fillIt method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1003" display="block">    Populator.fillIt(ref);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1021">
+The code for the 
+
+<emphasis id="strong1024" effect="bold">
+fillIt
+
+</emphasis>
+ method is shown in 
+
+<link id="a1057" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. As you can see, 
+the names were added to the collection in no particular order relative to their 
+values. 
+
+<emphasis id="em1007" effect="italics">
+(The add method for the Vector class simply adds each new element to 
+the end of the list.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The fillIt 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">class Populator{
+  public static void fillIt(
+                       Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Iteration_on_a_Vector_" effect="bold">
+
+Iteration on a Vector 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+When an iterator is used to traverse the elements in a 
+
+<emphasis id="strong1025" effect="bold">
+Vector
+
+</emphasis>
+ 
+collection, the elements are delivered by the iterator in ascending index order, 
+beginning with the element stored at index 0. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The code in 
+
+<link id="a1058" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ gets and uses an iterator to 
+display the contents of the populated collection. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Iteration on a 
+				Vector.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">    iter = ref.iterator();
+    System.out.println("Collection data");
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="The_output_" effect="bold">
+
+The output 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+The code in 
+
+<link id="a1059" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ produces the following output: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1006" display="block">Collection data
+Joe Bill Tom JOE BILL TOM</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1025">
+As you can see, this is the same order in which the names were added to the 
+collection by the 
+
+<emphasis id="strong1026" effect="bold">
+fillIt
+
+</emphasis>
+ method in 
+
+<link id="a1060" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_toArray_method" effect="bold">
+
+The toArray method
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+The code in 
+
+<link id="a1061" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ is new to this module. This code 
+calls the 
+
+<emphasis id="strong1027" effect="bold">
+toArray
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1028" effect="bold">
+Vector
+
+</emphasis>
+ object 
+to extract the contents 
+of the collection and store the elements in an array object of type 
+
+<emphasis id="strong1029" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Call the 
+				toArray method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1007" display="block">    array = ref.toArray();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1027">
+<emphasis id="em1008" effect="italics">
+(Recall that the variable named 
+
+</emphasis>
+<emphasis id="strong1030" effect="bold">
+<emphasis id="em1009" effect="italics">
+array
+
+</emphasis>
+</emphasis>
+<emphasis id="em1010" effect="italics">
+ 
+	was declared as a reference to an array object of type 
+
+</emphasis>
+<emphasis id="strong1031" effect="bold">
+<emphasis id="em1011" effect="italics">
+
+	Object
+
+</emphasis>
+</emphasis>
+<emphasis id="em1012" effect="italics">
+ in 
+
+</emphasis>
+<link id="a1062" target-id="Listing_1">
+
+
+<emphasis id="em1013" effect="italics">
+<link id="a1063" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1014" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<section id="h31007">
+<title>
+
+
+
+
+<emphasis id="The_contract_" effect="bold">
+
+The contract 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1028">
+According to the documentation for the 
+
+<emphasis id="strong1032" effect="bold">
+Vector
+
+</emphasis>
+ class, this version of 
+the 
+
+<emphasis id="strong1033" effect="bold">
+toArray
+
+</emphasis>
+ method: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1015" effect="italics">
+"Returns an array containing all of the elements in this Vector in the 
+	correct order."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1029">
+The documentation for the 
+
+<emphasis id="strong1034" effect="bold">
+toArray
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1035" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface is a little more verbose, reading partially as follows: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1016" effect="italics">
+"Returns an array containing all of the elements in this collection. If 
+	the collection makes any guarantees as to what order its elements are 
+	returned by its iterator, this method must return the elements in the same 
+	order.
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Elements_are_returned_in_ascending_index_order" effect="bold">
+
+Elements are returned in ascending index order
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1030">
+By default, the iterator for a 
+
+<emphasis id="strong1036" effect="bold">
+Vector
+
+</emphasis>
+ returns its elements in ascending index 
+order. Therefore, the 
+
+<emphasis id="strong1037" effect="bold">
+toArray
+
+</emphasis>
+ method for a 
+
+<emphasis id="strong1038" effect="bold">
+Vector
+
+</emphasis>
+ object must 
+return the elements in the same order. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="A_safe_array_" effect="bold">
+
+A "safe" array 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1031">
+Also, according to Oracle: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<emphasis id="em1017" effect="italics">
+"The returned array will be "safe" in that no references to it are 
+	maintained by this collection. ... The caller is thus free to modify the 
+	returned array."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1032">
+In the code in 
+
+<link id="a1064" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ above, the returned reference to an array object is 
+assigned to a reference variable that previously contained null. Following the 
+execution of the 
+
+<emphasis id="strong1039" effect="bold">
+toArray
+
+</emphasis>
+ method, that reference variable refers to an 
+array object of type 
+
+<emphasis id="strong1040" effect="bold">
+Object
+
+</emphasis>
+ containing the same elements as the 
+
+<emphasis id="strong1041" effect="bold">
+Vector
+
+</emphasis>
+ 
+collection, in ascending index order. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+<emphasis id="em1018" effect="italics">
+(Regarding the concept of a "safe" array, it is easy to demonstrate that 
+the elements in the array refer to the same objects referred to by the elements 
+in the Vector. Thus, using the references stored in the array to modify the 
+objects to which they refer also modifies the objects referred to by the 
+elements stored in the Vector. In other words, the elements in the array are 
+copies of the elements in the Vector. The elements in the array refer to the 
+original objects, and do not refer to copies (or clones) of those objects. As usual when 
+dealing with multiple references to objects, care should be taken to avoid 
+inadvertently corrupting those objects.)
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Displaying_the_contents_of_the_array_" effect="bold">
+
+Display the contents of the array
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1033">
+The code in 
+
+<link id="a1065" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ passes the array object's reference to a method named
+
+
+<emphasis id="strong1042" effect="bold">
+display
+
+</emphasis>
+ that displays the contents of the array in ascending index order. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Display the 
+				contents of the array.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1008" display="block">    System.out.println("Raw array data");
+    display(array);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1034">
+The output produced by the code in 
+
+<link id="a1066" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is as shown below: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1009" display="block">Raw array data
+Joe Bill Tom JOE BILL TOM</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1035">
+As you can see, this is the same data, in the same order, as the contents of 
+the collection displayed earlier. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1019" effect="italics">
+(The method named 
+
+<emphasis id="strong1043" effect="bold">
+display
+
+</emphasis>
+ is a simple 
+utility method that I won't discuss here because of its simplicity. You can 
+view the display method in its entirety in 
+
+<link id="a1067" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+
+</quote>
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Sorting_the_array_into_natural_order" effect="bold">
+
+Sorting the array into 
+
+<emphasis id="em1020" effect="italics">
+natural order
+
+</emphasis>
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1036">
+The code in 
+
+<link id="a1068" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ is also new to this module. This code uses one of the 
+overloaded 
+
+<emphasis id="strong1044" effect="bold">
+sort
+
+</emphasis>
+ methods of the 
+
+<emphasis id="strong1045" effect="bold">
+Arrays
+
+</emphasis>
+ class to sort the contents 
+of the array into 
+
+<emphasis id="em1021" effect="italics">
+natural order
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Sorting the 
+				array into natural order.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1010" display="block">    Arrays.sort(array);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1037">
+Here is part of what Oracle has to say about the 
+
+<emphasis id="strong1046" effect="bold">
+Arrays
+
+</emphasis>
+ class: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+	
+
+<emphasis id="em1022" effect="italics">
+"This class contains various methods for manipulating arrays (such as 
+	sorting and searching)."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1038">
+The class contains many overloaded versions of the 
+
+<emphasis id="strong1047" effect="bold">
+sort
+
+</emphasis>
+ method. Here 
+is part of what Oracle has to say about the version of the 
+
+<emphasis id="strong1048" effect="bold">
+sort
+
+</emphasis>
+ method 
+used in 
+
+<link id="a1069" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ above: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+
+	
+
+<emphasis id="em1023" effect="italics">
+"Sorts the specified array of objects into ascending order, according to 
+	the natural ordering of its elements. All elements in the array must 
+	implement the Comparable interface."
+
+</emphasis>
+</quote>
+
+
+
+
+<section id="h31011">
+<title>
+<emphasis id="The_Comparable_interface_and_polymorphic_behavior_" effect="bold">
+
+The Comparable interface and polymorphic behavior
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+Although the declared type of the array is 
+
+<emphasis id="strong1049" effect="bold">
+Object
+
+</emphasis>
+, the array actually 
+contains references to 
+
+<emphasis id="strong1050" effect="bold">
+String
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The 
+
+<emphasis id="strong1051" effect="bold">
+String
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1052" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+It is not necessary to cast the array to type 
+
+<emphasis id="strong1053" effect="bold">
+String
+
+</emphasis>
+ before 
+passing it to the 
+
+<emphasis id="strong1054" effect="bold">
+Sort
+
+</emphasis>
+ method. 
+
+<emphasis id="em1024" effect="italics">
+(The 
+
+<emphasis id="strong1055" effect="bold">
+Sort
+
+</emphasis>
+ method 
+declares the incoming parameter as type 
+
+<emphasis id="strong1056" effect="bold">
+Object
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The 
+
+<emphasis id="strong1057" effect="bold">
+sort
+
+</emphasis>
+ method treats the array elements as type 
+
+<emphasis id="strong1058" effect="bold">
+Comparable
+
+</emphasis>
+ and 
+uses the 
+
+<emphasis id="strong1059" effect="bold">
+compareTo
+
+</emphasis>
+ method declared in that interface to perform any 
+necessary comparisons required to carry out the sorting operation. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+This is another example of the usefulness of polymorphism as implemented 
+through the use of the Java interface. 
+
+<emphasis id="em1025" effect="italics">
+(The 
+
+<emphasis id="strong1060" effect="bold">
+Comparable
+
+</emphasis>
+ interface and the 
+
+
+<emphasis id="strong1061" effect="bold">
+compareTo
+
+</emphasis>
+ method declared in that interface were discussed in detail in an 
+earlier module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="Display_the_sorted_array_data_" effect="bold">
+
+Display the sorted array data 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1043">
+The code in 
+
+<link id="a1070" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ displays the contents of the array after those contents 
+are sorted into 
+
+<emphasis id="em1026" effect="italics">
+natural order
+
+<emphasis id="strong1062" effect="bold">
+ 
+
+</emphasis>
+</emphasis>
+by the 
+
+<emphasis id="strong1063" effect="bold">
+sort
+
+</emphasis>
+ method in 
+
+
+<link id="a1071" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+ above. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Display the 
+				sorted array data.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1011" display="block">    System.out.println("Natural order sorted " +
+                                  "array data");
+    display(array);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1044">
+The output produced by 
+
+<link id="a1072" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ above is: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">Natural order sorted array data
+BILL Bill JOE Joe TOM Tom</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="The_natural_order_for_String_objects" effect="bold">
+
+The 
+
+<emphasis id="em1027" effect="italics">
+natural order
+
+</emphasis>
+ for String objects
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1045">
+I discussed the concept of 
+
+<emphasis id="em1028" effect="italics">
+natural ordering
+
+</emphasis>
+ in a previous module with 
+particular emphasis of the 
+
+<emphasis id="em1029" effect="italics">
+natural order
+
+</emphasis>
+ for strings. You will recognize 
+that the strings shown in the above output have been sorted into 
+
+<emphasis id="em1030" effect="italics">
+natural 
+order
+
+</emphasis>
+ according to the definition of the 
+
+<emphasis id="strong1064" effect="bold">
+compareTo
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1065" effect="bold">
+
+String
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Sort_the_array_with_a_Comparator_" effect="bold">
+
+Sort the array with a Comparator
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+The code in 
+
+<link id="a1073" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ is also new to this module. This code uses a different 
+version of the overloaded 
+
+<emphasis id="strong1066" effect="bold">
+sort
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1067" effect="bold">
+Arrays
+
+</emphasis>
+ class to sort 
+the array using the rules defined in the 
+
+<emphasis id="strong1068" effect="bold">
+compare
+
+</emphasis>
+ method of a 
+
+<emphasis id="strong1069" effect="bold">
+
+Comparator
+
+</emphasis>
+ object 
+
+<emphasis id="em1031" effect="italics">
+(passed as a parameter to the sort method).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Sort the 
+				array with a Comparator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1013" display="block">    Arrays.sort(array, new TheComparator());
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<section id="h31014">
+<title>
+<emphasis id="What_does_Oracle_have_to_say_about_this_" effect="bold">
+
+What does Oracle have to say about this? 
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1047">
+Here is part of what Oracle has to say about this version of the 
+
+<emphasis id="strong1070" effect="bold">
+sort
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1071" effect="bold">
+Arrays
+
+</emphasis>
+ class: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1007" display="block">
+
+	
+
+<emphasis id="em1032" effect="italics">
+"Sorts the specified array of objects according to the order induced by 
+	the specified comparator. All elements in the array must be mutually 
+	comparable by the specified comparator (that is, c.compare(e1, e2) must not 
+	throw a ClassCastException for any elements e1 and e2 in the array)."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="TheComparator_class_" effect="bold">
+
+The class named TheComparator
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+<link id="a1074" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ shows the class from which the 
+
+<emphasis id="strong1072" effect="bold">
+Comparator
+
+</emphasis>
+ object was 
+instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+This is essentially the same class that was used to instantiate a 
+
+<emphasis id="strong1073" effect="bold">
+
+Comparator
+
+</emphasis>
+ object in an earlier module. I discussed the 
+
+<emphasis id="strong1074" effect="bold">
+compare
+
+</emphasis>
+ method in 
+detail in that module and won't repeat that discussion here. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. The class 
+				named TheComparator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1014" display="block">class TheComparator implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+
+    int result = ((String)o1).compareTo(((String)o2));
+    return result*(-1);
+  }//end compare()
+}//end class TheComparator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1050">
+Suffice it to say at this point that this 
+
+<emphasis id="strong1075" effect="bold">
+Comparator
+
+</emphasis>
+ object causes the 
+elements in the array to be sorted into 
+
+<emphasis id="em1033" effect="italics">
+reverse natural order
+
+</emphasis>
+. That term 
+was also explained in the previous module, so I won't discuss it further here.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Display_the_array_contents_again" effect="bold">
+
+Display the array contents again
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1051">
+The code in 
+
+<link id="a1075" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ was used to display the 
+newly-sorted contents of the array. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Display the contents 
+				again.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1015" display="block">    System.out.println("Custom order sorted " +
+                                 "array data");
+    display(array);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1052">
+The output produced by this code is: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">Custom order sorted array data
+Tom TOM Joe JOE Bill BILL </code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1053">
+You will recognize this as 
+
+<emphasis id="em1034" effect="italics">
+reverse natural order
+
+</emphasis>
+ for the elements 
+contained in the array. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31017">
+<title>
+<emphasis id="Could_have_sorted_differently_" effect="bold">
+
+Could have sorted differently 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1054">
+It is important to note that I could have caused the sorting order to be 
+different from 
+
+<emphasis id="em1035" effect="italics">
+reverse natural order
+
+</emphasis>
+ simply by defining the rules used 
+for comparison in the 
+
+<emphasis id="strong1076" effect="bold">
+compare
+
+</emphasis>
+ method shown in 
+
+<link id="a1076" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ above. This 
+makes it possible for you to sort array data into any order that you choose as 
+long as you can write the sorting rules into the 
+
+<emphasis id="strong1077" effect="bold">
+compare
+
+</emphasis>
+ method of a 
+class that implements the 
+
+<emphasis id="strong1078" effect="bold">
+Comparator
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Display_the_collection_data_again" effect="bold">
+
+Display the collection data again
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1055">
+Finally, in order to show that none of this has disturbed the contents of the 
+original collection, the code in 
+
+<link id="a1077" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ gets and uses an iterator to display 
+the contents of the 
+
+<emphasis id="strong1079" effect="bold">
+Vector
+
+</emphasis>
+ collection. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Display the collection 
+				data again.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1017" display="block">    iter = ref.iterator();
+    System.out.println("Collection data");
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1056">
+The output produced by the code in 
+
+<link id="a1078" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ is: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">Collection data
+Joe Bill Tom JOE BILL TOM</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1057">
+If you compare this with the output produced by the code at the beginning of 
+the program, you will see that the iterator still returns the elements in the 
+
+<emphasis id="strong1080" effect="bold">
+
+Vector
+
+</emphasis>
+ in the same order that they were added. Thus, modifications to the 
+array did not disturb the contents of the 
+
+<emphasis id="strong1081" effect="bold">
+Vector
+
+</emphasis>
+ collection. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="The_bottom_line" effect="bold">
+
+The bottom line
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1058">
+The 
+
+<emphasis id="strong1082" effect="bold">
+toArray
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1083" effect="bold">
+Collection
+
+</emphasis>
+ interface makes it 
+possible to extract a copy of the elements in a collection into an array and to 
+manipulate those elements in whatever way you wish. As mentioned earlier, 
+however, care should be exercised to make certain that the copies of the 
+references to the original objects are not used to corrupt the objects. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+The various versions of the 
+
+<emphasis id="strong1084" effect="bold">
+sort
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1085" effect="bold">
+Arrays
+
+</emphasis>
+ class 
+make it possible to sort the contents of arrays in a variety of different ways.
+
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+I encourage you to copy the code from 
+
+<link id="a1079" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+Paste the code into your Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1062">
+In this module, I taught you how to extract the contents of a collection 
+into an array and how to use a 
+
+<emphasis id="strong1086" effect="bold">
+Comparator
+
+</emphasis>
+ to sort the contents of the 
+array into 
+
+<emphasis id="em1036" effect="italics">
+reverse natural order
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+Although I elected to use 
+
+<emphasis id="em1037" effect="italics">
+reverse natural order
+
+</emphasis>
+ for purposes of 
+illustration, I could have sorted the array into some other order simply by 
+defining the comparison rules in the 
+
+<emphasis id="strong1087" effect="bold">
+compare
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1088" effect="bold">
+Comparator
+
+</emphasis>
+ 
+class differently. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+In order to further expand your knowledge of array sorting, I also sorted the 
+array into 
+
+<emphasis id="em1038" effect="italics">
+natural order
+
+</emphasis>
+ without the use of a 
+
+<emphasis id="strong1089" effect="bold">
+Comparator
+
+</emphasis>
+<emphasis id="em1039" effect="italics">
+.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Sorting the contents of the array did not disturb the contents of the 
+
+<emphasis id="strong1090" effect="bold">
+
+Vector
+
+</emphasis>
+ collection from which the contents of the array were derived. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+In the next module, I will show you how to use the 
+
+<emphasis id="strong1091" effect="bold">
+sort
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1092" effect="bold">
+Collections
+
+</emphasis>
+ class along with a 
+
+<emphasis id="strong1093" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the 
+contents of a 
+
+<emphasis id="strong1094" effect="bold">
+List
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1067">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1095" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1050">
+Module name: Java4120: The Comparator Interface, Part 4
+
+</item>
+
+
+					
+
+<item id="li1051">
+File: Java4120.htm
+
+
+</item>
+
+
+					
+
+<item id="li1052">
+Published: 05/07/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1096" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1068">
+<emphasis id="strong1097" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1069">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1070">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1071">
+<emphasis id="strong1098" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1072">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,6392 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0130: Self-assessment, Comparing objects, packages, import directives, and some common exceptions</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45310</md:content-id>
+  <md:title>Ap0130: Self-assessment, Comparing objects, packages, import directives, and some common exceptions</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about comparing objects, packages, import directives, and some common exceptions in Java.</md:abstract>
+  <md:uuid>aeb17773-62be-4c07-a308-31fabb6cce27</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. Joe Joe false
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. Joe Joe true
+
+</item>
+
+
+	
+
+<item id="li1010">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap141{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap141
+
+class Worker{
+  void doIt(){
+    char[] anArray = {'J','o','e'};
+    String Str1 = new String(anArray);
+    String Str2 = new String(anArray);
+
+    System.out.println( 
+              Str1 + " " + Str2 + " " +
+              (Str1 == Str2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1011">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1013">
+C. Joe Joe false
+
+</item>
+
+
+	
+
+<item id="li1014">
+D. Joe Joe true
+
+</item>
+
+
+	
+
+<item id="li1015">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap142{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap142
+
+class Worker{
+  void doIt(){
+    char[] anArray = {'J','o','e'};
+    String Str1 = new String(anArray);
+    String Str2 = new String(anArray);
+
+    System.out.println( 
+              Str1 + " " + Str2 + " " +
+              Str1.equals(Str2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1016">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1017">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1018">
+C. ABC DEF GHI
+
+</item>
+
+
+	
+
+<item id="li1019">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap143{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap143
+
+class Worker{
+  void doIt(){
+    java.util.ArrayList ref = 
+            new java.util.ArrayList(1);
+    ref.add("ABC ");
+    ref.add("DEF ");
+    ref.add("GHI");
+    
+    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1020">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1021">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1022">
+C. ABC DEF GHI
+
+</item>
+
+
+	
+
+<item id="li1023">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap144{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap144
+
+class Worker{
+  void doIt(){
+    ArrayList ref = 
+            new ArrayList(1);
+    ref.add("ABC ");
+    ref.add("DEF ");
+    ref.add("GHI");
+    
+    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1024">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1025">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1026">
+C. ABC DEF GHI
+
+</item>
+
+
+	
+
+<item id="li1027">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">import java.util.ArrayList;
+
+public class Ap145{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap145
+
+class Worker{
+  void doIt(){
+    ArrayList ref = null;
+    ref = new ArrayList(1);
+    ref.add("ABC ");
+    ref.add("DEF ");
+    ref.add("GHI");
+    
+    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1028">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1029">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1030">
+C. ABC DEF GHI
+
+</item>
+
+
+	
+
+<item id="li1031">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">import java.util.ArrayList;
+
+public class Ap146{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap146
+
+class Worker{
+  void doIt(){
+    ArrayList ref = null;
+    ref.add("ABC ");
+    ref.add("DEF ");
+    ref.add("GHI");
+    
+    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1034">
+C. ABC DEF GHI
+
+</item>
+
+
+	
+
+<item id="li1035">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">import java.util.ArrayList;
+
+public class Ap147{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap147
+
+class Worker{
+  void doIt(){
+    ArrayList ref = null;
+    ref = new ArrayList(1);
+    ref.add("ABC ");
+    ref.add("DEF ");
+    
+    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+C. Infinity
+
+</item>
+
+
+	
+
+<item id="li1039">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap148{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap148
+
+class Worker{
+  void doIt(){
+    System.out.println(1.0/0);
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1040">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1041">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+C. Infinity
+
+</item>
+
+
+	
+
+<item id="li1043">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap149{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap149
+
+class Worker{
+  void doIt(){
+    System.out.println(1/0);
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1044">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1045">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1046">
+C. AB CD EF
+
+</item>
+
+
+	
+
+<item id="li1047">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">public class Ap150{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap150
+
+class Worker{
+  void doIt(){
+    String[] ref = {"AB ","CD ","EF "};
+    for(int i = 0; i &lt;= 3; i++){
+      System.out.print(ref[i]);
+    }//end forloop
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+
+
+
+<para id="p1023">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1048">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1058">
+Module name: Ap0130: Self-assessment, Comparing objects, 
+				packages, import directives, and some common exceptions
+
+</item>
+
+
+				
+
+<item id="li1059">
+File: Ap0130.htm 
+
+</item>
+
+
+				
+
+<item id="li1060">
+Originally published: 2004
+
+</item>
+
+
+				
+
+<item id="li1061">
+Published at cnx.org: 12/18/12
+
+</item>
+
+
+
+
+<item id="li1062">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1029">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+Both of the following occur.
+
+</para>
+
+
+
+
+<para id="p1031">
+C. AB CD EF 
+
+</para>
+
+
+
+
+<para id="p1032">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+<para id="p1033">
+
+
+
+<emphasis id="strong1006" effect="bold">
+Another index out of bounds
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+This is another example of a program that throws an index out of bounds 
+exception. In this case, since the container is an array object, the name of the 
+exception is 
+
+<emphasis id="strong1007" effect="bold">
+ArrayIndexOutOfBoundsException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1008" effect="bold">
+Populate a three-element array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1036">
+The code in the following fragment creates and populates a three-element 
+array object containing reference to three 
+
+<emphasis id="strong1009" effect="bold">
+String
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">  void doIt(){
+    String[] ref = {"AB ","CD ","EF "};</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1010" effect="bold">
+Access an out-of-bounds element 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1038">
+The next fragment attempts to access elements at indices 0 through 3 
+inclusive.
+
+</para>
+
+
+
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">    for(int i = 0; i &lt;= 3; i++){
+      System.out.print(ref[i]);
+    }//end forloop</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1039">
+Since index value 3 is outside the bounds of the array, the program throws 
+the following exception and aborts: 
+
+</para>
+
+
+
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">AB CD EF 
+java.lang.ArrayIndexOutOfBoundsException
+ at Worker.doIt(Ap150.java:22)
+ at Ap150.main(Ap150.java:14)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1040">
+Note however that the program displays the contents of the three 
+
+<emphasis id="strong1011" effect="bold">
+
+String
+
+</emphasis>
+ objects referred to by the contents of the first three elements 
+in the array before the problem occurs. 
+
+</para>
+
+
+
+
+<para id="p1041">
+That's the way it often is with runtime 
+errors. Often, a program will partially complete its task before getting into 
+trouble and aborting with a runtime error. 
+
+</para>
+
+
+
+
+<para id="p1042">
+<link id="a1046" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1043">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1012" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+<para id="p1044">
+
+
+
+<emphasis id="strong1013" effect="bold">
+A setup
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+If you feel like you've been had, chances are you have been had. The purpose for 
+
+
+<link id="a1047" target-id="question08">
+
+Question 8
+
+</link>
+
+ was to set you up for this question. 
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1014" effect="bold">
+Division by zero for integer types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1047">
+This program deals with the process of dividing by zero for 
+
+<emphasis id="strong1015" effect="bold">
+int
+
+</emphasis>
+ types. The 
+code in the following fragment divides the 
+
+<emphasis id="strong1016" effect="bold">
+int
+
+</emphasis>
+ value 1 by the 
+
+
+<emphasis id="strong1017" effect="bold">
+int
+
+</emphasis>
+ value 0. 
+
+</para>
+
+
+
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">  void doIt(){
+    System.out.println(1/0);
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1018" effect="bold">
+Not the same as 
+
+<emphasis id="em1000" effect="italics">
+double
+
+</emphasis>
+ divide by zero 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1049">
+However, unlike with type 
+
+<emphasis id="strong1019" effect="bold">
+double
+
+</emphasis>
+, this process doesn't return a very large 
+value and continue running. Rather, for type 
+
+<emphasis id="strong1020" effect="bold">
+int
+
+</emphasis>
+, attempting to divide by zero 
+will result in a runtime error of type 
+
+<emphasis id="strong1021" effect="bold">
+ArithmeticException
+
+</emphasis>
+ that looks something 
+like the following under JDK 1.3: 
+
+</para>
+
+
+
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">java.lang.ArithmeticException: / by zero
+ at Worker.doIt(Ap149.java:20)
+ at Ap149.main(Ap149.java:14)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1022" effect="bold">
+An exercise for the student 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1051">
+I won't attempt to explain the difference in behavior for essentially the 
+same problem between type 
+
+<emphasis id="strong1023" effect="bold">
+int
+
+</emphasis>
+ and type 
+
+<emphasis id="strong1024" effect="bold">
+double
+
+</emphasis>
+. As the old saying goes, I'll 
+leave that as an exercise for the student. 
+
+</para>
+
+
+
+
+<para id="p1052">
+<link id="a1048" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+C. Infinity 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1025" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+<para id="p1054">
+
+
+
+<emphasis id="strong1026" effect="bold">
+A double 
+
+<emphasis id="em1001" effect="italics">
+divide by zero
+
+</emphasis>
+ operation 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+This program deals with the process of dividing by zero for floating values 
+of type 
+
+<emphasis id="strong1027" effect="bold">
+double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1056">
+The following code fragment attempts to divide the double value 1.0 by the 
+double value 0. 
+
+</para>
+
+
+
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">  void doIt(){
+    System.out.println(1.0/0);
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1057">
+The program runs successfully, producing the output 
+
+<emphasis id="strong1028" effect="bold">
+Infinity
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1029" effect="bold">
+What is Infinity? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1059">
+Suffice it to say that Infinity is a very large number. 
+
+</para>
+
+
+
+
+<para id="p1060">
+
+	
+
+<emphasis id="em1002" effect="italics">
+(Any value divided by zero is a very large number.)
+
+</emphasis>
+</para>
+
+
+<para id="p1061">
+
+At this point, I'm not going to explain it further. If you are interested in 
+learning what you can do with 
+
+<emphasis id="strong1030" effect="bold">
+Infinity
+
+</emphasis>
+, see the language specifications.
+
+</para>
+
+
+
+
+<para id="p1062">
+<link id="a1049" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1063">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1031" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+<para id="p1064">
+
+This program illustrates an 
+
+<emphasis id="strong1032" effect="bold">
+IndexOutOfBounds
+
+</emphasis>
+ exception.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1033" effect="bold">
+Instantiate and populate an ArrayList object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1066">
+By now, you will be familiar with the kind of container object that you get 
+when you instantiate the 
+
+<emphasis id="strong1034" effect="bold">
+ArrayList
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+<para id="p1067">
+The code in the following fragment instantiates such a container, having an 
+initial capacity of one element. 
+
+</para>
+
+
+
+
+<para id="p1068">
+Then it adds two elements to the container. Each element is a reference to an 
+object of the class 
+
+<emphasis id="strong1035" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">  void doIt(){
+    ArrayList ref = null;
+    ref = new ArrayList(1);
+    ref.add("ABC ");
+    ref.add("DEF ");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1036" effect="bold">
+Increase capacity automatically 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1070">
+Because two elements were successfully added to a container having an initial 
+capacity of only one element, the container was forced to increase its capacity 
+automatically. 
+
+</para>
+
+
+
+
+<para id="p1071">
+Following execution of the code in the above fragment, 
+
+<emphasis id="strong1037" effect="bold">
+String
+
+</emphasis>
+ 
+object references were stored at index locations 0 and 1 in the 
+
+<emphasis id="strong1038" effect="bold">
+
+ArrayList
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1039" effect="bold">
+Get reference at index location 2
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1073">
+The next fragment attempts to use the 
+
+<emphasis id="strong1040" effect="bold">
+get
+
+</emphasis>
+ method to fetch an element from 
+the container at index value 2. 
+
+</para>
+
+
+
+
+<para id="p1074">
+Index values in an 
+
+<emphasis id="strong1041" effect="bold">
+ArrayList
+
+</emphasis>
+ object begin with zero. 
+Therefore, since only two elements were added to the container in the earlier 
+fragment, there is no element at index value 2. 
+
+</para>
+
+
+
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1042" effect="bold">
+An IndexOutOfBounds exception 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1076">
+As a result, the program throws an 
+
+<emphasis id="strong1043" effect="bold">
+IndexOutOfBounds
+
+</emphasis>
+ exception. The error 
+produced under JDK 1.3 looks something like the following: 
+
+</para>
+
+
+
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">Exception in thread "main" java.lang.IndexOutOfBoundsException:
+Index: 2, Size: 2
+at java.util.ArrayList.RangeCheck
+  (Unknown Source)
+at java.util.ArrayList.get
+  (Unknown Source)
+at Worker.doIt(Ap147.java:27)
+at Ap147.main(Ap147.java:16)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1077">
+Attempting to access an element with a negative index value would produce the 
+same result. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1044" effect="bold">
+An ArrayIndexOutOfBounds exception 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1079">
+A similar result occurs if you attempt to access an element in an ordinary 
+array object outside the bounds of the index values determined by the size of 
+the array. However, in that case, the name of the exception is 
+
+<emphasis id="strong1045" effect="bold">
+
+ArrayIndexOutOfBounds
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1080">
+<link id="a1050" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1081">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1046" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+<para id="p1082">
+
+
+
+<emphasis id="strong1047" effect="bold">
+The infamous 
+
+<emphasis id="em1003" effect="italics">
+NullPointerException
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+Interestingly, one of the first things that you read when you start reading 
+Java books, is that there are 
+
+<emphasis id="em1004" effect="italics">
+no pointers in Java
+
+</emphasis>
+. It is likely that 
+shortly thereafter when you begin writing, compiling, and executing simple Java 
+programs, one of your programs will abort with an error message looking 
+something like that 
+
+<emphasis id="shown_below" effect="bold">
+
+shown below
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">Exception in thread "main" java.lang.NullPointerException
+        at 
+Worker.doIt(Ap146.java:23)
+        at 
+Ap146.main(Ap146.java:16)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1048" effect="bold">
+What is a NullPointerException? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1085">
+Stated simply, a 
+
+<emphasis id="strong1049" effect="bold">
+NullPointerException
+
+</emphasis>
+ occurs when you 
+attempt to perform some operation on an object using a reference that doesn't 
+refer to an object. 
+
+</para>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1050" effect="bold">
+That is the case in this program 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1087">
+The following code fragment declares a local reference variable and 
+initializes its value to 
+
+<emphasis id="strong1051" effect="bold">
+<emphasis id="em1005" effect="italics">
+null
+
+</emphasis>
+</emphasis>
+.
+
+</para>
+
+
+
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">  void doIt(){
+    ArrayList ref = null;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1088">
+
+	
+
+<emphasis id="em1006" effect="italics">
+(A reference variable in Java must either refer to a valid object, or 
+	specifically refer to no object (null). Unlike a pointer in C and C++, a 
+	Java reference variable cannot refer to something arbitrary.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1089">
+In this case, null means that the reference variable doesn't refer to a valid 
+object. 
+
+</para>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1052" effect="bold">
+No ArrayList object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1091">
+Note that the code in the above fragment does not instantiate an object of 
+the class 
+
+<emphasis id="strong1053" effect="bold">
+ArrayList
+
+</emphasis>
+ and assign that object's reference to the 
+reference variable. 
+
+</para>
+
+
+
+
+<para id="p1092">
+
+	
+
+<emphasis id="em1007" effect="italics">
+(The reference variable doesn't contain a reference to an object 
+	instantiated from the class named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1054" effect="bold">
+<emphasis id="em1008" effect="italics">
+ArrayList
+
+</emphasis>
+</emphasis>
+<emphasis id="em1009" effect="italics">
+, or an object 
+	instantiated from any class for that matter.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1055" effect="bold">
+Call a method on the reference
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+However, the code in the next fragment attempts to add a 
+
+<emphasis id="strong1056" effect="bold">
+String
+
+</emphasis>
+ 
+object's reference to a nonexistent 
+
+<emphasis id="strong1057" effect="bold">
+ArrayList
+
+</emphasis>
+ object by calling 
+the 
+
+<emphasis id="strong1058" effect="bold">
+add
+
+</emphasis>
+ method on the reference containing null. 
+
+</para>
+
+
+
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">    ref.add("ABC ");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1095">
+This results in the 
+
+<emphasis id="strong1059" effect="bold">
+NullPointerException
+
+</emphasis>
+ shown 
+
+
+<link id="a1051" target-id="shown_below">
+
+earlier
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1060" effect="bold">
+What can you do with a null reference? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1097">
+The only operation that you can perform on a reference variable containing 
+null is to assign an object's reference to the variable. Any other attempted 
+operation will result in a 
+
+<emphasis id="strong1061" effect="bold">
+NullPointerException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1098">
+<link id="a1052" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1099">
+C. ABC DEF GHI 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1062" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+<para id="p1100">
+
+The purpose of this program is to
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1063">
+Continue to illustrate the use of java packages, and
+
+</item>
+
+
+	
+
+<item id="li1064">
+Illustrate the use of the Java import directive.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1063" effect="bold">
+Program contains an import directive
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1102">
+This program is the same as the program in 
+
+<link id="a1053" target-id="question04">
+
+Question 4
+
+</link>
+
+ 
+with a major exception. Specifically, the program contains the 
+
+<emphasis id="em1010" effect="italics">
+import 
+directive
+
+</emphasis>
+ shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">import java.util.ArrayList;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1103">
+<emphasis id="strong1064" effect="bold">
+A shortcut 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1104">
+The designers of Java recognized that having to type a fully-qualified name 
+for every reference to a class in a Java program can become burdensome. 
+Therefore, they provided us with a shortcut that can be used, so long as we 
+don't need to refer to two or more class files having the same name. 
+
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1065" effect="bold">
+Import directives 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+The shortcut is called an import directive. 
+
+</para>
+
+
+
+
+<para id="p1107">
+As can be seen above, the import directive consists of the word 
+
+<emphasis id="em1011" effect="italics">
+import
+
+</emphasis>
+ 
+followed by the fully-qualified name of a class file that will be used in the 
+program. 
+
+</para>
+
+
+
+
+<para id="p1108">
+A program may have more than one import directive, with each import directive 
+specifying the location of a different class file. 
+
+</para>
+
+
+
+
+<para id="p1109">
+The import directive(s) must appear before any class or interface definitions 
+in the source code. 
+
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1066" effect="bold">
+The alternative wild-card syntax 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1111">
+An alternative form of the import directive replaces the name of the class 
+with an asterisk. 
+
+</para>
+
+
+
+
+<para id="p1112">
+The asterisk behaves as a wild-card character. It tells the compiler to use 
+any class file that it finds in that package that matches a class reference in 
+the source code. 
+
+</para>
+
+
+
+
+<para id="p1113">
+The wild-card form should be used with care, because it can sometimes cause 
+the compiler to use a class file that is different from the one that you 
+intended to use 
+
+<emphasis id="em1012" effect="italics">
+(if it finds the wrong one first)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1067" effect="bold">
+Class file name collisions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1115">
+If your source code refers to two different class files having the same name, 
+you must forego the use of the import directive and provide fully-qualified 
+names for those class files. 
+
+</para>
+
+
+
+
+<para id="p1116">
+<link id="a1054" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1117">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1068" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+<para id="p1118">
+
+The purpose of this program is to continue to illustrate the use of java 
+packages.
+
+</para>
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1069" effect="bold">
+No fully-qualified class names
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1120">
+This program is the same as the program in 
+
+<link id="a1055" target-id="question03">
+
+Question 3
+
+</link>
+
+ with a major exception. 
+Neither of the references to the 
+
+<emphasis id="strong1070" effect="bold">
+ArrayList
+
+</emphasis>
+ class use fully-qualified names in 
+this program. Rather, the references are as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">    ArrayList ref = 
+            new ArrayList(1);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1071" effect="bold">
+Compiler errors 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1122">
+As a result, the JDK 1.3 compiler produces two error messages similar to the 
+following: 
+
+</para>
+
+
+
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">Ap144.java:20: cannot resolve symbol
+symbol  : class ArrayList
+location: class Worker
+    ArrayList ref =
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1072" effect="bold">
+Doesn't know how to find the class file 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1124">
+This error message indicates that the compiler didn't know where to look on 
+the disk to find the file named 
+
+<emphasis id="strong1073" effect="bold">
+ArrayList.class 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1125">
+<link id="a1056" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1126">
+C. ABC DEF GHI 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1074" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+<para id="p1127">
+
+
+
+<emphasis id="strong1075" effect="bold">
+Illustrate the use of java packages 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1128">
+Since it was necessary to make use of a class to illustrate packages, this 
+program also previews the use of the 
+
+<emphasis id="strong1076" effect="bold">
+ArrayList
+
+</emphasis>
+ class. We will be very interested 
+in this class later when we study Java data containers. 
+
+</para>
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1077" effect="bold">
+What is an ArrayList object? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1130">
+Some of this terminology may not make much sense to you at this point, but 
+I'll go ahead and tell you anyway, just as a preview. 
+
+</para>
+
+
+
+
+<para id="p1131">
+According to Sun, the 
+
+<emphasis id="strong1078" effect="bold">
+ArrayList
+
+</emphasis>
+ class provides a 
+
+</para>
+
+
+
+
+<para id="p1132">
+
+	
+
+<emphasis id="em1013" effect="italics">
+"Resizable-array implementation of the 
+
+<emphasis id="strong1079" effect="bold">
+List
+
+</emphasis>
+ interface. Implements all 
+	optional list operations, and permits all elements, including null. In 
+	addition to implementing the 
+
+<emphasis id="strong1080" effect="bold">
+List
+
+</emphasis>
+ interface, this class provides methods to 
+	manipulate the size of the array that is used internally to store the list. 
+	(This class is roughly equivalent to 
+
+<emphasis id="strong1081" effect="bold">
+Vector
+
+</emphasis>
+, except that it is 
+	unsynchronized.)"
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1082" effect="bold">
+Stated more simply ...
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1134">
+Stated more simply, an object of the 
+
+<emphasis id="strong1083" effect="bold">
+ArrayList
+
+</emphasis>
+ class can be used as a 
+replacement for an array object. An 
+
+<emphasis id="strong1084" effect="bold">
+ArrayList
+
+</emphasis>
+ object knows how to increase its 
+capacity on demand, whereas the capacity of a simple array object cannot change 
+once it is instantiated. 
+
+</para>
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1085" effect="bold">
+An ArrayList object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1136">
+The following statement instantiates a new object of the 
+
+<emphasis id="strong1086" effect="bold">
+ArrayList
+
+</emphasis>
+ class, 
+with an initial capacity for one element. The initial capacity is determined by 
+the 
+
+<emphasis id="strong1087" effect="bold">
+int
+
+</emphasis>
+ value passed to the constructor when the object is instantiated. 
+
+</para>
+
+
+
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1025" display="block">    java.util.ArrayList ref = 
+            new java.util.ArrayList(1);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1088" effect="bold">
+Back to the primary purpose ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1138">
+Getting back to the primary purpose of this program, what is the meaning of 
+the term 
+
+<emphasis id="strong1089" effect="bold">
+<emphasis id="em1014" effect="italics">
+java.util
+
+</emphasis>
+</emphasis>
+ that appears ahead of the name of the class, 
+
+<emphasis id="strong1090" effect="bold">
+ArrayList
+
+</emphasis>
+? 
+
+</para>
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1091" effect="bold">
+Avoiding name conflicts 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1140">
+One of the age-old problems in computer programming has to do with the 
+potential for name conflicts. The advent of OOP and reusable code didn't cause 
+that problem to go away. If anything, it made the problem worse. 
+
+</para>
+
+
+
+
+<para id="p1141">
+For example, you and I may work as programmers for separate companies named X 
+and Y. A company named Z may purchase our two companies and attempt to merge the 
+software that we have written separately. Given that there are only a finite 
+number of meaningful class names, there is a good possibility that you and I may 
+have defined different classes with the same names. Furthermore, it may prove 
+useful to use both of the class definitions in a new program. 
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1092" effect="bold">
+Put class files in different directories
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1143">
+Sun's solution to the problem is to cause compiled class files to reside in 
+different directories. Simplifying things somewhat, if your compiled file for a 
+class named 
+
+<emphasis id="strong1093" effect="bold">
+Joe
+
+</emphasis>
+ is placed in a directory named 
+
+<emphasis id="strong1094" effect="bold">
+X
+
+</emphasis>
+, and my compiled file for a 
+different class named 
+
+<emphasis id="strong1095" effect="bold">
+Joe
+
+</emphasis>
+ is placed in a directory named 
+
+
+<emphasis id="strong1096" effect="bold">
+Y
+
+</emphasis>
+, then source code in 
+the same Java program can refer to those two class files as 
+
+<emphasis id="strong1097" effect="bold">
+X.Joe
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1098" effect="bold">
+Y.Joe
+
+</emphasis>
+. 
+This scheme makes it possible for the Java compiler and the Java virtual machine 
+to distinguish between the two files having the name 
+
+<emphasis id="strong1099" effect="bold">
+Joe.class
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1100" effect="bold">
+The java and util directories
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1145">
+Again, simplifying things slightly, the code in the above fragment refers to 
+a file named 
+
+<emphasis id="strong1101" effect="bold">
+ArrayList.class
+
+</emphasis>
+, which is stored in a directory named 
+
+
+<emphasis id="strong1102" effect="bold">
+util
+
+</emphasis>
+, which 
+is a subdirectory of a directory named 
+
+<emphasis id="strong1103" effect="bold">
+java
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1146">
+The directory named java is the root of a directory tree containing a very 
+large number of standard Java class files. 
+
+</para>
+
+
+
+
+<para id="p1147">
+
+	
+
+<emphasis id="em1015" effect="italics">
+(As an aside, there is another directory named javax, which forms the root 
+	of another directory tree containing class files considered to be extensions 
+	to the standard class library.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1104" effect="bold">
+Many directories 
+
+<emphasis id="em1016" effect="italics">
+(packages) 
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1149">
+Stated simply, a Java package is nothing more or less than a directory 
+containing class files. 
+
+</para>
+
+
+
+
+<para id="p1150">
+The standard and extended Java class libraries are scattered among a fairly 
+large number of directories or packages 
+
+<emphasis id="em1017" effect="italics">
+(a quick count of the packages in the 
+JDK 1.3 documentation indicates that there are approximately 65 standard and 
+extended packages)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1105" effect="bold">
+A fully-qualified class name
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1152">
+With one exception, whenever you refer to a class in a Java program, you must 
+provide a fully-qualified name for the class, including the path through the 
+directory tree culminating in the name of the class. Thus, the following is the 
+fully-qualified name for the class whose name is 
+
+<emphasis id="strong1106" effect="bold">
+ArrayList
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1107" effect="bold">
+java.util.ArrayList
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1154">
+<emphasis id="em1018" effect="italics">
+(Later we will see another way to accomplish this that requires less typing 
+effort.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1155">
+The exception 
+
+</para>
+
+
+
+
+<para id="p1156">
+The one exception to the rule is the use of classes in the 
+
+<emphasis id="em1019" effect="italics">
+java.lang
+
+</emphasis>
+ package, 
+
+
+<emphasis id="em1020" effect="italics">
+(such as 
+
+<emphasis id="strong1108" effect="bold">
+Boolean
+
+</emphasis>
+, 
+
+<emphasis id="strong1109" effect="bold">
+Class
+
+</emphasis>
+, and 
+
+<emphasis id="strong1110" effect="bold">
+Double
+
+</emphasis>
+)
+
+</emphasis>
+. Your source code can refer to classes in 
+the 
+
+<emphasis id="strong1111" effect="bold">
+java.lang
+
+</emphasis>
+ package without the requirement to provide a fully-qualified class 
+name. 
+
+</para>
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1112" effect="bold">
+An ArrayList object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1158">
+Now back to the use of the object previously instantiated from the class 
+named 
+
+<emphasis id="strong1113" effect="bold">
+ArrayList
+
+</emphasis>
+. This is the kind of object that is often referred to as a 
+container. 
+
+</para>
+
+
+
+
+<para id="p1159">
+
+	
+
+<emphasis id="em1021" effect="italics">
+(A container in this sense is an object that is used to store references to 
+	other objects.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1114" effect="bold">
+Many methods available
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1161">
+An object of the 
+
+<emphasis id="strong1115" effect="bold">
+ArrayList
+
+</emphasis>
+ class provides a variety of methods that can be 
+used to store object references and to fetch the references that it contains.
+
+
+</para>
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1116" effect="bold">
+The 
+
+<emphasis id="em1022" effect="italics">
+add
+
+</emphasis>
+ method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1163">
+One of those methods is the method named 
+
+<emphasis id="strong1117" effect="bold">
+add
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1164">
+The following code fragment instantiates three objects of the 
+
+<emphasis id="strong1118" effect="bold">
+String
+
+</emphasis>
+ 
+class, and stores them in the 
+
+<emphasis id="strong1119" effect="bold">
+ArrayList
+
+</emphasis>
+ object instantiated earlier. 
+
+</para>
+
+
+
+
+<para id="p1165">
+
+	
+
+<emphasis id="em1023" effect="italics">
+(Note that since the initial capacity of the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1120" effect="bold">
+<emphasis id="em1024" effect="italics">
+ArrayList
+
+</emphasis>
+</emphasis>
+<emphasis id="em1025" effect="italics">
+ object was adequate 
+	to store only a single reference, the following code causes the object to 
+	automatically increase its capacity to at least three.)
+
+</emphasis>
+</para>
+
+
+
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1026" display="block">    ref.add("ABC ");
+    ref.add("DEF ");
+    ref.add("GHI");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1121" effect="bold">
+The get() method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1167">
+The references stored in an object of the 
+
+<emphasis id="strong1122" effect="bold">
+ArrayList
+
+</emphasis>
+ class can be fetched by 
+calling the 
+
+<emphasis id="strong1123" effect="bold">
+get
+
+</emphasis>
+ method on a reference to the object passing a 
+parameter of type 
+
+<emphasis id="strong1124" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1168">
+The code in the following fragment calls the
+
+<emphasis id="strong1125" effect="bold">
+ get 
+
+</emphasis>
+method to fetch the references 
+stored in index locations 0, 1, and 2. These references are passed to the 
+
+
+<emphasis id="strong1126" effect="bold">
+println
+
+</emphasis>
+ method, where the contents of the 
+
+<emphasis id="strong1127" effect="bold">
+String
+
+</emphasis>
+  objects 
+referred to by those references are concatenated and displayed on the computer 
+screen. 
+
+</para>
+
+
+
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block">    System.out.println(
+                   (String)ref.get(0) + 
+                   (String)ref.get(1) + 
+                   (String)ref.get(2));</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1169">
+<emphasis id="strong1128" effect="bold">
+The output 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1170">
+This results in the following being displayed: 
+
+</para>
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1129" effect="bold">
+ABC DEF GHI
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1130" effect="bold">
+Summary
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1173">
+The above discussion gave you a preview into the use of containers in 
+general, and the 
+
+<emphasis id="strong1131" effect="bold">
+ArrayList
+
+</emphasis>
+ container in particular. 
+
+</para>
+
+
+
+
+<para id="p1174">
+However, the primary purpose of this program was to help you to understand 
+the use of packages in Java. 
+
+</para>
+
+
+
+
+<para id="p1175">
+The 
+
+<emphasis id="strong1132" effect="bold">
+ArrayList
+
+</emphasis>
+ class was simply used as an example of a class file that is 
+stored in a standard Java package. 
+
+</para>
+
+
+
+
+<para id="p1176">
+<link id="a1057" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1177">
+D. Joe Joe true 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1133" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+<para id="p1178">
+
+
+
+<emphasis id="strong1134" effect="bold">
+Two String objects with identical contents
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1179">
+As in 
+
+<link id="a1058" target-id="question01">
+
+Question 1
+
+</link>
+
+, the program instantiates two
+
+
+<emphasis id="strong1135" effect="bold">
+String
+
+</emphasis>
+ 
+objects containing identical character strings, as shown in the following code 
+fragment. 
+
+</para>
+
+
+
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block">    char[] anArray = {'J','o','e'};
+    String Str1 = new String(anArray);
+    String Str2 = new String(anArray);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1180">
+<emphasis id="strong1136" effect="bold">
+Compare objects for equality 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1181">
+Also, as in 
+
+<link id="a1059" target-id="question01">
+
+Question 1
+
+</link>
+
+, this program compares the 
+two objects for equality and displays the result as shown by the call to the
+
+
+<emphasis id="strong1137" effect="bold">
+equals
+
+</emphasis>
+ method in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">    System.out.println( 
+              Str1 + " " + Str2 + " " +
+              Str1.equals(Str2));</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1182">
+<emphasis id="strong1138" effect="bold">
+Compare using overridden equals method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1183">
+The == operator is not used to compare the two objects in this program. 
+Instead, the objects are compared using an overridden version of the 
+
+<emphasis id="strong1139" effect="bold">
+
+equals
+
+</emphasis>
+ method. In this case, the 
+
+<emphasis id="strong1140" effect="bold">
+equals
+
+</emphasis>
+  method 
+returns true, indicating that the objects are of the same type and contain the 
+same data values. 
+
+</para>
+
+
+
+
+<para id="p1184">
+<emphasis id="strong1141" effect="bold">
+The equals method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1185">
+The 
+
+<emphasis id="strong1142" effect="bold">
+equals
+
+</emphasis>
+  method is defined in the 
+
+<emphasis id="strong1143" effect="bold">
+Object
+
+</emphasis>
+ 
+class, and can be overridden in subclasses of 
+
+<emphasis id="strong1144" effect="bold">
+Object
+
+</emphasis>
+. It is the responsibility 
+of the author of the subclass to override the method so as to implement that 
+author's concept of "equal" insofar as objects of the class are concerned. 
+
+</para>
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1145" effect="bold">
+The overridden 
+
+<emphasis id="em1026" effect="italics">
+equals
+
+</emphasis>
+ method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1187">
+The reason that the 
+
+<emphasis id="strong1146" effect="bold">
+equals
+
+</emphasis>
+ method returned true in this case 
+was that the author of the 
+
+<emphasis id="strong1147" effect="bold">
+String
+
+</emphasis>
+ class provided an overridden 
+version of the 
+
+<emphasis id="strong1148" effect="bold">
+equals
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1149" effect="bold">
+The default 
+
+<emphasis id="em1027" effect="italics">
+equals
+
+</emphasis>
+ method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1189">
+If the author of the class does not override the 
+
+<emphasis id="strong1150" effect="bold">
+equals
+
+</emphasis>
+ 
+method, and the default version of the 
+
+<emphasis id="strong1151" effect="bold">
+equals
+
+</emphasis>
+ method inherited 
+from 
+
+<emphasis id="strong1152" effect="bold">
+Object
+
+</emphasis>
+ is called on an object of the class, then according to Sun: 
+
+</para>
+
+
+
+
+<para id="p1190">
+
+	
+
+<emphasis id="em1028" effect="italics">
+"for any reference values x and y, this method returns true if and only if x 
+	and y refer to the same object (x==y has the value true)"
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1191">
+In other words, the default version of the 
+
+<emphasis id="strong1153" effect="bold">
+equals
+
+</emphasis>
+ method 
+inherited from the class 
+
+<emphasis id="strong1154" effect="bold">
+Object
+
+</emphasis>
+ provides the same behavior as the == operator 
+when applied to object references.
+
+</para>
+
+
+
+
+
+<para id="p1192">
+<link id="a1060" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1193">
+C. Joe Joe false 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1155" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+<para id="p1194">
+
+
+
+<emphasis id="strong1156" effect="bold">
+The identity operator 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1195">
+This program illustrates the behavior of the == operator 
+
+<emphasis id="em1029" effect="italics">
+(sometimes 
+referred to as the identity operator)
+
+</emphasis>
+ when used to compare references to 
+objects. 
+
+</para>
+
+
+
+
+<para id="p1196">
+<emphasis id="strong1157" effect="bold">
+Two String objects with identical contents 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1197">
+As shown in the following fragment, this program instantiates two objects of 
+the 
+
+<emphasis id="strong1158" effect="bold">
+String
+
+</emphasis>
+ class containing identical character strings. 
+
+</para>
+
+
+
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">class Worker{
+  void doIt(){
+    char[] anArray = {'J','o','e'};
+    String Str1 = new String(anArray);
+    String Str2 = new String(anArray);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1198">
+The fact that the two 
+
+<emphasis id="strong1159" effect="bold">
+String
+
+</emphasis>
+ objects contain identical 
+	character strings is confirmed by: 
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1065">
+Both objects are instantiated using the same array object of type 
+	
+
+<emphasis id="strong1160" effect="bold">
+char
+
+</emphasis>
+ 
+	as input.
+
+</item>
+
+
+	
+
+<item id="li1066">
+When the 
+
+<emphasis id="strong1161" effect="bold">
+toString
+
+</emphasis>
+ representations of the two objects are displayed 
+	later, the display of each object produces Joe on the computer screen.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1199">
+<emphasis id="strong1162" effect="bold">
+Compare object references using identity (==)
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1200">
+The references to the two 
+
+<emphasis id="strong1163" effect="bold">
+String
+
+</emphasis>
+ objects are compared using the == operator, 
+and the result of that comparison is displayed. This comparison will produce 
+either true or false. The code to accomplish this comparison is shown in the 
+following fragment. 
+
+</para>
+
+
+
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1031" display="block">    System.out.println( 
+              Str1 + " " + Str2 + " " +
+              (Str1 == Str2));</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1201">
+The statement in the above fragment produces the following display: 
+
+</para>
+
+
+
+
+<para id="p1202">
+<emphasis id="strong1164" effect="bold">
+Joe Joe false
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1203">
+<emphasis id="strong1165" effect="bold">
+How can this be false?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1204">
+We know that the two objects are of the same type (
+
+<emphasis id="strong1166" effect="bold">
+String
+
+</emphasis>
+) and that they 
+contain the same character strings. Why does the == operator return false? 
+
+</para>
+
+
+
+
+<para id="p1205">
+<emphasis id="strong1167" effect="bold">
+Doesn't compare the objects 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1206">
+The answer lies in the fact that the above statement doesn't really compare 
+the two objects at all. Rather, it compares the values stored in the reference 
+variables referring to the two objects. That is not the same as comparing the 
+objects. 
+
+</para>
+
+
+
+
+<para id="p1207">
+<emphasis id="strong1168" effect="bold">
+References are not equal 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1208">
+Even though the objects are of the same type and contain the same character 
+string, they are two different objects, located in different parts of memory. 
+Therefore, the contents of the two reference variables containing references to 
+the two objects are not equal. 
+
+</para>
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1169" effect="bold">
+The correct answer is 
+
+<emphasis id="em1030" effect="italics">
+false
+
+</emphasis>
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1210">
+The == operator returns 
+
+<emphasis id="strong1170" effect="bold">
+<emphasis id="em1031" effect="italics">
+false
+
+</emphasis>
+</emphasis>
+ as it should. The only way that the == operator 
+could return 
+
+<emphasis id="strong1171" effect="bold">
+<emphasis id="em1032" effect="italics">
+true
+
+</emphasis>
+</emphasis>
+ is if both reference variables refer to the same object, 
+
+
+<emphasis id="em1033" effect="italics">
+(which is not the case)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1211">
+<emphasis id="strong1172" effect="bold">
+The bottom line is ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1212">
+The == operator cannot be used to compare two objects for equality. However, 
+it can be used to determine if two reference variables refer to the same object.
+
+
+</para>
+
+
+
+
+<para id="p1213">
+<link id="a1061" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<para id="p1214">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

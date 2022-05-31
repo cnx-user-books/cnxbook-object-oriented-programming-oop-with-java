@@ -1,0 +1,2940 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4130: The Comparator Interface, Part 5</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46193</md:content-id>
+  <md:title>Java4130: The Comparator Interface, Part 5</md:title>
+  <md:abstract>This module shows you how to use the sort method of the Collections class along with a Comparator object to sort the contents of a List into reverse natural order.</md:abstract>
+  <md:uuid>c0e99b82-5ed7-47fa-8ba6-fc16365549f6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 08 10:52:12 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+
+
+<item id="li1008">
+<link id="a1008" target-id="Beginning_with_a_quiz">
+
+Beginning with a quiz
+
+</link>
+
+ 
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Similar_to_previous_programs">
+
+Similar to previous programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="A_new_LinkedList_object">
+
+A new LinkedList object
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Populating_the_List">
+
+Populating the List
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Displaying_the_list">
+
+Displaying the list
+
+
+</link>
+
+
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Sort_the_list">
+
+Sort the list
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="A_very_important_point">
+
+A very important point
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1015">
+<link id="a1015" target-id="The_Collections_class">
+
+The Collections class
+
+</link>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="The_sort_method">
+
+The sort method 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Also_uses_an_array">
+
+Also uses an array
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="A_flexible_approach_to_sorting">
+
+A flexible approach to sorting
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1019">
+<link id="a1019" target-id="The_Comparator">
+
+The Comparator
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1020">
+<link id="a1020" target-id="Display_the_sorted_list">
+
+Display the sorted list
+
+</link>
+
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module shows you how to use the 
+
+<emphasis id="strong1000" effect="bold">
+sort
+
+</emphasis>
+ method of the 
+
+
+<emphasis id="strong1001" effect="bold">
+Collections
+
+</emphasis>
+ class along with a 
+
+<emphasis id="strong1002" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the 
+contents of a 
+
+<emphasis id="strong1003" effect="bold">
+List
+
+</emphasis>
+ into reverse natural order.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1025" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1026" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named Comparator06. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. A new LinkedList object. 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The fillIt method. 
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1030" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Sort the list. 
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The Comparator. 
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1032" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Display the sorted list. 
+
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+In this module, I will teach you how to use the 
+
+<emphasis id="strong1004" effect="bold">
+sort
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1005" effect="bold">
+
+Collections
+
+</emphasis>
+ class along with a 
+
+<emphasis id="strong1006" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the contents 
+of a 
+
+<emphasis id="strong1007" effect="bold">
+List 
+
+</emphasis>
+into 
+
+<emphasis id="em1003" effect="italics">
+reverse natural order
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+The methodology that I will teach you is completely general, and can be used 
+to sort a list in a wide variety of ways, depending on how you define the 
+
+<emphasis id="strong1008" effect="bold">
+
+compare
+
+</emphasis>
+ method of a 
+
+<emphasis id="strong1009" effect="bold">
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Furthermore, the same 
+
+<emphasis id="strong1010" effect="bold">
+sort
+
+</emphasis>
+ method and the same 
+
+<emphasis id="strong1011" effect="bold">
+Comparator
+
+</emphasis>
+ 
+object can be used to sort any implementation of a list, so long as the list 
+properly implements the 
+
+<emphasis id="strong1012" effect="bold">
+List
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1033" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1004" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Beginning_with_a_quiz" effect="bold">
+
+Beginning with a quiz
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1011">
+Let's begin with a quiz to test your prior knowledge of the 
+Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+C. BILL Bill JOE Joe TOM Tom
+
+</item>
+
+
+	
+
+<item id="li1034">
+D. Tom TOM Joe JOE Bill BILL
+
+</item>
+
+
+	
+
+<item id="li1035">
+E. Joe Bill Tom 
+
+</item>
+
+
+	
+
+<item id="li1036">
+F. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1013" effect="bold">
+The program named Comparator06
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">//File Comparator06.java
+//Copyright 2001, R.G.Baldwin
+import java.util.*;
+import java.io.Serializable;
+
+public class Comparator06{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparator06
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+
+    ref = new LinkedList();
+    Populator.fillIt(ref);
+    Collections.sort((List)ref, new TheComparator());
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+
+class TheComparator implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+
+    //Do a comparison
+    int result = ((String)o1).compareTo(((String)o2));
+    return result*(-1);
+  }//end compare()
+}//end class TheComparator
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+
+<para id="p1013">
+The output produced by this program is shown below: 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1014" effect="bold">
+Tom TOM Joe JOE Bill BILL 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+If that was your answer, you probably already understand most of the material 
+covered in this module. In that case, you might consider skipping this module 
+and moving on to the next module. If that wasn't your answer, you should 
+probably continue with your study of this module. 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="Similar_to_previous_programs" effect="bold">
+
+Similar to previous programs
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1016">
+The overall structure of the program in 
+
+<link id="a1035" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is similar to programs 
+that I have discussed in previous modules. Therefore, I will concentrate on 
+those aspects of this program that differentiate it from the programs in 
+previous modules. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="A_new_LinkedList_object" effect="bold">
+
+A new LinkedList object
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1017">
+The code in 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates a new 
+
+<emphasis id="strong1015" effect="bold">
+LinkedList
+
+</emphasis>
+ object and passes 
+that object's reference to a method named 
+
+<emphasis id="strong1016" effect="bold">
+fillIt
+
+</emphasis>
+ where it is 
+populated with the names of several people.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. A new 
+				LinkedList object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    ref = new LinkedList();
+    Populator.fillIt(ref);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1018">
+The 
+
+<emphasis id="strong1017" effect="bold">
+LinkedList
+
+</emphasis>
+ class is one of the concrete implementation classes of 
+the Collections Framework. This class implements the 
+
+<emphasis id="strong1018" effect="bold">
+Collection
+
+</emphasis>
+ interface 
+and the 
+
+<emphasis id="strong1019" effect="bold">
+List
+
+</emphasis>
+ interface. Here is part of what Oracle has to say about the
+
+
+<emphasis id="strong1020" effect="bold">
+LinkedList
+
+</emphasis>
+ class: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1005" effect="italics">
+"Linked list implementation of the List interface. Implements all 
+	optional list operations, and permits all elements (including null). In 
+	addition to implementing the List interface, the LinkedList class provides 
+	uniformly named methods to get, remove and insert an element at the 
+	beginning and end of the list. These operations allow linked lists to be 
+	used as a stack, queue, or double-ended queue (deque)."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+ 
+
+<emphasis id="Populating_the_List" effect="bold">
+
+Populating the List
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+The code in 
+
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1021" effect="bold">
+fillIt
+
+</emphasis>
+ method that is used to populate 
+the list with references to six different 
+
+<emphasis id="strong1022" effect="bold">
+String
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+The 
+
+<emphasis id="strong1023" effect="bold">
+add
+
+</emphasis>
+ method is used to add each new element to the end of the list. 
+As you can see, the elements are added to the list in no particular order with 
+respect to their values. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The fillIt 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Populator{
+  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+
+
+
+<emphasis id="Displaying_the_list" effect="bold">
+
+
+Displaying the list
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+Although I didn't bother to do so in this program, if an iterator were to be 
+used to access and display the elements in the list following the invocation of 
+the 
+
+<emphasis id="strong1024" effect="bold">
+fillIt
+
+</emphasis>
+ method, the result would be as shown below: 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1025" effect="bold">
+Joe Bill Tom JOE BILL TOM
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+As you can see, this is the same as the order in which the elements are added 
+to the list. The first element is added to the list at index value 0 and the 
+sixth element is added to the list at index value 5. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Sort_the_list" effect="bold">
+
+Sort the list
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+The code shown in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is new to this module. This code uses the 
+
+<emphasis id="strong1026" effect="bold">
+sort
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1027" effect="bold">
+Collections
+
+</emphasis>
+ class, along with a 
+
+<emphasis id="strong1028" effect="bold">
+Comparator
+
+</emphasis>
+ object to 
+sort the contents of the list.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Sort the list.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    Collections.sort((List)ref, new TheComparator());
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1006" effect="italics">
+The sort method expects to receive an incoming parameter of type
+
+
+<emphasis id="strong1029" effect="bold">
+List
+
+</emphasis>
+. Therefore, it was necessary to cast the reference from 
+type 
+
+<emphasis id="strong1030" effect="bold">
+Collection
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1031" effect="bold">
+List
+
+</emphasis>
+.
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="A_very_important_point" effect="bold">
+
+A very important point
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1025">
+Unlike the programs in previous modules that simply extracted the 
+contents of the collection into an array and sorted the array, this code 
+actually rearranges the contents of the list according to the sorting rules. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1007" effect="italics">
+
+(The programs in previous modules that sorted the array did not rearrange the 
+contents of the list. Only the contents of the array were rearranged.)
+
+</emphasis>
+ 
+
+
+</quote>
+
+
+
+
+<para id="p1026">
+Thus, the relationship between an element in the list and the index 
+associated with that element can change as a result of the sorting operation 
+shown in 
+
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Following the sort, when an iterator is used to access the elements, the 
+elements will be returned by the iterator in the newly-sorted order. 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+
+
+
+<emphasis id="The_Collections_class" effect="bold">
+
+
+The Collections class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+Despite the similarity of the names, the 
+
+<emphasis id="strong1032" effect="bold">
+Collections
+
+</emphasis>
+ class 
+is different from the 
+
+<emphasis id="strong1033" effect="bold">
+Collection
+
+</emphasis>
+ interface. Here is part of what 
+Oracle has to say about the 
+
+<emphasis id="strong1034" effect="bold">
+Collections
+
+</emphasis>
+ class: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1008" effect="italics">
+"This class consists exclusively of static methods that operate on or 
+	return collections. It contains polymorphic algorithms that operate on 
+	collections, "wrappers", which return a new collection backed by a specified 
+	collection, and a few other odds and ends."
+
+</emphasis>
+</quote>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="The_sort_method" effect="bold">
+
+The sort method
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1029">
+The 
+
+<emphasis id="strong1035" effect="bold">
+Collections
+
+</emphasis>
+ class provides a large number of very interesting and 
+useful methods, such as 
+
+<emphasis id="strong1036" effect="bold">
+binarySearch
+
+</emphasis>
+, 
+
+<emphasis id="strong1037" effect="bold">
+copy
+
+</emphasis>
+, 
+
+<emphasis id="strong1038" effect="bold">
+reverse
+
+</emphasis>
+, and 
+
+<emphasis id="strong1039" effect="bold">
+
+reverseOrder
+
+</emphasis>
+. 
+
+<emphasis id="em1009" effect="italics">
+(The reverseOrder method will be examined in the next 
+module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+One of the static methods of the 
+
+<emphasis id="strong1040" effect="bold">
+Collections
+
+</emphasis>
+ class is the 
+
+<emphasis id="strong1041" effect="bold">
+sort
+
+</emphasis>
+ 
+method. One overloaded version of the 
+
+<emphasis id="strong1042" effect="bold">
+sort
+
+</emphasis>
+ method can be used to sort a list into 
+the 
+
+<emphasis id="em1010" effect="italics">
+natural ordering
+
+</emphasis>
+ of its elements. Another overloaded version sorts a list 
+according to the order induced by a 
+
+<emphasis id="strong1043" effect="bold">
+Comparator
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+Here is part of what Oracle has to say about this second version of the 
+
+<emphasis id="strong1044" effect="bold">
+
+sort 
+
+</emphasis>
+method that uses a 
+
+<emphasis id="strong1045" effect="bold">
+Comparator
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+
+	
+
+<emphasis id="strong1046" effect="bold">
+<emphasis id="em1011" effect="italics">
+public static void sort(List list, Comparator c)
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="em1012" effect="italics">
+"Sorts the specified list according to the order induced by the 
+	specified comparator. All elements in the list must be mutually comparable 
+	using the specified comparator ...
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+	
+
+<emphasis id="em1013" effect="italics">
+The specified list must be modifiable, but need not be resizable. This 
+	implementation dumps the specified list into an array, sorts the array, and 
+	iterates over the list resetting each element from the corresponding 
+	position in the array. This avoids the n2 log(n) performance that would 
+	result from attempting to sort a linked list in place."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Also_uses_an_array" effect="bold">
+
+Also uses an array
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1032">
+I find it interesting that the 
+
+<emphasis id="strong1047" effect="bold">
+sort
+
+</emphasis>
+ method uses an array as an 
+intermediary in the sorting process. However, the difference between this 
+approach and the approach involving arrays shown in previous modules is given by 
+the following excerpt from the above quotation: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+
+	
+
+<emphasis id="em1014" effect="italics">
+"iterates over the list resetting each element from the corresponding 
+	position in the array"
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1033">
+In other words, after sorting the array, the 
+
+<emphasis id="strong1048" effect="bold">
+sort
+
+</emphasis>
+ method uses the 
+sorted results in the array to rearrange the positions of the elements in the 
+list, resulting in a sorted list. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="A_flexible_approach_to_sorting" effect="bold">
+
+A flexible approach to sorting
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1034">
+Thus, the 
+
+<emphasis id="strong1049" effect="bold">
+sort
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1050" effect="bold">
+Collections
+
+</emphasis>
+ class can be used to 
+sort the elements in a list using whatever set of comparison rules you program 
+into the 
+
+<emphasis id="strong1051" effect="bold">
+compare
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1052" effect="bold">
+Comparator
+
+</emphasis>
+ object. Furthermore, it 
+doesn't matter how the list is actually implemented so long as it properly 
+implements the 
+
+<emphasis id="strong1053" effect="bold">
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_Comparator" effect="bold">
+
+The Comparator
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+The code in 
+
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the class from which the 
+
+<emphasis id="strong1054" effect="bold">
+Comparator
+
+</emphasis>
+ object 
+was instantiated. 
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The 
+				Comparator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">class TheComparator implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+
+    int result = ((String)o1).compareTo(((String)o2));
+    return result*(-1);
+  }//end compare()
+}//end class TheComparator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1036">
+I have presented and explained this class in previous modules, so I won't 
+discuss it in detail again here. Suffice it for now to say that an object 
+instantiated from this class will induce the list to be sorted into 
+
+<emphasis id="em1015" effect="italics">
+reverse 
+natural order
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Display_the_sorted_list" effect="bold">
+
+Display the sorted list
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1037">
+The code in 
+
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ gets and uses an iterator to display the contents of 
+the sorted list. 
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Display the 
+				sorted list.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1038">
+The output produced by the code in 
+
+<link id="a1042" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ is shown below: 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1055" effect="bold">
+Tom TOM Joe JOE Bill BILL
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+As you can see, this is 
+
+<emphasis id="em1016" effect="italics">
+reverse natural order
+
+</emphasis>
+ as induced by the 
+
+<emphasis id="strong1056" effect="bold">
+
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+I encourage you to copy the code from 
+
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+Paste the code into your Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1043">
+In this module, I taught you how to use the sort method of the 
+
+<emphasis id="strong1057" effect="bold">
+
+Collections
+
+</emphasis>
+ class along with a 
+
+<emphasis id="strong1058" effect="bold">
+Comparator
+
+</emphasis>
+ object to sort the contents 
+of a list. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+By using this approach, you can sort the contents of list according to any 
+set of comparison rules that you can program into the 
+
+<emphasis id="strong1059" effect="bold">
+compare
+
+</emphasis>
+ method of 
+the 
+
+<emphasis id="strong1060" effect="bold">
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Furthermore, the ability to sort the list is independent of the actual 
+implementation of the list, so long as the list properly implements the 
+
+<emphasis id="strong1061" effect="bold">
+List
+
+</emphasis>
+ 
+interface. For example, the same 
+
+<emphasis id="strong1062" effect="bold">
+Comparator
+
+</emphasis>
+ object 
+
+<emphasis id="em1017" effect="italics">
+(and the same code)
+
+</emphasis>
+ 
+can be used to sort an 
+
+<emphasis id="strong1063" effect="bold">
+ArrayList
+
+</emphasis>
+, a 
+
+<emphasis id="strong1064" effect="bold">
+LinkedList
+
+</emphasis>
+, or a 
+
+<emphasis id="strong1065" effect="bold">
+Vector
+
+</emphasis>
+, 
+producing the same results regardless of which class the list object is 
+instantiated from.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+In the next module, I will show you how to use a 
+
+<emphasis id="strong1066" effect="bold">
+Comparator
+
+</emphasis>
+ created by 
+the 
+
+<emphasis id="strong1067" effect="bold">
+reverseOrder
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1068" effect="bold">
+Collections
+
+</emphasis>
+ class to sort a list 
+into 
+
+<emphasis id="em1018" effect="italics">
+reverse natural order
+
+</emphasis>
+. I will also show you how to use the 
+
+<emphasis id="strong1069" effect="bold">
+
+reverse
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1070" effect="bold">
+Collections
+
+</emphasis>
+ class to reverse the order of the 
+elements in a list. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1071" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1037">
+Module name: Java4130: The Comparator Interface, Part 5
+
+</item>
+
+
+					
+
+<item id="li1038">
+File: Java4130.htm
+
+
+</item>
+
+
+					
+
+<item id="li1039">
+Published: 05/07/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1072" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1048">
+<emphasis id="strong1073" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1049">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1050">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1051">
+<emphasis id="strong1074" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1052">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

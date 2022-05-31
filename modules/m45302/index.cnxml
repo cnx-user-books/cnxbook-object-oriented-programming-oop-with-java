@@ -1,0 +1,6184 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0140: Self-assessment, Type conversion, casting, common exceptions, public class files, javadoc comments and directives, and null references</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45302</md:content-id>
+  <md:title>Ap0140: Self-assessment, Type conversion, casting, common exceptions, public class files, javadoc comments and directives, and null references</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about type conversion, casting, common exceptions, public class files, javadoc comments and directives, and null references in Java.</md:abstract>
+  <md:uuid>65ba443f-4573-47d0-87b6-89fe8a147bc0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. OK OK
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. OK
+
+</item>
+
+
+	
+
+<item id="li1010">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap151{
+  public static void main(
+                        String args[]){
+        new Worker().doIt();
+  }//end main()
+}//end class Ap151
+
+class Worker{
+  void doIt(){
+    Object refA = new MyClassA();
+    Object refB = 
+              (Object)(new MyClassB());
+    System.out.print(refA);
+    System.out.print(refB);
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class MyClassA{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassA
+
+class MyClassB{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassB
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1011">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1013">
+C. OK OK
+
+</item>
+
+
+	
+
+<item id="li1014">
+D. OK
+
+</item>
+
+
+	
+
+<item id="li1015">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap152{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap152
+
+class Worker{
+  void doIt(){
+    Object ref1 = new MyClassA();
+    Object ref2 = new MyClassB();
+    System.out.print(ref1);
+    
+    MyClassB ref3 = (MyClassB)ref1;
+    System.out.print(ref3);
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class MyClassA{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassA
+
+class MyClassB{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassB
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1016">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1017">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1018">
+C. OK
+
+</item>
+
+
+	
+
+<item id="li1019">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">import java.util.Random;
+import java.util.Date;
+
+public class Ap153{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap153
+
+class Worker{
+  void doIt(){
+    Random ref = new Random(
+                 new Date().getTime());
+    if(ref.nextBoolean()){
+      throw new IllegalStateException();
+    }else{
+      System.out.println("OK");
+    }//end else
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1020">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1021">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1022">
+C. 5 10 15
+
+</item>
+
+
+	
+
+<item id="li1023">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">import java.util.NoSuchElementException;
+public class Ap154{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap154
+
+class Worker{
+  void doIt(){
+    MyContainer ref = 
+                     new MyContainer();
+    ref.put(0,5);
+    ref.put(1,10);
+    ref.put(2,15);
+    
+    System.out.print(ref.get(0)+" ");
+    System.out.print(ref.get(1)+" ");
+    System.out.print(ref.get(2)+" ");
+    System.out.print(ref.get(3)+" ");  
+
+  }//end doIt()
+}// end class Worker
+
+class MyContainer{
+  private int[] array = new int[3];
+  
+  public void put(int idx, int data){
+    if(idx &gt; (array.length-1)){
+      throw new 
+              NoSuchElementException();
+    }else{
+      array[idx] = data;
+    }//end else
+  }//end put()
+    
+  public int get(int idx){
+    if(idx &gt; (array.length-1)){
+      throw new 
+              NoSuchElementException();
+    }else{
+      return array[idx];
+    }//end else
+  }//end put()
+    
+}//end class MyContainer
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+The source code in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is contained in a 
+single file named Ap155.java 
+
+</para>
+
+
+
+
+<para id="p1013">
+What output is produced by the program? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1024">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1025">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1026">
+C. OK
+
+</item>
+
+
+	
+
+<item id="li1027">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap155{
+  public static void main(
+                        String args[]){
+    new Ap155a().doIt();
+  }//end main()
+}//end class Ap155
+
+public class Ap155a{
+  void doIt(){
+    System.out.println("OK");
+  }//end doIt()
+}// end class Ap155a
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1014">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+A Java application consists of the two source files shown in
+
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and 
+
+<link id="a1027" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ having names 
+of AP156.java and AP156a.java 
+
+</para>
+
+
+
+
+<para id="p1016">
+What output is produced by this program? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1028">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1029">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1030">
+C. OK
+
+</item>
+
+
+	
+
+<item id="li1031">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap156{
+  public static void main(
+                        String args[]){
+    new Ap156a().doIt();
+  }//end main()
+}//end class Ap156
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap156a{
+  void doIt(){
+    System.out.println("OK");
+  }//end doIt()
+}// end class Ap156a
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1028" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+Explain the purpose of the terms @param and @return in 
+
+<link id="a1029" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+. Also explain any of the other terms that 
+make sense to you.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap157{
+    
+/**
+* Returns the character at the 
+* specified index. An index ranges from
+* &lt;code&gt;0&lt;/code&gt; to 
+* &lt;code&gt;length() - 1&lt;/code&gt;.
+*
+* @param  index  index of desired 
+* character.
+* @return  the desired character.
+*/
+  public char charAt(int index) {
+    //Note, this method is not intended
+    // to be operational.  Rather, it
+    // ...
+    return 'a';//return dummy char
+  }//end charAt method
+}//end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1030" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by the program shown in 
+
+<link id="a1031" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1034">
+C. Tom
+
+</item>
+
+
+	
+
+<item id="li1035">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap158{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap158
+
+class Worker{
+  void doIt(){
+    char[] ref;
+    System.out.print(ref);
+    System.out.print(" ");
+    ref[0] = 'T';
+    ref[1] = 'o';
+    ref[2] = 'm';
+    System.out.println(ref);
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1032" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by the program shown in 
+
+<link id="a1033" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+C. Tom
+
+</item>
+
+
+	
+
+<item id="li1039">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">public class Ap159{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap159
+
+class Worker{
+  void doIt(){
+    char[] ref = null;
+    System.out.print(ref);
+    System.out.print(" ");
+    ref[0] = 'T';
+    ref[1] = 'o';
+    ref[2] = 'm';
+    System.out.println(ref);
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1023">
+<link id="a1034" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+What output is produced by the program shown in 
+
+<link id="a1035" target-id="Listing_11">
+
+Listing 
+11
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1040">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1041">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+C. Joe Tom
+
+</item>
+
+
+	
+
+<item id="li1043">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">public class Ap160{
+  public static void main(
+                        String args[]){
+        new Worker().doIt();
+  }//end main()
+}//end class Ap160
+
+class Worker{
+  void doIt(){
+    char[] ref = {'J','o','e'};
+    System.out.print(ref);
+    System.out.print(" ");
+    ref[0] = 'T';
+    ref[1] = 'o';
+    ref[2] = 'm';
+    System.out.println(ref); 
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+	
+
+
+
+<para id="p1025">
+<link id="a1036" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+		
+
+<item id="li1044">
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1040" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1041" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1042" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1043" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1044" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1045" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1046" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+
+	
+
+<item id="li1054">
+<link id="a1047" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1012" list-type="bulleted">
+
+				
+
+<item id="li1055">
+Module name: Ap0140: Self-assessment, Type conversion, 
+				casting, common exceptions, public class files, javadoc comments 
+				and directives, and null references
+
+</item>
+
+
+				
+
+<item id="li1056">
+File: Ap0140.htm 
+
+</item>
+
+
+				
+
+<item id="li1057">
+Originally published: 2004
+
+</item>
+
+
+				
+
+<item id="li1058">
+Published at cnx.org: 12/18/12
+
+</item>
+
+
+          
+
+<item id="li1059">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1028">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1029">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1030">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1031">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+C. Joe Tom 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1033">
+This is an upgrade to the program from 
+
+<link id="a1048" target-id="question09">
+
+Question 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1006" effect="bold">
+Success at last 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1035">
+The code in the following fragment resolves the compilation problem from 
+Question 8 and the runtime problem from 
+
+<link id="a1049" target-id="question09">
+
+Question 9
+
+</link>
+
+. 
+
+</para>
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">  void doIt(){
+    char[] ref = {'J','o','e'};
+    System.out.print(ref);
+    System.out.print(" ");
+    ref[0] = 'T';
+    ref[1] = 'o';
+    ref[2] = 'm';
+    System.out.println(ref); 
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1036">
+Simply initializing the local reference variable named 
+
+<emphasis id="strong1007" effect="bold">
+ref
+
+</emphasis>
+ satisfies the 
+compiler, making it possible to compile the program. 
+
+</para>
+
+
+
+
+<para id="p1037">
+Initializing the local reference variable named 
+
+<emphasis id="strong1008" effect="bold">
+ref
+
+</emphasis>
+ with a reference to a 
+valid array object eliminates the NullPointerException that was experienced in 
+
+
+<link id="a1050" target-id="question09">
+
+Question 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1009" effect="bold">
+Printing the contents of the array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1039">
+The print statement passes the reference variable to the 
+
+<emphasis id="strong1010" effect="bold">
+print
+
+</emphasis>
+ 
+method. The 
+
+<emphasis id="strong1011" effect="bold">
+print
+
+</emphasis>
+ method finds that the reference variable 
+refers to a valid object 
+
+<emphasis id="em1000" effect="italics">
+(instead of containing null as was the case in 
+
+</emphasis>
+
+
+
+<link id="a1051" target-id="question09">
+
+
+<emphasis id="em1001" effect="italics">
+Question 9
+
+</emphasis>
+</link>
+
+) and behaves accordingly. 
+
+</para>
+
+
+
+
+<para id="p1040">
+The 
+
+<emphasis id="strong1012" effect="bold">
+print
+
+</emphasis>
+ statement causes the initialized contents of the array object to be 
+displayed. Then those contents are replaced with a new set of characters. The
+
+
+<emphasis id="strong1013" effect="bold">
+println
+
+</emphasis>
+ statement causes the new characters to be displayed. 
+
+</para>
+
+
+
+
+<para id="p1041">
+<link id="a1052" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1042">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1014" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1015" effect="bold">
+Purposely initializing a local variable
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+This is an update to the program from 
+
+<link id="a1053" target-id="question08">
+
+Question 8
+
+</link>
+
+. The code in the 
+following fragment solves the compilation problem identified in 
+
+
+<link id="a1054" target-id="question08">
+
+Question 8
+
+</link>
+
+. 
+
+</para>
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">  void doIt(){
+    char[] ref = null;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1045">
+In particular, initializing the value of the reference variable named 
+
+<emphasis id="strong1016" effect="bold">
+ref
+
+</emphasis>
+ 
+satisfies the compiler and makes it possible to compile the program. 
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1017" effect="bold">
+A 
+
+<emphasis id="em1002" effect="italics">
+NullPointerException
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1047">
+However, there is still a problem, and that problem causes a runtime error. 
+
+</para>
+
+
+
+
+<para id="p1048">
+The following statement attempts to use the reference variable named 
+
+<emphasis id="strong1018" effect="bold">
+ref
+
+</emphasis>
+ to 
+print something on the screen. This results, among other things, in an attempt 
+to call the 
+
+<emphasis id="strong1019" effect="bold">
+toString
+
+</emphasis>
+ method on the reference. However, the 
+reference doesn't refer to an object. Rather, it contains the value 
+
+<emphasis id="strong1020" effect="bold">
+
+
+
+<emphasis id="em1003" effect="italics">
+null
+
+</emphasis>
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">    System.out.print(ref);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1049">
+The result is a runtime error with the following infamous 
+
+
+<emphasis id="strong1021" effect="bold">
+NullPointerException
+
+</emphasis>
+ message appearing on the screen: 
+
+</para>
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">java.lang.NullPointerException
+ at java.io.Writer.write(Writer.java:107)
+ at java.io.PrintStream.write(PrintStream.java:245)
+ at java.io.PrintStream.print(PrintStream.java:396)
+ at Worker.doIt(Ap159.java:22)
+ at Ap159.main(Ap159.java:15)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1050">
+<link id="a1055" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1051">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1022" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1023" effect="bold">
+Garbage in, garbage out
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+Earlier programming languages, notably C and C++ allowed you to inadvertently 
+write programs that process the garbage left in memory by previous programs 
+running there. This happens when the C or C++ programmer fails to properly 
+initialize variables, allowing them to contain left-over garbage from memory.
+
+
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1024" effect="bold">
+Member variables are automatically initialized to default values 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1055">
+That is not possible in Java. All member variables in a Java object are 
+automatically initialized to a default value if you don't write the code to 
+initialize them to some other value. 
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1025" effect="bold">
+Local variables are not automatically initialized 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1057">
+Local variables are not automatically initialized. However, your program will 
+not compile if you write code that attempts to fetch and use a value in a local 
+variable that hasn't been initialized or had a value assigned to it. 
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1026" effect="bold">
+Print an uninitialized local variable 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1059">
+The statement in the following code fragment attempts to fetch and 
+print a value using the uninitialized local variable named 
+
+<emphasis id="strong1027" effect="bold">
+ref
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">  void doIt(){
+    char[] ref;
+    System.out.print(ref);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1060">
+As a result, the program refuses to compile, displaying the following error 
+message under JDK 1.3.
+
+</para>
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">Ap158.java:23: variable ref might not have been initialized
+    System.out.print(ref);
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1061">
+<link id="a1056" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1062">
+See explanation below. 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1028" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1029" effect="bold">
+The javadoc.exe program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+When you download the JDK from Oracle, you receive a program named 
+
+
+<emphasis id="strong1030" effect="bold">
+javadoc.exe
+
+</emphasis>
+ in addition to several other programs. 
+
+</para>
+
+
+
+
+<para id="p1065">
+The purpose of the 
+
+<emphasis id="strong1031" effect="bold">
+javadoc
+
+</emphasis>
+ program is to help you document the Java 
+programs that you write. You create the documentation by running the 
+
+<emphasis id="strong1032" effect="bold">
+javadoc
+
+</emphasis>
+ 
+program and specifying your source file or files as a command-line parameter. For 
+example, you can generate documentation for this program by entering the 
+following at the command line.
+
+</para>
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">javadoc Ap157.java</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1033" effect="bold">
+Produces HTML files as output 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1067">
+This will produce a large number of related HTML files containing 
+documentation for the class named 
+
+<emphasis id="strong1034" effect="bold">
+Ap157
+
+</emphasis>
+. The primary HTML file is named 
+
+
+<emphasis id="strong1035" effect="bold">
+Ap157.html
+
+</emphasis>
+. A file named 
+
+<emphasis id="strong1036" effect="bold">
+index.html
+
+</emphasis>
+ is also 
+created. This file can be opened in a browser to provide a viewer for all of the 
+information contained in the many related HTML files.
+
+</para>
+
+
+
+
+<para id="p1068">
+
+	
+
+<emphasis id="em1004" effect="italics">
+(As a labor saving device, you can also specify a group of input files to 
+	the javadoc program, using wildcard characters as appropriate, to cause the 
+	program to produce documentation files for each of the input files in a 
+	single run.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1037" effect="bold">
+Special documentation comments and directives
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+If you include comments in your source code that begin with 
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1038" effect="bold">
+/**
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+and end with
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1039" effect="bold">
+*/
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+they will be picked up by the javadoc program and become part of the 
+documentation.
+
+
+</para>
+
+
+
+
+<para id="p1075">
+In addition to comments, you can also enter a variety of special 
+directives to the javadoc program as shown in the following program. 
+
+</para>
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">public class Ap157{
+    
+/**
+* Returns the character at the 
+* specified index. An index ranges from
+* &lt;code&gt;0&lt;/code&gt; to 
+* &lt;code&gt;length() - 1&lt;/code&gt;.
+*
+* @param  index  index of desired 
+* character.
+* @return  the desired character.
+*/
+  public char charAt(int index) {
+    //Note, this method is not intended
+    // to be operational.  Rather, it
+    // is intended solely to illustrate
+    // the generation of javadoc
+    // documentation for the parameter
+    // and the return value.
+    return 'a';//return dummy char
+  }//end charAt method
+}//end class</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1040" effect="bold">
+The @param and @return directives 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+The 
+
+<emphasis id="strong1041" effect="bold">
+@param
+
+</emphasis>
+ and 
+
+<emphasis id="strong1042" effect="bold">
+@return
+
+</emphasis>
+ directives in the source code shown above are used by 
+the 
+
+<emphasis id="strong1043" effect="bold">
+javadoc
+
+</emphasis>
+ program for documenting information about parameters passed to and 
+information returned from the method named 
+
+<emphasis id="strong1044" effect="bold">
+charAt
+
+</emphasis>
+. The method 
+definition follows the special javadoc comment. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<link id="a1057" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1079">
+C. OK 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1045" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1046" effect="bold">
+Public classes in separate files
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+This program meets the requirement identified in 
+
+<link id="a1058" target-id="question05">
+
+Question 5
+
+</link>
+
+. In particular, 
+this program defines two public classes. The source code for each public class 
+is stored in a separate file. Thus, the program compiles and executes 
+successfully, producing the text OK on the screen. 
+
+</para>
+
+
+
+
+<para id="p1082">
+<link id="a1059" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1083">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1047" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1048" effect="bold">
+Public classes in separate files
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+Java requires that the source code for every public class be contained in a 
+separate file. In this case, the source code for two public classes was 
+contained in a single file. The following compiler error was produced by JDK 
+1.3: 
+
+</para>
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">Ap155.java:18: class Ap155a is public, should be declared in a file 
+named Ap155a.java
+public class Ap155a{
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1086">
+<link id="a1060" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1087">
+This program produces both of the following:
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1060">
+C. 5 10 15
+
+</item>
+
+
+	
+
+<item id="li1061">
+B. Runtime Error
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1049" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1050" effect="bold">
+The NoSuchElementException
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1089">
+This program defines, creates, and uses a very simple container object for 
+the purpose of illustrating the 
+
+<emphasis id="strong1051" effect="bold">
+NoSuchElementException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1090">
+The code in the following fragment shows the beginning of a class named 
+
+
+<emphasis id="strong1052" effect="bold">
+MyContainer
+
+</emphasis>
+ from which the container object is instantiated. 
+
+</para>
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">class MyContainer{
+  private int[] array = new int[3];
+  
+  public void put(int idx, int data){
+    if(idx &gt; (array.length-1)){
+      throw new 
+              NoSuchElementException();
+    }else{
+      array[idx] = data;
+    }//end else
+  }//end put()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1053" effect="bold">
+A wrapper for an array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1092">
+This class is essentially a wrapper for a simple array object of type 
+
+<emphasis id="strong1054" effect="bold">
+int
+
+</emphasis>
+. An 
+object of the class provides a method named 
+
+<emphasis id="strong1055" effect="bold">
+put
+
+</emphasis>
+, which can be 
+used to store an 
+
+<emphasis id="strong1056" effect="bold">
+int
+
+</emphasis>
+ value into the array. The 
+
+<emphasis id="strong1057" effect="bold">
+put
+
+</emphasis>
+ method 
+receives two parameters. The first parameter specifies the index of the element 
+where the value of the second parameter is to be stored. 
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1058" effect="bold">
+Throw NoSuchElementException on index out of bounds 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1094">
+The 
+
+<emphasis id="strong1059" effect="bold">
+put
+
+</emphasis>
+ method tests to confirm that the specified index is 
+within the positive bounds of the array. If not, it uses the 
+
+<emphasis id="strong1060" effect="bold">
+throw
+
+</emphasis>
+ keyword to 
+throw an exception of the type 
+
+<emphasis id="strong1061" effect="bold">
+NoSuchElementException
+
+</emphasis>
+. Otherwise, it stores the 
+incoming data value in the specified index position in the array. 
+
+</para>
+
+
+
+
+<para id="p1095">
+
+	
+
+<emphasis id="em1005" effect="italics">
+(Note that a negative index will cause an ArrayIndexOutOfBoundsException 
+	instead of a NoSuchElementException to be thrown.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1062" effect="bold">
+The get method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+An object of the 
+
+<emphasis id="strong1063" effect="bold">
+MyContainer
+
+</emphasis>
+ class also provides a 
+
+<emphasis id="strong1064" effect="bold">
+get
+
+</emphasis>
+ 
+method that can be used to retrieve the value stored in a specified index. 
+
+</para>
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">  public int get(int idx){
+    if(idx &gt; (array.length-1)){
+      throw new 
+              NoSuchElementException();
+    }else{
+      return array[idx];
+    }//end else
+  }//end put()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1098">
+The 
+
+<emphasis id="strong1065" effect="bold">
+get
+
+</emphasis>
+ method also tests to confirm that the specified 
+index is within the positive bounds of the array. If not, it throws an exception 
+of the type 
+
+<emphasis id="strong1066" effect="bold">
+NoSuchElementException
+
+</emphasis>
+. Otherwise, it returns the value stored in 
+the specified index of the array. 
+
+</para>
+
+
+
+
+<para id="p1099">
+
+	
+
+<emphasis id="em1006" effect="italics">
+(As noted earlier, a negative index will cause an 
+	ArrayIndexOutOfBoundsException instead of a NoSuchElementException to be 
+	thrown.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1067" effect="bold">
+The NoSuchElementException
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1101">
+Thus, this container class illustrates the general intended purpose of the 
+
+
+<emphasis id="strong1068" effect="bold">
+NoSuchElementException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1069" effect="bold">
+Instantiate and populate a container 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1103">
+The remainder of the program simply exercises the container. The code in the 
+following fragment instantiates a new container, and uses the 
+
+<emphasis id="strong1070" effect="bold">
+put
+
+</emphasis>
+ 
+method to populate each of its three available elements with the values 5, 10, 
+and 15. 
+
+</para>
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">  void doIt(){
+    MyContainer ref = 
+                     new MyContainer();
+    ref.put(0,5);
+    ref.put(1,10);
+    ref.put(2,15);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1071" effect="bold">
+Get and display the data in the container 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1105">
+Then the code in the next fragment uses the 
+
+<emphasis id="strong1072" effect="bold">
+get
+
+</emphasis>
+ method to 
+get and display the values in each of the three elements, causing the following 
+text to appear on the screen: 
+
+</para>
+
+
+
+
+<para id="p1106">
+5 10 15
+
+</para>
+
+
+	
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">    System.out.print(ref.get(0)+" ");
+    System.out.print(ref.get(1)+" ");
+    System.out.print(ref.get(2)+" ");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1073" effect="bold">
+One step too far 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1108">
+Finally, the code in the next fragment goes one step too far and attempts to 
+get a value from index 3, which is outside the bounds of the container. 
+
+</para>
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">    System.out.print(ref.get(3)+" ");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1109">
+This causes the 
+
+<emphasis id="strong1074" effect="bold">
+get
+
+</emphasis>
+ method of the container object to throw 
+a 
+
+<emphasis id="strong1075" effect="bold">
+NoSuchElementException
+
+</emphasis>
+. The program was not designed to handle this exception, 
+so this causes the program to abort with the following text showing on the 
+screen: 
+
+</para>
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1025" display="block">5 10 15 java.util.NoSuchElementException
+ at MyContainer.get(Ap154.java:49)
+ at Worker.doIt(Ap154.java:30)
+ at Ap154.main(Ap154.java:15)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1110">
+<emphasis id="em1007" effect="italics">
+(Note that the values of 5, 10, and 15 were displayed on the screen before 
+the program aborted and displayed the error message.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1111">
+<link id="a1061" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1112">
+This program can produce either of the following depending on the value produced 
+by a random boolean value generator:
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1062">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1063">
+C. OK
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1076" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1077" effect="bold">
+Throwing an exception
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1114">
+This program illustrates the use of the 
+
+<emphasis id="strong1078" effect="bold">
+throw
+
+</emphasis>
+ keyword to throw an exception.
+
+
+</para>
+
+
+
+
+<para id="p1115">
+
+	
+
+<emphasis id="em1008" effect="italics">
+(Note that the 
+
+<emphasis id="strong1079" effect="bold">
+throw
+
+</emphasis>
+ keyword is different from the 
+	
+
+<emphasis id="strong1080" effect="bold">
+throws
+
+</emphasis>
+ keyword.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1081" effect="bold">
+Throw an exception if random boolean value is true
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1117">
+A random 
+
+<emphasis id="strong1082" effect="bold">
+boolean
+
+</emphasis>
+ value is obtained. If the value is true, the program throws 
+an 
+
+<emphasis id="strong1083" effect="bold">
+IllegalStateException
+
+</emphasis>
+ and aborts with the following message on the screen:
+
+
+</para>
+
+
+	
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1026" display="block">java.lang.IllegalStateException
+ at Worker.doIt(Ap153.java:29)
+ at Ap153.main(Ap153.java:20)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1118">
+If the random 
+
+<emphasis id="strong1084" effect="bold">
+boolean
+
+</emphasis>
+ value is false, the program runs to completion, 
+displaying the text OK on the screen. 
+
+</para>
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1085" effect="bold">
+Instantiate a Random object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1120">
+The following code fragment instantiates a new object of the 
+
+<emphasis id="strong1086" effect="bold">
+Random
+
+</emphasis>
+ class and 
+stores the object's reference in a reference variable named 
+
+<emphasis id="strong1087" effect="bold">
+ref
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block">  void doIt(){
+    Random ref = new Random(
+                 new Date().getTime());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1121">
+I'm not going to go into a lot of detail about the 
+
+<emphasis id="strong1088" effect="bold">
+Random
+
+</emphasis>
+ class. Suffice it 
+to say that an object of this class provides methods that will return a pseudo 
+random sequence of values upon successive calls. You might think of 
+this object as a random value generator. 
+
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1089" effect="bold">
+Seeding the random generator
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1123">
+The constructor for the class accepts a 
+
+<emphasis id="strong1090" effect="bold">
+long
+
+</emphasis>
+ integer as the seed for the 
+sequence. 
+
+</para>
+
+
+
+
+<para id="p1124">
+
+	
+
+<emphasis id="em1009" effect="italics">
+(Two 
+
+<emphasis id="strong1091" effect="bold">
+Random
+
+</emphasis>
+ objects instantiated using the same seed will produce the same 
+	sequence of values.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1125">
+In this case, I obtained the time in milliseconds, relative to January 1, 1970, 
+as a 
+
+<emphasis id="strong1092" effect="bold">
+long
+
+</emphasis>
+ integer, and provided that value as the seed. Thus, if you run the 
+program two times in succession, with a time delay of at least one millisecond 
+in between, the random sequences will be different.
+
+
+</para>
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1093" effect="bold">
+Get a random boolean value
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1127">
+The code in the next fragment calls the 
+
+<emphasis id="strong1094" effect="bold">
+nextBoolean
+
+</emphasis>
+ method 
+on the 
+
+<emphasis id="strong1095" effect="bold">
+Random
+
+</emphasis>
+ object to obtain a random boolean value. 
+
+<emphasis id="em1010" effect="italics">
+
+(Think of this as tossing a coin with true on one side and false on the other 
+side.)
+
+</emphasis>
+</para>
+
+
+	
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block">    if(ref.nextBoolean()){
+      throw new IllegalStateException();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1096" effect="bold">
+Throw an exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1129">
+If the 
+
+<emphasis id="strong1097" effect="bold">
+boolean
+
+</emphasis>
+ value obtained in the above fragment is true, the code 
+instantiates a new object of the 
+
+<emphasis id="strong1098" effect="bold">
+IllegalStateException class
+
+</emphasis>
+, and uses the 
+
+
+<emphasis id="strong1099" effect="bold">
+throw
+
+</emphasis>
+ 
+keyword to throw an exception of this type. 
+
+</para>
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1100" effect="bold">
+Program aborts
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1131">
+The program was not designed to gracefully handle such an exception. 
+Therefore the program aborts, displaying the error message shown earlier. 
+
+</para>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1101" effect="bold">
+Don't throw an exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1133">
+The code in the next fragment shows that if the 
+
+<emphasis id="strong1102" effect="bold">
+boolean
+
+</emphasis>
+ value tested above is 
+false, the program will display the text OK and run successfully to completion.
+
+
+</para>
+
+
+	
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">    }else{
+      System.out.println("OK");
+    }//end else
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1134">
+You may need to run the program several times to see both possibilities. 
+
+</para>
+
+
+
+
+<para id="p1135">
+<link id="a1062" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1136">
+The answer is both of the following:
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1064">
+D. OK
+
+</item>
+
+
+	
+
+<item id="li1065">
+B. Runtime Error
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1103" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1104" effect="bold">
+One cast is allowable ...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1138">
+It is allowable, but not necessary, to cast the type of an object's reference 
+toward the root of the inheritance hierarchy. 
+
+</para>
+
+
+
+
+<para id="p1139">
+It is also allowable to cast the type of an object's reference along the 
+inheritance hierarchy toward the actual class from which the object was 
+instantiated. 
+
+</para>
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1105" effect="bold">
+Another cast is not allowable ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1141">
+However, 
+
+<emphasis id="em1011" effect="italics">
+(excluding interface type casts)
+
+</emphasis>
+, it is not allowable to cast the 
+type of an object's reference in ways that are not related in a 
+subclass-superclass inheritance sense. For example, you cannot cast the type of 
+an object's reference to the type of a sibling of that object. 
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1106" effect="bold">
+Two sibling classes 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1143">
+The code in the following fragment defines two simple classes named 
+
+<emphasis id="strong1107" effect="bold">
+MyClassA
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1108" effect="bold">
+MyClassB
+
+</emphasis>
+. By default, each of these classes extends the class named 
+
+
+<emphasis id="strong1109" effect="bold">
+Object
+
+</emphasis>
+. 
+Therefore, neither is a superclass of the other. Rather, they are siblings. 
+
+</para>
+
+
+	
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">class MyClassA{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassA
+
+class MyClassB{
+  public String toString(){
+    return "OK ";
+  }//end test()
+}//end class MyClassB</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1110" effect="bold">
+Instantiate one object from each sibling class 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1145">
+The code in the next fragment instantiates one object from each of the above 
+classes, and stores references to those objects in reference variables of type 
+Object. 
+
+</para>
+
+
+
+
+<para id="p1146">
+Then the code causes the overridden 
+
+<emphasis id="strong1111" effect="bold">
+toString
+
+</emphasis>
+ method of one of the objects 
+to be called by passing that object's reference to the 
+
+<emphasis id="strong1112" effect="bold">
+print
+
+</emphasis>
+ method. 
+
+</para>
+
+
+	
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1031" display="block">  void doIt(){
+    Object ref1 = new MyClassA();
+    Object ref2 = new MyClassB();
+    System.out.print(ref1);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1147">
+The code in the above fragment causes the text OK to appear on the screen. 
+
+</para>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1113" effect="bold">
+Try to cast to a sibling class type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1149">
+At this point, the reference variable named 
+
+<emphasis id="strong1114" effect="bold">
+ref1
+
+</emphasis>
+ holds a reference to an 
+object of type 
+
+<emphasis id="strong1115" effect="bold">
+MyClassA
+
+</emphasis>
+. The reference is being held as type 
+
+
+<emphasis id="strong1116" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1150">
+The statement in the next fragment attempts to cast that reference to type 
+
+
+<emphasis id="strong1117" effect="bold">
+MyClassB
+
+</emphasis>
+, which is a sibling of the class named 
+
+<emphasis id="strong1118" effect="bold">
+MyClassA
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1032" display="block">    MyClassB ref3 = (MyClassB)ref1;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1119" effect="bold">
+A ClassCastException 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1152">
+The above statement causes a 
+
+<emphasis id="strong1120" effect="bold">
+ClassCastException
+
+</emphasis>
+ to be thrown, which in turn 
+causes the program to abort. The screen output is shown below: 
+
+</para>
+
+
+	
+
+<note id="note1024" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1033" display="block">OK java.lang.ClassCastException:MyClassA
+ at Worker.doIt(Ap152.java:24)
+ at Ap152.main(Ap152.java:14)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1153">
+<emphasis id="em1012" effect="italics">
+(Note that the text OK appeared on the screen before the program aborted and 
+displayed diagnostic information on the screen.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1154">
+<link id="a1063" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1155">
+C. OK OK 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1121" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1122" effect="bold">
+Type conversion
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1157">
+This program illustrates type conversion up the inheritance hierarchy, both 
+with and without a cast. 
+
+</para>
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1123" effect="bold">
+Store object's reference as type Object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1159">
+The following fragment instantiates a new object of the class named 
+
+<emphasis id="strong1124" effect="bold">
+MyClassA
+
+</emphasis>
+, 
+and stores that object's reference in a reference variable of type 
+
+<emphasis id="strong1125" effect="bold">
+Object
+
+</emphasis>
+. This 
+demonstrates that you can store an object's reference in a reference variable 
+whose type is a superclass of the class from which the object was instantiated, 
+with no cast required. 
+
+</para>
+
+
+	
+
+<note id="note1025" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1034" display="block">class Worker{
+  void doIt(){
+    Object refA = new MyClassA();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1126" effect="bold">
+Cast object's reference to type Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+The code in the next fragment instantiates an object of the class named 
+
+
+<emphasis id="strong1127" effect="bold">
+MyClassB
+
+</emphasis>
+, and stores the object's reference in a reference variable of type 
+
+
+<emphasis id="strong1128" effect="bold">
+Object
+
+</emphasis>
+, after first casting the reference to type 
+
+<emphasis id="strong1129" effect="bold">
+Object
+
+</emphasis>
+. This, and the previous 
+fragment demonstrate that while it is allowable to cast a reference to the 
+superclass type before storing it in a superclass reference variable, such a 
+cast is not required. 
+
+</para>
+
+
+	
+
+<note id="note1026" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1035" display="block">    Object refB = 
+              (Object)(new MyClassB());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1130" effect="bold">
+Type conversion and assignment compatibility 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1163">
+This is part of a larger overall topic commonly referred to as type 
+conversion. It also touches the fringes of something that is commonly referred 
+to as assignment-compatibility. 
+
+</para>
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1131" effect="bold">
+Automatic type conversions 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1165">
+Some kinds of type conversions happen automatically. For example, you can 
+assign a value of type 
+
+<emphasis id="strong1132" effect="bold">
+byte
+
+</emphasis>
+ to a variable of type 
+
+<emphasis id="strong1133" effect="bold">
+int
+
+</emphasis>
+ and the type conversion 
+will take place automatically. 
+
+</para>
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1134" effect="bold">
+Cast is required for narrowing conversions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1167">
+However, if you attempt to assign a value of type 
+
+<emphasis id="strong1135" effect="bold">
+int
+
+</emphasis>
+ to a variable of type 
+
+
+<emphasis id="strong1136" effect="bold">
+byte
+
+</emphasis>
+, the assignment will not take place automatically. Rather, the compiler 
+requires you to provide a cast to confirm that you accept responsibility for the 
+conversion, which in the case of 
+
+<emphasis id="strong1137" effect="bold">
+int
+
+</emphasis>
+ to byte could result in the corruption of 
+data. 
+
+</para>
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1138" effect="bold">
+Automatic conversions up the inheritance hierarchy 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1169">
+When working with objects, type conversion takes place automatically for 
+conversions toward the root of the inheritance hierarchy. 
+Therefore, conversion from any class type to type 
+
+<emphasis id="strong1139" effect="bold">
+Object
+
+</emphasis>
+ happen automatically. 
+However, conversions in the direction away from the root require a cast. 
+
+</para>
+
+
+
+
+<para id="p1170">
+
+	
+
+<emphasis id="em1013" effect="italics">
+(Conversion from any class type to any superclass of that class also happens 
+	automatically.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1140" effect="bold">
+Polymorphic behavior
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1172">
+The code in the next fragment uses polymorphic behavior to display the 
+contents of the two String objects. 
+
+</para>
+
+
+	
+
+<note id="note1027" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1036" display="block">    System.out.print(refA);
+    System.out.print(refB);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1173">
+<emphasis id="strong1141" effect="bold">
+No cast required 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1174">
+This works without the use of a cast because the 
+
+<emphasis id="strong1142" effect="bold">
+print
+
+</emphasis>
+ method calls the 
+
+
+<emphasis id="strong1143" effect="bold">
+toString
+
+</emphasis>
+ method on any object's reference that it receives as an incoming 
+parameter. The 
+
+<emphasis id="strong1144" effect="bold">
+toString
+
+</emphasis>
+ method is defined in the 
+
+<emphasis id="strong1145" effect="bold">
+Object
+
+</emphasis>
+ class, and overridden 
+in the 
+
+<emphasis id="strong1146" effect="bold">
+String
+
+</emphasis>
+ class. Polymorphic behavior dictates that in such a situation, the 
+version of the method belonging to the object will be called regardless of the 
+type of the reference variable holding the reference to the object. 
+
+</para>
+
+
+
+
+<para id="p1175">
+<emphasis id="strong1147" effect="bold">
+When would a cast be required?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1176">
+Had the program attempted to call a method on the reference that is not 
+defined in the 
+
+<emphasis id="strong1148" effect="bold">
+Object
+
+</emphasis>
+, class, it would have been necessary to cast the reference 
+down the inheritance hierarchy in order to successfully call the method.
+
+</para>
+
+
+
+
+<para id="p1177">
+<link id="a1064" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,6401 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0110: Self-assessment, Extending classes, overriding methods, and polymorphic behavior</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45308</md:content-id>
+  <md:title>Ap0110: Self-assessment, Extending classes, overriding methods, and polymorphic behavior</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about extending classes, overriding methods, and polymorphic behavior in Java.</md:abstract>
+  <md:uuid>4b7b62ee-992b-4c8b-93e0-6739388267f2</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap120{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap120
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap121{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap121
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    ((A)myVar).test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap122{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap122
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  abstract public void test();
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap123{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap123
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+abstract class Base{
+  abstract public void test();
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. A
+
+</item>
+
+
+	
+
+<item id="li1026">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap124{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap124
+
+class Worker{
+  void doIt(){
+    Base myVar = new Base();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+abstract class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1027">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1029">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1030">
+D. A
+
+</item>
+
+
+	
+
+<item id="li1031">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap125{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap125
+
+class Worker{
+  void doIt(){
+    Base myVar = new Base();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1034">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1035">
+D. A
+
+</item>
+
+
+	
+
+<item id="li1036">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap126{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap126
+
+class Worker{
+  void doIt(){
+    Base myVar = new Base();
+    ((A)myVar).test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1037">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1039">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1040">
+D. A
+
+</item>
+
+
+	
+
+<item id="li1041">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap127{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap127
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    ((A)myVar).test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1042">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1045">
+D. A
+
+</item>
+
+
+	
+
+<item id="li1046">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap128{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap128
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1047">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1048">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1049">
+C. Base
+
+</item>
+
+
+	
+
+<item id="li1050">
+D. A B
+
+</item>
+
+
+	
+
+<item id="li1051">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">public class Ap129{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap129
+
+class Worker{
+  void doIt(){
+    Base myVar = new A();
+    myVar.test();
+    myVar = new B();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+
+class B extends Base{
+  public void test(){
+    System.out.print("B ");
+  }//end test()
+}//end class B
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+	
+
+<para id="p1023">
+</para>
+
+
+
+
+
+<para id="p1024">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1052">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1058">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1059">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1060">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1061">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1062">
+Module name: Ap0110: Self-assessment, Extending classes, 
+				overriding methods, and polymorphic behavior
+
+</item>
+
+
+				
+
+<item id="li1063">
+File: Ap0110.htm 
+
+</item>
+
+
+				
+
+<item id="li1064">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1065">
+Published at cnx.org: 12/08/12
+
+</item>
+
+
+
+
+<item id="li1066">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1027">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1028">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1029">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1030">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+D. A B 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1006" effect="bold">
+Another illustration of simple polymorphic behavior 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+In this program, two classes named 
+
+<emphasis id="strong1007" effect="bold">
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1008" effect="bold">
+B
+
+</emphasis>
+ 
+extend the class named 
+
+<emphasis id="strong1009" effect="bold">
+Base
+
+</emphasis>
+, 
+each overriding the method named 
+
+<emphasis id="strong1010" effect="bold">
+test
+
+</emphasis>
+ to produce different behavior. 
+
+<emphasis id="em1000" effect="italics">
+
+(Typically, overridden methods in different classes will produce different 
+behavior, even though they have the same names.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1011" effect="bold">
+Behavior appropriate for object on which method is called 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1035">
+In other words, the behavior of the method named 
+
+<emphasis id="strong1012" effect="bold">
+test
+
+</emphasis>
+, when called on 
+a reference to an object of type 
+
+<emphasis id="strong1013" effect="bold">
+A
+
+</emphasis>
+, is different from the 
+behavior of the method named 
+
+<emphasis id="strong1014" effect="bold">
+test
+
+</emphasis>
+ when called on a reference to an object 
+of type 
+
+<emphasis id="strong1015" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1016" effect="bold">
+The method definitions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1037">
+The definitions of the two classes named 
+
+<emphasis id="strong1017" effect="bold">
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1018" effect="bold">
+B
+
+</emphasis>
+, 
+along with the two versions of the overridden method named 
+
+<emphasis id="strong1019" effect="bold">
+test
+
+</emphasis>
+ are shown in the following fragment.
+
+
+</para>
+
+
+
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+
+class B extends Base{
+  public void test(){
+    System.out.print("B ");
+  }//end test()
+}//end class B</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1038">
+<emphasis id="strong1020" effect="bold">
+Store a subclass object's reference as a superclass type 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1039">
+The program declares a reference variable of type 
+
+<emphasis id="strong1021" effect="bold">
+Base
+
+</emphasis>
+, instantiates a 
+new object of the class named 
+
+<emphasis id="strong1022" effect="bold">
+A
+
+</emphasis>
+, and assigns that object's reference to 
+the reference variable of type 
+
+<emphasis id="strong1023" effect="bold">
+Base
+
+</emphasis>
+. Then it calls the method named 
+
+<emphasis id="strong1024" effect="bold">
+
+test
+
+</emphasis>
+ on that reference as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">    Base myVar = new A();
+    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1040">
+<emphasis id="strong1025" effect="bold">
+Polymorphic behavior applies 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+Simple polymorphic behavior causes the overridden version of the method named 
+
+<emphasis id="strong1026" effect="bold">
+test
+
+</emphasis>
+, defined in the class named 
+
+<emphasis id="strong1027" effect="bold">
+A
+
+</emphasis>
+, 
+
+<emphasis id="em1001" effect="italics">
+(as opposed to the 
+versions defined in class 
+
+<emphasis id="strong1028" effect="bold">
+Base
+
+</emphasis>
+ or class 
+
+<emphasis id="strong1029" effect="bold">
+B
+
+</emphasis>
+)
+
+</emphasis>
+ 
+to be executed. This causes the letter 
+
+<emphasis id="strong1030" effect="bold">
+A
+
+</emphasis>
+ followed by a space 
+character to be displayed on the standard output device. 
+
+</para>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1031" effect="bold">
+Store another subclass object's reference as superclass type 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1043">
+Then the program instantiates a new object from the class named 
+
+<emphasis id="strong1032" effect="bold">
+B
+
+</emphasis>
+, and 
+assigns that object's reference to the same reference variable, overwriting the 
+reference previously stored there. 
+
+<emphasis id="em1002" effect="italics">
+(This causes the object whose reference 
+was previously stored in the reference variable to become eligible for garbage 
+collection in this case.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+Then the program calls the method named 
+
+<emphasis id="strong1033" effect="bold">
+test
+
+</emphasis>
+ on the reference as shown 
+in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">    myVar = new B();
+    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1034" effect="bold">
+Polymorphic behavior applies again 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1046">
+This time, simple polymorphic behavior causes the overridden version of the 
+method named 
+
+<emphasis id="strong1035" effect="bold">
+test
+
+</emphasis>
+, defined in the class named 
+
+<emphasis id="strong1036" effect="bold">
+B
+
+</emphasis>
+, 
+
+<emphasis id="em1003" effect="italics">
+(as opposed to the 
+versions defined in class 
+
+<emphasis id="strong1037" effect="bold">
+Base
+
+</emphasis>
+ or class 
+
+<emphasis id="strong1038" effect="bold">
+A
+
+</emphasis>
+) 
+
+</emphasis>
+ 
+to be executed. This 
+causes the letter 
+
+<emphasis id="strong1039" effect="bold">
+B
+
+</emphasis>
+ followed by a space character to be displayed on the 
+standard output device. 
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1040" effect="bold">
+Once again, what is runtime polymorphic behavior?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1048">
+With runtime polymorphic behavior, the method selected for execution is 
+based, not on the type of the reference variable holding the reference to the 
+object, but rather on the actual class from which the object was instantiated.
+
+
+</para>
+
+
+
+
+<para id="p1049">
+If the method was properly overridden, the behavior exhibited by the 
+execution of the method is appropriate for an object of the class from which the 
+object was instantiated. 
+
+</para>
+
+
+
+
+<para id="p1050">
+<link id="a1046" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1051">
+D. A 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1041" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1042" effect="bold">
+Compiles and executes successfully 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+This program compiles and executes successfully causing the version of the 
+method named 
+
+<emphasis id="strong1043" effect="bold">
+test
+
+</emphasis>
+, which is overridden in the class named 
+
+<emphasis id="strong1044" effect="bold">
+A
+
+</emphasis>
+ 
+to be executed. That overridden method is shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1054">
+<emphasis id="strong1045" effect="bold">
+So, what is the issue here?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1055">
+The purpose of this program is to determine if you understand polymorphic 
+behavior and the role of downcasting. Consider the following fragment taken from 
+the program in 
+
+<link id="a1047" target-id="question08">
+
+Question 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">    Base myVar = new A();
+    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1056">
+<emphasis id="strong1046" effect="bold">
+The downcast is redundant
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1057">
+As you learned in the discussion of 
+
+<link id="a1048" target-id="question08">
+
+Question 8
+
+</link>
+
+, the 
+downcast isn't required, and it has no impact on the behavior of the program in
+
+
+<link id="a1049" target-id="question08">
+
+Question 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1058">
+This program behaves exactly the same with the second statement in the above 
+fragment replaced by the following statement, which does not contain a downcast.
+
+
+</para>
+
+
+
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1059">
+Again, you need to know when downcasting is required, when it isn't 
+	required, and to make use of that knowledge to downcast appropriately. 
+
+</para>
+
+
+
+
+<para id="p1060">
+<link id="a1050" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1061">
+D. A 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1047" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1048" effect="bold">
+Compiles and executes successfully 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+This program compiles and executes successfully causing the version of the 
+method named 
+
+<emphasis id="strong1049" effect="bold">
+test
+
+</emphasis>
+, which is overridden in the class named 
+
+<emphasis id="strong1050" effect="bold">
+A
+
+</emphasis>
+ 
+to be executed. That overridden method is shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1064">
+<emphasis id="strong1051" effect="bold">
+So, what is the issue here?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1065">
+The purpose of this program is to determine if you understand polymorphic 
+behavior and the role of downcasting, as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">    Base myVar = new A();
+    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1066">
+This would be a simple case of polymorphic behavior were it not for the 
+	downcast shown in the above fragment. 
+
+</para>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1052" effect="bold">
+The downcast is redundant 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+Actually, the downcast was placed there to see if you could determine that it 
+is redundant. It isn't required, and it has no impact on the behavior of this 
+program. This program would behave exactly the same if the second statement in 
+the above fragment were replaced with the following statement, which does not 
+contain a downcast. 
+
+</para>
+
+
+
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1069">
+You need to know when downcasting is required, when it isn't required, 
+	and to make use of that knowledge to downcast appropriately. 
+
+</para>
+
+
+
+
+<para id="p1070">
+<link id="a1051" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1071">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1053" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1054" effect="bold">
+Storing a reference as a superclass type
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+You can store an object's reference in any reference variable whose declared 
+type is a superclass of the actual class from which the object was instantiated.
+
+
+</para>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1055" effect="bold">
+May need to downcast later 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1075">
+Later on, when you attempt to make use of that reference, you may need to 
+downcast it. Whether or not you will need to downcast will depend on what you 
+attempt to do. 
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1056" effect="bold">
+In order to call a method ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+For example, if you attempt to call a method on the reference, but that 
+method is not defined in or inherited into the class of the reference variable, 
+then you will need to downcast the reference in order to call the method on that 
+reference. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1057" effect="bold">
+Class Base defines method named test
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1079">
+This program defines a class named 
+
+<emphasis id="strong1058" effect="bold">
+Base
+
+</emphasis>
+ that defines a method named 
+
+<emphasis id="strong1059" effect="bold">
+
+test
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1060" effect="bold">
+Class A extends Base and overrides test
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1081">
+The program also defines a class named 
+
+<emphasis id="strong1061" effect="bold">
+A
+
+</emphasis>
+ that extends 
+
+<emphasis id="strong1062" effect="bold">
+Base
+
+</emphasis>
+ and 
+overrides the method named 
+
+<emphasis id="strong1063" effect="bold">
+test
+
+</emphasis>
+ as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base
+
+class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1064" effect="bold">
+A new object of the class Base
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1083">
+The program instantiates a new object of the class 
+
+<emphasis id="strong1065" effect="bold">
+Base
+
+</emphasis>
+ and stores a 
+reference to that object in a reference variable of type 
+
+<emphasis id="strong1066" effect="bold">
+Base
+
+</emphasis>
+, as shown 
+in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">    Base myVar = new Base();
+    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1067" effect="bold">
+Could call test directly on the reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1085">
+Having done this, the program could call the method named 
+
+<emphasis id="strong1068" effect="bold">
+test
+
+</emphasis>
+ 
+directly on the reference variable using a statement such as the following, 
+which is not part of this program. 
+
+</para>
+
+
+
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1086">
+This statement would cause the version of the method named 
+
+<emphasis id="strong1069" effect="bold">
+test
+
+</emphasis>
+ 
+defined in the class named 
+
+<emphasis id="strong1070" effect="bold">
+Base
+
+</emphasis>
+ to be called, causing the word 
+
+<emphasis id="strong1071" effect="bold">
+Base
+
+</emphasis>
+ 
+to appear on the standard output device. 
+
+</para>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1072" effect="bold">
+This downcast is not allowed 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1088">
+However, this program attempts to cause the version of the method named 
+
+<emphasis id="strong1073" effect="bold">
+
+test
+
+</emphasis>
+ defined in the class named 
+
+<emphasis id="strong1074" effect="bold">
+A
+
+</emphasis>
+ to be called, by downcasting the 
+reference to type 
+
+<emphasis id="strong1075" effect="bold">
+A
+
+</emphasis>
+ before calling the method named 
+
+<emphasis id="strong1076" effect="bold">
+test
+
+</emphasis>
+. This is shown 
+in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1077" effect="bold">
+A runtime error occurs 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1090">
+This program compiles successfully. However, the downcast shown above causes 
+the following runtime error to occur under JDK 1.3: 
+
+</para>
+
+
+
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">Exception in thread "main" java.lang.ClassCastException: Base
+        at Worker.doIt(Ap126.java:22)
+        at Ap126.main(Ap126.java:15)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1078" effect="bold">
+What you can do 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1092">
+You can store an object's reference in a reference variable whose type is a 
+superclass of the class from which the object was originally instantiated. 
+Later, you can downcast the reference back to the type 
+
+<emphasis id="em1004" effect="italics">
+(class) 
+
+</emphasis>
+from which the 
+object was instantiated. 
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1079" effect="bold">
+What you cannot do 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1094">
+However, you cannot downcast an object's reference to a subclass of the class 
+from which the object was originally instantiated. 
+
+</para>
+
+
+
+
+<para id="p1095">
+Unfortunately, the compiler is unable to detect an error of this type. The 
+error doesn't become apparent until the exception is thrown at runtime.
+
+</para>
+
+
+
+
+<para id="p1096">
+<link id="a1052" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1097">
+C. Base 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1080" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1081" effect="bold">
+Totally straightforward code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+This rather straightforward program instantiates an object of the class named 
+
+<emphasis id="strong1082" effect="bold">
+Base
+
+</emphasis>
+ and assigns that object's reference to a reference variable of the 
+type 
+
+<emphasis id="strong1083" effect="bold">
+Base
+
+</emphasis>
+  as shown in the 
+
+<emphasis id="following_fragment" effect="bold">
+
+following fragment
+
+</emphasis>
+
+. 
+
+</para>
+
+
+
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">    Base myVar = new Base();
+    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1100">
+Then it calls the method named 
+
+<emphasis id="strong1084" effect="bold">
+test
+
+</emphasis>
+ on the reference variable. 
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1085" effect="bold">
+Class Base defines the method named test
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1102">
+The class named 
+
+<emphasis id="strong1086" effect="bold">
+Base
+
+</emphasis>
+ contains a concrete definition of the method 
+named 
+
+<emphasis id="strong1087" effect="bold">
+test
+
+</emphasis>
+  as shown in the following fragment. This is the method that is 
+called by the code shown in the 
+
+<link id="a1053" target-id="following_fragment">
+
+above fragment
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1025" display="block">class Base{
+  public void test(){
+    System.out.print("Base ");};
+}//end class Base</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1103">
+<emphasis id="strong1088" effect="bold">
+Class A is just a smokescreen
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1104">
+The fact that the class named 
+
+<emphasis id="strong1089" effect="bold">
+A
+
+</emphasis>
+ extends the class named 
+
+<emphasis id="strong1090" effect="bold">
+Base
+
+</emphasis>
+, 
+and overrides the method named 
+
+<emphasis id="strong1091" effect="bold">
+test
+
+</emphasis>
+, as shown in the following fragment, 
+is of absolutely no consequence in the behavior of this program. Hopefully you 
+understand why this is so. If not, then you still have a great deal of studying 
+to do on Java inheritance. 
+
+</para>
+
+
+
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1026" display="block">class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1105">
+<link id="a1054" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1106">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1092" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1093" effect="bold">
+Cannot instantiate an abstract class
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+This program defines an 
+
+<emphasis id="strong1094" effect="bold">
+abstract
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1095" effect="bold">
+Base
+
+</emphasis>
+. Then it 
+violates one of the rules regarding 
+
+<emphasis id="strong1096" effect="bold">
+abstract
+
+</emphasis>
+ classes, by attempting to 
+instantiate an object of the 
+
+<emphasis id="strong1097" effect="bold">
+abstract
+
+</emphasis>
+ class as shown in the following 
+code fragment. 
+
+</para>
+
+
+
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block">    Base myVar = new Base();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1109">
+The program produces the following compiler error under JDK 1.3: 
+
+</para>
+
+
+
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block">Ap124.java:19: Base is abstract; cannot be instantiated
+    Base myVar = new Base();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1110">
+<link id="a1055" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1111">
+C. A 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1098" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1099" effect="bold">
+An abstract class with an abstract method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+This program illustrates the use of an 
+
+<emphasis id="strong1100" effect="bold">
+abstract
+
+</emphasis>
+ class containing an 
+
+<emphasis id="strong1101" effect="bold">
+
+abstract
+
+</emphasis>
+ method to achieve 
+
+<emphasis id="em1005" effect="italics">
+polymorphic behavior
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1114">
+The following code fragment shows an 
+
+<emphasis id="strong1102" effect="bold">
+abstract
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1103" effect="bold">
+Base
+
+</emphasis>
+ 
+that contains an 
+
+<emphasis id="strong1104" effect="bold">
+abstract
+
+</emphasis>
+ method named 
+
+<emphasis id="strong1105" effect="bold">
+test
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">abstract class Base{
+  abstract public void test();
+}//end class Base</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1115">
+<emphasis id="strong1106" effect="bold">
+Extending abstract class and overriding abstract method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1116">
+The class named 
+
+<emphasis id="strong1107" effect="bold">
+A
+
+</emphasis>
+, shown in the following fragment extends the 
+
+<emphasis id="strong1108" effect="bold">
+
+abstract
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1109" effect="bold">
+Base
+
+</emphasis>
+ and overrides the 
+
+<emphasis id="strong1110" effect="bold">
+abstract
+
+</emphasis>
+ method 
+named 
+
+<emphasis id="strong1111" effect="bold">
+test
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">class A extends Base{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1117">
+<emphasis id="strong1112" effect="bold">
+Can store a subclass reference as a superclass type 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1118">
+Because the class named 
+
+<emphasis id="strong1113" effect="bold">
+A
+
+</emphasis>
+ extends the class named 
+
+<emphasis id="strong1114" effect="bold">
+Base
+
+</emphasis>
+, a 
+reference to an object instantiated from the class named 
+
+<emphasis id="strong1115" effect="bold">
+A
+
+</emphasis>
+ can 
+be stored in a reference variable of the declared type 
+
+<emphasis id="strong1116" effect="bold">
+Base
+
+</emphasis>
+. No cast is required in this 
+case. 
+
+</para>
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1117" effect="bold">
+Polymorphic behavior 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1120">
+Furthermore, because the class named 
+
+<emphasis id="strong1118" effect="bold">
+Base
+
+</emphasis>
+ contains the method named 
+
+<emphasis id="strong1119" effect="bold">
+
+test
+
+</emphasis>
+, 
+
+<emphasis id="em1006" effect="italics">
+(as an 
+
+</emphasis>
+<emphasis id="strong1120" effect="bold">
+<emphasis id="em1007" effect="italics">
+abstract
+
+</emphasis>
+</emphasis>
+<emphasis id="em1008" effect="italics">
+ method)
+
+</emphasis>
+, when the 
+method named 
+
+<emphasis id="strong1121" effect="bold">
+test
+
+</emphasis>
+ is called on a reference to an object of the class 
+named 
+
+<emphasis id="strong1122" effect="bold">
+A
+
+</emphasis>
+, stored in a reference variable of type 
+
+<emphasis id="strong1123" effect="bold">
+Base
+
+</emphasis>
+, the 
+
+<emphasis id="em1009" effect="italics">
+
+overridden
+
+</emphasis>
+ version of the method as defined in the class named 
+
+<emphasis id="strong1124" effect="bold">
+A
+
+</emphasis>
+ will 
+actually be called. This is polymorphic behavior. 
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="em1010" effect="italics">
+(Note, however, that this example does little to illustrate the power of 
+polymorphic behavior because only one class extends the class named 
+
+<emphasis id="strong1125" effect="bold">
+Base
+
+</emphasis>
+ 
+and only one version of the abstract method named 
+
+<emphasis id="strong1126" effect="bold">
+test
+
+</emphasis>
+ exists. 
+Thus, the system is not required to select among two or more overridden versions 
+of the method named 
+
+<emphasis id="strong1127" effect="bold">
+test
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1128" effect="bold">
+The important code 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1123">
+The following code fragment shows the instantiation of an object of the class 
+named 
+
+<emphasis id="strong1129" effect="bold">
+A
+
+</emphasis>
+ and the assignment of that object's reference to a reference 
+variable of type 
+
+<emphasis id="strong1130" effect="bold">
+Base
+
+</emphasis>
+. Then the fragment calls the method named 
+
+<emphasis id="strong1131" effect="bold">
+test
+
+</emphasis>
+ 
+on the reference variable. 
+
+</para>
+
+
+
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1031" display="block">    Base myVar = new A();
+    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1124">
+This causes the overridden version of the method named 
+
+<emphasis id="strong1132" effect="bold">
+test
+
+</emphasis>
+, shown in 
+the following fragment, to be called, which causes the letter 
+
+<emphasis id="strong1133" effect="bold">
+A
+
+</emphasis>
+ 
+to be displayed on the standard output device. 
+
+</para>
+
+
+
+
+<note id="note1024" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1032" display="block">  public void test(){
+    System.out.print("A ");
+  }//end test()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1125">
+<link id="a1056" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1126">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1134" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1135" effect="bold">
+Classes can be final or abstract, but not both 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+A class in Java may be declared 
+
+<emphasis id="strong1136" effect="bold">
+final
+
+</emphasis>
+. A class may also be 
+declared 
+
+<emphasis id="strong1137" effect="bold">
+abstract
+
+</emphasis>
+. A class cannot be declared both 
+
+<emphasis id="strong1138" effect="bold">
+
+final
+
+</emphasis>
+ and 
+
+<emphasis id="strong1139" effect="bold">
+abstract
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1140" effect="bold">
+Behavior of final and abstract classes 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1130">
+A class that is declared 
+
+<emphasis id="strong1141" effect="bold">
+final
+
+</emphasis>
+ cannot be extended. A class that is declared 
+
+
+<emphasis id="strong1142" effect="bold">
+abstract
+
+</emphasis>
+ cannot be instantiated. Therefore, it must be extended to be useful. 
+
+</para>
+
+
+
+
+<para id="p1131">
+An 
+
+<emphasis id="strong1143" effect="bold">
+abstract
+
+</emphasis>
+ class is normally intended to be extended. 
+
+</para>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1144" effect="bold">
+Methods can be final or abstract, but not both 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1133">
+A method in Java may be declared 
+
+<emphasis id="strong1145" effect="bold">
+final
+
+</emphasis>
+. A method may also be declared 
+
+
+<emphasis id="strong1146" effect="bold">
+abstract
+
+</emphasis>
+. However, a method cannot be declared both 
+
+<emphasis id="strong1147" effect="bold">
+final
+
+</emphasis>
+ and 
+
+<emphasis id="strong1148" effect="bold">
+abstract
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1149" effect="bold">
+Behavior of final and abstract methods 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1135">
+A method that is declared 
+
+<emphasis id="strong1150" effect="bold">
+final
+
+</emphasis>
+ cannot be overridden. A method that is 
+declared 
+
+<emphasis id="strong1151" effect="bold">
+abstract
+
+</emphasis>
+ must be overridden to be useful. 
+
+</para>
+
+
+
+
+<para id="p1136">
+An 
+
+<emphasis id="strong1152" effect="bold">
+abstract
+
+</emphasis>
+ method doesn't have a body. 
+
+</para>
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1153" effect="bold">
+Abstract classes and methods 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1138">
+A class that contains an 
+
+<emphasis id="strong1154" effect="bold">
+abstract
+
+</emphasis>
+ method must itself be declared 
+
+<emphasis id="strong1155" effect="bold">
+abstract
+
+</emphasis>
+. 
+However, an 
+
+<emphasis id="strong1156" effect="bold">
+abstract
+
+</emphasis>
+ class is not required to contain 
+
+<emphasis id="strong1157" effect="bold">
+abstract
+
+</emphasis>
+ methods. 
+
+</para>
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1158" effect="bold">
+Failed to declare the class abstract
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1140">
+In this program, the class named 
+
+<emphasis id="strong1159" effect="bold">
+Base
+
+</emphasis>
+ contains an 
+
+<emphasis id="strong1160" effect="bold">
+abstract
+
+</emphasis>
+ method 
+named 
+
+<emphasis id="strong1161" effect="bold">
+test
+
+</emphasis>
+, but the class is not declared 
+
+<emphasis id="strong1162" effect="bold">
+abstract
+
+</emphasis>
+ as required. 
+
+</para>
+
+
+
+
+<note id="note1025" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1033" display="block">class Base{
+  abstract public void test();
+}//end class Base</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1141">
+Therefore, the program produces the following compiler error under JDK 1.3:
+
+
+</para>
+
+
+
+
+<note id="note1026" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1034" display="block">Ap122.java:24: Base should be declared abstract; 
+it does not define test in Base
+class Base{
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1142">
+<link id="a1057" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1143">
+C. A 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1163" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1164" effect="bold">
+If you missed this ...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1145">
+If you missed this question, you didn't pay attention to the explanation for
+
+
+<link id="a1058" target-id="question01">
+
+Question 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1165" effect="bold">
+Define a method in a subclass
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1147">
+This program defines a subclass named 
+
+<emphasis id="strong1166" effect="bold">
+A
+
+</emphasis>
+ that extends a superclass 
+named 
+
+<emphasis id="strong1167" effect="bold">
+Base
+
+</emphasis>
+. A method named 
+
+<emphasis id="strong1168" effect="bold">
+test
+
+</emphasis>
+ is defined in the subclass named
+
+
+<emphasis id="strong1169" effect="bold">
+A
+
+</emphasis>
+ but is not defined in any superclass of the class named 
+
+<emphasis id="strong1170" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1171" effect="bold">
+Store a reference as a superclass type 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1149">
+The program declares a reference variable of the superclass type, and stores 
+a reference to an object of the subclass in that reference variable as shown in 
+the following code fragment. 
+
+</para>
+
+
+
+
+<note id="note1027" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1035" display="block">    Base myVar = new A();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1150">
+<emphasis id="strong1172" effect="bold">
+Downcast and call the method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1151">
+Then the program calls the method named 
+
+<emphasis id="strong1173" effect="bold">
+test
+
+</emphasis>
+ on the reference stored 
+as the superclass type, as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1028" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1036" display="block">    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1152">
+Unlike the program in 
+
+<link id="a1059" target-id="question01">
+
+Question 1
+
+</link>
+
+, the reference 
+	is downcast to the true type of the object before calling the method named
+	
+
+<emphasis id="strong1174" effect="bold">
+test
+
+</emphasis>
+. As a result, this 
+program does not produce a compiler error. 
+
+</para>
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1175" effect="bold">
+Why is the cast required? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1154">
+As explained in 
+
+<link id="a1060" target-id="question01">
+
+Question 1
+
+</link>
+
+, it is allowable to 
+store a reference to a subclass object in a variable of a superclass type. Also, 
+as explained in 
+
+<link id="a1061" target-id="question01">
+
+Question 1
+
+</link>
+
+, it is not allowable to 
+directly call, on that superclass reference, a method of the subclass object 
+that is not defined in or inherited into the superclass. 
+
+</para>
+
+
+
+
+<para id="p1155">
+However, such a call is allowable if the programmer purposely downcasts the 
+reference to the true type of the object before calling the method. 
+
+</para>
+
+
+
+
+<para id="p1156">
+<link id="a1062" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1157">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1176" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1177" effect="bold">
+Define a method in a subclass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1159">
+This program defines a subclass named 
+
+<emphasis id="strong1178" effect="bold">
+A
+
+</emphasis>
+ that extends a superclass 
+named 
+
+<emphasis id="strong1179" effect="bold">
+Base
+
+</emphasis>
+. A method named 
+
+<emphasis id="strong1180" effect="bold">
+test
+
+</emphasis>
+, is defined in the subclass named
+
+
+<emphasis id="strong1181" effect="bold">
+A
+
+</emphasis>
+, which is not defined in any superclass of the class named 
+
+<emphasis id="strong1182" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1183" effect="bold">
+Store a reference as superclass type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+The program declares a reference variable of the superclass type, and stores 
+a reference to an object of the subclass in that reference variable as shown in 
+the following code fragment. 
+
+</para>
+
+
+
+
+<note id="note1029" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1037" display="block">    Base myVar = new A();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1162">
+Note that no cast is required to store a reference to a subclass object in a 
+reference variable of a superclass type. The required type conversion happens 
+automatically in this case. 
+
+</para>
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1184" effect="bold">
+Call a method on the reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1164">
+Then the program attempts to call the method named 
+
+<emphasis id="strong1185" effect="bold">
+test
+
+</emphasis>
+ on the 
+reference stored as the superclass type, as shown in the following fragment. 
+This produces a compiler error. 
+
+</para>
+
+
+
+
+<note id="note1030" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1038" display="block">    myVar.test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1186" effect="bold">
+The reason for the error 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1166">
+It is allowable to store a reference to a subclass object in a variable of a 
+superclass type. However, it is not allowable to directly call, 
+
+<emphasis id="em1011" effect="italics">
+(on that 
+superclass reference)
+
+</emphasis>
+, a method of the subclass object that is not defined in or 
+inherited into the superclass. 
+
+</para>
+
+
+
+
+<para id="p1167">
+The following error message is produced by JDK 1.3. 
+
+</para>
+
+
+
+
+<note id="note1031" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1039" display="block">Ap120.java:18: cannot resolve symbol
+symbol  : method test  ()
+location: class Base
+    myVar.test();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1187" effect="bold">
+The solution is ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1169">
+This error can be avoided by casting the reference to type 
+
+<emphasis id="strong1188" effect="bold">
+A
+
+</emphasis>
+ 
+before calling the method as shown below: 
+
+</para>
+
+
+
+
+<note id="note1032" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1040" display="block">    ((A)myVar).test();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1170">
+<link id="a1063" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1171">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

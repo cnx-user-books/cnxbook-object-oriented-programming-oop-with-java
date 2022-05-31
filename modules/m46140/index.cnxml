@@ -1,0 +1,1970 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4030: Purpose of Framework Interfaces</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46140</md:content-id>
+  <md:title>Java4030: Purpose of Framework Interfaces</md:title>
+  <md:abstract>There are eight core interfaces in the Java Collections Framework. Each interface declares several methods and provides a contract that applies to each declared method. The method declarations and their associated contracts specify the general behavior of matching methods in the classes that implement the interfaces. The purpose of this module is to provide a brief explanation of some of those interfaces and their contracts.</md:abstract>
+  <md:uuid>c7af9bb6-d3b3-4345-912f-d704499f80ac</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Apr 05 15:03:17 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Purpose_of_framework_interfaces_">
+
+Purpose of framework interfaces 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="What_is_a_data_type_">
+
+What is a data type? 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Interface_is_a_type_">
+
+Interface is a type 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Collection_interface_declares_several_methods_">
+
+Collection interface declares several methods 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="An_extra_step_">
+
+An extra step 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="The_add_method_in_Collection_">
+
+The add method in Collection 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="The_add_method_in_Set_">
+
+The add method in Set 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="How_do_the_contracts_differ_">
+
+How do the contracts differ? 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="What_about_the_List_interface_">
+
+What about the List interface?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="A_major_difference_">
+
+A major difference 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Designing_a_framework_">
+
+Designing a framework 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Concrete_implementations">
+
+Concrete implementations
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+There are eight core interfaces in the 
+
+<emphasis id="em1003" effect="italics">
+Collections Framework
+
+</emphasis>
+. Each interface 
+declares several methods and provides a contract that applies to each declared 
+method. The method declarations and their associated contracts specify the 
+general behavior of matching methods in the classes that implement the 
+interfaces.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+The purpose of this module is to provide a brief explanation of those 
+interfaces.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1020" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1021" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+At least three things are included in a collections framework:
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1020">
+interfaces
+
+</item>
+
+
+	
+
+<item id="li1021">
+implementations
+
+</item>
+
+
+	
+
+<item id="li1022">
+algorithms
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+This module will discuss the purpose of the interfaces in the Collections 
+Framework. Future modules will discuss implementations and algorithms. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+Introduction
+
+</title>
+
+
+
+
+<para id="p1008">
+In an earlier module, we learned that the Collections Framework contains 
+eight core interfaces with the parent-child relationships 
+
+<emphasis id="shown_below" effect="bold">
+
+
+shown below
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<emphasis id="strong1000" effect="bold">
+Collection
+
+</emphasis>
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1024">
+Set
+		
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1025">
+SortedSet
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1026">
+List
+
+</item>
+
+
+		
+
+<item id="li1027">
+Queue
+
+</item>
+
+
+		
+
+<item id="li1028">
+Deque
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1029">
+<emphasis id="strong1001" effect="bold">
+Map
+
+</emphasis>
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1030">
+SortedMap
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1022" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1004" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Purpose_of_framework_interfaces_" effect="bold">
+
+Purpose of framework interfaces 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+A 
+
+<emphasis id="em1005" effect="italics">
+collection
+
+</emphasis>
+ is an object of some type, and that type is defined in a 
+generic sense by one or more interfaces that make up the Collections Framework.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="What_is_a_data_type_" effect="bold">
+
+What is a data type? 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+All data types specify the operations that can be performed on an entity of 
+that type. 
+
+<emphasis id="em1006" effect="italics">
+(Data types also specify the kinds of data that can be stored in 
+an entity of that type, but that is not germane to this discussion.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Interface_is_a_type_" effect="bold">
+
+Interface is a type 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+An object in Java can often be considered to be of several different types. 
+One of those types is determined by any interfaces implemented by the class from 
+which the object was instantiated. Framework collection objects in Java are 
+instantiated from classes that implement the core interfaces of the Collections 
+Framework.
+
+
+</para>
+
+
+
+
+
+<para id="p1014">
+Thus, a Java interface in the Collections Framework specifies the type of 
+such an object, and provides a generic representation of the operations that 
+apply across different implementations of the interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Collection_interface_declares_several_methods_" effect="bold">
+
+Collection 
+interface declares several methods 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+The 
+
+<emphasis id="strong1002" effect="bold">
+Collection
+
+</emphasis>
+ interface declares several methods. This is not 
+unusual. From a technical standpoint, all interfaces declare none, one, or more 
+methods. Most interfaces declare multiple methods. 
+
+<emphasis id="em1007" effect="italics">
+(Interfaces can also 
+declare constants, but that is not germane to this discussion.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+In general, there is no technical requirement for a specification of the 
+behavior of the interface methods when implemented in a class. In fact, because 
+a method that is declared in an interface is abstract, it specifically refrains 
+from defining the behavior of the method. The interface definition simply 
+declares the interfaces for all the methods that it declares. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+We have now arrived at one of the differences that distinguish the Collections 
+Framework from 
+
+<emphasis id="em1008" effect="italics">
+"just a bunch of interfaces." 
+
+</emphasis>
+That difference 
+is 
+
+<emphasis id="em1009" effect="italics">
+contracts
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="An_extra_step_" effect="bold">
+
+An extra step 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+The Oracle documentation for the 
+
+<emphasis id="strong1003" effect="bold">
+Collection
+
+</emphasis>
+ interface goes a 
+step beyond the minimum technical requirements for an interface. The 
+documentation describes the general behavior that 
+
+<emphasis id="em1010" effect="italics">
+must be exhibited
+
+</emphasis>
+ by each of 
+the methods belonging to an object instantiated from a class that implements the
+
+
+<emphasis id="strong1004" effect="bold">
+Collection
+
+</emphasis>
+ interface. This is sometimes referred to as a 
+
+<emphasis id="em1011" effect="italics">
+contract
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1019">
+Therefore, if you define a class that implements the 
+
+<emphasis id="strong1005" effect="bold">
+Collection 
+
+</emphasis>
+
+interface in a manner consistent with the 
+
+<emphasis id="em1012" effect="italics">
+Collections Framework
+
+</emphasis>
+, it is important 
+that you make certain that each of your methods behaves as described in the 
+Oracle 
+documentation. In other words, you must be careful to comply with the contract 
+defined for those methods. If you don't do that, a user can't rely on objects 
+instantiated from your class to exhibit proper behavior. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_add_method_in_Collection_" effect="bold">
+
+The add method in Collection 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1020">
+For example, the 
+
+<emphasis id="strong1006" effect="bold">
+Collection
+
+</emphasis>
+ interface declares a method named 
+
+<emphasis id="strong1007" effect="bold">
+add
+
+</emphasis>
+ 
+that receives an incoming reference of a generic type 
+
+<emphasis id="em1013" effect="italics">
+(see 
+
+<link id="a1023" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+)
+
+</emphasis>
+ and returns a 
+
+<emphasis id="strong1008" effect="bold">
+
+boolean
+
+</emphasis>
+.. Here is some text from the Oracle documentation 
+describing the required behavior 
+
+<emphasis id="em1014" effect="italics">
+(contract)
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1009" effect="bold">
+add
+
+</emphasis>
+ method 
+for any class that implements the 
+
+<emphasis id="strong1010" effect="bold">
+Collection
+
+</emphasis>
+  interface. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="em1015" effect="italics">
+"Ensures that this collection contains the specified element (optional operation). Returns true if this collection changed as a result of the call. (Returns false if this collection does not permit duplicates and already contains the specified element.)
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="em1016" effect="italics">
+Collections that support this operation may place limitations on what elements may be added to this collection. In particular, some collections will refuse to add null elements, and others will impose restrictions on the type of elements that may be added. 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="em1017" effect="italics">
+Collection classes should clearly specify in their documentation any restrictions on what elements may be added.
+
+If a collection refuses to add a particular element for any reason other than that it already contains the element, it must throw an exception (rather than returning false). This preserves the invariant that a collection always contains the specified element after this call returns."
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+  
+
+
+<para id="p1024">
+As you can see, the behavior is defined in a very general way. There is no 
+indication as to how that behavior is to be achieved.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_add_method_in_Set_" effect="bold">
+
+The add method in Set 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+As you can see from the list 
+
+<link id="a1024" target-id="shown_below">
+
+above
+
+</link>
+
+, the 
+
+<emphasis id="strong1011" effect="bold">
+Set
+
+</emphasis>
+ interface extends the 
+
+<emphasis id="strong1012" effect="bold">
+
+Collection
+
+</emphasis>
+ interface. In keeping with the general form of object-oriented 
+design, 
+
+<emphasis id="strong1013" effect="bold">
+Set
+
+</emphasis>
+ is more specialized than 
+
+<emphasis id="strong1014" effect="bold">
+Collection
+
+</emphasis>
+. Therefore, 
+
+<emphasis id="strong1015" effect="bold">
+Set
+
+</emphasis>
+ 
+makes the contract for the 
+
+<emphasis id="strong1016" effect="bold">
+add
+
+</emphasis>
+ method more specific for objects of type
+
+
+<emphasis id="strong1017" effect="bold">
+Set
+
+</emphasis>
+. Here is some text from the Oracle documentation 
+describing the contract of the 
+
+<emphasis id="strong1018" effect="bold">
+add
+
+</emphasis>
+ method for any class that implements 
+the 
+
+<emphasis id="strong1019" effect="bold">
+Set
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="em1018" effect="italics">
+"Adds the specified element to this set if it is not already present (optional operation). More formally, adds the specified element e to this set if the set contains no element e2 such that (e==null ? e2==null : e.equals(e2)). 
+
+</emphasis>
+  
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="em1019" effect="italics">
+If this set already contains the element, the call leaves the set unchanged and returns false. In combination with the restriction on constructors, this ensures that sets never contain duplicate elements.
+
+
+
+</emphasis>
+  
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="em1020" effect="italics">
+The stipulation above does not imply that sets must accept all elements; sets may refuse to add any particular element, including null, and throw an exception, as described in the specification for Collection.add. Individual set implementations should clearly document any restrictions on the elements that they may contain."
+
+</emphasis>
+  
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="How_do_the_contracts_differ_" effect="bold">
+
+How do the contracts differ? 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1029">
+The contract for the 
+
+<emphasis id="strong1020" effect="bold">
+add
+
+</emphasis>
+ method, as declared in the 
+
+<emphasis id="strong1021" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface, does not prohibit duplicate elements, but does make the provision for 
+interfaces that extend 
+
+<emphasis id="strong1022" effect="bold">
+Collection
+
+</emphasis>
+ to prohibit duplicate elements. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+The contract for the 
+
+<emphasis id="strong1023" effect="bold">
+add
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1024" effect="bold">
+Set
+
+</emphasis>
+  interface does 
+prohibit duplicate elements. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="What_about_the_List_interface_" effect="bold">
+
+What about the List interface? 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1031">
+Here is some text from the Oracle documentation describing the contract of 
+the 
+
+<emphasis id="strong1025" effect="bold">
+add
+
+</emphasis>
+ method for any class that implements 
+the 
+
+<emphasis id="strong1026" effect="bold">
+List
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="em1021" effect="italics">
+"Appends the specified element to the end of this list (optional operation).
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="em1022" effect="italics">
+Lists that support this operation may place limitations on what elements may be added to this list. In particular, some lists will refuse to add null elements, and others will impose restrictions on the type of elements that may be added. List classes should clearly specify in their documentation any restrictions on what elements may be added."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+As you can see, the contract for the 
+
+<emphasis id="strong1027" effect="bold">
+add
+
+</emphasis>
+ method 
+declared in the 
+
+<emphasis id="strong1028" effect="bold">
+List
+
+</emphasis>
+ interface, 
+
+<emphasis id="em1023" effect="italics">
+(which extends Collection)
+
+</emphasis>
+, does 
+not prohibit duplicate elements. However, it does have some other requirements 
+that don't apply to 
+
+<emphasis id="strong1029" effect="bold">
+Set
+
+</emphasis>
+  objects. For example, it must add new 
+elements at the end of the list.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="A_major_difference_" effect="bold">
+
+A major difference 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+This is one of the major differences between lists and sets in the Java 
+Collection Framework. Both 
+
+<emphasis id="strong1030" effect="bold">
+List
+
+</emphasis>
+ objects and 
+
+<emphasis id="strong1031" effect="bold">
+Set
+
+</emphasis>
+ objects are 
+collections, because both of the interfaces extend the 
+
+<emphasis id="strong1032" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. However, the 
+
+<emphasis id="strong1033" effect="bold">
+Set
+
+</emphasis>
+ interface contract prohibits duplicate 
+elements while the 
+
+<emphasis id="strong1034" effect="bold">
+List
+
+</emphasis>
+  interface contract does not prohibit duplicate 
+elements. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="Designing_a_framework_" effect="bold">
+
+Designing a framework 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+In theory, it should be possible 
+
+<emphasis id="em1024" effect="italics">
+(but perhaps not very practical)
+
+</emphasis>
+ to 
+define a framework consisting solely of interface definitions and associated 
+contracts for methods and algorithms. Then each user could implement the 
+interfaces however they see fit, provided that they comply with the contracts.
+
+
+<emphasis id="em1025" effect="italics">
+(This might not be very practical, however, because every user of the framework would 
+then be required to implement the interfaces, which would entail a lot of work.)
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="Concrete_implementations" effect="bold">
+
+Concrete implementations
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+Fortunately, Oracle didn't stop work after defining the interfaces and contracts 
+for the Java Collections Framework. Rather, they also provided us with several 
+useful classes that implement the interfaces in the framework. Thus, we can 
+instantiate and use objects of those classes immediately without having to 
+define them ourselves. Here is a list of some of the concrete implementation 
+classes in the Java Collections Framework:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+HashSet
+
+</item>
+
+
+	
+
+<item id="li1032">
+TreeSet
+
+</item>
+
+
+	
+
+<item id="li1033">
+LinkedList
+
+</item>
+
+
+	
+
+<item id="li1034">
+Vector
+
+</item>
+
+
+	
+
+<item id="li1035">
+ArrayList
+
+</item>
+
+
+	
+
+<item id="li1036">
+HashMap
+
+</item>
+
+
+	
+
+<item id="li1037">
+Hashtable
+
+</item>
+
+
+	
+
+<item id="li1038">
+WeakHashMap
+
+</item>
+
+
+	
+
+<item id="li1039">
+TreeMap
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1038">
+In addition, Oracle provided us with several partial implementation classes 
+including 
+
+<emphasis id="strong1035" effect="bold">
+AbstractSet
+
+</emphasis>
+, 
+
+<emphasis id="strong1036" effect="bold">
+AbstractList
+
+</emphasis>
+, and 
+
+
+<emphasis id="strong1037" effect="bold">
+AbstractMap
+
+</emphasis>
+, which are intended to serve a 
+starting point for new implementations that we choose to define. According to 
+Oracle, these classes provide 
+
+<emphasis id="em1026" effect="italics">
+a skeletal implementation of the Set, List, 
+and Map interfaces to minimize the effort required to implement those 
+interfaces.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+There are eight core interfaces in the Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+As is always the case, each of the core interfaces defines a data type. Each 
+interface declares several methods. In addition, each interface provides a 
+contract that applies to each declared method. The contracts become more 
+specific as we traverse down the interface inheritance hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+Objects instantiated from classes that implement the interfaces can be 
+considered to be of the interface type or any ancestor interface in the 
+interface's hierarchical family tree. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The method declarations and their associated contracts in the interfaces 
+specify the general behavior of matching methods in the classes that implement 
+the interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+The framework provides several concrete implementations of the interfaces that 
+we can use to instantiate new objects to use as data structures or data 
+containers. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The framework also provides several abstract implementations that we can use as 
+a starting point for defining our own implementations. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1038" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1040">
+Module name: Java4030: Purpose of Framework Interfaces
+
+</item>
+
+
+					
+
+<item id="li1041">
+File: Java4030.htm
+
+
+</item>
+
+
+					
+
+<item id="li1042">
+Published: 04/18/13
+
+</item>
+
+
+					
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1039" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1046">
+<emphasis id="strong1040" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1047">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1048">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1049">
+<emphasis id="strong1041" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1050">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

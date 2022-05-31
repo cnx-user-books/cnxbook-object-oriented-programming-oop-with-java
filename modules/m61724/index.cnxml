@@ -1,0 +1,2130 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0215: Encoding JSON Strings</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61724</md:content-id>
+  <md:title>Json0215: Encoding JSON Strings</md:title>
+  <md:abstract>Learn how to use the JSONObject class to encode key/value pairs into JSON strings.</md:abstract>
+  <md:uuid>d7ab7e93-6369-41e6-a3c1-3cfb5bc57cd7</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Jun 02 19:24:40 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="General_background_information">
+
+General 
+	background information
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1010">
+<link id="a1010" target-id="Create_ArrayList_containers">
+
+Create ArrayList containers
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Create_and_populate_a_JSONObject_object">
+
+Create and populate a 
+JSONObject object
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Create_and_populate_two_more_JSONObject_objects">
+
+Create and 
+populate two more JSONObject objects
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Encode_the_data_into_JSON_strings">
+
+Encode the data into JSON 
+strings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Display_the_JSON_strings">
+
+Display the JSON strings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="The_end_of_the_program">
+
+The end of the program
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Complete_program_listings">
+
+Complete program listing
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. The book explains how to use the 
+	
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to generate, transform, and query 
+	JSON text. This page explains how to use the 
+
+<emphasis id="strong1002" effect="bold">
+JSONObject
+
+</emphasis>
+ 
+	class to encode key/value pairs into JSON strings. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The screen output. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Create ArrayList containers. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Create and populate a JSONObject object. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Create and populate two more JSONObject objects. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Encode the data into JSON strings. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Display the JSON strings. 
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The program named Code.java.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+As you learned in the earlier page titled 
+
+
+<link id="a1026" url="http://cnx.org/contents/5sRB9gpG:_u3ZKIdD">
+
+Json0210: Structure of the json-simple Java Library
+
+</link>
+
+, 
+the class named 
+
+<emphasis id="strong1003" effect="bold">
+JSONObject
+
+</emphasis>
+ extends the standard Java class 
+named 
+
+<emphasis id="strong1004" effect="bold">
+HashMap
+
+</emphasis>
+. Therefore, once you have an object of the class 
+named 
+
+<emphasis id="strong1005" effect="bold">
+JSONObject
+
+</emphasis>
+, you can call any of the methods defined in or 
+inherited into the 
+
+<emphasis id="strong1006" effect="bold">
+JSONObject
+
+</emphasis>
+ class on that object. 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+In the sample program that follows, we will use the 
+
+<emphasis id="strong1007" effect="bold">
+put
+
+</emphasis>
+ 
+method that is inherited from the 
+
+<emphasis id="strong1008" effect="bold">
+HashMap
+
+</emphasis>
+ class to populate the 
+object with key/value pairs. We will use the 
+
+<emphasis id="strong1009" effect="bold">
+toJSONString
+
+</emphasis>
+ 
+method that is defined in the 
+
+<emphasis id="strong1010" effect="bold">
+JSONObject
+
+</emphasis>
+ class to transform the 
+populated object into a JSON string.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1006">
+The program named 
+
+<emphasis id="strong1011" effect="bold">
+Code
+
+</emphasis>
+ 
+
+<emphasis id="em1004" effect="italics">
+(see 
+
+<link id="a1027" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+)
+
+</emphasis>
+ constructs three
+
+
+<emphasis id="strong1012" effect="bold">
+JSONObject
+
+</emphasis>
+ objects, populates the objects with key/value pairs, and saves 
+the 
+
+<emphasis id="strong1013" effect="bold">
+JSONObject
+
+</emphasis>
+ objects in an 
+
+<emphasis id="strong1014" effect="bold">
+ArrayList
+
+</emphasis>
+ object.
+
+
+<emphasis id="em1005" effect="italics">
+(Actually it saves references to the 
+
+<emphasis id="strong1015" effect="bold">
+JSONObject
+
+</emphasis>
+ objects in 
+the 
+
+<emphasis id="strong1016" effect="bold">
+ArrayList
+
+</emphasis>
+ object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Then it transforms each 
+
+<emphasis id="strong1017" effect="bold">
+JSONObject
+
+</emphasis>
+ object into a JSON string. 
+At this point, the JSON strings could be written to an output 
+stream and transferred to a different programming environment. However, to keep 
+the program simple, the program simply saves the JSON strings in a second 
+
+<emphasis id="strong1018" effect="bold">
+ArrayList
+
+</emphasis>
+ 
+object for later display.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Then the program displays the JSON strings for comparison with the code that 
+populated the 
+
+<emphasis id="strong1019" effect="bold">
+JSONObject
+
+</emphasis>
+ objects in the first place.
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Create_ArrayList_containers" effect="bold">
+
+Create ArrayList containers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+A complete listing of the program named 
+
+<emphasis id="strong1020" effect="bold">
+Code
+
+</emphasis>
+ is provided in 
+
+
+<link id="a1028" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ 
+	near the end of the page. I will discuss and explain the code in fragments. 
+The first fragment is shown in 
+
+<link id="a1029" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Create ArrayList containers.
+
+
+<code id="pre1000" display="block">
+import org.json.simple.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Code {
+
+  public static void main(String[] args){
+    //Create a container for several JSON objects.
+    ArrayList &lt;JSONObject&gt; listA = new ArrayList&lt;JSONObject&gt;();
+    //Create a container for several JSON strings
+    ArrayList &lt;String&gt; listB = new ArrayList&lt;String&gt;();
+    
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1010">
+The code in 
+
+<link id="a1030" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ instantiates two objects of the class named 
+
+<emphasis id="strong1021" effect="bold">
+ArrayList
+
+</emphasis>
+ 
+to serve as containers for the 
+
+<emphasis id="strong1022" effect="bold">
+JSONObject
+
+</emphasis>
+ objects and the JSON 
+strings. This is plain vanilla Java code. There is nothing new here.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Create_and_populate_a_JSONObject_object" effect="bold">
+
+Create and populate a 
+JSONObject object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+<para id="p1011">
+<link id="a1031" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ creates and populates the first 
+
+<emphasis id="strong1023" effect="bold">
+JSONObject
+
+</emphasis>
+ object with key/value pairs. 
+The keys are "name", "age", and "student" respectively. The value types are 
+
+<emphasis id="strong1024" effect="bold">
+String
+
+</emphasis>
+, 
+
+<emphasis id="strong1025" effect="bold">
+int
+
+</emphasis>
+, and 
+
+<emphasis id="strong1026" effect="bold">
+
+boolean
+
+</emphasis>
+ respectively.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Create and populate a JSONObject object.
+
+
+<code id="pre1001" display="block">
+    listA.add(new JSONObject());
+    
+    listA.get(0).put("name","Joe");
+    listA.get(0).put("age",21);
+    listA.get(0).put("student",true);
+    </code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1012">
+The code in 
+
+<link id="a1032" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ begins by instantiating a new object of the 
+
+<emphasis id="strong1027" effect="bold">
+
+JSONObject
+
+</emphasis>
+ class and adding its reference into the first element 
+
+<emphasis id="em1006" effect="italics">
+
+(0)
+
+</emphasis>
+ of the
+
+
+<emphasis id="strong1028" effect="bold">
+ArrayList
+
+</emphasis>
+ object. Then it calls the 
+
+<emphasis id="strong1029" effect="bold">
+get
+
+</emphasis>
+ method 
+on the 
+
+<emphasis id="strong1030" effect="bold">
+ArrayList
+
+</emphasis>
+ object three times in succession to gain 
+access to the 
+
+<emphasis id="strong1031" effect="bold">
+JSONObject
+
+</emphasis>
+. Each time it gains access to the
+
+
+<emphasis id="strong1032" effect="bold">
+JSONObject
+
+</emphasis>
+ object, it calls the 
+
+<emphasis id="strong1033" effect="bold">
+put
+
+</emphasis>
+ method 
+inherited from the 
+
+<emphasis id="strong1034" effect="bold">
+HashMap
+
+</emphasis>
+ class to store a 
+key/value pair in the 
+
+<emphasis id="strong1035" effect="bold">
+JSONObject
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1013">
+
+Note that the data stored in the 
+
+<emphasis id="strong1036" effect="bold">
+JSONObject
+
+</emphasis>
+ object is an unordered collection. 
+As you will see later, the order in 
+which the key/value pairs are extracted from the object using an iterator 
+is unrelated to the order in which the key/value pairs are stored in the object.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Create_and_populate_two_more_JSONObject_objects" effect="bold">
+
+Create and 
+populate two more JSONObject objects
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1014">
+<link id="a1033" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ repeats the process two more times to create, populate, and save 
+two more 
+
+<emphasis id="strong1037" effect="bold">
+JSONObject
+
+</emphasis>
+ objects. Note that one of these objects is populated in a different 
+order than is the case in 
+
+<link id="a1034" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Create and populate two more JSONObject 
+objects.
+
+
+<code id="pre1002" display="block">
+    //Create and populate the second JSONObject.
+    listA.add(new JSONObject());
+    listA.get(1).put("student",false);
+    listA.get(1).put("name","Sue");
+    listA.get(1).put("age",32);
+
+    
+    //Create and populate the third JSONObject
+    listA.add(new JSONObject());
+    listA.get(2).put("name","Tom");
+    listA.get(2).put("age",19);
+    listA.get(2).put("student",true);
+    </code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Encode_the_data_into_JSON_strings" effect="bold">
+
+Encode the data into JSON 
+strings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+<link id="a1035" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ uses an 
+
+<emphasis id="strong1038" effect="bold">
+Iterator
+
+</emphasis>
+ to gain access to each populated
+
+
+<emphasis id="strong1039" effect="bold">
+JSONObject
+
+</emphasis>
+ object. Each time it gains access to an object, it 
+calls the 
+
+<emphasis id="strong1040" effect="bold">
+toJSONString
+
+</emphasis>
+ method that is defined in the 
+
+<emphasis id="strong1041" effect="bold">
+JSONObject
+
+</emphasis>
+ 
+class to transform the object into a JSON string.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+At this point, the program could write the JSON strings into an output stream 
+for transfer to some other programming environment. However as mentioned 
+earlier, to keep the program simple, the program saves the JSON strings as 
+elements in a second 
+
+<emphasis id="strong1042" effect="bold">
+ArrayList
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Encode the data into JSON strings.
+
+
+<code id="pre1003" display="block">
+    Iterator&lt;JSONObject&gt; iteratorA = listA.iterator();
+    while (iteratorA.hasNext()){
+      listB.add(iteratorA.next().toJSONString());
+    }//end while loop
+    </code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Display_the_JSON_strings" effect="bold">
+
+Display the JSON strings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+<link id="a1036" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ uses an 
+
+<emphasis id="strong1043" effect="bold">
+Iterator
+
+</emphasis>
+ to access and display each of the 
+JSON strings that are stored in the 
+
+<emphasis id="strong1044" effect="bold">
+ArrayList
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Display the JSON strings.
+
+
+<code id="pre1004" display="block">
+    Iterator&lt;String&gt; iteratorB = listB.iterator();
+    while (iteratorB.hasNext()){
+      System.out.println(iteratorB.next());
+    }//end while loop
+
+  }//end main
+}//end class Code
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1018">
+The screen output is shown in 
+
+<link id="a1037" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ The screen output.
+
+
+<code id="pre1005" display="block">
+{"student":true,"name":"Joe","age":21}
+{"student":false,"name":"Sue","age":32}
+{"student":true,"name":"Tom","age":19}
+
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1019">
+The format for each line of text that you see in 
+
+<link id="a1038" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ is the format that 
+you would expect for a JSON string that doesn't include array data. 
+
+<emphasis id="em1007" effect="italics">
+(See 
+
+<link id="a1039" url="http://www.json.org/">
+
+Introducing 
+JSON 
+
+</link>
+
+for more details regarding format.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Briefly, each key is separated from its value by a colon 
+
+<emphasis id="em1008" effect="italics">
+(:)
+
+</emphasis>
+. Each 
+key/value pair is separated from its neighbors by a comma 
+
+<emphasis id="em1009" effect="italics">
+(,)
+
+</emphasis>
+. The JSON string begins 
+with a left brace 
+
+<emphasis id="em1010" effect="italics">
+({)
+
+</emphasis>
+ and ends with a right brace 
+
+<emphasis id="em1011" effect="italics">
+(})
+
+</emphasis>
+. Keys 
+are surrounded by double quotation characters. Values may or may not be 
+separated by double quotation characters, depending on their type. Some 
+characters inside of values, such as double quotation characters and backslash 
+characters must be escaped with a backslash character 
+
+<emphasis id="em1012" effect="italics">
+(\" and \\) 
+
+</emphasis>
+but 
+that is not shown by this program.
+
+</para>
+
+
+
+
+
+
+<para id="p1021">
+Note that the display order for the key/value pairs shown in 
+
+<link id="a1040" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ does not match the order in which the 
+objects were populated in 
+
+<link id="a1041" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ and 
+
+<link id="a1042" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+. A HashMap does not impose an 
+ordering on its contents and does not guarantee that the ordering will remain 
+constant over time.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_end_of_the_program" effect="bold">
+
+The end of the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+<link id="a1043" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1045" effect="bold">
+main
+
+</emphasis>
+ method and the 
+end of the program.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1023">
+I encourage you to copy the code from 
+
+<link id="a1044" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+. Execute the code and confirm 
+that you get the same results as those shown in 
+
+<link id="a1045" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+A complete listing of the program named Code.java is provided in 
+
+<link id="a1046" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6.
+
+</emphasis>
+
+ The program named Code.java.
+
+
+
+<code id="pre1006" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+
+Constructs three JSONObject objects and saves them in an ArrayList.
+Transforms each JSONObject object into a String object and saves the
+ strings in a second ArrayList object.
+Displays the strings.
+
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+class Code {
+
+  public static void main(String[] args){
+    //Create a container for several JSON objects.
+    ArrayList &lt;JSONObject&gt; listA = new ArrayList&lt;JSONObject&gt;();
+    //Create a container for several JSON strings
+    ArrayList &lt;String&gt; listB = new ArrayList&lt;String&gt;();
+    
+    //Create and populate the first JSONObject with unordered
+    // key/value pairs.
+    listA.add(new JSONObject());
+    listA.get(0).put("name","Joe");
+    listA.get(0).put("age",21);
+    listA.get(0).put("student",true);
+    
+    //Create and populate the second JSONObject. Note that the object
+    // is populated in a different order than above.
+    listA.add(new JSONObject());
+    listA.get(1).put("student",false);
+    listA.get(1).put("name","Sue");
+    listA.get(1).put("age",32);
+
+    
+    //Create and populate the third JSONObject
+    listA.add(new JSONObject());
+    listA.get(2).put("name","Tom");
+    listA.get(2).put("age",19);
+    listA.get(2).put("student",true);
+
+    //Transform the three JSON objects into JSON strings and save
+    // them in ListB. Could write them to disk for transfer to a
+    // different programming environment at this point.
+    Iterator&lt;JSONObject&gt; iteratorA = listA.iterator();
+    while (iteratorA.hasNext()){
+      listB.add(iteratorA.next().toJSONString());
+    }//end while loop
+
+    //Display the JSON strings currently stored in listB. Note that
+    // the display order does not necessarily match the order in
+    // which the original objects were populated.
+    Iterator&lt;String&gt; iteratorB = listB.iterator();
+    while (iteratorB.hasNext()){
+      System.out.println(iteratorB.next());
+    }//end while loop
+
+  }//end main
+}//end class Code
+</code>
+
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1025">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1046" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1026">
+Module name: Json0215: Encoding JSON Strings
+
+</item>
+
+
+					
+
+<item id="li1027">
+File: Json0215.htm
+
+</item>
+
+
+					
+
+<item id="li1028">
+Published: 05/31/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1047" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1048" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1029">
+<emphasis id="strong1049" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1030">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

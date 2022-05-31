@@ -1,0 +1,1869 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0110: Java OOP: Programming Fundamentals, Getting Started</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45137</md:content-id>
+  <md:title>Jb0110: Java OOP: Programming Fundamentals, Getting Started</md:title>
+  <md:abstract>This module explains how to get started programming in Java.</md:abstract>
+  <md:uuid>920d091d-ea72-478f-986f-eab814c2d992</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Sun Mar 27 11:59:05 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<note id="note1000" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1002">
+This Page is included in the following Books:
+
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+Programming Fundamentals with Java
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+Object-Oriented Programming (OOP) with Java 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Prerequisites">
+
+Prerequisites
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Creating_compiling_and_running_Java_programs">
+
+Writing, compiling, and running Java programs
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Writing_the_code">
+
+Writing Java code
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Preparing_to_compile_and_run_Java_code">
+
+Preparing to compile and run Java code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="The_java_development_kit">
+
+Downloading the java development kit 
+			
+
+<emphasis id="em1000" effect="italics">
+(JDK)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Installation_of_the_JDK">
+
+Installing the JDK
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1012">
+<link id="a1012" target-id="The_JDK_documentation">
+
+The JDK documentation
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Compiling_and_running_Java_code">
+
+Compiling and running 
+		Java code
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="Write_your_Java_program">
+
+Write your Java program
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="Create_a_batch_file">
+
+Create a batch file
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="A_test_program">
+
+A test program
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1003">
+This module is part of a sub-collection of modules designed to help you learn 
+to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1004">
+This module explains how to get started programming using the Java 
+programming language.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Prerequisites" effect="bold">
+
+Prerequisites
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+In addition to an Internet connection and a browser, you will need the 
+following tools 
+
+<emphasis id="em1001" effect="italics">
+(as a minimum) 
+
+</emphasis>
+to work through the exercises in these modules:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1018">
+The Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1002" effect="italics">
+(See
+	
+
+<link id="a1018" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1019">
+Documentation for the Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1003" effect="italics">
+(See
+	
+
+<link id="a1019" url="http://download.oracle.com/javase/7/docs/api/">
+
+
+	http://download.oracle.com/javase/7/docs/api/
+
+</link>
+
+ or the documentation for the latest version of the JDK.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1020">
+A simple IDE or text editor for use in writing Java code.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+	
+
+<para id="p1006">
+The minimum prerequisites for understanding the material in these modules 
+	include:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1021">
+An understanding of algebra.
+
+</item>
+
+
+	
+
+<item id="li1022">
+An understanding of all of the material covered in the earlier modules 
+	in this Book.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Windows batch file.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. A test program.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Creating_compiling_and_running_Java_programs" effect="bold">
+
+
+Writing, compiling, and running Java programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Writing_the_code" effect="bold">
+
+Writing Java code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+Writing Java code is straightforward. You can write Java code 
+using any plain text editor. You simply need to cause the output file to have 
+an extension of .java.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+There are a number of high-level 
+
+<emphasis id="em1004" effect="italics">
+Integrated Development Environments (IDEs)
+
+</emphasis>
+ 
+available, such as Eclipse and NetBeans, but they tend to be overkill for the relatively simple Java programs 
+described in these modules.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+There are also some low-level IDEs available, such as JCreator and DrJava, 
+which are very useful. I normally use a free version of JCreator, mainly because 
+it contains a color-coded editor.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+So, just find an editor that you are happy with and use it to write your Java 
+code.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Preparing_to_compile_and_run_Java_code" effect="bold">
+
+Preparing to compile and 
+run Java code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+Perhaps the most complicated thing is to get your computer set up for 
+compiling and running Java code in the first place.
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="The_java_development_kit" effect="bold">
+
+Downloading the java development kit 
+
+<emphasis id="em1005" effect="italics">
+(JDK)
+
+</emphasis>
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+You will need to download and install the free Java JDK from
+the Oracle/Sun website. As of November, 2012, you will find that website at
+
+
+<link id="a1022" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+
+</para>
+
+
+
+
+
+<para id="p1014">
+There is a 64-bit version of the JDK, which works well on my home computer 
+and on my office computer. However, some older computers may not be able to 
+handle the 64-bit version. A 32-bit version is provided to be used on older 
+computers.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Whether you elect to use the 32-bit or 64-bit 
+version is strictly up to you. Either of them should do the job very nicely.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Installation_of_the_JDK" effect="bold">
+
+Installing the JDK
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+As of November 2012, you will find installation instructions at
+
+
+<link id="a1023" url="http://download.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html">
+
+
+http://download.oracle.com/javase/7/docs/webnotes/install/windows/jdk-installation-windows.html
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+I strongly recommend that you read the instructions and pay particular 
+attention to the 
+information having to do with setting the 
+
+<emphasis id="strong1000" effect="bold">
+path
+
+</emphasis>
+ environment variable.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1001" effect="bold">
+A word of caution
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+If you happen to be running Windows Vista or Windows 7, you may need to use something like 
+the following when updating the PATH Environment Variable
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">... ;C:\Program Files (x86)\Java\jdk1.6.0_26\bin</code>
+
+
+
+
+<para id="p1020">
+in place of
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">... ;C:\Program Files\Java\jdk1.7.0\bin</code>
+
+
+
+
+<para id="p1021">
+as shown in the installation instructions.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+I don't have any experience with any Linux version. 
+Therefore, I don't have any hints to offer there.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="The_JDK_documentation" effect="bold">
+
+The JDK documentation
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+It is very difficult to program in Java without access to the documentation 
+for the JDK.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Several different types of Java documentation are available online at 
+
+
+<link id="a1024" url="http://www.oracle.com/technetwork/java/javase/documentation/index.html">
+
+
+http://www.oracle.com/technetwork/java/javase/documentation/index.html
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Specific documentation for classes, methods, etc., is available online at
+
+
+<link id="a1025" url="http://download.oracle.com/javase/7/docs/api/">
+
+
+http://download.oracle.com/javase/7/docs/api/
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+It is also possible to download the documentation and install it locally if 
+you have room on your disk. The download links for JDK 6 and JDK 7 documentation 
+are also shown on the page at
+
+
+<link id="a1026" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+You may also want to search for and use the documentation for the latest 
+version of the JDK.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Compiling_and_running_Java_code" effect="bold">
+
+Compiling and running Java code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+There are a variety of ways to compile and run Java code. The way that I will 
+describe here is the most basic and, in my opinion, the most reliable. These instructions 
+apply to a Windows operating system. If you are using a different operating 
+system, you will need to translate the instructions to your operating system.
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="Write_your_Java_program" effect="bold">
+
+Write your Java program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+Begin by using your text editor to write your Java program into one or more 
+text files, each with an extension of 
+.java. 
+
+<emphasis id="em1006" effect="italics">
+(Files of this type are often referred to as source code files.)
+
+</emphasis>
+ Save the 
+source code files in an empty folder somewhere on your disk. Make sure that the 
+name of the 
+
+<emphasis id="strong1002" effect="bold">
+class
+
+</emphasis>
+ containing the 
+
+<emphasis id="strong1003" effect="bold">
+main
+
+</emphasis>
+ 
+method 
+
+<emphasis id="em1007" effect="italics">
+(which you will learn about in a future module)
+
+</emphasis>
+ matches the name of the 
+file in which that class is contained 
+
+<emphasis id="em1008" effect="italics">
+(except for the extension of .java on the file name, 
+which does not appear in the class name)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Create_a_batch_file" effect="bold">
+
+Create a batch file
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+Use your text editor to create a batch file 
+
+<emphasis id="em1009" effect="italics">
+(or whatever the equivalent is for your operating system)
+
+</emphasis>
+ 
+containing the text shown in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+
+<emphasis id="em1010" effect="italics">
+(with the 
+modifications discussed below)
+
+</emphasis>
+ and store it 
+in the same folder as your Java source code files..
+
+</para>
+
+
+
+
+
+<para id="p1031">
+Then execute the batch file, which in turn will execute the program if there 
+are no compilation errors.
+
+</para>
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1000">
+<row id="tr1000">
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Windows batch file.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1000">
+<row id="tr1001">
+<entry id="td1000">
+
+
+
+<code id="pre1002" display="block">
+echo off
+cls
+
+del *.class
+
+javac -cp .; hello.java
+java -cp .; hello
+
+pause</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1004" effect="bold">
+Comments regarding the batch file
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1033">
+The commands in the batch file of 
+
+<link id="a1028" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ will 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Open a command-line screen for the folder containing the batch 
+	file.
+
+</item>
+
+
+	
+
+<item id="li1026">
+Delete all of the compiled class files from the folder. 
+
+<emphasis id="em1011" effect="italics">
+(If the folder 
+	doesn't contain any class files, this will be indicated on the command-line 
+	screen.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1027">
+Attempt to compile the program in the file named 
+
+<emphasis id="strong1005" effect="bold">
+hello.java.
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+Attempt to run the compiled program using a compiled Java file named
+	
+
+<emphasis id="strong1006" effect="bold">
+hello.class
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Pause and wait for you to dismiss the command-line screen by pressing a 
+	key on the keyboard.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1034">
+If errors occur, they will be reported on the command-line screen and the 
+program won't be executed.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+If your program is named something other than 
+
+<emphasis id="strong1007" effect="bold">
+hello
+
+</emphasis>
+, 
+
+
+<emphasis id="em1012" effect="italics">
+(which it typically would be)
+
+</emphasis>
+ substitute the new name for the word 
+
+<emphasis id="strong1008" effect="bold">
+hello
+
+</emphasis>
+ 
+where it appears twice in the batch 
+file.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1009" effect="bold">
+Don't delete the pause command
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The 
+
+<emphasis id="strong1010" effect="bold">
+pause
+
+</emphasis>
+ command causes the command-line window to stay on the 
+screen until you dismiss it by pressing a key on the keyboard. You will need to examine the contents of the window if there are errors 
+when you attempt to compile and run your program, so don't delete the pause 
+command.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1011" effect="bold">
+Translate to other operating systems
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+The format of the batch file in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is a Windows format. If 
+you are using a different operating system, you will need to translate the 
+information in 
+
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ into the correct format for your operating system.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="A_test_program" effect="bold">
+
+A test program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+The test program in 
+
+<link id="a1031" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ can be used to confirm that Java is properly 
+installed on your computer and that you can successfully compile and execute 
+Java programs.
+
+</para>
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+<row id="tr1002">
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. A test program.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+<row id="tr1003">
+<entry id="td1001">
+
+
+
+<code id="pre1003" display="block">class hello {
+  public static void main(String[] args){
+    System.out.println("Hello World");
+  }//end main
+}//end class
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1012" effect="bold">
+Instructions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+Copy the code shown in 
+
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ into a text file 
+named 
+
+<emphasis id="strong1013" effect="bold">
+hello.java
+
+</emphasis>
+ and store in an empty folder somewhere on your disk.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+Create a batch file named 
+
+<emphasis id="strong1014" effect="bold">
+hello.bat
+
+</emphasis>
+ containing the text 
+shown in 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and store that file in the same folder as the file named
+
+
+<emphasis id="strong1015" effect="bold">
+hello.java
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+Execute the batch file.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+If everything is working, a command-line screen 
+should open and display the following text:
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">Hello World
+Press any key to continue . . .</code>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1016" effect="bold">
+Congratulations
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+If that happens, you have just written, compiled and 
+executed your first Java program.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1017" effect="bold">
+Oops
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+If that doesn't happen, you need to go back to the installation instructions 
+and see if you can determine why the JDK isn't properly installed.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+If you get an error message similar to the following, that probably means 
+that you didn't set the 
+
+<emphasis id="strong1018" effect="bold">
+path
+
+</emphasis>
+ environment variable correctly. 
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">'javac' is not recognized as an internal or external command,
+operable program or batch file.</code>
+
+
+
+
+<para id="p1051">
+Beyond that, I can't provide much advice in the way of troubleshooting hints.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+
+
+<emphasis id="strong1019" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1030">
+Module name: Jb0110: Java OOP: Programming Fundamentals, Getting Started
+
+</item>
+
+
+
+
+<item id="li1031">
+File: Jb0110.htm
+
+
+</item>
+
+
+
+
+<item id="li1032">
+Published: 11/16/12
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+<emphasis id="strong1020" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1053">
+<emphasis id="strong1021" effect="bold">
+Financial
+
+</emphasis>
+: 
+	Although the Connexions site makes it possible for you to download a PDF 
+	file for this module at no charge, and also makes it possible for you to 
+	purchase a pre-printed version of the PDF file, you should be aware that 
+	some of the HTML elements in this module may not translate well into PDF.
+
+</para>
+
+
+
+	
+
+<para id="p1054">
+I also want you to know that, I receive no financial compensation from 
+	the Connexions website even if you purchase the PDF version of the module.
+
+</para>
+
+
+
+	
+
+<para id="p1055">
+In the past, unknown individuals have copied my modules from cnx.org, 
+	converted them to Kindle books, and placed them for sale on Amazon.com 
+	showing me as the author. I neither receive compensation for those sales nor 
+	do I know who does receive compensation. If you purchase such a book, please 
+	be aware that it is a copy of a module that is freely available on cnx.org 
+	and that it was made and published without my prior knowledge.
+
+</para>
+
+
+
+		
+
+<para id="p1056">
+<emphasis id="strong1022" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+		Information Technology at Austin Community College in Austin, TX.
+		
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1057">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

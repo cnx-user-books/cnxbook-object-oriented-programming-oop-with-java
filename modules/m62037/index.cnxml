@@ -1,0 +1,8148 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3003: Drawing Graphs with Turtles and Pixels</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m62037</md:content-id>
+  <md:title>Java3003: Drawing Graphs with Turtles and Pixels</md:title>
+  <md:abstract>This lesson explains programs that use a Turtle object to graph a straight line, a parabola, a cubic, a circle, and a cosine. The lesson also shows you how to graph a circle without using a Turtle object and compares the two approaches.</md:abstract>
+  <md:uuid>49cea4f0-ac85-4657-9068-a7557e1cab80</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Oct 06 11:16:54 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Preview">
+
+Preview
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="General_background_information">
+
+General 
+	background information
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1010">
+<link id="a1010" target-id="A_straight_line">
+
+A straight line
+
+</link>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+<item id="li1011">
+<link id="a1011" target-id="Program_output_for_Line01">
+
+Program output for Line01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="May_need_multiple_points">
+
+May need multiple points
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="The_driver_class_named_Line01">
+
+The driver class named Line01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Beginning_of_the_class_named_Line01Runner">
+
+Beginning of the class named Line01Runner
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="The_method_named_function">
+
+The method named function for Line01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Scaling">
+
+Scaling
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Draw_the_BLUE_line">
+
+Draw the BLUE line
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="The_method_named_drawLine">
+
+The method named drawLine
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="Repeat_the_process_to_draw_two_more_lines">
+
+Repeat the process to 
+draw two more lines
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="A_parabola">
+
+A parabola
+
+</link>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+<item id="li1021">
+<link id="a1021" target-id="The_method_named_function_for_Parabola01">
+
+The method named function 
+for Parabola01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1022">
+<link id="a1022" target-id="Drawing_parameters_for_Parabola01">
+
+Drawing parameters for 
+Parabola01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1023">
+<link id="a1023" target-id="Drawing_parameters_with_zero_offsets">
+
+Drawing parameters with zero 
+offsets
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1024">
+<link id="a1024" target-id="Changing_the_offset_values">
+
+Changing the offset values
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1025">
+<link id="a1025" target-id="Changing_the_scale_factors">
+
+Changing the scale factors
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1026">
+<link id="a1026" target-id="Draw_the_parabolic_function_in_BLUE">
+
+Draw the parabolic function in 
+BLUE
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1027">
+<link id="a1027" target-id="A_cubic">
+
+A cubic
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1028">
+<link id="a1028" target-id="A_circle">
+
+A circle
+
+</link>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+<item id="li1029">
+<link id="a1029" target-id="First_approach">
+
+First approach
+
+</link>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+<item id="li1030">
+<link id="a1030" target-id="The_method_named_function_for_Circle01">
+
+The method named function 
+for Circle01
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1031">
+<link id="a1031" target-id="Draw_half_the_circle_in_BLUE">
+
+Draw half the circle in BLUE
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1032">
+<link id="a1032" target-id="Draw_the_other_half_of_the_circle_in_GREEN">
+
+Draw the other half of 
+the circle in GREEN
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1033">
+<link id="a1033" target-id="Different_line_width">
+
+Different line width
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1034">
+<link id="a1034" target-id="Second_approach">
+
+Second approach
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1035">
+<link id="a1035" target-id="A_cosine">
+
+A cosine
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1036">
+<link id="a1036" target-id="Using_a_Turtle_object_without_a_World_object">
+
+Using a Turtle object 
+without a World object
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1037">
+<link id="a1037" target-id="Drawing_straight_lines_without_a_Turtle_object">
+
+Drawing straight 
+lines without a Turtle object
+
+</link>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+<item id="li1038">
+<link id="a1038" target-id="What_is_the_pen_width_for_the_straight_lines">
+
+What is the "pen 
+width" for the straight lines?
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1039">
+<link id="a1039" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1040">
+<link id="a1040" target-id="Complete_program_listings">
+
+Complete program listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1041">
+<link id="a1041" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This lesson is one of a series of lessons designed to teach you about 
+	Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+
+<para id="p1003">
+Before embarking on the material in this lesson, you should have studied and 
+should understand all of the material in the lessons identified as 
+
+<emphasis id="strong1000" effect="bold">
+
+Java1600
+
+</emphasis>
+ through 
+
+<emphasis id="strong1001" effect="bold">
+Java1630
+
+</emphasis>
+ in the section of this book 
+titled 
+
+<link id="a1042" url="http://cnx.org/contents/dzOvxPFw:rOlnsVRr">
+
+Essence of OOP
+
+</link>
+
+. 
+You should have studied and should understand the material in the lesson titled
+
+
+<link id="a1043" url="http://cnx.org/contents/dzOvxPFw:WpmhN38H">
+
+Java3002: Creating and 
+Manipulating Turtles and Pictures in a World Object
+
+</link>
+
+. You should also have 
+studied and should understand all of the material in the following books:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1042">
+<link id="a1044" url="http://cnx.org/contents/EHRr6hjR">
+
+Programming Fundamentals with 
+	Java
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1045" url="http://cnx.org/contents/1CVBGBJj">
+
+Java OOP Self-Assessment 
+
+</link>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+The program described in this lesson requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1046" url="http://cnx.org/content/m44148/latest/">
+
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this lesson in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+
+<item id="li1044">
+<link id="a1047" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Two turtles in a World object.
+
+
+</item>
+
+
+
+
+<item id="li1045">
+<link id="a1048" target-id="Figure_2">
+
+Figure 2.
+
+</link>
+
+
+ Graph of a cubic function.
+
+
+</item>
+
+
+
+
+<item id="li1046">
+<link id="a1049" target-id="Figure_3">
+
+Figure 3.
+
+</link>
+
+
+ Program output for Line01.
+
+
+</item>
+
+
+
+
+<item id="li1047">
+<link id="a1050" target-id="Figure_4">
+
+Figure 4.
+
+</link>
+
+
+ Line01 output with different scaling.
+
+
+</item>
+
+
+
+
+<item id="li1048">
+<link id="a1051" target-id="Figure_5">
+
+Figure 5.
+
+</link>
+
+
+ Program output for Line01 for a 400x150 world.
+
+
+</item>
+
+
+
+
+<item id="li1049">
+<link id="a1052" target-id="Figure_6">
+
+Figure 6.
+
+</link>
+
+
+ Graphic output from the program named 
+Parabola01.
+
+
+</item>
+
+
+
+
+<item id="li1050">
+<link id="a1053" target-id="Figure_7">
+
+Figure 7.
+
+</link>
+
+
+ Parabola with zero offsets.
+
+
+</item>
+
+
+
+
+<item id="li1051">
+<link id="a1054" target-id="Figure_8">
+
+Figure 8.
+
+</link>
+
+
+ A parabola with offsets.
+
+
+</item>
+
+
+
+
+<item id="li1052">
+<link id="a1055" target-id="Figure_9">
+
+Figure 9.
+
+</link>
+
+
+ Graphic output from the program named Cubic01.
+
+
+</item>
+
+
+
+
+<item id="li1053">
+<link id="a1056" target-id="Figure_10">
+
+Figure 10.
+
+</link>
+
+
+ Graphic output from the program named 
+	Circle01.
+
+
+</item>
+
+
+
+
+<item id="li1054">
+<link id="a1057" target-id="Figure_11">
+
+Figure 11.
+
+</link>
+
+
+ Graphic output from the program named 
+	Circle02.
+
+
+</item>
+
+
+
+
+<item id="li1055">
+<link id="a1058" target-id="Figure_12">
+
+Figure 12.
+
+</link>
+
+
+ Graphic output from the program named Cosine01.
+
+
+</item>
+
+
+
+
+<item id="li1056">
+<link id="a1059" target-id="Figure_13">
+
+Figure 13.
+
+</link>
+
+
+ Graphic output from the program named Cubic02.
+
+
+</item>
+
+
+
+
+<item id="li1057">
+<link id="a1060" target-id="Figure_14">
+
+Figure 14.
+
+</link>
+
+
+ Graphic output from the program named Line02.
+
+
+</item>
+
+
+
+
+<item id="li1058">
+<link id="a1061" target-id="Figure_15">
+
+Figure 15.
+
+</link>
+
+
+ Zoomed comparison of lines.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1012" list-type="bulleted">
+
+		
+
+<item id="li1059">
+<link id="a1062" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Line01Runner. 
+
+</item>
+
+
+		
+
+<item id="li1060">
+<link id="a1063" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The method named function for Line01. 
+
+</item>
+
+
+		
+
+<item id="li1061">
+<link id="a1064" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Draw the BLUE line. 
+
+</item>
+
+
+		
+
+<item id="li1062">
+<link id="a1065" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The method named drawLine. 
+
+</item>
+
+
+		
+
+<item id="li1063">
+<link id="a1066" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Repeat the process to draw two more lines. 
+
+</item>
+
+
+		
+
+<item id="li1064">
+<link id="a1067" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The method named function for Parabola01. 
+
+</item>
+
+
+		
+
+<item id="li1065">
+<link id="a1068" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Drawing parameters for Parabola01. 
+
+</item>
+
+
+		
+
+<item id="li1066">
+<link id="a1069" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Draw the parabolic function in BLUE. 
+
+</item>
+
+
+
+		
+
+<item id="li1067">
+<link id="a1070" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The variable named rVal. 
+
+</item>
+
+
+		
+
+<item id="li1068">
+<link id="a1071" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. The method named function for Circle01. 
+
+</item>
+
+
+		
+
+<item id="li1069">
+<link id="a1072" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Draw half the circle in BLUE. 
+
+</item>
+
+
+		
+
+<item id="li1070">
+<link id="a1073" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Picture and Pixel references. 
+
+</item>
+
+
+		
+
+<item id="li1071">
+<link id="a1074" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Translate the origin and set the pixel color. 
+
+</item>
+
+
+		
+
+<item id="li1072">
+<link id="a1075" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. The method named function for Cosine01. 
+
+</item>
+
+
+		
+
+<item id="li1073">
+<link id="a1076" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. The program named Line01. 
+
+</item>
+
+
+		
+
+<item id="li1074">
+<link id="a1077" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. The program named Parabola01. 
+
+</item>
+
+
+		
+
+<item id="li1075">
+<link id="a1078" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. The program named Cubic01. 
+
+</item>
+
+
+		
+
+<item id="li1076">
+<link id="a1079" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. The program named Circle01. 
+
+</item>
+
+
+		
+
+<item id="li1077">
+<link id="a1080" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+. The program named Circle02. 
+
+</item>
+
+
+		
+
+<item id="li1078">
+<link id="a1081" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+. The program named Cosine01. 
+
+</item>
+
+
+		
+
+<item id="li1079">
+<link id="a1082" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+. The program named Cubic02.
+
+</item>
+
+
+		
+
+<item id="li1080">
+<link id="a1083" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+. The program named Line02.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+In this lesson, I will explain programs that use a 
+
+<emphasis id="strong1002" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object to graph the following mathematical functions:
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1081">
+A straight line
+
+</item>
+
+
+	
+
+<item id="li1082">
+A parabola
+
+</item>
+
+
+	
+
+<item id="li1083">
+A cubic
+
+</item>
+
+
+	
+
+<item id="li1084">
+A circle 
+
+<emphasis id="em1003" effect="italics">
+(two approaches)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1085">
+A cosine
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+I will also show you how to graph a circle and a line without using a 
+
+<emphasis id="strong1003" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object and compare the two approaches.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+You learned about the 
+
+<emphasis id="strong1004" effect="bold">
+World
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1005" effect="bold">
+Turtle
+
+</emphasis>
+ class, and the 
+
+
+<emphasis id="strong1006" effect="bold">
+Picture
+
+</emphasis>
+ class in 
+an earlier lesson titled 
+
+<link id="a1084" url="http://cnx.org/contents/dzOvxPFw:WpmhN38H">
+
+Java3002: Creating and Manipulating Turtles and Pictures in a World Object
+
+</link>
+
+. 
+You learned the fundamentals of causing the turtle to move and to draw a line 
+with different colors and different line widths in the process. For review, 
+
+
+<link id="a1085" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows an image that you learned to create in that earlier lesson.
+
+</para>
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Two turtles in a World object.
+
+
+<para id="p1009">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/3003-1.jpg" width="309" height="304"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1010">
+In comparison, 
+
+<link id="a1086" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ shows the sort of thing that you will learn to do in 
+this lesson.
+
+</para>
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ Graph of a cubic function.
+
+
+<para id="p1011">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/3003-2.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1012">
+The blue line in 
+
+<link id="a1087" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ shows a graph of the following cubic function in a 
+Cartesian coordinate system:
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">y = x*x*x</code>
+
+
+
+
+<para id="p1013">
+The red lines in 
+
+<link id="a1088" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ show the x and y axes.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+The graph in 
+
+<link id="a1089" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ was created by computing the x and y coordinate values
+
+
+<emphasis id="em1004" effect="italics">
+(points)
+
+</emphasis>
+ for a set of x values uniformly spaced along the x axis and 
+causing the 
+
+<emphasis id="strong1007" effect="bold">
+Turtle
+
+</emphasis>
+ object to move and connect those points with 
+a blue line. The 
+
+<emphasis id="strong1008" effect="bold">
+Turtle
+
+</emphasis>
+ object was made invisible.
+
+</para>
+
+
+
+
+
+
+<para id="p1015">
+As a practical matter, computing the coordinate values is relatively simple. 
+The more complex problem is to get everything scaled properly to produce a 
+visually pleasing graph in the space provided by the 
+
+<emphasis id="strong1009" effect="bold">
+World
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+I will explain eight different programs in this lesson. Complete listings of 
+those programs are provided in 
+
+<link id="a1090" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+ through 
+
+<link id="a1091" target-id="Listing_22">
+
+ Listing 22
+
+</link>
+
+ in the section 
+titled 
+
+<link id="a1092" target-id="Complete_program_listings">
+
+Complete program listings
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+As is my custom, I will break the programs down and explain them in 
+fragments. However, I will explain only those portions of the programs 
+that are new to this lesson. I will let the comments in the listings speak to 
+those portions of the code that you should already understand.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+Much of the code repeats from one program to the next. I will explain 
+new code the first time that it appears in a program and won't explain that code in the 
+explanation of programs that follow.
+
+</para>
+
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="A_straight_line" effect="bold">
+
+A straight line
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+In this section, I will present and explain a program named 
+
+<emphasis id="strong1010" effect="bold">
+Line01
+
+</emphasis>
+ that can be used to draw 
+a straight line using the standard formula for a straight line given below:
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">y = slope*x + yIntercept</code>
+
+
+
+
+<para id="p1020">
+A complete listing of the program is provided in 
+
+<link id="a1093" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+ near the end of 
+the lesson. 
+
+</para>
+
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Program_output_for_Line01" effect="bold">
+
+Program output for Line01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+Before getting into the code, 
+
+<link id="a1094" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+ shows the program output.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3.
+
+</emphasis>
+
+ Program output for Line01.
+
+
+<para id="p1022">
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/3003-3.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1023">
+As you can see, in addition to the red axes, this program graphs three 
+different lines in different colors with different slopes and different 
+y-intercept values. I will touch on the slopes and the y-intercept values as I 
+explain the code.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="May_need_multiple_points" effect="bold">
+
+May need multiple points
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+At this point, I will explain a practical issue before it becomes a 
+concern to you. As we all know, only two points are required to define a line. 
+However the program that I will explain uses multiple points to define and draw 
+a line. This requirement results from the behavior of a 
+
+<emphasis id="strong1011" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object when moving from one point to another point.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+A 
+
+<emphasis id="strong1012" effect="bold">
+Turtle
+
+</emphasis>
+ object has the ability to connect two points with a 
+straight line if, and only if, both points are inside the 
+
+<emphasis id="strong1013" effect="bold">
+World
+
+</emphasis>
+ 
+object. If a point is outside the world and a turtle attempts to move to it, the 
+turtle will behave like a dog inside a fenced yard running along the fence and barking at someone who 
+is walking along the sidewalk on the other side of the fence. The turtle will 
+move along the inside boundary of the world. This is indicated by the black 
+horizontal dotted line segments in the upper left and lower right of 
+
+<link id="a1095" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+. In this 
+case, the turtle was trying to reach a point somewhere on the extension of the 
+black line outside the world.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+In comparison, 
+
+<link id="a1096" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+ shows the same lines as 
+
+<link id="a1097" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+. The horizontal 
+and vertical scaling were adjusted in 
+
+<link id="a1098" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+ to ensure that the end points of all three 
+lines are inside the boundaries of the world. These lines could be drawn by a
+
+
+<emphasis id="strong1014" effect="bold">
+Turtle
+
+</emphasis>
+ object using 
+only the end points of the lines and only two points would be needed for each 
+line.
+
+</para>
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4.
+
+</emphasis>
+
+ Line01 output with different scaling.
+
+
+<para id="p1027">
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/3003-4.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1028">
+In general, a turtle is incapable of reliably drawing a straight line between 
+two points if either or both the points are outside the boundaries of the world 
+even though a line between those points would pass through the world. There are 
+a variety of ways to deal with this issue. The code that I will present below is 
+only one of those ways.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_driver_class_named_Line01" effect="bold">
+
+The driver class named Line01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+The driver class named 
+
+<emphasis id="strong1015" effect="bold">
+Line01
+
+</emphasis>
+ is shown in 
+
+<link id="a1099" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+. There 
+is nothing new in that code so a detailed explanation should not be required.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+The code in the driver class instantiates an object of the class named 
+
+<emphasis id="strong1016" effect="bold">
+Line01Runner
+
+</emphasis>
+ and calls an instance method named 
+
+<emphasis id="strong1017" effect="bold">
+run
+
+</emphasis>
+ 
+belonging to that object. The 
+
+<emphasis id="strong1018" effect="bold">
+run
+
+</emphasis>
+  method is where the action is 
+in the program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Beginning_of_the_class_named_Line01Runner" effect="bold">
+
+Beginning of the class named Line01Runner
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+<link id="a1100" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ shows the beginning of the class named 
+
+<emphasis id="strong1019" effect="bold">
+Line01Runner
+
+</emphasis>
+ 
+and the beginning of the method named 
+
+<emphasis id="strong1020" effect="bold">
+run
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the class named Line01Runner.
+
+
+<code id="pre1002" display="block">
+class Line01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+    
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1032">
+This code fragment is included here strictly for context. There is nothing in 
+
+
+<link id="a1101" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ that you haven't seen in an earlier lesson.
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="The_method_named_function" effect="bold">
+
+The method named function for Line01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+At this point, I am going to put the 
+
+<emphasis id="strong1021" effect="bold">
+run
+
+</emphasis>
+ method on hold and 
+explain a method named 
+
+<emphasis id="strong1022" effect="bold">
+function
+
+</emphasis>
+. This method is the heart of the program because 
+it evaluates the standard equation of a straight line given by
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">
+y = slope*x + yIntercept
+</code>
+
+
+
+
+<para id="p1034">
+I will return to a discussion of the 
+
+<emphasis id="strong1023" effect="bold">
+run
+
+</emphasis>
+ method later.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+The method named 
+
+<emphasis id="strong1024" effect="bold">
+function
+
+</emphasis>
+ is shown in its entirety in 
+
+<link id="a1102" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+. This method evaluates and returns the y-value for each 
+incoming x-value
+  to define a line described by the equation given above.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The method named function for Line01.
+
+
+<code id="pre1004" display="block">
+  double function(double xVar,double slope,double yIntercept){
+    double yVar = (yIntercept) + (slope*xVar);
+    return yVar;
+  }//end function</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1036">
+As you can see, this method is very simple. I decided to break it out as a 
+separate method to clearly distinguish it from the other code in the 
+
+<emphasis id="strong1025" effect="bold">
+run
+
+</emphasis>
+ 
+method. This will be the case in all of the programs that I explain in this 
+lesson.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Scaling" effect="bold">
+
+Scaling
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+As I mentioned earlier, the more complex problem is to get everything scaled 
+properly to produce a visually pleasing graph in the space provided by the
+
+
+<emphasis id="strong1026" effect="bold">
+World
+
+</emphasis>
+ object as shown in 
+
+<link id="a1103" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+Another issue that increases the complexity is the need sometimes to 
+translate the origin from the default upper-left corner of the 
+
+<emphasis id="strong1027" effect="bold">
+World
+
+</emphasis>
+ 
+object to a point at the center of the world. 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+And if that isn't enough, the problem is further complicated by the need to 
+use mixed-mode arithmetic involving both 
+
+<emphasis id="strong1028" effect="bold">
+int
+
+</emphasis>
+ and 
+
+<emphasis id="strong1029" effect="bold">
+double
+
+</emphasis>
+ data types. Coordinate values in the world 
+must be specified as type 
+
+<emphasis id="strong1030" effect="bold">
+int
+
+</emphasis>
+. 
+However, if an attempt is made to do all of the arithmetic using integer 
+arithmetic, 
+the results will often be incorrect with no warning. For example, with integer arithmetic, 1 
+divided by 3 is equal to 0 instead of 0.3333. That fact alone can result in 
+major errors.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The computations in this and the other programs in this lesson will take the following 
+general form 
+
+<emphasis id="em1005" effect="italics">
+(although some of the steps may be combined in the actual code 
+and may not be easy to isolate)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1031" effect="bold">
+<emphasis id="Step_1" effect="bold">
+
+Step 1
+
+</emphasis>
+
+
+</emphasis>
+. Evaluate the y-value using the equation 
+for a straight line at a set of 101 points along the 
+x-axis ranging from -1.0 through +1.0. Use 
+double-precision arithmetic and return the result as type 
+
+<emphasis id="strong1032" effect="bold">
+double
+
+</emphasis>
+. 
+This produces y values for the following set of x values:
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">-1.0 -0.98 ... 0.0 ... 0.98 1.0</code>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1033" effect="bold">
+Step 2
+
+</emphasis>
+. Scale the x and y values by scale factors that 
+produce a pleasing visual display in the available space of the world. For the BLUE line shown in 
+
+<link id="a1104" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+ with a 
+slope of 1.0 and a y-intercept value of 0.0 in a 300x300 world, this produces 
+the following x 
+
+<emphasis id="em1006" effect="italics">
+(col)
+
+</emphasis>
+ and y 
+
+<emphasis id="em1007" effect="italics">
+(row)
+
+</emphasis>
+ values:
+
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">
+-150,-150
+-147,-147
+...
+0,0
+...
+147,147
+150,150
+</code>
+
+
+
+
+<para id="p1043">
+Column numbers less than zero are off the left side of the world and row 
+numbers less than 0 are off the top of the world. The origin of the world is at 
+the upper-left corner by default.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1034" effect="bold">
+Step 
+
+</emphasis>
+3. Adjust the column number by adding one-half the width of the world and adjust 
+the row number by adding one-half the height of the world, This translates the 
+origin to the center of the world. Use these values when telling the turtle to 
+move to a particular location specified by a column number and a row number.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+While this approach may seem overly complicated, it has one major advantage. In particular, the results are independent of 
+the dimensions of the world. For example, the results shown in 
+
+<link id="a1105" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+ are for 
+a 300x300 world. If I were to change the dimensions of the world to 400x150 
+near the top of 
+
+<link id="a1106" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+ without making any other changes relative to 
+
+<link id="a1107" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+, the output would change to that shown in 
+
+
+<link id="a1108" target-id="Figure_5">
+
+ Figure 5
+
+</link>
+
+, which is still correct.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5.
+
+</emphasis>
+
+ Program output for Line01 for a 400x150 world.
+
+
+<para id="p1046">
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/3003-5.jpg" width="409" height="183"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Draw_the_BLUE_line" effect="bold">
+
+Draw the BLUE line
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1047">
+The code in 
+
+<link id="a1109" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ initializes several variables and then calls a method 
+named 
+
+<emphasis id="strong1035" effect="bold">
+drawLine
+
+</emphasis>
+ to implement the steps listed 
+
+<link id="a1110" target-id="Step_1">
+
+above
+
+</link>
+
+ to draw the BLUE line shown 
+in 
+
+<link id="a1111" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Draw the BLUE line.
+
+
+<code id="pre1007" display="block">
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 1.0*world.getHeight()/2;
+
+    //Draw a line in BLUE.
+    turtle.setPenColor(Color.BLUE);
+    double slope = 1.0;
+    double yIntercept = 0.0;
+    drawLine(xScale,yScale,slope,yIntercept);</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="The_method_named_drawLine" effect="bold">
+
+The method named drawLine
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+Once again, I will put the run method on hold while we examine the code that 
+actually draws the line as shown in 
+
+<link id="a1112" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The method named drawLine.
+
+
+<code id="pre1008" display="block">
+  void drawLine(double xScale,double yScale,
+                                     double slope,double yIntercept){
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1.0;
+    
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for a given x-value.
+      yVal = function(xVal,slope,yIntercept);
+  
+      //Scale the x and y values to match the plotting surface
+      col = (int)(xVal*xScale);
+      row = (int)(yVal*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                         row + world.getHeight()/2);
+                                         
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+  }//end drawLine method</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1049">
+If you examine the code in 
+
+<link id="a1113" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ along with values assigned to the 
+variables in 
+
+<link id="a1114" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+, you should be able to see the correlation between the 
+code and the steps given 
+
+<link id="a1115" target-id="Step_1">
+
+earlier
+
+</link>
+
+. 
+In particular, you should be able to see how this code produces the BLUE line 
+shown in 
+
+<link id="a1116" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+Note that the code in 
+
+<link id="a1117" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ calls the method named 
+
+<emphasis id="strong1036" effect="bold">
+function
+
+</emphasis>
+
+
+
+<emphasis id="em1008" effect="italics">
+(shown in 
+
+<link id="a1118" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+)
+
+</emphasis>
+ to get the values that define the line for the 
+given slope and the given y-intercept value.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Repeat_the_process_to_draw_two_more_lines" effect="bold">
+
+Repeat the process to 
+draw two more lines
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+Returning to the 
+
+<emphasis id="strong1037" effect="bold">
+run
+
+</emphasis>
+ method, the code in 
+
+<link id="a1119" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ repeats 
+the process twice to draw the GREEN line and the BLACK line shown in 
+
+<link id="a1120" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+ for different slope and y-intercept values.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1009" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Repeat the process to draw two more lines.
+
+
+<code id="pre1009" display="block">
+    //Draw another line in GREEN.
+    turtle.penUp();
+    turtle.setPenColor(Color.GREEN);
+    slope = -0.5;
+    yIntercept = 0.5;
+    drawLine(xScale,yScale,slope,yIntercept);
+    
+    //Draw another line in BLACK.
+    turtle.penUp();
+    turtle.setPenColor(Color.BLACK);
+    slope = 2.0;
+    yIntercept = -0.5;
+    drawLine(xScale,yScale,slope,yIntercept);
+
+  }//end run method</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1052">
+<link id="a1121" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1038" effect="bold">
+run
+
+</emphasis>
+ method and the end 
+of the program.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="A_parabola" effect="bold">
+
+A parabola
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+The program named 
+
+<emphasis id="strong1039" effect="bold">
+Parabola01
+
+</emphasis>
+ shown in 
+
+<link id="a1122" target-id="Listing_16">
+
+ Listing 16
+
+</link>
+
+ produces the graphic output shown in 
+
+<link id="a1123" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1010" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6.
+
+</emphasis>
+
+ Graphic output from the program named 
+Parabola01.
+
+
+<para id="p1054">
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/3003-6.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h31011">
+<title>
+<emphasis id="The_method_named_function_for_Parabola01" effect="bold">
+
+The method named function 
+for Parabola01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1055">
+The method named 
+
+<emphasis id="strong1040" effect="bold">
+function
+
+</emphasis>
+ for the program named 
+
+<emphasis id="strong1041" effect="bold">
+Parabola01
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1124" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+  This method evaluates and returns the y-value for each incoming x-value for a parabola with no offsets centered at the origin 
+as defined by the following equation:
+
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">y = x*x </code>
+
+
+
+
+
+
+
+
+
+<note id="note1011" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. The method named function for Parabola01.
+
+
+<code id="pre1011" display="block">
+  double function(double xVal){
+    double yVal = xVal*xVal;
+    return yVal;
+  }//end function</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1057">
+A plot of the output of the method named 
+
+<emphasis id="strong1042" effect="bold">
+function
+
+</emphasis>
+ would look 
+like the curve shown in 
+
+<link id="a1125" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+ with no offsets if the x and y scaling values 
+were set to one-half the width and height of the world respectively.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1012" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7.
+
+</emphasis>
+
+ Parabola with zero offsets.
+
+
+<para id="p1058">
+<media id="media1006" alt="Missing image" display="block">
+<image id="img1006" mime-type="image/jpeg" src="../../media/3003-7.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1059">
+It will be instructive to see how this program uses offsets and scaling 
+values to transform the image shown in 
+
+<link id="a1126" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+ into the image shown in 
+
+<link id="a1127" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="Drawing_parameters_for_Parabola01" effect="bold">
+
+Drawing parameters for 
+Parabola01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+The code fragment shown in 
+
+<link id="a1128" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ shows the drawing parameters that were used to produce the output shown in 
+
+
+<link id="a1129" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1013" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Drawing parameters for Parabola01.
+
+
+<code id="pre1012" display="block">
+    double xOff = 0.25;//offset relative to 1.0
+    double yOff = -0.25;
+    double xScale = 0.75*world.getWidth()/2;
+    double yScale = 1.25*world.getHeight()/2;    
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="Drawing_parameters_with_zero_offsets" effect="bold">
+
+Drawing parameters with zero 
+offsets
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1061">
+The parameters that were used to produce the output shown in 
+
+<link id="a1130" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+ are shown 
+below:
+
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">
+    double xOff = 0.0;//offset relative to 1.0
+    double yOff = -0.0;
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 1.0*world.getHeight()/2;
+</code>
+
+
+
+
+<para id="p1062">
+Note in particular that the offsets given by 
+
+<emphasis id="strong1043" effect="bold">
+xOff
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1044" effect="bold">
+yOff
+
+</emphasis>
+ are set to zero 
+and the scale factors given by 
+
+<emphasis id="strong1045" effect="bold">
+xScale
+
+</emphasis>
+ and 
+
+<emphasis id="strong1046" effect="bold">
+yScale
+
+</emphasis>
+ are one-half the width and 
+height of the world respectively.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="Changing_the_offset_values" effect="bold">
+
+Changing the offset values
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1063">
+Increasing the offsets for 
+
+<emphasis id="strong1047" effect="bold">
+xOff
+
+</emphasis>
+ and 
+
+<emphasis id="strong1048" effect="bold">
+yOff
+
+</emphasis>
+ to 0.25 and -0.25 
+respectively as shown in 
+
+<link id="a1131" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+ and making no 
+other changes produces the output shown in 
+
+<link id="a1132" target-id="Figure_8">
+
+ Figure 8
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+<note id="note1014" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8.
+
+</emphasis>
+
+ A parabola with offsets.
+
+
+<para id="p1064">
+<media id="media1007" alt="Missing image" display="block">
+<image id="img1007" mime-type="image/jpeg" src="../../media/3003-8.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1065">
+In comparison with 
+
+<link id="a1133" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+, changing the value of 
+
+<emphasis id="strong1049" effect="bold">
+xOff
+
+</emphasis>
+ to 
+0.25 caused the peak to move to the right 
+
+<emphasis id="em1009" effect="italics">
+(positive direction)
+
+</emphasis>
+ one-fourth of the way 
+from the center origin to the right edge of the world. 
+
+<emphasis id="em1010" effect="italics">
+(That change also 
+caused a portion of the curve to fall outside the right boundary of the world.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+Similarly, changing the value of 
+
+<emphasis id="strong1050" effect="bold">
+yOff
+
+</emphasis>
+ to -0.25 caused the 
+peak to move up 
+
+<emphasis id="em1011" effect="italics">
+(negative direction)
+
+</emphasis>
+ one-fourth of the way from the 
+center origin to the top edge of the world.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="Changing_the_scale_factors" effect="bold">
+
+Changing the scale factors
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1067">
+Following that, changing the values of 
+
+<emphasis id="strong1051" effect="bold">
+xScale
+
+</emphasis>
+ and 
+
+<emphasis id="strong1052" effect="bold">
+
+yScale
+
+</emphasis>
+ to the values shown in 
+
+<link id="a1134" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ produces the graphic output 
+shown in 
+
+<link id="a1135" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+. The change in 
+
+<emphasis id="strong1053" effect="bold">
+xScale
+
+</emphasis>
+ decreased the total 
+width of the curve and prevented it from exceeding the rightmost boundary of the 
+world. The change in 
+
+<emphasis id="strong1054" effect="bold">
+yScale
+
+</emphasis>
+ increased the overall height of the 
+curve causing it to almost touch the lower boundary of the world.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Draw_the_parabolic_function_in_BLUE" effect="bold">
+
+Draw the parabolic function in 
+BLUE
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+The code in 
+
+<link id="a1136" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ draws the blue parabolic function shown in 
+
+<link id="a1137" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1015" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Draw the parabolic function in BLUE.
+
+
+<code id="pre1014" display="block">
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1;
+    turtle.setPenColor(Color.BLUE);
+
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for the given x-value.
+      yVal = function(xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+   
+  }//end run method</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1069">
+There is nothing new in 
+
+<link id="a1138" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+. You should be able to correlate the code 
+in 
+
+<link id="a1139" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ and the drawing parameters in 
+
+<link id="a1140" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ with the 
+
+<link id="a1141" target-id="Step_1">
+
+
+steps
+
+</link>
+
+ presented earlier to understand how the program named 
+
+<emphasis id="strong1055" effect="bold">
+Parabola01
+
+</emphasis>
+ 
+produces the output image shown in 
+
+<link id="a1142" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="A_cubic" effect="bold">
+
+A cubic
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+The program named 
+
+<emphasis id="strong1056" effect="bold">
+Cubic01
+
+</emphasis>
+ shown in 
+
+<link id="a1143" target-id="Listing_17">
+
+ Listing 17
+
+</link>
+
+ produces the graphic output shown in 
+
+<link id="a1144" target-id="Figure_9">
+
+ Figure 9
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+<note id="note1016" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9.
+
+</emphasis>
+
+ Graphic output from the program named Cubic01.
+
+
+<para id="p1071">
+<media id="media1008" alt="Missing image" display="block">
+<image id="img1008" mime-type="image/jpeg" src="../../media/3003-9.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1072">
+About the only thing that is different between the program named 
+
+<emphasis id="strong1057" effect="bold">
+
+Parabola01
+
+</emphasis>
+ and the program named 
+
+<emphasis id="strong1058" effect="bold">
+Cubic01
+
+</emphasis>
+ is the method 
+named 
+
+<emphasis id="strong1059" effect="bold">
+function
+
+</emphasis>
+. In the program named 
+
+<emphasis id="strong1060" effect="bold">
+Parabola01
+
+</emphasis>
+, 
+the method computes and returns the square of the incoming x-value. In the 
+program named 
+
+<emphasis id="strong1061" effect="bold">
+Cubic01
+
+</emphasis>
+, the method computes and returns the cube 
+of the incoming x-value. Just about everything that was said about 
+
+<emphasis id="strong1062" effect="bold">
+
+Parabola01
+
+</emphasis>
+ also applies to 
+
+<emphasis id="strong1063" effect="bold">
+Cubic01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="A_circle" effect="bold">
+
+A circle
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+There are several ways to graph all of the functions discussed in this 
+lesson. The previous sections have illustrated only one way -- using a turtle to 
+graph the function. I will illustrate the following two ways to graph a circle 
+in this section and will compare some of the advantages and disadvantages 
+
+
+<emphasis id="of_each_approach" effect="bold">
+
+of 
+each approach
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1086">
+Using a turtle to graph the function
+
+</item>
+
+
+	
+
+<item id="li1087">
+Accessing and setting pixel colors 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31017">
+<title>
+<emphasis id="First_approach" effect="bold">
+
+First approach
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+The first approach that I will present and explain uses a turtle to graph a 
+circle. This program is very similar to the program named 
+
+<emphasis id="strong1064" effect="bold">
+Parabola01
+
+</emphasis>
+, but there 
+are a few differences. I will explain those differences.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The program named 
+
+<emphasis id="strong1065" effect="bold">
+Circle01
+
+</emphasis>
+ shown in 
+
+<link id="a1145" target-id="Listing_18">
+
+ Listing 18
+
+</link>
+
+ produces the 
+graphic output shown in 
+
+<link id="a1146" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1017" type="">
+
+
+
+
+
+
+
+<emphasis id="Figure_10" effect="bold">
+
+Figure 10.
+
+</emphasis>
+
+ Graphic output from the program named 
+	Circle01.
+
+
+<para id="p1076">
+<media id="media1009" alt="Missing image" display="block">
+<image id="img1009" mime-type="image/jpeg" src="../../media/3003-10.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+<para id="p1077">
+The first difference that is worthy of note is shown by the lines of code 
+involving the variable named 
+
+<emphasis id="strong1066" effect="bold">
+rVal
+
+</emphasis>
+ in 
+
+<link id="a1147" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1018" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. The variable named rVal.
+
+
+<code id="pre1015" display="block">
+    double rVal = 0.6;//radius relative to 1.0 
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -rVal;
+    double xInc = 2*rVal/100;
+    turtle.setPenColor(Color.BLUE);</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1078">
+The variable named 
+
+<emphasis id="strong1067" effect="bold">
+rVal
+
+</emphasis>
+ is used to specify the radius of the 
+circle relative to a value of 1.0 as declared and initialized in 
+
+<link id="a1148" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+In the previous sections, we have evaluated our equation for a set of 101 x 
+values ranging from -1.0 to +1.0. For the case of the circle, we will evaluate 
+the equation for a set of 101 x values ranging from 
+
+<emphasis id="strong1068" effect="bold">
+-rVal
+
+</emphasis>
+ to
+
+
+<emphasis id="strong1069" effect="bold">
++rVal
+
+</emphasis>
+. (
+
+<emphasis id="em1012" effect="italics">
+There is no point in evaluating the equation 
+outside of the circle.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+The code in 
+
+<link id="a1149" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+ declares and initializes the variable named 
+
+<emphasis id="strong1070" effect="bold">
+
+rVal
+
+</emphasis>
+. Further down, the code sets the initial value for 
+
+<emphasis id="strong1071" effect="bold">
+xVal
+
+</emphasis>
+ to 
+
+<emphasis id="strong1072" effect="bold">
+
+-rVal
+
+</emphasis>
+. Below that, the code sets the x-increment 
+
+<emphasis id="em1013" effect="italics">
+(
+
+<emphasis id="strong1073" effect="bold">
+xInc
+
+</emphasis>
+)
+
+</emphasis>
+ to the diameter of the 
+circle divided by 100. This will cause the equation for the circle to be 
+evaluated at 101 points from left to right across the circle shown in 
+
+<link id="a1150" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<section id="h41000">
+<title>
+<emphasis id="The_method_named_function_for_Circle01" effect="bold">
+
+The method named function 
+for Circle01
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1081">
+The method named 
+
+<emphasis id="strong1074" effect="bold">
+function
+
+</emphasis>
+ is shown in 
+
+<link id="a1151" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+This method evaluates and returns the y-value for each incoming x-value
+  for a circle with no offset, centered at the origin.
+  The method evaluates the standard equation for a circle given by
+
+</para>
+
+
+
+
+
+<code id="pre1016" display="block">radius*radius = x*x + y*y</code>
+
+
+
+
+<para id="p1083">
+Note that unlike the 
+
+<emphasis id="strong1075" effect="bold">
+function
+
+</emphasis>
+ method for 
+
+<emphasis id="strong1076" effect="bold">
+Parabola01
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1077" effect="bold">
+Cubic01
+
+</emphasis>
+, this method requires two incoming parameters: the 
+radius and the current x-value.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="The_value_returned" effect="bold">
+
+The value returned
+
+</emphasis>
+
+ from the 
+
+<emphasis id="strong1078" effect="bold">
+Math.sqrt
+
+</emphasis>
+ method can be
+  considered to be either positive or negative. Only the positive
+  value is returned by this method. When the returned value is considered to be 
+positive and the results are plotted, one-half of a circle is displayed as shown 
+by the BLUE line in 
+
+<link id="a1152" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+. Similarly, when the returned value is considered 
+to be negative and the results are plotted, the other half of the circle is 
+displayed as shown by the GREEN line in 
+
+<link id="a1153" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1019" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. The method named function for Circle01.
+
+
+<code id="pre1017" display="block">
+  double function(double rVal,double xVal){
+    double yVal = Math.sqrt(rVal*rVal - xVal*xVal + 0.0000000001);
+    return yVal;
+  }//end function</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1085">
+If the expression passed to the 
+
+<emphasis id="strong1079" effect="bold">
+sqrt
+
+</emphasis>
+ method is negative, the 
+value returned by that method will not be valid. Because the computations in 
+this program are performed as type 
+
+<emphasis id="strong1080" effect="bold">
+double
+
+</emphasis>
+, and because all floating 
+point computations are only estimates of the truth, the computed difference 
+between the radius squared and the x-value squared can actually be an extremely 
+small negative value when it should be zero. A small positive fudge factor was 
+added to prevent that value from going negative due to small floating point 
+computational errors. 
+
+<emphasis id="em1014" effect="italics">
+(This sort of thing is often required when doing a lot 
+of floating point computations. There are various ways to do it and there may be 
+better ways than the one used here.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h41001">
+<title>
+<emphasis id="Draw_half_the_circle_in_BLUE" effect="bold">
+
+Draw half the circle in BLUE
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+The code in 
+
+<link id="a1154" target-id="Listing_11">
+
+ Listing 11
+
+</link>
+
+ draws the BLUE half of the circle shown in 
+
+<link id="a1155" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1020" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Draw half the circle in BLUE.
+
+
+<code id="pre1018" display="block">
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = function(rVal,xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1087">
+Having initialized 
+
+<emphasis id="strong1081" effect="bold">
+xVal
+
+</emphasis>
+ and 
+
+<emphasis id="strong1082" effect="bold">
+xInc
+
+</emphasis>
+ on the 
+basis of the radius in 
+
+<link id="a1156" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+, the code in 
+
+<link id="a1157" target-id="Listing_11">
+
+ Listing 11
+
+</link>
+
+ is essentially the 
+same as the code in the earlier programs in this lesson.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h41002">
+<title>
+<emphasis id="Draw_the_other_half_of_the_circle_in_GREEN" effect="bold">
+
+Draw the other half of 
+the circle in GREEN
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+The code that draws the GREEN half of the circle is shown in 
+
+<link id="a1158" target-id="Listing_18">
+
+ Listing 18
+
+</link>
+
+. It 
+is essentially the same as the code in 
+
+<link id="a1159" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+ except that the sign on 
+
+
+<emphasis id="strong1083" effect="bold">
+yVal
+
+</emphasis>
+ 
+is flipped from positive to negative as discussed 
+
+<link id="a1160" target-id="The_value_returned">
+
+
+above
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h41003">
+<title>
+<emphasis id="Different_line_width" effect="bold">
+
+Different line width
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+One other difference that I haven't mentioned yet is trivial but interesting. 
+You may have noticed that the line width in 
+
+<link id="a1161" target-id="Figure_10">
+
+ Figure 10
+
+</link>
+
+ is about twice that in 
+
+
+<link id="a1162" target-id="Figure_9">
+
+ Figure 9
+
+</link>
+
+. I purposely did that to illustrate that one of the useful features of 
+graphing functions with a turtle is that you can control the width of the line. 
+The importance of that capability will become apparent in the next section.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+That concludes the interesting differences between this program and the 
+previous programs.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h31018">
+<title>
+<emphasis id="Second_approach" effect="bold">
+
+Second approach
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1091">
+The program named 
+
+<emphasis id="strong1084" effect="bold">
+Circle02
+
+</emphasis>
+ shown in 
+
+<link id="a1163" target-id="Listing_19">
+
+ Listing 19
+
+</link>
+
+ produces the 
+graphic output shown in 
+
+<link id="a1164" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+The bottom half of the circle in 
+
+<link id="a1165" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+ was drawn using the
+
+
+<link id="a1166" target-id="of_each_approach">
+
+second approach
+
+</link>
+
+: accessing and setting pixel 
+colors. As you can see, the quality is rather poor in comparison with the upper 
+half that was drawn by using a turtle to graph the function.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1021" type="">
+
+
+
+
+
+
+
+<emphasis id="Figure_11" effect="bold">
+
+Figure 11.
+
+</emphasis>
+
+ Graphic output from the program named 
+	Circle02.
+
+
+<para id="p1093">
+<media id="media1010" alt="Missing image" display="block">
+<image id="img1010" mime-type="image/jpeg" src="../../media/3003-11.jpg" width="309" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+<para id="p1094">
+For example, if the curve is anything other than a straight line, a 
+considerable programming effort is usually required to cause the line width to 
+be greater than one pixel using this approach. Also, when you use this approach, 
+if you want to produce a solid line, you must make certain that you don't skip 
+any pixels when setting the pixel colors to represent the line. You can avoid 
+both of these issues by using a turtle to draw the lines in your graph.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+There are situations, however, where this approach will produce satisfactory 
+results with less programming effort than would be the case using a turtle to 
+draw the lines, so you should not discount this method entirely.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+I will explain the programming differences involved in using this approach to 
+draw the BLUE half circle as compared to the approach used in the program named
+
+
+<emphasis id="strong1085" effect="bold">
+Circle01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+The code in 
+
+<link id="a1167" target-id="Listing_12">
+
+ Listing 12
+
+</link>
+
+ is new compared to the code for the program named
+
+
+<emphasis id="strong1086" effect="bold">
+Circle01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1022" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Picture and Pixel references.
+
+
+<code id="pre1019" display="block">
+  private Picture pic = world.getPicture();
+  private Pixel pixel = null;</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1098">
+This code appears near the top of 
+
+<link id="a1168" target-id="Listing_19">
+
+ Listing 19
+
+</link>
+
+. The first statement gets a 
+reference to the white 
+
+<emphasis id="strong1087" effect="bold">
+Picture
+
+</emphasis>
+ object that forms a background 
+image in the 
+
+<emphasis id="strong1088" effect="bold">
+World
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+The second statement in 
+
+<link id="a1169" target-id="Listing_12">
+
+ Listing 12
+
+</link>
+
+ declares a variable of type 
+
+<emphasis id="strong1089" effect="bold">
+Pixel
+
+</emphasis>
+ 
+that will be used as a working variable later.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+The code in 
+
+<link id="a1170" target-id="Listing_13">
+
+ Listing 13
+
+</link>
+
+ replaces the code that causes the turtle to move and 
+draw a line segment in 
+
+<link id="a1171" target-id="Listing_11">
+
+ Listing 11
+
+</link>
+
+. This code translates the origin to the center 
+and sets the color of a pixel on the circumference of the half circle to the 
+color BLUE.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1023" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Translate the origin and set the pixel 
+color.
+
+
+<code id="pre1020" display="block">
+      pixel = pic.getPixel(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      pixel.setColor(Color.BLUE);</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1101">
+Note however that pixel colors are only set for the values of 
+
+<emphasis id="strong1090" effect="bold">
+col
+
+</emphasis>
+ 
+that are computed in 
+
+<link id="a1172" target-id="Listing_11">
+
+ Listing 11
+
+</link>
+
+. If there are gaps in the column numbers, there 
+will be gaps in the line as shown in 
+
+<link id="a1173" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+. The turtle approach, on the 
+other hand, draws the line across such gaps. If the gaps are large, the curve 
+may be jagged with the turtle approach, but there won't be empty gaps as in 
+
+
+<link id="a1174" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<link id="a1175" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+ also illustrates the difference between having easy control over 
+the line width and not having easy control over the line width. As mentioned 
+above, unless the curve is a straight line, it can be very difficult to control 
+the line width with this approach.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+Once again, however, there are situations where the approach of setting pixel 
+colors will provide satisfactory results with minimum effort, so you should 
+always keep this approach as an option.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+That is probably all that needs to be said about the program named 
+
+<emphasis id="strong1091" effect="bold">
+
+Circle02
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="A_cosine" effect="bold">
+
+A cosine
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1105">
+The program named 
+
+<emphasis id="strong1092" effect="bold">
+Cosine01
+
+</emphasis>
+ shown in 
+
+<link id="a1176" target-id="Listing_20">
+
+ Listing 20
+
+</link>
+
+ produces the 
+graphic output shown in 
+
+<link id="a1177" target-id="Figure_12">
+
+ Figure 12
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1024" type="">
+
+
+
+
+
+
+
+<emphasis id="Figure_12" effect="bold">
+
+Figure 12.
+
+</emphasis>
+
+ Graphic output from the program named Cosine01.
+
+
+<para id="p1106">
+<media id="media1011" alt="Missing image" display="block">
+<image id="img1011" mime-type="image/jpeg" src="../../media/3003-12.jpg" width="317" height="339"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+<para id="p1107">
+The only significant difference between this program and the program named
+
+
+<emphasis id="strong1093" effect="bold">
+Parabola01
+
+</emphasis>
+ is the method named 
+
+<emphasis id="strong1094" effect="bold">
+function
+
+</emphasis>
+ shown in 
+
+
+<link id="a1178" target-id="Listing_14">
+
+ Listing 14
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1025" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. The method named function for Cosine01.
+
+
+<code id="pre1021" display="block">
+  double function(double xVal){
+    double yVal = Math.cos(2*Math.PI*xVal);
+    return yVal;
+  }//end function</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1108">
+This method evaluates and returns the y-value for each incoming x-value 
+for a cosine function with no offset centered at the origin.
+
+</para>
+
+
+
+
+
+<code id="pre1022" display="block">y = cos(2*pi*x)
+</code>
+
+
+
+
+<para id="p1109">
+<link id="a1179" target-id="Figure_12">
+
+ Figure 12
+
+</link>
+
+ shows two cycles of the cosine curve, which is periodic. When 
+viewing 
+
+<link id="a1180" target-id="Figure_12">
+
+ Figure 12
+
+</link>
+
+, keep in mind that positive values go down the page. Thus the 
+positive peak of the cosine function at the origin points down.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+As in the previous section, that is probably all that needs to be said about the program named
+
+
+<emphasis id="strong1095" effect="bold">
+Cosine01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Using_a_Turtle_object_without_a_World_object" effect="bold">
+
+Using a Turtle object 
+without a World object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1111">
+A 
+
+<emphasis id="strong1096" effect="bold">
+Turtle
+
+</emphasis>
+ object can be used to draw on a 
+
+<emphasis id="strong1097" effect="bold">
+Picture
+
+</emphasis>
+ object as shown by the 
+program named 
+
+<emphasis id="strong1098" effect="bold">
+Cubic02
+
+</emphasis>
+ in 
+
+<link id="a1181" target-id="Listing_21">
+
+ Listing 21
+
+</link>
+
+. If you examine this code, 
+you will see that there is no reference to the 
+
+<emphasis id="strong1099" effect="bold">
+World
+
+</emphasis>
+ class in 
+this program.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+The output from this program is shown in 
+
+<link id="a1182" target-id="Figure_13">
+
+ Figure 13
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1026" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_13" effect="bold">
+
+Figure 13.
+
+</emphasis>
+
+ Graphic output from the program named Cubic02.
+
+
+<para id="p1113">
+<media id="media1012" alt="MISSING IMAGE" display="block">
+<image id="img1012" mime-type="image/jpeg" src="../../media/3003-13.jpg" width="319" height="346"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1114">
+If you compare 
+
+<link id="a1183" target-id="Figure_13">
+
+ Figure 13
+
+</link>
+
+ with 
+
+<link id="a1184" target-id="Figure_9">
+
+ Figure 9
+
+</link>
+
+, you will see that they display the 
+same image with the exception of the word that appears in the blue banner at the 
+top of the image.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Drawing_straight_lines_without_a_Turtle_object" effect="bold">
+
+Drawing straight 
+lines without a Turtle object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1115">
+Although a 
+
+<emphasis id="strong1100" effect="bold">
+Turtle
+
+</emphasis>
+ object provides a very convenient way to 
+draw a straight line with a specified color and width, that is not the only way 
+to draw a straight line. The program named 
+
+<emphasis id="strong1101" effect="bold">
+Line02
+
+</emphasis>
+ shown in 
+
+<link id="a1185" target-id="Listing_22">
+
+ Listing 22
+
+</link>
+
+ 
+draws three parallel straight 
+lines without using a 
+
+<emphasis id="strong1102" effect="bold">
+Turtle
+
+</emphasis>
+ object. 
+
+<emphasis id="em1015" effect="italics">
+(
+
+<link id="a1186" target-id="Listing_22">
+
+ Listing 22
+
+</link>
+
+ also shows 
+how to draw a half circle using a 
+
+<emphasis id="strong1103" effect="bold">
+Turtle
+
+</emphasis>
+ object without a 
+
+<emphasis id="strong1104" effect="bold">
+World
+
+</emphasis>
+ 
+object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+The code in 
+
+<link id="a1187" target-id="Listing_22">
+
+ Listing 22
+
+</link>
+
+ produces the graphic output shown in 
+
+<link id="a1188" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1027" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_14" effect="bold">
+
+Figure 14.
+
+</emphasis>
+
+ Graphic output from the program named Line02.
+
+
+<para id="p1117">
+<media id="media1013" alt="MISSING IMAGE" display="block">
+<image id="img1013" mime-type="image/jpeg" src="../../media/3003-14.jpg" width="319" height="346"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1118">
+If you compare 
+
+<link id="a1189" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ with 
+
+<link id="a1190" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+, you will see that the top halves of 
+the two images are the same except for the word that appears in the banner at 
+the top. However, instead of drawing a half circle without using a 
+
+<emphasis id="strong1105" effect="bold">
+
+Turtle
+
+</emphasis>
+ object as in the bottom half of 
+
+<link id="a1191" target-id="Figure_11">
+
+ Figure 11
+
+</link>
+
+, the program named
+
+
+<emphasis id="strong1106" effect="bold">
+Line02
+
+</emphasis>
+ 
+draws three parallel lines of different colors without using a 
+
+<emphasis id="strong1107" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object. 
+
+<emphasis id="em1016" effect="italics">
+(The lines are separated by two pixels in the vertical dimension.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<section id="h31019">
+<title>
+<emphasis id="What_is_the_pen_width_for_the_straight_lines" effect="bold">
+
+What is the "pen 
+width" for the straight lines?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1119">
+On first glance, one might conclude that by causing the three straight lines 
+in 
+
+<link id="a1192" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ to be side-by-side with no white space in between, one could use 
+this approach to create a line with a "pen width" of three pixels. That is not 
+necessarily the case, however, unless the three lines are either horizontal or 
+vertical.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+Consider what would happen if each individual line in 
+
+<link id="a1193" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ were to be 
+rotated around its left-most pixel until it becomes vertical. In that case, all 
+three lines would occupy the same vertical column of pixels and the resulting 
+"line" would be only one pixel wide. Thus, with this approach, the actual width 
+of the combined lines depends on the angle that the line makes with the 
+horizontal.
+
+</para>
+
+
+
+
+
+<para id="p1121">
+That is not the case for a line that is drawn using a 
+
+<emphasis id="strong1108" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object. Note that the GREEN half circle drawn by the turtle in the upper half of 
+
+
+<link id="a1194" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ is the same width no mater what the angle of an individual line 
+segment is relative to the horizontal.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+This approach to drawing straight lines can be used to draw lines with a 
+visually pleasing width but you need to be careful about using this approach to 
+create a line with a specified width. Normally the specified width would be 
+measured along an axis that is perpendicular to the line.
+
+</para>
+
+
+
+
+
+<para id="p1123">
+For example, consider the three individual lines and the spaces between 
+individual lines taken together in 
+
+<link id="a1195" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ to represent a LINE. If each of the 
+three individual lines were to be rotated around its left-most pixel so that 
+they are horizontal, the width of the LINE, measured perpendicular to the LINE 
+would be seven pixels (three lines and four spaces). As explained above, if each 
+of the three individual lines were to be rotated so as to become vertical, the 
+width of the LINE would be one pixel.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+If the specifications were to state that the width of the LINE in 
+
+<link id="a1196" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ 
+must be seven pixels, and the LINE is not horizontal, some trigonometric 
+computations might be required in the algorithm to achieve that goal. 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+For example, if the three individual lines in 
+
+<link id="a1197" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ were to be rotated 
+around their left-most pixel so as to be at forty-five degrees relative to the 
+horizontal, the actual width of the LINE would be (7 * 0.707) or 4.949 pixels. 
+Since it is not possible to address the space between pixels, the actual width 
+would probably be rounded up to five pixels or truncated down to four pixels 
+
+<emphasis id="em1017" effect="italics">
+
+(depending on the method used to convert from double to int)
+
+</emphasis>
+.
+
+
+<emphasis id="em1018" effect="italics">
+(Recall that the cosine of 45 degrees is 0.707.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+This is illustrated in 
+
+<link id="a1198" target-id="Figure_15">
+
+ Figure 15
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1028" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_15" effect="bold">
+
+Figure 15.
+
+</emphasis>
+
+ Zoomed comparison of lines.
+
+
+<para id="p1127">
+<media id="media1014" alt="MISSING IMAGE" display="block">
+<image id="img1014" mime-type="image/jpeg" src="../../media/3003-15.jpg" width="400" height="438"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1128">
+<link id="a1199" target-id="Figure_15">
+
+ Figure 15
+
+</link>
+
+ shows the three lines rotated to an angle of 45 degrees and 
+connected to a line segment drawn by a Turtle object with a pen width of seven 
+pixels. 
+
+<emphasis id="em1019" effect="italics">
+(Note that the image was zoomed to make it possible to see the 
+individual pixels.)
+
+</emphasis>
+ As you can see, the width of the line segment drawn by 
+the turtle is greater than the combined widths of the three individual lines by 
+what appears to be two pixels. 
+This effect becomes more pronounced as the orientation of the three lines 
+approaches the vertical. 
+
+</para>
+
+
+
+
+
+
+
+<para id="p1129">
+Thus, if the width of a line is part of a specification, and the specified 
+width is anything other than one pixel, you might find it easier to use a
+
+
+<emphasis id="strong1109" effect="bold">
+Turtle
+
+</emphasis>
+ object to draw the line. 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1130">
+I encourage you to copy the code from 
+
+<link id="a1200" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+ through 
+
+<link id="a1201" target-id="Listing_22">
+
+ Listing 22
+
+</link>
+
+. Execute the code and confirm 
+that you get the same results as those shown in in this lesson. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1131">
+Complete listings of the programs discussed in this lesson are provided in 
+
+
+<link id="a1202" target-id="Listing_15">
+
+ Listing 15
+
+</link>
+
+ through 
+
+<link id="a1203" target-id="Listing_20">
+
+ Listing 20
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1029" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. The program named 
+Line01.
+
+
+<code id="pre1023" display="block">
+/*File Line01 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Line01{//Driver class
+  public static void main(String[] args){
+    Line01Runner obj = new Line01Runner();
+    obj.run();
+  }//end main
+}//end class Line01
+//=================================================================//
+
+class Line01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+    
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+
+    //Prepare the scale factors
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 1.0*world.getHeight()/2;
+
+    //Draw a line in BLUE.
+    turtle.setPenColor(Color.BLUE);
+    double slope = 1.0;
+    double yIntercept = 0.0;
+    drawLine(xScale,yScale,slope,yIntercept);
+
+    //Draw another line in GREEN.
+    turtle.penUp();
+    turtle.setPenColor(Color.GREEN);
+    slope = -0.5;
+    yIntercept = 0.5;
+    drawLine(xScale,yScale,slope,yIntercept);
+    
+    //Draw another line in BLACK.
+    turtle.penUp();
+    turtle.setPenColor(Color.BLACK);
+    slope = 2.0;
+    yIntercept = -0.5;
+    drawLine(xScale,yScale,slope,yIntercept);
+
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //Method to draw a line given several incoming parameters that 
+  // describe the line and the plotting parameters.
+  void drawLine(double xScale,double yScale,
+                                     double slope,double yIntercept){
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1.0;
+    
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for a given x-value.
+      yVal = function(xVal,slope,yIntercept);
+  
+      //Scale the x and y values to match the plotting surface
+      col = (int)(xVal*xScale);
+      row = (int)(yVal*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                         row + world.getHeight()/2);
+                                         
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+  }//end drawLine method
+  
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a line described by the equation
+  // y = slope*x + yIntercept
+  double function(double xVar,double slope,double yIntercept){
+    double yVar = (yIntercept) + (slope*xVar);
+    return yVar;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Line01Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1030" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+. The program named Parabola01.
+
+
+<code id="pre1024" display="block">
+/*File Parabola01 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Parabola01{//Driver class
+  public static void main(String[] args){
+    Parabola01Runner obj = new Parabola01Runner();
+    obj.run();
+  }//end main
+}//end class Parabola01
+//==================================================================/
+
+class Parabola01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+
+    //Prepare the variables
+    double xOff = 0.25;//offset relative to 1.0
+    double yOff = -0.25;
+    double xScale = 0.75*world.getWidth()/2;
+    double yScale = 1.25*world.getHeight()/2;    
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1;
+    turtle.setPenColor(Color.BLUE);
+
+    //Draw the parabolic function in BLUE.
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for the given x-value.
+      yVal = function(xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+   
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a parabola with no offset centered at the origin.
+  // y = x*x
+  double function(double xVal){
+    double yVal = xVal*xVal;
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Parabola01Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1031" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+. The program named Cubic01.
+
+
+<code id="pre1025" display="block">
+/*File Cubic01 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Cubic01{//Driver class
+  public static void main(String[] args){
+    Cubic01Runner obj = new Cubic01Runner();
+    obj.run();
+  }//end main
+}//end class Cubic01
+//=================================================================//
+
+class Cubic01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+    
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+    
+    //Prepare the variables
+    double xOff = -0.5;//Offset relative to 1.0
+    double yOff = -0.5;
+    double xScale = 0.6*world.getWidth()/2;
+    double yScale = 0.6*world.getHeight()/2;
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1;
+    turtle.setPenColor(Color.BLUE);
+    
+    //Draw the cubic function in BLUE
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for a given x-value.
+      yVal = function(xVal);
+      
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is up. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+   
+  }//end run method
+  //----------------------------------------------------//
+
+  //This method evaluates and returns the y-value for each x-value
+  // for a cubic function with no offset centered at the origin.
+  // y = x*x*x
+  double function(double xVal){
+    double yVal = xVal*xVal*xVal;
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Cubic01Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1032" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_18" effect="bold">
+
+Listing 18
+
+</emphasis>
+
+. The program named Circle01.
+
+
+<code id="pre1026" display="block">
+/*File Circle01 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Circle01{//Driver class
+  public static void main(String[] args){
+    Circle01Runner obj = new Circle01Runner();
+    obj.run();
+  }//end main
+}//end class Circle01
+//=================================================================//
+
+class Circle01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //----------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(4);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+    
+    //Prepare the variables
+    double xOff = -0.2;//offset relative to 1.0
+    double yOff = -0.2;
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 1.0*world.getHeight()/2;
+    double rVal = 0.6;//radius relative to 1.0 
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -rVal;
+    double xInc = 2*rVal/100;
+    turtle.setPenColor(Color.BLUE);
+
+    //Draw half the circle in BLUE.
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = function(rVal,xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+    
+    //Draw other half of the circle in green
+    turtle.setPenColor(Color.GREEN);
+    turtle.penUp();
+    xVal = -rVal;
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = function(rVal,xVal);
+
+      //Apply the offsets and scale the results. Note the application
+      // of a negative sign to yVal.
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff-yVal)*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a circle with no offset centered at the origin.
+  // radius*radius = x*x + y*y
+  //Note that the value returned from the sqrt method can be
+  // considered to be either positive or negative. Only the positive
+  // value is returned.
+  double function(double rVal,double xVal){
+
+    //Add a small positive fudge factor to prevent the value inside
+    // the radical from going negative due to small computational
+    // errors when the radius and the xVal should be equal.
+    double yVal = Math.sqrt(rVal*rVal - xVal*xVal + 0.0000000001);
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Circle01Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1033" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_19" effect="bold">
+
+Listing 19
+
+</emphasis>
+
+. The program named Circle02.
+
+
+<code id="pre1027" display="block">
+/*File Circle02 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Circle02{//Driver class
+  public static void main(String[] args){
+    Circle02Runner obj = new Circle02Runner();
+    obj.run();
+  }//end main
+}//end class Circle02
+//=================================================================//
+
+class Circle02Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //The following is new relative to Circle01
+  private Picture pic = world.getPicture();
+  private Pixel pixel = null;
+  //----------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(4);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+    
+    //Prepare the variables
+    double xOff = -0.2;//offset relative to 1.0
+    double yOff = -0.2;
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 1.0*world.getHeight()/2;
+    double rVal = 0.6;//radius relative to 1.0 
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -rVal;
+    double xInc = 2*rVal/100;
+    turtle.setPenColor(Color.BLUE);
+
+    //Draw the bottom half of the circle in BLUE.
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = function(rVal,xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //The following is new relative to Circle01. Translate the
+      // origin to the center and set the colors of specified
+      // pixels relative to the new origin.
+      pixel = pic.getPixel(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      pixel.setColor(Color.BLUE);
+    }//end for loop
+    
+    //Draw other half of the circle in green
+    turtle.setPenColor(Color.GREEN);
+    turtle.penUp();
+    xVal = -rVal;
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = function(rVal,xVal);
+
+      //Apply the offsets and scale the results. Note the application
+      // of a negative sign to yVal.
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff-yVal)*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a circle with no offset centered at the origin.
+  // radius*radius = x*x + y*y
+  //Note that the value returned from the sqrt method can be
+  // considered to be either positive or negative. Only the positive
+  // value is returned.
+  double function(double rVal,double xVal){
+
+    //Add a small positive fudge factor to prevent the value inside
+    // the radical from going negative due to small computational
+    // errors when the radius and the xVal should be equal.
+    double yVal = Math.sqrt(rVal*rVal - xVal*xVal + 0.0000000001);
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Circle02Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1034" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_20" effect="bold">
+
+Listing 20
+
+</emphasis>
+
+. The program named Cosine01.
+
+
+<code id="pre1028" display="block">
+/*File Cosine01 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Cosine01{//Driver class
+  public static void main(String[] args){
+    Cosine01Runner obj = new Cosine01Runner();
+    obj.run();
+  }//end main
+}//end class Cosine01
+//==================================================================/
+
+class Cosine01Runner{
+  //Instantiate the World and Turtle objects.
+  private World world = new World(300,300);
+  private Turtle turtle = new Turtle(0,0,world);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(world.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(world.getWidth()/2,world.getHeight());
+    turtle.penUp();
+    turtle.moveTo(world.getWidth(),world.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,world.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+
+    //Prepare the variables
+    double xOff = 0.0;//offset relative to 1.0
+    double yOff = -0.0;
+    double xScale = 1.0*world.getWidth()/2;
+    double yScale = 0.9*world.getHeight()/2;    
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1;
+    turtle.setPenColor(Color.BLUE);
+
+    //Draw the cosine function in BLUE.
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for the given x-value.
+      yVal = function(xVal);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + world.getWidth()/2,
+                                          row + world.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+   
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a cosine function with no offset centered at the origin.
+  // y = cos(2*pi*x)
+  double function(double xVal){
+    double yVal = Math.cos(2*Math.PI*xVal);
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Cosine01Runner
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1035" type="">
+
+
+
+
+
+
+
+<emphasis id="Listing_21" effect="bold">
+
+Listing 21
+
+</emphasis>
+
+. The program named Cubic02.
+
+
+<code id="pre1029" display="block">
+/*File Cubic02 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Cubic02{//Driver class
+  public static void main(String[] args){
+    Cubic02Runner obj = new Cubic02Runner();
+    obj.run();
+  }//end main
+}//end class Cubic02
+//=================================================================//
+
+class Cubic02Runner{
+  //Instantiate the Picture and Turtle objects.
+  private Picture pix = new Picture(300,300);
+  private Turtle turtle = new Turtle(0,0,pix);
+  //---------------------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+    
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(2);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(pix.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(pix.getWidth()/2,pix.getHeight());
+    turtle.penUp();
+    turtle.moveTo(pix.getWidth(),pix.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,pix.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+    
+    //Prepare the variables
+    double xOff = -0.5;//Offset relative to 1.0
+    double yOff = -0.5;
+    double xScale = 0.6*pix.getWidth()/2;
+    double yScale = 0.6*pix.getHeight()/2;
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -1;
+    turtle.setPenColor(Color.BLUE);
+    
+    //Draw the cubic function in BLUE
+    for(int cnt=0; cnt&lt;=100;cnt++,xVal += 0.02){
+      //Get a y-value for a given x-value.
+      yVal = function(xVal);
+      
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is up. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + pix.getWidth()/2,
+                                          row + pix.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+    
+    pix.show();
+   
+  }//end run method
+  //---------------------------------------------------------------//
+
+  //This method evaluates and returns the y-value for each x-value
+  // for a cubic function with no offset centered at the origin.
+  // y = x*x*x
+  double function(double xVal){
+    double yVal = xVal*xVal*xVal;
+    return yVal;
+  }//end function
+  //---------------------------------------------------------------//
+  
+}//end class Cubic02Runner</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1036" type="">
+
+
+
+
+
+
+
+<emphasis id="Listing_22" effect="bold">
+
+Listing 22
+
+</emphasis>
+
+. The program named Line02.
+
+
+<code id="pre1030" display="block">
+/*File Line02 Copyright 2016 R.G.Baldwin
+********************************************************************/
+import java.awt.Color;
+
+public class Line02{//Driver class
+  public static void main(String[] args){
+    Line02Runner obj = new Line02Runner();
+    obj.run();
+  }//end main
+}//end class Line02
+//=================================================================//
+
+class Line02Runner{
+  //Instantiate the Picture and Turtle objects.
+  private Picture pix = new Picture(300,300);
+  private Turtle turtle = new Turtle(0,0,pix);
+  private Pixel pixel = null;
+  //----------------------------------------------------//
+
+  public void run(){
+    //Make the turtle invisible
+    turtle.hide();
+
+    //Prepare the pen
+    turtle.setPenColor(Color.RED);
+    turtle.setPenWidth(4);
+   
+    //Draw the axes in RED
+    turtle.penUp();
+    turtle.moveTo(pix.getWidth()/2,0);
+    turtle.penDown();
+    turtle.moveTo(pix.getWidth()/2,pix.getHeight());
+    turtle.penUp();
+    turtle.moveTo(pix.getWidth(),pix.getHeight()/2);
+    turtle.penDown();
+    turtle.moveTo(0,pix.getHeight()/2);
+    turtle.penUp();
+    turtle.moveTo(0,0);
+    
+    //Prepare some variables
+    double xOff = -0.1;//offset relative to 1.0
+    double yOff = -0.1;
+    double xScale = 1.0*pix.getWidth()/2;
+    double yScale = 1.0*pix.getHeight()/2;
+    double rVal = 0.6;//radius relative to 1.0 
+    double yVal = 0;
+    int row = 0;
+    int col = 0;
+    double xVal = -rVal;
+    double xInc = rVal/100;
+    turtle.setPenColor(Color.BLUE);
+    double slope = 0.6;
+    double yIntercept = 0.4;
+
+    //Draw the lines in BLUE and RED
+    for(int cnt=0; cnt&lt;=200;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = lineFunction(xVal,slope,yIntercept);
+
+      //Apply the offsets and scale the results
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff+yVal)*yScale);
+      
+      //Translate the origin to the center and set the colors of
+      // specified pixels relative to the new origin.
+      //Draw three parallel lines, one BLUE, one RED, and one BLUE.
+      pixel = pix.getPixel(col + pix.getWidth()/2,
+                                          row + pix.getHeight()/2);
+      pixel.setColor(Color.BLUE);
+      
+      pixel = pix.getPixel(col + pix.getWidth()/2,
+                                          row+3 + pix.getHeight()/2);
+      pixel.setColor(Color.RED);
+
+      pixel = pix.getPixel(col + pix.getWidth()/2,
+                                          row+6 + pix.getHeight()/2);
+      pixel.setColor(Color.BLUE);
+    }//end for loop
+    
+    //Draw a half circle in green
+    turtle.setPenColor(Color.GREEN);
+    turtle.penUp();
+    xVal = -rVal;
+    for(int cnt=0; cnt&lt;=200;cnt++,xVal += xInc){
+      //Get a y-value for the given x-value.
+      yVal = circleFunction(rVal,xVal);
+
+      //Apply the offsets and scale the results. Note the application
+      // of a negative sign to yVal.
+      col = (int)((xOff+xVal)*xScale);
+      row = (int)((yOff-yVal)*yScale);
+
+      //Move to the first point without drawing a line because the
+      // pen is not down. Translate the origin to the center in the
+      // process.
+      turtle.moveTo(col + pix.getWidth()/2,
+                                          row + pix.getHeight()/2);
+      //Lower the pen in order to draw a line from each point to the
+      // next point.
+      turtle.penDown();
+    }//end for loop
+
+    pix.show();
+  }//end run method
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a circle with no offset centered at the origin.
+  // radius*radius = x*x + y*y
+  //Note that the value returned from the sqrt method can be
+  // considered to be either positive or negative. Only the positive
+  // value is returned.
+  double circleFunction(double rVal,double xVal){
+
+    //Add a small positive fudge factor to prevent the value inside
+    // the radical from going negative due to small computational
+    // errors when the radius and the xVal should be equal.
+    double yVal = Math.sqrt(rVal*rVal - xVal*xVal + 0.0000000001);
+    return yVal;
+  }//end circleFunction
+  //---------------------------------------------------------------//
+  
+  //This method evaluates and returns the y-value for each x-value
+  // for a line with no offset located at the origin.
+  double lineFunction(double xVal,double slope,double yIntercept){
+
+    double yVal = xVal*slope + yIntercept;
+    return yVal;
+  }//end lineFunction
+  //---------------------------------------------------------------//
+  
+}//end class Line02Runner</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1132">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1037" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1110" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1015" list-type="bulleted">
+
+					
+
+<item id="li1088">
+Module name: Java3003: Drawing Graphs with Turtles and 
+					Pixels
+
+</item>
+
+
+					
+
+<item id="li1089">
+File: Java3003.htm
+
+</item>
+
+
+					
+
+<item id="li1090">
+Published: 06/29/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1038" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1111" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1133">
+<emphasis id="strong1112" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1134">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1135">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1136">
+<emphasis id="strong1113" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+	
+
+
+
+<para id="p1137">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

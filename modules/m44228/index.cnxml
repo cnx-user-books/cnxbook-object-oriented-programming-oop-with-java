@@ -1,0 +1,3017 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3024: Mirroring Images</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44228</md:content-id>
+  <md:title>Java3024: Mirroring Images</md:title>
+  <md:abstract>Learn how to mirror images both horizontally and vertically.</md:abstract>
+  <md:uuid>4ce1a4f5-329b-4378-893e-cf484ab577a6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 09:40:51 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video link
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Input file named Prob02a.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. First output image. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Second output image.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Third output image. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Required output text. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Picture output from the mirrorUpperQuads method.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob02.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob02Runner. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The run method. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The method named mirrorUpperQuads. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The method named mirrorHoriz.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, you will learn how to mirror images, both horizontally 
+	and vertically.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1001" effect="bold">
+Prob02
+
+</emphasis>
+ that uses the class definition 
+shown in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along 
+with the image file named 
+
+<emphasis id="strong1002" effect="bold">
+Prob02a.jpg
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(shown in 
+
+</emphasis>
+
+
+
+<link id="a1028" target-id="Figure_1">
+
+
+<emphasis id="em1004" effect="italics">
+<link id="a1029" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</link>
+
+) to produce the three graphic output 
+images shown in 
+
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, 
+
+<link id="a1031" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, 
+and 
+
+<link id="a1032" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Input file named Prob02a.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image of a beach scene" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/javaexam3-02d.jpg" width="341" height="256"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - First output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="Figure 2. First output image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/javaexam3.02a.jpg" width="353" height="388"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Second output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<media id="media1002" alt="Figure 3. Second output image. " display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/javaexam3.02b.jpg" width="437" height="536"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Third output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+<media id="media1003" alt="Figure 4. Third output image." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/javaexam3.02c.jpg" width="437" height="531"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1016">
+<emphasis id="strong1007" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named
+
+
+<emphasis id="strong1008" effect="bold">
+Prob02
+
+</emphasis>
+ shown in 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1009" effect="bold">
+Rotate and mirror
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+The image from the file named 
+
+<emphasis id="strong1010" effect="bold">
+Prob02a.jpg
+
+</emphasis>
+ is rotated by 35 
+degrees. It is not scaled. Then the top-left quadrant of the picture containing 
+the rotated image is mirrored into the top-right quadrant. Following this, the 
+top half of the picture is mirrored into the bottom half.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1011" effect="bold">
+Required output text
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+In addition to the three output images mentioned above, your program must 
+display your name and the other line of text shown in 
+
+<link id="a1034" target-id="Figure_5">
+
+Figure 
+5
+
+</link>
+
+ on the command-line screen
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Required output text.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename None height 404 width 425</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1022">
+<emphasis id="strong1012" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+I will discuss and explain this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1035" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of 
+the module. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1013" effect="bold">
+The driver class named Prob02
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+The driver class containing the 
+
+<emphasis id="strong1014" effect="bold">
+main
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob02.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Prob02{
+  public static void main(String[] args){
+    new Prob02Runner().run();
+  }//end main method
+}//end class Prob02</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+<emphasis id="strong1015" effect="bold">
+Instantiate a new object and call its run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+The code in the 
+
+<emphasis id="strong1016" effect="bold">
+main
+
+</emphasis>
+ method instantiates a new object of the 
+class named 
+
+<emphasis id="strong1017" effect="bold">
+Prob02Runner
+
+</emphasis>
+ and calls the 
+
+<emphasis id="strong1018" effect="bold">
+run
+
+</emphasis>
+ 
+method on that object.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+When the 
+
+<emphasis id="strong1019" effect="bold">
+run
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1020" effect="bold">
+main
+
+</emphasis>
+ 
+method terminates causing the program to terminate.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1021" effect="bold">
+Beginning of the class named Prob02Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+The beginning of the class named 
+
+<emphasis id="strong1022" effect="bold">
+Prob02Runner
+
+</emphasis>
+, including the 
+constructor, is shown in 
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob02Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob02Runner{
+  public Prob02Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1031">
+The constructor displays the student's name, producing the first line of 
+	output text shown in 
+
+<link id="a1038" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1023" effect="bold">
+The run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1024" effect="bold">
+run
+
+</emphasis>
+ method that is called in 
+
+<link id="a1039" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ is shown in its entirety in 
+
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - The run method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public void run(){
+    Picture pix = new Picture("Prob02a.jpg");
+    //Add your name and display the output picture.
+    pix.addMessage("Display your name here.",10,20);
+    //Display the input picture.
+    pix.explore();
+
+    pix = rotatePicture(pix,35);
+    pix.explore();
+
+    pix = mirrorUpperQuads(pix);
+    pix = mirrorHoriz(pix);
+    pix.explore();
+    System.out.println(pix);
+  }//end run</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1034">
+<emphasis id="strong1025" effect="bold">
+Very familiar code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+Except for the calls to the methods named 
+
+<emphasis id="strong1026" effect="bold">
+mirrorUpperQuads
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1027" effect="bold">
+mirrorHoriz
+
+</emphasis>
+ in 
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, you should already 
+be familiar with all of the code in 
+
+<link id="a1042" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1028" effect="bold">
+The rotatePicture method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+For example, the call to the method named 
+
+<emphasis id="strong1029" effect="bold">
+rotatePicture
+
+</emphasis>
+ is 
+essentially the same as code that I explained in an earlier module. Therefore, I 
+won't explain that method again in this module. You will find the code for the 
+method named 
+
+<emphasis id="strong1030" effect="bold">
+rotatePicture
+
+</emphasis>
+ in 
+
+<link id="a1043" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of the 
+module.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1031" effect="bold">
+Operate on the picture with the rotated image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+The original picture is replaced by a picture containing the rotated image 
+shown in 
+
+<link id="a1044" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. From this point forward, all operations are performed on the
+
+
+<emphasis id="strong1032" effect="bold">
+Picture
+
+</emphasis>
+ object containing the rotated image.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1033" effect="bold">
+The method named mirrorUpperQuads
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The method named 
+
+<emphasis id="strong1034" effect="bold">
+mirrorUpperQuads
+
+</emphasis>
+ that is called in the
+
+
+<emphasis id="strong1035" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is shown in 
+
+
+<link id="a1046" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1036" effect="bold">
+Behavior of the method named mirrorUpperQuads
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+This method mirrors the upper-left quadrant of a picture into the upper-right 
+quadrant as shown in 
+
+<link id="a1047" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - The method named mirrorUpperQuads.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  private Picture mirrorUpperQuads(Picture pix){
+
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int midpoint = pix.getWidth()/2;
+    int width = pix.getWidth();
+
+    for(int row = 0;row &lt; pix.getHeight()/2;row++){
+      for(int col = 0;col &lt; midpoint;col++){
+        leftPixel = pix.getPixel(col,row);
+        rightPixel =
+                   pix.getPixel(width-1-col,row);
+        rightPixel.setColor(leftPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorUpperQuads</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1044">
+<emphasis id="strong1037" effect="bold">
+Declare four working variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ begins by declaring and initializing four 
+working variables. The purpose of these variables should be obvious on the basis 
+of their names and their initialization expressions.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1038" effect="bold">
+Copy the pixel colors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+Then 
+
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses a double nested 
+
+<emphasis id="strong1039" effect="bold">
+for
+
+</emphasis>
+ 
+loop to copy the colors from the pixels in the upper-left quadrant into the 
+pixels in the upper-right quadrant. This is done in such a way as to form a 
+mirror image about the center point as shown in 
+
+<link id="a1050" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1040" effect="bold">
+The outer loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+The outer loop iterates on the rows of pixels in the top half of the image. 
+Only the top half of the image is processed in this method because the top half 
+will be mirrored into the bottom half later on.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1041" effect="bold">
+The inner loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The inner loop iterates on the columns in the left half of the image, copying 
+pixel colors from the left half into the pixels in the right half.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1042" effect="bold">
+Destruction of pixel colors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+The colors in the pixels in the upper-right quadrant are overwritten by this 
+method.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+In effect, this method and the one following it destroys all of the pixel 
+colors originally in the right half of the picture of the rotated image and all 
+of the pixel colors originally in the bottom half of the picture.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+The final picture shown in 
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ contains only 
+pixel from the upper-left quadrant of the picture with the rotated image.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1043" effect="bold">
+Return a modified Picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+Finally, the code in 
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ returns the modified
+
+
+<emphasis id="strong1044" effect="bold">
+Picture
+
+</emphasis>
+ 
+object to the 
+
+<emphasis id="strong1045" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+<link id="a1053" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+At this point, the picture with the rotated image is replaced by the version 
+of the picture returned by the 
+
+<emphasis id="strong1046" effect="bold">
+mirrorUpperQuads
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1047" effect="bold">
+Picture output from the mirrorUpperQuads method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+If you were to display the picture at that point, you would see the image 
+shown in 
+
+<link id="a1054" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1048" effect="bold">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Picture output from the mirrorUpperQuads method.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+<media id="media1004" alt="Picture output from the mirrorUpperQuads method" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/javaexam3.02e.jpg" width="437" height="536"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1063">
+<emphasis id="strong1049" effect="bold">
+The upper-left quadrant has been mirrored
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+As you can see from 
+
+<link id="a1055" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+, at this point in the 
+process, the upper-left quadrant has been mirrored into the upper-right 
+quadrant, but the bottom half of the picture is undisturbed. It's time to do 
+something about that.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1050" effect="bold">
+Call the mirrorHoriz method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+The next statement in the 
+
+<emphasis id="strong1051" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+<link id="a1056" target-id="Listing_3">
+
+
+Listing 3
+
+</link>
+
+ is a call to the 
+
+<emphasis id="strong1052" effect="bold">
+mirrorHoriz
+
+</emphasis>
+ method passing the 
+picture shown in 
+
+<link id="a1057" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ as a parameter.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1053" effect="bold">
+The method named mirrorHoriz
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+The method named 
+
+<emphasis id="strong1054" effect="bold">
+mirrorHoriz
+
+</emphasis>
+ is shown in
+
+
+<link id="a1058" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. This method mirrors the top half of a 
+picture into the bottom half of the same picture. It will be used to mirror the 
+top half of the picture in 
+
+<link id="a1059" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ into the bottom 
+half.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - The method named mirrorHoriz.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">  private Picture mirrorHoriz(Picture pix){
+
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int midpoint = pix.getHeight()/2;
+    int height = pix.getHeight();
+
+    for(int col = 0;col &lt; pix.getWidth();col++){
+      for(int row = 0;row &lt; midpoint;row++){
+        topPixel = pix.getPixel(col,row);
+        bottomPixel =
+                   pix.getPixel(col,height-1-row);
+        bottomPixel.setColor(topPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorHoriz method
+
+}//end class Prob02Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+	
+
+<para id="p1069">
+<emphasis id="strong1055" effect="bold">
+Very similar to the mirrorUpperQuads method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+This method is very similar to the previous method named 
+
+<emphasis id="strong1056" effect="bold">
+
+mirrorUpperQuads
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1057" effect="bold">
+Four working variables and a nested for loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+As before, 
+
+<link id="a1060" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ declares and initializes four 
+working variables. These variables are used in a nested 
+
+<emphasis id="strong1058" effect="bold">
+for
+
+</emphasis>
+ loop to copy pixel colors 
+from the top half of the picture into the pixels in the bottom half.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1059" effect="bold">
+The outer and inner loops
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+In this case, the outer loop iterates on all of the columns going from left 
+to right.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The inner loop iterates on rows, from the top row to the vertical midpoint, 
+copying the colors from the pixels from the top half into the pixels in the 
+bottom half.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1060" effect="bold">
+The end of the class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+<link id="a1061" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ also signals the end of the class named
+
+
+<emphasis id="strong1061" effect="bold">
+Prob02Runner
+
+</emphasis>
+ 
+and the end of the program.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1078">
+I encourage you to copy the code from 
+
+<link id="a1062" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+Click 
+
+<link id="a1063" url="Prob02a.jpg">
+
+Prob02a.jpg
+
+</link>
+
+ to download the required input 
+image file for this program.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+You learned how to mirror images both horizontally and vertically.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1081">
+In the next module, you will learn to use a variety of Java2D classes 
+including GradientPaint.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video link
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1082">
+While not a requirement of the course, you can select the following link to 
+view an optional online video lecture on the material in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1026">
+<link id="a1064" url="http://vimeo.com/channels/itse2321/21217708">
+
+ITSE 2321 Lecture 
+	12
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1083">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1062" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1027">
+Module name: Java OOP: Mirroring Images
+
+</item>
+
+
+					
+
+<item id="li1028">
+File: Java3024.htm
+
+
+</item>
+
+
+					
+
+<item id="li1029">
+Published: 08/04/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1063" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1084">
+<emphasis id="strong1064" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1085">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1086">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1087">
+<emphasis id="strong1065" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1065" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1006">
+
+
+
+<row id="tr1012">
+
+
+
+<entry id="th1006">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1066" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1006">
+
+
+
+<row id="tr1013">
+
+
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">/*File Prob02 Copyright 2008 R.G.Baldwin
+*********************************************************/
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.Graphics;
+
+public class Prob02{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob02Runner().run();
+  }//end main method
+}//end class Prob02
+//======================================================//
+
+class Prob02Runner{
+  public Prob02Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture pix = new Picture("Prob02a.jpg");
+    //Add your name and display the output picture.
+    pix.addMessage("Display your name here.",10,20);
+    //Display the input picture.
+    pix.explore();
+
+    pix = rotatePicture(pix,35);
+    pix.explore();
+
+    pix = mirrorUpperQuads(pix);
+    pix = mirrorHoriz(pix);
+    pix.explore();
+    System.out.println(pix);
+  }//end run
+  //----------------------------------------------------//
+
+  private Picture rotatePicture(Picture pix,
+                                double angle){
+
+    //Set up the rotation transform
+    AffineTransform rotateTransform =
+                                    new AffineTransform();
+    rotateTransform.rotate(Math.toRadians(angle),
+                           pix.getWidth()/2,
+                           pix.getHeight()/2);
+
+    //Get the required dimensions of a rectangle that will
+    // contain the rotated image.
+    Rectangle2D rectangle2D =
+           pix.getTransformEnclosingRect(rotateTransform);
+    int resultWidth = (int)(rectangle2D.getWidth());
+    int resultHeight = (int)(rectangle2D.getHeight());
+
+    //Set up the translation transform that will translate
+    // the rotated image to the center of the new Picture
+    // object.
+    AffineTransform translateTransform =
+                                    new AffineTransform();
+    translateTransform.translate(
+                      (resultWidth - pix.getWidth())/2,
+                      (resultHeight - pix.getHeight())/2);
+
+    //Concatenate the two transforms so that the image
+    // will first be rotated around its center and then
+    // translated to the center of the new Picture object.
+    translateTransform.concatenate(rotateTransform);
+    //Create a new Picture object to contain the results
+    // of the transformation.
+    Picture result = new Picture(
+                              resultWidth,resultHeight);
+
+    //Get the graphics context of the new Picture object,
+    // apply the transform to the incoming picture and
+    // draw the transformed picture on the new Picture
+    // object.
+    Graphics2D g2 = (Graphics2D)result.getGraphics();
+    g2.drawImage(pix.getImage(),translateTransform,null);
+
+    return result;
+  }//end rotatePicture
+  //----------------------------------------------------//
+
+  //This method mirrors the upper-left quadrant of a
+  // picture into the upper-right quadrant.
+  private Picture mirrorUpperQuads(Picture pix){
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int midpoint = pix.getWidth()/2;
+    int width = pix.getWidth();
+    for(int row = 0;row &lt; pix.getHeight()/2;row++){
+      for(int col = 0;col &lt; midpoint;col++){
+        leftPixel = pix.getPixel(col,row);
+        rightPixel =
+                   pix.getPixel(width-1-col,row);
+        rightPixel.setColor(leftPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorUpperQuads
+  //----------------------------------------------------//
+
+  //This method mirrors the top half of a picture into
+  // the bottom half.
+  private Picture mirrorHoriz(Picture pix){
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int midpoint = pix.getHeight()/2;
+    int height = pix.getHeight();
+    for(int col = 0;col &lt; pix.getWidth();col++){
+      for(int row = 0;row &lt; midpoint;row++){
+        topPixel = pix.getPixel(col,row);
+        bottomPixel =
+                   pix.getPixel(col,height-1-row);
+        bottomPixel.setColor(topPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorHoriz
+  //----------------------------------------------------//
+
+}//end class Prob02Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1089">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

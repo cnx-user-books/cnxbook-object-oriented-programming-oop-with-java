@@ -1,0 +1,2776 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1600: Objects and Encapsulation</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44153</md:content-id>
+  <md:title>Java1600: Objects and Encapsulation</md:title>
+  <md:abstract>Baldwin kicks off a new miniseries covering the necessary and most significant aspects of OOP using Java.  He begins with encapsulation and objects.</md:abstract>
+  <md:uuid>ace967b1-546b-4a0b-9b2f-c66d3947b4a8</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed Mar 30 17:09:41 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="The_essence_of_OOP">
+
+The essence of OOP
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1002">
+This module is the first in a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="The_essence_of_OOP" effect="bold">
+
+The essence of OOP
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+My dictionary provides several definitions for the word essence.  Among those definitions are the following:
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1011">
+The property necessary to the nature of a thing
+
+</item>
+
+
+	
+
+<item id="li1012">
+The most significant property of a thing
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+Thus, this miniseries will describe and discuss the necessary and most 
+significant aspects of OOP using Java. In other words, I will discuss the 
+essence of OOP using Java. For the first few modules, I will provide that information in a high-level format, devoid of any requirement to understand detailed Java syntax.  In those cases where an understanding of Java syntax is required, I will provide the necessary syntax information in the form of 
+supplementary notes.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+Therefore, if you have a general understanding of computer programming, you should be able to read and understand the 
+modules in this miniseries, even if you don't have a strong background in the Java programming language. 
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21001">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1013">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Instantiating a new Radio object.
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Calling the playStation method. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+	
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1007">
+In order to understand OOP, you need to understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1015">
+Encapsulation
+    
+
+</item>
+
+
+	
+
+<item id="li1016">
+Inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1017">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+This module will concentrate on encapsulation.  Encapsulation will be used as a springboard for a discussion of objects.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+A description of an object-oriented program will be provided, along with a description of an object, and how it relates to encapsulation.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+In order to relate object-oriented programming to the real world, a car radio will be used to illustrate and discuss several aspects of software objects.  For example, you will learn that car radios, as well as software objects, have the ability to store data, along with the ability to modify or manipulate that data.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+You will learn that car radios, as well as software objects, have the ability to accept messages and to perform an action, modify their state, return a value, or some combination of the above.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+You will learn some of the jargon used in OOP, including persistence, state, messages, methods, and behaviors.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+You will learn where objects come from, and you will learn that a class is a set of plans that can be used to construct objects.  You will learn that a Java 
+
+
+<emphasis id="em1003" effect="italics">
+object
+
+</emphasis>
+ is an 
+
+<emphasis id="em1004" effect="italics">
+instance
+
+</emphasis>
+ of a 
+
+<emphasis id="em1005" effect="italics">
+class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+You will see a little bit of Java code, used to create an object, and then to send a message to that object (invoke a method on the object).
+
+</para>
+
+
+
+
+
+<para id="p1015">
+You will learn about Java references and reference variables.  You will also learn a little about memory allocation for objects and variables in Java.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1016">
+<emphasis id="strong1000" effect="bold">
+Purpose of the miniseries
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+As mentioned earlier, I will describe and discuss the necessary and most significant aspects of OOP using Java.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1001" effect="bold">
+The three pillars
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+Most books on OOP will tell you that in order to understand OOP, you need to understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1018">
+Encapsulation
+
+</item>
+
+
+	
+
+<item id="li1019">
+Inheritance
+
+</item>
+
+
+	
+
+<item id="li1020">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+I agree with that assessment.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="em1006" effect="italics">
+(Some books will also add abstraction and/or late binding to the list.  I tend to think of 
+those two topics as being included in one or more of the three concepts listed above.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1002" effect="bold">
+Begin with encapsulation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+Generally, speaking, these three concepts increase in difficulty going down the list from top to bottom.  Therefore, I will begin with Encapsulation and work my way down the list in successive 
+modules.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1003" effect="bold">
+What is an Object-Oriented Program? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Many authors would answer this question something like the following:
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="em1007" effect="italics">
+An Object-Oriented Program consists of a group of cooperating objects, exchanging messages, for the purpose of achieving a common objective.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1004" effect="bold">
+What is an object?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+An object is a software construct that encapsulates data, along with the ability to use or modify that data, into a software entity.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1005" effect="bold">
+What is encapsulation?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+An interesting description of encapsulation was provided in an article by Rocky Lhotka regarding VB.NET.  That description reads as follows:
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="em1008" effect="italics">
+"Encapsulation is the concept that an object should totally separate its interface from its implementation. All the data and implementation code for an object should be entirely hidden behind its interface.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="em1009" effect="italics">
+The idea is that we can create an interface (Public methods in a class) and, as long as that interface remains consistent, the application can interact with our objects. This remains true even if we entirely rewrite the code within a given method thus the interface is independent of the implementation."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+I like this description, so I won't try to improve on it.  However, I will try to illustrate it in the paragraphs that follow. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1006" effect="bold">
+A real-world analogy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+Abstract concepts, such as the concept of an object or encapsulation, can often be best understood by comparing them to real-world analogies.  One imperfect, but fairly good analogy to a software object is the radio in your car.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1007" effect="bold">
+The ability to store data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+Your car radio probably has the ability to store data, and to allow you to use and modify that data at will.  
+
+
+<emphasis id="em1010" effect="italics">
+(However, you can only use and modify that data through use of the human interface that is provided by the manufacturer of the radio.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+The data that can be stored in your car radio probably includes a list of five or more frequencies that correspond to your favorite radio stations. 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1008" effect="bold">
+Using the stored data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+The radio provides a mechanism 
+
+<emphasis id="em1011" effect="italics">
+(human interface) 
+
+</emphasis>
+that allows you to use the data stored therein.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+When you press one of the frequency-selector buttons on the front of the radio, the radio automatically tunes itself to the frequency corresponding to that button.  
+
+
+<emphasis id="em1012" effect="italics">
+(In this case, you, the user, are sending a message to the radio object asking it to perform a particular action.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+If you have previously stored a favorite frequency in the storage location corresponding to that button, pressing the button 
+
+
+<emphasis id="em1013" effect="italics">
+(sending the message)
+
+</emphasis>
+ will cause the radio station transmitting at that frequency to be heard through the radio's speakers.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+If you have not previously stored a favorite frequency in the storage location corresponding to that button, you will probably only hear static. 
+
+
+<emphasis id="em1014" effect="italics">
+(That doesn't mean that the radio object failed to respond correctly to the message.  It simply means that its response was based on bad data.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1009" effect="bold">
+Modifying the stored data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The human interface also makes it possible for you to store or modify those five or more frequency values.  This is done in different ways for different radios.  On my car radio, the procedure is:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1021">
+Manually tune the radio to the desired frequency
+
+</item>
+
+
+	
+
+<item id="li1022">
+Press one of the buttons and hold it down for several seconds.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1046">
+When the radio beeps, I know that the new frequency value has been stored in a storage location that corresponds to that particular button. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1010" effect="bold">
+Please change your state
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+What I have done here is to send a message to the radio object asking it to change its state.  The beep that I hear could be interpreted as the radio object returning a value back to me indicating that the mission has been accomplished.  
+
+
+<emphasis id="em1015" effect="italics">
+(Alternately, we might say that the radio object sent a message back to me.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+We say that an object has changed its state when one or more data values stored in the object have been modified.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+We also say that when an object responds to a message, it will usually perform an action, change its state, return a value, or some combination of the above.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1011" effect="bold">
+Please perform an action
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+Following this, when I press that button 
+
+<emphasis id="em1016" effect="italics">
+(send a message)
+
+</emphasis>
+, the radio object will be automatically tuned to that frequency.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+<emphasis id="strong1012" effect="bold">
+Historical note:
+
+</emphasis>
+
+
+
+
+<para id="p1053">
+While the ability to cause your car radio to remember your list of favorite stations may seem like a miracle of modern digital electronics, the truth is that radios had this capability long before they contained digital electronics.  My first car had a radio that accomplished this feat using strings, pulleys, and levers.
+
+</para>
+
+
+
+	
+
+<para id="p1054">
+As I recall, in order to set the frequency for a button, I had to manually tune the radio to a station by turning a knob, pull one of the buttons out about a quarter of an inch, and then push it in again.  From that point until I did the same thing again, whenever I pressed that button, some kind of a mechanical contraption caused a big rotary capacitor to turn just the right amount to tune for a particular radio station.
+
+</para>
+
+
+
+	
+
+<para id="p1055">
+Also, I remember my grandfather having a table-model radio in the early 1940's that had radio buttons.  He used them to select his favorite stations, as he surfed the airwaves.
+
+</para>
+
+
+
+	
+
+<para id="p1056">
+<emphasis id="em1017" effect="italics">
+(Interestingly, the term radio button has now become a part of programming jargon, signifying certain visual components used in graphical user interfaces.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1013" effect="bold">
+Enough of that, now back to my modern car radio
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+If I drive to Dallas and press a button that I have associated with a 
+particular radio station in Austin, I will probably hear static. In that case, 
+I may want to change the frequency value associated with that button. I can 
+follow the same procedure described earlier to 
+
+<emphasis id="em1018" effect="italics">
+set
+
+</emphasis>
+ the 
+frequency value associated with that button to correspond to one of the radio 
+stations in Dallas. 
+
+<emphasis id="em1019" effect="italics">
+(Again, I would be sending a message to the radio object 
+asking it to change its state.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1014" effect="bold">
+Jargon
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+As you can see from the above discussion, the world of OOP is awash with jargon, and the ability to translate the jargon is essential to an understanding of the published material on OOP.  Therefore, as we progress through this series of 
+modules, I will introduce you to some of that jargon and try to help you understand the meaning of the jargon.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1015" effect="bold">
+Persistence
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+The ability of your car radio to remember your list of favorite stations is often referred to as persistence.  An object that has the ability to store and remember values is often said to have persistence. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1016" effect="bold">
+State
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+It is often said that the 
+
+<emphasis id="em1020" effect="italics">
+state
+
+</emphasis>
+ of an object at a particular point in time is determined by the values stored in the object.  In our analogy, even if we own identical radios, unless the two of us have the same list of favorite radio stations, 
+associated with the same combination of buttons, the state of your radio object at any particular point in time will be different from the state of my radio object.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+<emphasis id="strong1017" effect="bold">
+Identical objects with identical states:
+
+</emphasis>
+
+
+
+
+<para id="p1065">
+It is perfectly OK for the two of us to own identical radios and to cause the two radio objects to contain the same list of frequencies. Even if two objects have the same state at the same time, they are still separate and distinct objects. While this is obvious in the real world of car radios, it may not be quite as obvious in the virtual world of computer programming.
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1018" effect="bold">
+Sending a message
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+A person who speaks in OOP-speak might say that pressing one of the frequency-selector buttons on the front of the radio sends a message to the radio object, asking it to perform an action 
+
+
+<emphasis id="em1021" effect="italics">
+(tune to a particular station)
+
+</emphasis>
+.
+
+That person might also say that storing a new frequency that corresponds to a particular button entails sending a message to the radio object asking it to change its state. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1019" effect="bold">
+Invoking or calling a method
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+Java-speak is a little more specific than general OOP-speak.  In Java-speak, we might say that pressing one of the selector buttons on the front of the radio invokes or calls a method on the radio object.  The behavior of the method is to cause the object to perform an action.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+As a practical matter, the physical manifestation of sending a message to an object in Java is to cause that object to execute one of its methods.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+Similarly, we might say that storing a new frequency that corresponds to a particular button invokes a 
+
+
+<emphasis id="em1022" effect="italics">
+setter
+
+</emphasis>
+ method on the radio object.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="em1023" effect="italics">
+(In an earlier paragraph, I said that I could follow a specific procedure to set the frequency value associated with a button to correspond to one of the radio stations in Dallas.  Note the use of the words set and setter in this jargon.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1020" effect="bold">
+Behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+In addition to state, objects are often also said to have 
+
+<emphasis id="em1024" effect="italics">
+behavior
+
+</emphasis>
+.  The overall behavior of an object is determined by the combined behaviors of its individual methods.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+For example, one of the behaviors exhibited by our radio object is the ability to play the radio station at a particular frequency.  When a frequency is selected by pressing a selector button, the radio knows how to translate the radio waves at that frequency into audio waves compatible with our range of hearing, and to send those audio waves out through the speakers.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+Thus, the radio object behaves in a specific way in response to a message asking it to tune to a particular frequency.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1021" effect="bold">
+Where do objects come from?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+In order to mass-produce car radios, someone must first create a set of plans, 
+
+
+<emphasis id="em1025" effect="italics">
+(drawings, or blueprints) 
+
+</emphasis>
+for the radio.  Once the plans are available, the manufacturing people can produce millions of nearly identical radios.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1022" effect="bold">
+A class definition is a set of plans
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+The same is true for software objects.  In order to create a software object in Java, it is necessary for someone to first create a plan.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+In Java, we refer to that plan as a 
+
+<emphasis id="em1026" effect="italics">
+class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+The class is defined by a Java programmer.  Once the class definition is available, that programmer, 
+
+
+<emphasis id="em1027" effect="italics">
+(or other programmers)
+
+</emphasis>
+, can use it to produce millions of nearly identical objects.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="em1028" effect="italics">
+(While millions may sound like a lot of objects, I'm confident that since Java was released into the programming world 
+around 1997, Java programmers around the world have created millions of objects using the standard Java class named 
+
+
+<emphasis id="strong1023" effect="bold">
+Button
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1024" effect="bold">
+An instance of a class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1085">
+If we were standing at the output end of the factory that produces car radios, we might pick up a brand new radio and say that it is an 
+
+
+<emphasis id="em1029" effect="italics">
+instance
+
+</emphasis>
+ of the plans used to produce the radio.  
+
+
+<emphasis id="em1030" effect="italics">
+(Unless they were object-oriented programmers, the people around us might think we were a little odd when they hear us say that.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+However, it is common jargon to refer to a software object as an 
+
+<emphasis id="em1031" effect="italics">
+instance of a class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1025" effect="bold">
+To instantiate an object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+Furthermore, somewhere along the way, someone turned the word instance into a verb, and it is also common jargon to say that when creating a new object, we are 
+
+
+<emphasis id="em1032" effect="italics">
+instantiating
+
+</emphasis>
+ an object.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1026" effect="bold">
+A little bit of code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+It is time to view a little bit of Java code.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+Assuming that you have access to a class definition, there are several different ways that you can create an object in Java.  The most common way is using syntax similar to that shown in 
+
+
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1000">
+<row id="tr1000">
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Instantiating a new Radio object.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1000">
+<row id="tr1001">
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">Radio myObjRef = new Radio();</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1027" effect="bold">
+What does this mean?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+Technically, the expression on the right-hand side of the equal sign in  
+
+
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ applies the 
+
+<emphasis id="strong1028" effect="bold">
+new
+
+</emphasis>
+ operator to a 
+
+
+<emphasis id="em1033" effect="italics">
+constructor
+
+</emphasis>
+ for the class named 
+
+
+<emphasis id="strong1029" effect="bold">
+Radio
+
+</emphasis>
+ in order to cause the new object to come into existence and to occupy memory.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="em1034" effect="italics">
+(Suffice it at this point to say that a constructor is code that assists in the creation of an object according to the plans contained in a class definition.  The primary purpose of a constructor is to provide initial values for the new object, but the constructor is not restricted to that behavior alone.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1030" effect="bold">
+A reference to the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+The right-hand expression in  
+
+
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ returns a 
+
+<emphasis id="em1035" effect="italics">
+reference
+
+</emphasis>
+ to the new object.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1031" effect="bold">
+What can you do with a reference?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+The reference can later be used to send messages to the new object 
+
+<emphasis id="em1036" effect="italics">
+(call methods belonging to the new object)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1032" effect="bold">
+Saving the reference
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+In order to use the reference later, it is necessary to save it for later use.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+The expression on the left-hand side of the equal sign in   
+
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ declares a variable of the type 
+
+<emphasis id="strong1033" effect="bold">
+Radio
+
+</emphasis>
+ named
+
+
+<emphasis id="strong1034" effect="bold">
+myObjRef
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="em1037" effect="italics">
+(Because this type of variable will ultimately be used to store a reference to an object, we often refer to it by the term
+
+
+<emphasis id="strong1035" effect="bold">
+reference variable
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1036" effect="bold">
+What does this mean?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+Declaring a variable causes memory to be set aside for use by the variable.  Values can then be stored in that memory space and accessed later by calling up the name given to the variable when it was declared.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1037" effect="bold">
+Assignment of values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+The equal sign in   
+
+
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ causes the object's reference returned by the right-hand expression to be assigned to, or saved as a value in, the reference variable named
+
+
+<emphasis id="strong1038" effect="bold">
+myObjRef
+
+</emphasis>
+ 
+
+<emphasis id="em1038" effect="italics">
+(created by the left-hand expression)
+
+</emphasis>
+. In 
+Java, we refer to the equal sign (=) as the assignment operator.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1039" effect="bold">
+Memory allocation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+Once the code in    
+
+
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ has finished execution, two distinct and different chunks of memory have been allocated and populated.
+
+</para>
+
+
+
+
+
+<para id="p1109">
+One 
+
+<emphasis id="em1039" effect="italics">
+(potentially large)
+
+</emphasis>
+ chunk of memory has been allocated 
+
+<emphasis id="em1040" effect="italics">
+(by the right-hand expression)
+
+</emphasis>
+ to contain the object itself.  This chunk of memory has been populated according to the plans contained in the definition of the class named
+
+
+<emphasis id="strong1040" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+The other chunk of memory is a relatively small chunk allocated 
+
+<emphasis id="em1041" effect="italics">
+(by the left-hand expression)
+
+</emphasis>
+ for the reference variable containing the reference to the object.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1041" effect="bold">
+Calling a method on the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+Assume that the definition of the 
+
+<emphasis id="strong1042" effect="bold">
+Radio
+
+</emphasis>
+ class defines a method with the following format 
+
+
+<emphasis id="em1042" effect="italics">
+(also assume that this method is intended to simulate pressing a frequency-selector button on the front of the radio)
+
+</emphasis>
+:
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">public void playStation(int stationNumber)</code>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1043" effect="bold">
+What does this mean?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Generally, in our radio-object context, this format implies that the behavior of the method named
+
+
+<emphasis id="strong1044" effect="bold">
+playStation
+
+</emphasis>
+ will cause the specific station identified by an integer value passed as 
+
+
+<emphasis id="strong1045" effect="bold">
+stationNumber
+
+</emphasis>
+ to be selected for play. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1046" effect="bold">
+Public and void
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+The 
+
+<emphasis id="em1043" effect="italics">
+void
+
+</emphasis>
+ return type means that the method doesn't return a value.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+The 
+
+<emphasis id="em1044" effect="italics">
+public
+
+</emphasis>
+ modifier means that the button can be pressed by anyone in the car who can reach it.
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="em1045" effect="italics">
+(Car radios don't have frequency-selector buttons corresponding to the private modifier in Java.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1047" effect="bold">
+The method signature
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+Continuing with our exposure of jargon, some authors would say that the following constitutes the 
+
+
+<emphasis id="em1046" effect="italics">
+method signature
+
+</emphasis>
+ for the method identified above:
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">playStation(int stationNumber) </code>
+
+
+
+
+<para id="p1121">
+A little more Java code
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the code from the earlier listing, expanded to cause the method named
+
+
+<emphasis id="strong1048" effect="bold">
+playStation
+
+</emphasis>
+ to be called. 
+
+</para>
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+<row id="tr1002">
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Calling the playStation method.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+<row id="tr1003">
+<entry id="td1001">
+
+
+
+<code id="pre1003" display="block">Radio myObjRef = new Radio();
+
+myObjRef.playStation(3);</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1123">
+The first statement in 
+
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is a repeat of the statement from the earlier listing.  It is repeated here simply to maintain continuity. 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1049" effect="bold">
+Method invocation syntax
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1125">
+The second statement in 
+
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is new.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1126">
+This statement shows the syntax used to send a message to a Java object, or to 
+call a method on that object 
+
+<emphasis id="em1047" effect="italics">
+(depending on whether you prefer OOP-speak or Java-speak)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1050" effect="bold">
+Join the method name to the reference
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+The syntax required to call a method on a Java object joins the name of the method to the object's reference, using a period as the joining operator.
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="em1048" effect="italics">
+(In this case, the object's reference is stored in the reference variable named
+
+
+<emphasis id="strong1051" effect="bold">
+myObjRef
+
+</emphasis>
+.  However, there are cases where an object's reference may be created and used in the same expression without storing it in a reference variable.  We often refer to such an object as an anonymous object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1052" effect="bold">
+Pressing a radio button
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1131">
+Given the previous discussion, the numeric value 3, passed to the method when it is 
+called, simulates the pressing of the third button on the front of the radio 
+
+<emphasis id="em1049" effect="italics">
+(or the fourth button if you elect to number your buttons 0, 1, 2, 3, 4, 5)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1132">
+This is the first in a miniseries of modules that describe and discuss the necessary and most significant 
+
+
+<emphasis id="em1050" effect="italics">
+(essential)
+
+</emphasis>
+ aspects of OOP using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+In order to understand OOP, you need to understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1023">
+Encapsulation
+    
+
+</item>
+
+
+	
+
+<item id="li1024">
+Inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1025">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1134">
+This module has concentrated on encapsulation.  Encapsulation was used as a springboard for a discussion of objects.
+
+</para>
+
+
+
+
+
+<para id="p1135">
+A description of an object-oriented program was provided, along with a description of an object, and how it relates to encapsulation.
+
+</para>
+
+
+
+
+
+<para id="p1136">
+In order to relate object-oriented programming to the real world, a car radio was used to illustrate and discuss several aspects of software objects.
+
+</para>
+
+
+
+
+
+<para id="p1137">
+You learned that car radios, as well as software objects, have the ability to store data, along with the ability to modify or manipulate that data.
+
+</para>
+
+
+
+
+
+<para id="p1138">
+You learned that car radios, as well as software objects, have the ability to accept messages and to perform an action, modify their state, return a value, or some combination of the above.
+
+</para>
+
+
+
+
+
+<para id="p1139">
+You learned some of the jargon used in OOP, including persistence, state, messages, methods, and behaviors.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+You learned where objects come from, and you learned that a class is a set of plans that can be used to construct objects. You learned that a Java object is an 
+
+
+<emphasis id="em1051" effect="italics">
+instance of a class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+You saw a little bit of Java code, used to create an object, and then to send a message to that object (invoke a method on the object).
+
+</para>
+
+
+
+
+
+<para id="p1142">
+You learned about Java references and reference variables.  You learned a little about memory allocation for objects and variables in Java. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1143">
+The next module in the miniseries will introduce you to the Java class.
+
+</para>
+
+
+
+
+
+<para id="p1144">
+Continuing with the real-world example introduced in this module, the next 
+module will provide a complete Java program that simulates the manufacture and use of a car radio.
+
+</para>
+
+
+
+
+
+<para id="p1145">
+Along the way, you will see examples of  (or read about) class definitions, constructing objects, saving references to objects, setter methods, sending messages to objects, instance variables and methods, class variables, array objects, persistence, and objects performing actions.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1146">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1053" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1026">
+Module name: Java OOP: Objects and Encapsulation
+
+</item>
+
+
+					
+
+<item id="li1027">
+File: Java1600.htm
+
+
+</item>
+
+
+					
+
+<item id="li1028">
+Published: 12/10/01
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1054" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1147">
+<emphasis id="strong1055" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1148">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1149">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1150">
+<emphasis id="strong1056" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1151">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

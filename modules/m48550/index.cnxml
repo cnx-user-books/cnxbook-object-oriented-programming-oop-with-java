@@ -1,0 +1,4688 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4550: Session Tracking using Hidden Fields</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48550</md:content-id>
+  <md:title>Java4550: Session Tracking using Hidden Fields</md:title>
+  <md:abstract>The purpose of this module is to explain session tracking using hidden fields, and to compare a servlet with a JSP to accomplish the same objective.</md:abstract>
+  <md:uuid>656bd41b-897c-4df0-9b85-b1f14e4deca3</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="The_servlet_program">
+
+The servlet program
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+			
+
+<item id="li1007">
+<link id="a1007" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1008">
+<link id="a1008" target-id="Tedious_and_error_prone">
+
+Tedious and error prone
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="The_JSP_program">
+
+The JSP program
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="Interestingcodefragments2">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. The purpose of this module is to explain 
+	session tracking using hidden fields, and to compare a servlet with a JSP to 
+	accomplish the same objective.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The servlet user interface at startup. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Browser display for Tom, Dick, and Harry. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Hidden fields in the servlet output. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the servlet class. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Get and save the hidden values from the browser page. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get and save user input data. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Begin constructing the HTML output data. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Begin the HTML code for an HTML form.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. An input field and a submit button.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Beginning of the list of names.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Display the historical data and also save it on the browser.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Display most recent value and also store it on the browser.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Create basic web page structure.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. A JSP scriptlet.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The body of the for loop.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Another scriptlet.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Another JSP expression tag.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1031" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Terminating scriptlet and HTML code.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1032" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. The servlet program named Java4550a.java.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1033" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. The JSP program named Java4550a.jsp.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1001" effect="bold">
+A stateless protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1003">
+The HTTP protocol is a relatively simple request/response protocol that does 
+not retain historical information from one client request to the next. In other 
+words, each request is a new start insofar as the HTTP server is concerned. 
+
+<emphasis id="em1000" effect="italics">
+
+(HTTP is sometimes referred to as a "stateless" protocol.)
+
+</emphasis>
+ 
+However, historical information can be very important. The maintenance of 
+historical information is often referred to as 
+
+<emphasis id="em1001" effect="italics">
+"session tracking."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1002" effect="bold">
+Session tracking
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+Session tracking is very important for many web applications including web commerce and web games. 
+Therefore, this and the next several modules will show you some of the ways that 
+you can accomplish session tracking using servlets and JSP.
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Web commerce
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+Perhaps the most common example of the need for session tracking is with a 
+web commerce application involving a shopping cart. The customer 
+
+<emphasis id="em1002" effect="italics">
+(client)
+
+</emphasis>
+ 
+downloads various pages from a vendor catalog, selecting items, and placing them 
+in a shopping cart. At some point, the customer decides either to purchase the 
+items or abandon the shopping trip.
+
+</para>
+
+
+
+
+<para id="p1008">
+If the customer decides to purchase the items in the cart, the web 
+application must have a record of all the items in the cart. Furthermore, that 
+record must be associated with that particular customer so that the sale can be 
+consummated.
+
+</para>
+
+
+
+
+<para id="p1009">
+Insofar as the HTTP protocol is concerned, each time the customer views a 
+different page in the catalog, all information regarding previously viewed pages 
+is forgotten. The HTTP protocol doesn't save state information regarding an 
+ongoing session by that customer involving multiple pages. It is the 
+responsibility of the application to track the session involving that client 
+
+
+<emphasis id="em1003" effect="italics">
+(customer)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1010">
+In the case of the shopping cart application, it is also the responsibility 
+of the application to keep track of the items in the cart associated with that 
+customer.
+
+</para>
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1004" effect="bold">
+Session tracking using hidden fields
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+There are several different ways to accomplish session tracking with a 
+servlet. This module will illustrate one of those ways, which is commonly known 
+as 
+
+<emphasis id="em1004" effect="italics">
+hidden fields
+
+</emphasis>
+. Other ways will be illustrated in future modules
+
+</para>
+
+
+
+
+<para id="p1013">
+Some session tracking schemes maintain historical information over many user 
+sessions on a website. Others schemes are more limited. The scheme that I will 
+explain in this module is generally limited to one session consisting of 
+multiple requests. 
+
+</para>
+
+
+
+
+<para id="p1014">
+This scheme is probably not useful for large scale web commerce. However, it might be useful for an online game where 
+the user makes a move and then clicks a 
+
+<emphasis id="strong1005" effect="bold">
+submit
+
+</emphasis>
+ button. The 
+computer needs to remember the entire history of the game, but needn't 
+necessarily remember the history if the user leaves the website by closing the 
+browser page.
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1006" effect="bold">
+A servlet and a JSP
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+I will explain two different programs that accomplish the same purpose. One of the programs is a servlet. The other program is a JSP. You will 
+see that the JSP version is physically easier to write than the servlet version. 
+However, you probably need to understand the servlet version in order to 
+understand the JSP version. The two also differ in that the servlet is capable 
+of determining the name of the server on which it is running but the JSP does 
+not have that capability.
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1017">
+I will discuss both programs in fragments. A complete listing of the 
+	servlet program named 
+
+<emphasis id="strong1007" effect="bold">
+Java4550a.java
+
+</emphasis>
+ is provided in 
+
+<link id="a1034" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. A complete 
+	listing of the JSP program named 
+
+<emphasis id="strong1008" effect="bold">
+Java4550a.jsp 
+
+</emphasis>
+is provided in 
+
+<link id="a1035" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="The_servlet_program" effect="bold">
+
+The servlet program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1009" effect="bold">
+The program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+Each time the servlet is called by a browser, it creates and displays an HTML 
+form on the browser screen similar to that shown in 
+
+<link id="a1036" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1010" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - The servlet user interface at startup.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+<media id="media1000" alt="Missing Figure" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/java4550a-01.jpg" width="259" height="418"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The HTML form displays:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1034">
+An input text field through which the client can submit a name
+
+</item>
+
+
+	
+
+<item id="li1035">
+A submit button
+
+</item>
+
+
+	
+
+<item id="li1036">
+A list of previously submitted names
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1011" effect="bold">
+A new request
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+Each time the user clicks the 
+
+<emphasis id="strong1012" effect="bold">
+submit
+
+</emphasis>
+ button, the contents of the 
+
+<emphasis id="strong1013" effect="bold">
+Name
+
+</emphasis>
+ 
+field are sent to the server and the server views that as a new request. The 
+server does not remember historical information from one request to the next.
+
+</para>
+
+
+
+
+<para id="p1025">
+However, this servlet provides a mechanism by which a historical list of 
+
+<emphasis id="strong1014" effect="bold">
+
+Name
+
+</emphasis>
+ values from a sequence of requests is saved and displayed in the 
+area identified as 
+
+<emphasis id="strong1015" effect="bold">
+Empty
+
+</emphasis>
+ in 
+
+<link id="a1037" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1016" effect="bold">
+Tom, Dick, and Harry
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+For example, 
+
+<link id="a1038" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows 
+the browser display after the names Tom, Dick, and Harry have been sent to the 
+server in three separate requests. 
+
+<emphasis id="em1005" effect="italics">
+(Note the list of names near the 
+left-center of 
+
+<link id="a1039" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.)
+
+</emphasis>
+ The name Joe has been entered into the text field in 
+
+
+<link id="a1040" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ but the user has not yet clicked the submit button to send it to the 
+server. Therefore, that name does not appear on the list.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1017" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Browser display for Tom, Dick, and 
+	Harry.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+<media id="media1001" alt="Missing Figure" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java4550a-02.jpg" width="259" height="418"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1018" effect="bold">
+The GET method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+In this servlet, requests are sent from the browser to the server using the 
+GET method. 
+
+<emphasis id="em1006" effect="italics">
+(The POST method could also have been used.)
+
+</emphasis>
+ Each time the browser makes a GET request of the server, an HTML form 
+is created by the servlet and sent back to the browser. 
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1019" effect="bold">
+Hidden fields
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+Hidden fields are added to the form each 
+time it is created by the servlet. One hidden field contains the name submitted for that GET 
+request. Other hidden fields contain each of the names submitted by each 
+previous GET request during the current session. In other words, the hidden fields on each successive form 
+match those of the previous form plus a new hidden field for the new name 
+submitted with that GET request.
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1020" effect="bold">
+Raw HTML code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+<link id="a1041" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ shows the HTML code returned to the browser following the sending of 
+Tom, Dick, and Harry to the server in three separate requests. The three hidden fields are shown at the 
+bottom. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1021" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Hidden fields in the servlet output.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+<media id="media1002" alt="Missing Figure" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/java4550a-03.jpg" width="542" height="336"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The term 
+
+<emphasis id="strong1022" effect="bold">
+dell8700
+
+</emphasis>
+ on the fourth line of 
+
+<link id="a1042" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+ is the name of the computer on which the server that serviced the 
+request was running.
+
+</para>
+
+
+
+
+<para id="p1039">
+If the user enters another name into the text field and clicks the submit 
+button
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1037">
+The new name will be sent to the servlet.
+
+</item>
+
+
+	
+
+<item id="li1038">
+This historical data will also be sent to the servlet. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+The new name 
+will be appended onto the list.
+
+</item>
+
+
+	
+
+<item id="li1040">
+The new list will be sent back to the browser.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1023" effect="bold">
+Save historical data in an HTML form
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+With this approach, the historical data is saved by embedding it in the new 
+HTML form that is returned to the browser. There is no requirement to save the 
+historical data in a database or in the server's file system. Note however, that 
+the data will be lost if the user shuts down the browser or shuts down the 
+computer. However, because of the browser cache, it is sometimes possible for 
+the user to navigate to other web sites and then return to the same web page 
+using the Back button and find that the historical data is still there.
+
+</para>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1024" effect="bold">
+Simple, reliable, and easy to implement
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+This approach has been used by web programmers for many years in those cases 
+where it will get the job done. The approach is reliable and easy to implement. It 
+places no special requirements on the server software 
+
+<emphasis id="em1007" effect="italics">
+(other than the 
+ability to support Java servlets)
+
+</emphasis>
+ and it is compatible with all browsers that 
+support HTML forms.
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1025" effect="bold">
+The doGet method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+The code in 
+
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the controlling class and the 
+beginning of the 
+
+<emphasis id="strong1026" effect="bold">
+doGet
+
+</emphasis>
+ method for the servlet.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the servlet 
+				class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.net.*;
+
+public class Java4550a extends HttpServlet{
+  public void doGet(HttpServletRequest req, 
+                    HttpServletResponse res)
+                      throws ServletException, IOException{
+
+    //Get and display name of localhost
+    InetAddress inetAddress = InetAddress.getLocalHost();
+    String hostName = inetAddress.getHostName();
+    System.out.println(hostName);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1027" effect="bold">
+The name of the server
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+Without getting into the details as to why, I will tell you that the last 
+three lines of code in 
+
+<link id="a1044" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+
+<emphasis id="em1008" effect="italics">
+(in conjunction with 
+the import directive for
+
+</emphasis>
+<emphasis id="strong1028" effect="bold">
+<emphasis id="em1009" effect="italics">
+ java.net.*
+
+</emphasis>
+</emphasis>
+) cause the name of the computer on 
+which the server is running to be saved in the variable named 
+
+<emphasis id="strong1029" effect="bold">
+hostName
+
+</emphasis>
+ 
+and to be displayed on the Tomcat server console. You should have learned enough 
+about the class named 
+
+<emphasis id="strong1030" effect="bold">
+InetAddress
+
+</emphasis>
+ earlier in this course to 
+understand what is going on here without further explanation.
+
+</para>
+
+
+
+
+<para id="p1048">
+This is very important information for students enrolled in this course 
+because this or something like it will be required for many of the programming 
+assignments.
+
+</para>
+
+
+	
+
+<para id="p1049">
+<emphasis id="strong1031" effect="bold">
+Two incoming parameters
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1050">
+Recall from previous modules that the 
+
+<emphasis id="strong1032" effect="bold">
+doGet
+
+</emphasis>
+ method 
+	receives two parameters. One parameter named 
+
+<emphasis id="strong1033" effect="bold">
+req
+
+</emphasis>
+ is a 
+	reference to an object of the interface type 
+
+<emphasis id="strong1034" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ that contains all of the information sent by the 
+	browser when the request was made. The other parameter named 
+
+<emphasis id="strong1035" effect="bold">
+
+	res
+
+</emphasis>
+ is a reference to an object of the interface type 
+
+<emphasis id="strong1036" effect="bold">
+HttpServletResponse
+
+</emphasis>
+ that collects output information 
+	and sends it back to the browser.
+
+</para>
+
+
+
+
+<para id="p1051">
+Both of those objects contain numerous methods that can be used to access 
+incoming information 
+
+<emphasis id="em1010" effect="italics">
+(
+
+<emphasis id="strong1037" effect="bold">
+req
+
+</emphasis>
+)
+
+</emphasis>
+ or to send information back 
+to the browser 
+
+<emphasis id="em1011" effect="italics">
+(
+
+<emphasis id="strong1038" effect="bold">
+res
+
+</emphasis>
+)
+
+</emphasis>
+. We will see several of those 
+methods being used shortly.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1039" effect="bold">
+A bit of technical trivia:
+
+</emphasis>
+
+				
+
+<para id="p1052">
+<emphasis id="strong1040" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ and 
+
+<emphasis id="strong1041" effect="bold">
+HttpServletResponse
+
+</emphasis>
+ are interfaces, 
+				not classes. In general, we don't know the names of the classes 
+				from which the objects referred to by the incoming parameters 
+				were instantiated. And, we don't really care because we only 
+				plan to call methods on those objects that are declared in the 
+				interfaces that the objects implement.
+
+</para>
+
+
+				
+
+<para id="p1053">
+However, just as a matter of technical trivia, it appears 
+				that those classes have the following names on my system:
+
+</para>
+
+
+				
+
+<code id="pre1001" display="block">org.apache.catalina.connector.RequestFacade
+org.apache.catalina.connector.ResponseFacade</code>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1054">
+<emphasis id="strong1042" effect="bold">
+Multiple fields with the same name
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+An HTML form can have multiple fields with the same name. As you saw in 
+
+
+<link id="a1045" target-id="Figure_3">
+
+Figure 
+3
+
+</link>
+
+, the 
+hidden fields are all named 
+
+<emphasis id="strong1043" effect="bold">
+item
+
+</emphasis>
+. The code in 
+
+<link id="a1046" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ calls 
+the 
+
+<emphasis id="strong1044" effect="bold">
+getParameterValues
+
+</emphasis>
+ method on the request object to get the 
+values stored in all of the hidden fields named 
+
+<emphasis id="strong1045" effect="bold">
+item
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Get and save the hidden 
+				values from the browser page.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">    String[] items = req.getParameterValues("item");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1046" effect="bold">
+getParameterValues
+
+</emphasis>
+ method receives the field name
+
+
+<emphasis id="strong1047" effect="bold">
+item
+
+</emphasis>
+ as a 
+
+<emphasis id="strong1048" effect="bold">
+
+String
+
+</emphasis>
+ parameter and returns an array of 
+
+<emphasis id="strong1049" effect="bold">
+String
+
+</emphasis>
+ objects, containing all of the values 
+with matching names contained in the request object, or null if the field name does not exist. 
+
+</para>
+
+
+
+
+<para id="p1057">
+Those values are saved in the 
+
+<emphasis id="strong1050" effect="bold">
+String 
+
+</emphasis>
+array named 
+
+<emphasis id="strong1051" effect="bold">
+items 
+
+</emphasis>
+
+shown in 
+
+<link id="a1047" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. As you 
+will see later, this is data that was saved from previous requests.
+
+</para>
+
+
+	
+
+<para id="p1058">
+<emphasis id="strong1052" effect="bold">
+Get and save user input data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1053" effect="bold">
+getParameter
+
+</emphasis>
+ method on the request 
+	object to get and save the value submitted by the browser in the field named
+	
+
+<emphasis id="strong1054" effect="bold">
+firstName
+
+</emphasis>
+. 
+
+<emphasis id="em1012" effect="italics">
+(See the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1055" effect="bold">
+<emphasis id="em1013" effect="italics">
+input
+
+</emphasis>
+</emphasis>
+<emphasis id="em1014" effect="italics">
+ element on 
+	the sixth line in 
+
+</emphasis>
+ 
+
+<link id="a1049" target-id="Figure_3">
+
+
+<emphasis id="em1015" effect="italics">
+Figure 3
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1016" effect="italics">
+.)
+
+</emphasis>
+ This is also the text field shown in 
+
+<link id="a1050" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get and save user input 
+				data.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1003" display="block">    String name = req.getParameter("firstName");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1060">
+The 
+
+<emphasis id="strong1056" effect="bold">
+getParameter
+
+</emphasis>
+ method receives the 
+
+<emphasis id="em1017" effect="italics">
+name
+
+</emphasis>
+ of a request 
+	parameter and returns the 
+
+<emphasis id="em1018" effect="italics">
+value
+
+</emphasis>
+ corresponding to that request parameter as a 
+	
+
+<emphasis id="strong1057" effect="bold">
+String
+
+</emphasis>
+, or null if the parameter does not exist. 
+
+<emphasis id="em1019" effect="italics">
+
+	(Recall that the data is transmitted to the server as name::value pairs.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1058" effect="bold">
+Begin constructing the HTML output data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+At this point in the process, all of the incoming data has been saved in a 
+variable named 
+
+<emphasis id="strong1059" effect="bold">
+name
+
+</emphasis>
+ and an array named 
+
+<emphasis id="strong1060" effect="bold">
+items
+
+</emphasis>
+. 
+The time has come to construct the raw HTML code and send it back to the client. 
+
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ begins that process by
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1041">
+Telling the browser how to interpret the data ("text/html").
+
+</item>
+
+
+	
+
+<item id="li1042">
+Getting on output stream on the response object on which to print the 
+	output data.
+
+</item>
+
+
+	
+
+<item id="li1043">
+Constructing the first few lines of HTML text.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Begin constructing the 
+				HTML output data.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">    //Establish the type of output
+    res.setContentType("text/html");
+    
+    //Get an output stream
+    PrintWriter out = res.getWriter();
+    
+    //Construct an html form and send it back to the client
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4550a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1061" effect="bold">
+Create raw HTML code for the form
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+<link id="a1052" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ begins the construction of the HTML form that is to be returned 
+	to the browser. This code creates the first in a series of HTML statements necessary to 
+	support the input field and the submit button. 
+
+<emphasis id="em1020" effect="italics">
+(You may need to refer to 
+	earlier modules that discussed the format of an HTML form in order to 
+	understand the next few fragments.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Begin the HTML code for 
+				an HTML form.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">    out.println("&lt;form method='get' action="
+            + "\"http://" + hostName + ":8080/Java4550a\"&gt;");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1065">
+The code in
+
+
+<link id="a1053" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ uses the name of the computer on which the 
+server is running 
+
+<emphasis id="em1021" effect="italics">
+(
+
+<emphasis id="strong1062" effect="bold">
+hostName
+
+</emphasis>
+)
+
+</emphasis>
+ that was obtained and 
+saved earlier to construct the 
+
+<emphasis id="strong1063" effect="bold">
+action
+
+</emphasis>
+ element of the HTML form. 
+This causes the servlet to be suitable for running in a server on an computer 
+with any name. It also makes it possible to access the servlet from other 
+computers on the local area network provided those computers know the name of 
+the computer on which the server is running. 
+
+</para>
+
+
+
+
+<para id="p1066">
+Once again, this is very important information for students enrolled in this 
+course.
+
+</para>
+
+
+
+
+<para id="p1067">
+This code produced the term 
+
+<emphasis id="strong1064" effect="bold">
+dell8700
+
+</emphasis>
+ in
+
+
+<link id="a1054" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ because the server was running on a computer 
+named dell8700 when the screen shot was taken.
+
+</para>
+
+
+
+
+<para id="p1068">
+This fragment results in HTML code that causes a 
+
+<emphasis id="strong1065" effect="bold">
+GET
+
+</emphasis>
+ request to be sent to the HTTP 
+server containing field data as a parameter whenever the user presses the 
+
+<emphasis id="strong1066" effect="bold">
+
+submit
+
+</emphasis>
+ button
+
+</para>
+
+
+	
+
+<para id="p1069">
+<emphasis id="strong1067" effect="bold">
+The input field and the submit button
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+<link id="a1055" target-id="Listing_6">
+
+Listing 7
+
+</link>
+
+ places a line of instructional text on the browser screen. 
+
+</para>
+
+
+
+
+<para id="p1071">
+It also creates the HTML code necessary to place an 
+
+<emphasis id="em1022" effect="italics">
+input 
+
+</emphasis>
+ 
+field 
+and a 
+
+<emphasis id="em1023" effect="italics">
+submit
+
+</emphasis>
+ button on the form that will be displayed on the screen as 
+shown in 
+
+<link id="a1056" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - An input field and a 
+				submit button.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">    out.println("&lt;p&gt;Enter a name and press the button&lt;/p&gt;");
+    out.println("&lt;p&gt;Name: &lt;input type=\"text\" name="
+                                   + "\"firstName\"/&gt;&lt;/p&gt;");
+    out.println("&lt;input type=\"submit\" value="
+                                     + "\"Submit Name\"/&gt;")
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1072">
+<emphasis id="strong1068" effect="bold">
+The list of names
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+<link id="a1057" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ provides a line of introductory text for the list of names to 
+	be displayed on the screen. The first time the form appears on the screen, 
+	the value stored in the 
+
+<emphasis id="strong1069" effect="bold">
+name
+
+</emphasis>
+ variable is null, and 
+	the word 
+
+<emphasis id="strong1070" effect="bold">
+Empty
+
+</emphasis>
+ is displayed as shown in 
+
+<link id="a1058" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+Later on after multiple requests, the list will be populated as shown in
+
+
+<link id="a1059" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Beginning of the list of 
+				names.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1007" display="block">    out.println("&lt;p&gt;Your list of names is:&lt;br/&gt;");
+    if(name == null){
+      out.println("Empty&lt;/p&gt;");
+    }//end if 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1074">
+<emphasis id="strong1071" effect="bold">
+Create new hidden fields for historical data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+<link id="a1060" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ retrieved all of the data in the hidden fields on the form and 
+	saved that data in a 
+
+<emphasis id="strong1072" effect="bold">
+String
+
+</emphasis>
+ array named 
+
+<emphasis id="strong1073" effect="bold">
+
+	items
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1076">
+If that array contains data, the code in 
+
+<link id="a1061" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ performs two actions using 
+the data from each of the elements in the array:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1044">
+Display the historical data stored in those element of the array.
+
+</item>
+
+
+	
+
+<item id="li1045">
+Create new hidden fields in the HTML output form under construction and 
+	place the data values from the array in those hidden fields.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Display the historical 
+				data and also save it on the browser.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1008" display="block">    if(items != null){
+      for(int i = 0; i &lt; items.length; i++){
+        //Display names previously saved in hidden fields
+        out.println(items[i] + "&lt;br/&gt;");
+        //Save the names in hidden fields on form currently
+        // under construction.
+        out.println("&lt;input type=\"hidden\" name=\"item\" "
+                           + "value=\"" + items[i] + "\"&gt;");
+      }//end for loop
+    }//end if
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1074" effect="bold">
+Limited persistence
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+Thus, the historical data is passed forward from the hidden fields of one 
+HTML form to the hidden fields of the next HTML form. All of the historical data 
+resides on the HTML form in the browser cache in the client computer. However, 
+that is not a location that provides long-term persistence, so this scheme for 
+session tracking has limited persistence.
+
+</para>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1075" effect="bold">
+Create new hidden field for new data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+<link id="a1062" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ retrieved the field value submitted by the browser and saved 
+	that value in a variable named 
+
+<emphasis id="strong1076" effect="bold">
+name
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1081">
+If that variable contains data, the fragment in 
+
+<link id="a1063" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ performs two 
+actions using the data stored in the variable.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1046">
+Display the value at the end of the list of names.
+
+</item>
+
+
+	
+
+<item id="li1047">
+Create a new hidden field in the HTML output form under construction and 
+	place the value from the variable in that hidden field.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Display most recent value 
+				and also store it on the browser.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1009" display="block">    if(name != null){
+      //Display name submitted with current GET request
+      out.println(name + "&lt;br/&gt;");
+      //Save name submitted with current GET request in a
+      // hidden field on the form currently under
+      // construction
+      out.println("&lt;input type=\"hidden\" name=\"item\" "
+                               + "value=\"" + name + "\"&gt;");
+    }//end if
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1082">
+Thus, for each new request by the browser, one additional hidden field 
+is added to the HTML form under construction. The new hidden field contains the 
+field value submitted by the browser.
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1077" effect="bold">
+The remaining servlet code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1084">
+The remainder of the code for the servlet is typical of what you have seen before and can 
+	be viewed in the complete listing of the servlet in 
+
+<link id="a1064" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Tedious_and_error_prone" effect="bold">
+
+Tedious and error prone
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+Writing raw HTML code is not fun even under the best of circumstances. That 
+is why I use a WYSIWYG HTML editor for authoring these modules. 
+
+</para>
+
+
+
+
+<para id="p1086">
+Even for this very simple servlet, the process of constructing the output 
+HTML code using Java 
+
+<emphasis id="strong1078" effect="bold">
+println
+
+</emphasis>
+ statements was very tedious and error prone. Much of 
+the difficulty arises from the fact that Java strings must be enclosed in 
+matching double quotes and all HTML attribute values must also be enclosed in 
+matching double or single quotes. As you can see from 
+
+<link id="a1065" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+, the 
+requirement to escape double quotes inside Java strings with the backslash 
+character can lead to some very confusing code. 
+
+<emphasis id="em1024" effect="italics">
+(I suppose it might be 
+less confusing if I were to use single quotes instead of double quotes on HTML attribute 
+values. I will try that in the next module.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1087">
+In any event, the next section presents a JSP version of the same servlet. 
+JSP intermingles HTML code with Java code and greatly reduces the amount of HTML 
+code that must be constructed using Java println statements in a servlet. If you 
+are unfamiliar with JSP, you can learn about it in the modules that begin at
+
+
+<link id="a1066" url="http://cnx.org/content/m48057/latest/?collection=col11441/latest">
+
+
+Java4305: Preface to JSP
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_JSP_program" effect="bold">
+
+The JSP program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+A complete listing of the JSP version of this program is provided in 
+
+
+<link id="a1067" target-id="Listing_17">
+
+Listing 
+17
+
+</link>
+
+. I found this JSP version much easier to write than the servlet version 
+discussed above. Admittedly, however, I wrote the servlet version first, so that probably 
+helped to make it easier to write the JSP version.
+
+</para>
+
+
+
+
+<para id="p1089">
+I wrote all of the HTML code using Microsoft Expression Web 4, which provides both a 
+WYSIWYG capability and a raw HTML editing capability. Once I confirmed that the 
+HTML code was correct and valid, I went back and inserted the JSP tags containing 
+the Java code.
+
+</para>
+
+
+
+
+<para id="p1090">
+As mentioned earlier, the JSP does not get and use the name of the computer 
+on which it is running. Instead it uses the generic name localhost, which limits 
+the ability to access the JSP from another computer on the network.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Interestingcodefragments2" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1091">
+Once again, I will discuss this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1068" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1079" effect="bold">
+Create basic web page structure
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1093">
+<link id="a1069" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ shows the HTML code that is roughly equivalent to the Java code in 
+
+
+<link id="a1070" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ through 
+
+<link id="a1071" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+This code creates the HTML header and the basic structure of the web page shown 
+in 
+
+<link id="a1072" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Create basic web page 
+				structure.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1010" display="block">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4550a&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form method="get" action="http://localhost:8080/Java4550a.jsp"&gt;
+&lt;p&gt;Enter a name and press the button&lt;/p&gt;
+&lt;p&gt;Name: &lt;input type="text" name="firstName"/&gt;&lt;/p&gt;
+&lt;input type="submit" value="Submit Name"/&gt;
+&lt;p&gt;Your list of names is:&lt;br/&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1094">
+<emphasis id="strong1080" effect="bold">
+A JSP scriptlet
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1095">
+<link id="a1073" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ is a scriptlet containing pure Java code. 
+It begins by getting the data from the request object. Then it deals with 
+the situation where nothing has been entered into the text field in
+
+
+<link id="a1074" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, reporting that the list is empty. It ends with the 
+	beginning of a 
+
+<emphasis id="strong1081" effect="bold">
+for
+
+</emphasis>
+ loop that is executed when the array is 
+	not empty. Recall that in JSP, Java code blocks can begin in one scriptlet and 
+end in another scriptlet later in the page. That is what is happening here.
+
+</para>
+
+
+
+	
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - A JSP scriptlet.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1011" display="block">&lt;% 
+String[] items = request.getParameterValues("item");
+response.setContentType("text/html");
+
+String name = request.getParameter("firstName");
+if(name == null){
+  out.println("Empty");
+}//end if
+
+if(items != null){
+  for(int i = 0; i &lt; items.length; i++){
+%&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1096">
+<emphasis id="strong1082" effect="bold">
+The body of the for loop
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+<link id="a1075" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ contains the body of the 
+
+<emphasis id="strong1083" effect="bold">
+for
+
+</emphasis>
+ loop that began in 
+
+<link id="a1076" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+	This is a combination of a JSP 
+
+<emphasis id="em1025" effect="italics">
+expression
+
+</emphasis>
+ tag and raw HTML code to 
+	display the new value and also to create and populate a hidden field in the 
+	output.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - The body of the for 
+				loop.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1012" display="block">&lt;%= items[i] %&gt; &lt;br/&gt;
+&lt;input type="hidden" name="item" value="&lt;%=items[i]%&gt;"/&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1098">
+<emphasis id="strong1084" effect="bold">
+Another scriptlet
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+<link id="a1077" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ is another scriptlet containing pure Java code. This scriptlet 
+	terminates the 
+
+<emphasis id="strong1085" effect="bold">
+for
+
+</emphasis>
+ loop and the 
+
+<emphasis id="strong1086" effect="bold">
+if
+
+</emphasis>
+ statement that began in 
+
+<link id="a1078" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+It also begins a new 
+
+<emphasis id="strong1087" effect="bold">
+if
+
+</emphasis>
+ statement to display the new input value and also 
+	to create and populate the last hidden field containing the newly received 
+	input value.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - Another scriptlet.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1013" display="block">&lt;%
+  }//end for loop
+}//end if
+
+if(name != null){
+%&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1100">
+<emphasis id="strong1088" effect="bold">
+Another JSP expression tag
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1101">
+<link id="a1079" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ contains another JSP expression tag that 
+displays the new input value. 
+
+<link id="a1080" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ also creates and populates the last 
+	hidden field with the new input value.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+ - Another JSP expression 
+				tag.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1014" display="block">&lt;%= name %&gt; &lt;br/&gt;
+&lt;input type="hidden" name="item" value="&lt;%=name%&gt;"/&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1102">
+<emphasis id="strong1089" effect="bold">
+Terminating scriptlet and HTML code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1103">
+Finally, 
+
+<link id="a1081" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ shows a scriptlet containing a curly bracket to 
+	terminate the if statement that began in 
+
+<link id="a1082" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ along with raw HTML code 
+	to terminate the HTML page.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+ - Terminating scriptlet 
+				and HTML code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1015" display="block">&lt;%
+}//end if
+%&gt;
+&lt;/p&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1104">
+I encourage you to copy the code from 
+
+<link id="a1083" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ and 
+
+
+<link id="a1084" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ Deploy the programs on your own server. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1105">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1090" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1048">
+Module name: Java4550: Session Tracking using Hidden 
+					Fields
+
+</item>
+
+
+					
+
+<item id="li1049">
+File: Java4550.htm
+
+
+</item>
+
+
+					
+
+<item id="li1050">
+Published: 12/22/13
+
+</item>
+
+
+
+
+<item id="li1051">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1091" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1106">
+<emphasis id="strong1092" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1107">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1108">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1109">
+<emphasis id="strong1093" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1094" effect="bold">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+ - The servlet program named Java4550a.java.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1016" display="block">
+/*File Java4550a.java, Copyright 1999, R.G.Baldwin
+Rev 01/04/14
+The purpose of this program is to illustrate session
+tracking through the use of hidden fields.
+
+Each time the submit button is pressed, this servlet
+creates a web page and sends it back to the browser.
+The new web page contains the historical data for the
+session in hidden fields in the web page.
+The following is a typical web page after the names
+Tom, Dick, and Harry have been entered.:
+
+The program also detects the name of the server that it
+is running on and uses that name to construct the action
+element of a form. In the output shown below, the 
+servlet was running on a computer named dell8700.
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4550a&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form method="get" action="http://dell8700:8080/Java4550a"&gt;
+&lt;p&gt;Enter a name and press the button&lt;/p&gt;
+&lt;p&gt;Name: &lt;input type="text" name="firstName"/&gt;&lt;/p&gt;
+&lt;input type="submit" value="Submit Name"/&gt;
+&lt;p&gt;Your list of names is:&lt;br/&gt;
+Tom&lt;br/&gt;
+&lt;input type="hidden" name="item" value="Tom"&gt;
+Dick&lt;br/&gt;
+&lt;input type="hidden" name="item" value="Dick"&gt;
+Harry&lt;br/&gt;
+&lt;input type="hidden" name="item" value="Harry"&gt;
+&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+
+**********************************************************/
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.net.*;
+
+public class Java4550a extends HttpServlet{
+  public void doGet(HttpServletRequest req, 
+                    HttpServletResponse res)
+                      throws ServletException, IOException{
+
+    //Get and display name of localhost
+    InetAddress inetAddress = InetAddress.getLocalHost();
+    String hostName = inetAddress.getHostName();
+    System.out.println(hostName);
+
+    //An array for getting and saving the values contained
+    // in the hidden fields named item.
+    String[] items = req.getParameterValues("item");
+
+    //Get the submitted name for the current GET request
+    String name = req.getParameter("firstName");
+
+    //Establish the type of output
+    res.setContentType("text/html");
+    
+    //Get an output stream
+    PrintWriter out = res.getWriter();
+    
+    //Construct an html form and send it back to the client
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4550a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+        
+    out.println("&lt;form method='get' action="
+            + "\"http://" + hostName + ":8080/Java4550a\"&gt;");
+
+    out.println("&lt;p&gt;Enter a name and press the button&lt;/p&gt;");
+    out.println("&lt;p&gt;Name: &lt;input type=\"text\" name="
+                                   + "\"firstName\"/&gt;&lt;/p&gt;");
+    out.println("&lt;input type=\"submit\" value="
+                                     + "\"Submit Name\"/&gt;");
+    out.println("&lt;p&gt;Your list of names is:&lt;br/&gt;");
+    if(name == null){
+      out.println("Empty&lt;/p&gt;");
+    }//end if 
+    
+    if(items != null){
+      for(int i = 0; i &lt; items.length; i++){
+        //Display names previously saved in hidden fields
+        out.println(items[i] + "&lt;br/&gt;");
+        //Save the names in hidden fields on form currently
+        // under construction.
+        out.println("&lt;input type=\"hidden\" name=\"item\" "
+                           + "value=\"" + items[i] + "\"&gt;");
+      }//end for loop
+    }//end if
+
+    if(name != null){
+      //Display name submitted with current GET request
+      out.println(name + "&lt;br/&gt;");
+      //Save name submitted with current GET request in a
+      // hidden field on the form currently under
+      // construction
+      out.println("&lt;input type=\"hidden\" name=\"item\" "
+                               + "value=\"" + name + "\"&gt;");
+    }//end if
+
+    out.println("&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;");
+      
+  }//end doGet()
+}//end class Java4550a
+
+</code>
+
+
+
+	
+
+<table id="table1015" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+ - The JSP program named Java4550a.jsp.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+
+
+<code id="pre1017" display="block">
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4550a&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form method="get" action="http://localhost:8080/Java4550a.jsp"&gt;
+&lt;p&gt;Enter a name and press the button&lt;/p&gt;
+&lt;p&gt;Name: &lt;input type="text" name="firstName"/&gt;&lt;/p&gt;
+&lt;input type="submit" value="Submit Name"/&gt;
+&lt;p&gt;Your list of names is:&lt;br/&gt;
+
+&lt;% 
+String[] items = request.getParameterValues("item");
+response.setContentType("text/html");
+
+String name = request.getParameter("firstName");
+if(name == null){
+  out.println("Empty");
+}//end if
+
+if(items != null){
+  for(int i = 0; i &lt; items.length; i++){
+%&gt;
+&lt;%= items[i] %&gt; &lt;br/&gt;
+&lt;input type="hidden" name="item" value="&lt;%=items[i]%&gt;"/&gt;
+&lt;%
+  }//end for loop
+}//end if
+
+if(name != null){
+%&gt;
+&lt;%= name %&gt; &lt;br/&gt;
+&lt;input type="hidden" name="item" value="&lt;%=name%&gt;"/&gt;
+&lt;%
+}//end if
+%&gt;
+&lt;/p&gt;&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1111">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,8124 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1638 Java OOP Local Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44346</md:content-id>
+  <md:title>Java1638 Java OOP Local Classes</md:title>
+  <md:abstract>Baldwin explains the various relationships that exist among local classes and their enclosing classes.</md:abstract>
+  <md:uuid>67a72c2c-c324-4002-a42a-2b74b4a74fb2</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 15:29:28 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="What_can_you_include_in_a_class_definition">
+
+What can you include in a class definition?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="What_is_a_local_class">
+
+What is a local class?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Why_use_local_classes">
+
+Why use local classes?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Local_classes_versus_member_classes">
+
+Local classes versus member classes
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="The_scope_of_a_local_class">
+
+The scope of a local class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Restrictions_on_local_classes">
+
+Restrictions on local classes
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Class_hierarchy_">
+
+Class hierarchy
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Overall_program_structure_and_behavior_">
+
+Overall program structure and behavior
+
+</link>
+
+ 
+		
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="The_controlling_class_">
+
+The controlling class
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1017">
+<link id="a1017" target-id="The_class_named_X_">
+
+The class named X
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1018">
+<link id="a1018" target-id="The_class_named_Y">
+
+The class named Y
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="The_class_named_A">
+
+The class named A
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="The_local_class_named_B">
+
+The local class named B
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1026" target-id="Figures01">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="Listings01">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one in a collection of modules designed for teaching 
+
+<emphasis id="em1003" effect="italics">
+
+	ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin Community College 
+	in Austin, TX.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1004" effect="italics">
+(Editor's note: As you read this module, you will see that it was 
+originally written around 2003. However, despite many improvements in Java since 
+then, most of what was true then is still true in 2013.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1003">
+This module makes several references to my website, which is located at
+
+
+<link id="a1028" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1028">
+<link id="a1029" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Class files produced by the program. 
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1031" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1032" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1033" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1034" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1035" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1036" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1037" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1037">
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The controlling class named 
+		InnerClasses07.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The class named X.
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The class named Y.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the class named A.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1042" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The showA method in class A.
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1043" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The delay method in class A.
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1044" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Beginning the meth method in 
+		class A.
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1045" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Set value of blank final 
+		variable.
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1046" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Beginning of class definition 
+		for local class B.
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1047" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Instantiate two objects of 
+		local class B.
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1048" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Call showB on the first 
+		object.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1049" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Beginning of showB method in 
+		local class B.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1050" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. More code from showB method.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1051" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Use of the keyword this.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1052" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Illustrate the inheritance 
+		hierarchy.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1053" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Call showB method on second 
+		object.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1054" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="What_can_you_include_in_a_class_definition" effect="bold">
+
+What can you 
+	include in a class definition
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1005">
+There are several different kinds of items that can be included in a class 
+definition. As you learned in the earlier modules in this series, the list 
+includes: 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1054">
+Static variables
+
+</item>
+
+
+	
+
+<item id="li1055">
+Instance variables
+
+</item>
+
+
+	
+
+<item id="li1056">
+Static methods
+
+</item>
+
+
+	
+
+<item id="li1057">
+Instance methods
+
+</item>
+
+
+	
+
+<item id="li1058">
+Constructors
+
+</item>
+
+
+	
+
+<item id="li1059">
+Static initializer blocks
+
+</item>
+
+
+	
+
+<item id="li1060">
+Instance initializers 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Can also contain other class definitions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+As you learned in the
+
+
+<link id="a1055" url="http://cnx.org/content/m44347/latest/?collection=col11441/latest">
+
+
+previous module
+
+</link>
+
+, a class definition can also contain the following three 
+kinds of 
+
+<emphasis id="em1005" effect="italics">
+inner classes:
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1061">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1062">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1063">
+Anonymous classes
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+The previous module explained member classes. This module will explain local 
+classes. The next module will explain anonymous classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="What_is_a_local_class" effect="bold">
+
+What is a local class
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1009">
+A 
+
+<emphasis id="em1006" effect="italics">
+local class
+
+</emphasis>
+ is a class that is defined within a block of Java code. 
+While local classes are probably most frequently defined within methods and 
+constructors, they can also be defined inside static initializer blocks and 
+instance initializers. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+As is the case for an object of a member class 
+
+<emphasis id="em1007" effect="italics">
+(discussed in the 
+
+
+<link id="a1056" url="http://cnx.org/content/m44347/latest/?collection=col11441/latest">
+
+
+previous module
+
+</link>
+
+),
+
+</emphasis>
+ an object of a local class must be internally linked to an object 
+of the enclosing class. I will often refer to that object as the containing 
+object, and make comments about the containment hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+A local class is truly an inner class, because an object of the local 
+class cannot exist in the absence of an object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1001" effect="bold">
+What about a local interface?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Interfaces defined within classes are implicitly static. This means that they 
+are always 
+
+<emphasis id="em1008" effect="italics">
+top-level.
+
+</emphasis>
+ There is no such thing as a member interface, a 
+local interface, or an anonymous interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Why_use_local_classes" effect="bold">
+
+Why use local classes
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1014">
+Objects instantiated from local classes share many of the characteristics of 
+objects instantiated from member classes. However, in some cases, a local class 
+can be defined closer to its point of use than would be possible with a member 
+class, leading to improved code readability. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Probably the most important benefit of local classes has to do with accessing 
+the members of enclosing classes. Just like with member classes, methods of a 
+local class have direct access to all the members of the enclosing classes, 
+including private members. Thus the use of local classes can sometimes eliminate 
+the requirement to connect objects together via constructor parameters. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<para id="p1016">
+<emphasis id="em1009" effect="italics">
+(We will also see in the example program in this module that methods 
+	of a local class have direct access to protected members of the superclass 
+	of the enclosing class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1002" effect="bold">
+Can be particularly useful when ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+A local class can be particularly useful in those cases where 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1064">
+There is no reason for an object of the local class to exist in the 
+	absence of an object of the enclosing class
+
+</item>
+
+
+	
+
+<item id="li1065">
+There is no reason for an object of the local class to exist outside a 
+	method of the enclosing class
+
+</item>
+
+
+	
+
+<item id="li1066">
+Methods of the object of the local class need access to members of the 
+	object of the enclosing class
+
+</item>
+
+
+	
+
+<item id="li1067">
+Methods of the object of the local class need access to 
+
+<emphasis id="strong1003" effect="bold">
+final
+
+</emphasis>
+ local 
+	variables and method parameters belonging to the method in which the local 
+	class is defined 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1019">
+This module approaches local classes from a somewhat theoretical viewpoint. 
+The next module will approach local classes from a more practical viewpoint, 
+including a comparison between local classes and anonymous classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Local_classes_versus_member_classes" effect="bold">
+
+Local classes versus member classes
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1020">
+A local class has approximately the same relationship to a member class that 
+a local variable in a method has to an instance variable of the class containing 
+the method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_scope_of_a_local_class" effect="bold">
+
+The scope of a local class
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+As is the case with local variables, the name of a local class is visible and 
+usable only within the block of code in which it is defined 
+
+<emphasis id="em1010" effect="italics">
+(and blocks 
+nested within that block).
+
+</emphasis>
+ Further, the name of the local class is visible 
+and usable only to code following the class definition within that block. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The methods of a local class can use any 
+
+<emphasis id="em1011" effect="italics">
+<emphasis id="strong1004" effect="bold">
+final
+
+</emphasis>
+</emphasis>
+ local variables 
+or method parameters that are visible from the scope in which the local class is 
+defined. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1005" effect="bold">
+Similar to member classes
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+As mentioned earlier, local classes have many characteristics in common with 
+member classes. This includes access to private fields and methods in the 
+containing class. The thing that separates local classes from member classes is 
+the fact that local classes have access to local variables in the scope in which 
+the local class is defined. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1006" effect="bold">
+A big restriction
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+There is a big restriction, however, on the ability of methods of the local 
+class to access local variables and method parameters. The methods in a local 
+class can access local variables and method parameters only if they are declared
+
+
+<emphasis id="strong1007" effect="bold">
+final
+
+</emphasis>
+.
+
+<emphasis id="em1012" effect="italics">
+ 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1008" effect="bold">
+What does Flanagan have to say?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+According to one of my favorite authors, David Flanagan, author of Java in a 
+Nutshell, the methods in a local class don't really have access to local 
+variables and method parameters. Rather, when an object of the local class is 
+instantiated, copies of the 
+
+<emphasis id="strong1009" effect="bold">
+final
+
+</emphasis>
+ local variables and method parameters 
+referred to by the object's methods are stored as instance variables in the 
+object. The methods in the object of the local class really access those hidden 
+instance variables. 
+
+<emphasis id="em1013" effect="italics">
+(See the later section entitled Smoke and mirrors.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Thus, the local variables and method parameters accessed by the methods of 
+the local class must be declared 
+
+<emphasis id="strong1010" effect="bold">
+final
+
+</emphasis>
+ to prevent their values from 
+changing after the object is instantiated. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Restrictions_on_local_classes" effect="bold">
+
+Restrictions on local classes
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1030">
+As with member classes, local classes cannot contain 
+
+<emphasis id="strong1011" effect="bold">
+static
+
+</emphasis>
+ members.
+
+
+</para>
+
+
+
+
+
+<para id="p1031">
+As with local variables, local classes cannot be declared 
+
+<emphasis id="strong1012" effect="bold">
+public
+
+</emphasis>
+,
+
+<emphasis id="strong1013" effect="bold">
+ 
+protected
+
+</emphasis>
+,
+
+<emphasis id="strong1014" effect="bold">
+ private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1015" effect="bold">
+static
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+A local class cannot have the same name as any of its enclosing classes. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1016" effect="bold">
+Smoke and mirrors
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+As I mentioned in the previous module, every class definition in a Java 
+program, including nested top-level classes, member classes, local classes, and 
+anonymous classes, produces a class file when the program is compiled. According 
+to Flanagan, 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<para id="p1035">
+<emphasis id="em1014" effect="italics">
+"The Java Virtual Machine knows nothing about nested top-level classes 
+	and interfaces or the various types of inner classes. Therefore, the Java 
+	compiler must convert these new types into standard non-nested class files 
+	that the Java interpreter can understand. This is done through source code 
+	transformations that insert $ characters into nested class names. These 
+	source code transformations may also insert hidden fields, methods, and 
+	constructor arguments into the affected classes."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1017" effect="bold">
+A reference to the containing object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+For example, the compiler automatically inserts a private instance variable 
+in the local class to hold a reference to the containing object. It also inserts 
+a hidden argument in all constructors for the local class, and passes the 
+containing object's reference to the constructor for the local class. The 
+modified constructor saves that reference in the private instance variable of 
+the object of the local class. Thus each object instantiated from the local 
+class contains a private reference to the containing object. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1018" effect="bold">
+Accessing private members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+In those cases where it is necessary for an object of the local class to 
+access private members of the containing object, the compiler automatically 
+creates and uses accessor methods that make such access possible.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1019" effect="bold">
+Similar to your code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+The bottom line is that the code that is automatically produced by the 
+compiler is probably very similar to code that you would write if you were 
+writing the program using only top-level classes. The good news is that you 
+don't have to write that extra code, and you don't have to maintain it. The 
+extra code is written for you, and if you modify your class structure, the extra 
+code is automatically modified accordingly. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1042">
+The paragraphs that follow will explain a program named 
+
+<emphasis id="strong1020" effect="bold">
+InnerClasses07
+
+</emphasis>
+. 
+This program is designed specifically to illustrate various characteristics of local 
+classes. I will discuss the program in fragments. A complete listing is shown in 
+
+
+<link id="a1057" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+This program illustrates the use of local classes. The program consists of a 
+total of five classes: 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1068">
+Four top-level classes named
+	
+
+<list id="ul1013" list-type="bulleted">
+
+		
+
+<item id="li1069">
+InnerClasses07
+
+</item>
+
+
+		
+
+<item id="li1070">
+A
+
+</item>
+
+
+		
+
+<item id="li1071">
+X
+
+</item>
+
+
+		
+
+<item id="li1072">
+Y
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1073">
+A local class named B.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1044">
+When compiled, the program produces the class files shown in 
+
+<link id="a1058" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The 
+file named A$1$B.class represents the local class. The remaining files in 
+
+<link id="a1059" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ represent the four top-level classes.
+
+</para>
+
+
+
+
+
+<section id="h21007">
+<title>
+<emphasis id="Class_hierarchy_" effect="bold">
+
+Class hierarchy 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1045">
+In the previous module, I explained that once you 
+understand the class file naming convention, you can determine from the file 
+names how top-level classes and member classes are structured. However, the 
+situation isn't nearly so clear when it comes to local classes and anonymous 
+classes. This will become more apparent in the next module, which combines local 
+classes and anonymous classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Overall_program_structure_and_behavior_" effect="bold">
+
+Overall program structure and behavior
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1021" effect="bold">
+Containment hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The 
+program named 
+
+<emphasis id="strong1022" effect="bold">
+InnerClasses07
+
+</emphasis>
+ defines a local class named 
+
+<emphasis id="strong1023" effect="bold">
+B
+
+</emphasis>
+ inside 
+an instance method named 
+
+<emphasis id="strong1024" effect="bold">
+meth
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The method named 
+
+<emphasis id="strong1025" effect="bold">
+meth
+
+</emphasis>
+ is an 
+instance method of a top-level class named 
+
+<emphasis id="strong1026" effect="bold">
+A
+
+</emphasis>
+. The method named 
+
+<emphasis id="strong1027" effect="bold">
+meth
+
+
+</emphasis>
+instantiates two separate objects of the local class named 
+
+<emphasis id="strong1028" effect="bold">
+B
+
+</emphasis>
+, and 
+calls a method named 
+
+<emphasis id="strong1029" effect="bold">
+showB
+
+</emphasis>
+ on each of them. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The method named 
+
+<emphasis id="strong1030" effect="bold">
+showB
+
+</emphasis>
+ 
+displays certain data values that illustrate the characteristics of local 
+classes, as well as the containment hierarchy among objects of the local class 
+and an object of the containing class. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+In this case, objects of the class named
+
+
+<emphasis id="strong1031" effect="bold">
+B
+
+</emphasis>
+ are 
+
+<emphasis id="em1015" effect="italics">
+contained within
+
+</emphasis>
+ an object of the class named 
+
+<emphasis id="strong1032" effect="bold">
+A
+
+</emphasis>
+. 
+
+<emphasis id="em1016" effect="italics">
+
+(The class named 
+
+<emphasis id="strong1033" effect="bold">
+A
+
+</emphasis>
+ is an enclosing class of the class named 
+
+<emphasis id="strong1034" effect="bold">
+B
+
+</emphasis>
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1035" effect="bold">
+Inheritance hierarchy
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+The top-level class named 
+
+<emphasis id="strong1036" effect="bold">
+A
+
+</emphasis>
+ extends the 
+top-level class named 
+
+<emphasis id="strong1037" effect="bold">
+X
+
+</emphasis>
+, 
+
+<emphasis id="em1017" effect="italics">
+(which in turn, extends 
+
+<emphasis id="strong1038" effect="bold">
+Object
+
+</emphasis>
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+The class named 
+
+<emphasis id="strong1039" effect="bold">
+B
+
+</emphasis>
+ is contained in or enclosed by the top-level class 
+named 
+
+<emphasis id="strong1040" effect="bold">
+A
+
+</emphasis>
+, but extends the top-level class named 
+
+<emphasis id="strong1041" effect="bold">
+Y
+
+</emphasis>
+, 
+
+<emphasis id="em1018" effect="italics">
+(which in 
+turn, extends
+
+<emphasis id="strong1042" effect="bold">
+ Object
+
+</emphasis>
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+There is no inheritance relationship between 
+the classes 
+
+<emphasis id="strong1043" effect="bold">
+X
+
+</emphasis>
+ and 
+
+<emphasis id="strong1044" effect="bold">
+Y
+
+</emphasis>
+ 
+
+<emphasis id="em1019" effect="italics">
+(aside from their common superclass named
+
+
+<emphasis id="strong1045" effect="bold">
+Object
+
+</emphasis>
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+There is no inheritance relationship between the classes 
+
+<emphasis id="strong1046" effect="bold">
+
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1047" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The method named 
+
+<emphasis id="strong1048" effect="bold">
+showB
+
+</emphasis>
+ also displays data values that 
+are intended to demonstrate that the inheritance hierarchy is independent of the 
+containment hierarchy. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1020" effect="italics">
+(Note that while the containment hierarchy of local classes is 
+	independent of the inheritance hierarchy, it is technically possible to 
+	establish an inheritance relationship between a local class and one of its 
+	enclosing classes. For example, by making a couple of minor modifications, 
+	it is possible to cause the local class 
+
+<emphasis id="strong1049" effect="bold">
+B
+
+</emphasis>
+ in this program to extend 
+	the enclosing class 
+
+<emphasis id="strong1050" effect="bold">
+A
+
+</emphasis>
+ instead of the top-level class 
+
+<emphasis id="strong1051" effect="bold">
+Y
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="The_controlling_class_" effect="bold">
+
+The controlling class 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1057">
+The entire controlling class named 
+
+<emphasis id="strong1052" effect="bold">
+
+InnerClasses07
+
+</emphasis>
+, including the 
+
+<emphasis id="strong1053" effect="bold">
+main
+
+</emphasis>
+ method and a static variable named
+
+
+<emphasis id="strong1054" effect="bold">
+baseTime
+
+</emphasis>
+, is shown in 
+
+<link id="a1060" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+The static variable named 
+
+<emphasis id="strong1055" effect="bold">
+baseTime
+
+</emphasis>
+ is initialized with the current 
+date and time in milliseconds 
+
+<emphasis id="em1021" effect="italics">
+(relative to January 1, 1970).
+
+</emphasis>
+ This static 
+variable is used later as a base to establish the relative points in time that 
+certain activities occur during the execution of the program. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1056" effect="bold">
+The main method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+The 
+
+<emphasis id="strong1057" effect="bold">
+main
+
+</emphasis>
+ method shown in 
+
+<link id="a1061" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a new object of the class 
+named 
+
+<emphasis id="strong1058" effect="bold">
+A
+
+</emphasis>
+ and calls the method named 
+
+<emphasis id="strong1059" effect="bold">
+meth 
+
+</emphasis>
+on that object. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+This 
+method will sequentially instantiate two separate objects of a local class named
+
+
+<emphasis id="strong1060" effect="bold">
+B
+
+</emphasis>
+ that is defined inside the method named 
+
+<emphasis id="strong1061" effect="bold">
+meth
+
+</emphasis>
+. Then the method 
+named 
+
+<emphasis id="strong1062" effect="bold">
+meth
+
+</emphasis>
+ will call a method named 
+
+<emphasis id="strong1063" effect="bold">
+showB 
+
+</emphasis>
+on each of those 
+objects, causing them to display data values that illustrate the characteristics 
+of local classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="The_class_named_X_" effect="bold">
+
+The class named X 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1062">
+The top-level class named 
+
+<emphasis id="strong1064" effect="bold">
+X
+
+</emphasis>
+ is 
+shown in 
+
+<link id="a1062" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+The class named 
+
+<emphasis id="strong1065" effect="bold">
+A
+
+</emphasis>
+ extends this class to illustrate the difference 
+between the inheritance hierarchy and the containment hierarchy. Note that this 
+class defines and initializes a protected instance variable, which will be 
+accessed later to illustrate the inheritance hierarchy.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+
+	
+
+<emphasis id="em1022" effect="italics">
+(Somewhat surprisingly, you will also see later that this protected 
+	instance variable belonging to the superclass of the enclosing class
+
+<emphasis id="strong1066" effect="bold">
+ A
+
+</emphasis>
+ 
+	is also accessible by methods belonging to an object of the local class via 
+	the containment hierarchy.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_class_named_Y" effect="bold">
+
+The class named Y
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+The top-level class named 
+
+<emphasis id="strong1067" effect="bold">
+Y
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1063" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The local class named 
+
+<emphasis id="strong1068" effect="bold">
+B
+
+</emphasis>
+ extends this class to illustrate the 
+difference between the inheritance hierarchy and the containment hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Note 
+that this class defines and initializes a protected instance variable. It also 
+overrides the 
+
+<emphasis id="strong1069" effect="bold">
+toString
+
+</emphasis>
+ method, which is inherited from the 
+
+<emphasis id="strong1070" effect="bold">
+Object
+
+</emphasis>
+ 
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The instance variable and the overridden 
+
+<emphasis id="strong1071" effect="bold">
+toString
+
+</emphasis>
+ method will be 
+accessed later to illustrate the inheritance hierarchy. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="The_class_named_A" effect="bold">
+
+The class named A
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+The code in 
+
+<link id="a1064" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the beginning of the top-level class named 
+
+<emphasis id="strong1072" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+This code declares and initializes a private instance variable 
+named 
+
+<emphasis id="strong1073" effect="bold">
+aTime
+
+</emphasis>
+, which establishes the relative time that an object of class
+
+
+<emphasis id="strong1074" effect="bold">
+A
+
+</emphasis>
+ is instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+This private instance variable will be accessed 
+directly by code belonging to an object of the local class 
+
+<emphasis id="strong1075" effect="bold">
+B
+
+</emphasis>
+, which is 
+contained by an object of the class 
+
+<emphasis id="strong1076" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<link id="a1065" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also shows the 
+constructor for class 
+
+<emphasis id="strong1077" effect="bold">
+A
+
+</emphasis>
+, which displays the time whenever an object is 
+instantiated from class 
+
+<emphasis id="strong1078" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1079" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+The code shown 
+earlier in the 
+
+<emphasis id="strong1080" effect="bold">
+main
+
+</emphasis>
+ method of 
+
+<link id="a1066" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of class
+
+
+<emphasis id="strong1081" effect="bold">
+A
+
+</emphasis>
+. This causes the screen output shown in 
+
+<link id="a1067" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+	
+
+<emphasis id="em1023" effect="italics">
+(Note that the relative time output value on your system may be 
+	different, depending on the speed of your system and the impact of other 
+	applications that may be running concurrently.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1082" effect="bold">
+The private showA method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<link id="a1068" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows a private method named 
+
+<emphasis id="strong1083" effect="bold">
+
+showA
+
+</emphasis>
+. This method displays the following information about an object instantiated 
+from class 
+
+<emphasis id="strong1084" effect="bold">
+A
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1074">
+The relative time that the object was instantiated.
+
+</item>
+
+
+	
+
+<item id="li1075">
+The value of the instance variable named 
+
+<emphasis id="strong1085" effect="bold">
+xVar
+
+</emphasis>
+, which is an 
+	instance variable of the superclass of class 
+
+<emphasis id="strong1086" effect="bold">
+A
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1076">
+The name of the class file that represents the class named 
+
+<emphasis id="strong1087" effect="bold">
+A
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1076">
+Code in methods belonging to an object of the local class named 
+
+<emphasis id="strong1088" effect="bold">
+B
+
+</emphasis>
+, 
+contained in an object of class 
+
+<emphasis id="strong1089" effect="bold">
+A
+
+</emphasis>
+, has direct access to private members 
+of objects of the containing or enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+The private 
+
+<emphasis id="strong1090" effect="bold">
+showA
+
+</emphasis>
+ method 
+will be called by a method named 
+
+<emphasis id="strong1091" effect="bold">
+showB
+
+</emphasis>
+, belonging to an object of the 
+local class 
+
+<emphasis id="strong1092" effect="bold">
+B
+
+</emphasis>
+, to demonstrate the truth of this statement. 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1093" effect="bold">
+The method 
+named delay
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<link id="a1069" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ shows a utility method named 
+
+<emphasis id="strong1094" effect="bold">
+delay
+
+</emphasis>
+, which is an 
+instance method of class 
+
+<emphasis id="strong1095" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+The purpose of the 
+
+<emphasis id="strong1096" effect="bold">
+delay
+
+</emphasis>
+ method is simply to insert a 30-millisecond 
+delay in the execution of the program. This method is used to cause certain 
+activities in the execution of the program to be spread far enough apart in time 
+to make them distinguishable, one from the other, on the basis of relative time.
+
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1097" effect="bold">
+The method named meth
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+The method named 
+
+<emphasis id="strong1098" effect="bold">
+meth
+
+</emphasis>
+ is an instance method 
+of the class 
+
+<emphasis id="strong1099" effect="bold">
+A
+
+</emphasis>
+. The beginning of this method is shown in 
+
+<link id="a1070" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+The method named 
+
+<emphasis id="strong1100" effect="bold">
+meth
+
+</emphasis>
+ contains a local class definition for a class 
+named 
+
+<emphasis id="strong1101" effect="bold">
+B
+
+</emphasis>
+, which we will examine later. 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+As you can see in 
+
+<link id="a1071" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, it 
+also declares a 
+
+<emphasis id="strong1102" effect="bold">
+final
+
+</emphasis>
+ local variable named 
+
+<emphasis id="strong1103" effect="bold">
+methTime
+
+</emphasis>
+. As you will 
+see later, the method named 
+
+<emphasis id="strong1104" effect="bold">
+meth
+
+</emphasis>
+ instantiates two separate objects of 
+local class 
+
+<emphasis id="strong1105" effect="bold">
+B
+
+</emphasis>
+ and calls a method named 
+
+<emphasis id="strong1106" effect="bold">
+showB 
+
+</emphasis>
+on each of those 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The method named 
+
+<emphasis id="strong1107" effect="bold">
+showB
+
+</emphasis>
+ displays various data values that 
+illustrate the characteristics of local classes, including the value of the 
+
+<emphasis id="strong1108" effect="bold">
+
+final
+
+</emphasis>
+ local variable named 
+
+<emphasis id="strong1109" effect="bold">
+methTime
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1110" effect="bold">
+Access to final local 
+variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+One of the characteristics of a local class is that objects of a 
+local class have access to local variables within the same scope, provided that 
+those local variables are declared 
+
+<emphasis id="strong1111" effect="bold">
+final
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1112" effect="bold">
+Blank final variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+The code in 
+
+<link id="a1072" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ declares a 
+
+<emphasis id="strong1113" effect="bold">
+final
+
+</emphasis>
+ local variable named 
+
+<emphasis id="strong1114" effect="bold">
+methTime
+
+</emphasis>
+. 
+Because of the syntax used, this variable is known as a 
+
+<emphasis id="em1024" effect="italics">
+blank 
+
+</emphasis>
+<emphasis id="strong1115" effect="bold">
+final
+
+
+</emphasis>
+variable. A blank final variable is not initialized when it is declared. 
+
+
+</para>
+
+
+
+
+
+<para id="p1090">
+As with all local variables, the variable cannot be used until a value 
+has been assigned to it. Because this variable is declared 
+
+<emphasis id="strong1116" effect="bold">
+final
+
+</emphasis>
+, once a value has been assigned to 
+it, the 
+value cannot be changed throughout the remaining life of the variable. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1117" effect="bold">
+Set 
+value of blank final variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+The code in 
+
+<link id="a1073" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1077">
+Inserts a delay
+
+</item>
+
+
+	
+
+<item id="li1078">
+Sets a value for the 
+
+<emphasis id="strong1118" effect="bold">
+final
+
+</emphasis>
+ local variable named 
+
+<emphasis id="strong1119" effect="bold">
+methTime
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1079">
+Displays the value that was set in 
+
+<emphasis id="strong1120" effect="bold">
+methTime
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1080">
+Inserts an additional delay before continuing
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1093">
+The value that is set in the variable named 
+
+<emphasis id="strong1121" effect="bold">
+methTime
+
+</emphasis>
+ is the relative 
+time that the statement is executed. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1122" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+The code in the 
+
+<emphasis id="strong1123" effect="bold">
+main
+
+</emphasis>
+ method of 
+
+<link id="a1074" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+calls 
+
+<emphasis id="strong1124" effect="bold">
+meth
+
+</emphasis>
+ on a new object of class 
+
+<emphasis id="strong1125" effect="bold">
+A
+
+</emphasis>
+, producing the screen output 
+shown in 
+
+<link id="a1075" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+<emphasis id="em1025" effect="italics">
+(Once again, the actual time value displayed by your system 
+may be different, depending on the speed of your system and other factors as 
+well.)
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="The_local_class_named_B" effect="bold">
+
+The local class named B
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1096">
+The next block of code in the method named 
+
+<emphasis id="strong1126" effect="bold">
+
+meth
+
+</emphasis>
+ is the definition of a local class named 
+
+<emphasis id="strong1127" effect="bold">
+B
+
+</emphasis>
+. The beginning of the 
+class definition for local class 
+
+<emphasis id="strong1128" effect="bold">
+B
+
+</emphasis>
+ is shown in 
+
+<link id="a1076" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+As with local variables, the class definition for a local class must appear 
+before the code that attempts to instantiate the class. Code in the method named
+
+
+<emphasis id="strong1129" effect="bold">
+meth
+
+</emphasis>
+ following the local class definition will instantiate and exercise 
+objects of class 
+
+<emphasis id="strong1130" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Local class 
+
+<emphasis id="strong1131" effect="bold">
+B
+
+</emphasis>
+ extends top-level class 
+
+<emphasis id="strong1132" effect="bold">
+Y
+
+</emphasis>
+. 
+This was done to illustrate that the inheritance hierarchy is independent of the 
+containment hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1133" effect="bold">
+The constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+The code in 
+
+<link id="a1077" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ declares a 
+private instance variable named 
+
+<emphasis id="strong1134" effect="bold">
+bTime
+
+</emphasis>
+, which is used to store the 
+relative time that an object of class 
+
+<emphasis id="strong1135" effect="bold">
+B
+
+</emphasis>
+ is constructed. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<link id="a1078" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ also 
+shows the constructor for local class 
+
+<emphasis id="strong1136" effect="bold">
+B
+
+</emphasis>
+, which establishes, saves, and 
+then displays the relative time that that an object is instantiated. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1007" display="block">
+<emphasis id="em1026" effect="italics">
+(I will show 
+you the screen output produced by this constructor shortly as I discuss code 
+that instantiates objects of this class.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1137" effect="bold">
+Instantiate two objects of class B
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+
+<para id="p1103">
+At this point, I am going to 
+temporarily set aside the discussion of local class
+
+
+<emphasis id="strong1138" effect="bold">
+B
+
+</emphasis>
+ and discuss code in the method named 
+
+<emphasis id="strong1139" effect="bold">
+meth
+
+</emphasis>
+ that immediately 
+follows the definition of local class 
+
+<emphasis id="strong1140" effect="bold">
+B
+
+</emphasis>
+. This code is shown in 
+
+
+<link id="a1079" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<link id="a1080" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ shows the beginning of code that is called when the method named
+
+
+<emphasis id="strong1141" effect="bold">
+meth
+
+</emphasis>
+ is called. This code begins by instantiating two objects from the 
+class named 
+
+<emphasis id="strong1142" effect="bold">
+B
+
+</emphasis>
+, with a delay inserted between the instantiation of the two 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1143" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+The code in 
+
+<link id="a1081" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+, in conjunction with 
+the constructor code in 
+
+<link id="a1082" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ produces the screen output shown in 
+
+<link id="a1083" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ as 
+each of the two objects of local class 
+
+<emphasis id="strong1144" effect="bold">
+B
+
+</emphasis>
+ are instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1145" effect="bold">
+Call showB on the first object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+Following this, the code in the method 
+named 
+
+<emphasis id="strong1146" effect="bold">
+meth 
+
+</emphasis>
+calls the method named 
+
+<emphasis id="strong1147" effect="bold">
+showB
+
+</emphasis>
+ on each of the two 
+objects. The method named 
+
+<emphasis id="strong1148" effect="bold">
+showB
+
+</emphasis>
+ will, in turn, call the method named 
+
+<emphasis id="strong1149" effect="bold">
+
+showA
+
+</emphasis>
+ on the containing object instantiated from the class named 
+
+<emphasis id="strong1150" effect="bold">
+A
+
+</emphasis>
+. 
+The third line of code in 
+
+<link id="a1084" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ calls the method named 
+
+<emphasis id="strong1151" effect="bold">
+showB
+
+</emphasis>
+ on the 
+first object instantiated in 
+
+<link id="a1085" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1152" effect="bold">
+The method named showB
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+That brings us back to a discussion of the 
+method named 
+
+<emphasis id="strong1153" effect="bold">
+showB
+
+</emphasis>
+, which is an instance method of local class 
+
+<emphasis id="strong1154" effect="bold">
+B
+
+</emphasis>
+. 
+The beginning of the 
+
+<emphasis id="strong1155" effect="bold">
+showB
+
+</emphasis>
+ method is shown in 
+
+<link id="a1086" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. This method 
+displays several private and protected variables, some of which belong to the 
+containing object instantiated from the top-level class named 
+
+<emphasis id="strong1156" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1008" display="block">
+
+	
+
+<emphasis id="em1027" effect="italics">
+(Note that code in this method has direct access to 
+
+<emphasis id="strong1157" effect="bold">
+xVar
+
+</emphasis>
+, which is 
+	a protected member variable of the superclass of the class named 
+
+<emphasis id="strong1158" effect="bold">
+A
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1159" effect="bold">
+Items that are displayed
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+The code in 
+
+<link id="a1087" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ displays
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1081">
+A visual line separator, -1-
+
+</item>
+
+
+	
+
+<item id="li1082">
+A private instance variable, 
+
+<emphasis id="strong1160" effect="bold">
+bTime
+
+</emphasis>
+, belonging to the object 
+	instantiated from local class 
+
+<emphasis id="strong1161" effect="bold">
+B
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1083">
+A private instance variable, 
+
+<emphasis id="strong1162" effect="bold">
+aTime
+
+</emphasis>
+, belonging to the containing 
+	object instantiated from the top-level class 
+
+<emphasis id="strong1163" effect="bold">
+A
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1084">
+A 
+
+<emphasis id="strong1164" effect="bold">
+final
+
+</emphasis>
+ local variable, 
+
+<emphasis id="strong1165" effect="bold">
+methTime
+
+</emphasis>
+, belonging to the method 
+	named 
+
+<emphasis id="strong1166" effect="bold">
+meth
+
+</emphasis>
+, in which the local class 
+
+<emphasis id="strong1167" effect="bold">
+B
+
+</emphasis>
+ is defined
+
+</item>
+
+
+	
+
+<item id="li1085">
+A protected instance variable, 
+
+<emphasis id="strong1168" effect="bold">
+xVar
+
+</emphasis>
+, of the superclass of the 
+	class 
+
+<emphasis id="strong1169" effect="bold">
+A
+
+</emphasis>
+, from which the containing object was instantiated.
+
+</item>
+
+
+	
+
+<item id="li1086">
+A protected instance variable, 
+
+<emphasis id="strong1170" effect="bold">
+yVar
+
+</emphasis>
+, of the superclass of the 
+	local class 
+
+<emphasis id="strong1171" effect="bold">
+B
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1087">
+The name of the class file that represents the local class 
+
+<emphasis id="strong1172" effect="bold">
+B
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1173" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+
+<para id="p1114">
+The combined code in 
+
+<link id="a1088" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ and 
+
+
+<link id="a1089" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ produces the 
+output shown in 
+
+<link id="a1090" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ for the first object instantiated from local class 
+
+<emphasis id="strong1174" effect="bold">
+B
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1175" effect="bold">
+Call private method showA
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+One of the important characteristics of 
+local classes is that the methods of objects instantiated from local classes 
+have direct access to all of the members, including private members, of all the 
+containing classes in the containment hierarchy.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1009" display="block">
+
+	
+
+<emphasis id="em1028" effect="italics">
+(In this case, an object of the local class 
+
+<emphasis id="strong1176" effect="bold">
+B
+
+</emphasis>
+ has only one 
+	containing class, an object instantiated from the top-level class 
+
+<emphasis id="strong1177" effect="bold">
+A
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1117">
+Continuing with the method named 
+
+<emphasis id="strong1178" effect="bold">
+showB
+
+</emphasis>
+, in local class 
+
+<emphasis id="strong1179" effect="bold">
+B
+
+</emphasis>
+, the 
+code in 
+
+<link id="a1091" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ displays a line separator, -2-, and then calls the private 
+method named 
+
+<emphasis id="strong1180" effect="bold">
+showA
+
+</emphasis>
+ on the containing object. This illustrates the 
+containment hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1181" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+The method named 
+
+<emphasis id="strong1182" effect="bold">
+showA
+
+</emphasis>
+ is shown in 
+
+<link id="a1092" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. 
+The combination of the code in 
+
+<link id="a1093" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ and 
+
+<link id="a1094" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+produces the screen 
+output shown in 
+
+<link id="a1095" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<link id="a1096" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ displays 
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1088">
+The relative time that the containing object of the class 
+
+<emphasis id="strong1183" effect="bold">
+A
+
+</emphasis>
+ was 
+	instantiated
+
+</item>
+
+
+	
+
+<item id="li1089">
+A protected instance variable in the superclass of the class from which 
+	the containing object was instantiated
+
+</item>
+
+
+	
+
+<item id="li1090">
+The name of the class file that represents the top-level class named 
+
+<emphasis id="strong1184" effect="bold">
+
+	A
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1185" effect="bold">
+Use of the keyword this
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1122">
+As is the case with member classes, 
+
+<emphasis id="em1029" effect="italics">
+
+(discussed in the previous module),
+
+</emphasis>
+ objects of local classes use a special 
+syntax of the keyword 
+
+<emphasis id="strong1186" effect="bold">
+<emphasis id="em1030" effect="italics">
+this
+
+</emphasis>
+</emphasis>
+ to gain access to objects in the containment 
+hierarchy.
+
+</para>
+
+
+
+
+
+<para id="p1123">
+The code in 
+
+<link id="a1097" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ shows how to use regular syntax to gain access 
+to the current object, and how to use special syntax to gain access to the 
+containing object. 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+Having gained access to the two objects, the code in 
+
+<link id="a1098" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ gets and displays the values of private instance variables belonging to those 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1187" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1126">
+The code in 
+
+<link id="a1099" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ produced the screen output 
+shown in 
+
+<link id="a1100" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1127">
+You saw these same two values displayed earlier in 
+
+<link id="a1101" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ and 
+
+
+<link id="a1102" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1188" effect="bold">
+
+Illustrate the inheritance hierarchy
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+Remember that the inheritance hierarchy 
+is independent of the containment hierarchy. The code in 
+
+<link id="a1103" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ illustrates 
+the inheritance hierarchy by 
+
+</para>
+
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1091">
+Calling the overridden 
+
+<emphasis id="strong1189" effect="bold">
+toString
+
+</emphasis>
+ method belonging to the local 
+	class 
+
+<emphasis id="strong1190" effect="bold">
+B
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1092">
+Using the 
+
+<emphasis id="strong1191" effect="bold">
+super
+
+</emphasis>
+ keyword to call the overridden 
+
+<emphasis id="strong1192" effect="bold">
+toString
+
+</emphasis>
+ 
+	method belonging to the class 
+
+<emphasis id="strong1193" effect="bold">
+Y
+
+</emphasis>
+, which is the superclass of the local 
+	class 
+
+<emphasis id="strong1194" effect="bold">
+B
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1130">
+ 
+
+<link id="a1104" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ also defines the overridden 
+
+<emphasis id="strong1195" effect="bold">
+toString
+
+</emphasis>
+ method belonging to 
+local class 
+
+<emphasis id="strong1196" effect="bold">
+B
+
+</emphasis>
+. The overridden 
+
+<emphasis id="strong1197" effect="bold">
+toString
+
+</emphasis>
+ method belonging to class
+
+
+<emphasis id="strong1198" effect="bold">
+Y
+
+</emphasis>
+ is shown in 
+
+<link id="a1105" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1199" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+The combined code in 
+
+<link id="a1106" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ and 
+
+<link id="a1107" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+produces the screen output shown in 
+
+<link id="a1108" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. 
+
+<emphasis id="em1031" effect="italics">
+(Once again, you have seen these 
+same values displayed in earlier Figures.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+<para id="p1133">
+That concludes the results of calling the 
+
+<emphasis id="strong1200" effect="bold">
+showB
+
+</emphasis>
+ method on the first 
+object instantiated from local class 
+
+<emphasis id="strong1201" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1202" effect="bold">
+Call showB method on second 
+object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+The code in 
+
+<link id="a1109" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ instantiated two objects from local class 
+
+<emphasis id="strong1203" effect="bold">
+B
+
+</emphasis>
+, 
+and saved the object's references in instance variables named 
+
+<emphasis id="strong1204" effect="bold">
+obj1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1205" effect="bold">
+
+obj2
+
+</emphasis>
+. The screen output that I have been discussing resulted from calling 
+the 
+
+<emphasis id="strong1206" effect="bold">
+showB
+
+</emphasis>
+ method on 
+
+<emphasis id="strong1207" effect="bold">
+obj1
+
+</emphasis>
+ in 
+
+<link id="a1110" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<link id="a1111" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1208" effect="bold">
+
+showB
+
+</emphasis>
+ method on 
+
+<emphasis id="strong1209" effect="bold">
+obj2
+
+</emphasis>
+. 
+
+<link id="a1112" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ also signals the end of the method 
+named 
+
+<emphasis id="strong1210" effect="bold">
+meth
+
+</emphasis>
+, and the end of the class named 
+
+<emphasis id="strong1211" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1212" effect="bold">
+The screen output
+
+</emphasis>
+ The code in 
+
+<link id="a1113" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ 
+produces the screen output 
+shown in 
+
+<link id="a1114" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1213" effect="bold">
+Important considerations
+
+</emphasis>
+ The important things to note about the output 
+shown in 
+
+<link id="a1115" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ include: 
+
+</para>
+
+
+
+
+
+<list id="ul1019" list-type="bulleted">
+
+	
+
+<item id="li1093">
+The second object instantiated from local class 
+
+<emphasis id="strong1214" effect="bold">
+B
+
+</emphasis>
+ is definitely a 
+	different object from the first object instantiated from local class 
+
+<emphasis id="strong1215" effect="bold">
+B
+
+</emphasis>
+, 
+	as evidenced by a different value for 
+
+<emphasis id="strong1216" effect="bold">
+bTime
+
+</emphasis>
+. 
+
+<emphasis id="em1032" effect="italics">
+(Compare the value of
+	
+
+<emphasis id="strong1217" effect="bold">
+bTime
+
+</emphasis>
+ in 
+
+<link id="a1116" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ with the value of 
+
+<emphasis id="strong1218" effect="bold">
+bTime
+
+</emphasis>
+ in 
+
+<link id="a1117" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.)
+
+</emphasis>
+ In 
+	other words, the second object was instantiated after the first object was 
+	instantiated.
+
+</item>
+
+
+	
+
+<item id="li1094">
+Even though the two objects instantiated from local class 
+
+<emphasis id="strong1219" effect="bold">
+B
+
+</emphasis>
+ are 
+	different objects, they both belong to the same containing object, as 
+	evidenced by the same values for 
+
+<emphasis id="strong1220" effect="bold">
+aTime
+
+</emphasis>
+ in 
+
+<link id="a1118" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ and 
+
+<link id="a1119" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1095">
+The two objects instantiated from local class 
+
+<emphasis id="strong1221" effect="bold">
+B
+
+</emphasis>
+ each access the 
+	same 
+
+<emphasis id="strong1222" effect="bold">
+final
+
+</emphasis>
+ local variable belonging to the method named 
+
+<emphasis id="strong1223" effect="bold">
+meth
+
+</emphasis>
+, 
+	as evidenced by the same values for 
+
+<emphasis id="strong1224" effect="bold">
+methTime
+
+</emphasis>
+ in 
+
+<link id="a1120" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ and 
+
+<link id="a1121" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1139">
+I encourage you to copy the code from 
+
+<link id="a1122" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1140">
+In addition to a number of other items, a class definition can contain: 
+
+</para>
+
+
+
+
+
+<list id="ul1020" list-type="bulleted">
+
+	
+
+<item id="li1096">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1097">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1098">
+Anonymous classes
+
+</item>
+
+
+	
+
+<item id="li1099">
+Nested top-level classes and interfaces
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1141">
+Member classes were explained in the previous module. This module explains 
+local classes. The next module will explain anonymous classes.
+
+</para>
+
+
+
+
+
+<para id="p1142">
+A 
+
+<emphasis id="em1033" effect="italics">
+local class
+
+</emphasis>
+ is a class that is 
+defined within a block of Java code. While local classes are probably most 
+frequently defined within method and constructors, they can also be defined 
+inside static initializer blocks and instance initializers. 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+An object of the 
+local class must be internally linked to an object of the enclosing class 
+
+<emphasis id="em1034" effect="italics">
+
+(which I often refer to as the containing object).
+
+</emphasis>
+ A local class is 
+truly an inner class because an object of the local class cannot exist in the 
+absence of an object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+The methods of a local class have 
+direct access to all the members in the hierarchy of enclosing classes, 
+including private members. In addition, the methods of local classes have access 
+to
+
+<emphasis id="strong1225" effect="bold">
+ final
+
+</emphasis>
+ local variables and
+
+<emphasis id="strong1226" effect="bold">
+ final
+
+</emphasis>
+ method parameters in the scope in 
+which the local class is defined. 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+The containment hierarchy of local classes is 
+independent of the inheritance hierarchy. However, it is technically possible to 
+establish an inheritance relationship between a local class and one of its 
+enclosing classes. 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+Local classes may not be declared 
+
+<emphasis id="strong1227" effect="bold">
+public
+
+</emphasis>
+,
+
+<emphasis id="strong1228" effect="bold">
+ protected
+
+</emphasis>
+,
+
+<emphasis id="strong1229" effect="bold">
+ 
+private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1230" effect="bold">
+static
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+Local classes cannot contain 
+
+<emphasis id="strong1231" effect="bold">
+static
+
+</emphasis>
+ 
+members. 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+A local class has approximately the same relationship to a member class 
+that a local variable in a method has to an instance variable of the class 
+containing the method.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1149">
+The next module in this series will explain and discuss anonymous classes, 
+and will also compare anonymous classes to local classes. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1150">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1232" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1021" list-type="bulleted">
+
+					
+
+<item id="li1100">
+Module name: Java OOP: Local Classes
+
+</item>
+
+
+					
+
+<item id="li1101">
+File: Java1638.htm
+
+
+</item>
+
+
+					
+
+<item id="li1102">
+Published: 11/19/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1233" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1151">
+<emphasis id="strong1234" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1152">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1153">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1154">
+<emphasis id="strong1235" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1155">
+A complete listing of the program is provided in 
+
+<link id="a1123" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Figures01" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Class files produced 
+				by the program.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<code id="pre1000" display="block">
+A$1$B.class
+A.class
+InnerClasses07.class
+X.class
+Y.class</code>
+
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+							
+
+<code id="pre1001" display="block">In xstr for A, aTime = 10</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+							
+
+<code id="pre1002" display="block">In meth, methTime = 40</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+							
+
+<code id="pre1003" display="block">----------------------
+Instantiate first B-object
+In xstr for B, bTime = 70
+Delay and instantiate second B-object
+In xstr for B, bTime = 100</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+							
+
+<code id="pre1004" display="block">----------------------
+Display first B-Object
+-1-
+In showB, private bTime = 70
+In showB, private aTime = 10
+In showB, final methTime = 40
+In showB, protected xVar = 1000
+In showB, protected yVar = 2000
+In showB, class name = A$1$B</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+							
+
+<code id="pre1005" display="block">-2-
+In showA, aTime = 10
+In showA, xVar = 1000
+In showA, class name = A</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+							
+
+<code id="pre1006" display="block">-3-
+In showB, bTime = 70
+In showB, aTime = 10</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+							
+
+<code id="pre1007" display="block">-4-
+toString in class B, bTime = 70
+toString in class Y, yVar = 2000</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+							
+
+<code id="pre1008" display="block">----------------------
+Display second B-Object
+-1-
+In showB, private bTime = 100
+In showB, private aTime = 10
+In showB, final methTime = 40
+In showB, protected xVar = 1000
+In showB, protected yVar = 2000
+In showB, class name = A$1$B
+-2-
+In showA, aTime = 10
+In showA, xVar = 1000
+In showA, class name = A
+-3-
+In showB, bTime = 100
+In showB, aTime = 10
+-4-
+toString in class B, bTime = 100
+toString in class Y, yVar = 2000</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Listings01" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The controlling class 
+				named InnerClasses07.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">public class InnerClasses07{
+
+  static long baseTime = new Date().getTime();
+
+  public static void main(String[] args){
+    new A().meth();
+  }//end main
+}//end class InnerClasses07</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - The class named X.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1010" display="block">class X{
+  protected int xVar = 1000;
+}//end class X</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - The class named Y.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1011" display="block">class Y{
+  protected int yVar = 2000;
+
+  public String toString(){
+    return "toString in class Y, yVar = " + yVar;
+  }//end overridden toString
+}//end class Y</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1012" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Beginning of the class 
+				named A.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1012" display="block">class A extends X{
+  private long aTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+
+  A(){//constructor
+    System.out.println(
+              "In xstr for A, aTime = " + aTime);
+  }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1013" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - The showA method in class 
+				A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1013" display="block">  private void showA(){
+    System.out.println(
+                   "In showA, aTime = " + aTime);
+    System.out.println(
+                     "In showA, xVar = " + xVar);
+    System.out.println("In showA, class name = "
+                         + getClass().getName());
+  }//end showA</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+	
+
+	
+
+<table id="table1014" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - The delay method in class A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1014" display="block">  void delay(){
+    try{
+      Thread.currentThread().sleep(30);
+    }catch(InterruptedException e){
+      System.out.println(e);
+    }//end catch
+  }//end delay</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1015" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Beginning the meth method 
+				in class A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+				
+
+<code id="pre1015" display="block">  void meth(){
+    final long methTime;</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1016" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Set value of blank final variable.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1016" display="block">    delay();
+    methTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+    System.out.println(
+              "In meth, methTime = " + methTime);
+    delay();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1017" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Beginning of class definition for local class B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+				
+
+<code id="pre1017" display="block">    class B extends Y{
+      private long bTime;
+
+      B(){//constructor
+        bTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+        System.out.println(
+              "In xstr for B, bTime = " + bTime);
+      }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1018" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1018">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="th1018">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Instantiate two objects 
+				of local class B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1018" display="block">    System.out.println("----------------------");
+    System.out.println(
+                   "Instantiate first B-object");
+    final B obj1 = new B();
+    System.out.println(
+        "Delay and instantiate second B-object");
+    delay();
+    final B obj2 = new B();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+	
+
+<table id="table1019" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1019">
+
+			
+
+<row id="tr1038">
+
+				
+
+<entry id="th1019">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - Call showB on the first object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1039">
+
+				
+
+<entry id="td1019">
+
+				
+
+<code id="pre1019" display="block">    System.out.println("----------------------");
+    System.out.println("Display first B-Object");
+    obj1.showB()</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1020" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1020">
+
+			
+
+<row id="tr1040">
+
+				
+
+<entry id="th1020">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - Beginning of showB 
+				method in local class B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1041">
+
+				
+
+<entry id="td1020">
+
+				
+
+<code id="pre1020" display="block">//Continuing with local class B definition
+      void showB(){
+        System.out.println("-1-");
+        System.out.println(
+           "In showB, private bTime = " + bTime);
+        System.out.println(
+           "In showB, private aTime = " + aTime);
+        System.out.println(
+                  "In showB, final methTime = " +
+                                       methTime);
+        System.out.println(
+           "In showB, protected xVar = " + xVar);
+        System.out.println(
+           "In showB, protected yVar = " + yVar);
+        System.out.println(
+                      "In showB, class name = " +
+                           getClass().getName());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1021" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1021">
+
+			
+
+<row id="tr1042">
+
+				
+
+<entry id="th1021">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - More code from showB 
+				method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1043">
+
+				
+
+<entry id="td1021">
+
+				
+
+<code id="pre1021" display="block">        System.out.println("-2-");
+        showA();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1022" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1022">
+
+			
+
+<row id="tr1044">
+
+				
+
+<entry id="th1022">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+ - Use of the keyword this.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1022">
+
+			
+
+<row id="tr1045">
+
+				
+
+<entry id="td1022">
+
+				
+
+<code id="pre1022" display="block">        System.out.println("-3-");
+        System.out.println(
+              "In showB, bTime = " + this.bTime);
+        System.out.println(
+            "In showB, aTime = " + A.this.aTime)</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1023" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1023">
+
+			
+
+<row id="tr1046">
+
+				
+
+<entry id="th1023">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+ - Illustrate the inheritance hierarchy.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1023">
+
+			
+
+<row id="tr1047">
+
+				
+
+<entry id="td1023">
+
+				
+
+<code id="pre1023" display="block">        System.out.println("-4-");
+        System.out.println(toString());
+        System.out.println(super.toString());
+      }//end showB
+      //---------------------------------------//
+
+      //Overridden toString method
+      public String toString(){
+        return
+         "toString in class B, bTime = " + bTime;
+      }//end overridden toString
+    }//end local class B</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1024" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1024">
+
+			
+
+<row id="tr1048">
+
+				
+
+<entry id="th1024">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+ - Call showB method on second object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1024">
+
+			
+
+<row id="tr1049">
+
+				
+
+<entry id="td1024">
+
+				
+
+<code id="pre1024" display="block">    System.out.println("----------------------");
+    System.out.println(
+                      "Display second B-Object");
+    obj2.showB();
+
+  }// end meth
+}//end class A</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1236" effect="bold">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+ - Complete program 
+				listing.
+
+</emphasis>
+</para>
+
+
+
+
+				
+
+<code id="pre1025" display="block">/*File InnerClasses07.java
+Copyright 2003 R.G.Baldwin
+
+Illustrates the use of local classes.
+
+This program defines a local class named B inside
+an instance method named meth.  The method named
+meth is an instance method of a class named A.
+
+The method named meth instantiates two separate
+objects of the local class named B, and calls
+on each of them a method named showB, which
+displays certain data values that illustrate the
+characteristics of local classes, a well as the
+relationships among objects of a local class and
+an object to which that object is internally
+associated.  In this case, objects of the class
+named B are internally associated with an object
+of the class named A.
+
+This program produces the following class files
+when compiled:
+
+A$1$B.class
+A.class
+InnerClasses07.class
+X.class
+Y.class
+
+The file named A$1$B.class represents the local
+class named B.
+
+This program produces the following output:
+
+In xstr for A, aTime = 10
+In meth, methTime = 40
+----------------------
+Instantiate first B-object
+In xstr for B, bTime = 70
+Delay and instantiate second B-object
+In xstr for B, bTime = 100
+----------------------
+Display first B-Object
+-1-
+In showB, private bTime = 70
+In showB, private aTime = 10
+In showB, final methTime = 40
+In showB, protected xVar = 1000
+In showB, protected yVar = 2000
+In showB, class name = A$1$B
+-2-
+In showA, aTime = 10
+In showA, xVar = 1000
+In showA, class name = A
+-3-
+In showB, bTime = 70
+In showB, aTime = 10
+-4-
+toString in class B, bTime = 70
+toString in class Y, yVar = 2000
+----------------------
+Display second B-Object
+-1-
+In showB, private bTime = 100
+In showB, private aTime = 10
+In showB, final methTime = 40
+In showB, protected xVar = 1000
+In showB, protected yVar = 2000
+In showB, class name = A$1$B
+-2-
+In showA, aTime = 10
+In showA, xVar = 1000
+In showA, class name = A
+-3-
+In showB, bTime = 100
+In showB, aTime = 10
+-4-
+toString in class B, bTime = 100
+toString in class Y, yVar = 2000
+
+
+Tested using SDK 1.4.1 under WinXP
+************************************************/
+import java.util.Date;
+
+public class InnerClasses07{
+  //The following static variable is used as a
+  // base to establish the relative points in
+  // time that certain activities occur during
+  // the execution of the program.
+  static long baseTime = new Date().getTime();
+
+  public static void main(String[] args){
+    //Instantiate a new object of the class named
+    // A and call the method named meth on that
+    // object.  This method will sequentially
+    // instantiate two separate objects of a
+    // local class named B that is defined inside
+    // the method named meth.  Then it will
+    // call a method named showB on each of
+    // those objects to cause them to display
+    // various data values that illustrate the
+    // characteristics of local classes.
+    new A().meth();
+  }//end main
+}//end class InnerClasses07
+//=============================================//
+
+//The class named A extends this class to
+// illustrate the difference between the
+// inheritance hierarchy and the containment
+// hierarchy.
+class X{
+  protected int xVar = 1000;
+}//end class X
+//=============================================//
+
+//The local class named B extends this class to
+// illustrate the difference between the
+// inheritance hierarchy and the containment
+// hierarchy.
+class Y{
+  protected int yVar = 2000;
+
+  //Overridden toString method
+  public String toString(){
+    return "toString in class Y, yVar = " + yVar;
+  }//end overridden toString
+}//end class Y
+//=============================================//
+
+class A extends X{
+  //Establish the relative time that the object
+  // of class A is instantiated.
+  private long aTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+
+  A(){//constructor
+    System.out.println(
+              "In xstr for A, aTime = " + aTime);
+  }//end constructor
+  //-------------------------------------------//
+
+  //Displays information about the object
+  // instantiated from class A.
+  private void showA(){
+    System.out.println(
+                   "In showA, aTime = " + aTime);
+    System.out.println(
+                     "In showA, xVar = " + xVar);
+    System.out.println("In showA, class name = "
+                         + getClass().getName());
+  }//end showA
+  //-------------------------------------------//
+
+  //Method used to insert a time delay of 30
+  // milliseconds.
+  void delay(){
+    try{
+      Thread.currentThread().sleep(30);
+    }catch(InterruptedException e){
+      System.out.println(e);
+    }//end catch
+  }//end delay
+  //-------------------------------------------//
+
+  //This method contains a local class definition
+  // for a class named B.  The method
+  // instantiates two separate objects of class B
+  // and calls a method named showB on each of
+  // the objects.  The method named showB
+  // displays various data values that illustrate
+  // the characteristics of local classes.
+  void meth(){
+    //The following local variable must be final
+    // to be accessible from a local class.  This
+    // is a blank final variable whose value can
+    // be set once and never changed after that.
+    final long methTime;
+
+    //Delay and then set the value of the blank
+    // final local variable to a relative time.
+    // Then delay again before continuing.
+    delay();
+    methTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+    System.out.println(
+              "In meth, methTime = " + methTime);
+    delay();
+  //-------------------------------------------//
+
+    //This is the definition of a local class
+    // named B.  Note that as with local
+    // variables, the class definition must
+    // appear before the code that attempts to
+    // instantiate the class.  The class extends
+    // class Y to illustrate that the inheritance
+    // hierarchy is independent of the
+    // containment hierarchy.
+    class B extends Y{
+      private long bTime;
+
+      B(){//constructor
+        //Establish the relative time that the
+        // object is instantiated.
+        bTime = new Date().getTime() -
+                         InnerClasses07.baseTime;
+        System.out.println(
+              "In xstr for B, bTime = " + bTime);
+      }//end constructor
+
+      void showB(){
+        //Display private and protected
+        // variables, some of which belong to the
+        // internally associated object
+        // instantiated from the class named A.
+        // Note that code in this method has
+        // access to xVar, which is a protected
+        // member variable of a superclass of the
+        // class named A.
+        System.out.println("-1-");
+        System.out.println(
+           "In showB, private bTime = " + bTime);
+        System.out.println(
+           "In showB, private aTime = " + aTime);
+        System.out.println(
+                  "In showB, final methTime = " +
+                                       methTime);
+        System.out.println(
+           "In showB, protected xVar = " + xVar);
+        System.out.println(
+           "In showB, protected yVar = " + yVar);
+        System.out.println(
+                      "In showB, class name = " +
+                           getClass().getName());
+
+        System.out.println("-2-");
+        //Call the private method named showA
+        // in the internally associated object
+        // instantiated from the class named A,
+        // to illustrate the containment
+        // hierarchy.
+        showA();
+
+        System.out.println("-3-");
+        //Show how to access individual objects,
+        // including the internally associated
+        // object instantiated from the class
+        // named A.
+        System.out.println(
+              "In showB, bTime = " + this.bTime);
+        System.out.println(
+            "In showB, aTime = " + A.this.aTime);
+
+        System.out.println("-4-");
+        //Illustrate the inheritance hierarchy by
+        // calling the overridden toString
+        // methods belonging to the class named B
+        // and its superclass named Y.
+        System.out.println(toString());
+        System.out.println(super.toString());
+      }//end showB
+      //---------------------------------------//
+
+      //Overridden toString method
+      public String toString(){
+        return
+         "toString in class B, bTime = " + bTime;
+      }//end overridden toString
+    }//end local class B
+
+    //This is the code that is executed when this
+    // method named meth is called.  Instantiate
+    // two objects from the class named B and
+    // call the method named showB on each of
+    // them.  Those methods will, in turn call
+    // the method named showA on the internally
+    // associated object instantiated from the
+    // class named A.  Insert a delay between the
+    // instantiation of the two objects.
+    System.out.println("----------------------");
+    System.out.println(
+                   "Instantiate first B-object");
+    final B obj1 = new B();
+    System.out.println(
+        "Delay and instantiate second B-object");
+    delay();
+    final B obj2 = new B();
+
+    System.out.println("----------------------");
+    System.out.println("Display first B-Object");
+    obj1.showB();
+    System.out.println("----------------------");
+    System.out.println(
+                      "Display second B-Object");
+    obj2.showB();
+
+  }// end meth
+}//end class A
+//=============================================//</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+<para id="p1157">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

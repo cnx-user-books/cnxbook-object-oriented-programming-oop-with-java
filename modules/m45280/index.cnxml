@@ -1,0 +1,8136 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0050: Self-assessment, Escape Character Sequences and Arrays</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45280</md:content-id>
+  <md:title>Ap0050: Self-assessment, Escape Character Sequences and Arrays</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about escape character sequences and arrays in Java.</md:abstract>
+  <md:uuid>163f31c4-24a1-43d8-aa45-0dbcf9d1ae14</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+,
+		
+		
+
+<link id="a1012" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question12">
+
+12
+
+</link>
+
+,
+		
+
+<link id="a1014" target-id="question13">
+
+13
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question14">
+
+14
+
+</link>
+
+,
+		
+
+<link id="a1016" target-id="question15">
+
+15
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1017" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1019" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1020" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<note id="note1000" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1000" display="block">A. Compiler Error
+B. Runtime Error
+C. \"Backslash\"-&gt;\\\nUnderstand
+D. "Backslash"-&gt;\ 
+   Understand
+</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">public class Ap049{
+  public static void main(
+                        String args[]){
+    new Worker().doEscape();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doEscape(){
+    System.out.println(
+      "\"Backslash\"-&gt;\\\nUnderstand");
+  }//end doEscape()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1022" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1023" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. St@273d3c St@256a7c St@720eeb
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. Tom Dick Harry
+
+</item>
+
+
+	
+
+<item id="li1010">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1002" display="block">public class Ap050{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    St[] myArray = {new St("Tom"),
+                    new St("Dick"),
+                    new St ("Harry")};
+  for(int cnt = 0; 
+           cnt &lt; myArray.length;cnt++){
+    System.out.print(
+                   myArray[cnt] + " ");
+    
+  }//end for loop
+  System.out.println("");
+  }//end doArrays()
+}// end class
+
+class St{
+  private String name;
+  
+  public St(String name){
+    this.name = name;
+  }//end constructor
+  
+  public String toString(){
+    return name;
+  }//end toString()
+}//end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1024" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1025" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<note id="note1001" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1003" display="block">A.  Compiler Error</code>
+
+
+		
+
+<code id="pre1004" display="block">B.  Runtime Error</code>
+
+
+		
+
+<code id="pre1005" display="block">C.  0 0 0 0 0
+    0 1 2 3 4
+    0 2 4 6 8</code>
+
+
+		
+
+<code id="pre1006" display="block">D.  None of the above</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1007" display="block">public class Ap051{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    int myArray[3][5];
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        myArray[i][j] = i*j;
+      }//end inner for loop
+    }//end outer for loop
+ 
+    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        System.out.print(
+                  myArray[i][j] + " ");
+      }//end inner for loop
+      System.out.println("");
+    }//end outer for loop   
+    
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1026" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1027" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<note id="note1002" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1008" display="block">A.  Compiler Error</code>
+
+
+		
+
+<code id="pre1009" display="block">B.  Runtime Error</code>
+
+
+		
+
+<code id="pre1010" display="block">C.  1 1 1 1 1
+    1 2 3 4 5
+    1 3 5 7 9</code>
+
+
+		
+
+<code id="pre1011" display="block">D.  None of the above</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1012" display="block">public class Ap052{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    int myArray[][];
+    myArray = new int[3][5];
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        myArray[i][j] = i*j + 1;
+      }//end inner for loop
+    }//end outer for loop
+ 
+    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        System.out.print(
+                  myArray[i][j] + " ");
+      }//end inner for loop
+      System.out.println("");
+    }//end outer for loop   
+    
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1028" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by program shown in 
+
+<link id="a1029" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<note id="note1003" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1013" display="block">A.  Compiler Error</code>
+
+
+		
+
+<code id="pre1014" display="block">B.  Runtime Error</code>
+
+
+		
+
+<code id="pre1015" display="block">C.  -1 -1 -1 -1 -1
+    -1 -2 -3 -4 -5
+    -1 -3 -5 -7 -9</code>
+
+
+		
+
+<code id="pre1016" display="block">D.  None of the above</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1017" display="block">public class Ap053{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    int myArray[][];
+    myArray = new int[3][5];
+    
+    for(int i = 0;i &lt; 3;i++){
+      for(int j = 0;j &lt; 5;j++){
+        myArray[i][j] = (i*j+1)*(-1);
+      }//end inner for loop
+    }//end outer for loop
+ 
+    for(int i = 0;i &lt; 3;i++){
+      for(int j = 0;j &lt; 6;j++){
+        System.out.print(
+                  myArray[i][j] + " ");
+      }//end inner for loop
+      System.out.println("");
+    }//end outer for loop   
+    
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1030" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by program shown in 
+
+<link id="a1031" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1011">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1013">
+C. 3
+
+</item>
+
+
+	
+
+<item id="li1014">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1018" display="block">public class Ap054{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    int[] A = new int[2];   
+    A[0] = 1;
+    A[1] = 2;
+    System.out.println(A[0] + A[1]);
+
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1032" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by program shown in 
+
+<link id="a1033" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1015">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1017">
+C. OK
+
+</item>
+
+
+	
+
+<item id="li1018">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1019" display="block">import java.awt.Label;
+public class Ap055{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Label[] A = new Label[2];   
+    A[0] = new Label("O");
+    A[1] = new Label("K");
+    System.out.println(A[0] + A[1]);
+  }//end doArrays()
+}// end class</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1034" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by program shown in 
+
+<link id="a1035" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1019">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1021">
+C. OK
+
+</item>
+
+
+	
+
+<item id="li1022">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1020" display="block">
+import java.awt.Label;
+public class Ap056{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Label[] A = new Label[2];   
+    A[0] = new Label("O");
+    A[1] = new Label("K");
+    System.out.println(A[0].getText() + A[1].getText());
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1036" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by program shown in 
+
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1025">
+C. 1
+
+</item>
+
+
+	
+
+<item id="li1026">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1021" display="block">public class Ap057{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Integer[] A = new Integer[2];   
+    A[0] = new Integer(1);
+    System.out.println(
+                      A[1].intValue());
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1038" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by program shown in 
+
+
+<link id="a1039" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1022" display="block">A.  Compiler Error</code>
+
+
+		
+
+<code id="pre1023" display="block">B.  Runtime Error</code>
+
+
+		
+
+<code id="pre1024" display="block">C.  0
+    0 1
+    0 2 4</code>
+
+
+		
+
+<code id="pre1025" display="block">D.  None of the above</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1026" display="block">public class Ap058{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    int A[][] = new int[3][];
+    A[0] = new int[1];
+    A[1] = new int[2];
+    A[2] = new int[3];
+    
+    for(int i = 0;i &lt; A.length;i++){
+      for(int j=0;j &lt; A[i].length;j++){
+        A[i][j] = i*j;
+      }//end inner for loop
+    }//end outer for loop
+
+    for(int i=0;i&lt;A.length;i++){
+      for(int j=0;j &lt; A[i].length;j++){
+        System.out.print(
+                        A[i][j] + " ");
+      }//end inner for loop
+      System.out.println("");
+    }//end outer for loop
+
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+	
+
+
+
+<para id="p1023">
+<link id="a1040" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+What output is produced by the program shown in 
+
+<link id="a1041" target-id="Listing_11">
+
+Listing 
+11
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1027">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1029">
+C. Zero One Two
+
+</item>
+
+
+	
+
+<item id="li1030">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+	
+
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Listing for Question 11. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1027" display="block">public class Ap059{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Object[] A = new Object[3];
+    //Note that there is a simpler and
+    // better way to do the following
+    // but it won't illustrate my point
+    // as well as doing it this way.
+    A[0] = new String("Zero");
+    A[1] = new String("One");
+    A[2] = new String("Two");
+    
+    System.out.println(A[0] + " " +
+                       A[1] + " " +
+                       A[2]);
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1025">
+<link id="a1042" target-id="answer11">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+What output is produced by program shown in 
+
+<link id="a1043" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+C. Zero 1 2.0
+
+</item>
+
+
+	
+
+<item id="li1034">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Listing for Question 12. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+
+
+<code id="pre1028" display="block">public class Ap060{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Object[] A = new Object[3];
+    //Note that there is a simpler and
+    // better way to do the following
+    // but it won't illustrate my point
+    // as well as doing it this way.
+    A[0] = new String("Zero");
+    A[1] = new Integer(1);
+    A[2] = new Double(2.0);
+    
+    System.out.println(A[0] + "  " +
+                       A[1] + "  " +
+                       A[2]);
+  }//end doArrays()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1027">
+<link id="a1044" target-id="answer12">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+What output is produced by program shown in 
+
+<link id="a1045" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1035">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1036">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+C. Zero 1 2.0
+
+</item>
+
+
+	
+
+<item id="li1038">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Listing for Question 13. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1029" display="block">public class Ap061{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Object[] A = new Object[3];
+    //Note that there is a simpler and
+    // better way to do the following
+    // but it won't illustrate my point
+    // as well as doing it this way.
+    A[0] = new String("Zero");
+    A[1] = new Integer(1);
+    A[2] = new MyClass(2.0);
+    
+    System.out.println(A[0] + "  " +
+                       A[1] + "  " +
+                       A[2]);
+  }//end doArrays()
+}// end class
+
+class MyClass{
+  private double data;
+  
+  public MyClass(double data){
+    this.data = data;
+  }//end constructor
+}// end MyClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1029">
+<link id="a1046" target-id="answer13">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+What output is produced by program shown in 
+
+<link id="a1047" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1039">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1040">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1041">
+C. 1.0 2.0
+
+</item>
+
+
+	
+
+<item id="li1042">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. Listing for Question 14. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1030" display="block">public class Ap062{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Object[] A = new Object[2];
+    A[0] = new MyClass(1.0);
+    A[1] = new MyClass(2.0);
+    
+    System.out.println(
+      A[0].getData() + "  " +
+      A[1].getData());
+  }//end doArrays()
+}// end class
+
+class MyClass{
+  private double data;
+  
+  public MyClass(double data){
+    this.data = data;
+  }//end constructor
+  
+  public double getData(){
+    return data;
+  }//end getData()
+}// end MyClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1031">
+<link id="a1048" target-id="answer14">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+What output is produced by program shown in 
+
+<link id="a1049" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1043">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1045">
+C. 1.0 2.0
+
+</item>
+
+
+	
+
+<item id="li1046">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. Listing for Question 15. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+
+
+<code id="pre1031" display="block">public class Ap063{
+  public static void main(
+                        String args[]){
+    new Worker().doArrays();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doArrays(){
+    Object[] A = new Object[2];
+    A[0] = new MyClass(1.0);
+    A[1] = new MyClass(2.0);
+    
+    System.out.println(
+      ((MyClass)A[0]).getData() + "  "
+      + ((MyClass)A[1]).getData());
+  }//end doArrays()
+}// end class
+
+class MyClass{
+  private double data;
+  
+  public MyClass(double data){
+    this.data = data;
+  }//end constructor
+  
+  public double getData(){
+    return data;
+  }//end getData()
+}// end MyClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1033">
+<link id="a1050" target-id="answer15">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1047">
+<link id="a1051" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1052" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1053" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1054" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1055" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1056" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1057" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1059" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1060" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10.
+
+</item>
+
+
+
+	
+
+<item id="li1057">
+<link id="a1061" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Listing for Question 11. 
+
+</item>
+
+
+	
+
+<item id="li1058">
+<link id="a1062" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Listing for Question 12. 
+
+</item>
+
+
+	
+
+<item id="li1059">
+<link id="a1063" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Listing for Question 13. 
+
+</item>
+
+
+	
+
+<item id="li1060">
+<link id="a1064" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Listing for Question 14. 
+
+</item>
+
+
+	
+
+<item id="li1061">
+<link id="a1065" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Listing for Question 15. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1062">
+Module name: Ap0050: Self-assessment, Escape Character 
+				Sequences and Arrays
+
+</item>
+
+
+				
+
+<item id="li1063">
+File: Ap0050.htm 
+
+</item>
+
+
+				
+
+<item id="li1064">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1065">
+Published at cnx.org: 12/03/12
+
+</item>
+
+
+
+
+<item id="li1066">
+Revised: 08/17/15
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1036">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1037">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1038">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1039">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21015">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+C. 1.0 2.0 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 15
+
+</emphasis>
+</title>
+
+
+<para id="p1041">
+
+This is an upgrade of the program from 
+
+<link id="a1066" target-id="question14">
+
+Question 14
+
+</link>
+
+. This program applies the 
+proper downcast operator to the references extracted from the array of type 
+
+
+<emphasis id="strong1006" effect="bold">
+Object
+
+</emphasis>
+ before attempting to call the method named 
+
+<emphasis id="strong1007" effect="bold">
+getData
+
+</emphasis>
+ on those references. 
+
+
+<emphasis id="em1000" effect="italics">
+(For more information, see the discussion of 
+
+</emphasis>
+<link id="a1067" target-id="question14">
+
+
+<emphasis id="em1001" effect="italics">
+Question 14
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1002" effect="italics">
+.)
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1042">
+As a result of applying a proper downcast, the program compiles and runs 
+successfully. 
+
+</para>
+
+
+
+
+<para id="p1043">
+<link id="a1068" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1008" effect="bold">
+Explanation 14
+
+</emphasis>
+</title>
+
+
+<para id="p1045">
+
+
+
+<emphasis id="strong1009" effect="bold">
+Storing references in a generic array of type Object
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1046">
+This program stores references to two objects instantiated from a new class 
+named 
+
+<emphasis id="strong1010" effect="bold">
+MyClass
+
+</emphasis>
+ in the elements of an array object of declared type 
+
+
+<emphasis id="strong1011" effect="bold">
+Object
+
+</emphasis>
+. That 
+is OK. 
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1012" effect="bold">
+Calling a method on the references
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1048">
+Then the program extracts the references to the two objects and attempts to 
+call the method named 
+
+<emphasis id="strong1013" effect="bold">
+getData
+
+</emphasis>
+ on each of the references. That is not OK. 
+
+</para>
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1014" effect="bold">
+Downcast is required 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1050">
+Because the method named 
+
+<emphasis id="strong1015" effect="bold">
+getData
+
+</emphasis>
+ is not defined in the class named 
+
+
+<emphasis id="strong1016" effect="bold">
+Object
+
+</emphasis>
+, in 
+order to call this method on references extracted from an array of type 
+
+<emphasis id="strong1017" effect="bold">
+Object
+
+</emphasis>
+, 
+it is necessary to downcast the references to the class in which the method is 
+defined. In this case, the method is defined in the new class named 
+
+<emphasis id="strong1018" effect="bold">
+MyClass
+
+</emphasis>
+
+
+
+<emphasis id="em1003" effect="italics">
+(but 
+it could be defined in an intermediate class in the class hierarchy if the new 
+class extended some class further down the hierarchy)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1051">
+Here is a partial listing of the compiler error produced by this program: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1032" display="block">Ap062.java:15: error: cannot find symbol
+      A[0].getData() + "  " +
+          ^
+  symbol:   method getData()
+  location: class Object
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1052">
+<link id="a1069" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+D. None of the above. 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1019" effect="bold">
+Explanation 13
+
+</emphasis>
+</title>
+
+
+<para id="p1054">
+
+The array object of type 
+
+<emphasis id="strong1020" effect="bold">
+Object
+
+</emphasis>
+ in this program is capable of storing a 
+reference to a new object instantiated from the new class named 
+
+<emphasis id="strong1021" effect="bold">
+MyClass
+
+</emphasis>
+. 
+However, because the new class does not override the 
+
+<emphasis id="strong1022" effect="bold">
+toString
+
+</emphasis>
+ 
+method, when a string representation of the new object is displayed, the string 
+representation is created using the version of the 
+
+<emphasis id="strong1023" effect="bold">
+toString
+
+</emphasis>
+ 
+method that is inherited from the 
+
+<emphasis id="strong1024" effect="bold">
+Object
+
+</emphasis>
+ class. That causes this program to 
+produce an output similar to the following:
+
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1025" effect="bold">
+Zero 1 MyClass@273d3c
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+<link id="a1070" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+C. Zero 1 2.0 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1026" effect="bold">
+Explanation 12
+
+</emphasis>
+</title>
+
+
+<para id="p1058">
+
+
+
+<emphasis id="strong1027" effect="bold">
+A type-generic array object
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1059">
+As explained in 
+
+<link id="a1071" target-id="question11">
+
+Question 11
+
+</link>
+
+, an array object of the type 
+
+
+<emphasis id="strong1028" effect="bold">
+Object
+
+</emphasis>
+ is a generic 
+array that can be used to store references to objects instantiated from any 
+class. 
+
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1029" effect="bold">
+Storing mixed reference types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1061">
+This program instantiates objects from the classes 
+
+<emphasis id="strong1030" effect="bold">
+String
+
+</emphasis>
+,
+
+
+<emphasis id="strong1031" effect="bold">
+Integer
+
+</emphasis>
+, and 
+
+<emphasis id="strong1032" effect="bold">
+Double
+
+</emphasis>
+, and stores those objects' 
+references in 
+the elements of an array of type 
+
+<emphasis id="strong1033" effect="bold">
+Object
+
+</emphasis>
+. Then the program accesses the 
+references and uses them to display string representations of each of the 
+objects. 
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1034" effect="bold">
+Polymorphic behavior applies 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1063">
+Once again, polymorphic behavior involving overridden versions of the 
+
+<emphasis id="strong1035" effect="bold">
+
+toString
+
+</emphasis>
+ method were involved and it was not necessary to downcast the 
+references to their true type to display string representations of the objects.
+
+
+</para>
+
+
+
+
+<para id="p1064">
+<link id="a1072" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+C. Zero One Two 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1036" effect="bold">
+Explanation 11
+
+</emphasis>
+</title>
+
+
+<para id="p1066">
+
+
+
+<emphasis id="strong1037" effect="bold">
+Storing references to subclass types 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1067">
+When you create an array object for a type defined by a class definition, the 
+elements of the array can be used to store references to objects of that class 
+or any subclass of that class. 
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1038" effect="bold">
+A type-generic array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1069">
+All classes in Java are subclasses of the class named 
+
+<emphasis id="strong1039" effect="bold">
+Object
+
+</emphasis>
+. This program 
+creates an array object with the declared type being type 
+
+
+<emphasis id="strong1040" effect="bold">
+Object
+
+</emphasis>
+. An array of 
+type 
+
+<emphasis id="strong1041" effect="bold">
+Object
+
+</emphasis>
+ can be used to store references to objects instantiated from any 
+class. 
+
+</para>
+
+
+
+
+<para id="p1070">
+After creating the array object, this program instantiates three objects of 
+the class 
+
+<emphasis id="strong1042" effect="bold">
+String
+
+</emphasis>
+ and stores those object's references in the 
+elements of the array. 
+
+<emphasis id="em1004" effect="italics">
+(As I pointed out in the comments, there is a simpler and 
+better way to instantiate 
+
+</emphasis>
+ 
+
+<emphasis id="strong1043" effect="bold">
+<emphasis id="em1005" effect="italics">
+String
+
+</emphasis>
+</emphasis>
+<emphasis id="em1006" effect="italics">
+ objects, but it wouldn't 
+illustrate my point as well as doing the way that I did.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1044" effect="bold">
+Sometimes you need to downcast
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1072">
+Although an array of type 
+
+<emphasis id="strong1045" effect="bold">
+Object
+
+</emphasis>
+ can be used to store references to objects 
+of any type 
+
+<emphasis id="em1007" effect="italics">
+(including mixed types and references to other array objects)
+
+</emphasis>
+, you will sometimes need to downcast those 
+references back to their true type once you extract them from the array and 
+attempt to use them for some purpose. 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1046" effect="bold">
+Polymorphic behavior applies here
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1074">
+For this case, however, because the 
+
+<emphasis id="strong1047" effect="bold">
+toString
+
+</emphasis>
+ method is defined in the 
+
+
+<emphasis id="strong1048" effect="bold">
+Object
+
+</emphasis>
+ class and overridden in the 
+
+<emphasis id="strong1049" effect="bold">
+String
+
+</emphasis>
+ class, polymorphic 
+behavior applies and it is not necessary to downcast the references to type
+
+
+<emphasis id="strong1050" effect="bold">
+String
+
+</emphasis>
+ in order to be able to convert them to strings and 
+display them. 
+
+</para>
+
+
+
+
+<para id="p1075">
+<link id="a1073" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1033" display="block">C.  0
+    0 1
+    0 2 4</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1051" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1052" effect="bold">
+Defer size specification for secondary arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+It is not necessary to specify the sizes of the secondary arrays when you 
+create a multi-dimensional array in Java. Rather, since the elements in the 
+primary array simply contain references to other array objects 
+
+<emphasis id="em1008" effect="italics">
+(or null by 
+default)
+
+</emphasis>
+, you can defer the creation of those secondary array objects until 
+later. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1053" effect="bold">
+Independent array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1079">
+When you do finally create the secondary arrays, they are essentially 
+independent array objects 
+
+<emphasis id="em1009" effect="italics">
+(except for the requirement for type commonality among 
+them)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1054" effect="bold">
+Ragged arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1081">
+Each individual secondary array can be of any size, and this leads to the 
+concept of a 
+
+<emphasis id="em1010" effect="italics">
+ragged array
+
+</emphasis>
+. 
+
+<emphasis id="em1011" effect="italics">
+(On a two-dimensional basis, a ragged array might be 
+thought of as a two-dimensional array where each row can have a different number 
+of columns.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1082">
+This program creates, populates, and displays the contents of such a 
+two-dimensional ragged array. Although this program creates a two-dimensional 
+array that is triangular in shape, even that is not a requirement. The number of 
+elements in each of the secondary arrays need have no relationship to the number 
+of elements in any of the other secondary arrays. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<link id="a1074" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1084">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1055" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+<para id="p1085">
+
+
+
+<emphasis id="strong1056" effect="bold">
+NullPointerException
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1086">
+The following code fragment shows that this program attempts to perform an 
+illegal operation on the value accessed from the array object at index 1.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1034" display="block">    Integer[] A = new Integer[2];   
+    A[0] = new Integer(1);
+    System.out.println(
+                      A[1].intValue());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1087">
+You can't call methods on null references 
+
+</para>
+
+
+
+
+<para id="p1088">
+The reference value that was returned by accessing 
+
+<emphasis id="strong1057" effect="bold">
+A[1]
+
+</emphasis>
+ is the default value of null. This is the value that was deposited in the 
+element when the array object was created 
+
+<emphasis id="em1012" effect="italics">
+(no other value was ever stored 
+there)
+
+</emphasis>
+. When an attempt was made to call the 
+
+<emphasis id="strong1058" effect="bold">
+intValue
+
+</emphasis>
+ method on that reference 
+value, the following runtime error occurred
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1035" display="block">java.lang.NullPointerException
+ at Worker.doArrays(Ap057.java:14)
+ at Ap057.main(Ap057.java:6)
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1089">
+This is a common programming error, and most Java programmers have seen an 
+error message involving a 
+
+<emphasis id="strong1059" effect="bold">
+NullPointerException
+
+</emphasis>
+ several 
+
+<emphasis id="strong1060" effect="bold">
+(perhaps many)
+
+</emphasis>
+ times 
+during their programming careers. 
+
+</para>
+
+
+
+
+<para id="p1090">
+<link id="a1075" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21022">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1091">
+C. OK
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1061" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+<para id="p1092">
+
+
+
+<emphasis id="strong1062" effect="bold">
+Success at last
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1093">
+This program finally gets it all together and works properly. In particular, 
+after accessing the reference values stored in each of the elements, the program 
+does something legal with those values. 
+
+</para>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1063" effect="bold">
+Call methods on the object's references 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1095">
+In this case, the code calls one of the public methods belonging to the 
+objects referred to by the reference values stored in the array elements.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1036" display="block">System.out.println(A[0].getText() + A[1].getText());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1096">
+The 
+
+<emphasis id="strong1064" effect="bold">
+getText
+
+</emphasis>
+ method that is called, returns the contents of 
+the 
+
+<emphasis id="strong1065" effect="bold">
+Label
+
+</emphasis>
+ object as type 
+
+<emphasis id="strong1066" effect="bold">
+String
+
+</emphasis>
+. This makes it possible to perform 
+
+
+<emphasis id="strong1067" effect="bold">
+String
+
+</emphasis>
+ concatenation on the values returned 
+by the method, so the program compiles and executes properly. 
+
+</para>
+
+
+
+
+<para id="p1097">
+<link id="a1076" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21023">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1098">
+A. Compiler Error
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1068" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+<para id="p1099">
+
+Java arrays may seem different to you
+
+
+</para>
+
+
+
+
+<para id="p1100">
+For all types other than the primitive types, you may find the use of arrays 
+in Java to be considerably different from what you are accustomed to in other 
+programming languages. There are a few things that you should remember. 
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1069" effect="bold">
+Array elements may contain default values 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1102">
+If the declared type of an array is one of the primitive types, the elements 
+of the array contain values of the declared type. If you have not initialized 
+those elements or have not assigned specific values to the elements, they will 
+contain default values. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1070" effect="bold">
+The default values
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1104">
+You need to know that: 
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1067">
+The default for numeric primitive types is the zero value for that type
+
+</item>
+
+
+	
+
+<item id="li1068">
+The default for the 
+
+<emphasis id="strong1071" effect="bold">
+boolean
+
+</emphasis>
+ type is false
+
+</item>
+
+
+	
+
+<item id="li1069">
+The default for the 
+
+<emphasis id="strong1072" effect="bold">
+char
+
+</emphasis>
+ type is a 16-bit unsigned integer, all of whose 
+	bits have a zero value 
+
+<emphasis id="em1013" effect="italics">
+(sometimes called a null character)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1070">
+The default value for reference types is 
+
+<emphasis id="em1014" effect="italics">
+null
+
+</emphasis>
+, not to be 
+	confused with the 
+
+<emphasis id="em1015" effect="italics">
+null character
+
+</emphasis>
+ above. 
+
+<emphasis id="em1016" effect="italics">
+(An array element that contains null doesn't refer to an 
+	object.)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+<para id="p1105">
+
+
+
+<emphasis id="strong1073" effect="bold">
+Arrays of references
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1106">
+If the declared type for the array is not one of the primitive types, the 
+elements in the array are actually reference variables. Objects are never 
+stored directly in a Java array. Only references to objects are stored in a Java 
+array. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1074" effect="bold">
+If the array type is the name of a class ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1108">
+If the declared type is the name of a class, references to objects of that 
+class or any subclass of that class can be stored in the elements of the array.
+
+
+</para>
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1075" effect="bold">
+If the array type is the name of an interface ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1110">
+If the declared type is the name of an interface, references to objects of 
+any class that implements the interface, or references to objects of any 
+subclass of a class that implements the interface can be stored in the elements 
+of the array. 
+
+</para>
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1076" effect="bold">
+Why did this program fail to compile?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1112">
+Now back to the program at hand. Why did this program fail to compile? To 
+begin with, this array was not designed to store any of the primitive types. 
+Rather, this array was designed to store references to objects instantiated from 
+the class named 
+
+<emphasis id="strong1077" effect="bold">
+Label
+
+</emphasis>
+, as indicated in the following fragment.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1037" display="block">    Label[] A = new Label[2];</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1078" effect="bold">
+Elements initialized to null 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1114">
+This is a two-element array. When first created, it contains two elements, 
+each having a default value of 
+
+<emphasis id="em1017" effect="italics">
+null
+
+</emphasis>
+. What this really means is that the 
+reference values stored in each of the two elements don't initially refer to 
+any object. 
+
+</para>
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1079" effect="bold">
+Populate the array elements 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1116">
+The next fragment creates two instances 
+
+<emphasis id="em1018" effect="italics">
+(objects)
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1080" effect="bold">
+Label
+
+</emphasis>
+ 
+class and assigns those object's references to the two elements in the array 
+object. This is perfectly valid.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1038" display="block">    A[0] = new Label("O");
+    A[1] = new Label("K");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1081" effect="bold">
+You cannot add reference values
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1118">
+The problem arises in the next fragment. Rather than dealing with the 
+object's references in an appropriate manner, this fragment attempts to 
+access the text values of the two reference variables and concatenate those values.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1039" display="block">    System.out.println(A[0] + A[1]);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1119">
+The compiler produces the following error message: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1040" display="block">
+Ap055.java:14: error: bad operand types for binary operator '+'
+    System.out.println(A[0] + A[1]);
+                            ^
+  first type:  Label
+  second type: Label
+1 error</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1120">
+This error message is simply telling us that it is not legal to add the 
+values of reference variables. 
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1082" effect="bold">
+Not peculiar to arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1122">
+This problem is not peculiar to arrays. You would get a similar error if you 
+attempted to add two reference variables even when they aren't stored in an 
+array. In this case, the code to access the values of the elements is good. The 
+problem arises when we attempt to do something illegal with those values after 
+we access them. 
+
+</para>
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1083" effect="bold">
+Usually two steps are required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1124">
+Therefore, except in some special cases such as certain operations involving 
+the wrapper classes, to use Java arrays with types other than the primitive types, when 
+you access the value stored in an element of the array 
+
+<emphasis id="em1019" effect="italics">
+(a reference variable)
+
+</emphasis>
+ 
+you must perform only those operations on that reference variable that are legal 
+for an object of that type. That usually involves two steps. The first step 
+accesses the reference to an object. The second step performs some operation on 
+the object. 
+
+</para>
+
+
+
+
+<para id="p1125">
+<link id="a1077" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1126">
+C. 3 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1084" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1127">
+Once you create an array object for a primitive type in Java, you can treat 
+the elements of the array pretty much as you would treat the elements of an 
+array in other programming languages. In particular, a statement such the 
+following can be used to assign a value to an indexed element in an array 
+referred to by a reference variable named 
+
+<emphasis id="strong1085" effect="bold">
+A
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1041" display="block">A[1] = 2;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1128">
+Similarly, when you reference an indexed element in an expression such as the 
+following, the value stored in the element is used to evaluate the expression.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1042" display="block">System.out.println(A[0] + A[1]);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1129">
+For all Java arrays, you must remember to create the new array object and to store the array object's reference in a reference variable of the correct 
+type. Then you can use the reference variable to gain access to the elements in 
+the array. 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<link id="a1078" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1131">
+B. Runtime Error
+
+</para>
+
+
+
+
+<section id="h31010">
+<title>
+<emphasis id="strong1086" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+<para id="p1132">
+
+
+
+<emphasis id="strong1087" effect="bold">
+Good fences make good neighbors
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1133">
+One of the great things about an array object in Java is that it knows how to 
+protect its boundaries. 
+
+</para>
+
+
+
+
+<para id="p1134">
+Unlike some other currently popular programming languages, if your program 
+code attempts to access a Java array element outside its boundaries, an 
+exception will be thrown. If your program doesn't catch and handle the 
+exception, the program will be terminated. 
+
+</para>
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1088" effect="bold">
+Abnormal termination
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1136">
+While experiencing abnormal program termination isn't all that great, it is 
+better than the alternative of using arrays whose boundaries aren't protected. 
+Programming languages that don't protect the array boundaries simply overwrite 
+other data in memory whenever the array boundaries are exceeded. 
+
+</para>
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1089" effect="bold">
+Attempt to access out of bounds element 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1138">
+The code in the 
+
+<emphasis id="strong1090" effect="bold">
+for
+
+</emphasis>
+ loop in the following fragment attempts 
+to access the array element at the index value 5. That index value is out of 
+bounds of the array.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1043" display="block">      for(int j = 0;j &lt; 6;j++){
+        System.out.print(
+                  myArray[i][j] + " ");
+      }//end inner for loop</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1139">
+Because that index value is outside the boundaries of the array, an 
+	
+
+<emphasis id="strong1091" effect="bold">
+ArrayIndexOutOfBoundsException
+
+</emphasis>
+ is thrown. The exception isn't caught and handled 
+by program code, so the program terminates abnormally at runtime.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+This program also illustrates that it is usually better to use the 
+
+<emphasis id="strong1092" effect="bold">
+length
+
+</emphasis>
+ 
+property of an array to control iterative loops than to use hard-coded limit 
+values, which may be coded erroneously. 
+
+</para>
+
+
+
+
+<para id="p1141">
+<link id="a1079" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+
+<note id="note1019" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1044" display="block">C.  1 1 1 1 1
+    1 2 3 4 5
+    1 3 5 7 9</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+
+<section id="h31011">
+<title>
+<emphasis id="strong1093" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+<para id="p1142">
+
+
+
+<emphasis id="strong1094" effect="bold">
+A two-dimensional array
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1143">
+This program illustrates how to create, populate, and process a 
+two-dimensional array with three rows and five columns. 
+
+</para>
+
+
+
+	
+
+<para id="p1144">
+<emphasis id="em1020" effect="italics">
+(As mentioned earlier, a Java programmer who understands the fine points 
+	of the language probably wouldn't call this a two-dimensional array. Rather, 
+	this is a one-dimensional array containing three elements. Each of those 
+	elements is a reference to a one-dimensional array containing five elements. 
+	That is the more general way to think of Java arrays.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1145">
+The following code fragment creates the array, using one of the acceptable 
+formats discussed in 
+
+<link id="a1080" target-id="question03">
+
+Question 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1045" display="block">    int myArray[][];
+    myArray = new int[3][5];</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1095" effect="bold">
+Populating the array 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1147">
+The next code fragment uses a pair of nested 
+
+<emphasis id="strong1096" effect="bold">
+for
+
+</emphasis>
+ loops to populate the 
+elements in the array with values of type 
+
+<emphasis id="strong1097" effect="bold">
+int
+
+</emphasis>
+. 
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1046" display="block">    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        myArray[i][j] = i*j + 1;
+      }//end inner for loop
+    }//end outer for loop</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+	
+
+
+<para id="p1148">
+This is where 
+the analogy of a two-dimensional array falls apart. It is much easier at this 
+point to think in terms of a three-element primary array, each of whose elements 
+contains a reference to a secondary array containing five elements. 
+
+<emphasis id="em1021" effect="italics">
+(Note that 
+in Java, the secondary arrays don't all have to be of the same size. Hence, it 
+is possible to create odd-shaped multi-dimensional arrays in Java.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1098" effect="bold">
+Using the length property
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1150">
+Pay special attention to the two chunks of code that use the length properties of the arrays to determine the number of 
+iterations for each of the 
+
+<emphasis id="strong1099" effect="bold">
+for
+
+</emphasis>
+ loops. 
+
+</para>
+
+
+
+
+<para id="p1151">
+The first chunk determines the number of elements in the primary 
+array. In this case, the length property contains the value 3. 
+
+</para>
+
+
+
+
+<para id="p1152">
+The second chunk determines the number of elements in the secondary 
+array that is referred to by the contents of the element at index 0 in the 
+primary array. 
+
+<emphasis id="em1022" effect="italics">
+(Think carefully about what I just said.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1153">
+In this case, the length property of the secondary array contains 
+the value 5. 
+
+</para>
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1100" effect="bold">
+Putting data into the secondary array elements 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1155">
+The code interior to the inner loop simply calculates some numeric values and 
+stores those values in the elements of the three secondary array objects. 
+
+</para>
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1101" effect="bold">
+Let's look at a picture
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1157">
+Here is a picture that attempts to illustrate what is really going on here. I 
+don't know if it will make sense to you or not, but hopefully, it won't make the 
+situation any more confusing than it might already be. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1047" display="block">[-&gt;]  [1][1][1][1][1]</code>
+
+
+
+
+<code id="pre1048" display="block">[-&gt;]  [1][2][3][4][5]</code>
+
+
+
+
+<code id="pre1049" display="block">[-&gt;]  [1][3][5][7][9]</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1102" effect="bold">
+The primary array 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1159">
+The three large boxes on the left represent the individual elements of the 
+three-element primary array. The length property for this array has a value of 
+3. The arrows in the boxes indicate that the content of each of these three 
+elements is a reference to one of the five-element arrays on the right. 
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1103" effect="bold">
+The secondary arrays 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+Each of the three rows of five boxes on the right represents a separate 
+five-element array object. Each element in each of those array objects contains 
+the 
+
+<emphasis id="strong1104" effect="bold">
+int
+
+</emphasis>
+ value shown. The length property for each of those 
+arrays has a value of 5. 
+
+</para>
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1105" effect="bold">
+Access and display the array data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1163">
+The code in the following fragment is another pair of nested 
+
+<emphasis id="strong1106" effect="bold">
+for
+
+</emphasis>
+ loops. 
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1050" display="block">    for(int i=0;i&lt;myArray.length;i++){
+      for(int j=0;
+              j&lt;myArray[0].length;j++){
+        System.out.print(
+                  myArray[i][j] + " ");
+      }//end inner for loop
+      System.out.println("");
+    }//end outer for loop</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1164">
+In this 
+case, the code in the inner loop accesses the contents of the individual 
+elements in the three five-element arrays and displays those contents. If you 
+understand the earlier code in this program, you shouldn't have any difficulty 
+understanding the code in this fragment.
+
+</para>
+
+
+
+
+<para id="p1165">
+<link id="a1081" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1166">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31012">
+<title>
+<emphasis id="strong1107" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+<para id="p1167">
+
+
+
+<emphasis id="strong1108" effect="bold">
+An incorrect statement 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1168">
+The following statement is not the proper way to create an array object in 
+Java. 
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1024" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1051" display="block">     int myArray[3][5];</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1169">
+This statement caused the program to fail to compile, producing several 
+error messages.
+
+</para>
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1109" effect="bold">
+What is the correct syntax?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1171">
+There are several different formats that can be used to create an array 
+object in Java. One of the acceptable ways was illustrated by the code used in 
+
+
+<link id="a1082" target-id="question02">
+
+Question 2
+
+</link>
+
+. Three more acceptable formats are shown below.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1025" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1052" display="block">    int[][] myArrayA = new int[3][5];
+
+    int myArrayB[][] = new int[3][5];
+
+    int myArrayC[][];
+    myArrayC = new int[3][5];</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1110" effect="bold">
+Two steps are required 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1173">
+The key thing to remember is that an array is an object in Java. Just like 
+all other 
+
+<emphasis id="em1023" effect="italics">
+(non-anonymous)
+
+</emphasis>
+ objects in Java, there are two steps involved in 
+creating and preparing an object for use. 
+
+</para>
+
+
+
+
+<para id="p1174">
+<emphasis id="strong1111" effect="bold">
+Declare a reference variable 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1175">
+The first step is to declare a reference variable capable of holding a 
+reference to the object. 
+
+</para>
+
+
+
+
+<para id="p1176">
+<emphasis id="strong1112" effect="bold">
+The second step
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1177">
+The second step is to create the object and to assign the object's reference 
+to the reference variable. From that point on, the reference variable can be 
+used to gain access to the object. 
+
+</para>
+
+
+
+
+<para id="p1178">
+<emphasis id="strong1113" effect="bold">
+Two steps can often be combined 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1179">
+Although there are two steps involved, they can often be combined into a 
+single statement, as indicated by the first two acceptable formats shown above.
+
+
+</para>
+
+
+
+
+<para id="p1180">
+In both of these formats, the code on the left of the assignment operator 
+declares a reference variable. The code on the right of the assignment operator 
+creates a new array object and returns the array object's reference. The 
+reference is assigned to the new reference variable declared on the left. 
+
+</para>
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1114" effect="bold">
+A two-dimensional array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1182">
+In the code fragments shown above, the array object is a two-dimensional array object that 
+can be thought of as consisting of three rows and five columns. 
+
+</para>
+
+
+
+	
+
+<para id="p1183">
+<emphasis id="em1024" effect="italics">
+(Actually, multi-dimensional array objects in Java can be much more complex 
+	than this. In 
+	fact, although I have referred to this as a two-dimensional array object, 
+	there is no such thing as a multi-dimensional array object in Java. The concept of a 
+	multi-dimensional array in Java is achieved by creating a tree structure of single-dimensional 
+	array objects that contain references to other single-dimensional array 
+	objects.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1184">
+
+
+
+<emphasis id="strong1115" effect="bold">
+The square brackets in the declaration
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1185">
+What about the placement and the number of matching pairs of empty square 
+brackets? As indicated in the first two acceptable formats shown above, the 
+empty square brackets can be next to the name of the type or next to the name of 
+the reference variable. The end result is the same, so you can use whichever 
+format you prefer. 
+
+</para>
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1116" effect="bold">
+How many pairs of square brackets are required? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1187">
+Also, as implied by the acceptable formats shown above, the number of 
+matching pairs of empty square brackets must match the number of so-called 
+
+
+<emphasis id="em1025" effect="italics">
+dimensions
+
+</emphasis>
+ of the array. 
+
+<emphasis id="em1026" effect="italics">
+(This tells the compiler to create a reference variable 
+capable of holding a reference to a one-dimensional array object, whose elements 
+are capable of holding references to other array objects.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1117" effect="bold">
+Making the two steps obvious
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1189">
+A third acceptable format, also shown above, separates the process into two 
+steps. 
+
+</para>
+
+
+
+
+<para id="p1190">
+One statement in the third format declares a reference variable capable of 
+holding a reference to a two-dimensional array object containing data of type
+
+
+<emphasis id="strong1118" effect="bold">
+int
+
+</emphasis>
+. When that statement finishes executing, the reference 
+variable exists, but it doesn't refer to an actual array object. The next 
+statement creates an array object and assigns that object's reference to the 
+reference variable. 
+
+</para>
+
+
+
+
+<para id="p1191">
+<link id="a1083" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21028">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1192">
+D. Tom Dick Harry 
+
+</para>
+
+
+
+
+<section id="h31013">
+<title>
+<emphasis id="strong1119" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+<para id="p1193">
+
+
+
+<emphasis id="strong1120" effect="bold">
+An array is an object in Java
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1194">
+An array is a special kind of object in Java. Stated differently, all array 
+structures are encapsulated in objects in Java. Further. all array structures 
+are one-dimensional. I often refer to this special kind of object as an 
+
+<emphasis id="em1027" effect="italics">
+
+array object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1195">
+An array object always has a 
+property named 
+
+<emphasis id="strong1121" effect="bold">
+length
+
+</emphasis>
+. The value of the 
+
+<emphasis id="strong1122" effect="bold">
+length
+
+</emphasis>
+ property is always equal to the 
+number of elements in the array. Thus, a program can always determine the size 
+of an array be examining its 
+
+<emphasis id="strong1123" effect="bold">
+length
+
+</emphasis>
+ property. 
+
+</para>
+
+
+
+
+<para id="p1196">
+<emphasis id="strong1124" effect="bold">
+Instantiating an array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1197">
+An array object can be instantiated in at least two different ways: 
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1071">
+By using the 
+
+<emphasis id="strong1125" effect="bold">
+new
+
+</emphasis>
+ operator in conjunction with the type of data to be 
+	stored in the array.
+
+</item>
+
+
+	
+
+<item id="li1072">
+By specifying an initial value for every element in the array, in which 
+	case the 
+
+<emphasis id="strong1126" effect="bold">
+new
+
+</emphasis>
+ operator is not used.
+
+</item>
+
+
+
+
+</list>
+
+
+<para id="p1198">
+
+This program uses the second of the two ways listed above.
+
+
+</para>
+
+
+
+
+<para id="p1199">
+<emphasis id="strong1127" effect="bold">
+Declaring a reference variable for an array object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1200">
+The following code fragment was extracted from the method named doArrays(). 
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1026" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<code id="pre1053" display="block">    St[] myArray = {new St("Tom"),
+                    new St("Dick"),
+                    new St ("Harry")};</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1201">
+The code to the left of the assignment operator declares a reference variable 
+named 
+
+<emphasis id="strong1128" effect="bold">
+myArray
+
+</emphasis>
+. This reference variable is capable of holding a reference to an 
+array object that contains an unspecified number of references to objects 
+instantiated from the class named 
+
+<emphasis id="strong1129" effect="bold">
+St
+
+</emphasis>
+ 
+
+<emphasis id="em1028" effect="italics">
+(or any subclass of the class named St)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1202">
+<emphasis id="strong1130" effect="bold">
+Note the square brackets
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1203">
+You should note the square brackets in the declaration of the reference 
+variable in the above code 
+
+<emphasis id="em1029" effect="italics">
+(the declaration of a reference variable to hold a 
+reference to an ordinary object doesn't include square brackets)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1131" effect="bold">
+Create the array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1205">
+The code to the right of the assignment operator in the above fragment causes 
+the new array object to come into being. Note that the 
+
+<emphasis id="strong1132" effect="bold">
+new
+
+</emphasis>
+ operator is not used 
+to create the array object in this case. 
+
+<emphasis id="em1030" effect="italics">
+(This is one of the few cases in Java, 
+along with a literal 
+
+</emphasis>
+ 
+
+<emphasis id="strong1133" effect="bold">
+<emphasis id="em1031" effect="italics">
+String
+
+</emphasis>
+</emphasis>
+<emphasis id="em1032" effect="italics">
+ object, where it is possible to 
+create a new object without using either the 
+
+<emphasis id="strong1134" effect="bold">
+new
+
+</emphasis>
+ operator or the
+
+
+<emphasis id="strong1135" effect="bold">
+newInstance
+
+</emphasis>
+ 
+method of the class whose name is 
+
+<emphasis id="strong1136" effect="bold">
+Class
+
+</emphasis>
+.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1206">
+<emphasis id="strong1137" effect="bold">
+Populate the array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1207">
+This syntax not only creates the new array object, it also populates it. The 
+new array object created by the above code contains three elements, because 
+three initial values were provided. The initial values are separated by commas 
+in the initialization syntax. 
+
+</para>
+
+
+
+
+<para id="p1208">
+<emphasis id="strong1138" effect="bold">
+Also instantiates three objects of the St class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1209">
+The code in the above fragment also instantiates three objects of the class 
+named 
+
+<emphasis id="strong1139" effect="bold">
+St
+
+</emphasis>
+. Once the array object has come into being, each of the three elements 
+in the array contains a reference to a new object of the class 
+
+<emphasis id="strong1140" effect="bold">
+St
+
+</emphasis>
+. Each of those 
+objects is initialized to contain the name of a student by using a parameterized 
+constructor that is defined in the class. 
+
+</para>
+
+
+
+
+<para id="p1210">
+<emphasis id="strong1141" effect="bold">
+The length property value is 3
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1211">
+Following execution of the above code, the 
+
+<emphasis id="strong1142" effect="bold">
+length
+
+</emphasis>
+ property of the array 
+object will contain a value of 3, because the array contains three elements, one 
+for each initial value that was provided. 
+
+</para>
+
+
+
+
+<para id="p1212">
+<emphasis id="strong1143" effect="bold">
+Using the length property
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1213">
+The code in the following fragment uses the 
+
+<emphasis id="strong1144" effect="bold">
+length
+
+</emphasis>
+ property of the array 
+object in the conditional clause of a 
+
+<emphasis id="strong1145" effect="bold">
+for
+
+</emphasis>
+ loop to display a 
+
+<emphasis id="strong1146" effect="bold">
+String
+
+</emphasis>
+ 
+representation of each of the objects.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1027" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<code id="pre1054" display="block">  for(int cnt = 0; 
+      cnt &lt; myArray.length;
+      cnt++){
+    System.out.print(
+                   myArray[cnt] + " ");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1214">
+<emphasis id="strong1147" effect="bold">
+Overridden toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1215">
+The class named 
+
+<emphasis id="strong1148" effect="bold">
+St
+
+</emphasis>
+, from which each of the objects was instantiated, defines 
+an overridden 
+
+<emphasis id="strong1149" effect="bold">
+toString
+
+</emphasis>
+ method that causes the string representation of an 
+object of that class to consist of the 
+
+<emphasis id="strong1150" effect="bold">
+String
+
+</emphasis>
+ stored in an 
+instance variable of the object. 
+
+</para>
+
+
+
+
+<para id="p1216">
+Thus, the 
+
+<emphasis id="strong1151" effect="bold">
+for
+
+</emphasis>
+ loop shown above displays the student names that were 
+originally encapsulated in the objects when they were instantiated. 
+
+</para>
+
+
+
+
+<para id="p1217">
+<emphasis id="strong1152" effect="bold">
+The class named St
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1218">
+The code in the following fragment shows the beginning of the class named 
+
+
+<emphasis id="strong1153" effect="bold">
+St
+
+</emphasis>
+ 
+including one instance variable and a parameterized constructor.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1028" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1055" display="block">class St{
+  private String name;
+  
+  public St(String name){
+    this.name = name;
+  }//end constructor</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1219">
+<emphasis id="strong1154" effect="bold">
+A very common syntax
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1220">
+This constructor makes use of a very common syntax involving the reference 
+named 
+
+<emphasis id="strong1155" effect="bold">
+this
+
+</emphasis>
+. Basically, this 
+syntax says to get the value of the incoming parameter whose name is 
+
+<emphasis id="strong1156" effect="bold">
+name
+
+</emphasis>
+ and to 
+assign that value to the instance variable belonging to 
+
+<emphasis id="em1033" effect="italics">
+this object
+
+</emphasis>
+ whose name 
+is also 
+
+<emphasis id="strong1157" effect="bold">
+name
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1221">
+<emphasis id="strong1158" effect="bold">
+Initializing the object of type St
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1222">
+Each time a new object of the 
+
+<emphasis id="strong1159" effect="bold">
+St
+
+</emphasis>
+ class is instantiated, that object contains 
+an instance variable of type 
+
+<emphasis id="strong1160" effect="bold">
+String
+
+</emphasis>
+ whose value matches the
+
+
+<emphasis id="strong1161" effect="bold">
+String
+
+</emphasis>
+ value passed as a parameter to the constructor. 
+
+</para>
+
+
+
+
+<para id="p1223">
+<emphasis id="strong1162" effect="bold">
+Overridden toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1224">
+The overridden 
+
+<emphasis id="strong1163" effect="bold">
+toString
+
+</emphasis>
+ method for the class named 
+
+<emphasis id="strong1164" effect="bold">
+St
+
+</emphasis>
+ is shown in the 
+following code fragment. 
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1029" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1056" display="block">  public String toString(){
+    return name;
+  }//end toString()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1225">
+This version causes the value in the 
+
+<emphasis id="strong1165" effect="bold">
+String
+
+</emphasis>
+ 
+object, referred to by the instance variable named 
+
+<emphasis id="strong1166" effect="bold">
+name
+
+</emphasis>
+, to be returned when it 
+is necessary to produce a 
+
+<emphasis id="strong1167" effect="bold">
+String
+
+</emphasis>
+ representation of the object.
+
+
+</para>
+
+
+
+
+<para id="p1226">
+<link id="a1084" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21029">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1227">
+The answer is item D, which reads as follows:
+
+</para>
+
+
+
+
+
+<note id="note1030" type="">
+
+
+	
+
+
+		
+
+
+		
+
+<code id="pre1057" display="block">"Backslash"-&gt;\ 
+Understand
+</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+<section id="h31014">
+<title>
+<emphasis id="strong1168" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+<para id="p1228">
+
+
+
+<emphasis id="strong1169" effect="bold">
+Don't confuse the compiler
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1229">
+If you include certain characters inside a literal 
+
+<emphasis id="strong1170" effect="bold">
+String
+
+</emphasis>
+, 
+you will confuse the compiler. For example, if you simply include a quotation 
+mark (") inside a literal  
+
+<emphasis id="strong1171" effect="bold">
+String
+
+</emphasis>
+, the compiler will interpret that as the end of 
+the string. From that point on, everything will be out of synchronization. 
+Therefore, in order to include a quotation mark inside a literal string, you 
+must precede it with a backslash character like this: 
+
+</para>
+
+
+
+
+<para id="p1230">
+<emphasis id="strong1172" effect="bold">
+\"
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1231">
+<emphasis id="strong1173" effect="bold">
+Multiple lines
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1232">
+If you want your string to comprise two or more physical lines, you can 
+include a newline code inside a  
+
+<emphasis id="strong1174" effect="bold">
+String
+
+</emphasis>
+ by including the following in the string:
+
+
+</para>
+
+
+
+
+<para id="p1233">
+ 
+
+<emphasis id="strong1175" effect="bold">
+\n
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1234">
+<emphasis id="strong1176" effect="bold">
+Escape character sequences
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1235">
+These character sequences are often referred to as 
+
+<emphasis id="em1034" effect="italics">
+escape character 
+sequences
+
+</emphasis>
+. Since the backslash is used as the first character in such a 
+sequence, if you want to include a backslash in a literal string, you must do it 
+like this: 
+
+</para>
+
+
+
+
+<para id="p1236">
+<emphasis id="strong1177" effect="bold">
+\\
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1237">
+There are some other escape sequences used in Java as well. You would do well 
+to learn how to use them before going to an interview for a job as a Java 
+programmer.
+
+</para>
+
+
+
+
+<para id="p1238">
+<link id="a1085" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1239">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

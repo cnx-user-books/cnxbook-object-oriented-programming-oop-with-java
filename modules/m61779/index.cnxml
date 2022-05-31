@@ -1,0 +1,1605 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0215R: Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61779</md:content-id>
+  <md:title>Json0215R: Review</md:title>
+  <md:abstract>This page contains review questions and answers for the page titled "Json0215: Encoding JSON Strings" in the book titled "The json-simple Java Library".</md:abstract>
+  <md:uuid>bc246226-900f-4887-9431-e64bb589226b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Jun 04 12:48:39 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1005">
+<link id="a1005" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="Figure_index">
+
+Figure index
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="Listing_index">
+
+Listing index
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1012">
+<link id="a1012" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. 
+The book explains how to use the 
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to 
+generate, transform, and query JSON text. This page provides review questions 
+and answers for the page titled 
+
+
+<link id="a1018" url="http://cnx.org/contents/5sRB9gpG:16t-k2Np">
+
+Json0215: Encoding JSON Strings
+
+</link>
+
+. Once you study that page, you should be able to answer the review 
+questions in this page.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers in this page are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+The figures and listings 
+
+<emphasis id="em1004" effect="italics">
+(if any)
+
+</emphasis>
+ are grouped together. It is recommend that when a question 
+or an answer refers to a figure or a listing, that you open it in a new window to 
+make it easy to view it while reading the question or the answer.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1002" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1005">
+True or False? Once you have an object of the class named 
+
+<emphasis id="strong1003" effect="bold">
+JSONObject
+
+</emphasis>
+, 
+you can call any of the methods defined in the 
+
+<emphasis id="strong1004" effect="bold">
+HashMap
+
+</emphasis>
+ class on 
+that object.
+
+</para>
+
+
+
+
+
+
+<para id="p1006">
+<link id="a1019" target-id="answer01">
+
+Go to answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+True or False? The code shown in 
+
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produced 
+the screen output shown in 
+
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<link id="a1022" target-id="answer02">
+
+Go to answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1009">
+True or False? The code shown in 
+
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ produced 
+the screen output shown in 
+
+<link id="a1024" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<link id="a1025" target-id="answer03">
+
+Go to answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figure_index" effect="bold">
+
+Figure index
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1028" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listing_index" effect="bold">
+
+Listing index
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1021">
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1005" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1013">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1015">
+True. The code in 
+
+<link id="a1032" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ uses the 
+
+<emphasis id="strong1006" effect="bold">
+get
+
+</emphasis>
+ 
+method inherited from the 
+
+<emphasis id="strong1007" effect="bold">
+HashMap
+
+</emphasis>
+ class to get and display the 
+values associated with the keys "name", "age", and "student".
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<link id="a1033" target-id="question03">
+
+Go back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+False. The code in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produced the output 
+with the compiler error message shown in 
+
+<link id="a1035" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The 
+output shown in in 
+
+<link id="a1036" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ was produced by the code 
+shown in 
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Note the call to the 
+
+<emphasis id="strong1008" effect="bold">
+
+toJSONString
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1009" effect="bold">
+JSONObject
+
+</emphasis>
+ class to extract 
+the information from the 
+
+<emphasis id="strong1010" effect="bold">
+JSONObject
+
+</emphasis>
+ object and encode it into a 
+JSON string.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<link id="a1038" target-id="question02">
+
+Go back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+True. The class named 
+
+<emphasis id="strong1011" effect="bold">
+JSONObject
+
+</emphasis>
+ extends the standard Java 
+class named 
+
+<emphasis id="strong1012" effect="bold">
+HashMap
+
+</emphasis>
+. Therefore, the 
+
+<emphasis id="strong1013" effect="bold">
+JSONObject
+
+</emphasis>
+ 
+class inherits all of the methods defined in the 
+
+<emphasis id="strong1014" effect="bold">
+HashMap
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<link id="a1039" target-id="question01">
+
+Go back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+This section contains Figures that may be referred to by one or more 
+questions or answers.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1022">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">
+{"student":true,"name":"Joe","age":21}
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<para id="p1023">
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">
+Code01.java:20: error: no suitable method found for get(no arguments)
+    String jsonString = jsonObject.get();
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1024">
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">
+Joe
+21
+true
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains Listings that may be referred to by one or more 
+questions or answers.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1026">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1003" display="block">
+import org.json.simple.JSONObject;
+
+class Code01 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObject= new JSONObject();
+    jsonObject.put("name","Joe");
+    jsonObject.put("age",21);
+    jsonObject.put("student",true);
+
+    String jsonString = jsonObject.get();
+    System.out.println(jsonString);
+
+  }//end main
+}//end class Code01
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1027">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1004" display="block">
+import org.json.simple.JSONObject;
+
+class Code02 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObject= new JSONObject();
+    jsonObject.put("name","Joe");
+    jsonObject.put("age",21);
+    jsonObject.put("student",true);
+
+    String jsonString = jsonObject.toJSONString();
+    System.out.println(jsonString);
+
+  }//end main
+}//end class Code02
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<para id="p1028">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1005" display="block">
+import org.json.simple.JSONObject;
+
+class Code03 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObject= new JSONObject();
+    jsonObject.put("name","Joe");
+    jsonObject.put("age",21);
+    jsonObject.put("student",true);
+
+    System.out.println(jsonObject.get("name"));
+    System.out.println(jsonObject.get("age"));
+    System.out.println(jsonObject.get("student"));
+
+  }//end main
+}//end class Code03
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1015" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1006" list-type="bulleted">
+
+				
+
+<item id="li1024">
+Module name: Json0215R: Review
+
+</item>
+
+
+				
+
+<item id="li1025">
+File: Json0215R.htm 
+
+</item>
+
+
+				
+
+<item id="li1026">
+Published: 06/04/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1016" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1030">
+<emphasis id="strong1017" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1031">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1032">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1033">
+<emphasis id="strong1018" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1034">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

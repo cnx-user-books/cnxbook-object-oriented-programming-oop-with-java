@@ -1,0 +1,4289 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1610: Polymorphism, Type Conversion, Casting, etc.</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44168</md:content-id>
+  <md:title>Java1610: Polymorphism, Type Conversion, Casting, etc.</md:title>
+  <md:abstract>Baldwin teaches you about assignment compatibility, type conversion, and casting for both primitive and reference types.  He also teaches you about the relationship between reference types, method calls, and the location in the class hierarchy where a method is defined.</md:abstract>
+  <md:uuid>549f7db3-3f6f-450b-ae2e-627d6e492ae0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Mar 31 11:49:25 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Definition of the class named A.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Definition of the class named B. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Definition of the class named C. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the class named Poly02. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. An illegal operation.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. An ineffective downcast.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. A downcast to type B.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Declare a variable of type B.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Cannot be assigned to type C.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Another failed attempt.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module discusses type conversion for both 
+
+<emphasis id="em1003" effect="italics">
+primitive
+
+</emphasis>
+ and 
+
+<emphasis id="em1004" effect="italics">
+reference
+
+</emphasis>
+ types. 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+A value of a particular type may be 
+
+<emphasis id="em1005" effect="italics">
+assignment compatible
+
+</emphasis>
+ with variables of other types, in which case the value can be assigned directly to the variable.  Otherwise, it may be possible to perform a 
+
+
+<emphasis id="em1006" effect="italics">
+cast
+
+</emphasis>
+ on the value to change its type and assign it to the variable as the new type. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+With regard to reference types, whether or not a cast can be successfully performed
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1022">
+depends on the relationships of the classes involved in the class hierarchy.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+A reference to any object can be assigned to a reference variable of the type 
+
+
+<emphasis id="strong1000" effect="bold">
+Object
+
+</emphasis>
+, because the 
+
+<emphasis id="strong1001" effect="bold">
+Object
+
+</emphasis>
+ class is a superclass of every other class. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+When we cast a reference along the class hierarchy in a direction from the root class 
+
+
+<emphasis id="strong1002" effect="bold">
+Object
+
+</emphasis>
+ toward the leaves, we often refer to it as a 
+
+<emphasis id="em1007" effect="italics">
+downcast
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Whether or not a method can be called on a reference to an object depends on 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+the current type of the reference, and
+
+</item>
+
+
+	
+
+<item id="li1024">
+the location in the class hierarchy where the method is defined.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+In order to use a reference of a class type to call a method, the method must be defined at or above that class in the class hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+A sample program is provided that illustrates much of the detail involved in type conversion, method 
+calls, and casting with respect to reference types. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1012">
+<emphasis id="strong1003" effect="bold">
+What is polymorphism?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+As a quick review, the meaning of the word 
+
+<emphasis id="em1008" effect="italics">
+polymorphism
+
+</emphasis>
+ is something like 
+
+
+<emphasis id="em1009" effect="italics">
+one name, many forms
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1004" effect="bold">
+How does Java implement polymorphism?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1016">
+In some cases, multiple methods have the same name, but different formal argument lists 
+
+
+<emphasis id="em1010" effect="italics">
+(overloaded methods, which were discussed in a previous module)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+In other cases, multiple methods have the same name, same return type, and same formal argument list 
+
+
+<emphasis id="em1011" effect="italics">
+(overridden methods)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1005" effect="bold">
+Three distinct forms of polymorphism 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1019">
+From a practical programming viewpoint, polymorphism manifests itself in three distinct forms in Java:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1026">
+Method overriding through inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1027">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+I covered method overloading as one form of polymorphism in a previous module.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1006" effect="bold">
+We need to backtrack
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+In this module, I will backtrack a bit and discuss the conversion of references from one type to another.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1023">
+I will begin the discussion of polymorphism through method overriding and inheritance in the next module.  I will cover interfaces in a 
+future module. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1007" effect="bold">
+Assignment compatibility and type conversion
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+As a background for polymorphism, you need to understand something about 
+
+<emphasis id="em1012" effect="italics">
+assignment compatibility
+
+</emphasis>
+ and 
+
+
+<emphasis id="em1013" effect="italics">
+type conversion
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+A value of a given type is assignment compatible with another type if 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1028">
+a value of the first type 
+
+</item>
+
+
+	
+
+<item id="li1029">
+can be successfully assigned to a variable of the second type. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1008" effect="bold">
+Type conversion and the cast operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1028">
+In some cases, type conversion happens automatically.  In other cases, type conversion must be forced through the use of a 
+	
+
+<emphasis id="em1014" effect="italics">
+cast operator
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+A cast operator is a 
+
+<emphasis id="em1015" effect="italics">
+unary
+
+</emphasis>
+ operator, which has a single right operand.  The physical representation of the cast operator is the name of a type inside a pair of matching parentheses, as in:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">(int) </code>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1009" effect="bold">
+Applying a cast operator 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+Applying a cast operator to the name of a variable doesn't actually change the type of the variable.  However, it does cause the contents of the variable to be treated as a different type for the evaluation of the expression in which the cast operator is contained.
+
+Thus, the application of a cast operator is a short-term operation.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1010" effect="bold">
+Primitive values and type conversion
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1033">
+Assignment compatibility issues come into play for both 
+
+<emphasis id="em1016" effect="italics">
+primitive
+
+</emphasis>
+ types and 
+	
+
+<emphasis id="em1017" effect="italics">
+reference
+
+</emphasis>
+ types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Values of type 
+
+<emphasis id="strong1011" effect="bold">
+boolean
+
+</emphasis>
+ can only be assigned to variables of type 
+
+
+<emphasis id="strong1012" effect="bold">
+boolean
+
+</emphasis>
+ 
+
+
+<emphasis id="em1018" effect="italics">
+(you cannot change the type of a 
+
+<emphasis id="strong1013" effect="bold">
+boolean
+
+</emphasis>
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Otherwise, a primitive value can be assigned to any variable of a type 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1030">
+whose range is as wide or wider 
+
+</item>
+
+
+	
+
+<item id="li1031">
+than the range of the type of the value. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+In that case, the type of the value is automatically converted to the type of the variable. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="em1019" effect="italics">
+(For example, types 
+
+</emphasis>
+<emphasis id="strong1014" effect="bold">
+<emphasis id="em1020" effect="italics">
+byte
+
+</emphasis>
+</emphasis>
+<emphasis id="em1021" effect="italics">
+ and 
+
+</emphasis>
+
+
+
+<emphasis id="strong1015" effect="bold">
+<emphasis id="em1022" effect="italics">
+short
+
+</emphasis>
+</emphasis>
+<emphasis id="em1023" effect="italics">
+ can be assigned to a variable of type 
+
+</emphasis>
+
+
+
+<emphasis id="strong1016" effect="bold">
+<emphasis id="em1024" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1025" effect="italics">
+ without the requirement for a cast because type 
+
+
+</emphasis>
+<emphasis id="strong1017" effect="bold">
+<emphasis id="em1026" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1027" effect="italics">
+ has a wider range than either type 
+
+</emphasis>
+
+
+
+<emphasis id="strong1018" effect="bold">
+<emphasis id="em1028" effect="italics">
+byte
+
+</emphasis>
+</emphasis>
+<emphasis id="em1029" effect="italics">
+ or type 
+
+</emphasis>
+<emphasis id="strong1019" effect="bold">
+<emphasis id="em1030" effect="italics">
+short
+
+</emphasis>
+</emphasis>
+<emphasis id="em1031" effect="italics">
+.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1020" effect="bold">
+Conversion to narrower range
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+On the other hand, a primitive value of a given type cannot be assigned to a variable of a type with a narrower range than the type of the value, 
+
+
+
+<emphasis id="strong1021" effect="bold">
+unless the cast operator is used to force a type conversion.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1040">
+Oftentimes, such a conversion will result in the loss of data, and that loss is the responsibility of the programmer who performs the cast. 
+
+</para>
+
+
+
+	
+
+<para id="p1041">
+Assignment compatibility for references
+
+
+
+</para>
+
+
+
+
+
+<para id="p1042">
+Assignment compatibility, with respect to references, doesn't involve range issues, as is the case with primitives.  
+Instead, the reference to an object instantiated from a given class can be assigned to: 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1032">
+<emphasis id="Any_reference_variable" effect="bold">
+
+Any reference variable
+
+</emphasis>
+
+ whose type is the same as the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1033">
+Any reference variable whose type is a superclass of the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1034">
+Any reference variable whose type is an interface that is implemented by the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1035">
+Any reference variable whose type is an interface that is implemented by 
+	a superclass of the class from which the object was instantiated, and
+
+</item>
+
+
+	
+
+<item id="li1036">
+A few other cases involving the class and interface hierarchy. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1043">
+Such an assignment does not require the use of a cast operator. 
+
+</para>
+
+
+
+	
+
+<para id="p1044">
+<emphasis id="strong1022" effect="bold">
+Type Object is completely generic
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+A reference to any object can be assigned to a reference variable of the type 
+
+
+<emphasis id="strong1023" effect="bold">
+Object
+
+</emphasis>
+, because the 
+
+<emphasis id="strong1024" effect="bold">
+Object
+
+</emphasis>
+ class is a superclass of every other class. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1025" effect="bold">
+Converting reference types with a cast
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Assignments of references, other than those listed 
+
+
+<link id="a1022" target-id="Any_reference_variable">
+
+above
+
+</link>
+
+, require the use of a cast operator to purposely change the type of the reference. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1026" effect="bold">
+Doesn't work in all cases
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+However, it is not possible to perform a successful cast to convert the type of a reference in all cases.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+Generally, a cast can only be performed among reference types that fall on the same ancestral line of the class hierarchy, or on an ancestral line of an interface hierarchy.  For example, a reference cannot be successfully cast to the type of a sibling or a cousin in the class hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1027" effect="bold">
+Downcasting
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1052">
+When we cast a reference along the class hierarchy in a direction from the root class 
+	
+
+<emphasis id="strong1028" effect="bold">
+Object
+
+</emphasis>
+ toward the leaves, we often refer to it as a 
+
+<emphasis id="em1032" effect="italics">
+downcast
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+While it is also possible to cast in the direction from the leaves to the root, this happens automatically, and the use of a cast operator is not required.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1029" effect="bold">
+A sample program
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+The program named 
+
+<emphasis id="strong1030" effect="bold">
+Poly02
+
+</emphasis>
+, shown in 
+
+<link id="a1023" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ near the end of the module, illustrates the use of the cast operator with references. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+When you examine that program, you will see that two classes named 
+
+<emphasis id="strong1031" effect="bold">
+A
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1032" effect="bold">
+C
+
+</emphasis>
+ each extend the class named 
+
+<emphasis id="strong1033" effect="bold">
+Object
+
+</emphasis>
+.  Hence, we might say that they are siblings in the class hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Another class named 
+
+<emphasis id="strong1034" effect="bold">
+B
+
+</emphasis>
+ extends the class named 
+
+<emphasis id="strong1035" effect="bold">
+A
+
+</emphasis>
+.  Thus, we might say that 
+
+
+<emphasis id="strong1036" effect="bold">
+A
+
+</emphasis>
+ is a child of 
+
+<emphasis id="strong1037" effect="bold">
+Object
+
+</emphasis>
+, and 
+
+<emphasis id="strong1038" effect="bold">
+B
+
+</emphasis>
+ is a child of 
+
+
+<emphasis id="strong1039" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1040" effect="bold">
+The class named A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1059">
+The definition of the class named A is shown in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.  This class extends the class named 
+	
+
+<emphasis id="strong1041" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="em1033" effect="italics">
+(Recall that it is not necessary to explicitly state that a class extends the class named 
+
+
+<emphasis id="strong1042" effect="bold">
+Object
+
+</emphasis>
+.  Any class that does not explicitly extend some other class will automatically extend 
+
+
+<emphasis id="strong1043" effect="bold">
+Object
+
+</emphasis>
+ by default.  The class named 
+
+<emphasis id="strong1044" effect="bold">
+A
+
+</emphasis>
+ is shown to extend 
+
+
+<emphasis id="strong1045" effect="bold">
+Object
+
+</emphasis>
+ here simply for clarity of presentation.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Definition of the class 
+				named A.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1001" display="block">class A extends Object{
+  //this class is empty
+}//end class A</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+The class named 
+
+<emphasis id="strong1046" effect="bold">
+A
+
+</emphasis>
+ is empty.  It was included in this example for the sole purpose of adding a layer of inheritance to the class hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1047" effect="bold">
+The class named B
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the definition of the class named 
+
+
+<emphasis id="strong1048" effect="bold">
+B
+
+</emphasis>
+.  This class extends the class named 
+
+<emphasis id="strong1049" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Definition of the class 
+				named B.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">class B extends A{
+  public void m(){
+    System.out.println("m in class B");
+  }//end method m()
+}//end class B</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1064">
+<emphasis id="strong1050" effect="bold">
+The method named m()
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The class named 
+
+<emphasis id="strong1051" effect="bold">
+B
+
+</emphasis>
+ defines a method named 
+
+<emphasis id="strong1052" effect="bold">
+m()
+
+</emphasis>
+.  The behavior of the method is simply to display a message each time it is 
+called. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1053" effect="bold">
+The class named C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ contains the definition of the class named 
+
+
+<emphasis id="strong1054" effect="bold">
+C
+
+</emphasis>
+, which also extends 
+
+<emphasis id="strong1055" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Definition of the class 
+				named C.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1003" display="block">class C extends Object{
+  //this class is empty
+}//end class C</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1068">
+The class named 
+
+<emphasis id="strong1056" effect="bold">
+C
+
+</emphasis>
+ is also empty.  It was included in this example as a sibling class for the class named 
+	
+
+<emphasis id="strong1057" effect="bold">
+A
+
+</emphasis>
+.  Stated differently, it was included as a class that is not in the ancestral line of the class named 
+	
+
+<emphasis id="strong1058" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1069">
+<emphasis id="strong1059" effect="bold">
+The driver class
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the beginning of the driver class named 
+
+
+<emphasis id="strong1060" effect="bold">
+Poly02
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Beginning of the class 
+				named Poly02.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">public class Poly02{
+  public static void main(String[] args){
+    Object var = new B();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1071">
+<emphasis id="strong1061" effect="bold">
+An object of the class named B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+The code in 
+
+<link id="a1028" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ instantiates an object of the class 
+
+
+<emphasis id="strong1062" effect="bold">
+B
+
+</emphasis>
+ and assigns the object's reference to a reference variable of type 
+
+
+<emphasis id="strong1063" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="em1034" effect="italics">
+(It is important to note that the reference to the object of type 
+
+</emphasis>
+
+
+
+<emphasis id="strong1064" effect="bold">
+<emphasis id="em1035" effect="italics">
+B
+
+</emphasis>
+</emphasis>
+<emphasis id="em1036" effect="italics">
+ was not assigned to a reference variable of type 
+
+
+</emphasis>
+<emphasis id="strong1065" effect="bold">
+<emphasis id="em1037" effect="italics">
+B
+
+</emphasis>
+</emphasis>
+<emphasis id="em1038" effect="italics">
+.  Instead, it was assigned to a reference variable of type 
+
+
+</emphasis>
+<emphasis id="strong1066" effect="bold">
+<emphasis id="em1039" effect="italics">
+Object
+
+</emphasis>
+</emphasis>
+<emphasis id="em1040" effect="italics">
+.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+This assignment is allowable because 
+
+<emphasis id="strong1067" effect="bold">
+Object
+
+</emphasis>
+ is a superclass of 
+
+
+<emphasis id="strong1068" effect="bold">
+B
+
+</emphasis>
+.  In other words, the reference to the object of the class 
+
+
+<emphasis id="strong1069" effect="bold">
+B
+
+</emphasis>
+ is assignment compatible with a reference variable of the type 
+
+
+<emphasis id="strong1070" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1071" effect="bold">
+Automatic type conversion
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+In this case, the reference of type 
+
+<emphasis id="strong1072" effect="bold">
+B
+
+</emphasis>
+ is automatically converted to type 
+
+
+<emphasis id="strong1073" effect="bold">
+Object
+
+</emphasis>
+ and assigned to the reference variable of type 
+
+<emphasis id="strong1074" effect="bold">
+Object
+
+</emphasis>
+. 
+
+
+<emphasis id="em1041" effect="italics">
+(Note that the use of a cast operator was not required in this assignment.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1075" effect="bold">
+Only part of the story
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+However, assignment compatibility is only part of the story.  The simple fact that a reference is assignment compatible with a reference variable of a given type says nothing about what can be done with the reference after it is assigned to the reference variable. 
+
+</para>
+
+
+
+	
+
+<para id="p1079">
+<emphasis id="strong1076" effect="bold">
+An illegal operation
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1080">
+For example, in this case, the reference variable that was automatically converted to type 
+	
+
+<emphasis id="strong1077" effect="bold">
+Object
+
+</emphasis>
+ cannot be used directly to call the method named 
+	
+
+<emphasis id="strong1078" effect="bold">
+m()
+
+</emphasis>
+ on the object of type 
+
+<emphasis id="strong1079" effect="bold">
+B
+
+</emphasis>
+.  This is indicated in 
+	
+
+<link id="a1029" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. An illegal operation.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">//var.m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1081">
+An attempt to call the method named 
+
+<emphasis id="strong1080" effect="bold">
+m()
+
+</emphasis>
+ on the reference variable of type 
+	
+
+<emphasis id="strong1081" effect="bold">
+Object
+
+</emphasis>
+ in  
+	
+
+<link id="a1030" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ resulted in a compiler error.  It was necessary to convert the statement 
+	into a comment in order to get the program to compile successfully. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1082" effect="bold">
+An important rule
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+In order to use a reference of a class type to call a method, the method must be defined at or above that class in the class hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1083" effect="bold">
+This case violates the rule
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+In this case, the method named 
+
+<emphasis id="strong1084" effect="bold">
+m()
+
+</emphasis>
+ is defined in the class named 
+
+
+<emphasis id="strong1085" effect="bold">
+B
+
+</emphasis>
+, which is two levels down from the class named 
+
+<emphasis id="strong1086" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+When the reference to the object of the class 
+
+<emphasis id="strong1087" effect="bold">
+B
+
+</emphasis>
+ was assigned to the reference variable of type 
+
+
+<emphasis id="strong1088" effect="bold">
+Object
+
+</emphasis>
+, the type of the reference was automatically converted to type 
+
+
+<emphasis id="strong1089" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+Therefore, because the reference is of type 
+
+<emphasis id="strong1090" effect="bold">
+Object
+
+</emphasis>
+, it cannot be used directly to call the method named 
+
+
+<emphasis id="strong1091" effect="bold">
+m()
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1092" effect="bold">
+The solution is a downcast
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+In this case, the solution to the problem is a downcast.
+
+The code in 
+
+<link id="a1031" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ shows an attempt to solve the problem by casting the reference down the hierarchy to type 
+
+
+<emphasis id="strong1093" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. An ineffective downcast.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">//((A)var).m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1090">
+<emphasis id="strong1094" effect="bold">
+Still doesn't solve the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+However, this still doesn't solve the problem, and the result is another compiler error.  Again, it was necessary to convert the statement into a comment in order to get the program to compile.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1095" effect="bold">
+What is the problem here?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+The problem is that the downcast simply didn't go far enough down the inheritance hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1094">
+The class named 
+
+<emphasis id="strong1096" effect="bold">
+A
+
+</emphasis>
+ neither defines nor inherits the method named 
+
+
+<emphasis id="strong1097" effect="bold">
+m()
+
+</emphasis>
+.  The method named 
+
+<emphasis id="strong1098" effect="bold">
+m()
+
+</emphasis>
+ is defined in class 
+
+
+<emphasis id="strong1099" effect="bold">
+B
+
+</emphasis>
+, which is a subclass of class 
+
+<emphasis id="strong1100" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+Therefore, a reference of type 
+
+<emphasis id="strong1101" effect="bold">
+A
+
+</emphasis>
+ is no more useful than a reference of type 
+
+
+<emphasis id="strong1102" effect="bold">
+Object
+
+</emphasis>
+ insofar as calling the method named 
+
+<emphasis id="strong1103" effect="bold">
+m()
+
+</emphasis>
+ is concerned. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1104" effect="bold">
+The real solution
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+The solution to the problem is shown in 
+
+<link id="a1032" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. A downcast to type B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1007" display="block">((B)var).m();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1098">
+The code in 
+
+<link id="a1033" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ casts 
+
+<emphasis id="em1042" effect="italics">
+(temporarily converts)
+
+</emphasis>
+ the reference value contained in the 
+	
+
+<emphasis id="strong1105" effect="bold">
+Object
+
+</emphasis>
+ variable named 
+
+<emphasis id="strong1106" effect="bold">
+var
+
+</emphasis>
+ down to type 
+	
+
+<emphasis id="strong1107" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+The method named 
+
+<emphasis id="strong1108" effect="bold">
+m()
+
+</emphasis>
+ is defined in the class named 
+
+<emphasis id="strong1109" effect="bold">
+B
+
+</emphasis>
+.  Therefore, a reference of type 
+
+
+<emphasis id="strong1110" effect="bold">
+B
+
+</emphasis>
+ can be used to call the method. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+The code in 
+
+<link id="a1034" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ compiles and executes successfully.  This causes the method named 
+
+
+<emphasis id="strong1111" effect="bold">
+m()
+
+</emphasis>
+ to execute, producing the following output on the computer screen. 
+
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">m in class B </code>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1112" effect="bold">
+A few odds and ends
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+Before leaving this topic, let's look at a couple more issues.
+
+The code in 
+
+<link id="a1035" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ declares and populates a new variable of type 
+
+
+<emphasis id="strong1113" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Declare a variable of 
+				type B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1009" display="block">B v1 = (B)var;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1103">
+The code in 
+
+<link id="a1036" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ also uses a cast to:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1037">
+Convert the contents of the 
+
+<emphasis id="strong1114" effect="bold">
+Object
+
+</emphasis>
+ variable to type 
+	
+
+<emphasis id="strong1115" effect="bold">
+B
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<emphasis id="strong1116" effect="bold">
+Assign the converted reference to the new reference variable of type B.
+	
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1117" effect="bold">
+A legal operation
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+This is a legal operation.  In this class hierarchy, the reference to the object of the class 
+
+
+<emphasis id="strong1118" effect="bold">
+B
+
+</emphasis>
+ can be assigned to a reference variable of the types 
+
+<emphasis id="strong1119" effect="bold">
+B
+
+</emphasis>
+, 
+
+
+<emphasis id="strong1120" effect="bold">
+A
+
+</emphasis>
+, or 
+
+<emphasis id="strong1121" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1122" effect="bold">
+Cannot be assigned to type C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+However, the reference to the object of the class 
+
+<emphasis id="strong1123" effect="bold">
+B
+
+</emphasis>
+ cannot be assigned to a reference variable of any other type, including the type 
+
+
+<emphasis id="strong1124" effect="bold">
+C
+
+</emphasis>
+.  An attempt to do so is shown in 
+
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Cannot be assigned to type C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1010" display="block">//C v2 = (C)var;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1108">
+The code in 
+
+<link id="a1038" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ attempts to cast the reference to type 
+	
+
+<emphasis id="strong1125" effect="bold">
+C
+
+</emphasis>
+ and assign it to a reference variable of type 
+
+<emphasis id="strong1126" effect="bold">
+C
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1127" effect="bold">
+A runtime error
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+Although the program will compile, it won't execute.  An attempt to execute the statement in 
+
+<link id="a1039" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ results in a
+
+
+<emphasis id="strong1128" effect="bold">
+ClassCastException
+
+</emphasis>
+ at runtime.  As a result, it was necessary to convert the statement into a comment in order to execute the program.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1129" effect="bold">
+Another failed attempt
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1112">
+Similarly, an attempt to cast the reference to type B and assign it to a reference variable of type 
+
+
+<emphasis id="strong1130" effect="bold">
+C
+
+</emphasis>
+, as shown in 
+
+
+<link id="a1040" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+, won't compile. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Another failed attempt.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1011" display="block">//C v3 = (B)var;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1113">
+The problem here is that the class 
+
+<emphasis id="strong1131" effect="bold">
+C
+
+</emphasis>
+ is not a superclass of the class named 
+	
+
+<emphasis id="strong1132" effect="bold">
+B
+
+</emphasis>
+.  Therefore, a reference of type 
+
+<emphasis id="strong1133" effect="bold">
+B
+
+</emphasis>
+ is not assignment compatible with a reference variable of type 
+	
+
+<emphasis id="strong1134" effect="bold">
+C
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+Again, it was necessary to convert the statement into a comment in order to compile the program. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1115">
+This module discusses type conversion for both primitive and reference types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1116">
+A value of a particular type may be assignment compatible with variables of other types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1117">
+If the type of a value is not assignment compatible with a variable of a given type, it may be possible to perform a cast on the value to change its type and assign it to the variable as the new type.  For primitive types, this will often result in the loss of information.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1118">
+Except for type 
+
+<emphasis id="strong1135" effect="bold">
+boolean
+
+</emphasis>
+, values of primitive types can be assigned to any variable whose type represents a range that is as wide or wider than the range of the value's type.  
+
+
+<emphasis id="em1043" effect="italics">
+(Values of type 
+
+</emphasis>
+<emphasis id="strong1136" effect="bold">
+<emphasis id="em1044" effect="italics">
+boolean
+
+</emphasis>
+</emphasis>
+<emphasis id="em1045" effect="italics">
+ can only be assigned to variables of type 
+
+
+<emphasis id="strong1137" effect="bold">
+boolean
+
+</emphasis>
+.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+With respect to reference types, the reference to an object instantiated from a given class can be assigned to any of the following without the use of a cast:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1039">
+Any reference variable whose type is the same as the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1040">
+Any reference variable whose type is a superclass of the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1041">
+Any reference variable whose type is an interface that is implemented by the class from which the object was instantiated.
+    
+
+</item>
+
+
+	
+
+<item id="li1042">
+Any reference variable whose type is an interface that is implemented by a superclass of the class from which the object was instantiated.
+	
+
+</item>
+
+
+	
+
+<item id="li1043">
+A few other cases involving the class and interface hierarchy. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1120">
+Assignments of references, other than those listed above, require the use of a cast to change the type of the reference.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1121">
+It is not always possible to perform a successful cast to convert the type of a reference.  Whether or not a cast can be successfully performed depends on the relationship of the classes involved in the class hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1122">
+A reference to any object can be assigned to a reference variable of the type 
+
+
+<emphasis id="strong1138" effect="bold">
+Object
+
+</emphasis>
+, because the 
+
+<emphasis id="strong1139" effect="bold">
+Object
+
+</emphasis>
+ class is a superclass of every other class. 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+When we cast a reference along the class hierarchy in a direction from the root class 
+
+
+<emphasis id="strong1140" effect="bold">
+Object
+
+</emphasis>
+ toward the leaves, we often refer to it as a 
+
+<emphasis id="em1046" effect="italics">
+downcast
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+Whether or not a method can be called on a reference to an object depends on the current type of the reference and the location in the class hierarchy where the method is defined.  In order to use a reference of a class type to call a method, the method must be defined at or above that class in the class hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1125">
+A sample program is provided that illustrates much of the detail involved in type conversion, method invocation, and casting with respect to reference types. 
+
+</para>
+
+
+
+
+	
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1126">
+I will begin the discussion of runtime polymorphism through method overriding and inheritance in the next module.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1127">
+I will demonstrate that for runtime polymorphism, the selection of a method for execution is based on the actual type of object whose reference is stored in a reference variable, and not on the type of the reference variable on which the method is called.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1128">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1141" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1044">
+Module name: Java OOP: Polymorphism, Type Conversion, Casting, etc.
+
+</item>
+
+
+					
+
+<item id="li1045">
+File: Java1610.htm
+
+
+</item>
+
+
+					
+
+<item id="li1046">
+Published: 02/26/02
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1142" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1129">
+<emphasis id="strong1143" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1130">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1131">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1132">
+<emphasis id="strong1144" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1133">
+A complete listing of the program is shown in 
+
+<link id="a1041" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Complete program 
+				listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1012" display="block">/*File Poly02.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates downcasting
+
+Program output is:
+  
+m in class B
+**************************************/
+
+class A extends Object{
+  //this class is empty
+}//end class A
+//===================================//
+
+class B extends A{
+  public void m(){
+    System.out.println("m in class B");
+  }//end method m()
+}//end class B
+//===================================//
+
+class C extends Object{
+  //this class is empty
+}//end class C
+//===================================//
+
+public class Poly02{
+  public static void main(String[] args){
+    Object var = new B();
+    //Following will not compile
+    //var.m();
+    //Following will not compile
+    //((A)var).m();    
+    //Following will compile and run
+    ((B)var).m();
+    
+    //Following will compile and run
+    B v1 = (B)var;
+    //Following will not execute
+    //C v2 = (C)var;
+    //Following will not compile
+    //C v3 = (B)var;
+  }//end main
+}//end class Poly02</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1134">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

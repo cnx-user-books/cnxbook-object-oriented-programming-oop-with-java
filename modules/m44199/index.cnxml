@@ -1,0 +1,8921 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1624: Array Objects, Part 2</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44199</md:content-id>
+  <md:title>Java1624: Array Objects, Part 2</md:title>
+  <md:abstract>Baldwin explains the programming details involved in the use of array objects. He shows you three ways to emulate traditional two-dimensional rectangular arrays, and also shows you how to create and use ragged arrays.</md:abstract>
+  <md:uuid>9aa57d5d-285c-4991-90bc-88fd1cd7a531</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Aug 12 10:34:05 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Reference variable declaration..
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. A three-dimensional array object of element type 
+		Button. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The generic class Object. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Primitive type conversions. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Initialization.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Placement of square brackets.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Creating the actual array object.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. An array access expression.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Explicit initialization of array elements.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Create a two-dimensional rectangular array structure.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Using length to populate the leaves of the tree structure.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Display leaf object contents.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Beginning of a ragged array with two rows and three columns.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Create the leaf array objects.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Create the array object.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Populate the root object.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Populate the leaf array objects.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. Display data in leaf array objects.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+. A triangular array.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+. Populate the leaf array objects.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1031" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+. A more general approach.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1032" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+. Populate the leaf objects.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1033" target-id="Listing_23">
+
+Listing 23
+
+</link>
+
+. Beginning of a more general case.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1034" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+. Populate the leaf array elements.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1035" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+. Display the output.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1036" target-id="Listing_26">
+
+Listing 26
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module explains various details regarding the use of array objects 
+	in Java, and illustrates many of those details through the use of sample 
+	code.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+A sample program shows you three ways to emulate traditional two-dimensional 
+rectangular arrays, and also shows you how to create and use ragged arrays.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Array objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+A different syntax is required to create array objects than the syntax 
+normally used to create ordinary objects. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Array objects are accessed via 
+references. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Any of the methods of the 
+
+<emphasis id="strong1001" effect="bold">
+Object
+
+</emphasis>
+ class can be called on a 
+reference to an array object. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1002" effect="bold">
+The indices of a Java array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+Array objects encapsulate a group of variables, which don't have individual 
+names. They are accessed using positive integer index values. The integer 
+indices of a Java array object always extend from 
+
+<emphasis id="strong1003" effect="bold">
+0
+
+</emphasis>
+ to 
+
+<emphasis id="strong1004" effect="bold">
+(n-1)
+
+</emphasis>
+ where
+
+
+<emphasis id="strong1005" effect="bold">
+n
+
+</emphasis>
+ is the 
+
+<emphasis id="strong1006" effect="bold">
+length
+
+</emphasis>
+ of the array encapsulated in the object. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1007" effect="bold">
+Multidimensional arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Array objects in Java encapsulate one-dimensional arrays. However, the 
+component type of an array may itself be an array type. This makes it possible 
+to create array objects whose individual components refer to other array 
+objects. This is the mechanism for creating 
+
+<emphasis id="em1003" effect="italics">
+multi-dimensional
+
+</emphasis>
+ or 
+
+<emphasis id="em1004" effect="italics">
+
+ragged
+
+</emphasis>
+ arrays in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+Such a structure of array objects can be thought of as a tree of array 
+objects, with the data being stored in the array objects that make up the leaves 
+of the tree. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1008" effect="bold">
+Array types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+When declaring a reference variable capable of referring to an array object, 
+the array type is declared by writing the name of an element type followed by 
+some number of empty pairs of square brackets []. This is illustrated in
+
+
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, which declares a reference variable named 
+
+<emphasis id="strong1009" effect="bold">
+
+v1
+
+</emphasis>
+, capable of storing a 
+reference to a 
+
+<emphasis id="em1005" effect="italics">
+two-dimensional
+
+</emphasis>
+ array of type 
+
+<emphasis id="strong1010" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Reference variable 
+				declaration.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">  int[][] v1;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1017">
+<emphasis id="em1006" effect="italics">
+(Note that 
+
+<link id="a1038" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ doesn't really declare a two-dimensional array in 
+	the traditional sense of other programming languages. Rather, it declares a 
+	reference variable capable of storing a reference to a one-dimensional array 
+	object, which in turn is capable of storing references to one-dimensional 
+	array objects of type 
+
+<emphasis id="strong1011" effect="bold">
+int
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1012" effect="bold">
+Multiple pairs of square brackets are allowed
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The components in an array object may refer to other array objects. The 
+number of bracket pairs used in the declaration of the reference variable 
+indicates the depth of array nesting 
+
+<emphasis id="em1007" effect="italics">
+(in the sense that array elements can 
+refer to other array objects).
+
+</emphasis>
+ This is one of the ways that Java implements 
+the concept of traditional multi-dimensional arrays 
+
+<emphasis id="em1008" effect="italics">
+(I will show you some 
+other ways later in this module).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+The code in 
+
+<link id="a1039" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ shows two levels of nesting for the reference variable 
+of type
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">int[][]</code>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1013" effect="bold">
+Length not part of variable declaration
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Note that an array's length is not part of its type or reference variable 
+declaration. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1014" effect="bold">
+Ragged arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Note also that multi-dimensional arrays, when implemented in this fashion, 
+are not required to represent rectangles, cubes, etc. For example, the number of 
+elements in each row of a Java two-dimensional array can be different. Some 
+authors refer to this as a 
+
+<emphasis id="em1009" effect="italics">
+ragged array
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1015" effect="bold">
+Allowable types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+The specified element type of an array may be any primitive or reference 
+type. Note, however, that all elements of the array must be of the same type 
+
+<emphasis id="em1010" effect="italics">
+
+(consistent with the type-conversion rules discussed below)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<link id="a1040" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the declaration of a reference 
+variable capable of referring to a three
+
+<emphasis id="em1011" effect="italics">
+-dimensional
+
+</emphasis>
+ array object of element type 
+
+<emphasis id="strong1016" effect="bold">
+Button
+
+<emphasis id="em1012" effect="italics">
+ 
+
+</emphasis>
+</emphasis>
+
+(
+
+<emphasis id="em1013" effect="italics">
+<emphasis id="strong1017" effect="bold">
+Button
+
+</emphasis>
+ is one of the classes in the standard class library).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. A three-dimensional array object of element type Button.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">  Button[][][] v2;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1028">
+<emphasis id="strong1018" effect="bold">
+Rules of type conversion and assignment compatibility apply
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The normal rules of
+
+<emphasis id="em1014" effect="italics">
+ type conversion
+
+</emphasis>
+ and 
+
+<emphasis id="em1015" effect="italics">
+assignment compatibility
+
+</emphasis>
+ 
+apply when creating and populating array objects. For example, if the specified 
+type is the name of a non-abstract class, a null reference or a reference to any 
+object instantiated from that class or any subclass of that class may be stored 
+in the array element.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1019" effect="bold">
+The generic class Object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+For example, 
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the declaration of a 
+reference variable capable of referring to a one-dimensional array object of 
+element type 
+
+<emphasis id="strong1020" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Since 
+
+<emphasis id="strong1021" effect="bold">
+Object
+
+</emphasis>
+ is the superclass of all other classes, this array object 
+is capable of storing references to objects instantiated from any other class.
+
+
+<emphasis id="em1016" effect="italics">
+(As we saw in the previous module, it is also capable of storing a reference 
+to any other array object as well.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The generic class Object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1003" display="block">  Object[] v3;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1033">
+<emphasis id="strong1022" effect="bold">
+Primitive type conversions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+Similarly, if the declared element type for the array object is one of the 
+primitive types, the elements of the array can be used to store values of any 
+primitive type that is 
+
+<emphasis id="em1017" effect="italics">
+assignment compatible
+
+</emphasis>
+ with the declared type 
+
+<emphasis id="em1018" effect="italics">
+
+(without the requirement for a cast).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+For example, the code in 
+
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the 
+creation of a one-dimensional array object capable of storing values of type 
+
+<emphasis id="strong1023" effect="bold">
+
+int
+
+</emphasis>
+. The array object has 
+a length of 3 elements, and the object's reference is stored in a reference 
+variable named 
+
+<emphasis id="strong1024" effect="bold">
+v1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Primitive type conversions.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">
+    int[] v1;
+    v1 = new int[3];
+    byte x1 = 127;
+    short x2 = 16384;
+    int x3 = 32000;
+    v1[0] = x1;
+    v1[1] = x2;
+    v1[2] = x3;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1036">
+<emphasis id="strong1025" effect="bold">
+Assignment-compatible assignments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+Values of the types 
+
+<emphasis id="strong1026" effect="bold">
+byte
+
+</emphasis>
+, 
+
+<emphasis id="strong1027" effect="bold">
+short
+
+</emphasis>
+, and 
+
+<emphasis id="strong1028" effect="bold">
+int
+
+</emphasis>
+, are stored in 
+the elements of the array object in 
+
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1029" effect="bold">
+Actual type is lost in the process
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+It should be noted that the 
+
+<emphasis id="strong1030" effect="bold">
+byte
+
+</emphasis>
+ and 
+
+<emphasis id="strong1031" effect="bold">
+short
+
+</emphasis>
+ values are converted 
+to type 
+
+<emphasis id="strong1032" effect="bold">
+int
+
+</emphasis>
+ as they are stored. When retrieved later, they will be 
+retrieved as type 
+
+<emphasis id="strong1033" effect="bold">
+int
+
+</emphasis>
+. Any indication that these values were ever of any 
+type other than 
+
+<emphasis id="strong1034" effect="bold">
+int
+
+</emphasis>
+ is lost in the process of storing and retrieving the 
+values.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1035" effect="bold">
+What about class types?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+If the declared element type is the name of a class, 
+
+<emphasis id="em1019" effect="italics">
+(which may or may not 
+be abstract),
+
+</emphasis>
+ a null reference or a reference to any object instantiated 
+from the class or any subclass of the class may be stored in the array element.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="em1020" effect="italics">
+(Obviously you can't store a reference to an object instantiated from an 
+abstract class, because you can't instantiate an abstract class.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1036" effect="bold">
+What about an interface type?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+If the declared element type is an interface type, a null reference or 
+a reference to any object instantiated from any class that implements the 
+interface can be stored in the array element.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="em1021" effect="italics">
+(This is an extremely powerful concept, allowing references to objects 
+instantiated from many different classes to be collected into an array as the 
+interface type.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1037" effect="bold">
+Array reference variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+All array objects are accessed via references. A reference variable 
+whose declared type is an array type 
+
+<emphasis id="em1022" effect="italics">
+does not contain an array.
+
+</emphasis>
+ Rather, it 
+contains either null, or a reference to an array object.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1038" effect="bold">
+Allocation of memory
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+Declaring the reference variable does not create an array, nor does it 
+allocate any space for the array components. It simply causes memory to be 
+allocated for the reference variable itself, which may later contain a reference 
+to an array object.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1039" effect="bold">
+Initialization
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+In the same sense that it is possible to declare a reference variable for an 
+ordinary object, and initialize it with a reference to an object when it is 
+declared, it is also possible to declare a reference to an array object and 
+initialize it with a reference to an array object when it is declared. This is 
+illustrated in 
+
+<link id="a1044" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, which shows the following 
+operations combined into a single statement:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1037">
+Declaration of a variable to contain a reference to an array object
+
+</item>
+
+
+	
+
+<item id="li1038">
+Creation of the array object
+
+</item>
+
+
+	
+
+<item id="li1039">
+Storage of the array object's reference in the reference variable
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Initialization.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">    int[] v1 = new int[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1052">
+<emphasis id="strong1040" effect="bold">
+Can refer to different array objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+The 
+
+<emphasis id="strong1041" effect="bold">
+length
+
+</emphasis>
+ of an array is not established when the reference 
+variable is declared. As with references to ordinary objects, a reference to an 
+array object can refer to different array objects at different points in the 
+execution of a program.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+For example, a reference variable that is capable of referring to an array of 
+type 
+
+<emphasis id="strong1042" effect="bold">
+int[]
+
+</emphasis>
+ can refer to an array object of a given 
+
+<emphasis id="strong1043" effect="bold">
+length
+
+</emphasis>
+ 
+at one point in the program and can refer to a different array object of the 
+same type but a different 
+
+<emphasis id="strong1044" effect="bold">
+length 
+
+</emphasis>
+later in the program.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1045" effect="bold">
+Placement of square brackets
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+When declaring an array reference variable, the square brackets [] may appear 
+as part of the type, or following the variable name, or both. This is 
+illustrated in 
+
+<link id="a1045" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Placement of square brackets.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">
+    int[][] v1;
+    int[] v2[];
+    int v3[][];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1046" effect="bold">
+Type and length
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Once an array object is created, its type and length never changes. A 
+reference to a different array object must be assigned to the reference variable 
+to cause the reference variable to refer to an array of different length.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1047" effect="bold">
+Creating the actual array object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+An array object is created by an array creation expression or an array 
+initializer.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+An array creation expression 
+
+<emphasis id="em1023" effect="italics">
+(or an array initializer) 
+
+</emphasis>
+specifies:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1040">
+The element type
+
+</item>
+
+
+	
+
+<item id="li1041">
+The number of levels of nested arrays
+
+</item>
+
+
+	
+
+<item id="li1042">
+The length of the array for at least one of the levels of nesting
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+Two valid array creation expressions are illustrated by the statements in
+
+
+<link id="a1046" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Creating the actual array object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1007" display="block">
+    int[][] v1;
+    int[] v2[];
+
+    v1 = new int[2][3];
+    v2 = new int[10][];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1048" effect="bold">
+A two-dimensional rectangular array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+The third statement in
+
+
+<link id="a1047" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ creates an array object of element type 
+
+<emphasis id="strong1049" effect="bold">
+
+int
+
+</emphasis>
+ with two levels of nesting. This array object can be thought of as a 
+traditional two-dimensional rectangular array having two rows and three columns.
+
+
+<emphasis id="em1024" effect="italics">
+(This is a somewhat arbitrary choice as to which dimension specifies the 
+number of rows and which dimension specifies the number of columns. You may 
+prefer to reverse the two.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1050" effect="bold">
+A ragged array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+The fourth statement also creates an array object of element type 
+
+<emphasis id="strong1051" effect="bold">
+int
+
+</emphasis>
+ with two levels of nesting. However, the number of elements in each 
+column is not specified at this point, and it is not appropriate to think of 
+this as a two-dimensional rectangular array. In fact, once the number of 
+elements in each column has been specified, it may not describe a rectangle at 
+all. Some authors refer to an array of this type as a 
+
+<emphasis id="em1025" effect="italics">
+ragged array.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1052" effect="bold">
+The length of the array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+The 
+
+<emphasis id="strong1053" effect="bold">
+length
+
+</emphasis>
+ of the array is always available as a 
+
+<emphasis id="strong1054" effect="bold">
+final
+
+</emphasis>
+ 
+instance variable named 
+
+<emphasis id="strong1055" effect="bold">
+length
+
+</emphasis>
+. I will show you how to use the value of 
+
+<emphasis id="strong1056" effect="bold">
+length
+
+</emphasis>
+ in a 
+sample program later in this module.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1057" effect="bold">
+Accessing array elements
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+An array element is accessed by an 
+
+<emphasis id="em1026" effect="italics">
+array access expression
+
+</emphasis>
+. The access 
+expression consists of an expression whose value is an array reference followed 
+by an indexing expression enclosed by matching square brackets.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+The expression in parentheses in 
+
+<link id="a1048" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ illustrates an array 
+access expression 
+
+<emphasis id="em1027" effect="italics">
+(or perhaps two concatenated array access expressions).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. An array access expression.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1008" display="block">
+    int[][] v1 = new int[2][3];
+    System.out.println(v1[0][1]);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1072">
+<emphasis id="strong1058" effect="bold">
+First-level access
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+This 
+
+<emphasis id="em1028" effect="italics">
+array access expression
+
+</emphasis>
+ first accesses the contents of the 
+element at index 0 in the array object referred to by the reference variable 
+named 
+
+<emphasis id="strong1059" effect="bold">
+v1
+
+</emphasis>
+. This element contains a reference to a second array object 
+
+<emphasis id="em1029" effect="italics">
+
+(note the double matching square brackets, [][] in the declaration of the 
+variable named 
+
+<emphasis id="strong1060" effect="bold">
+v1
+
+</emphasis>
+).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1061" effect="bold">
+Second-level access
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+The 
+
+<emphasis id="em1030" effect="italics">
+array access expression
+
+</emphasis>
+ in 
+
+<link id="a1049" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ uses 
+that reference to access the value stored in the element at index value 1 in the 
+second array object. That value is then passed to the 
+
+<emphasis id="strong1062" effect="bold">
+println
+
+</emphasis>
+ method for display on the 
+standard output device.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="em1031" effect="italics">
+(In this case, the value 0 is displayed, because array elements are 
+automatically initialized to default values when the array object is created. 
+The default value for all primitive numeric values is zero.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1063" effect="bold">
+Zero-based indexing
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+All array indexes in Java begin with 
+
+<emphasis id="strong1064" effect="bold">
+0
+
+</emphasis>
+. An array with length 
+
+<emphasis id="strong1065" effect="bold">
+n
+
+</emphasis>
+ 
+can be indexed by the integers 
+
+<emphasis id="strong1066" effect="bold">
+0
+
+</emphasis>
+ to 
+
+<emphasis id="strong1067" effect="bold">
+(n-1)
+
+</emphasis>
+. Array accesses are 
+checked at runtime. If an attempt is made to access the array with any other 
+index value, an 
+
+<emphasis id="strong1068" effect="bold">
+ArrayIndexOutOfBoundsException
+
+</emphasis>
+ will be thrown.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1069" effect="bold">
+Index value types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+Arrays must be indexed by integer values of the following types: 
+
+<emphasis id="strong1070" effect="bold">
+int
+
+</emphasis>
+,
+
+
+<emphasis id="strong1071" effect="bold">
+short
+
+</emphasis>
+, 
+
+<emphasis id="strong1072" effect="bold">
+byte
+
+</emphasis>
+, or 
+
+<emphasis id="strong1073" effect="bold">
+char
+
+</emphasis>
+. For any of these types other than 
+
+<emphasis id="strong1074" effect="bold">
+
+int
+
+</emphasis>
+, the value will be promoted to an 
+
+<emphasis id="strong1075" effect="bold">
+int
+
+</emphasis>
+ and used as the index.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+An array cannot be accessed using an index of type 
+
+<emphasis id="strong1076" effect="bold">
+long
+
+</emphasis>
+. Attempting to 
+do so results in a compiler error.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1077" effect="bold">
+Default initialization
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+If the elements in an array are not purposely initialized when the array is 
+created, the array elements will be automatically initialized with default 
+values. The default values are:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1043">
+All reference types: null
+
+</item>
+
+
+	
+
+<item id="li1044">
+Primitive numeric types: 0
+
+</item>
+
+
+	
+
+<item id="li1045">
+Primitive boolean type: false
+
+</item>
+
+
+	
+
+<item id="li1046">
+Primitive char type: the Unicode character with 16 zero-valued bits
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1078" effect="bold">
+Explicit initialization of array elements
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The values in the array elements may be purposely initialized when the array 
+object is created using a comma-separated list of expressions enclosed by 
+matching curly brackets. This is illustrated in 
+
+<link id="a1050" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Explicit initialization of array elements.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1009" display="block">    int[] v1 = {1,2,3,4,5};</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1086">
+<emphasis id="strong1079" effect="bold">
+No new operator
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+Note that this format does not use the 
+
+<emphasis id="strong1080" effect="bold">
+new
+
+</emphasis>
+ operator. Also note 
+that the expressions in the list may be much more complex than the simple 
+literal values shown in 
+
+<link id="a1051" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1081" effect="bold">
+Length and order
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+When this format is used, the length of the constructed array will equal the 
+number of expressions in the list.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+The expressions in an array initializer are executed from left to right in 
+the order that they occur in the source code. The first expression specifies the 
+value at index value zero, and the last expression specifies the value at index 
+value n-1 
+
+<emphasis id="em1032" effect="italics">
+(where n is the length of the array).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+Each expression must be assignment-compatible with the array's component 
+type, or a compiler error will occur.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1082" effect="bold">
+A sample program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+The previous paragraphs in this module have explained some of the rules and 
+characteristics regarding array objects. They have also illustrated some of the 
+syntax involved in the use of array objects in Java.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1083" effect="bold">
+More powerful and complex
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+Many aspiring Java programmers find the use of array objects to be something 
+less than straightforward, and that is understandable. In fact, Java array 
+objects are somewhat more powerful than array structures in many other 
+programming languages, and this power often manifests itself in additional 
+complexity.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1084" effect="bold">
+A traditional two-dimensional rectangular array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+Some of that complexity is illustrated by the program named 
+
+<emphasis id="strong1085" effect="bold">
+Array07
+
+</emphasis>
+, 
+shown in 
+
+<link id="a1052" target-id="Listing_26">
+
+Listing 26
+
+</link>
+
+ near the end of this module. This 
+program illustrates three different ways to accomplish essentially the same task 
+using array objects in Java. That task is to emulate a traditional 
+two-dimensional rectangular array as found in other programming languages. Two 
+of the ways that are illustrated are essentially ragged arrays with sub-arrays 
+having equal length. 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1086" effect="bold">
+Ragged arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+The program also illustrates two different ways to work with array objects 
+and ragged arrays. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1087" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+As is my practice, I will discuss and explain the program in fragments. 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+All of the interesting code in this program is contained in the 
+
+<emphasis id="strong1088" effect="bold">
+main
+
+</emphasis>
+ 
+method, so I will begin my discussion with the first statement in the 
+
+<emphasis id="strong1089" effect="bold">
+main
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1090" effect="bold">
+Create a two-dimensional rectangular array structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<link id="a1053" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ creates an array structure that emulates a traditional rectangular 
+array with two rows and three columns. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Create a two-dimensional rectangular array structure.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1010" display="block">    Object[][] v1 = new Object[2][3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1105">
+<emphasis id="em1033" effect="italics">
+(Note that unlike the ragged array structures to be discussed later, 
+	this approach requires all rows to be the same length and all columns to be 
+	the same length.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1091" effect="bold">
+Reference variable declaration
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+The code to the left of the equal sign 
+
+<emphasis id="em1034" effect="italics">
+(=)
+
+</emphasis>
+ in 
+
+<link id="a1054" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+declares a reference variable named 
+
+<emphasis id="strong1092" effect="bold">
+v1
+
+</emphasis>
+. This reference variable is capable of 
+holding a reference to an array object whose elements are of the type 
+
+<emphasis id="strong1093" effect="bold">
+Object[]
+
+</emphasis>
+.. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+In other words, this reference variable is capable of 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1047">
+holding a reference to an array object, 
+
+</item>
+
+
+	
+
+<item id="li1048">
+whose elements are capable of holding references to other array objects,
+	
+
+</item>
+
+
+	
+
+<item id="li1049">
+whose elements are of type 
+
+<emphasis id="strong1094" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1095" effect="bold">
+Two levels of nesting
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+The existence of double matching square brackets in the variable declaration 
+in 
+
+<link id="a1055" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ indicates two levels of nesting.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1096" effect="bold">
+Restrictions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1112">
+The elements in the array object referred to by 
+
+<emphasis id="strong1097" effect="bold">
+v1
+
+</emphasis>
+ can only hold references to other array objects 
+whose element type is 
+
+<emphasis id="strong1098" effect="bold">
+Object 
+
+</emphasis>
+<emphasis id="em1035" effect="italics">
+(or references to array objects whose 
+element type is a subclass of 
+
+<emphasis id="strong1099" effect="bold">
+Object
+
+</emphasis>
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+The elements in the array object referred to by 
+
+<emphasis id="strong1100" effect="bold">
+v1
+
+</emphasis>
+ cannot hold 
+references to ordinary objects instantiated from classes, or array objects whose 
+element type is a primitive type. 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+In other words, the elements in the array object referred to by 
+
+<emphasis id="strong1101" effect="bold">
+v1
+
+</emphasis>
+ can 
+only hold references to other array objects. The element types of those array 
+objects must be 
+
+<emphasis id="em1036" effect="italics">
+assignment compatible
+
+</emphasis>
+ with the type 
+
+<emphasis id="strong1102" effect="bold">
+Object 
+
+</emphasis>
+<emphasis id="em1037" effect="italics">
+
+(this includes interface types and class types but not primitive types).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1103" effect="bold">
+A tree of empty array objects
+
+</emphasis>
+  
+
+</para>
+
+
+
+
+
+<para id="p1116">
+The code to the right of the equal sign 
+
+<emphasis id="em1038" effect="italics">
+(=) 
+
+</emphasis>
+in 
+
+<link id="a1056" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+creates a 
+
+<emphasis id="em1039" effect="italics">
+tree structure
+
+</emphasis>
+ of array objects. The object at the root of the 
+tree is an array object of type 
+
+<emphasis id="strong1104" effect="bold">
+Object[]
+
+</emphasis>
+, having two elements 
+
+<emphasis id="em1040" effect="italics">
+(a 
+
+<emphasis id="strong1105" effect="bold">
+
+length
+
+</emphasis>
+ of two).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1117">
+The reference variable named 
+
+<emphasis id="strong1106" effect="bold">
+v1
+
+</emphasis>
+ refers to the array object that forms 
+the root of the tree. 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+Each of the two elements in the root array object is initialized with a 
+reference to another array object. 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="em1041" effect="italics">
+(These two objects might be viewed as sub-arrays, or as child nodes in the 
+tree structure).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+Each of the child nodes is an array object of type 
+
+<emphasis id="strong1107" effect="bold">
+Object
+
+</emphasis>
+,, and has a
+
+
+<emphasis id="strong1108" effect="bold">
+length
+
+</emphasis>
+ of three. 
+
+</para>
+
+
+
+
+
+<para id="p1121">
+Each element in each of the two child node array objects is initialized to 
+the value 
+
+<emphasis id="strong1109" effect="bold">
+null
+
+</emphasis>
+ 
+
+<emphasis id="em1042" effect="italics">
+(this is the default initialization for array elements 
+of reference types that don't yet refer to an object).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1110" effect="bold">
+Recap
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+To recap, the reference variable named 
+
+<emphasis id="strong1111" effect="bold">
+v1
+
+</emphasis>
+ contains a reference to a 
+two-element, one-dimensional array object. Each element in that array object is 
+capable of storing a reference of type 
+
+<emphasis id="strong1112" effect="bold">
+Object[]
+
+</emphasis>
+ 
+
+<emphasis id="em1043" effect="italics">
+(a reference to 
+another one-dimensional array object of type 
+
+<emphasis id="strong1113" effect="bold">
+Object
+
+</emphasis>
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1114" effect="bold">
+Two sub-array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+Two such one-dimensional sub-array 
+
+<emphasis id="em1044" effect="italics">
+(or child node)
+
+</emphasis>
+ objects, of element 
+type 
+
+<emphasis id="strong1115" effect="bold">
+Object
+
+</emphasis>
+, are created. References to the two sub-array objects are 
+stored in the elements of the two-element array object at the root of the tree.
+
+
+</para>
+
+
+
+
+
+<para id="p1126">
+Each of the sub-array objects has three elements. Each element is capable of 
+storing a reference to an object as type 
+
+<emphasis id="strong1116" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1117" effect="bold">
+The leaves of the tree
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+These two sub-array objects might be viewed as the leaves of the tree 
+structure.
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1118" effect="bold">
+Initialize elements to null
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+However, the objects of type 
+
+<emphasis id="strong1119" effect="bold">
+Object
+
+</emphasis>
+ don't exist yet. Therefore, each 
+element in each of the sub-array objects is automatically initialized to 
+
+<emphasis id="strong1120" effect="bold">
+null
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1121" effect="bold">
+Arrays versus sub-arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+Note that there is no essential 
+difference between an array object and a sub-array object in the above 
+discussion. The use of the sub prefix is used to indicate that an ordinary array 
+object belongs to another array object, because the reference to the sub-array 
+object is stored in an element of the owner object.
+
+</para>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1122" effect="bold">
+Many dimensions are possible
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+Multi-dimensional arrays of any 
+
+<emphasis id="em1045" effect="italics">
+(reasonable)
+
+</emphasis>
+ depth can be emulated in 
+this manner. An array object may contain references to other array objects, 
+which may contain references to other array objects, and so on. 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1123" effect="bold">
+The leaves of the tree structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+Eventually, however, the elements of the leaves in the tree structure must be 
+specified to contain either primitive values or references to ordinary objects. This is where the 
+data is actually stored. 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="em1046" effect="italics">
+(Note however, that if the leaves are specified to contain references of 
+type 
+
+<emphasis id="strong1124" effect="bold">
+Object
+
+</emphasis>
+, they may contain references to other array objects of any 
+type, and the actual data could be stored in those array objects.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1125" effect="bold">
+The length of an array
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+Every array object contains a public 
+
+<emphasis id="strong1126" effect="bold">
+final
+
+</emphasis>
+ instance variable named 
+
+<emphasis id="strong1127" effect="bold">
+length
+
+</emphasis>
+, 
+which contains an integer value specifying the number of elements in the array.
+
+
+</para>
+
+
+
+
+
+<para id="p1140">
+Once created, the length of the array encapsulated in an array object cannot 
+change. Therefore, the value of 
+
+<emphasis id="strong1128" effect="bold">
+length
+
+</emphasis>
+ specifies the length of the array 
+throughout the lifetime of the array object. 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1129" effect="bold">
+Using length to populate the leaves of the tree structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1142">
+The value of 
+
+<emphasis id="strong1130" effect="bold">
+length
+
+</emphasis>
+ is very handy when processing array objects. This 
+is illustrated in 
+
+<link id="a1057" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+, which uses a nested 
+
+<emphasis id="strong1131" effect="bold">
+for
+
+</emphasis>
+ loop to populate 
+the elements in the leaves of the tree structure referred to by 
+
+<emphasis id="strong1132" effect="bold">
+v1
+
+</emphasis>
+. 
+
+<emphasis id="em1047" effect="italics">
+
+(The elements in the leaf objects are populated with references to objects of 
+type 
+
+<emphasis id="strong1133" effect="bold">
+Integer
+
+</emphasis>
+. Note that 
+
+<emphasis id="strong1134" effect="bold">
+Integer
+
+</emphasis>
+ is not a 
+primitive type. Instead, it is a wrapper class for primitive data of type
+
+
+<emphasis id="strong1135" effect="bold">
+int
+
+</emphasis>
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Using length to populate the leaves of the tree structure.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1011" display="block">
+    for(int i=0;i&lt;v1.length;i++){
+      for(int j=0;j&lt;v1[i].length;j++){
+        v1[i][j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1143">
+<emphasis id="strong1136" effect="bold">
+Using length in loop's conditional expressions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+Hopefully by now you can read and understand this code without a lot of help 
+from me. I will point out, however, that the value returned by 
+
+<emphasis id="strong1137" effect="bold">
+v1.length
+
+</emphasis>
+
+
+
+<emphasis id="em1048" effect="italics">
+(in the conditional expression for the outer loop)
+
+</emphasis>
+ is the number of 
+leaves in the tree structure 
+
+<emphasis id="em1049" effect="italics">
+(this tree structure has two leaves).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+I will also point out that the value returned by 
+
+<emphasis id="strong1138" effect="bold">
+v1[i].length
+
+
+</emphasis>
+<emphasis id="em1050" effect="italics">
+(in the conditional expression for the inner loop)
+
+</emphasis>
+ is the 
+number of elements in each leaf array object 
+
+<emphasis id="em1051" effect="italics">
+(each leaf object in this tree 
+structure has three elements).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+Finally, I will point out that the expression 
+
+<emphasis id="strong1139" effect="bold">
+v1[i][j]
+
+</emphasis>
+ 
+accesses the 
+
+<emphasis id="strong1140" effect="bold">
+<emphasis id="em1052" effect="italics">
+jth
+
+</emphasis>
+</emphasis>
+ element in the 
+
+<emphasis id="strong1141" effect="bold">
+<emphasis id="em1053" effect="italics">
+ith
+
+</emphasis>
+</emphasis>
+ 
+leaf, or sub-array. In the traditional sense of a rectangular array, this could 
+be thought of as the 
+
+<emphasis id="strong1142" effect="bold">
+<emphasis id="em1054" effect="italics">
+jth
+
+</emphasis>
+</emphasis>
+ column of the 
+
+<emphasis id="strong1143" effect="bold">
+<emphasis id="em1055" effect="italics">
+ith
+
+
+</emphasis>
+</emphasis>
+row. This mechanism is used to store object references in each 
+element of each of the leaf array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1144" effect="bold">
+Populate with references to Integer objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1148">
+Thus, each element in each leaf array object is populated with a 
+reference to an object of the type 
+
+<emphasis id="strong1145" effect="bold">
+Integer
+
+</emphasis>
+. Each object of the type 
+
+<emphasis id="strong1146" effect="bold">
+
+Integer 
+
+</emphasis>
+encapsulates an 
+
+<emphasis id="strong1147" effect="bold">
+int
+
+</emphasis>
+ value calculated from the current values of 
+the two loop counters. 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1148" effect="bold">
+Display leaf object contents
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1150">
+In a similar manner, the code in 
+
+<link id="a1058" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ uses 
+the 
+
+<emphasis id="strong1149" effect="bold">
+length
+
+</emphasis>
+ 
+values in the conditional expressions of nested 
+
+<emphasis id="strong1150" effect="bold">
+for
+
+</emphasis>
+ loops to 
+access the references stored in the elements of the leaf array objects, and to 
+use those references to access and display the values encapsulated in the
+
+
+<emphasis id="strong1151" effect="bold">
+Integer
+
+</emphasis>
+ objects whose references are stored in those elements.
+
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Display leaf object contents.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1012" display="block">    for(int i=0;i&lt;v1.length;i++){
+      for(int j=0;j&lt;v1[i].length;j++){
+        System.out.print(
+                       v1[i][j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1151">
+<emphasis id="strong1152" effect="bold">
+The rectangular output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+The code in 
+
+<link id="a1059" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ produces the following output on the screen. 
+
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">1 2 3
+2 4 6</code>
+
+
+
+
+<para id="p1153">
+As you can see, this emulates a traditional two-dimensional array having two 
+rows and three columns. 
+
+</para>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1153" effect="bold">
+A ragged array with two rows and three columns
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+The second approach to emulating a traditional two-dimensional rectangular 
+array will create a 
+
+<emphasis id="em1056" effect="italics">
+ragged array
+
+</emphasis>
+ where each row is the same length. 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+<emphasis id="em1057" effect="italics">
+(It is very important to note that, unlike this case, 
+with a ragged array, the number of elements in each row or the number of 
+elements in each column can be 
+different.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1157">
+The most significant thing about this approach is the manner in which the 
+tree of array objects is created 
+
+<emphasis id="em1058" effect="italics">
+(see 
+
+<link id="a1060" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Beginning of a ragged array with two rows and three columns.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1014" display="block">    Object[][] v2 = new Object[2][];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1158">
+<emphasis id="strong1154" effect="bold">
+Three statements required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1159">
+With this approach, three statements are required to replace one statement 
+from the previous approach. 
+
+<emphasis id="em1059" effect="italics">
+(Two additional statements are shown in
+
+
+<link id="a1061" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+A single statement in the previous approach 
+
+<emphasis id="em1060" effect="italics">
+(
+
+<link id="a1062" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+)
+
+</emphasis>
+ created all three array objects required to construct the tree of 
+array objects, and initialized the elements in the leaf array objects with
+
+
+<emphasis id="strong1155" effect="bold">
+null
+
+</emphasis>
+ values. 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1156" effect="bold">
+Create only the root array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+However, the code in 
+
+<link id="a1063" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ creates 
+only the array object at the root of the tree. That array object is an array 
+object having two elements capable of storing references of type 
+
+<emphasis id="strong1157" effect="bold">
+
+Object[]
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1158" effect="bold">
+Empty square brackets
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+If you compare this statement with the statement in 
+
+<link id="a1064" target-id="Listing_10">
+
+
+Listing 10
+
+</link>
+
+, you will notice that the right-most pair of square brackets in
+
+
+<link id="a1065" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ is empty. Thus, 
+
+<link id="a1066" target-id="Listing_13">
+
+
+Listing 13
+
+</link>
+
+ creates only the array object at the root of the tree, and 
+initializes the elements in that array object with 
+
+<emphasis id="strong1159" effect="bold">
+null
+
+</emphasis>
+ values.
+
+
+</para>
+
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1160" effect="bold">
+Leaf array objects don't exist yet
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+The leaf array objects don't exist at the completion of execution of the 
+statement in 
+
+<link id="a1067" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+<emphasis id="strong1161" effect="bold">
+Create the leaf array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1168">
+The statements in 
+
+<link id="a1068" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ create two array 
+objects of element type 
+
+<emphasis id="strong1162" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. Create the leaf array objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1015" display="block">
+    v2[0] = new Object[3];
+    v2[1] = new Object[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1169">
+<emphasis id="strong1163" effect="bold">
+Save the references to the leaves
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+References to these two leaf objects are stored in the elements of the array 
+object at the root of the tree, 
+
+<emphasis id="em1061" effect="italics">
+(which was created in 
+
+</emphasis>
+ 
+
+<link id="a1069" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+
+<emphasis id="em1062" effect="italics">
+). 
+
+</emphasis>
+
+Thus, these two array objects become the leaves of the tree structure of array 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1171">
+This completes the construction of the tree structure. Each element in each 
+leaf object is initialized with 
+
+<emphasis id="strong1164" effect="bold">
+null
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1165" effect="bold">
+Why bother?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+You might ask why I would bother to use this approach, which requires three 
+statements in place of only one statement in the previous approach. 
+
+</para>
+
+
+
+
+
+<para id="p1174">
+The answer is that I wouldn't normally use this approach if my objective 
+is 
+to emulate a traditional rectangular array. However, this approach is somewhat 
+more powerful than the previous approach. 
+
+</para>
+
+
+
+
+
+<para id="p1175">
+<emphasis id="strong1166" effect="bold">
+The lengths of the leaf objects can differ
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1176">
+With this approach, the 
+
+<emphasis id="strong1167" effect="bold">
+length
+
+</emphasis>
+ values of the two leaf array objects 
+need not be the same. Although I caused the 
+
+<emphasis id="strong1168" effect="bold">
+length
+
+</emphasis>
+ value of the leaf 
+objects to be the same in this case, I could just as easily have caused them to 
+be different lengths 
+
+<emphasis id="em1063" effect="italics">
+(I will illustrate this capability later in the 
+program).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1169" effect="bold">
+Populate and display the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+If you examine the complete program in 
+
+<link id="a1070" target-id="Listing_26">
+
+Listing 26
+
+</link>
+
+ near the end of the module, 
+you will see that nested 
+
+<emphasis id="strong1170" effect="bold">
+for
+
+</emphasis>
+ loops, along with the value of
+
+
+<emphasis id="strong1171" effect="bold">
+length
+
+</emphasis>
+ was used to populate and display the contents of the 
+leaf array objects. Since that portion of the code is the same as with the 
+previous approach, I won't show and discuss it here. 
+
+</para>
+
+
+
+
+
+<para id="p1179">
+<emphasis id="strong1172" effect="bold">
+The rectangular output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1180">
+This approach produced the following output on the screen, 
+
+<emphasis id="em1064" effect="italics">
+(which is the 
+same as before):
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<code id="pre1016" display="block">1 2 3
+2 4 6</code>
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1173" effect="bold">
+Now for something really different
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+The next approach that I am going to show you for emulating a two-dimensional 
+rectangular array is significantly different from either of the previous two 
+approaches. 
+
+</para>
+
+
+
+
+
+<para id="p1183">
+<emphasis id="strong1174" effect="bold">
+Not element type Object[]
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+In this approach, I will create a one-dimensional array object of element 
+type 
+
+<emphasis id="strong1175" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1065" effect="italics">
+(not element type 
+
+<emphasis id="strong1176" effect="bold">
+Object[]
+
+</emphasis>
+)
+
+</emphasis>
+. 
+I will populate the elements of that array object with references to other array 
+objects of element type 
+
+<emphasis id="strong1177" effect="bold">
+Object
+
+</emphasis>
+. In doing so, I will create a 
+tree structure similar to those discussed above. 
+
+</para>
+
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1178" effect="bold">
+The length of the leaf objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+As with the second approach above, the array objects that make up the leaves 
+of the tree can be any length, but I will make them the same length in order to 
+emulate a traditional rectangular two-dimensional array. 
+
+</para>
+
+
+
+
+
+<para id="p1187">
+<emphasis id="strong1179" effect="bold">
+Create the array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1188">
+First consider the statement shown in 
+
+<link id="a1071" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Compare this statement with 
+the statements shown earlier in 
+
+<link id="a1072" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ and 
+
+
+<link id="a1073" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1014" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. Create the array object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1017" display="block">Object[] v3 = new Object[2];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1189">
+<emphasis id="strong1180" effect="bold">
+No double square brackets
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1190">
+Note in particular that the statement in 
+
+<link id="a1074" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ 
+does not make use of double square brackets, as was the case in 
+
+<link id="a1075" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+and 
+
+
+<link id="a1076" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Thus, the statement show in 
+
+<link id="a1077" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ 
+is entirely different from the statements shown in 
+
+<link id="a1078" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+and 
+
+
+<link id="a1079" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1191">
+<emphasis id="strong1181" effect="bold">
+Declare a reference variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1192">
+That portion of the statement to the left of the equal sign
+
+<emphasis id="em1066" effect="italics">
+ (=) 
+
+</emphasis>
+
+declares a reference variable capable of storing a reference to an array object 
+whose elements are capable of storing references of the type 
+
+<emphasis id="strong1182" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1067" effect="italics">
+(not type 
+
+<emphasis id="strong1183" effect="bold">
+Object[]
+
+</emphasis>
+ as in the 
+previous examples).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1184" effect="bold">
+Refer to the root object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1194">
+This reference variable will refer to an array object that forms the root of 
+the tree structure. However, the root object in this case will be considerably 
+different from the root objects in the previous two cases. 
+
+</para>
+
+
+
+
+
+<para id="p1195">
+In the previous two cases, the elements of the root object were required to 
+store references of type 
+
+<emphasis id="strong1185" effect="bold">
+Object[]
+
+</emphasis>
+ 
+
+<emphasis id="em1068" effect="italics">
+(note the square 
+brackets). 
+
+</emphasis>
+In other words, an array object whose elements are of type
+
+
+<emphasis id="strong1186" effect="bold">
+Object[]
+
+</emphasis>
+ can only store references to other array objects whose 
+elements are of type 
+
+<emphasis id="strong1187" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1196">
+<emphasis id="strong1188" effect="bold">
+A more general approach
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1197">
+However, an array object whose elements are of type 
+
+<emphasis id="strong1189" effect="bold">
+Object
+
+</emphasis>
+
+
+
+<emphasis id="em1069" effect="italics">
+(as is the case here),
+
+</emphasis>
+ can store:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1050">
+References to any object instantiated from any class
+
+</item>
+
+
+	
+
+<item id="li1051">
+References to array objects whose elements are of any type 
+
+<emphasis id="em1070" effect="italics">
+
+	(primitive or reference)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1052">
+A mixture of the two kinds of references
+
+<emphasis id="em1071" effect="italics">
+.
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1198">
+Therefore, this is a much more general, and much more powerful approach. 
+
+</para>
+
+
+
+
+
+<para id="p1199">
+<emphasis id="strong1190" effect="bold">
+A price to pay
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1200">
+However, there is a price to pay for the increased generality and power. In 
+particular, the programmer who uses this approach must have a much better 
+understanding of Java object-oriented programming concepts than the programmer 
+who uses the two approaches discussed earlier in this module. 
+
+</para>
+
+
+
+
+
+<para id="p1201">
+<emphasis id="strong1191" effect="bold">
+Particularly true relative to first approach
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1202">
+This is particularly true relative to the first approach discussed earlier. 
+That approach is sufficiently similar to the use of multi-dimensional arrays in 
+other languages that a programmer with little understanding of Java 
+object-oriented programming concepts can probably muddle through the syntax 
+based on prior knowledge. However, it is unlikely that a programmer could muddle 
+through this approach without really understanding what she is doing. 
+
+</para>
+
+
+
+
+
+<para id="p1203">
+<emphasis id="strong1192" effect="bold">
+Won't illustrate true power
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1204">
+Although this approach is very general and very powerful, this sample program 
+won't attempt to illustrate that power and generality. Rather, this sample 
+program will use this approach to emulate a traditional two-dimensional 
+rectangular array just like the first two approaches discussed earlier. 
+
+<emphasis id="em1072" effect="italics">
+
+(Later, I will also use this approach for a couple of ragged arrays.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1205">
+<emphasis id="strong1193" effect="bold">
+Populate the root object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1206">
+The two statements in 
+
+<link id="a1080" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ create two array 
+objects, each having three elements. Each element is capable of storing a 
+reference to any object that is 
+
+<emphasis id="em1073" effect="italics">
+assignment compatible
+
+</emphasis>
+ with the 
+
+<emphasis id="strong1194" effect="bold">
+Object
+
+</emphasis>
+ type. 
+
+</para>
+
+
+
+
+
+<para id="p1207">
+<emphasis id="em1074" effect="italics">
+(Assignment compatibility includes a reference to any object instantiated 
+from any class, or a reference to any array object of any type (including 
+primitive types), or a mixture of the two.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+	
+
+<table id="table1015" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+. Populate the root object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+				
+
+<code id="pre1018" display="block">
+    v3[0] = new Object[3];
+    v3[1] = new Object[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1208">
+References to the two new array objects are stored in the elements of the 
+	array object that forms the root of the tree structure. The two new array 
+	objects form the leaves of the tree structure. 
+
+</para>
+
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1195" effect="bold">
+Populate the leaf array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1210">
+As in the previous two cases, the code in 
+
+<link id="a1081" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ 
+uses nested 
+
+<emphasis id="strong1196" effect="bold">
+for
+
+</emphasis>
+ 
+loops to populate the array elements in the leaf objects with references to new
+
+
+<emphasis id="strong1197" effect="bold">
+Integer
+
+</emphasis>
+ objects. 
+
+<emphasis id="em1075" effect="italics">
+(The 
+
+<emphasis id="strong1198" effect="bold">
+Integer
+
+</emphasis>
+ objects 
+encapsulate 
+
+<emphasis id="strong1199" effect="bold">
+int
+
+</emphasis>
+ values based on the loop counter values for the 
+outer and inner loops.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1016" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+. Populate the leaf array objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1019" display="block">
+    for(int i=0;i&lt;v3.length;i++){
+      for(int j=0;j&lt;((Object[])v3[i]).length;j++){
+        ((Object[])v3[i])[j] = new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1211">
+<emphasis id="strong1200" effect="bold">
+Added complexity
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1212">
+The added complexity of this approach manifests itself in
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1053">
+The 
+
+<emphasis id="em1076" effect="italics">
+cast operators
+
+</emphasis>
+ shown in 
+
+<link id="a1082" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1054">
+The attendant required grouping of terms within parentheses
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1213">
+<emphasis id="strong1201" effect="bold">
+Inside and outside the parentheses
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1214">
+Note that within the inner loop, one of the square-bracket accessor 
+expressions is inside the parentheses and the other is outside the parentheses.
+
+
+</para>
+
+
+
+
+
+<para id="p1215">
+<emphasis id="strong1202" effect="bold">
+Why are the casts necessary?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1216">
+The casts are necessary to convert the references retrieved from the array 
+elements from type 
+
+<emphasis id="strong1203" effect="bold">
+Object
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1204" effect="bold">
+Object[]
+
+</emphasis>
+. 
+For example, the reference stored in 
+
+<emphasis id="strong1205" effect="bold">
+v3[i]
+
+</emphasis>
+ is stored as type
+
+
+<emphasis id="strong1206" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1217">
+<emphasis id="strong1207" effect="bold">
+Get length of leaf array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1218">
+The cast in the following expression converts that reference to type 
+
+<emphasis id="strong1208" effect="bold">
+
+Object[]
+
+</emphasis>
+ before attempting to get the value of 
+
+<emphasis id="strong1209" effect="bold">
+length
+
+</emphasis>
+ 
+belonging to the array object whose reference is stored there. 
+
+</para>
+
+
+
+
+
+<code id="pre1020" display="block">((Object[])v3[i]).length</code>
+
+
+
+
+<para id="p1219">
+<emphasis id="strong1210" effect="bold">
+Assign a value to an element in the leaf array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1220">
+Similarly, the following expression converts the reference stored in 
+
+<emphasis id="strong1211" effect="bold">
+
+v3[i]
+
+</emphasis>
+ from type 
+
+<emphasis id="strong1212" effect="bold">
+Object
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1213" effect="bold">
+Object[]
+
+</emphasis>
+. 
+Having made the conversion, it then accesses the 
+
+<emphasis id="strong1214" effect="bold">
+jth
+
+</emphasis>
+ element of 
+the array object whose reference is stored there 
+
+<emphasis id="em1077" effect="italics">
+(in order to assign a value 
+to that element).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<code id="pre1021" display="block">((Object[])v3[i])[j]= </code>
+
+
+
+
+<para id="p1221">
+<emphasis id="strong1215" effect="bold">
+Display data in leaf array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1222">
+<link id="a1083" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+ uses similar casts to get and display 
+the values encapsulated in the 
+
+<emphasis id="strong1216" effect="bold">
+Integer
+
+</emphasis>
+ objects whose references are stored in the elements 
+of the leaf array objects. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1017" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Listing_18" effect="bold">
+
+Listing 18
+
+</emphasis>
+
+. Display data in leaf array objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+				
+
+<code id="pre1022" display="block">    for(int i=0;i&lt;v3.length;i++){
+      for(int j=0;j&lt;((Object[])v3[i]).length;j++){
+        System.out.print(((Object[])v3[i])[j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1223">
+<emphasis id="strong1217" effect="bold">
+The rectangular output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1224">
+This approach produced the following output on the screen, 
+
+<emphasis id="em1078" effect="italics">
+(which is the 
+same as the previous two approaches):
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<code id="pre1023" display="block">1 2 3
+2 4 6</code>
+
+
+
+
+<para id="p1225">
+<emphasis id="strong1218" effect="bold">
+Ragged arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1226">
+All the code in the previous three cases has been used to emulate a 
+traditional rectangular two-dimensional array. In the first case, each row was 
+required to have the same number of elements by the syntax used to create the 
+tree of array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1227">
+In the second and third cases, each row was not required to have the same 
+number of elements, but they were programmed to have the same number of elements 
+in order to emulate a rectangular two-dimensional array. 
+
+</para>
+
+
+
+
+
+<para id="p1228">
+<emphasis id="strong1219" effect="bold">
+A triangular array, sort of ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1229">
+Now I am going to show you some cases that take advantage of the 
+
+<emphasis id="em1079" effect="italics">
+
+ragged-array
+
+</emphasis>
+ capability of Java array objects. In the next case, 
+
+<emphasis id="em1080" effect="italics">
+
+(beginning with 
+
+<link id="a1084" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+),
+
+</emphasis>
+ I will create a ragged array having two rows. 
+The first row will have two elements and the second row will have three 
+elements. 
+
+<emphasis id="em1081" effect="italics">
+(This array object might be thought of as being sort of 
+triangular.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1018" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1018">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="th1018">
+<emphasis id="Listing_19" effect="bold">
+
+Listing 19
+
+</emphasis>
+
+. A triangular array.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1024" display="block">
+    Object[][] v4 = new Object[2][];
+    v4[0] = new Object[2];
+    v4[1] = new Object[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1230">
+<emphasis id="strong1220" effect="bold">
+You have seen this before
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1231">
+You saw code like this in the second case discussed earlier. However, in that 
+case, the second and third statements created new array objects having the same 
+length. In this case, the second and third statements create array objects 
+having different lengths. This is one of the ways to create a ragged array in 
+Java 
+
+<emphasis id="em1082" effect="italics">
+(you will see another way in the next case that I will discuss).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1232">
+<emphasis id="strong1221" effect="bold">
+Populate the leaf array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1233">
+<link id="a1085" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+ populates the elements of the leaf array objects with references 
+to objects of the class 
+
+<emphasis id="strong1222" effect="bold">
+Integer
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1019" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1019">
+
+			
+
+<row id="tr1038">
+
+				
+
+<entry id="th1019">
+<emphasis id="Listing_20" effect="bold">
+
+Listing 20
+
+</emphasis>
+
+. Populate the leaf array objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1039">
+
+				
+
+<entry id="td1019">
+
+				
+
+<code id="pre1025" display="block">    for(int i=0;i&lt;v4.length;i++){
+      for(int j=0;j&lt;v4[i].length;j++){
+        v4[i][j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1234">
+<emphasis id="strong1223" effect="bold">
+You have seen this before also
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1235">
+You have also seen the code in 
+
+<link id="a1086" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+ before. I repeated it here because 
+this case clearly emphasizes the value of the 
+
+<emphasis id="strong1224" effect="bold">
+length
+
+</emphasis>
+ constant 
+that is available in all Java array objects. In the earlier case, the 
+
+<emphasis id="strong1225" effect="bold">
+
+length
+
+</emphasis>
+ of the two leaf array objects was the same, so it would have 
+been feasible to simply hard-code that value into the conditional expression of 
+the inner 
+
+<emphasis id="strong1226" effect="bold">
+for
+
+</emphasis>
+ loop. 
+
+</para>
+
+
+
+
+
+<para id="p1236">
+<emphasis id="strong1227" effect="bold">
+The length is not the same now
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1237">
+However, in this case, the 
+
+<emphasis id="strong1228" effect="bold">
+length
+
+</emphasis>
+ of the two leaf array 
+objects is not the same. Therefore, it wouldn't work to hard-code a limit into 
+the conditional expression of the inner 
+
+<emphasis id="strong1229" effect="bold">
+for
+
+</emphasis>
+ loop. However, 
+because the 
+
+<emphasis id="strong1230" effect="bold">
+length
+
+</emphasis>
+ of each leaf array object is available as a 
+public member of the array object, that value can be used to control the number 
+of iterations of the inner loop for each separate leaf array object. 
+
+</para>
+
+
+
+
+
+<para id="p1238">
+<emphasis id="strong1231" effect="bold">
+The triangular output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1239">
+The next section of code in the program shown in 
+
+<link id="a1087" target-id="Listing_26">
+
+Listing 26
+
+</link>
+
+ near the end of 
+the module uses the same code as before to display the 
+
+<emphasis id="strong1232" effect="bold">
+int
+
+</emphasis>
+ 
+values encapsulated in the 
+
+<emphasis id="strong1233" effect="bold">
+Integer
+
+</emphasis>
+ objects whose references are 
+stored in the leaf array objects. Since it is the same code as before, I won't 
+repeat it here. 
+
+</para>
+
+
+
+
+
+<para id="p1240">
+The output produced by this case is shown below: 
+
+</para>
+
+
+
+
+
+<code id="pre1026" display="block">1 2
+2 4 6</code>
+
+
+
+
+<para id="p1241">
+Note that this is not the same as before, and this output does not describe a 
+rectangular array. Rather, it describes a ragged array where the rows are of 
+different lengths. 
+
+</para>
+
+
+
+
+
+<para id="p1242">
+<emphasis id="em1083" effect="italics">
+(As I indicated earlier, it is sort of triangular. However, it could be 
+any shape that you might want it to be.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1243">
+<emphasis id="strong1234" effect="bold">
+A more general approach
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1244">
+The next case, shown in 
+
+<link id="a1088" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+, is the same as the third case discussed 
+earlier, except that the lengths of the leaf array objects are not the same. 
+
+</para>
+
+
+
+
+
+<para id="p1245">
+As before, this case creates a one-dimensional array object of type 
+
+<emphasis id="strong1235" effect="bold">
+
+Object 
+
+</emphasis>
+<emphasis id="em1084" effect="italics">
+(having two elements)
+
+</emphasis>
+ that forms the root of a tree. 
+Each element in the root object contains a reference to another array object of 
+type 
+
+<emphasis id="strong1236" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1246">
+One of those leaf objects has two elements and the other has three elements, 
+thus producing a ragged array 
+
+<emphasis id="em1085" effect="italics">
+(you could make the lengths of those objects 
+anything that you want them to be).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1020" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1020">
+
+			
+
+<row id="tr1040">
+
+				
+
+<entry id="th1020">
+<emphasis id="Listing_21" effect="bold">
+
+Listing 21
+
+</emphasis>
+
+. A more general approach.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1041">
+
+				
+
+<entry id="td1020">
+
+				
+
+<code id="pre1027" display="block">
+    Object[] v5 = new Object[2];
+    v5[0] = new Object[2];
+    v5[1] = new Object[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1247">
+<emphasis id="strong1237" effect="bold">
+Populate the leaf objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1248">
+As before, the elements in the leaf array objects are populated with 
+references to objects of the class 
+
+<emphasis id="strong1238" effect="bold">
+Integer
+
+</emphasis>
+, which encapsulate
+
+
+<emphasis id="strong1239" effect="bold">
+int
+
+</emphasis>
+ values based on the current value of the loop counters. 
+This is shown in 
+
+<link id="a1089" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1021" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1021">
+
+			
+
+<row id="tr1042">
+
+				
+
+<entry id="th1021">
+<emphasis id="Listing_22" effect="bold">
+
+Listing 22
+
+</emphasis>
+
+. Populate the leaf objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1043">
+
+				
+
+<entry id="td1021">
+
+				
+
+<code id="pre1028" display="block">    for(int i=0;i&lt;v5.length;i++){
+      for(int j=0;
+            j&lt;((Object[])v5[i]).length;
+                                  j++){
+        ((Object[])v5[i])[j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1249">
+<emphasis id="strong1240" effect="bold">
+Same code as before
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1250">
+This is the same code that you saw in 
+
+<link id="a1090" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. I repeated it here to 
+emphasize the requirement for casting
+
+<emphasis id="em1086" effect="italics">
+.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1251">
+<emphasis id="strong1241" effect="bold">
+Display the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1252">
+This case uses the same code as 
+
+<link id="a1091" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+ to display the 
+
+<emphasis id="strong1242" effect="bold">
+int
+
+</emphasis>
+ 
+values encapsulated by the 
+
+<emphasis id="strong1243" effect="bold">
+Integer
+
+</emphasis>
+ objects whose references are 
+stored in the elements of the leaf array objects. I won't repeat that code here.
+
+
+</para>
+
+
+
+
+
+<para id="p1253">
+<emphasis id="strong1244" effect="bold">
+The triangular output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1254">
+The output produced by this case is shown below: 
+
+</para>
+
+
+
+
+
+<code id="pre1029" display="block">1 2
+2 4 6</code>
+
+
+
+
+<para id="p1255">
+Note that this is the same as the case immediately prior to this one. Again, 
+it does not describe a rectangular array. Rather, it describes a ragged array 
+where the rows are of different lengths. 
+
+</para>
+
+
+
+
+
+<para id="p1256">
+<emphasis id="strong1245" effect="bold">
+A more general case
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1257">
+I'm going to show you one more general case for a ragged array. This case 
+illustrates a more general approach. In this case, I will create a 
+one-dimensional array object of element type 
+
+<emphasis id="strong1246" effect="bold">
+Object
+
+</emphasis>
+. I will 
+populate the elements of that array object with references to other array 
+objects. These array objects will be the leaves of the tree. 
+
+</para>
+
+
+
+
+
+<para id="p1258">
+<emphasis id="strong1247" effect="bold">
+Leaf array objects are type int
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1259">
+In this case, the leaves won't be of element type 
+
+<emphasis id="strong1248" effect="bold">
+Object
+
+</emphasis>
+. 
+Rather, the elements in the leaf objects will be designed to store primitive
+
+
+<emphasis id="strong1249" effect="bold">
+int
+
+</emphasis>
+ values. 
+
+</para>
+
+
+
+
+
+<para id="p1260">
+<emphasis id="em1087" effect="italics">
+(An even more general case would be to populate the elements of the root 
+object with references to a mixture of objects of class types, interface types, 
+and array objects where the elements of the array objects are designed to store 
+primitives of different types, and references of different types. Note, however, 
+each leaf array object must be designed to store a single type, but will accept 
+for storage any type that is assignment-compatible with the specified type for 
+the array object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1261">
+This case begins in 
+
+<link id="a1092" target-id="Listing_23">
+
+Listing 23
+
+</link>
+
+, which creates the root array object, and 
+populates its elements with references to leaf array objects of type 
+
+<emphasis id="strong1250" effect="bold">
+int
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1022" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1022">
+
+			
+
+<row id="tr1044">
+
+				
+
+<entry id="th1022">
+<emphasis id="Listing_23" effect="bold">
+
+Listing 23
+
+</emphasis>
+
+. Beginning of a
+
+<emphasis id="strong1251" effect="bold">
+ more general case
+
+</emphasis>
+.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1022">
+
+			
+
+<row id="tr1045">
+
+				
+
+<entry id="td1022">
+
+				
+
+<code id="pre1030" display="block">
+    Object[] v6 = new Object[2];
+    v6[0] = new int[7];
+    v6[1] = new int[3];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1262">
+<emphasis id="strong1252" effect="bold">
+Leaf objects are different lengths
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1263">
+One of the leaf array objects has a length of 7. The other has a length of 3.
+
+
+</para>
+
+
+
+
+
+<para id="p1264">
+<emphasis id="strong1253" effect="bold">
+Populate the leaf array elements
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1265">
+<link id="a1093" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ populates the elements in the leaf array 
+objects with values of type 
+
+<emphasis id="strong1254" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1023" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1023">
+
+			
+
+<row id="tr1046">
+
+				
+
+<entry id="th1023">
+<emphasis id="Listing_24" effect="bold">
+
+Listing 24
+
+</emphasis>
+
+. Populate the leaf array elements.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1023">
+
+			
+
+<row id="tr1047">
+
+				
+
+<entry id="td1023">
+
+				
+
+<code id="pre1031" display="block">    for(int i=0;i&lt;v6.length;i++){
+      for(int j=0;j&lt;((int[])v6[i]).length;j++){
+        ((int[])v6[i])[j] = (i+2)*(j+2);
+      }//end inner loop
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1266">
+<emphasis id="strong1255" effect="bold">
+Similar to previous code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1267">
+The code in 
+
+<link id="a1094" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ is similar to code that you 
+saw earlier. The differences are:
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1055">
+Cast is to type 
+
+<emphasis id="strong1256" effect="bold">
+int[]
+
+</emphasis>
+ instead of 
+
+<emphasis id="strong1257" effect="bold">
+object[]
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1056">
+Values assigned are type 
+
+<emphasis id="strong1258" effect="bold">
+int
+
+</emphasis>
+ instead of references to
+	
+
+<emphasis id="strong1259" effect="bold">
+Integer
+
+</emphasis>
+ objects
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1268">
+<emphasis id="strong1260" effect="bold">
+Display the output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1269">
+Finally, 
+
+<link id="a1095" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+ displays the 
+
+<emphasis id="strong1261" effect="bold">
+int
+
+</emphasis>
+ values stored in the 
+elements of the leaf array objects. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1024" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1024">
+
+			
+
+<row id="tr1048">
+
+				
+
+<entry id="th1024">
+<emphasis id="Listing_25" effect="bold">
+
+Listing 25
+
+</emphasis>
+
+. Display the output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1024">
+
+			
+
+<row id="tr1049">
+
+				
+
+<entry id="td1024">
+
+				
+
+<code id="pre1032" display="block">    for(int i=0;i&lt;v6.length;i++){
+      for(int j=0;j&lt;((int[])v6[i]).length;j++){
+        System.out.print(((int[])v6[i])[j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1270">
+The code in 
+
+<link id="a1096" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+ is very similar to what you have seen before, and 
+	there should be no requirement for an explanation of this code. 
+
+</para>
+
+
+
+
+
+<para id="p1271">
+The code in 
+
+<link id="a1097" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+ produces the following output: 
+
+</para>
+
+
+
+
+
+<code id="pre1033" display="block">4 6 8 10 12 14 16
+6 9 12</code>
+
+
+
+
+<para id="p1272">
+I will leave it as an exercise for the student to correlate the output with 
+the code. 
+
+</para>
+
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1273">
+When declaring a reference variable capable of referring to an array object, 
+the array type is declared by writing the name of an element type followed by 
+some number of empty pairs of square brackets []. 
+
+</para>
+
+
+
+
+
+<para id="p1274">
+The components in an array object may refer to other array objects. The 
+number of bracket pairs used in the declaration of the reference variable 
+indicates the depth of array nesting 
+
+<emphasis id="em1088" effect="italics">
+(in the sense that array elements can 
+refer to other array objects).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1275">
+An array's length is not part of its type or reference variable declaration.
+
+
+</para>
+
+
+
+
+
+<para id="p1276">
+Multi-dimensional arrays are not required to represent rectangles, cubes, 
+etc. They can be 
+
+<emphasis id="em1089" effect="italics">
+ragged.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1277">
+The normal rules of
+
+<emphasis id="em1090" effect="italics">
+ type conversion
+
+</emphasis>
+ and 
+
+<emphasis id="em1091" effect="italics">
+assignment compatibility
+
+</emphasis>
+ 
+apply when creating and populating array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1278">
+<emphasis id="strong1262" effect="bold">
+Object
+
+</emphasis>
+ is the superclass of all other classes. Therefore, an 
+array of element type 
+
+<emphasis id="strong1263" effect="bold">
+Object
+
+</emphasis>
+ is capable of storing references 
+to objects instantiated from any other class. The type declaration for such an 
+array object would be 
+
+<emphasis id="strong1264" effect="bold">
+Object[]
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1279">
+An array of element type 
+
+<emphasis id="strong1265" effect="bold">
+Object
+
+</emphasis>
+ is also capable of storing 
+references to any other array object. 
+
+</para>
+
+
+
+
+
+<para id="p1280">
+If the declared element type for the array object is one of the primitive 
+types, the elements of the array can be used to store values of any primitive 
+type that is 
+
+<emphasis id="em1092" effect="italics">
+assignment compatible
+
+</emphasis>
+ with the declared type 
+
+<emphasis id="em1093" effect="italics">
+(without 
+the requirement for a cast).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1281">
+If the declared element type is the name of a class, 
+
+<emphasis id="em1094" effect="italics">
+(which may or may 
+not be abstract),
+
+</emphasis>
+ a null reference or a reference to any object 
+instantiated from the class or any subclass of the class may be stored in the 
+array element. 
+
+</para>
+
+
+
+
+
+<para id="p1282">
+If the declared element type is an interface type, a null reference or a 
+reference to any object instantiated from any class that implements the 
+interface can be stored in the array element. 
+
+</para>
+
+
+
+
+
+<para id="p1283">
+A reference variable whose declared type is an array type 
+
+<emphasis id="em1095" effect="italics">
+does not 
+contain an array.
+
+</emphasis>
+ Rather, it contains either null, or a reference to an 
+array object. Declaring the reference variable does not create an array, nor 
+does it allocate any space for the array components. 
+
+</para>
+
+
+
+
+
+<para id="p1284">
+It is possible to declare a reference to an array object and initialize it 
+with a reference to an array object when it is declared. 
+
+</para>
+
+
+
+
+
+<para id="p1285">
+A reference to an array object can refer to different array objects 
+
+<emphasis id="em1096" effect="italics">
+(of 
+the same element type and different lengths)
+
+</emphasis>
+ at different points in the 
+execution of a program. 
+
+</para>
+
+
+
+
+
+<para id="p1286">
+When declaring an array reference variable, the square brackets [] may appear 
+as part of the type, or following the variable name, or both. 
+
+</para>
+
+
+
+
+
+<para id="p1287">
+Once an array object is created, its type and length never changes. 
+
+</para>
+
+
+
+
+
+<para id="p1288">
+An array object is created by an array creation expression or an array 
+initializer. 
+
+</para>
+
+
+
+
+
+<para id="p1289">
+An array creation expression 
+
+<emphasis id="em1097" effect="italics">
+(or an array initializer)
+
+</emphasis>
+ specifies:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1057">
+The element type
+
+</item>
+
+
+	
+
+<item id="li1058">
+The number of levels of nested arrays
+
+</item>
+
+
+	
+
+<item id="li1059">
+The length of the array for at least one of the levels of nesting
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1290">
+The length of the array is always available as a final instance variable 
+named 
+
+<emphasis id="strong1266" effect="bold">
+length
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1291">
+An array element is accessed by an expression whose value is an array 
+reference followed by an indexing expression enclosed by matching square 
+brackets. 
+
+</para>
+
+
+
+
+
+<para id="p1292">
+If an attempt is made to access the array with an invalid index value, an
+
+
+<emphasis id="strong1267" effect="bold">
+ArrayIndexOutOfBoundsException
+
+</emphasis>
+ will be thrown. 
+
+</para>
+
+
+
+
+
+<para id="p1293">
+Arrays must be indexed by integer values of the types 
+
+<emphasis id="strong1268" effect="bold">
+int
+
+</emphasis>
+,
+
+
+<emphasis id="strong1269" effect="bold">
+short
+
+</emphasis>
+, 
+
+<emphasis id="strong1270" effect="bold">
+byte
+
+</emphasis>
+, or 
+
+<emphasis id="strong1271" effect="bold">
+char
+
+</emphasis>
+. An 
+array cannot be accessed using an index of type 
+
+<emphasis id="strong1272" effect="bold">
+long
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1294">
+If the elements in an array are not purposely initialized when the array is 
+created, the array elements will be automatically initialized with default 
+values. 
+
+</para>
+
+
+
+
+
+<para id="p1295">
+The values in the array elements may be purposely initialized when the array 
+object is created using a comma-separated list of expressions enclosed by 
+matching curly brackets. 
+
+</para>
+
+
+
+
+
+<para id="p1296">
+The program in this module illustrated three different ways to emulate 
+traditional rectangular two-dimensional arrays. 
+
+</para>
+
+
+
+
+
+<para id="p1297">
+The program also illustrated two different ways to create and work with 
+ragged arrays.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1298">
+In the next module, I will provide so additional information about array 
+objects, and then illustrate the use of the classes named 
+
+<emphasis id="strong1273" effect="bold">
+Array
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1274" effect="bold">
+Arrays
+
+</emphasis>
+ for the creation and manipulation of array objects. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1299">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1275" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1060">
+Module name: Java OOP: Array Objects, Part 2
+
+</item>
+
+
+					
+
+<item id="li1061">
+File: Java1624.htm
+
+
+</item>
+
+
+					
+
+<item id="li1062">
+Published: 05/22/02
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1276" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1300">
+<emphasis id="strong1277" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1301">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1302">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1303">
+<emphasis id="strong1278" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1304">
+A complete listing of the program is shown in 
+
+<link id="a1098" target-id="Listing_26">
+
+Listing 
+26
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+<table id="table1025" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1025">
+
+
+
+<row id="tr1050">
+
+
+
+<entry id="th1025">
+
+
+
+<emphasis id="Listing_26" effect="bold">
+
+Listing 26
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1279" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1025">
+
+
+
+<row id="tr1051">
+
+
+
+<entry id="td1025">
+
+
+
+<code id="pre1034" display="block">/*File Array07.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates three
+different ways to emulate a traditional
+rectangular array in Java.  Two of
+those ways are essentially ragged
+arrays with equal-length sub arrays.
+
+The program also illustrates two ways
+to create ragged arrays in Java.
+
+Tested using JDK 1.3 under Win 2000.
+**************************************/
+
+public class Array07{
+  public static void main(
+                        String[] args){
+
+    //Create an array structure that
+    // emulates a traditional
+    // rectangular array with two rows
+    // and three columns.  This
+    // approach requires all rows to
+    // be the same length.
+    Object[][] v1 = new Object[2][3];
+    //Populate the array elements with
+    // references to objects of type
+    // Integer.
+    for(int i=0;i&lt;v1.length;i++){
+      for(int j=0;j&lt;v1[i].length;j++){
+        v1[i][j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v1.length;i++){
+      for(int j=0;j&lt;v1[i].length;j++){
+        System.out.print(
+                       v1[i][j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+    System.out.println();//new line
+
+    //Create a ragged array with two
+    // rows.  The first row has three
+    // columns and the second row has
+    // three columns.  The length of
+    // each row could be anything, but
+    // was set to three to match the
+    // above array structure.
+    Object[][] v2 = new Object[2][];
+    v2[0] = new Object[3];
+    v2[1] = new Object[3];
+    //Populate the array elements with
+    // references to objects of type
+    // Integer.
+    for(int i=0;i&lt;v2.length;i++){
+      for(int j=0;j&lt;v2[i].length;j++){
+        v2[i][j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v2.length;i++){
+      for(int j=0;j&lt;v2[i].length;j++){
+        System.out.print(
+                       v2[i][j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+    System.out.println();//new line
+
+    //Create a one-dimensional array
+    // of type Object, which contains
+    // references to array objects of
+    // type Object.  The secondary
+    // array objects could be of any
+    // length, but were set to three
+    // to match the above array
+    // structure.
+    Object[] v3 = new Object[2];
+    v3[0] = new Object[3];
+    v3[1] = new Object[3];
+    //Populate the array elements with
+    // references to objects of type
+    // Integer.
+    for(int i=0;i&lt;v3.length;i++){
+      for(int j=0;
+            j&lt;((Object[])v3[i]).length;
+                                  j++){
+        ((Object[])v3[i])[j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v3.length;i++){
+      for(int j=0;
+            j&lt;((Object[])v3[i]).length;
+                                  j++){
+        System.out.print(
+           ((Object[])v3[i])[j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+    System.out.println();//new line
+
+    //Create a ragged array with two
+    // rows.  The first row has two
+    // columns and the second row has
+    // three columns.
+    Object[][] v4 = new Object[2][];
+    v4[0] = new Object[2];
+    v4[1] = new Object[3];
+    //Populate the array elements with
+    // references to objects of type
+    // Integer.
+    for(int i=0;i&lt;v4.length;i++){
+      for(int j=0;j&lt;v4[i].length;j++){
+        v4[i][j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v4.length;i++){
+      for(int j=0;j&lt;v4[i].length;j++){
+        System.out.print(
+                       v4[i][j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+    System.out.println();//new line
+
+    //Create a one-dimensional array
+    // of type Object, which contains
+    // references to array objects of
+    // type Object.  The secondary
+    // array objects could be of any
+    // length, but were set to two and
+    // three to match the ragged array
+    // above.
+    Object[] v5 = new Object[2];
+    v5[0] = new Object[2];
+    v5[1] = new Object[3];
+    //Populate the array elements with
+    // references to objects of type
+    // Integer.
+    for(int i=0;i&lt;v5.length;i++){
+      for(int j=0;
+            j&lt;((Object[])v5[i]).length;
+                                  j++){
+        ((Object[])v5[i])[j] =
+              new Integer((i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v5.length;i++){
+      for(int j=0;
+            j&lt;((Object[])v5[i]).length;
+                                  j++){
+        System.out.print(
+           ((Object[])v5[i])[j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+    System.out.println();
+
+    //Create a one-dimensional array
+    // of type int, which contains
+    // references to array objects of
+    // type Object.  The secondary
+    // array objects could be of any
+    // length.
+    Object[] v6 = new Object[2];
+    v6[0] = new int[7];
+    v6[1] = new int[3];
+    //Now illustrate that the elements
+    // of the leaves of a ragged array
+    // implemented in this manner can
+    // contain primitive values.
+    // Populate the array elements with
+    // type int.
+    for(int i=0;i&lt;v6.length;i++){
+      for(int j=0;
+            j&lt;((int[])v6[i]).length;
+                                  j++){
+        ((int[])v6[i])[j] = (i+2)*(j+2);
+      }//end inner loop
+    }//end outer loop
+    //Display the array elements
+    for(int i=0;i&lt;v6.length;i++){
+      for(int j=0;
+            j&lt;((int[])v6[i]).length;
+                                  j++){
+        System.out.print(
+           ((int[])v6[i])[j] + " ");
+      }//end inner loop
+      System.out.println();//new line
+    }//end outer loop
+
+  }//end main
+}//end class Array07</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1305">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

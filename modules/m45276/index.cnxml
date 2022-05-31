@@ -1,0 +1,5447 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0070: Self-assessment, Method Overloading</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45276</md:content-id>
+  <md:title>Ap0070: Self-assessment, Method Overloading</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about method overloading in Java.</md:abstract>
+  <md:uuid>c45311a6-b1a6-4ba2-acb1-78d27b2cba4b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1010" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1012" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1013" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1014" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. 9 17.64
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap079{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    int x = 3;
+    double y = 4.2;
+    System.out.println(square(x) + " "
+                          + square(y));
+  }//end doOverLoad()
+    
+  public int square(int y){
+    return y*y;
+  }//end square()
+    
+  public double square(double y){
+    return y*y;
+  }//end square()
+}// end class</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1015" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. float 9.0 double 17.64
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap080{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    int x = 3;
+    double y = 4.2;
+
+    System.out.print(square(x) + " ");
+    System.out.print(square(y));
+    System.out.println();
+  }//end doOverLoad()
+    
+  public float square(float y){
+    System.out.print("float ");
+    return y*y;
+  }//end square()
+    
+  public double square(double y){
+    System.out.print("double ");
+    return y*y;
+  }//end square()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1017" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. 10 17.64
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">public class Ap081{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    double w = 3.2;
+    double x = 4.2;
+    
+    int y = square(w);
+    double z = square(x);
+    
+    System.out.println(y + " " + z);
+  }//end doOverLoad()
+    
+  public int square(double y){
+    return (int)(y*y);
+  }//end square()
+  
+  public double square(double y){
+    return y*y;
+  }//end square()
+
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1019" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. 9 17.64
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">public class Ap083{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    int w = 3;
+    double x = 4.2;
+
+    System.out.println(
+      new Subclass().square(w) + " "
+      + new Subclass().square(x));
+  }//end doOverLoad()
+}// end class
+
+class Superclass{
+  public double square(double y){
+    return y*y;
+  }//end square()
+}//end class Superclass
+
+class Subclass extends Superclass{
+  public int square(int y){
+    return y*y;
+  }//end square()
+}//end class Subclass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1021" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+Which of the following is produced by the program shown in
+
+
+<link id="a1022" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+? 
+
+</para>
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1004" display="block">A.  Compiler Error
+				
+B.  Runtime Error
+
+C.  float 2.14748365E9
+    float 9.223372E18
+    double 4.2
+    
+D.  None of the above
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">public class Ap084{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    int x = 2147483647;
+    square(x);
+    long y = 9223372036854775807L;
+    square(y);
+    double z = 4.2;
+    square(z);
+    
+    System.out.println();
+  }//end doOverLoad()
+    
+  public void square(float y){
+    System.out.println("float" + " " +
+                              y + " ");
+  }//end square()
+    
+  public void square(double y){
+    System.out.println("double" + " " +
+                              y + " ");
+  }//end square()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1023" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. Test DumIntfc
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">public class Ap085{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    Test a = new Test();
+    DumIntfc b = new Test();
+    overLoadMthd(a);
+    overLoadMthd(b);
+    System.out.println();
+  }//end doOverLoad()
+    
+  public void overLoadMthd(Test x){
+    System.out.print("Test ");
+  }//end overLoadMthd
+  
+  public void overLoadMthd(DumIntfc x){
+    System.out.print("DumIntfc ");
+  }//end overLoadMthd
+}// end class
+
+interface DumIntfc{
+}//end DumIntfc
+
+class Test implements DumIntfc{
+}//end class Test
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1025" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. Test Object
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1007" display="block">public class Ap086{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    Test a = new Test();
+    Object b = new Test();
+    overLoadMthd(a);
+    overLoadMthd(b);
+    System.out.println();
+  }//end doOverLoad()
+    
+  public void overLoadMthd(Test x){
+    System.out.print("Test ");
+  }//end overLoadMthd
+  
+  public void overLoadMthd(Object x){
+    System.out.print("Object ");
+  }//end overLoadMthd
+
+}// end class
+
+class Test{
+}//end class Test
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1027" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1030">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1031">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+C. SubC SuperC
+
+</item>
+
+
+	
+
+<item id="li1033">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1008" display="block">public class Ap087{
+  public static void main(
+                        String args[]){
+    new Worker().doOverLoad();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doOverLoad(){
+    SubC a = new SubC();
+    SuperC b = new SubC();
+
+    SubC obj = new SubC();
+    obj.overLoadMthd(a);
+    obj.overLoadMthd(b);
+
+    System.out.println();
+  }//end doOverLoad()
+
+}// end class
+
+class SuperC{
+  public void overLoadMthd(SuperC x){
+    System.out.print("SuperC ");
+  }//end overLoadMthd
+}//end SuperC
+
+class SubC extends SuperC{
+  public void overLoadMthd(SubC x){
+    System.out.print("SubC ");
+  }//end overLoadMthd
+}//end class SubC
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1029" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+
+		
+
+<item id="li1034">
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1031" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1032" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1033" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1034" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1035" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1036" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1037" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1010" list-type="bulleted">
+
+				
+
+<item id="li1042">
+Module name: Ap0070: Self-assessment, Method Overloading
+
+</item>
+
+
+				
+
+<item id="li1043">
+File: Ap0070.htm 
+
+</item>
+
+
+				
+
+<item id="li1044">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1045">
+Published at cnx.org: 12/04/12
+
+</item>
+
+
+
+
+<item id="li1046">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1022">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1023">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1024">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1025">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21008">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+C. SubC SuperC 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1027">
+While admittedly a little convoluted, this is another relatively 
+straightforward application of method overloading using types from the class 
+hierarchy. 
+
+</para>
+
+
+
+
+<para id="p1028">
+Type 
+
+<emphasis id="strong1006" effect="bold">
+SubC
+
+</emphasis>
+, 
+
+<emphasis id="strong1007" effect="bold">
+SuperC
+
+</emphasis>
+, or 
+
+<emphasis id="strong1008" effect="bold">
+Object?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+This method defines a class named 
+
+<emphasis id="strong1009" effect="bold">
+SuperC
+
+</emphasis>
+, which extends 
+
+
+<emphasis id="strong1010" effect="bold">
+Object
+
+</emphasis>
+, and a class named 
+
+<emphasis id="strong1011" effect="bold">
+SubC
+
+</emphasis>
+, which extends 
+
+<emphasis id="strong1012" effect="bold">
+SuperC
+
+</emphasis>
+. Therefore, an object 
+instantiated from the class named 
+
+<emphasis id="strong1013" effect="bold">
+SubC
+
+</emphasis>
+ can be treated as any of the following 
+types: 
+
+<emphasis id="strong1014" effect="bold">
+SubC
+
+</emphasis>
+, 
+
+<emphasis id="strong1015" effect="bold">
+SuperC
+
+</emphasis>
+, or 
+
+
+<emphasis id="strong1016" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1017" effect="bold">
+Two overloaded methods in different classes 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1031">
+Two overloaded methods named 
+
+<emphasis id="strong1018" effect="bold">
+overLoadMthd
+
+</emphasis>
+ are defined in two 
+classes in the inheritance hierarchy. The class named 
+
+<emphasis id="strong1019" effect="bold">
+SuperC
+
+</emphasis>
+ defines a version 
+that requires an incoming parameter of type 
+
+<emphasis id="strong1020" effect="bold">
+SuperC
+
+</emphasis>
+. The class named 
+
+<emphasis id="strong1021" effect="bold">
+SubC
+
+</emphasis>
+ defines 
+a version that requires an incoming parameter of type 
+
+<emphasis id="strong1022" effect="bold">
+SubC
+
+</emphasis>
+. When called, each of 
+these overloaded methods prints the type of its formal argument. 
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1023" effect="bold">
+Two objects of type SubC
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1033">
+The program instantiates two objects of the 
+
+<emphasis id="strong1024" effect="bold">
+SubC
+
+</emphasis>
+ class, storing the reference 
+to one of them in a reference variable of type 
+
+<emphasis id="strong1025" effect="bold">
+SubC
+
+</emphasis>
+, and storing the reference 
+to the other in a reference variable of type 
+
+<emphasis id="strong1026" effect="bold">
+SuperC
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1027" effect="bold">
+Call the overloaded method twice
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1035">
+The next step is to call the overloaded method named 
+
+<emphasis id="strong1028" effect="bold">
+overLoadMthd
+
+</emphasis>
+ 
+twice in succession, passing each of the reference variables of type 
+
+<emphasis id="strong1029" effect="bold">
+SubC
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1030" effect="bold">
+SuperC
+
+</emphasis>
+ to the method. 
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1031" effect="bold">
+Instance methods require an object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1037">
+Because the two versions of the overloaded method are instance methods, it is 
+necessary to have an object on which to call the methods. This is accomplished 
+by instantiating a new object of the 
+
+<emphasis id="strong1032" effect="bold">
+SubC
+
+</emphasis>
+ class, storing the reference to that 
+object in a reference variable named 
+
+<emphasis id="strong1033" effect="bold">
+obj
+
+</emphasis>
+, and calling the overloaded method on 
+that reference. 
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1034" effect="bold">
+Overloaded methods not in same class 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1039">
+The important point here is that the two versions of the overloaded method 
+were not defined in the same class. Rather, they were defined in two different 
+classes in the inheritance hierarchy. However, they were defined in such a way 
+that both overloaded versions were contained as instance methods in an object 
+instantiated from the class named 
+
+<emphasis id="strong1035" effect="bold">
+SubC
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1036" effect="bold">
+No surprises 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1041">
+There were no surprises. When the overloaded method was called twice in 
+succession, passing the two different reference variables as parameters, the 
+output shows that the version that was called in each case had a formal argument 
+type that matched the type of the parameter that was passed to the method. 
+
+</para>
+
+
+
+
+<para id="p1042">
+<link id="a1038" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21009">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1043">
+C. Test Object
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1037" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1038" effect="bold">
+Another straightforward application 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+This is another straightforward application of method overloading, which 
+produces no surprises. 
+
+</para>
+
+
+
+
+<para id="p1046">
+This program defines a new class named 
+
+<emphasis id="strong1039" effect="bold">
+Test
+
+</emphasis>
+, which extends 
+the 
+
+<emphasis id="strong1040" effect="bold">
+Object
+
+</emphasis>
+ class by default. This means that an object 
+instantiated from the class named 
+
+<emphasis id="strong1041" effect="bold">
+Test
+
+</emphasis>
+ can be treated either as 
+type 
+
+<emphasis id="strong1042" effect="bold">
+Test
+
+</emphasis>
+, or as type 
+
+<emphasis id="strong1043" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1047">
+The program defines two overloaded methods named 
+
+<emphasis id="strong1044" effect="bold">
+overLoadMthd
+
+</emphasis>
+. 
+One requires an incoming parameter of type 
+
+<emphasis id="strong1045" effect="bold">
+Test
+
+</emphasis>
+. The other requires an incoming 
+parameter of type 
+
+<emphasis id="strong1046" effect="bold">
+Object
+
+</emphasis>
+. When called, each of these methods prints the type of 
+its incoming parameter. 
+
+</para>
+
+
+
+
+<para id="p1048">
+The program instantiates two different objects of the class 
+
+<emphasis id="strong1047" effect="bold">
+Test
+
+</emphasis>
+, storing a 
+reference to one of them in a reference variable of type 
+
+<emphasis id="strong1048" effect="bold">
+Test
+
+</emphasis>
+, and storing a 
+reference to the other in a reference variable of type 
+
+<emphasis id="strong1049" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1050" effect="bold">
+No surprises here 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1050">
+Then it calls the overloaded 
+
+<emphasis id="strong1051" effect="bold">
+overLoadMthd
+
+</emphasis>
+ method twice in 
+succession, passing the reference of type 
+
+<emphasis id="strong1052" effect="bold">
+Test
+
+</emphasis>
+ during the first 
+call, and 
+passing the reference of type 
+
+<emphasis id="strong1053" effect="bold">
+Object
+
+</emphasis>
+ during the second call. 
+
+</para>
+
+
+
+
+<para id="p1051">
+As mentioned above, the output produces no surprises. The output indicates 
+that the method selected for execution during each call is the method with 
+the formal argument type that matches the type of parameter passed to the 
+method. 
+
+</para>
+
+
+
+
+<para id="p1052">
+<link id="a1039" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21010">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+C. Test DumIntfc
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1054" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1055" effect="bold">
+Overloaded methods with reference parameters 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+This is a fairly straightforward application of method overloading. However, 
+rather than requiring method parameters of primitive types as in the previous 
+questions in this module, the overloaded methods in this program require 
+incoming parameters of class and interface types respectively. 
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1056" effect="bold">
+Type Test or type DumIntfc? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+The program defines an interface named 
+
+<emphasis id="strong1057" effect="bold">
+DumIntfc
+
+</emphasis>
+ and defines 
+a class named 
+
+<emphasis id="strong1058" effect="bold">
+Test
+
+</emphasis>
+ that implements that interface. The result 
+is that an object instantiated from the 
+
+<emphasis id="strong1059" effect="bold">
+Test
+
+</emphasis>
+ class can be 
+treated either as type 
+
+<emphasis id="strong1060" effect="bold">
+Test
+
+</emphasis>
+ or as type 
+
+<emphasis id="strong1061" effect="bold">
+DumIntfc
+
+</emphasis>
+
+
+
+<emphasis id="em1000" effect="italics">
+(it could also be treated as type Object as well)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1062" effect="bold">
+Two overloaded methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1059">
+The program defines two overloaded methods named 
+
+<emphasis id="strong1063" effect="bold">
+overLoadMthd
+
+</emphasis>
+. 
+One requires an incoming parameter of type 
+
+<emphasis id="strong1064" effect="bold">
+Test
+
+</emphasis>
+, and the other 
+requires an incoming parameter of type 
+
+<emphasis id="strong1065" effect="bold">
+DumIntfc
+
+</emphasis>
+. When called, 
+each of the overloaded methods prints a message indicating the type of its 
+argument. 
+
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1066" effect="bold">
+Two objects of the class Test
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1061">
+The program instantiates two objects of the class 
+
+<emphasis id="strong1067" effect="bold">
+Test
+
+</emphasis>
+. It 
+assigns one of the object's references to a reference variable named 
+
+<emphasis id="strong1068" effect="bold">
+a
+
+</emphasis>
+, 
+which is declared to be of type 
+
+<emphasis id="strong1069" effect="bold">
+Test
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1062">
+The program assigns the other object's reference to a reference variable 
+named 
+
+<emphasis id="strong1070" effect="bold">
+b
+
+</emphasis>
+, which is declared to be of type 
+
+<emphasis id="strong1071" effect="bold">
+DumIntfc
+
+</emphasis>
+.
+
+
+<emphasis id="em1001" effect="italics">
+(Remember, both objects were instantiated from the class 
+
+<emphasis id="strong1072" effect="bold">
+Test
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1073" effect="bold">
+No surprises here 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+Then it calls the overloaded method named 
+
+<emphasis id="strong1074" effect="bold">
+overLoadMthd
+
+</emphasis>
+ twice 
+in succession, passing first the reference variable of type 
+
+<emphasis id="strong1075" effect="bold">
+Test
+
+</emphasis>
+ 
+and then the reference variable of type 
+
+<emphasis id="strong1076" effect="bold">
+DumIntfc
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1065">
+The program output doesn't produce any surprises. When the reference variable 
+of type 
+
+<emphasis id="strong1077" effect="bold">
+Test
+
+</emphasis>
+ is passed as a parameter, the overloaded method 
+requiring that type of parameter is selected for execution. When the reference 
+variable of type 
+
+<emphasis id="strong1078" effect="bold">
+DumIntfc
+
+</emphasis>
+ is passed as a parameter, the 
+overloaded method requiring that type of parameter is selected for execution.
+
+</para>
+
+
+
+
+<para id="p1066">
+<link id="a1040" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1009" display="block">C.  float 2.14748365E9
+    float 9.223372E18
+    double 4.2
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1079" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1080" effect="bold">
+Another subtle method selection issue 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+This program illustrates a subtle issue in the automatic selection of an 
+overloaded method based on assignment compatibility. 
+
+</para>
+
+
+
+
+<para id="p1069">
+This program defines two overloaded methods named 
+
+<emphasis id="strong1081" effect="bold">
+square
+
+</emphasis>
+. 
+One requires an incoming parameter of type 
+
+<emphasis id="strong1082" effect="bold">
+float
+
+</emphasis>
+, and the other 
+requires an incoming parameter of type 
+
+<emphasis id="strong1083" effect="bold">
+double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1070">
+When called, each of these methods prints the type of its formal argument 
+along with the value of the incoming parameter as represented by its formal 
+argument type. In other words, the value of the incoming parameter is printed 
+after it has been automatically converted to the formal argument type. 
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1084" effect="bold">
+Printout identifies the selected method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+This printout makes it possible to determine which version is called for 
+different types of parameters. It also makes it possible to determine the effect 
+of the automatic conversion on the incoming parameter. What we are going to see 
+is that the conversion process can introduce serious accuracy problems. 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1085" effect="bold">
+Call the method three times
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1074">
+The 
+
+<emphasis id="strong1086" effect="bold">
+square
+
+</emphasis>
+ method is called three times in succession, 
+passing values of type 
+
+<emphasis id="strong1087" effect="bold">
+int
+
+</emphasis>
+, 
+
+<emphasis id="strong1088" effect="bold">
+long
+
+</emphasis>
+, and 
+
+<emphasis id="strong1089" effect="bold">
+
+double
+
+</emphasis>
+ during successive calls. 
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="em1002" effect="italics">
+(Type 
+
+</emphasis>
+<emphasis id="strong1090" effect="bold">
+<emphasis id="em1003" effect="italics">
+long
+
+</emphasis>
+</emphasis>
+<emphasis id="em1004" effect="italics">
+ is a 64-bit integer type 
+capable of storing integer values that are much larger than can be stored in 
+type 
+
+</emphasis>
+<emphasis id="strong1091" effect="bold">
+<emphasis id="em1005" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1006" effect="italics">
+. The use of this type here is 
+important for illustration of data corruption that occurs through automatic type 
+conversion.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+The third invocation of the 
+
+<emphasis id="strong1092" effect="bold">
+square
+
+</emphasis>
+ method, passing a 
+
+<emphasis id="strong1093" effect="bold">
+
+double
+
+</emphasis>
+ as a parameter, is not particularly interesting. There is a 
+version of 
+
+<emphasis id="strong1094" effect="bold">
+square
+
+</emphasis>
+ with a matching argument type, and everything 
+behaves as would be expected for this invocation. The interesting behavior 
+occurs when the 
+
+<emphasis id="strong1095" effect="bold">
+int
+
+</emphasis>
+ and 
+
+<emphasis id="strong1096" effect="bold">
+long
+
+</emphasis>
+ values are passed 
+as parameters. 
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1097" effect="bold">
+Passing an int parameter 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+The first thing to note is the behavior of the program produced by the 
+following code fragment. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">int x = 2147483647;
+square(x);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1079">
+The above fragment assigns a large integer value
+(2147483647)to the 
+
+<emphasis id="strong1098" effect="bold">
+int
+
+</emphasis>
+ variable and passes that variable to the 
+
+<emphasis id="strong1099" effect="bold">
+
+square
+
+</emphasis>
+ method. This fragment produces the following output on the 
+screen:
+
+</para>
+
+
+
+
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">float 2.14748365E9</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1080">
+As you can see, the system selected the overloaded method that requires an 
+incoming parameter of type 
+
+<emphasis id="strong1100" effect="bold">
+float
+
+</emphasis>
+ for execution in this case 
+
+
+<emphasis id="em1007" effect="italics">
+(rather than the version that requires type 
+
+</emphasis>
+ 
+
+<emphasis id="strong1101" effect="bold">
+<emphasis id="em1008" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+). 
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1102" effect="bold">
+Conversion from int to float loses accuracy
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1082">
+Correspondingly, it converted the incoming 
+
+<emphasis id="strong1103" effect="bold">
+int
+
+</emphasis>
+ value to type
+
+
+<emphasis id="strong1104" effect="bold">
+float
+
+</emphasis>
+, losing one decimal digit of accuracy in the process. 
+
+
+<emphasis id="em1009" effect="italics">
+(The original 
+
+</emphasis>
+ 
+
+<emphasis id="strong1105" effect="bold">
+<emphasis id="em1010" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1011" effect="italics">
+ value contained ten digits of accuracy. This 
+was approximated by a nine-digit 
+
+</emphasis>
+ 
+
+<emphasis id="strong1106" effect="bold">
+<emphasis id="em1012" effect="italics">
+float
+
+</emphasis>
+</emphasis>
+<emphasis id="em1013" effect="italics">
+ value with an exponent 
+value of 9.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1083">
+This seems like an unfortunate choice of overloaded method. Selecting the 
+other version that requires a 
+
+<emphasis id="strong1107" effect="bold">
+double
+
+</emphasis>
+ parameter as input would 
+not have resulted in any loss of accuracy. 
+
+</para>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1108" effect="bold">
+A more dramatic case 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1085">
+Now, consider an even more dramatic case, as illustrated in the following 
+fragment where a very large 
+
+<emphasis id="strong1109" effect="bold">
+long
+
+</emphasis>
+ integer value(9223372036854775807) is passed to the 
+
+<emphasis id="strong1110" effect="bold">
+square
+
+</emphasis>
+ method.
+
+</para>
+
+
+	
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">long y = 9223372036854775807L;
+square(y);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1086">
+The above code fragment produced the following output: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">float 9.223372E18</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1111" effect="bold">
+A very serious loss of accuracy 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1088">
+Again, unfortunately, the system selected the version of the 
+
+<emphasis id="strong1112" effect="bold">
+square
+
+</emphasis>
+ 
+method that requires a 
+
+<emphasis id="strong1113" effect="bold">
+float
+
+</emphasis>
+ parameter for execution. This 
+caused the 
+
+<emphasis id="strong1114" effect="bold">
+long
+
+</emphasis>
+ integer to be converted to a 
+
+<emphasis id="strong1115" effect="bold">
+float
+
+</emphasis>
+. As a 
+result, the 
+
+<emphasis id="strong1116" effect="bold">
+long
+
+</emphasis>
+ value containing 19 digits of accuracy was converted to an 
+estimate consisting of only seven digits plus an exponent. 
+
+<emphasis id="em1014" effect="italics">
+(Even if the 
+overloaded 
+
+</emphasis>
+ 
+
+<emphasis id="strong1117" effect="bold">
+<emphasis id="em1015" effect="italics">
+square
+
+</emphasis>
+</emphasis>
+<emphasis id="em1016" effect="italics">
+ method requiring a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1118" effect="bold">
+
+
+
+<emphasis id="em1017" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1018" effect="italics">
+ 
+parameter had been selected, the conversion process would have lost about three 
+digits of accuracy, but that would have been much better than losing twelve 
+digits of accuracy.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1119" effect="bold">
+The moral to the story is ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1090">
+Don't assume that just because the system knows how to automatically convert 
+your integer data to floating data, it will protect the integrity of your data. 
+Oftentimes it won't. 
+
+</para>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1120" effect="bold">
+To be really safe ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1092">
+To be really safe, whenever you need to convert either 
+
+<emphasis id="strong1121" effect="bold">
+int
+
+</emphasis>
+ 
+or 
+
+<emphasis id="strong1122" effect="bold">
+long
+
+</emphasis>
+ types to floating format, you should write your code in such a way as to 
+ensure that it will be converted to type 
+
+<emphasis id="strong1123" effect="bold">
+double
+
+</emphasis>
+ instead of type
+
+
+<emphasis id="strong1124" effect="bold">
+float
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1093">
+For example, the following modification would solve the problem for the
+
+
+<emphasis id="strong1125" effect="bold">
+int
+
+</emphasis>
+ data and would greatly reduce the magnitude of the problem 
+for the 
+
+<emphasis id="strong1126" effect="bold">
+long
+
+</emphasis>
+ data. Note the use of the 
+
+<emphasis id="strong1127" effect="bold">
+(double) 
+
+</emphasis>
+cast to force 
+the 
+
+<emphasis id="strong1128" effect="bold">
+double
+
+</emphasis>
+ version of the 
+
+<emphasis id="strong1129" effect="bold">
+square
+
+</emphasis>
+ method to be selected for execution.
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">int x = 2147483647;
+square((double)x);
+long y = 9223372036854775807L;
+square((double)y);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1094">
+The above modification would cause the program to produce the following 
+output: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">double 2.147483647E9 
+double 9.223372036854776E18 
+double 4.2</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1095">
+This output shows no loss of accuracy for the 
+
+<emphasis id="strong1130" effect="bold">
+int
+
+</emphasis>
+ value, and 
+the loss of three digits of accuracy for the long value. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="em1019" effect="italics">
+(Because a 
+
+</emphasis>
+<emphasis id="strong1131" effect="bold">
+<emphasis id="em1020" effect="italics">
+long
+
+</emphasis>
+</emphasis>
+<emphasis id="em1021" effect="italics">
+ and a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1132" effect="bold">
+
+
+
+<emphasis id="em1022" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1023" effect="italics">
+ both store their data in 64 
+bits, it is not possible to convert a very large 
+
+</emphasis>
+<emphasis id="strong1133" effect="bold">
+<emphasis id="em1024" effect="italics">
+long
+
+</emphasis>
+</emphasis>
+<emphasis id="em1025" effect="italics">
+ value to a
+
+
+</emphasis>
+ 
+
+<emphasis id="strong1134" effect="bold">
+<emphasis id="em1026" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1027" effect="italics">
+ 
+value without some loss in accuracy, but even that is much better than 
+converting a 64-bit 
+
+</emphasis>
+<emphasis id="strong1135" effect="bold">
+<emphasis id="em1028" effect="italics">
+long
+
+</emphasis>
+</emphasis>
+<emphasis id="em1029" effect="italics">
+ value to a 32-bit 
+
+
+</emphasis>
+<emphasis id="strong1136" effect="bold">
+<emphasis id="em1030" effect="italics">
+float
+
+</emphasis>
+</emphasis>
+<emphasis id="em1031" effect="italics">
+ value.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1097">
+<link id="a1041" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1098">
+C. 9 17.64 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1137" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1099">
+When the 
+
+<emphasis id="strong1138" effect="bold">
+square
+
+</emphasis>
+ method is called on an object of the 
+
+<emphasis id="strong1139" effect="bold">
+
+Subclass
+
+</emphasis>
+ type passing an 
+
+<emphasis id="strong1140" effect="bold">
+int
+
+</emphasis>
+ as a parameter, there is an exact 
+match to the required parameter type of the 
+
+<emphasis id="strong1141" effect="bold">
+square
+
+</emphasis>
+ method 
+defined in that class. Thus, the method is properly selected and executed.
+
+</para>
+
+
+
+
+<para id="p1100">
+When the 
+
+<emphasis id="strong1142" effect="bold">
+square
+
+</emphasis>
+ method is called on an object of the 
+
+<emphasis id="strong1143" effect="bold">
+
+Subclass
+
+</emphasis>
+ type passing a 
+
+<emphasis id="strong1144" effect="bold">
+double
+
+</emphasis>
+ as a parameter, the version of 
+the 
+
+<emphasis id="strong1145" effect="bold">
+square
+
+</emphasis>
+ method defined in the 
+
+<emphasis id="strong1146" effect="bold">
+Subclass
+
+</emphasis>
+ type 
+is not selected. The 
+
+<emphasis id="strong1147" effect="bold">
+double
+
+</emphasis>
+ value is not assignment compatible with the required 
+type of the parameter 
+
+<emphasis id="em1032" effect="italics">
+(an 
+
+</emphasis>
+<emphasis id="strong1148" effect="bold">
+<emphasis id="em1033" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1034" effect="italics">
+ is narrower 
+than a 
+
+</emphasis>
+<emphasis id="strong1149" effect="bold">
+<emphasis id="em1035" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+). 
+
+</para>
+
+
+
+
+<para id="p1101">
+Having made that determination, the system continues searching for an 
+overloaded method with a required parameter that is either type 
+
+<emphasis id="strong1150" effect="bold">
+double
+
+</emphasis>
+ 
+or assignment compatible with 
+
+<emphasis id="strong1151" effect="bold">
+double
+
+</emphasis>
+. It finds the version 
+inherited from 
+
+<emphasis id="strong1152" effect="bold">
+Superclass
+
+</emphasis>
+ that requires a 
+
+<emphasis id="strong1153" effect="bold">
+double
+
+</emphasis>
+ 
+parameter and calls it. 
+
+</para>
+
+
+
+
+<para id="p1102">
+The bottom line is, overloaded methods can occur up and down the inheritance 
+hierarchy.
+
+</para>
+
+
+
+
+<para id="p1103">
+<link id="a1042" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1104">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1154" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1155" effect="bold">
+Return type is not a differentiating feature 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1106">
+This is not a subtle issue. This program illustrates the important fact that 
+the return type does not differentiate between overloaded methods having the 
+same name and formal argument list. 
+
+</para>
+
+
+
+
+<para id="p1107">
+For a method to be overloaded, two or more versions of the method must have 
+the same name and different formal arguments lists. 
+
+</para>
+
+
+
+
+<para id="p1108">
+The return type can be the same, or it can be different 
+
+<emphasis id="em1036" effect="italics">
+(it can even be 
+void)
+
+</emphasis>
+. It doesn't matter. 
+
+</para>
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1156" effect="bold">
+These two methods are not a valid overload 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1110">
+This program attempts to define two methods named 
+
+<emphasis id="strong1157" effect="bold">
+square
+
+</emphasis>
+, 
+each of which requires a single incoming parameter of type 
+
+<emphasis id="strong1158" effect="bold">
+double
+
+</emphasis>
+. 
+One of the methods casts its return value to type 
+
+<emphasis id="strong1159" effect="bold">
+int
+
+</emphasis>
+ and 
+returns type 
+
+<emphasis id="strong1160" effect="bold">
+int
+
+</emphasis>
+. The other method returns type 
+
+<emphasis id="strong1161" effect="bold">
+double
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1111">
+The JDK 1.3 compiler produced the following error: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">Ap081.java:28: square(double) is already defined 
+in Worker
+
+  public double square(double y){
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1112">
+<link id="a1043" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1113">
+C. float 9.0 double 17.64 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1162" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1163" effect="bold">
+This program is a little more subtle
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1115">
+Once again, the program defines two overloaded methods named 
+
+<emphasis id="strong1164" effect="bold">
+square
+
+</emphasis>
+. 
+However, in this case, one of the methods requires a single incoming parameter 
+of type 
+
+<emphasis id="strong1165" effect="bold">
+float
+
+</emphasis>
+ and the other requires a single incoming 
+parameter of type 
+
+<emphasis id="strong1166" effect="bold">
+double
+
+</emphasis>
+. 
+
+<emphasis id="em1037" effect="italics">
+(Suffice it to say that the 
+
+</emphasis>
+
+
+
+<emphasis id="strong1167" effect="bold">
+<emphasis id="em1038" effect="italics">
+float
+
+</emphasis>
+</emphasis>
+<emphasis id="em1039" effect="italics">
+ type is similar to the 
+
+</emphasis>
+<emphasis id="strong1168" effect="bold">
+<emphasis id="em1040" effect="italics">
+
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1041" effect="italics">
+ type, but with less precision. It is a floating type, 
+not an integer type. The 
+
+</emphasis>
+<emphasis id="strong1169" effect="bold">
+<emphasis id="em1042" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1043" effect="italics">
+ type is a 
+64-bit floating type and the 
+
+</emphasis>
+<emphasis id="strong1170" effect="bold">
+<emphasis id="em1044" effect="italics">
+float
+
+</emphasis>
+</emphasis>
+<emphasis id="em1045" effect="italics">
+ type is a 
+32-bit floating type.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1171" effect="bold">
+Passing a type int as a parameter 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1117">
+This program does not define a method named 
+
+<emphasis id="strong1172" effect="bold">
+square
+
+</emphasis>
+ that 
+requires an incoming parameter of type 
+
+<emphasis id="strong1173" effect="bold">
+int
+
+</emphasis>
+. However, the 
+program calls the 
+
+<emphasis id="strong1174" effect="bold">
+square
+
+</emphasis>
+ method passing a value of type 
+
+<emphasis id="strong1175" effect="bold">
+
+int
+
+</emphasis>
+ as a parameter. 
+
+</para>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1176" effect="bold">
+What happens to the int parameter?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1119">
+The first question to ask is, will this cause one of the two overloaded 
+methods to be called, or will it cause a compiler error? The answer is that it 
+will cause one of the overloaded methods to be called because a value of type 
+
+<emphasis id="strong1177" effect="bold">
+
+int
+
+</emphasis>
+ is assignment compatible with both type 
+
+<emphasis id="strong1178" effect="bold">
+float
+
+</emphasis>
+ 
+and type 
+
+<emphasis id="strong1179" effect="bold">
+double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1180" effect="bold">
+Which overloaded method will be called?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1121">
+Since the type 
+
+<emphasis id="strong1181" effect="bold">
+int
+
+</emphasis>
+ is assignment compatible with type
+
+
+<emphasis id="strong1182" effect="bold">
+float
+
+</emphasis>
+ and also with type 
+
+<emphasis id="strong1183" effect="bold">
+double
+
+</emphasis>
+, the next 
+question is, which of the two overloaded methods will be called when a value of 
+type 
+
+<emphasis id="strong1184" effect="bold">
+int
+
+</emphasis>
+  is passed as a parameter? 
+
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1185" effect="bold">
+Learn through experimentation
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1123">
+I placed a print statement in each of the overloaded methods to display the 
+type of that method's argument on the screen when the method is called. By 
+examining the output, we can see that the method with the 
+
+<emphasis id="strong1186" effect="bold">
+float
+
+</emphasis>
+ 
+parameter was called first 
+
+<emphasis id="em1046" effect="italics">
+(corresponding to the parameter of type 
+
+</emphasis>
+
+
+
+<emphasis id="strong1187" effect="bold">
+<emphasis id="em1047" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+). Then the method with the 
+
+<emphasis id="strong1188" effect="bold">
+double
+
+</emphasis>
+ 
+parameter was called 
+
+<emphasis id="em1048" effect="italics">
+(corresponding to the parameter of type 
+
+</emphasis>
+<emphasis id="strong1189" effect="bold">
+
+
+
+<emphasis id="em1049" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+). 
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1190" effect="bold">
+Converted int to float
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1125">
+Thus, the system selected the overloaded method requiring an incoming 
+parameter of type 
+
+<emphasis id="strong1191" effect="bold">
+float
+
+</emphasis>
+ when the method was called passing an
+
+
+<emphasis id="strong1192" effect="bold">
+int
+
+</emphasis>
+ as a parameter. The value of type 
+
+<emphasis id="strong1193" effect="bold">
+int
+
+</emphasis>
+ was 
+automatically converted to type 
+
+<emphasis id="strong1194" effect="bold">
+float
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1126">
+In this case, it wasn't too important which method was called to process the 
+parameter of type 
+
+<emphasis id="strong1195" effect="bold">
+int
+
+</emphasis>
+, because the two methods do essentially 
+the same thing -- compute and return the 
+
+<emphasis id="strong1196" effect="bold">
+square
+
+</emphasis>
+  of the incoming 
+value. 
+
+</para>
+
+
+
+
+<para id="p1127">
+However, if the behavior of the two methods were different from one another, 
+it could make a lot of difference, which one gets called on an assignment 
+compatible basis. 
+
+<emphasis id="em1050" effect="italics">
+(Even in this case, it makes some difference. As we will 
+see later, when a very large 
+
+</emphasis>
+<emphasis id="strong1197" effect="bold">
+<emphasis id="em1051" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1052" effect="italics">
+ value is 
+converted to a 
+
+</emphasis>
+<emphasis id="strong1198" effect="bold">
+<emphasis id="em1053" effect="italics">
+float
+
+</emphasis>
+</emphasis>
+<emphasis id="em1054" effect="italics">
+, there is some loss in 
+accuracy. However, when the same very large 
+
+</emphasis>
+<emphasis id="strong1199" effect="bold">
+<emphasis id="em1055" effect="italics">
+int
+
+</emphasis>
+</emphasis>
+<emphasis id="em1056" effect="italics">
+ 
+value is converted to a 
+
+</emphasis>
+<emphasis id="strong1200" effect="bold">
+<emphasis id="em1057" effect="italics">
+double
+
+</emphasis>
+</emphasis>
+<emphasis id="em1058" effect="italics">
+, there is no 
+loss in accuracy.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1201" effect="bold">
+Avoiding the problem 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1129">
+One way to avoid this kind of subtle issue is to avoid passing 
+assignment-compatible values to overloaded methods. 
+
+</para>
+
+
+
+
+<para id="p1130">
+Passing assignment-compatible values to overloaded methods allows the system 
+to resolve the issue through automatic type conversion. Automatic type 
+conversion doesn't always provide the best choice. 
+
+</para>
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1202" effect="bold">
+Using a cast to force your choice of method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+Usually, you can cast the parameter values to a specific type before calling 
+the method and force the system to select your overloaded method of choice. 
+
+</para>
+
+
+
+
+<para id="p1133">
+For example, in this problem, you could force the method with the 
+
+<emphasis id="strong1203" effect="bold">
+
+double
+
+</emphasis>
+ parameter to handle the parameter of type 
+
+<emphasis id="strong1204" effect="bold">
+int
+
+</emphasis>
+ 
+by using the following cast when the method named 
+
+<emphasis id="strong1205" effect="bold">
+square
+
+</emphasis>
+  is 
+called: 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1206" effect="bold">
+square((double)x)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+However, as we will see later, casting may not be the solution in every case. 
+
+</para>
+
+
+
+
+<para id="p1136">
+<link id="a1044" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1137">
+C. 9 17.64
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1207" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1208" effect="bold">
+What is method overloading?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1139">
+A rigorous definition of method overloading is very involved and won't be 
+presented here. However, from a practical viewpoint, a method is overloaded when 
+two or more methods having the same name and different formal argument lists are 
+defined in the class from which an object is instantiated, or are inherited into 
+an object by way of superclasses of that class. 
+
+</para>
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1209" effect="bold">
+How does the compiler select among overloaded methods?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1141">
+The exact manner in which the system determines which method to call in 
+each particular case is also very involved. Basically, the system determines 
+which of the overloaded methods to execute by matching the types of parameters 
+passed to the method to the types of arguments defined in the formal argument 
+list. 
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1210" effect="bold">
+Assignment compatible matching 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1143">
+However, there are a number of subtle issues that arise, particularly when 
+there isn't an exact match. In selecting the version of the method to call, 
+Java supports the concept of an "assignment compatible" match 
+
+<emphasis id="em1059" effect="italics">
+(or possibly more 
+than one assignment compatible match)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1144">
+Briefly, assignment compatibility means that it would be allowable to assign 
+a value of the type that is passed as a parameter to a variable whose type 
+matches the specified argument in the formal argument list. 
+
+</para>
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1211" effect="bold">
+Selecting the best match
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1146">
+According to 
+
+<emphasis id="em1060" effect="italics">
+Java Language Reference
+
+</emphasis>
+ by Mark Grand, 
+
+</para>
+
+
+
+
+<para id="p1147">
+<emphasis id="em1061" effect="italics">
+"If more than one method 
+is compatible with the given arguments, the method that most closely matches the 
+given parameters is selected. If the compiler cannot select one of the methods 
+as a better match than the others, the method selection process fails and the 
+compiler issues an error message." 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1212" effect="bold">
+Understanding subtleties 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1149">
+If you plan to be a Java programmer, you must have some 
+understanding of the subtle issues involving overloaded methods, and the 
+relationship between 
+
+<emphasis id="em1062" effect="italics">
+overloaded
+
+</emphasis>
+ methods and 
+
+<emphasis id="em1063" effect="italics">
+overridden
+
+</emphasis>
+ methods. Therefore, the 
+programs in this module will provide some of that information and discuss some 
+of the subtle issues that arise. 
+
+</para>
+
+
+
+
+<para id="p1150">
+Even if you don't care about the subtle issues regarding method overloading, 
+many of those issues really involve automatic type 
+conversion. You should study these questions to learn about the problems 
+associated with automatic type conversion. 
+
+</para>
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1213" effect="bold">
+This program is straightforward
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1152">
+However, there isn't anything subtle about the program for 
+
+
+<link id="a1045" target-id="question01">
+
+Question 1
+
+</link>
+
+. This 
+program defines two overloaded methods named 
+
+<emphasis id="strong1214" effect="bold">
+square
+
+</emphasis>
+. One requires a single 
+incoming parameter of type 
+
+<emphasis id="strong1215" effect="bold">
+int
+
+</emphasis>
+. The other requires a single incoming parameter 
+of type 
+
+<emphasis id="strong1216" effect="bold">
+double
+
+</emphasis>
+. Each method calculates and returns the square of the incoming 
+parameter. 
+
+</para>
+
+
+
+
+<para id="p1153">
+The program calls a method named 
+
+<emphasis id="strong1217" effect="bold">
+square
+
+</emphasis>
+ twice in succession, and displays 
+the values returned by those two invocations. In the first case, an 
+
+<emphasis id="strong1218" effect="bold">
+int
+
+</emphasis>
+ value is 
+passed as a parameter. This causes the method with the formal argument list of 
+type 
+
+<emphasis id="strong1219" effect="bold">
+int
+
+</emphasis>
+ to be called. 
+
+</para>
+
+
+
+
+<para id="p1154">
+In the second case, a 
+
+<emphasis id="strong1220" effect="bold">
+double
+
+</emphasis>
+ value is passed as a parameter. This causes the 
+method with the formal argument list of type 
+
+<emphasis id="strong1221" effect="bold">
+double
+
+</emphasis>
+ to be 
+called. 
+
+</para>
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1222" effect="bold">
+Overloaded methods may have different return types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1156">
+Note in particular that the overloaded methods have different return types. 
+One method returns its value as type 
+
+<emphasis id="strong1223" effect="bold">
+int
+
+</emphasis>
+ and the other returns its value as type 
+
+
+<emphasis id="strong1224" effect="bold">
+double
+
+</emphasis>
+. This is reflected in the output format for the two return vales as shown 
+below: 
+
+</para>
+
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1225" effect="bold">
+9 17.64
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1158">
+<link id="a1046" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1159">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

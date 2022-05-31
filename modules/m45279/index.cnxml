@@ -1,0 +1,5839 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0080: Self-assessment, Classes, Constructors, and Accessor Methods</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45279</md:content-id>
+  <md:title>Ap0080: Self-assessment, Classes, Constructors, and Accessor Methods</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about classes, constructors, and accessor methods in Java.</md:abstract>
+  <md:uuid>c43a60a8-ded8-4d5b-ba77-0e924740d10e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. An Object
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap090{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = NewClass();
+    System.out.println(obj);
+
+  }//end makeObj()
+
+
+}// end class 
+
+class NewClass{
+  public String toString(){
+    return "An Object";
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. An Object
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap091{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass();
+    System.out.println(obj);
+
+  }//end makeObj()
+
+}// end class 
+
+Class NewClass{
+  public String toString(){
+    return "An Object";
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. An Object
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap092{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass();
+    System.out.println(obj);
+
+  }//end makeObj()
+
+}// end class 
+
+class NewClass{
+  public String toString(){
+    return "An Object";
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. Object containing 2
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap093{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass();
+    System.out.println(obj);
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int x = 2;
+  
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor
+  
+  public String toString(){
+    return "Object containing " + x;
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. Object containing 2
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap094{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    Subclass obj = new Subclass();
+    System.out.println(obj);
+  }//end makeObj()
+}// end class 
+
+class Superclass{
+  private int x;
+  
+  public Superclass(int x){
+    this.x = x;
+  }//end constructor
+  
+  public String toString(){
+    return "Object containing " + x;
+  }//end toString()
+    
+  public void setX(int x){
+    this.x = x;
+  }//end setX()
+}//end Superclass
+
+class Subclass extends Superclass{
+  public Subclass(){
+    setX(2);
+  }//end noarg constructor
+}//end Subclass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. Object containing 5
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. Object containing 2
+
+</item>
+
+
+	
+
+<item id="li1030">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap095{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass(5);
+    System.out.println(obj);
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int x = 2;
+  
+  public NewClass(){
+  }//end constructor
+  
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor
+  
+  public String toString(){
+    return "Object containing " + x;
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in
+
+<link id="a1028" target-id="Listing_7">
+
+ Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+C. Object containing 0, 0.0, false
+
+</item>
+
+
+	
+
+<item id="li1034">
+D. Object containing 0.0, 0, true
+
+</item>
+
+
+	
+
+<item id="li1035">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap096{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass();
+    System.out.println(obj);
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int x;
+  private double y;
+  private boolean z;
+  
+  public String toString(){
+    return "Object containing " + 
+                          x + ", " + 
+                          y + ", " + z;
+  }//end toString()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+C. 2
+
+</item>
+
+
+	
+
+<item id="li1039">
+D. 5
+
+</item>
+
+
+	
+
+<item id="li1040">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap097{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass(5);
+    System.out.println(obj.getX());
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int x = 2;
+    
+  public NewClass(){
+  }//end constructor
+  
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor
+
+  public int getX(){
+    return x;
+  }//end getX()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1041">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+C. 10
+
+</item>
+
+
+	
+
+<item id="li1044">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap098{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+
+    NewClass obj = new NewClass();
+    obj.setX(10);
+    System.out.println(obj.getX());
+    
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int y;
+ 
+  public void setX(int y){
+    this.y = y;
+  }//end setX()
+
+  public int getX(){
+    return y;
+  }//end getX()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1045">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1046">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1047">
+C. 2
+
+</item>
+
+
+	
+
+<item id="li1048">
+D. 5
+
+</item>
+
+
+	
+
+<item id="li1049">
+E. 10
+
+</item>
+
+
+	
+
+<item id="li1050">
+F. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">public class Ap099{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    NewClass obj = new NewClass(5);
+    obj.x = 10;
+    System.out.println(obj.x);
+  }//end makeObj()
+}// end class 
+
+class NewClass{
+  private int x = 2;
+    
+  public NewClass(){
+  }//end constructor
+  
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor
+  
+  public void setX(int x){
+    this.x = x;
+  }//end setX()
+
+  public int getX(){
+    return x;
+  }//end getX()
+}//end NewClass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+	
+
+
+
+<para id="p1023">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1051">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1058">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1059">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1060">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1061">
+Module name: Ap0080: Self-assessment, Classes, Constructors, 
+				and Accessor Methods
+
+</item>
+
+
+				
+
+<item id="li1062">
+File: Ap0080.htm 
+
+</item>
+
+
+				
+
+<item id="li1063">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1064">
+Published at cnx.org: 12/05/12
+
+</item>
+
+
+
+
+<item id="li1065">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1029">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+A. Compiler Error
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1006" effect="bold">
+Variables declared private really are private 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1032">
+The code in the following fragment attempts to ignore the setter and getter 
+methods and directly access the 
+
+<emphasis id="strong1007" effect="bold">
+private
+
+</emphasis>
+ instance variable named 
+
+
+<emphasis id="strong1008" effect="bold">
+x
+
+</emphasis>
+ in the object 
+referred to by the reference variable named 
+
+<emphasis id="strong1009" effect="bold">
+obj
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">    obj.x = 10;
+    System.out.println(obj.x);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1033">
+This produces a compiler error. The compiler error produced by JDK 1.3 is 
+reproduced below. 
+
+</para>
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">Ap099.java:19: x has private access in
+NewClass
+    obj.x = 10;
+       ^
+Ap099.java:20: x has private access in
+NewClass
+    System.out.println(obj.x);
+                          ^
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1034">
+<link id="a1046" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+C. 10
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1010" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1011" effect="bold">
+A setter and a getter 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+This is a very simple program that uses a setter 
+
+<emphasis id="em1000" effect="italics">
+(modifier or mutator)
+
+</emphasis>
+ 
+method named 
+
+<emphasis id="strong1012" effect="bold">
+setX
+
+</emphasis>
+ to set the value 10 in a property named
+
+
+<emphasis id="strong1013" effect="bold">
+x
+
+</emphasis>
+ that is stored in an instance variable named 
+
+<emphasis id="strong1014" effect="bold">
+y
+
+</emphasis>
+ in an object instantiated from the class named 
+
+<emphasis id="strong1015" effect="bold">
+
+NewClass
+
+</emphasis>
+.. 
+
+</para>
+
+
+
+
+<para id="p1038">
+The program also uses a getter 
+
+<emphasis id="em1001" effect="italics">
+(accessor) 
+
+</emphasis>
+method named 
+
+<emphasis id="strong1016" effect="bold">
+getX
+
+</emphasis>
+ 
+to get and display the value of the property named 
+
+<emphasis id="strong1017" effect="bold">
+x
+
+</emphasis>
+. 
+
+<emphasis id="em1002" effect="italics">
+(Note 
+that according to JavaBeans design patterns, the name of the property is 
+unrelated to the name of variable in which the property value is stored.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+<link id="a1047" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1040">
+D. 5
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1018" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1019" effect="bold">
+Hide your data and expose your methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+For reasons that I won't go into here, good object-oriented design principles 
+state that in almost all cases where an instance variable is not declared to be 
+
+
+<emphasis id="strong1020" effect="bold">
+final
+
+</emphasis>
+, it should be declared 
+
+<emphasis id="strong1021" effect="bold">
+private
+
+</emphasis>
+. 
+
+<emphasis id="em1003" effect="italics">
+(A final variable behaves like a 
+constant.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1022" effect="bold">
+What is private access?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1044">
+When an instance variable is declared 
+
+<emphasis id="strong1023" effect="bold">
+private
+
+</emphasis>
+, it is accessible only by 
+methods of the class in which it is defined. Therefore, the only way that the 
+"outside world" can gain access to a 
+
+<emphasis id="strong1024" effect="bold">
+private
+
+</emphasis>
+ instance variable is by going 
+through an 
+
+<emphasis id="em1004" effect="italics">
+(usually 
+
+<emphasis id="strong1025" effect="bold">
+public
+
+</emphasis>
+)
+
+</emphasis>
+ instance method of the object. 
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1026" effect="bold">
+Accessor, modifier, mutator, setter, and getter methods 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1046">
+Historically, methods that have been defined for the purpose of exposing 
+
+
+<emphasis id="strong1027" effect="bold">
+private
+
+</emphasis>
+ instance variables to the outside world have been referred to as 
+
+
+<emphasis id="em1005" effect="italics">
+accessor
+
+</emphasis>
+ and 
+
+<emphasis id="em1006" effect="italics">
+modifier
+
+</emphasis>
+ methods. 
+
+<emphasis id="em1007" effect="italics">
+(Modifier methods are also sometimes called mutator methods.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="em1008" effect="italics">
+(Note that since the advent of Sun's JavaBeans Component design patterns, 
+these methods have also come to be known as getter methods and setter methods in 
+deference to the design-pattern naming conventions for the methods.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1028" effect="bold">
+A private instance variable with an initializer 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1049">
+The class named 
+
+<emphasis id="strong1029" effect="bold">
+NewClass
+
+</emphasis>
+ declares a 
+
+<emphasis id="strong1030" effect="bold">
+private
+
+</emphasis>
+ instance variable named 
+
+
+<emphasis id="strong1031" effect="bold">
+x
+
+</emphasis>
+ and 
+initializes its value to 2, as shown in the following code fragment: 
+
+</para>
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">  private int x = 2;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1032" effect="bold">
+Two constructors 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1051">
+The class contains both a 
+
+<emphasis id="em1009" effect="italics">
+noarg
+
+</emphasis>
+ constructor and a 
+
+<emphasis id="em1010" effect="italics">
+parameterized
+
+</emphasis>
+ constructor 
+as shown in the following fragment: 
+
+</para>
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">  public NewClass(){
+  }//end constructor
+  
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1033" effect="bold">
+Calling the noarg constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1053">
+If an object of the class is instantiated by calling the 
+
+<emphasis id="em1011" effect="italics">
+noarg
+
+</emphasis>
+ constructor, 
+the initial value of 2 remains intact, and that object contains an instance 
+variable with an initial value of 2. 
+
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1034" effect="bold">
+Calling the parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1055">
+If an object of the class is instantiated by calling the parameterized 
+constructor, the initial value of 2 is overwritten by the value of the incoming 
+parameter to the parameterized constructor. In this case, that value is 5, 
+because the object is instantiated by the following code fragment that passes 
+the literal value 5 to the parameterized constructor. Thus, the initial value of 
+the instance variable in that object is 5. 
+
+</para>
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">    NewClass obj = new NewClass(5);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1035" effect="bold">
+A getter method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1057">
+Because the instance variable named 
+
+<emphasis id="strong1036" effect="bold">
+x
+
+</emphasis>
+ is 
+
+<emphasis id="strong1037" effect="bold">
+private
+
+</emphasis>
+, it cannot be accessed 
+directly for display by the code in the 
+
+<emphasis id="strong1038" effect="bold">
+makeObj
+
+</emphasis>
+ method of the 
+
+
+<emphasis id="strong1039" effect="bold">
+Worker
+
+</emphasis>
+ class. 
+However, the 
+
+<emphasis id="strong1040" effect="bold">
+NewClass
+
+</emphasis>
+ class provides the following public 
+
+<emphasis id="em1012" effect="italics">
+getter
+
+</emphasis>
+ or 
+
+
+<emphasis id="em1013" effect="italics">
+accessor
+
+</emphasis>
+ method 
+that can be used to get the value stored in the instance variable.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="em1014" effect="italics">
+(The name of this method complies with JavaBeans design patterns. If you 
+examine the name carefully, you will see why Java programmers often refer to 
+methods like this as getter methods.)
+
+</emphasis>
+</para>
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">  public int getX(){
+    return x;
+  }//end getX()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1041" effect="bold">
+Calling the getter method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1060">
+Finally, the second statement in the following code fragment calls the getter 
+method on the 
+
+<emphasis id="strong1042" effect="bold">
+NewClass
+
+</emphasis>
+ object to get and display the value of the instance 
+variable named 
+
+<emphasis id="strong1043" effect="bold">
+x
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">    NewClass obj = new NewClass(5);
+    System.out.println(obj.getX());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1061">
+<link id="a1048" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1062">
+C. Object containing 0, 0.0, false
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1044" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1045" effect="bold">
+Default initialization values
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+The purpose of this question is to confirm that you understand the default 
+initialization of instance variables in an object when you don't write code to 
+cause the initialization of the instance variable to differ from the default.
+
+</para>
+
+
+
+
+<para id="p1065">
+By default, all instance variables in a new object are initialized with 
+default values if you don't provide a constructor 
+
+<emphasis id="em1015" effect="italics">
+(or other mechanism)
+
+</emphasis>
+ 
+that causes them to be initialized differently from the default. 
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1066">
+All instance variables of the numeric types are initialized to the value 
+	of zero for the type. This program illustrates default initialization to 
+	zero for 
+
+<emphasis id="strong1046" effect="bold">
+int
+
+</emphasis>
+ and 
+
+<emphasis id="strong1047" effect="bold">
+double
+
+</emphasis>
+ types.
+
+</item>
+
+
+	
+
+<item id="li1067">
+Instance variables of type 
+
+<emphasis id="strong1048" effect="bold">
+boolean
+
+</emphasis>
+ are initialized to 
+	false.
+
+</item>
+
+
+	
+
+<item id="li1068">
+Instance variables of type 
+
+<emphasis id="strong1049" effect="bold">
+char
+
+</emphasis>
+ are initialized to a 
+	16-bit Unicode character for which all sixteen bits have been set to zero. I 
+	didn't include initialization of the 
+
+<emphasis id="strong1050" effect="bold">
+char
+
+</emphasis>
+ type in the 
+	output of this program because the 
+
+<emphasis id="strong1051" effect="bold">
+default
+
+</emphasis>
+ char value is 
+	not printable.
+
+</item>
+
+
+	
+
+<item id="li1069">
+Instance variables of reference types are initialized to null.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1066">
+<link id="a1049" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1067">
+C. Object containing 5
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1052" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1053" effect="bold">
+A parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1069">
+This program illustrates the straightforward use of a parameterized 
+constructor. 
+
+</para>
+
+
+
+
+<para id="p1070">
+The class named 
+
+<emphasis id="strong1054" effect="bold">
+NewClass
+
+</emphasis>
+ defines a parameterized constructor 
+that requires an incoming parameter of type 
+
+<emphasis id="strong1055" effect="bold">
+int
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="em1016" effect="italics">
+(For good design practice, the class also defines a 
+
+<emphasis id="em1017" effect="italics">
+noarg
+
+</emphasis>
+ constructor, 
+even though it isn't actually used in this program. This makes it available if 
+needed later when someone extends the class.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+Both constructors are shown in the following code fragment. 
+
+</para>
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">  public NewClass(){
+  }//end constructor
+
+  public NewClass(int x){
+    this.x = x;
+  }//end constructor</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1073">
+The parameterized constructor stores its incoming parameter named 
+
+<emphasis id="strong1056" effect="bold">
+
+	x
+
+</emphasis>
+ in an instance variable of the class, also named 
+
+<emphasis id="strong1057" effect="bold">
+x
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1074">
+<emphasis id="em1018" effect="italics">
+(The use of the keyword 
+
+<emphasis id="strong1058" effect="bold">
+this
+
+</emphasis>
+ is required in this case to 
+eliminate the ambiguity of having a local parameter with the same name as an 
+instance variable. This is very common Java programming style that you should 
+recognize and understand.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1059" effect="bold">
+Call the parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1076">
+The following code fragment calls the parameterized constructor, passing the 
+literal 
+
+<emphasis id="strong1060" effect="bold">
+int
+
+</emphasis>
+ value of 5 as a parameter. 
+
+</para>
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">    NewClass obj = new NewClass(5);</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1077">
+Hopefully you will have no difficulty understanding the remaining code in 
+	the program that causes the value stored in the instance variable named
+	
+
+<emphasis id="strong1061" effect="bold">
+x
+
+</emphasis>
+ to be displayed on the computer screen.
+
+</para>
+
+
+
+
+<para id="p1078">
+<link id="a1050" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1079">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1062" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1063" effect="bold">
+If you define any constructors, ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1081">
+The discussion for 
+
+<link id="a1051" target-id="question04">
+
+Question 4
+
+</link>
+
+ explained that if you define any 
+constructor in a new class, you must define all constructors that will ever be 
+needed for that class. When you define one or more constructors, the default 
+
+
+<emphasis id="em1019" effect="italics">
+noarg
+
+</emphasis>
+ constructor is no longer provided by the system on your behalf. 
+
+</para>
+
+
+
+
+<para id="p1082">
+<link id="a1052" target-id="question04">
+
+Question 4
+
+</link>
+
+ illustrated a simple manifestation of a problem arising 
+from the failure to define a 
+
+<emphasis id="em1020" effect="italics">
+noarg
+
+</emphasis>
+ constructor that would be needed later. The 
+reason that it was needed later was that the programmer attempted to explicitly 
+use the non-existent 
+
+<emphasis id="em1021" effect="italics">
+noarg
+
+</emphasis>
+ constructor to create an instance of the class. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1064" effect="bold">
+A more subtle problem 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1084">
+The problem in this program is more subtle. Unless you 
+
+<emphasis id="em1022" effect="italics">
+(or the programmer of 
+the superclasses)
+
+</emphasis>
+ specifically write code to cause the system to behave 
+otherwise, each time you instantiate an object of a class, the system 
+automatically calls the 
+
+<emphasis id="em1023" effect="italics">
+noarg
+
+</emphasis>
+ constructor on superclasses of that class up to 
+and including 
+the class named 
+
+<emphasis id="strong1065" effect="bold">
+Object
+
+</emphasis>
+. If one or more of those superclasses don't have a 
+
+<emphasis id="em1024" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor, unless the author of the subclass constructor has taken this into 
+account, the program will fail to compile. 
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1066" effect="bold">
+Calling a non-existing 
+
+</emphasis>
+ 
+
+<emphasis id="em1025" effect="italics">
+<emphasis id="strong1067" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1068" effect="bold">
+ constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1086">
+This program attempts to instantiate an object of a class named 
+
+<emphasis id="strong1069" effect="bold">
+Subclass
+
+</emphasis>
+, 
+which extends a class named 
+
+<emphasis id="strong1070" effect="bold">
+Superclass
+
+</emphasis>
+. By default, when attempting to 
+instantiate the object, the system will attempt to call a 
+
+<emphasis id="em1026" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor defined in 
+
+<emphasis id="strong1071" effect="bold">
+Superclass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1072" effect="bold">
+Superclass has no 
+
+</emphasis>
+ 
+
+<emphasis id="em1027" effect="italics">
+<emphasis id="strong1073" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1074" effect="bold">
+ constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1088">
+The 
+
+<emphasis id="strong1075" effect="bold">
+Superclass
+
+</emphasis>
+ class defines a parameterized constructor that requires a 
+single incoming parameter of type 
+
+<emphasis id="strong1076" effect="bold">
+int
+
+</emphasis>
+. However, it does not also define a 
+
+
+<emphasis id="em1028" effect="italics">
+noarg
+
+</emphasis>
+ constructor. Because the parameterized constructor is defined, the default 
+
+
+<emphasis id="em1029" effect="italics">
+noarg
+
+</emphasis>
+ constructor does not exist. As a result, JDK 1.3 produces the following 
+compiler error: 
+
+</para>
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">Ap094.java:40: cannot resolve symbol
+
+symbol  : constructor Superclass  ()
+location: class Superclass
+  public Subclass(){
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1089">
+<link id="a1053" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1090">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1077" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1078" effect="bold">
+Constructors
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1092">
+Java uses the following kinds of constructors: 
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1070">
+Those that take arguments, often referred to as 
+
+<emphasis id="em1030" effect="italics">
+parameterized 
+	constructors
+
+</emphasis>
+, which typically perform initialization on the new object 
+	using parameter values.
+
+</item>
+
+
+	
+
+<item id="li1071">
+Those that don't take arguments, often referred to as 
+
+<emphasis id="em1031" effect="italics">
+default
+
+</emphasis>
+ 
+	or 
+
+<emphasis id="em1032" effect="italics">
+noarg
+
+</emphasis>
+ constructors, which perform default initialization on the 
+	new object.
+
+</item>
+
+
+	
+
+<item id="li1072">
+Those that don't take arguments but perform initialization on the new 
+	object in ways that differ from the default initialization.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1079" effect="bold">
+Constructor definition is optional 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+You are not required to define a constructor when you define a new class. If 
+you don't define a constructor for your new class, a default constructor will be 
+provided on your behalf. This constructor requires no argument, and it is 
+typically used in conjunction with the new operator to create an instance of the 
+class using statements such as the following: 
+
+</para>
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">    NewClass obj = new NewClass();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1095">
+<emphasis id="strong1080" effect="bold">
+The default constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1096">
+The default constructor typically does the following: 
+
+</para>
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1073">
+Calls the 
+
+<emphasis id="em1033" effect="italics">
+noarg
+
+</emphasis>
+ constructor of the superclass
+
+</item>
+
+
+	
+
+<item id="li1074">
+Assists in the process of allocating and organizing memory for the new 
+	object
+
+</item>
+
+
+	
+
+<item id="li1075">
+Initializes all instance variables of the new object with the following 
+	four default values:
+
+<list id="ul1017" list-type="bulleted">
+
+		
+
+<item id="li1076">
+numeric = 0, 
+
+</item>
+
+
+		
+
+<item id="li1077">
+boolean = false, 
+
+</item>
+
+
+		
+
+<item id="li1078">
+char = all zero bits 
+
+</item>
+
+
+		
+
+<item id="li1079">
+reference = null
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1081" effect="bold">
+Are you satisfied with default values?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+As long as you are satisfied with the default initialization of all instance 
+variables belonging to the object, there is no need for you to define a 
+constructor of your own. 
+
+</para>
+
+
+
+
+<para id="p1099">
+However, in the event that you have initialization needs that are not 
+satisfied by the default constructor, you can define your own constructor. Your 
+new constructor may or may not require arguments. 
+
+<emphasis id="em1034" effect="italics">
+(In case you have 
+forgotten, the name of the constructor is always the same of the name of the 
+class in which it is defined.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1082" effect="bold">
+A non-default 
+
+<emphasis id="em1035" effect="italics">
+noarg
+
+</emphasis>
+ constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1101">
+If your new constructor doesn't require arguments, you may need to write code 
+that performs initialization in ways that differ from the default 
+initialization. For example, you might decide that a particular 
+
+<emphasis id="strong1083" effect="bold">
+double
+
+</emphasis>
+ 
+instance variable needs to be initialized with a random number each time a new 
+object is instantiated. You could do that with a constructor of your own design 
+that doesn't take arguments by defining the constructor to get initialization 
+values from an object of the 
+
+<emphasis id="strong1084" effect="bold">
+Random
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1085" effect="bold">
+A parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1103">
+If your new constructor does take arguments, 
+
+<emphasis id="em1036" effect="italics">
+(a parameterized 
+constructor)
+
+</emphasis>
+ you can define as many overloaded versions as you need. Each 
+overloaded version must have a formal argument list that differs from the formal 
+argument list of all of the other overloaded constructors for that class.
+
+</para>
+
+
+
+
+<para id="p1104">
+<emphasis id="em1037" effect="italics">
+(The rules governing the argument list for overloaded constructors are 
+similar to the rules governing the argument list for overloaded methods, which 
+were discussed in a previous module.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1086" effect="bold">
+Use parameter values for initialization
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1106">
+In this case, you will typically define your parameterized constructors to 
+initialize some or all of the instance variables of the new object using values 
+passed to the constructor as parameters. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1087" effect="bold">
+What else can a constructor do? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+You can also cause your new constructor to do other things if you so choose. 
+For example, if you know how to do so, you could cause your constructor 
+
+<emphasis id="em1038" effect="italics">
+
+(with or without parameters)
+
+</emphasis>
+ to play an audio clip each time a new object 
+is instantiated. You could use a parameter to determine which audio clip to play 
+in each particular instance. 
+
+</para>
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1088" effect="bold">
+The punch line
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1110">
+So far, everything that I have said is background information for this 
+program. Here is the punch line insofar as this program is concerned.
+
+</para>
+
+
+
+
+<para id="p1111">
+If you define any constructor in your new class, you must define all 
+constructors that your new class will ever need.
+
+</para>
+
+
+
+
+<para id="p1112">
+If you define any constructor, the default constructor is no longer provided 
+on your behalf. If your new class needs a 
+
+<emphasis id="em1039" effect="italics">
+noarg
+
+</emphasis>
+ constructor 
+
+<emphasis id="em1040" effect="italics">
+(and it probably 
+does, but that may not become apparent until later when you or someone else 
+extends your class)
+
+</emphasis>
+ you must define the 
+
+<emphasis id="em1041" effect="italics">
+noarg
+
+</emphasis>
+ version in addition to the 
+other overloaded versions that you define. 
+
+</para>
+
+
+
+
+<para id="p1113">
+A violation of the rule 
+
+</para>
+
+
+
+
+<para id="p1114">
+This program violated the rule given above. It defined the parameterized 
+constructor for the class named 
+
+<emphasis id="strong1089" effect="bold">
+NewClass
+
+</emphasis>
+ shown below 
+
+</para>
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">  public NewClass(int x){
+    this.x = x;
+  }//end constructor</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1115">
+However, the program did not also define a 
+
+<emphasis id="em1042" effect="italics">
+noarg
+
+</emphasis>
+ constructor for the
+	
+
+<emphasis id="strong1090" effect="bold">
+NewClass
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1091" effect="bold">
+Calling the 
+
+<emphasis id="em1043" effect="italics">
+noarg
+
+</emphasis>
+ constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1117">
+The code in the 
+
+<emphasis id="strong1092" effect="bold">
+makeObj
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1093" effect="bold">
+Worker
+
+</emphasis>
+ 
+class attempted to instantiate a new object using the following code: 
+
+</para>
+
+
+	
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">    NewClass obj = new NewClass();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1118">
+Since the class definition didn't contain a definition for a 
+
+<emphasis id="em1044" effect="italics">
+noarg
+
+</emphasis>
+ 
+	constructor, the following compiler error was produced by JDK 1.3. 
+
+</para>
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">Ap093.java:18: cannot resolve symbol
+symbol  : constructor NewClass 
+()
+location: class NewClass
+    NewClass obj = new NewClass();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1119">
+<link id="a1054" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1120">
+C. An Object 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1094" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1095" effect="bold">
+We finally got it right! 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+Did you identify the errors in the previous two programs before looking at 
+the answers? 
+
+</para>
+
+
+
+
+<para id="p1123">
+This program declares the class named 
+
+<emphasis id="strong1096" effect="bold">
+NewClass
+
+</emphasis>
+ correctly and 
+uses the 
+
+<emphasis id="strong1097" effect="bold">
+new
+
+</emphasis>
+ operator correctly in conjunction with the default 
+
+
+<emphasis id="em1045" effect="italics">
+noarg
+
+</emphasis>
+ constructor for the 
+
+<emphasis id="strong1098" effect="bold">
+NewClass
+
+</emphasis>
+ class to create a new 
+instance of the class 
+
+<emphasis id="em1046" effect="italics">
+(an object)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1099" effect="bold">
+Making the class public 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1125">
+One of the things that I could do differently would be to make the 
+declaration for the 
+
+<emphasis id="strong1100" effect="bold">
+NewClass
+
+</emphasis>
+ class public 
+
+<emphasis id="em1047" effect="italics">
+(as shown in the 
+following code fragment)
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">public class NewClass{
+  public String toString(){
+    return "An Object";
+  }//end toString()
+}//end NewClass</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1126">
+<emphasis id="strong1101" effect="bold">
+I am a little lazy 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1127">
+The reason that I didn't declare this class 
+
+<emphasis id="strong1102" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="em1048" effect="italics">
+(and 
+haven't done so throughout this series of modules)
+
+</emphasis>
+ is because the source code for all
+
+
+<emphasis id="strong1103" effect="bold">
+public
+
+</emphasis>
+ classes and interfaces must be in separate files. While 
+that is probably a good requirement for large programming projects, it is 
+overkill for simple little programs like I am presenting in this group of 
+self-assessment modules. 
+
+</para>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1104" effect="bold">
+Dealing with multiple files 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1129">
+Therefore, in order to avoid the hassle of having to deal with multiple 
+source code files for every program, I have been using 
+
+<emphasis id="em1049" effect="italics">
+package-private
+
+</emphasis>
+ 
+access for class definitions other than the controlling class 
+
+<emphasis id="em1050" effect="italics">
+(the 
+controlling class is declared public)
+
+</emphasis>
+. Although I won't get into the 
+details at this point, when a class is not declared public, it is common to say 
+that it has 
+
+<emphasis id="em1051" effect="italics">
+package-private
+
+</emphasis>
+ access instead of 
+
+<emphasis id="strong1105" effect="bold">
+public
+
+</emphasis>
+ 
+access.
+
+</para>
+
+
+
+
+<para id="p1130">
+<link id="a1055" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1131">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1106" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1107" effect="bold">
+Java is a case-sensitive language 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1133">
+Java keywords must be written exactly as specified. The keyword 
+
+<emphasis id="strong1108" effect="bold">
+class
+
+</emphasis>
+ cannot 
+be written as 
+
+<emphasis id="em1052" effect="italics">
+Class
+
+</emphasis>
+, which is the problem with this program. 
+
+</para>
+
+
+
+
+<para id="p1134">
+The inappropriate use of the upper-case C in the word 
+
+<emphasis id="em1053" effect="italics">
+Class
+
+</emphasis>
+ caused the 
+following compiler error. 
+
+</para>
+
+
+	
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1025" display="block">Ap091.java:25: 'class' or 'interface' expected</code>
+
+
+
+
+<code id="pre1026" display="block">Class NewClass{</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1109" effect="bold">
+The solution to the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1136">
+This problem can be resolved by causing the first character in the keyword
+
+
+<emphasis id="strong1110" effect="bold">
+class
+
+</emphasis>
+ to be a lower-case character as shown in the following 
+code fragment. 
+
+</para>
+
+
+	
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block">class NewClass{
+  public String toString(){
+    return "An Object";
+  }//end toString()
+}//end NewClass</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1137">
+<link id="a1056" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1138">
+A. Compiler Error
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1111" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1112" effect="bold">
+Instantiating an object 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1140">
+There are several ways to instantiate an object in Java: 
+
+</para>
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1080">
+Use the 
+
+<emphasis id="strong1113" effect="bold">
+newInstance
+
+</emphasis>
+ method of the class named 
+
+<emphasis id="strong1114" effect="bold">
+
+	Class
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1081">
+Reconstruct a serialized object using an I/O 
+
+<emphasis id="strong1115" effect="bold">
+readObject
+
+</emphasis>
+ 
+	method.
+
+</item>
+
+
+	
+
+<item id="li1082">
+Create an initialized array object such as {1,2,3}.
+
+</item>
+
+
+	
+
+<item id="li1083">
+Create a 
+
+<emphasis id="strong1116" effect="bold">
+String
+
+</emphasis>
+ object from a literal string such as "A 
+	String".
+
+</item>
+
+
+	
+
+<item id="li1084">
+Use the 
+
+<emphasis id="strong1117" effect="bold">
+new
+
+</emphasis>
+ operator.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1141">
+Of all of these, the last two are by far the most common. 
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1118" effect="bold">
+What you cannot do! 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1143">
+You cannot instantiate a new object using code like the following code 
+fragment that was extracted from this program. 
+
+</para>
+
+
+	
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block">NewClass obj = NewClass();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1144">
+This program produces the following compiler error: 
+
+</para>
+
+
+	
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">Ap090.java:18: cannot resolve symbol
+symbol  : method NewClass  ()
+location: class Worker
+    NewClass obj = NewClass();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1119" effect="bold">
+The solution to the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1146">
+This problem can be solved by inserting the 
+
+<emphasis id="strong1120" effect="bold">
+new
+
+</emphasis>
+ operator to the left of the 
+constructor as shown in the following code fragment. 
+
+</para>
+
+
+	
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">    NewClass obj = new NewClass();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1147">
+<link id="a1057" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1148">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

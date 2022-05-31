@@ -1,0 +1,1245 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0115: Java OOP: First Program</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45220</md:content-id>
+  <md:title>Jb0115: Java OOP: First Program</md:title>
+  <md:abstract>The purpose of this module is to present the first complete Java program of the collection that previews the most common forms of the three pillars of procedural programming: sequence, selection, and loop. The program also previews calling a method, passing a parameter to the 
+method, and receiving a returned value from the method.</md:abstract>
+  <md:uuid>b2760098-41f2-4b62-bb27-38005881c827</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Sun Mar 27 18:57:37 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<note id="note1000" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1002">
+This Page is included in the following Books:
+
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+Programming Fundamentals with Java
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+Object-Oriented Programming (OOP) with Java 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+</para>
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Instructions_for_compiling_and_running_the_program">
+
+
+		Instructions for compiling and running the program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="General_comments">
+
+Comments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Program_output">
+
+Program output
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+The purpose of this module is to present the first complete Java program of 
+the collection that previews the most common
+forms of the three pillars of procedural programming: 
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1013">
+sequence
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+selection
+
+
+</item>
+
+
+	
+
+<item id="li1015">
+loop
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+The program also illustrates 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1016">
+calling a method, 
+
+</item>
+
+
+	
+
+<item id="li1017">
+passing a parameter to the method, and
+
+</item>
+
+
+	
+
+<item id="li1018">
+receiving a returned 
+value from the method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+As mentioned above, this is simply a preview. Detailed discussions of these 
+topics will be presented in future modules.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1006">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1013" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1020">
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Source code for FirstProgram. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Instructions_for_compiling_and_running_the_program" effect="bold">
+
+
+	Instructions for compiling and running the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+Assuming that the Java Development Kit (JDK) is properly
+installed on your computer 
+
+<emphasis id="em1000" effect="italics">
+(see 
+
+</emphasis>
+
+	
+
+<link id="a1015" url="http://cnx.org/content/m45137">
+
+
+<emphasis id="em1001" effect="italics">
+Jb0110: Java OOP: Programming Fundamentals, Getting Started
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1002" effect="italics">
+),
+
+</emphasis>
+ do the following to compile 
+and run this program.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+1. Copy the text from 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ into a text file named 
+
+
+<emphasis id="strong1000" effect="bold">
+FirstProgram.java
+
+</emphasis>
+
+and store the file in a folder on your disk.
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+2. Open a command-line window in the folder containing
+the file.
+
+
+</para>
+
+
+
+
+
+<para id="p1010">
+3. Type the following command at the prompt to compile the program:
+
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">javac FirstProgram.java </code>
+
+
+
+
+<para id="p1011">
+4. Type the following command at the prompt to run the program:
+
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">java FirstProgram </code>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="General_comments" effect="bold">
+
+Comments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+Any text in the program code that begins with // is a comment. The compiler will ignore everything
+from the // to the end of the line. 
+
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Comments were inserted into the program code to explain the code.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+The compiler also ignores blank lines.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Note that this program was designed to illustrate the
+concepts while being as non-cryptic as possible.
+
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Program_output" effect="bold">
+
+Program output
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+The program should display the text shown in 
+
+<link id="a1017" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+  on the
+screen except that the time will be different each time
+you run the program.
+
+
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Program output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1002" display="block">
+value in = 5 
+Odd time = 1353849164875 
+countA = 0 
+countA = 1 
+countA = 2 
+countB = 0 
+countB = 1 
+countB = 2 
+value out = 10
+</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+I encourage you to copy the code from 
+
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1018">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1021">
+Module name: Jb0115: Java OOP: First Program
+
+</item>
+
+
+					
+
+<item id="li1022">
+File: Jb0115.htm
+
+
+</item>
+
+
+					
+
+<item id="li1023">
+Published: 11/25/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1019">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1020">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1021">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1022">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+A complete listing of the program follows.
+
+</para>
+
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Source code for 
+				FirstProgram.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1003" display="block">
+/* Begin block comment
+This is the beginning of a block comment in Java.
+Everything in this block comment is for human consumption
+and will be ignored by the Java compiler.
+
+File: FirstProgram.java
+Copyright 2012, R.G. Baldwin
+
+This program is designed to illustrate the most common
+forms of the three pillars of procedural programming in
+Java code:
+
+sequence
+selection
+loop
+
+The program also illustrates calling a method, passing
+a parameter to the method, and receiving a returned 
+value from the method.
+
+Assuming that the Java Development Kit (JDK) is properly
+installed on your computer, do the following to compile 
+and run this program.
+
+1. Copy this program into a file named FirstProgram.java
+and store the file in a folder on your disk.
+2. Open a command-line window in the folder containing
+the file.
+3. Type the following command to compile the program:
+javac FirstProgram.java
+4.4. Type the following command to run the program:
+java FirstProgram
+
+Any text that begins with // in the following program
+code is a comment. The compiler will ignore everything
+from the // to the end of the line.
+
+The compiler also ignores blank lines.
+
+Note that this program was designed to illustrate the
+concepts while being as non-cryptic as possible.
+
+The program should display the following text on the
+screen except that the time will be different each time
+that you run the program.
+
+value in = 5
+Odd time = 1353849164875
+countA = 0
+countA = 1
+countA = 2
+countB = 0
+countB = 1
+countB = 2
+value out = 10
+
+End block comment ***************************************/
+
+//The actual program begins with the next line.
+import java.util.*;
+
+class FirstProgram{
+  //The program consists of a sequence of statements.
+  
+  //The next statement is the beginning of the main
+  // method, which is required in all Java applications.
+  public static void main(String[] args){
+    //Program execution begins here.
+    
+    //Declare and initialize a variable.
+    int var = 5;
+    
+    //Statements of the following type display
+    // information on the screen
+    System.out.println("value in = " + var);
+    
+    //Call a method and pass a parameter to the method.
+    //Save the returned value in var, replacing what
+    // was previously stored there.
+    //Control is passed to the method named firstMethod.
+    var = firstMethod(var);
+
+    //Control has returned from the method named
+    // firstMethod.
+    System.out.println("value out = " + var);
+    
+    //Program execution ends here
+  }//end main method
+  
+  /****visual separator comment**************************/
+  
+  public static int firstMethod(int inData){
+    //Control is now in this method.
+    
+    //Illustrate selection
+    //Get the elapsed time in milliseconds since Jan 1970.
+    long time = new Date().getTime();
+    
+    //Select even or odd time and display the results
+    if(time % 2 == 0){
+      System.out.println("Even time = " + time);
+    }else{
+      System.out.println("Odd time = " + time);
+    }//end if-else selection
+    
+    //Illustrate a while loop
+    int countA = 0;
+    while(countA &lt; 3){
+      System.out.println("countA = " + countA);
+      //Increment the counter
+      countA = countA + 1;
+    }//end while loop
+    
+    //Illustrate a for loop
+    for(int countB = 0; countB &lt; 3; countB = countB + 1){
+      System.out.println("countB = " + countB);
+    }//end for loop
+    
+    //Illustrate returning a value from a method and
+    // returning control back to the calling method.
+    return 2*inData;
+  }//end firstMethod
+  
+}//end class FirstProgram
+//The program ends with the previous line.</code>
+
+
+
+	
+
+<para id="p1025">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

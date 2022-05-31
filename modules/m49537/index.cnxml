@@ -1,0 +1,1660 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4650: The URLConnection Class</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49537</md:content-id>
+  <md:title>Java4650: The URLConnection Class</md:title>
+  <md:abstract>This module shows how to use the URLConnection class.</md:abstract>
+  <md:uuid>3354d1a9-cf7a-43d1-b17d-7ca9653af488</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. More specifically, it is one in a 
+	sub-collection of modules designed for teaching network programming in that 
+	course. The purpose of this module is to introduce the student to the
+	
+
+<emphasis id="strong1001" effect="bold">
+URLConnection
+
+</emphasis>
+ class.  
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Partial program output.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the program. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Get a URLConnection object. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get information about the URL.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The program named Java4650a.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+I don't plan to say very much about the 
+
+<emphasis id="strong1002" effect="bold">
+URLConnection 
+
+</emphasis>
+
+class. It is an 
+
+<emphasis id="strong1003" effect="bold">
+abstract 
+
+</emphasis>
+class that can be 
+
+<emphasis id="em1000" effect="italics">
+extended
+
+</emphasis>
+, 
+and it has a protected constructor that takes a URL object as a parameter. 
+
+</para>
+
+
+
+
+<para id="p1003">
+It has variables or fields that contain useful information about a 
+connection. 
+
+</para>
+
+
+
+
+<para id="p1004">
+It has many methods that can be used to examine and manipulate an object of 
+the class in a variety of different ways. 
+
+</para>
+
+
+
+
+<para id="p1005">
+If you plan to use the URL class for the higher-lever capabilities that it 
+offers, and you plan to write 
+
+<emphasis id="em1001" effect="italics">
+content handlers
+
+</emphasis>
+ and 
+
+<emphasis id="em1002" effect="italics">
+protocol 
+handlers
+
+</emphasis>
+, you will probably need to become very familiar with this class. 
+In that case, you will probably want to get a copy of a good Java networking 
+book, such as 
+
+<emphasis id="em1003" effect="italics">
+Java Network Programming
+
+</emphasis>
+, by Elliotte Rusty Howard, and 
+study the use of this class in depth. 
+
+</para>
+
+
+
+
+<para id="p1006">
+My objective here is simply to make you aware of the existence of the class 
+and its many methods, and to provide some examples of how you can get and use an 
+object of the class to obtain higher-level information about a connection. 
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1007">
+This program illustrates connecting to a URL and creating a 
+
+<emphasis id="strong1004" effect="bold">
+
+	URLConnection 
+
+</emphasis>
+object.
+
+</para>
+
+
+
+
+<para id="p1008">
+The program uses the 
+
+<emphasis id="strong1005" effect="bold">
+URLConnection 
+
+</emphasis>
+object to obtain and 
+display some of the "higher level" 
+
+<emphasis id="aspects_of_the_UR" effect="bold">
+
+information about the UR
+
+</emphasis>
+
+L: 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1015">
+the URL
+
+</item>
+
+
+	
+
+<item id="li1016">
+the date last modified
+
+</item>
+
+
+	
+
+<item id="li1017">
+the content type
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+The computer must be online for this program to run properly. Otherwise, it 
+will throw an exception of type 
+
+<emphasis id="strong1006" effect="bold">
+UnknownHostException
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1007" effect="bold">
+Partial program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows part of the output from the program. The first three lines of 
+output correspond to the items in the above 
+
+<link id="a1016" target-id="aspects_of_the_UR">
+
+list
+
+</link>
+
+, 
+and are the items that we will be primarily interested in for this module.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Partial program 
+				output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+http://www.austincc.edu/baldwin/page1.html
+Tue Apr 17 23:16:17 CDT 2001
+text/html; charset=iso-8859-1
+&lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+&lt;meta name="GENERATOR" content="Mozilla/4.7 [en] (WinNT; I) [Netscape]"&gt;
+&lt;title&gt;Java and JavaScript Programming, by Richard G Baldwin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFFFFF" link="#0000FF" vlink="#FF0000" lang="EN-US"&gt;
+
+&lt;h1&gt;
+Baldwin's Test Page 1&lt;/h1&gt;
+Click &lt;a href="http://www2.austin.cc.tx.us/baldwin/page2.html"&gt;here&lt;/a&gt;
+to view page 2
+&lt;p&gt;Note: The material on this page is not intended to be of any particular
+
+value. This file is posted for the purpose of testing HTTP network
+programs only.
+&lt;p&gt;The following red bar is a centered gif file.
+&lt;center&gt;
+&lt;p&gt;&lt;img SRC="red_thick_line_1.gif" BORDER=0 id="_x0000_i1025" height=9 width=300
+&gt;&lt;/center&gt;
+</code>
+
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1012">
+<emphasis id="strong1008" effect="bold">
+The program named Java4650a
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+I will explain this program in fragments. A complete listing of the program is provided in 
+
+
+<link id="a1017" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1014">
+The 
+
+<emphasis id="strong1009" effect="bold">
+URLConnection 
+
+</emphasis>
+class is 
+
+<emphasis id="strong1010" effect="bold">
+abstract
+
+</emphasis>
+, and 
+therefore cannot be instantiated directly. However, it can be 
+
+<emphasis id="em1004" effect="italics">
+extended
+
+</emphasis>
+, 
+and it has a protected constructor that requires a URL object as a parameter.
+
+
+</para>
+
+
+
+
+<para id="p1015">
+A common way to get a 
+
+<emphasis id="strong1011" effect="bold">
+URLConnection 
+
+</emphasis>
+object is to call a 
+method on a URL
+
+<emphasis id="strong1012" effect="bold">
+ 
+
+</emphasis>
+object that returns an object of a subclass of 
+the 
+
+<emphasis id="strong1013" effect="bold">
+URLConnection 
+
+</emphasis>
+class. That is the case in the sample program 
+for this module. 
+
+</para>
+
+
+
+
+<para id="p1016">
+I will ignore the exception handling code in the discussion of this program. 
+
+</para>
+
+
+
+
+<para id="p1017">
+All of the code in the sample program is contained in the 
+
+<emphasis id="strong1014" effect="bold">
+main
+
+</emphasis>
+  method of the controlling class. 
+
+</para>
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1015" effect="bold">
+Beginning of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+The beginning of the program and the beginning of the 
+
+<emphasis id="strong1016" effect="bold">
+main
+
+</emphasis>
+ method is shown in 
+
+
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the program.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Java4650a{
+  public static void main(String[] args){
+    String dataLine;
+    try{
+      //Get a URL object
+      URL url = new URL(
+             "http://www.austincc.edu/baldwin/page1.html");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1020">
+<emphasis id="strong1017" effect="bold">
+Get a URL object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+The code at the bottom of 
+
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a URL object. This is essentially the same code 
+that you saw in an earlier module, but you need to see it again here in order to understand the code that 
+follows it. 
+
+</para>
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1018" effect="bold">
+URLConnection object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+The code in 
+
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ gets a 
+
+<emphasis id="strong1019" effect="bold">
+URLConnection 
+
+</emphasis>
+object by 
+calling the 
+
+<emphasis id="strong1020" effect="bold">
+openConnection
+
+</emphasis>
+ method on the URL object 
+instantiated earlier. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Get a URLConnection 
+				object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">      URLConnection urlConnection = url.openConnection();
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1024">
+<emphasis id="strong1021" effect="bold">
+Get information about the URL
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1025">
+The code in 
+
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls three methods on the 
+
+<emphasis id="strong1022" effect="bold">
+URLConnection 
+
+</emphasis>
+object to obtain three of the higher-level 
+informational aspects of the URL: 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+the URL
+
+</item>
+
+
+	
+
+<item id="li1019">
+the date that the file was last modified
+
+</item>
+
+
+	
+
+<item id="li1020">
+the content type of the file
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get information about the URL.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">
+      System.out.println(urlConnection.getURL());
+      Date lastModified = new Date(
+                          urlConnection.getLastModified());
+      System.out.println(lastModified);
+      System.out.println(urlConnection.getContentType());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1026">
+The result of these three inquiries is shown as the first three lines of 
+	text in 
+
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1023" effect="bold">
+The remaining code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1028">
+Following this, the program uses the URL object to get an input stream and to 
+display the contents of the file. However, this essentially duplicates a portion 
+of the program in an earlier module, so I won't discuss it further here. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1029">
+I encourage you to copy the code from 
+
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+In the next module, I will show you how to download a simple HTML file and to 
+render it in a way that is similar to how it would be rendered in a browser.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1031">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1024" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1021">
+Module name: Java4650: The URLConnection Class
+
+</item>
+
+
+					
+
+<item id="li1022">
+File: Java4650.htm
+
+
+</item>
+
+
+					
+
+<item id="li1023">
+Published: 03/02/14
+
+</item>
+
+
+
+
+<item id="li1024">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1025" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1032">
+<emphasis id="strong1026" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1033">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1034">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1035">
+<emphasis id="strong1027" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1028" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - The program named 
+				Java4650a.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">
+/*File Java4650a.java Copyright 1998, R.G.Baldwin
+Revised 01/05/14
+
+Illustrates connecting to a URL and creating a
+URLConnection object.
+
+Uses the URL object to obtain and display 
+the URL, the date last modified, and the content type.
+
+Also uses the URLConnection object to obtain an 
+input stream object.  Then uses this object to read and 
+display the file.  
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Java4650a{
+  public static void main(String[] args){
+    String dataLine;
+    try{
+      //Get a URL object
+      URL url = new URL(
+             "http://www.austincc.edu/baldwin/page1.html");
+
+      //Open a connection to the URL and get a 
+      // URLConnection object.
+      URLConnection urlConnection = url.openConnection();
+      
+      //Use the connection to get and display the URL
+      System.out.println(urlConnection.getURL());
+      
+      //Use the connection to get and display the date last
+      // modified.
+      Date lastModified = new Date(
+                          urlConnection.getLastModified());
+      System.out.println(lastModified);
+      
+      //Use the connection to get and display the content
+      // type.
+      System.out.println(urlConnection.getContentType());
+          
+      //Use the connection to get an InputStream object.
+      // Use the InputStream object to instantiate a 
+      // DataInputStream object.
+      BufferedReader htmlPage = 
+                 new BufferedReader(new InputStreamReader(
+                                        url.openStream()));
+                     
+      //Use the DataInputStream object to read and display
+      // the file one line at a time.
+      while((dataLine = htmlPage.readLine()) != null){
+        System.out.println(dataLine);
+      }//end while loop
+    }//end try
+    catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+
+  }//end main
+}//end class Java4650a
+</code>
+
+
+
+
+
+<para id="p1037">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

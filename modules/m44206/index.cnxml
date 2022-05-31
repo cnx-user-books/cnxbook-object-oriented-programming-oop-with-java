@@ -1,0 +1,3353 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3010: Indirection, Array Objects, and Casting</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44206</md:content-id>
+  <md:title>Java3010: Indirection, Array Objects, and Casting</md:title>
+  <md:abstract>Learn about indirection, array objects, and casting.</md:abstract>
+  <md:uuid>2e2e5eca-e6ac-4e91-b2a4-f9dc46c0a0e4</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Apr 03 09:25:24 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output on command line screen. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the Prob05 class.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The class named Prob05MyClassA. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The next statement in the main method. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The class named Prob05MyClassB. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The end of the main method.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+The program that I will explain in this module produces no graphics and 
+	does not require the use of Ericson's media library.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1000" effect="bold">
+OOP concepts
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+The program illustrates the following OOP concepts among others:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1021">
+Multiple levels of indirection
+
+</item>
+
+
+	
+
+<item id="li1022">
+A one-element array of type 
+
+<emphasis id="strong1001" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1023">
+Storing a reference to an object in an array element as type 
+
+<emphasis id="strong1002" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1024">
+An anonymous object
+
+</item>
+
+
+	
+
+<item id="li1025">
+Passing a reference to a subclass object as type 
+
+<emphasis id="strong1003" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1026">
+Downcasting an incoming object reference to access a method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1004" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+Write a program named 
+
+<emphasis id="strong1005" effect="bold">
+Prob05
+
+</emphasis>
+ that uses the class definition shown in
+
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ to produce an output similar to that shown in
+
+
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ on the command-line screen.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Program output on command line screen.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Prob05
+Dick
+Baldwin
+-28
+-28</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1009">
+<emphasis id="strong1006" effect="bold">
+A random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Because the program generates and uses a random data value, the actual values 
+displayed will differ from one run to the next. However, in all cases, the two 
+values shown in 
+
+<link id="a1023" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ must match.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1007" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named 
+
+<emphasis id="strong1008" effect="bold">
+
+Prob05
+
+</emphasis>
+ which begins in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1013">
+<emphasis id="strong1009" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+I will explain this program in fragments. A complete listing is provided in
+
+
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+I will begin with the driver class named 
+
+<emphasis id="strong1010" effect="bold">
+Prob05
+
+</emphasis>
+, which begins in
+
+
+<link id="a1026" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the Prob05 class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.util.*;
+
+class Prob05{
+  public static void main(String[] args){
+
+    Random generator = new Random(new Date().getTime());
+    int randomNumber = (byte)generator.nextInt();
+
+    Object[] objRef = {new Prob05MyClassA(randomNumber)};</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1016">
+Everything in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ should be familiar to 
+	you with the possible exception of the last statement, which I will explain shortly.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1011" effect="bold">
+Characteristics of arrays in Java
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+Before explaining that statement, however, I will discuss some of the 
+important characteristics of array objects in Java. A list of such 
+characteristics follows in no particular order:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1027">
+All arrays in Java are one-dimensional arrays. 
+
+<emphasis id="em1003" effect="italics">
+(Multidimensional 
+	arrays are created by creating tree structures of one-dimensional arrays.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+Each array in Java is encapsulated in a special type of object that I 
+	will refer to as an 
+
+<emphasis id="em1004" effect="italics">
+array object
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1029">
+As with all objects, an array object must be accessed using a reference 
+	to the array object.
+
+</item>
+
+
+	
+
+<item id="li1030">
+When the declared type of an array is one of the eight primitive types, 
+	the actual values are stored in the array elements in the array object.
+
+</item>
+
+
+	
+
+<item id="li1031">
+When the declared type of an array is the type of an object 
+
+<emphasis id="em1005" effect="italics">
+(array 
+	object or ordinary object), 
+
+</emphasis>
+references to the objects are stored in the 
+	array elements and the objects actually exist elsewhere in memory.
+
+</item>
+
+
+	
+
+<item id="li1032">
+As with instance variables, the elements in an array are typically 
+	initialized with the standard default values for the types involved 
+
+<emphasis id="em1006" effect="italics">
+
+	(zero, false, or null)
+
+</emphasis>
+. That is not the case in this program however.
+
+</item>
+
+
+	
+
+<item id="li1033">
+The array that is encapsulated in an array object may have none, one, or 
+	more elements. 
+
+<emphasis id="em1007" effect="italics">
+(Yes, it is possible for a Java array to have no elements, 
+	but that normally occurs only in special circumstances.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1034">
+The 
+
+<emphasis id="strong1012" effect="bold">
+length
+
+</emphasis>
+ or size of the array is established when the 
+	array object is instantiated and cannot be changed thereafter.
+
+</item>
+
+
+	
+
+<item id="li1035">
+Every array object contains a special property named 
+
+<emphasis id="strong1013" effect="bold">
+length
+
+</emphasis>
+ that 
+	contains the number of elements in an array. It is always possible to 
+	determine the number of elements in an array object at runtime by accessing 
+	the value of the 
+
+<emphasis id="strong1014" effect="bold">
+length
+
+</emphasis>
+ property for the array object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1015" effect="bold">
+<emphasis id="A_special_instantiation_syntax" effect="bold">
+
+A special instantiation syntax
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+There is a special syntax that allows for the instantiation of an array 
+object and the initialization of the array elements in a single statement. 
+
+<emphasis id="em1008" effect="italics">
+(I 
+explain this 
+
+<link id="a1028" url="http://cnx.org/contents/1CVBGBJj:Fj8xxCSh">
+
+here
+
+</link>
+
+,
+
+
+<link id="a1029" url="http://cnx.org/contents/dzOvxPFw:XQBfo3b_">
+
+here
+
+</link>
+
+, and
+
+
+<link id="a1030" url="http://cnx.org/contents/EHRr6hjR:LYyIoCvP">
+
+here
+
+</link>
+
+ so you should 
+already know all about it.)
+
+</emphasis>
+ 
+
+<emphasis id="The_last_statement" effect="bold">
+
+The last 
+statement
+
+</emphasis>
+
+ in 
+
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is an example of this syntax.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+Briefly, the syntax consists of a comma separated list of element values 
+
+<emphasis id="em1009" effect="italics">
+
+(expressions)
+
+</emphasis>
+ inside a pair of matching curly braces. The
+
+<emphasis id="strong1016" effect="bold">
+ length
+
+</emphasis>
+ of 
+the array is determined by the number of values in the list. The type of the 
+array is determined by the types of the elements in the list.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+This syntax instantiates an array object of the correct 
+
+<emphasis id="strong1017" effect="bold">
+length
+
+</emphasis>
+ and 
+populates the elements with the specified values.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1018" effect="bold">
+A reference is returned
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+A reference to the array object is returned in much the same way that a 
+constructor for an ordinary object returns a reference to the object.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+As is always the case, if the reference is stored in a variable, the type of 
+the reference must be 
+
+<emphasis id="em1010" effect="italics">
+assignment compatible
+
+</emphasis>
+ with the type of the 
+variable.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1019" effect="bold">
+What is assignment compatible?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+If you have forgotten what this term means, I recommend that you go to Google 
+and search for the following keywords to learn more about it:
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">
+site:http://cnx.org/contents/ "assignment compatible" java
+</code>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1020" effect="bold">
+A one-element array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The last statement in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an 
+array object containing a one-element array. The array element is initialized 
+with a reference to a new object of type 
+
+<emphasis id="strong1021" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+, which exists somewhere else in memory.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+The value of a random number that was generated earlier in the 
+
+<emphasis id="strong1022" effect="bold">
+main
+
+</emphasis>
+ 
+method is passed as a parameter to the constructor for the object of type 
+
+<emphasis id="strong1023" effect="bold">
+
+Prob05MyClassA
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1024" effect="bold">
+Save the reference to the array object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The reference to the array object is stored in the local reference variable 
+named 
+
+<emphasis id="strong1025" effect="bold">
+objRef
+
+</emphasis>
+ of type 
+
+<emphasis id="strong1026" effect="bold">
+Object
+
+</emphasis>
+. We know that the reference is 
+
+<emphasis id="em1011" effect="italics">
+
+assignment compatible
+
+</emphasis>
+ with this reference variable because the 
+
+<emphasis id="strong1027" effect="bold">
+Object
+
+</emphasis>
+ 
+type is completely generic. All non-primitive types are assignment compatible 
+with type 
+
+<emphasis id="strong1028" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1029" effect="bold">
+The class named Prob05MyClassA
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+At this point, I am going to put the explanation of the class named 
+
+<emphasis id="strong1030" effect="bold">
+Prob05
+
+</emphasis>
+ 
+temporarily on hold and explain the class named 
+
+<emphasis id="strong1031" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+, which is 
+shown in its entirety in 
+
+<link id="a1033" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The class named Prob05MyClassA.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1003" display="block">class Prob05MyClassA extends Prob05{
+  private int data;
+
+  public Prob05MyClassA(int inData){
+    System.out.println("Prob05");
+    System.out.println("Dick");
+    data = inData;
+  }//end constructor
+
+  public int getData(){
+    return data;
+  }//end getData()
+
+}//end class Prob05MyClassA</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1035">
+Note that the class named 
+
+<emphasis id="strong1032" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ extends the class named
+	
+
+<emphasis id="strong1033" effect="bold">
+Prob05
+
+</emphasis>
+, which is partially shown in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1034" effect="bold">
+Familiar code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+All of the code in 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ should be familiar to 
+you because it is very similar to the code in the previous module. Therefore, no 
+explanation of 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is warranted.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1035" effect="bold">
+Save the incoming value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+In summary, when the object of type 
+
+<emphasis id="strong1036" effect="bold">
+Prob05MyClassA 
+
+</emphasis>
+is instantiated, it 
+saves the value of an incoming constructor parameter in a private instance 
+variable.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1037" effect="bold">
+Return the saved value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+When the method named 
+
+<emphasis id="strong1038" effect="bold">
+getData
+
+</emphasis>
+ is called on a reference to the object, 
+it returns a copy of that value.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1039" effect="bold">
+A review
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+To review what I have already said, the array object that was instantiated in
+
+
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ contains a reference to this object of type
+
+
+<emphasis id="strong1040" effect="bold">
+Prob05MyClassA 
+
+</emphasis>
+in 
+the only element of the one-element array.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The reference to the array object is stored in the reference variable named
+
+
+<emphasis id="strong1041" effect="bold">
+objRef
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1042" effect="bold">
+Indirection at work
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+At this point, 
+
+<emphasis id="strong1043" effect="bold">
+objRef
+
+</emphasis>
+ contains a reference to an array object, one 
+element of which contains a reference to an ordinary object, which is located 
+somewhere else in memory. This is indirection.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1044" effect="bold">
+The next statement in the main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+Returning now to the 
+
+<emphasis id="strong1045" effect="bold">
+main
+
+</emphasis>
+ method that began in 
+
+<link id="a1038" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+, 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the next statement in 
+the 
+
+<emphasis id="strong1046" effect="bold">
+main
+
+</emphasis>
+ method following the last statement in 
+
+<link id="a1040" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The next statement in the main method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">    System.out.println(
+          new Prob05MyClassB().getDataFromObj(objRef[0]));</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1049">
+<emphasis id="strong1047" effect="bold">
+What is an anonymous object?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+An anonymous object is an object whose reference is not saved in a named 
+reference variable.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1048" effect="bold">
+Instantiate an anonymous object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+Consider the parameter list of the 
+
+<emphasis id="strong1049" effect="bold">
+println
+
+</emphasis>
+ method shown in 
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+A new object of the 
+
+<emphasis id="strong1050" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ class is instantiated in the parameter 
+list. However, the reference to that object is not saved in a named reference 
+variable. Instead, that reference is used to immediately call the method named
+
+
+<emphasis id="strong1051" effect="bold">
+getDataFromObj
+
+</emphasis>
+ that belongs to the anonymous object.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1052" effect="bold">
+The parameter that is passed...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+Now consider the parameter that is passed to the method named 
+
+<emphasis id="strong1053" effect="bold">
+
+getDataFromObj
+
+</emphasis>
+. The expression inside that parameter list extracts the 
+contents of the zeroth element in the array object that is referred to by the 
+contents of the variable named 
+
+<emphasis id="strong1054" effect="bold">
+objRef
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1055" effect="bold">
+And those contents are...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+That element contains a reference to an object of the class 
+
+<emphasis id="strong1056" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+
+
+
+<emphasis id="em1012" effect="italics">
+(see 
+
+<link id="a1042" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Therefore, a reference to an object of type 
+
+<emphasis id="strong1057" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ is passed 
+as a parameter to the method named 
+
+<emphasis id="strong1058" effect="bold">
+getDataFromObj
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1059" effect="bold">
+The class named Prob05MyClassB
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+It is time to take a look at the class in which the 
+
+<emphasis id="strong1060" effect="bold">
+getDataFromObj 
+
+</emphasis>
+
+method is defined.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+The class named 
+
+<emphasis id="strong1061" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ is shown in its entirety in
+
+
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The class named Prob05MyClassB.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">class Prob05MyClassB{
+
+  Prob05MyClassB(){
+    System.out.println("Baldwin");
+  }//end constructor
+
+  public int getDataFromObj(Object refToObj){
+    return ((Prob05MyClassA)refToObj).getData();
+  }//end getDataFromObj()
+
+}//end class Prob05MyClassB</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+<emphasis id="strong1062" effect="bold">
+Extends the Object class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+Note that this class does not extend the class named 
+
+<emphasis id="strong1063" effect="bold">
+Prob05
+
+</emphasis>
+. In fact, 
+it doesn't explicitly extend any class. This means that it extends the class 
+named 
+
+<emphasis id="strong1064" effect="bold">
+Object
+
+</emphasis>
+ by default because every class is a subclass of the class 
+named 
+
+<emphasis id="strong1065" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1066" effect="bold">
+The constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+The constructor for this class is inconsequential. It simply displays my last 
+name when the object is instantiated, producing part of the output text shown in
+
+
+<link id="a1044" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1067" effect="bold">
+The getDataFromObj method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+The interesting part of 
+
+<link id="a1045" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is the definition 
+of the method named 
+
+<emphasis id="strong1068" effect="bold">
+getDataFromObj
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+As we saw before, this method receives a reference to an object of type 
+
+<emphasis id="strong1069" effect="bold">
+
+Prob05MyClassA
+
+</emphasis>
+ 
+
+<emphasis id="em1013" effect="italics">
+(see 
+
+<link id="a1046" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+)
+
+</emphasis>
+. However, 
+this reference is not received as the true type of the object. Instead, it is 
+received as type 
+
+<emphasis id="strong1070" effect="bold">
+
+Object
+
+</emphasis>
+, which is the ultimate superclass of the class named 
+
+<emphasis id="strong1071" effect="bold">
+
+Prob05MyClassA
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1072" effect="bold">
+The objective of the method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The objective is to call the method named 
+
+<emphasis id="strong1073" effect="bold">
+getData
+
+</emphasis>
+ on the incoming 
+reference. However, the 
+
+<emphasis id="strong1074" effect="bold">
+Object
+
+</emphasis>
+ class doesn't know anything about a method 
+named 
+
+<emphasis id="strong1075" effect="bold">
+getData
+
+</emphasis>
+ because the 
+
+<emphasis id="strong1076" effect="bold">
+Object
+
+</emphasis>
+ class neither defines nor 
+inherits a method having that signature. Instead, the 
+
+<emphasis id="strong1077" effect="bold">
+getData
+
+</emphasis>
+ method is 
+defined in the class named 
+
+<emphasis id="strong1078" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+, which is the true type of the 
+object.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1079" effect="bold">
+A cast is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+Therefore, it is necessary to convert the type of the reference back to its 
+true type using a cast operator before that reference can be used to call the 
+method named 
+
+<emphasis id="strong1080" effect="bold">
+getData
+
+</emphasis>
+. 
+
+<emphasis id="em1014" effect="italics">
+(The cast operator is shown in
+
+
+<link id="a1047" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1081" effect="bold">
+The returned value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+The 
+
+<emphasis id="strong1082" effect="bold">
+getData
+
+</emphasis>
+ method returns a copy of the value that was passed as a 
+constructor parameter when the object was instantiated. 
+
+<emphasis id="em1015" effect="italics">
+(See
+
+
+<link id="a1048" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.)
+
+</emphasis>
+ Recall that the value was the original 
+random value. 
+
+<emphasis id="em1016" effect="italics">
+(See 
+
+<link id="a1049" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+Referring back to 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, that is the value that 
+is returned from the call to the 
+
+<emphasis id="strong1083" effect="bold">
+getDataFromObj
+
+</emphasis>
+ method in
+
+<link id="a1051" target-id="Listing_3">
+
+ 
+Listing 3
+
+</link>
+
+, which cause the value to be displayed as the first numeric value 
+in 
+
+<link id="a1052" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1084" effect="bold">
+The end of the main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+Returning once more to the 
+
+<emphasis id="strong1085" effect="bold">
+main
+
+</emphasis>
+ method and picking up where we left 
+off in 
+
+<link id="a1053" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, 
+
+<link id="a1054" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+shows the final statement in the 
+
+<emphasis id="strong1086" effect="bold">
+main
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The end of the main method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">    System.out.println(randomNumber);
+
+  }//end main
+}//end class Prob05</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1077">
+This statement simply displays the original random value that was passed 
+	to the constructor for the 
+
+<emphasis id="strong1087" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ in 
+
+<link id="a1055" target-id="Listing_1">
+
+
+	Listing 1
+
+</link>
+
+. This statement displays the second numeric value shown as the 
+	last line of text in 
+
+<link id="a1056" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1088" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+At this point, the 
+
+<emphasis id="strong1089" effect="bold">
+main
+
+</emphasis>
+ method terminates causing the program to 
+terminate.
+
+</para>
+
+
+
+	
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1080">
+I encourage you to copy the code from 
+
+<link id="a1057" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, compile it and execute it. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1081">
+You learned about the following OOP concepts, among others in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1036">
+Multiple levels of indirection
+
+</item>
+
+
+	
+
+<item id="li1037">
+A one-element array of type 
+
+<emphasis id="strong1090" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1038">
+Storing a reference to an object in an array element as type 
+
+<emphasis id="strong1091" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1039">
+An anonymous object
+
+</item>
+
+
+	
+
+<item id="li1040">
+Passing a reference to a subclass object as type 
+
+<emphasis id="strong1092" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1041">
+Downcasting an incoming object reference to access a method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+You will learn how to use nested loops to process pixels on a row and column 
+basis in the next module.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1083">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1042">
+<link id="a1058" url="http://www.youtube.com/playlist?list=PL13622F7BA83F110C">
+
+ITSE 
+	2321 Lecture 05
+
+</link>
+
+
+<list id="ul1010" list-type="bulleted">
+
+		
+
+<item id="li1043">
+<link id="a1059" url="http://www.youtube.com/watch?v=Ow_XzlSrmsw">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1060" url="http://www.youtube.com/watch?v=UiT_ZYtNqWo">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1061" url="http://www.youtube.com/watch?v=fCiMM4ps3o4">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1084">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1093" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1046">
+Module name: Java OOP: Indirection, Array Objects, and Casting
+
+</item>
+
+
+					
+
+<item id="li1047">
+File: Java3010.htm
+
+
+</item>
+
+
+					
+
+<item id="li1048">
+Published: 08/02/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1094" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1085">
+<emphasis id="strong1095" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1086">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1087">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1088">
+<emphasis id="strong1096" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1062" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1006">
+
+
+
+<row id="tr1012">
+
+
+
+<entry id="th1006">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1097" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1006">
+
+
+
+<row id="tr1013">
+
+
+
+<entry id="td1006">
+
+
+
+<code id="pre1007" display="block">/*File Prob05 Copyright 2001, R.G.Baldwin
+Rev 12/16/08
+*********************************************************/
+import java.util.*;
+
+class Prob05{
+  public static void main(String[] args){
+
+    Random generator = new Random(new Date().getTime());
+    int randomNumber = (byte)generator.nextInt();
+
+    Object[] objRef = {new Prob05MyClassA(randomNumber)};
+
+    System.out.println(
+          new Prob05MyClassB().getDataFromObj(objRef[0]));
+
+    System.out.println(randomNumber);
+
+  }//end main
+}//end class Prob05
+//======================================================//
+
+class Prob05MyClassA extends Prob05{
+  private int data;
+
+  public Prob05MyClassA(int inData){
+    System.out.println("Prob05");
+    System.out.println("Dick");
+    data = inData;
+  }//end constructor
+
+  public int getData(){
+    return data;
+  }//end getData()
+
+}//end class Prob05MyClassA
+//======================================================//
+
+class Prob05MyClassB{
+
+  Prob05MyClassB(){
+    System.out.println("Baldwin");
+  }//end constructor
+
+  public int getDataFromObj(Object refToObj){
+    return ((Prob05MyClassA)refToObj).getData();
+  }//end getDataFromObj()
+
+}//end class Prob05MyClassB</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1090">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

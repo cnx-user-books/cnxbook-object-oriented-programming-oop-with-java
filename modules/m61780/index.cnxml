@@ -1,0 +1,3727 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0220R: Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61780</md:content-id>
+  <md:title>Json0220R: Review</md:title>
+  <md:abstract>This page contains review questions and answers for the page titled "Json0220: Decoding JSON Strings" in the book titled "The json-simple Java Library".</md:abstract>
+  <md:uuid>eb0f49a9-24f0-4d9f-847f-7519dcf5e77a</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Jun 04 16:17:01 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1005">
+<link id="a1005" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="question07">
+
+Question 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="question08">
+
+Question 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="question09">
+
+Question 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="question10">
+
+Question 10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="question11">
+
+Question 11
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Figure_index">
+
+Figure index
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_index">
+
+Listing index
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1020">
+<link id="a1020" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1021">
+<link id="a1021" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1022">
+<link id="a1022" target-id="answer09">
+
+Answer 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1023">
+<link id="a1023" target-id="answer08">
+
+Answer 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1024">
+<link id="a1024" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1025">
+<link id="a1025" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1026">
+<link id="a1026" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1027">
+<link id="a1027" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1028">
+<link id="a1028" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1029">
+<link id="a1029" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1030">
+<link id="a1030" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1031">
+<link id="a1031" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1032">
+<link id="a1032" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1033">
+<link id="a1033" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. 
+The book explains how to use the 
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to 
+generate, transform, and query JSON text. This page provides review questions 
+and answers for the page titled 
+
+
+<link id="a1034" url="http://cnx.org/contents/5sRB9gpG:GHIZVlcF">
+
+Json0220: Decoding JSON Strings
+
+</link>
+
+. Once you study that page, you should be able to answer the review 
+questions in this page.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers in this page are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+When a question 
+or an answer provides a link to a figure or a listing, you should open that link in a new window to 
+make it easy to view while reading the question or the answer.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1005">
+
+NOTE:
+
+
+</para>
+
+
+
+
+
+<para id="p1006">
+With respect to the screen output shown on this page, ignore the possibility 
+of output or lack of output similar to the following:
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">
+Note: Code99.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1002" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1007">
+True or False? The only way to decode or parse a JSON string with the 
+
+<emphasis id="strong1003" effect="bold">
+
+json-simple
+
+</emphasis>
+ library is by using the 
+
+<emphasis id="strong1004" effect="bold">
+parse
+
+</emphasis>
+ method 
+belonging to an object of the class named 
+
+<emphasis id="strong1005" effect="bold">
+JSONParser
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<para id="p1008">
+<link id="a1035" target-id="answer01">
+
+Go to answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+True or False? Decoding or parsing a JSON string with the 
+
+<emphasis id="strong1006" effect="bold">
+
+json-simple
+
+</emphasis>
+ 
+library requires the use of the 
+
+<emphasis id="strong1007" effect="bold">
+parse
+
+</emphasis>
+ method belonging to either an 
+object of the class named 
+
+<emphasis id="strong1008" effect="bold">
+JSONParser
+
+</emphasis>
+ or an object of the class 
+named 
+
+<emphasis id="strong1009" effect="bold">
+JSONValue
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<link id="a1036" target-id="answer02">
+
+Go to answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1011">
+True or False? The 
+
+<emphasis id="strong1010" effect="bold">
+parse
+
+</emphasis>
+ method belonging to the class named
+
+
+<emphasis id="strong1011" effect="bold">
+JSONParser
+
+</emphasis>
+ can be called without the requirement to instantiate an 
+object of the class.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<link id="a1037" target-id="answer03">
+
+Go to answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+True or False? The 
+
+<emphasis id="strong1012" effect="bold">
+parse
+
+</emphasis>
+ methods of the 
+
+<emphasis id="strong1013" effect="bold">
+JSONValue
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1014" effect="bold">
+JSONParser
+
+</emphasis>
+ classes return an object of class 
+
+<emphasis id="strong1015" effect="bold">
+
+JSONString
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<link id="a1038" target-id="answer04">
+
+Go to answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+True or False? The code in 
+
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1040" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<link id="a1041" target-id="answer05">
+
+Go to answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+True or False? The code in 
+
+<link id="a1042" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<link id="a1044" target-id="answer06">
+
+Go to answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+True or False? The code in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1046" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<link id="a1047" target-id="answer07">
+
+Go to answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+True or False? The code in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1049" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1022">
+<link id="a1050" target-id="answer08">
+
+Go to answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+True or False? The code in 
+
+<link id="a1051" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1052" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<link id="a1053" target-id="answer09">
+
+Go to answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+True or False? The code in 
+
+<link id="a1054" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1055" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<link id="a1056" target-id="answer10">
+
+Go to answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+True or False? The code in 
+
+<link id="a1057" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1058" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<link id="a1059" target-id="answer11">
+
+Go to answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figure_index" effect="bold">
+
+Figure index
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1034">
+<link id="a1060" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1061" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1062" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1063" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1064" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1065" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1066" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1067" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1068" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1069" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1070" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listing_index" effect="bold">
+
+Listing index
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1045">
+<link id="a1071" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1072" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1073" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1074" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1075" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1076" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1077" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1016" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1031">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21011">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<link id="a1078" target-id="question11">
+
+Go back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+False. The code in 
+
+<link id="a1079" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ produces the 
+screen output with the errors shown in 
+
+<link id="a1080" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<link id="a1081" target-id="question10">
+
+Go back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1037">
+False. The code in 
+
+<link id="a1082" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ produces the 
+screen output shown in 
+
+<link id="a1083" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. The 
+
+<emphasis id="strong1017" effect="bold">
+parse
+
+</emphasis>
+ 
+method is not 
+
+<emphasis id="strong1018" effect="bold">
+<emphasis id="em1004" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ in the 
+
+<emphasis id="strong1019" effect="bold">
+JSONParser
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<link id="a1084" target-id="question09">
+
+Go back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+True.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1040">
+<link id="a1085" target-id="question08">
+
+Go back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1041">
+True. Even though it is not necessary to instantiate an object of a class to 
+call a 
+
+<emphasis id="strong1020" effect="bold">
+<emphasis id="em1005" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ method belonging to that class, it is 
+possible to instantiate an object of the 
+
+<emphasis id="strong1021" effect="bold">
+JSONValue
+
+</emphasis>
+ class and to 
+call the 
+
+<emphasis id="strong1022" effect="bold">
+<emphasis id="em1006" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="strong1023" effect="bold">
+parse
+
+</emphasis>
+ method on that 
+object.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<link id="a1086" target-id="question07">
+
+Go back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1043">
+False. The code in 
+
+<link id="a1087" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ produces the 
+screen output with the compiler errors shown in 
+
+<link id="a1088" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. The return value from 
+the 
+
+<emphasis id="strong1024" effect="bold">
+parse
+
+</emphasis>
+ method must be cast from type 
+
+<emphasis id="strong1025" effect="bold">
+Object
+
+</emphasis>
+ 
+to type 
+
+<emphasis id="strong1026" effect="bold">
+JSONObject
+
+</emphasis>
+ to store it in a variable of type 
+
+<emphasis id="strong1027" effect="bold">
+
+JSONObject
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<link id="a1089" target-id="question06">
+
+Go back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+False. The code in 
+
+<link id="a1090" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produces the 
+screen output with the compiler errors shown in 
+
+<link id="a1091" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+The 
+
+<emphasis id="strong1028" effect="bold">
+json-simple
+
+</emphasis>
+ library does not define a class named 
+
+<emphasis id="strong1029" effect="bold">
+
+JSONString
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<link id="a1092" target-id="question05">
+
+Go back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1047">
+False. The 
+
+<emphasis id="strong1030" effect="bold">
+json-simple
+
+</emphasis>
+ library does not define a class named
+
+
+<emphasis id="strong1031" effect="bold">
+JSONString
+
+</emphasis>
+. Both 
+
+<emphasis id="strong1032" effect="bold">
+parse
+
+</emphasis>
+ methods return a 
+reference of type 
+
+<emphasis id="strong1033" effect="bold">
+java.lang.Object
+
+</emphasis>
+. However, it is actually a 
+reference to an object of the class 
+
+<emphasis id="strong1034" effect="bold">
+JSONObject
+
+</emphasis>
+, which is a 
+subclass of 
+
+<emphasis id="strong1035" effect="bold">
+Object
+
+</emphasis>
+ several levels down. The reference must be 
+downcast to type 
+
+<emphasis id="strong1036" effect="bold">
+JSONObject
+
+</emphasis>
+ in order to call some of the 
+methods defined in the 
+
+<emphasis id="strong1037" effect="bold">
+JSONObject
+
+</emphasis>
+ class or to store the 
+object's reference in a variable of type 
+
+<emphasis id="strong1038" effect="bold">
+JSONObject
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<link id="a1093" target-id="question04">
+
+Go back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1049">
+False. The 
+
+<emphasis id="strong1039" effect="bold">
+parse
+
+</emphasis>
+ method belonging to the class named 
+
+<emphasis id="strong1040" effect="bold">
+
+JSONParser
+
+</emphasis>
+ 
+is not declared 
+
+<emphasis id="strong1041" effect="bold">
+<emphasis id="em1007" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+. Therefore, it is an 
+
+<emphasis id="em1008" effect="italics">
+
+instance method
+
+</emphasis>
+. Instance methods can only be called on an object 
+instantiated from the class. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<link id="a1094" target-id="question03">
+
+Go back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+False. The 
+
+<emphasis id="strong1042" effect="bold">
+parse
+
+</emphasis>
+ method that is defined in the class named
+
+
+<emphasis id="strong1043" effect="bold">
+JSONValue
+
+</emphasis>
+ is a 
+
+<emphasis id="strong1044" effect="bold">
+<emphasis id="em1009" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ method. Static 
+methods belonging to a class can be called without the requirement to 
+instantiate an object of the class.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<link id="a1095" target-id="question02">
+
+Go back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+False. The class named 
+
+<emphasis id="strong1045" effect="bold">
+JSONValue
+
+</emphasis>
+ also defines a method 
+named 
+
+<emphasis id="strong1046" effect="bold">
+parse
+
+</emphasis>
+ that can be used to decode or parse a JSON string.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<link id="a1096" target-id="question01">
+
+Go back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+This section contains Figures that may be referred to by one or more 
+questions or answers. 
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<para id="p1056">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1057">
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">
+Code01.java:8: error: cannot find symbol
+import org.json.simple.JSONString;
+                      ^
+  symbol:   class JSONString
+  location: package org.json.simple
+Code01.java:20: error: cannot find symbol
+    JSONString jsonString02 = JSONValue.parse(jsonString0101);
+    ^
+  symbol:   class JSONString
+  location: class Code01
+Code01.java:20: error: cannot find symbol
+    JSONString jsonString02 = JSONValue.parse(jsonString0101);
+                                              ^
+  symbol:   variable jsonString0101
+  location: class Code01
+Note: Code01.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+3 errors
+Error: Could not find or load main class Code01
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1058">
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1059">
+
+
+
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">
+Code02.java:19: error: incompatible types: Object cannot be converted to JSONObj
+ect
+    JSONObject jsonObj02 = JSONValue.parse(jsonString);
+                                          ^
+Note: Code02.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+Error: Could not find or load main class Code02
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<para id="p1060">
+
+
+
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+
+
+<para id="p1061">
+
+
+
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+
+
+<para id="p1062">
+
+
+
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+
+
+
+<para id="p1063">
+
+
+
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">
+Code05.java:19: error: non-static method parse(String) cannot be referenced from
+ a static context
+    JSONObject jsonObj02 = (JSONObject)JSONParser.parse(jsonString);
+                                                 ^
+Note: Code05.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+Error: Could not find or load main class Code05
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1009" type="">
+
+
+
+
+
+<para id="p1064">
+
+
+
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1009" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1010" type="">
+
+
+
+
+
+<para id="p1065">
+
+
+
+<emphasis id="Figure_10" effect="bold">
+
+Figure 10
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">
+Code06.java:19: error: unreported exception ParseException; must be caught or de
+clared to be thrown
+    JSONObject jsonObj02 = (JSONObject)(new JSONParser().parse(jsonString));
+                                                              ^
+Note: Code06.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+Error: Could not find or load main class Code06
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+<note id="note1011" type="">
+
+
+
+
+
+<para id="p1066">
+
+
+
+<emphasis id="Figure_11" effect="bold">
+
+Figure 11
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1011" display="block">
+Joe
+21
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1067">
+This section contains Listings that may be referred to by one or more 
+questions or answers. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1012" type="">
+
+
+
+
+
+<para id="p1068">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1012" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+import org.json.simple.JSONString;
+
+class Code01 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString01 = jsonObj01.toJSONString();
+
+    JSONString jsonString02 = JSONValue.parse(jsonString0101);
+    System.out.println(jsonString02.get("name"));
+    System.out.println(jsonString02.get("age"));
+    
+  }//end main
+
+}//end class Code01
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1013" type="">
+
+
+
+
+
+<para id="p1069">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1013" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+class Code02 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = JSONValue.parse(jsonString);
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code02
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1014" type="">
+
+
+
+
+
+<para id="p1070">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1014" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+class Code03 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = 
+                     (JSONObject)(new JSONValue().parse(jsonString));
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code03
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1015" type="">
+
+
+
+
+
+<para id="p1071">
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1015" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+class Code04 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = (JSONObject)JSONValue.parse(jsonString);
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code04
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1016" type="">
+
+
+
+
+
+<para id="p1072">
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1016" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+class Code05 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = (JSONObject)JSONParser.parse(jsonString);
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code05
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1017" type="">
+
+
+
+
+
+<para id="p1073">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1017" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+class Code06 {
+
+  public static void main(String[] args){
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = 
+                    (JSONObject)(new JSONParser().parse(jsonString));
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code06
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1018" type="">
+
+
+
+
+
+<para id="p1074">
+
+
+
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+
+<code id="pre1018" display="block">
+/********************************************************************
+Copyright 2016 R.G.Baldwin
+Tested with Java 8, Win 7, and json-simple-1.1.1.jar.
+********************************************************************/
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+class Code07 {
+
+  public static void main(String[] args) throws ParseException{
+
+    JSONObject jsonObj01 = new JSONObject();
+    jsonObj01.put("name","Joe");
+    jsonObj01.put("age",21);
+    
+    String jsonString = jsonObj01.toJSONString();
+
+    JSONObject jsonObj02 = 
+                    (JSONObject)(new JSONParser().parse(jsonString));
+    System.out.println(jsonObj02.get("name"));
+    System.out.println(jsonObj02.get("age"));
+    
+  }//end main
+
+}//end class Code07
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1075">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1047" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1006" list-type="bulleted">
+
+				
+
+<item id="li1052">
+Module name: Json0220R: Review
+
+</item>
+
+
+				
+
+<item id="li1053">
+File: Json0220R.htm 
+
+</item>
+
+
+				
+
+<item id="li1054">
+Published: 06/04/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1048" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1076">
+<emphasis id="strong1049" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1077">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1078">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1079">
+<emphasis id="strong1050" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1080">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

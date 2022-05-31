@@ -1,0 +1,5774 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0090: Self-assessment, the super keyword, final keyword, and static methods</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45270</md:content-id>
+  <md:title>Ap0090: Self-assessment, the super keyword, final keyword, and static methods</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about the super keyword, the final keyword, and static methods in Java.</md:abstract>
+  <md:uuid>a85b46e1-faad-4ec3-ae32-2da7a1fa8f7b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. 1, 2
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. 5, 10
+
+</item>
+
+
+	
+
+<item id="li1010">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap100{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    Subclass obj = new Subclass();
+    System.out.println(obj.getX() + 
+                    ", " + obj.getY());
+  }//end makeObj()
+}// end class 
+
+class Superclass{
+  private int x = 1;
+    
+  public Superclass(){
+    x = 5;
+  }//end constructor
+  
+  public int getX(){
+    return x;
+  }//end getX()
+}//end Superclass
+
+class Subclass extends Superclass{
+  private int y = 2;
+  
+  public Subclass(){
+    super();
+    y = 10;
+  }//end constructor
+  
+  public int getY(){
+    return y;
+  }//end getY()
+}//end Subclass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+?
+
+</para>
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1011">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1013">
+C. 1, 2
+
+</item>
+
+
+	
+
+<item id="li1014">
+D. 5, 2
+
+</item>
+
+
+	
+
+<item id="li1015">
+E. 5, 10
+
+</item>
+
+
+	
+
+<item id="li1016">
+F. 20, 10
+
+</item>
+
+
+	
+
+<item id="li1017">
+G. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap101{
+  public static void main(
+                        String args[]){
+    new Worker().makeObj();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void makeObj(){
+    Subclass obj = new Subclass();
+    System.out.println(obj.getX() + 
+                    ", " + obj.getY());
+  }//end makeObj()
+}// end class 
+
+class Superclass{
+  private int x = 1;
+    
+  public Superclass(){
+    x = 5;
+  }//end constructor
+  
+  public Superclass(int x){
+    this.x = x;
+  }//end constructor
+  
+  public int getX(){
+    return x;
+  }//end getX()
+}//end Superclass
+
+class Subclass extends Superclass{
+  private int y = 2;
+  
+  public Subclass(){
+    super(20);
+    y = 10;
+  }//end constructor
+  
+  public int getY(){
+    return y;
+  }//end getY()
+}//end Subclass
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+?
+
+</para>
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. 5
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap102{
+  public static void main(
+                        String args[]){
+    new Worker().finalStuff();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void finalStuff(){
+    final int x = 5;
+    x = 10;
+    System.out.println(x);
+  }//end finalStuff()
+}// end class 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+?
+
+</para>
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. 5
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap103{
+  public static void main(
+                        String args[]){
+    new Worker().finalStuff();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void finalStuff(){
+    public final int x = 5;
+    System.out.println(x);
+  }//end finalStuff()
+}// end class 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. 5
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap104{
+  public static void main(
+                        String args[]){
+    new Worker().finalStuff();
+  }//end main()
+}//end class definition
+
+class Worker{
+  void finalStuff(){
+    final int x = 5;
+    System.out.println(x);
+  }//end finalStuff()
+}// end class 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1030">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1031">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+C. 3.141592653589793
+
+</item>
+
+
+	
+
+<item id="li1033">
+D. 3.1415927
+
+</item>
+
+
+	
+
+<item id="li1034">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap105{
+  public static void main(
+                        String args[]){
+    System.out.println(Worker.fPi);
+  }//end main()
+}//end class definition
+
+class Worker{
+  public static final float fPi = 
+                        (float)Math.PI;
+}// end class 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1035">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1036">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+C. A static method
+
+</item>
+
+
+	
+
+<item id="li1038">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap106{
+  public static void main(
+                        String args[]){
+    Worker.staticMethod();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public static void staticMethod(){
+    System.out.println(
+                    "A static method");
+  }//end staticMethod()
+    
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1039">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1040">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1041">
+C. 5
+
+</item>
+
+
+	
+
+<item id="li1042">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap107{
+  public static void main(
+                        String args[]){
+    Worker.staticMethod();
+  }//end main()
+}//end class Ap107
+
+class Worker{
+  private int x = 5;
+  public static void staticMethod(){
+    System.out.println(x);
+  }//end staticMethod()
+    
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1043">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1045">
+C. 5
+
+</item>
+
+
+	
+
+<item id="li1046">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap108{
+  public static void main(
+                        String args[]){
+    Worker.staticMethod();
+  }//end main()
+}//end class Ap108
+
+class Worker{
+  private int x = 5;
+  public static void staticMethod(){
+    System.out.println(
+                  new Worker().getX());
+  }//end staticMethod()
+    
+  public int getX(){
+    return x;
+  }//end getX()
+    
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+Which output shown below is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1009" display="block">A.  Compiler Error
+B.  Runtime Error
+C.  38.48451000647496
+    12.566370614359172
+D.  None of the above</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1010" display="block">public class Ap109{
+  public static void main(String args[]){
+    System.out.println(Worker.area(3.5));
+    System.out.println(Worker.area(2.0));
+    System.out.println();
+  }//end main()
+}//end class Ap109
+
+class Worker{
+  public static double area(double r){
+    return r*r*Math.PI;
+  }//end area()
+   
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+
+
+
+<para id="p1023">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+
+		
+
+<item id="li1047">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1012" list-type="bulleted">
+
+				
+
+<item id="li1057">
+Module name: Ap0090: Self-assessment, the super keyword, 
+				final keyword, and static methods
+
+</item>
+
+
+				
+
+<item id="li1058">
+File: Ap0090.htm 
+
+</item>
+
+
+				
+
+<item id="li1059">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1060">
+Published at cnx.org: 12/05/12
+
+</item>
+
+
+
+
+<item id="li1061">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1029">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">C.  38.48451000647496
+    12.566370614359172</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1006" effect="bold">
+Use static methods sparingly 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+Good object-oriented design dictates that 
+
+<emphasis id="strong1007" effect="bold">
+static
+
+</emphasis>
+ methods be 
+used sparingly, and only in those situations where they are appropriate. As you 
+might guess, not all authors will agree on the issue of appropriateness in all 
+cases. 
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1008" effect="bold">
+Is this an appropriate use of a static method? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+However, I believe that most authors will agree that this program illustrates 
+an appropriate use of a 
+
+<emphasis id="strong1009" effect="bold">
+static
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1010" effect="bold">
+No persistence requirement 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+This 
+
+<emphasis id="strong1011" effect="bold">
+static
+
+</emphasis>
+ method computes and returns a result on a 
+non-persistent basis. That is to say, there is no attempt by the 
+
+<emphasis id="strong1012" effect="bold">
+static
+
+</emphasis>
+ 
+method to save any historical information from one call of the method to the 
+next. 
+
+<emphasis id="em1000" effect="italics">
+(Of course, the method that calls the 
+
+</emphasis>
+<emphasis id="strong1013" effect="bold">
+<emphasis id="em1001" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1002" effect="italics">
+ 
+method can save whatever it chooses to save.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1014" effect="bold">
+Avoiding wasted computer resources 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+In situations such as this, it would often be a waste of computer resources 
+to require a program to instantiate an object and call an instance method on 
+that object just to be able to delegate a non-persistent computation to that 
+method. 
+
+<emphasis id="em1003" effect="italics">
+(This is just about as close to a global method as you can get in 
+Java.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1015" effect="bold">
+Computing the area of a circle 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+In this program, the 
+
+<emphasis id="strong1016" effect="bold">
+Worker
+
+</emphasis>
+ class provides a 
+
+<emphasis id="strong1017" effect="bold">
+static
+
+</emphasis>
+ method 
+named 
+
+<emphasis id="strong1018" effect="bold">
+area
+
+</emphasis>
+ that receives a 
+
+<emphasis id="strong1019" effect="bold">
+double
+
+</emphasis>
+ parameter representing the radius of 
+a circle. It computes and returns the area of the circle as a 
+
+<emphasis id="strong1020" effect="bold">
+double
+
+</emphasis>
+ 
+value. The 
+
+<emphasis id="strong1021" effect="bold">
+static
+
+</emphasis>
+ method named area is shown in the following 
+code fragment. 
+
+</para>
+
+
+
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">class Worker{
+  public static double area(double r){
+    return r*r*Math.PI;
+  }//end area()
+   
+}// end class</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1040">
+As a driver, the 
+
+<emphasis id="strong1022" effect="bold">
+main
+
+</emphasis>
+ method of the controlling class 
+	calls the 
+
+<emphasis id="strong1023" effect="bold">
+area
+
+</emphasis>
+ method twice in succession, passing 
+	different values for the radius of a circle. In each case, the 
+
+<emphasis id="strong1024" effect="bold">
+main
+
+</emphasis>
+ 
+	method receives and displays the value that is returned by the 
+
+<emphasis id="strong1025" effect="bold">
+area
+
+</emphasis>
+ 
+	method representing the area of a circle. 
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1026" effect="bold">
+Static methods in the class libraries 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+If you examine the Java API documentation carefully, you will find numerous 
+examples of 
+
+<emphasis id="strong1027" effect="bold">
+static
+
+</emphasis>
+ methods that produce and return something on 
+a non-persistent basis. 
+
+<emphasis id="em1004" effect="italics">
+(Again, non-persistent in this context means that no 
+attempt is made by the 
+
+</emphasis>
+<emphasis id="strong1028" effect="bold">
+<emphasis id="em1005" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1006" effect="italics">
+ method to store 
+any historical information. It does a job, forgets it, and goes on to the next 
+job when it is called again.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1029" effect="bold">
+Factory methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1044">
+For example, the alphabetical index of the JDK 1.3 API lists several dozen 
+
+<emphasis id="strong1030" effect="bold">
+static
+
+</emphasis>
+  methods named 
+
+<emphasis id="strong1031" effect="bold">
+getInstance
+
+</emphasis>
+, which are 
+defined in different classes. These methods, which usually produce and return a 
+reference to an object, are often called 
+
+<emphasis id="em1007" effect="italics">
+factory methods
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1045">
+Here is the text from the API documentation describing one of them:
+
+</para>
+
+
+
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1046">
+getInstance(int)
+
+</para>
+
+
+				
+
+<para id="p1047">
+Static method in class java.awt.AlphaComposite
+
+</para>
+
+
+				
+
+<para id="p1048">
+Creates an AlphaComposite object with the specified rule.
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1049">
+<link id="a1046" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1050">
+C. 5 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1032" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1033" effect="bold">
+Going through a reference to ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1052">
+This program illustrates a rather convoluted methodology by which a 
+
+<emphasis id="strong1034" effect="bold">
+
+static
+
+</emphasis>
+ method can gain access to an instance member of an object. 
+
+</para>
+
+
+
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">class Worker{
+  private int x = 5;
+  public static void staticMethod(){
+    System.out.println(
+                  new Worker().getX());
+  }//end staticMethod()
+    
+  public int getX(){
+    return x;
+  }//end getX()
+    
+}// end class</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1053">
+In this example, the 
+
+<emphasis id="strong1035" effect="bold">
+static
+
+</emphasis>
+ method calls a getter method 
+	on a reference to an object to gain access to an instance variable belonging 
+	to that object. This is what I meant in the discussion in the previous 
+	question when I said 
+
+<emphasis id="em1008" effect="italics">
+"going through a reference to an object of the 
+	class." 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+<link id="a1047" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1055">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1036" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1037" effect="bold">
+A static method cannot access ... 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+A 
+
+<emphasis id="strong1038" effect="bold">
+static
+
+</emphasis>
+ method cannot access non-static or instance members 
+of its class without going through a reference to an object of the class. 
+
+</para>
+
+
+
+
+<para id="p1058">
+In this program, the 
+
+<emphasis id="strong1039" effect="bold">
+static
+
+</emphasis>
+ method attempts to directly 
+access the instance variable named 
+
+<emphasis id="strong1040" effect="bold">
+x
+
+</emphasis>
+. As a result, JDK 1.3 
+produces the following compiler error: 
+
+</para>
+
+
+
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">Ap107.java:17: non-static variable x
+cannot be referenced from a static context
+
+    System.out.println(x);
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1059">
+<link id="a1048" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1060">
+C. A static method 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1041" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1042" effect="bold">
+Using a static method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1062">
+This is a very straightforward example of the use of a 
+
+<emphasis id="strong1043" effect="bold">
+static
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+<para id="p1063">
+When a method is declared 
+
+<emphasis id="strong1044" effect="bold">
+static
+
+</emphasis>
+, it is not necessary to 
+instantiate an object of the class containing the method in order to access the 
+method 
+
+<emphasis id="em1009" effect="italics">
+(although it is possible to do so unless the class is declared 
+abstract)
+
+</emphasis>
+. All that is necessary to access a 
+
+<emphasis id="strong1045" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1046" effect="bold">
+static
+
+</emphasis>
+ method is to refer to the name 
+of the class in which it is defined and the name of the method joined by a 
+period. 
+
+</para>
+
+
+
+
+<para id="p1064">
+<emphasis id="em1010" effect="italics">
+(A method that is declared 
+
+</emphasis>
+<emphasis id="strong1047" effect="bold">
+<emphasis id="em1011" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1012" effect="italics">
+ is 
+commonly referred to as a class method. If the method is not declared 
+
+</emphasis>
+
+
+
+<emphasis id="strong1048" effect="bold">
+<emphasis id="em1013" effect="italics">
+public
+
+</emphasis>
+</emphasis>
+<emphasis id="em1014" effect="italics">
+, it may not be accessible from your code.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1049" effect="bold">
+Accessing the static method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+This is illustrated by the following fragment from the program, with much of 
+the code deleted for brevity. 
+
+</para>
+
+
+
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">//...
+        Worker.staticMethod();
+  //...
+
+class Worker{
+  public static void staticMethod(){
+    //...
+  }//end staticMethod()
+    
+}// end class</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1067">
+The class named 
+
+<emphasis id="strong1050" effect="bold">
+Worker
+
+</emphasis>
+ defines a 
+
+<emphasis id="strong1051" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1052" effect="bold">
+static
+
+</emphasis>
+ 
+method named 
+
+<emphasis id="strong1053" effect="bold">
+staticMethod
+
+</emphasis>
+. A statement in the 
+
+<emphasis id="strong1054" effect="bold">
+main
+
+</emphasis>
+ 
+method of the controlling class calls the method by referring to the name of the 
+class and the name of the method joined by a period. 
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1055" effect="bold">
+When should you use static methods?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1069">
+Static methods are very useful as utility methods 
+
+<emphasis id="em1015" effect="italics">
+(getting the absolute 
+value of a number, for example)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1070">
+In my opinion, you should almost never use a 
+
+<emphasis id="strong1056" effect="bold">
+static
+
+</emphasis>
+ method 
+in any circumstance that requires the storage and use of data from one call of 
+the method to the next. In other words, a 
+
+<emphasis id="strong1057" effect="bold">
+static
+
+</emphasis>
+ method may be 
+appropriate for use when it performs a specific task that is completed each time 
+it is called without the requirement for data to persist between calls. 
+
+</para>
+
+
+
+
+<para id="p1071">
+The 
+
+<emphasis id="strong1058" effect="bold">
+Math
+
+</emphasis>
+ class contains many good examples of the use of
+
+
+<emphasis id="strong1059" effect="bold">
+static
+
+</emphasis>
+ 
+methods, such as 
+
+<emphasis id="strong1060" effect="bold">
+abs
+
+</emphasis>
+, 
+
+<emphasis id="strong1061" effect="bold">
+acos
+
+</emphasis>
+, 
+
+<emphasis id="strong1062" effect="bold">
+asin
+
+</emphasis>
+, 
+etc.
+
+</para>
+
+
+
+
+<para id="p1072">
+<link id="a1049" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+D. 3.1415927 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1063" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1064" effect="bold">
+Using a public
+
+</emphasis>
+ 
+
+<emphasis id="strong1065" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1066" effect="bold">
+final member 
+variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1075">
+The class named 
+
+<emphasis id="strong1067" effect="bold">
+Worker
+
+</emphasis>
+ declares and initializes a member 
+variable named 
+
+<emphasis id="strong1068" effect="bold">
+fPi
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1069" effect="bold">
+final
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+Because it is declared 
+
+<emphasis id="strong1070" effect="bold">
+final
+
+</emphasis>
+, it is not possible to write 
+code that will change its value after it has been initialized. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1071" effect="bold">
+static
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1079">
+Because it is declared 
+
+<emphasis id="strong1072" effect="bold">
+static
+
+</emphasis>
+, it can be accessed without a 
+requirement to instantiate an object of the 
+
+<emphasis id="strong1073" effect="bold">
+Worker
+
+</emphasis>
+ class. All 
+that is necessary to access the variable is to refer to the name of the class 
+and the name of the variable joined by a period. 
+
+</para>
+
+
+
+
+<para id="p1080">
+Because it is 
+
+<emphasis id="strong1074" effect="bold">
+static
+
+</emphasis>
+, it can also be accessed by 
+
+<emphasis id="strong1075" effect="bold">
+
+static
+
+</emphasis>
+ methods. 
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1076" effect="bold">
+public
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1082">
+Because it is declared 
+
+<emphasis id="strong1077" effect="bold">
+public
+
+</emphasis>
+, it can be accessed by any 
+code in any method in any object that can locate the class. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1078" effect="bold">
+Type float is less precise than type double
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1084">
+Because the initialized value is cast from the type 
+
+<emphasis id="strong1079" effect="bold">
+double
+
+</emphasis>
+ that is 
+returned by 
+
+<emphasis id="strong1080" effect="bold">
+Math.PI
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1081" effect="bold">
+float
+
+</emphasis>
+, an 8-digit 
+approximation is stored in the variable named 
+
+<emphasis id="strong1082" effect="bold">
+fPi
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1085">
+The 
+
+<emphasis id="strong1083" effect="bold">
+double
+
+</emphasis>
+ value returned by 
+
+<emphasis id="strong1084" effect="bold">
+Math.PI
+
+</emphasis>
+ is 
+3.141592653589793
+
+</para>
+
+
+
+
+<para id="p1086">
+The cast to type 
+
+<emphasis id="strong1085" effect="bold">
+float
+
+</emphasis>
+ reduces the precision down to 3.1415927 
+
+</para>
+
+
+
+
+<para id="p1087">
+<link id="a1050" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+C. 5 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1086" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1087" effect="bold">
+Using a final local variable 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1090">
+Well, I finally got rid of all the bugs. This program uses a 
+
+<emphasis id="strong1088" effect="bold">
+final
+
+</emphasis>
+ 
+local variable properly. The program compiles and executes without any problems.
+
+
+</para>
+
+
+
+
+<para id="p1091">
+<link id="a1051" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1092">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1089" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1093">
+The purpose of this question is to see if you are still awake. 
+
+</para>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1090" effect="bold">
+What caused the compiler error?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1095">
+The statement that caused the compiler error in this program is shown below. 
+Now that you know that there was a compiler error, and you know which statement 
+caused it, do you know what caused it? 
+
+</para>
+
+
+
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">    public final int x = 5;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1091" effect="bold">
+Using public
+
+</emphasis>
+ 
+
+<emphasis id="strong1092" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1093" effect="bold">
+final 
+member variables 
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+<para id="p1097">
+As I mentioned in an earlier question, the 
+
+<emphasis id="strong1094" effect="bold">
+final
+
+</emphasis>
+ keyword can be applied 
+either to local variables or to member variables. When applying the 
+
+<emphasis id="strong1095" effect="bold">
+
+final
+
+</emphasis>
+ keyword to member variables, it is common practice to declare 
+them to be both 
+
+<emphasis id="strong1096" effect="bold">
+public
+
+</emphasis>
+ and 
+
+<emphasis id="strong1097" effect="bold">
+static
+
+</emphasis>
+ in order to 
+make them as accessible as possible. For example, the math class has a 
+
+<emphasis id="strong1098" effect="bold">
+
+final
+
+</emphasis>
+ variable that is described as follows: 
+
+</para>
+
+
+
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1098">
+public static final double PI
+
+</para>
+
+
+				
+
+<para id="p1099">
+The double value that is closer than any other to pi, the ratio of the circumference of a circle to its diameter.
+
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1099" effect="bold">
+The constant named PI
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1101">
+You may recognize the constant named 
+
+<emphasis id="strong1100" effect="bold">
+PI
+
+</emphasis>
+ from your high school geometry class.
+
+
+</para>
+
+
+
+
+<para id="p1102">
+Whenever you need the value for the constant 
+
+<emphasis id="strong1101" effect="bold">
+PI
+
+</emphasis>
+, you shouldn't have to 
+instantiate an object just to get access to it. Furthermore, your class should 
+not be required to have any special package relationship with the 
+
+<emphasis id="strong1102" effect="bold">
+Math
+
+</emphasis>
+ class 
+just to get access to 
+
+<emphasis id="strong1103" effect="bold">
+PI
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1104" effect="bold">
+The good news ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1104">
+Because 
+
+<emphasis id="strong1105" effect="bold">
+PI
+
+</emphasis>
+ is declared to be both 
+
+<emphasis id="strong1106" effect="bold">
+public
+
+</emphasis>
+ and 
+
+<emphasis id="strong1107" effect="bold">
+static
+
+</emphasis>
+ 
+in the 
+
+<emphasis id="strong1108" effect="bold">
+Math
+
+</emphasis>
+ class, it is readily available to any code in any method in any Java 
+program that has access to the standard Java class library. 
+
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1109" effect="bold">
+How is PI accessed? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1110" effect="bold">
+PI
+
+</emphasis>
+ can be accessed by using an expression as simple as that 
+shown below, which consists simply of the name of the class and the name of 
+the variable joined by a period 
+
+<emphasis id="em1016" effect="italics">
+(Math.PI)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">double piRSquare = Math.PI * R * R;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1111" effect="bold">
+No notion of public local variables 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1108">
+As a result of the above, many of you may have become accustomed to 
+associating the keyword 
+
+<emphasis id="strong1112" effect="bold">
+public
+
+</emphasis>
+ with the keyword 
+
+<emphasis id="strong1113" effect="bold">
+final
+
+</emphasis>
+. 
+However, if you missed this question and you have read the explanation to this 
+point, you must also remember that there is no notion of 
+
+<emphasis id="strong1114" effect="bold">
+public
+
+</emphasis>
+ 
+or 
+
+<emphasis id="strong1115" effect="bold">
+private
+
+</emphasis>
+ for local variables. Therefore, when this program was compiled under 
+JDK 1.3, a compiler error was produced. That compiler error is partially 
+reproduced below: 
+
+</para>
+
+
+
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">Ap103.java:16: illegal start of
+expression
+    public final int x = 5;
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1109">
+<link id="a1052" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1110">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1116" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1111">
+The 
+
+<emphasis id="strong1117" effect="bold">
+final
+
+</emphasis>
+ keyword 
+
+</para>
+
+
+
+
+<para id="p1112">
+The 
+
+<emphasis id="strong1118" effect="bold">
+final
+
+</emphasis>
+ keyword can be applied in a variety of ways in 
+Java. This includes: 
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1062">
+final parameters
+
+</item>
+
+
+	
+
+<item id="li1063">
+final methods
+
+</item>
+
+
+	
+
+<item id="li1064">
+final classes
+
+</item>
+
+
+	
+
+<item id="li1065">
+final variables 
+
+<emphasis id="em1017" effect="italics">
+(constants)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1119" effect="bold">
+Behaves like a constant 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1114">
+When the 
+
+<emphasis id="strong1120" effect="bold">
+final
+
+</emphasis>
+ keyword is applied to a variable in Java, that causes the 
+variable to behave like a constant. In other words, the value of the variable 
+must be initialized when it is declared, and it cannot be changed thereafter 
+
+
+<emphasis id="em1018" effect="italics">
+(see the exception discussed below)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1121" effect="bold">
+Apply to local or member variables 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1116">
+The 
+
+<emphasis id="strong1122" effect="bold">
+final
+
+</emphasis>
+ keyword can be applied to either local variables or member 
+variables. 
+
+<emphasis id="em1019" effect="italics">
+(In case you have forgotten, local variables are declared inside a 
+method or constructor, while member variables are declared inside a class, but outside a 
+method.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1123" effect="bold">
+So, what is the problem? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1118">
+The problem with this program is straightforward. As shown in the following 
+code fragment, after declaring a 
+
+<emphasis id="strong1124" effect="bold">
+final
+
+</emphasis>
+ local variable and initializing its value 
+to 5, the program attempts to change the value stored in that variable to 10. 
+This is not allowed. 
+
+</para>
+
+
+
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">    final int x = 5;
+    x = 10;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1125" effect="bold">
+A compiler error
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1120">
+JDK 1.3 produces the following error message: 
+
+</para>
+
+
+
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+	
+
+
+<code id="pre1020" display="block">Ap102.java:17: cannot assign a value to
+final
+variable x</code>
+
+
+
+
+<code id="pre1021" display="block">    x = 10;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1126" effect="bold">
+An interesting twist - blank finals
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+An interesting twist of the use of the 
+
+<emphasis id="strong1127" effect="bold">
+final
+
+</emphasis>
+ keyword with local variables is 
+discussed below. 
+
+</para>
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1128" effect="bold">
+Background information
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1124">
+Regardless of whether or not the local variable is declared 
+
+<emphasis id="strong1129" effect="bold">
+final
+
+</emphasis>
+, the 
+compiler will not allow you to access the value in a local variable if that 
+variable doesn't contain a value. This means that you must always either 
+initialize a local variable or assign a value to it before you can access it.
+
+
+</para>
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1130" effect="bold">
+So, what is the twist?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1126">
+Unlike 
+
+<emphasis id="strong1131" effect="bold">
+final
+
+</emphasis>
+ member variables of a class, the Java compiler and runtime 
+system do not require you to initialize a 
+
+<emphasis id="strong1132" effect="bold">
+final
+
+</emphasis>
+ local variable when you declare 
+it. Rather, you can wait and assign a value to it later. 
+
+<emphasis id="em1020" effect="italics">
+(Some authors refer 
+to this as a blank final.)
+
+</emphasis>
+ However, once you have 
+assigned a value to a 
+
+<emphasis id="strong1133" effect="bold">
+final
+
+</emphasis>
+ local variable, you cannot change that value later.
+
+
+</para>
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1134" effect="bold">
+The bottom line
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1128">
+Whether you initialize the 
+
+<emphasis id="strong1135" effect="bold">
+final
+
+</emphasis>
+ local variable when you declare it, or 
+assign a value to it later, the result is the same. It behaves as a constant. 
+The difference is that if you don't initialize it when you declare it, you 
+cannot access it until after you assign a value to it. 
+
+</para>
+
+
+
+
+<para id="p1129">
+<link id="a1053" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1130">
+F. 20, 10 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1136" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1137" effect="bold">
+Calling a parameterized constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+This is a relatively straightforward implementation of the use of the 
+
+<emphasis id="strong1138" effect="bold">
+
+super
+
+</emphasis>
+ keyword in a subclass constructor to call a parameterized 
+constructor in the superclass. 
+
+</para>
+
+
+
+
+<para id="p1133">
+The interesting code in the program is highlighted in the following fragment. 
+Note that quite a lot of code was deleted from the fragment for brevity. 
+
+</para>
+
+
+
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">class Superclass{
+  //...
+  
+  public Superclass(int x){
+    //...
+  }//end constructor
+  
+  //...
+}//end Superclass
+
+class Subclass extends Superclass{
+  //...
+  
+  public Subclass(){
+    super(20);
+    //...
+  }//end constructor
+  
+  //...
+}//end Subclass</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1134">
+<emphasis id="strong1139" effect="bold">
+Using the super keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1135">
+The code that is of interest is the use of 
+
+<emphasis id="strong1140" effect="bold">
+super(20)
+
+</emphasis>
+ as the 
+first executable statement in the 
+
+<emphasis id="strong1141" effect="bold">
+Subclass
+
+</emphasis>
+ constructor to call 
+the parameterized constructor in the superclass, passing a value of 20 as a 
+parameter to the parameterized constructor. 
+
+</para>
+
+
+
+
+<para id="p1136">
+Note that when the 
+
+<emphasis id="strong1142" effect="bold">
+super
+
+</emphasis>
+ keyword is used in this fashion in 
+a constructor, it must be the 
+
+<emphasis id="strong1143" effect="bold">
+<emphasis id="em1021" effect="italics">
+first
+
+</emphasis>
+</emphasis>
+ executable 
+statement in the constructor.
+
+</para>
+
+
+
+
+<para id="p1137">
+As before, the program plays around a little with initial values for instance 
+variables to see if you are alert, but the code that is really of interest is 
+highlighted in the above fragment. 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<link id="a1054" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1139">
+D. 5, 10 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1144" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1145" effect="bold">
+The execution of constructors 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1141">
+The purpose of this question and the associated answer is to illustrate 
+explicitly what happens automatically by default regarding the execution of 
+constructors. 
+
+</para>
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1146" effect="bold">
+The Subclass constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1143">
+This program defines a class named 
+
+<emphasis id="strong1147" effect="bold">
+Subclass
+
+</emphasis>
+, which extends a 
+class named 
+
+<emphasis id="strong1148" effect="bold">
+Superclass
+
+</emphasis>
+. A portion of the 
+
+<emphasis id="strong1149" effect="bold">
+Subclass
+
+</emphasis>
+ 
+definition, including its 
+
+<emphasis id="em1022" effect="italics">
+noarg
+
+</emphasis>
+ constructor is shown in the following 
+code fragment. 
+
+<emphasis id="em1023" effect="italics">
+(The class also defines a getter method, which was omitted 
+here for brevity.) 
+
+</emphasis>
+</para>
+
+
+
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">class Subclass extends Superclass{
+  private int y = 2;
+  
+  public Subclass(){
+    super();
+    y = 10;
+  }//end constructor
+  
+  //...
+}//end Subclass</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1144">
+<emphasis id="strong1150" effect="bold">
+The super keyword 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1145">
+The important thing to note in the above fragment is the statement containing 
+the keyword 
+
+<emphasis id="strong1151" effect="bold">
+super
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1146">
+The 
+
+<emphasis id="strong1152" effect="bold">
+super
+
+</emphasis>
+ keyword has several uses in Java. As you might 
+guess from the word, all of those uses have something to do with the superclass 
+of the class in which the keyword is used. 
+
+</para>
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1153" effect="bold">
+Invoke the superclass constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1148">
+When the 
+
+<emphasis id="strong1154" effect="bold">
+super
+
+</emphasis>
+ keyword 
+
+<emphasis id="em1024" effect="italics">
+(followed by a pair of matching parentheses)
+
+</emphasis>
+ appears 
+as the first executable statement in a constructor, this is an instruction to 
+the runtime system to first call the constructor for the superclass, and then 
+come back and finish executing the code in the constructor for the class to 
+which the constructor belongs. 
+
+</para>
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1155" effect="bold">
+Call the 
+
+</emphasis>
+ 
+
+<emphasis id="em1025" effect="italics">
+<emphasis id="strong1156" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1157" effect="bold">
+ superclass constructor 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1150">
+If the parentheses following the 
+
+<emphasis id="strong1158" effect="bold">
+super
+
+</emphasis>
+ keyword are empty, this is an 
+instruction to call the 
+
+<emphasis id="em1026" effect="italics">
+noarg
+
+</emphasis>
+ constructor for the superclass. 
+
+</para>
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1159" effect="bold">
+Invoke a parameterized superclass constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1152">
+If the parentheses are not empty, this is an instruction to find and call a 
+parameterized constructor in the superclass whose formal arguments match the 
+parameters in the parentheses. 
+
+</para>
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1160" effect="bold">
+Invoke the 
+
+</emphasis>
+ 
+
+<emphasis id="em1027" effect="italics">
+<emphasis id="strong1161" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1162" effect="bold">
+ superclass constructor by default 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1154">
+Here is an important point that is not illustrated above. If the first executable statement in your constructor is not an instruction 
+to call the constructor for the superclass, an instruction to call the 
+
+<emphasis id="em1028" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor for the superclass will effectively be inserted into your 
+constructor code before it is compiled.
+
+</para>
+
+
+
+
+<para id="p1155">
+Therefore, a constructor for the superclass is 
+
+<emphasis id="strong1163" effect="bold">
+<emphasis id="em1029" effect="italics">
+always called
+
+</emphasis>
+</emphasis>
+ before the code 
+in the constructor for your new class is executed. 
+
+</para>
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1164" effect="bold">
+You can choose the superclass constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1157">
+The superclass constructor that is called may be the 
+
+<emphasis id="em1030" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor for the superclass, or you can force it to be a parameterized 
+constructor by inserting something like 
+
+</para>
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1165" effect="bold">
+super(3,x,4.5);
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1159">
+as the 
+first instruction in your constructor definition. 
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1166" effect="bold">
+Always have a 
+
+</emphasis>
+ 
+
+<emphasis id="em1031" effect="italics">
+<emphasis id="strong1167" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1168" effect="bold">
+ constructor ... 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+Now you should understand why I told you in an earlier module that the 
+classes you define should almost always have a 
+
+<emphasis id="em1032" effect="italics">
+noarg
+
+</emphasis>
+ constructor, 
+either the default 
+
+<emphasis id="em1033" effect="italics">
+noarg
+
+</emphasis>
+ version, or a 
+
+<emphasis id="em1034" effect="italics">
+noarg
+
+</emphasis>
+ version of your 
+own design. 
+
+</para>
+
+
+
+
+<para id="p1162">
+If your classes don't have a 
+
+<emphasis id="em1035" effect="italics">
+noarg
+
+</emphasis>
+ constructor, then anyone who 
+extends your classes will be required to put code in the constructor for their 
+new class to call a parameterized constructor in your class. 
+
+</para>
+
+
+
+
+<para id="p1163">
+In this program, the 
+
+<emphasis id="strong1169" effect="bold">
+super();
+
+</emphasis>
+ statement in the 
+
+<emphasis id="strong1170" effect="bold">
+Subclass
+
+</emphasis>
+ 
+constructor causes the 
+
+<emphasis id="em1036" effect="italics">
+noarg
+
+</emphasis>
+ constructor for the 
+
+<emphasis id="strong1171" effect="bold">
+Superclass
+
+</emphasis>
+ to be 
+called. That 
+
+<emphasis id="em1037" effect="italics">
+noarg
+
+</emphasis>
+ constructor is shown in the following code fragment.
+
+
+</para>
+
+
+
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">class Superclass{
+  private int x = 1;
+    
+  public Superclass(){
+    x = 5;
+  }//end constructor
+  
+  //...
+}//end Superclass</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1172" effect="bold">
+Additional code 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1165">
+Beyond an exposure and explanation of the use of the 
+
+<emphasis id="strong1173" effect="bold">
+super
+
+</emphasis>
+ keyword to call 
+the superclass constructor, this program plays a few games with initial values 
+of instance variables just to see if you are alert to that sort of thing. 
+However, none of that should be new to you, so I won't discuss it further here.
+
+
+</para>
+
+
+
+
+<para id="p1166">
+<link id="a1055" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1167">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

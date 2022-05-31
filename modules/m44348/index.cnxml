@@ -1,0 +1,2983 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3104 Java OOP Modifications to the Turtle and SimpleTurtle Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44348</md:content-id>
+  <md:title>Java3104 Java OOP Modifications to the Turtle and SimpleTurtle Classes</md:title>
+  <md:abstract>Learn how to modify Ericson's Turtle and SimpleTurtle classes for a variety of purposes.</md:abstract>
+  <md:uuid>0596802d-75b9-40d7-a31f-4194d7ac2e9c</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1011" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Required screen output.  
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Required text output.  
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Modified Turtle constructor. .
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Modified SimpleTurtle constructor.  
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Modified toString method.  
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Source code for the class named Prob02.  
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Modified Turtle class. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Modified SimpleTurtle class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+<emphasis id="strong1000" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1004">
+Write a program named 
+
+<emphasis id="strong1001" effect="bold">
+Prob02
+
+</emphasis>
+ that uses the class definition shown in 
+
+
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ and Ericson's media library to produce the graphic output image shown 
+in 
+
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Required screen output.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1006">
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/intmdjavalesson02a.jpg" width="209" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1003" effect="bold">
+No new classes allowed
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+You may not define any new classes to cause your program to behave as 
+required, and you may not modify the class definition for the class named 
+
+<emphasis id="strong1004" effect="bold">
+
+Prob02
+
+</emphasis>
+ given in  
+
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+Files in your folder
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+You must copy and modify 
+
+<emphasis id="em1000" effect="italics">
+(as necessary)
+
+</emphasis>
+ the media classes named 
+
+
+<emphasis id="strong1006" effect="bold">
+Turtle.java
+
+</emphasis>
+ and 
+
+<emphasis id="strong1007" effect="bold">
+SimpleTurtle.java
+
+</emphasis>
+ from Ericson's library to cause your program 
+to produce the required output.
+
+</para>
+
+
+
+
+<para id="p1011">
+Your folder must contain only the following class files and source-code files:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1019">
+Prob02.class 
+
+</item>
+
+
+	
+
+<item id="li1020">
+Prob02.java 
+
+</item>
+
+
+	
+
+<item id="li1021">
+SimpleTurtle.class 
+
+</item>
+
+
+	
+
+<item id="li1022">
+SimpleTurtle.java 
+
+</item>
+
+
+	
+
+<item id="li1023">
+Turtle.class 
+
+</item>
+
+
+	
+
+<item id="li1024">
+Turtle.java 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1008" effect="bold">
+Output text
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+In addition to the output image described above, your program must produce 
+the text output shown in 
+
+<link id="a1023" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ on the command- line screen
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Required text output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<code id="pre1000" display="block">Dick Baldwin
+My name is Joe the turtle.</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1014">
+<emphasis id="strong1009" effect="bold">
+<emphasis id="Required_modifications" effect="bold">
+
+Required modifications
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1015">
+By comparing the default behavior of the 
+
+<emphasis id="strong1010" effect="bold">
+Turtle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1011" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ 
+classes with the requirements of this program, it can be determined that the 
+following modifications to the 
+
+<emphasis id="strong1012" effect="bold">
+Turtle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1013" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ classes are 
+required to meet the specifications.
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1025">
+Modify the 
+
+<emphasis id="strong1014" effect="bold">
+Turtle
+
+</emphasis>
+ class to cause the student's name to be 
+	displayed on the command line.
+
+</item>
+
+
+	
+
+<item id="li1026">
+Modify the 
+
+<emphasis id="strong1015" effect="bold">
+Turtle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1016" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ classes to accept and 
+	save a 
+
+<emphasis id="strong1017" effect="bold">
+String
+
+</emphasis>
+ parameter in addition to the 
+
+<emphasis id="strong1018" effect="bold">
+World
+
+</emphasis>
+ parameter 
+	when the Turtle object is constructed.
+
+</item>
+
+
+	
+
+<item id="li1027">
+Modify the 
+
+<emphasis id="strong1019" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to cause the default background of 
+	the world to be BLUE.
+
+</item>
+
+
+	
+
+<item id="li1028">
+Modify the 
+
+<emphasis id="strong1020" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to cause the student's name to be 
+	displayed near the top of the 
+
+<emphasis id="strong1021" effect="bold">
+World
+
+</emphasis>
+ image.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Modify the 
+
+<emphasis id="strong1022" effect="bold">
+toString
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1023" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to 
+	cause it to return the value of the 
+
+<emphasis id="strong1024" effect="bold">
+String
+
+</emphasis>
+ parameter whenever the 
+
+<emphasis id="strong1025" effect="bold">
+
+	toString 
+
+</emphasis>
+method is called. This causes the 
+
+<emphasis id="strong1026" effect="bold">
+drawInfoString
+
+</emphasis>
+ method 
+	to display the string in place of its normal behavior. It also causes the 
+	last statement in 
+
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ to display the turtle's 
+	name.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Modifications_to_the_Turtle_class" effect="bold">
+
+Modifications to the Turtle 
+	class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+Ericson's 
+
+<emphasis id="strong1027" effect="bold">
+Turtle
+
+</emphasis>
+ class was modified according to the first two items 
+listed above under 
+
+<link id="a1025" url="Lecture02.htm#Required_modifications">
+
+required 
+modifications
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1017">
+A complete listing of the modified 
+
+<emphasis id="strong1028" effect="bold">
+Turtle
+
+</emphasis>
+ class is provided in
+
+
+<link id="a1026" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1029" effect="bold">
+Modification to the Turtle constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+The 
+
+<emphasis id="strong1030" effect="bold">
+Turtle
+
+</emphasis>
+ class has several overloaded constructors. One of the 
+constructors was modified to accept a 
+
+<emphasis id="strong1031" effect="bold">
+String
+
+</emphasis>
+ parameter in addition to the
+
+
+<emphasis id="strong1032" effect="bold">
+World
+
+</emphasis>
+ parameter and pass the new parameter along to the superclass 
+constructor. The code is shown in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Modified Turtle constructor.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  public Turtle (ModelDisplay modelDisplay,
+                 String turtleName){
+    // let the parent constructor handle it
+    super(modelDisplay,turtleName);
+    System.out.println("Dick Baldwin");
+  }</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1020">
+A 
+
+<emphasis id="strong1033" effect="bold">
+println
+
+</emphasis>
+ statement was also added to the modified constructor to 
+	cause it to display the student's name on the command line screen when the
+	
+
+<emphasis id="strong1034" effect="bold">
+Turtle
+
+</emphasis>
+ object is constructed as shown in Figure 2.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Modifications_to_the_SimpleTurtle_class" effect="bold">
+
+Modifications to the 
+SimpleTurtle class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+A complete listing of the modified 
+
+<emphasis id="strong1035" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class is shown in
+
+
+<link id="a1028" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1036" effect="bold">
+The superclass of the Turtle class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+The 
+
+<emphasis id="strong1037" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class is the superclass of the 
+
+<emphasis id="strong1038" effect="bold">
+Turtle
+
+</emphasis>
+ class. 
+Therefore, the 
+
+<emphasis id="strong1039" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class must be modified to accept the 
+
+<emphasis id="strong1040" effect="bold">
+
+String
+
+</emphasis>
+ parameter passed to the superclass in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+This was accomplished by modifying one of the constructors of the 
+
+<emphasis id="strong1041" effect="bold">
+
+SimpleTurtle
+
+</emphasis>
+ class as shown in 
+
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Modified SimpleTurtle constructor.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">  String turtleName = null;
+
+  public SimpleTurtle(ModelDisplay display,
+                      String turtleName){
+
+    // call constructor that takes x and y
+    this((int) (display.getWidth() / 2),
+         (int) (display.getHeight() / 2));
+    modelDisplay = display;
+    display.addModel(this);
+    
+    //THIS IS THE MODIFICATION
+    this.turtleName = turtleName;
+    Picture picture = ((World)(display)).getPicture();
+    picture.setAllPixelsToAColor(Color.BLUE);
+    picture.addMessage("Dick Baldwin",10,20);
+  }</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1024">
+The modification is shown in the last four statements in 
+
+<link id="a1031" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+	This modification satisfies items 2, 3, and 4 listed earlier under
+	
+
+<link id="a1032" url="Lecture02.htm#Required_modifications">
+
+required modifications
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1042" effect="bold">
+Modified toString method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+<link id="a1033" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the modified 
+
+<emphasis id="strong1043" effect="bold">
+toString
+
+</emphasis>
+ method that satisfies item 5 
+listed above under 
+
+<link id="a1034" url="Lecture02.htm#Required_modifications">
+
+required 
+modifications
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Modified toString method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public String toString(){
+    //return this.name + " turtle at " + this.xPos + ", " +
+    //      this.yPos + " heading " + this.heading + ".";
+    return "My name is " + turtleName + " the turtle.";
+  }//end toString</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+The original code was preserved as comments in 
+
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, 
+	and the new modified code is shown below those comments.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1028">
+I encourage you to copy the code from 
+
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+,
+
+
+<link id="a1037" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, and 
+
+<link id="a1038" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+You learned how to:
+
+</para>
+
+
+
+
+<list id="ol1001" list-type="enumerated">
+
+	
+
+<item id="li1030">
+Modify the 
+
+<emphasis id="strong1044" effect="bold">
+Turtle
+
+</emphasis>
+ class to cause the student's name to be 
+	displayed on the command line.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Modify the 
+
+<emphasis id="strong1045" effect="bold">
+Turtle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1046" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ classes to accept and 
+	save a 
+
+<emphasis id="strong1047" effect="bold">
+String
+
+</emphasis>
+ parameter in addition to the 
+
+<emphasis id="strong1048" effect="bold">
+World
+
+</emphasis>
+ parameter 
+	when the 
+
+<emphasis id="strong1049" effect="bold">
+Turtle
+
+</emphasis>
+ object is constructed.
+
+</item>
+
+
+	
+
+<item id="li1032">
+Modify the 
+
+<emphasis id="strong1050" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to cause the default background of 
+	the world to be BLUE.
+
+</item>
+
+
+	
+
+<item id="li1033">
+Modify the 
+
+<emphasis id="strong1051" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to cause the student's name to be 
+	displayed near the top of the 
+
+<emphasis id="strong1052" effect="bold">
+World
+
+</emphasis>
+ image.
+
+</item>
+
+
+	
+
+<item id="li1034">
+Modify the 
+
+<emphasis id="strong1053" effect="bold">
+toString
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1054" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class to 
+	cause it to return the value of the 
+
+<emphasis id="strong1055" effect="bold">
+String
+
+</emphasis>
+ parameter whenever the 
+
+<emphasis id="strong1056" effect="bold">
+
+	toString 
+
+</emphasis>
+method is called. This causes the 
+
+<emphasis id="strong1057" effect="bold">
+drawInfoString
+
+</emphasis>
+ method 
+	to display the string in place of its normal behavior. It also causes the 
+	last statement in 
+
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ to display the turtle's 
+	name.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+In the next module, you will learn how to incorporate GUI components into a 
+
+
+<emphasis id="strong1058" effect="bold">
+World
+
+</emphasis>
+ object.  In particular, you will learn how to add a 
+
+
+<emphasis id="strong1059" effect="bold">
+JButton
+
+</emphasis>
+ object to a 
+
+<emphasis id="strong1060" effect="bold">
+World
+
+</emphasis>
+ object and register an action listener on the button to control the behavior of the program.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1031">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1061" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1006" list-type="bulleted">
+
+					
+
+<item id="li1035">
+Module name: Java OOP: Modifications to the Turtle and SimpleTurtle Classes
+
+</item>
+
+
+					
+
+<item id="li1036">
+File: Java3104.htm
+
+
+</item>
+
+
+
+
+<item id="li1037">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1062" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1032">
+<emphasis id="strong1063" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1033">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1034">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1035">
+<emphasis id="strong1064" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+Complete listings of the programs discussed in this module are shown below.
+
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Source code for the class named Prob02. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">import java.awt.Color;
+
+public class Prob02{
+  public static void main(String[] args){
+    World mars = new World(200,300);
+    Turtle joe = new Turtle(mars,"Joe");
+    joe.moveTo(20,280);
+    joe.setInfoColor(Color.WHITE);
+    joe.setShowInfo(true);
+    System.out.println(joe);
+  }//end main method
+}//end class Prob02</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+	
+	
+
+
+<para id="p1037">
+<emphasis id="strong1065" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Modified Turtle class.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1005" display="block">/*12/23/0812/23/08 This class and the class named
+SimpleTurtle were modified to:
+
+Accept and save a String parameter in addition to the
+World parameter when the Turtle object is constructed.
+
+Modify the toString method to cause it to return the
+value of the String parameter whenever the toString
+method is called. This causes the drawInfoString method
+to display the string in place of its normal behavior.
+
+Cause the default background of the world to be BLUE.
+
+Cause the student's name to be displayed near the top of
+the World image.
+
+Cause the student's name as well as the turtle's name to
+be displayed on the command line.
+*/
+
+/**
+ * Class that represents a turtle which is similar to a Logo turtle.
+ * This class inherts from SimpleTurtle and is for students
+ * to add methods to.
+ *
+ * Copyright Georgia Institute of Technology 2004
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class Turtle extends SimpleTurtle
+{
+  ////////////////// constructors ///////////////////////
+
+  /** Constructor that takes the x and y and a picture to
+   * draw on
+   * @param x the starting x position
+   * @param y the starting y position
+   * @param picture the picture to draw on
+   */
+  public Turtle (int x, int y, Picture picture)
+  {
+    // let the parent constructor handle it
+    super(x,y,picture);
+  }
+
+  /** Constructor that takes the x and y and a model
+   * display to draw it on
+   * @param x the starting x position
+   * @param y the starting y position
+   * @param modelDisplayer the thing that displays the model
+   */
+  public Turtle (int x, int y,
+                 ModelDisplay modelDisplayer)
+  {
+    // let the parent constructor handle it
+    super(x,y,modelDisplayer);
+  }
+  
+  //THIS IS A MODIFICATION
+  //The following constructor was modified to accept and
+  // save a String parameter and pass it to the superclass
+  // constructor.
+  /** Constructor that takes the model display
+   * @param modelDisplay the thing that displays the model
+   */
+  public Turtle (ModelDisplay modelDisplay,
+                 String turtleName){
+    // let the parent constructor handle it
+    super(modelDisplay,turtleName);
+    System.out.println("Dick Baldwin");
+  }
+
+  /**
+   * Constructor that takes a picture to draw on
+   * @param p the picture to draw on
+   */
+  public Turtle (Picture p)
+  {
+    // let the parent constructor handle it
+    super(p);
+  }
+
+  /////////////////// methods ///////////////////////
+
+
+} // this } is the end of class Turtle, put all new methods before this</code>
+
+
+
+	
+	
+
+
+<para id="p1038">
+<emphasis id="strong1066" effect="bold">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Modified SimpleTurtle class.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1006" display="block">import javax.swing.*;
+import java.awt.*;
+import java.awt.font.*;
+import java.awt.geom.*;
+import java.util.Observer;
+import java.util.Random;
+
+/*12/23/08 This class and the class named Turtle were
+modified to:
+Accept and save a String parameter in addition to the
+World parameter when the Turtle object is constructed.
+
+Modify the toString method to cause it to return the
+value of the String parameter whenever the toString
+method is called. This causes the drawInfoString method
+to display the string in place of its normal behavior.
+
+Cause the default background of the world to be BLUE.
+
+Cause the student's name to be displayed near the top of
+the World image.
+
+Cause the student's name as well as the turtle's name to
+be displayed on the command line.
+ */
+
+/**
+ * Class that represents a Logo-style turtle.  The turtle
+ * starts off facing north.
+ * A turtle can have a name, has a starting x and y position,
+ * has a heading, has a width, has a height, has a visible
+ * flag, has a body color, can have a shell color, and has a pen.
+ * The turtle will not go beyond the model display or picture
+ * boundaries.
+ *
+ * You can display this turtle in either a picture or in
+ * a class that implements ModelDisplay.
+ *
+ * Copyright Georgia Institute of Technology 2004
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class SimpleTurtle
+{
+  ///////////////// fields ////////////////////////
+
+  /** count of the number of turtles created */
+  private static int numTurtles = 0;
+
+  /** array of colors to use for the turtles */
+  private static Color[] colorArray = { Color.green, Color.cyan, new Color(204,0,204), Color.gray};
+
+  /** who to notify about changes to this turtle */
+  private ModelDisplay modelDisplay = null;
+
+  /** picture to draw this turtle on */
+  private Picture picture = null;
+
+  /** width of turtle in pixels */
+  private int width = 15;
+
+  /** height of turtle in pixels */
+  private int height = 18;
+
+  /** current location in x (center) */
+  private int xPos = 0;
+
+  /** current location in y (center) */
+  private int yPos = 0;
+
+  /** heading angle */
+  private double heading = 0;  // default is facing north
+
+  /** pen to use for this turtle */
+  private Pen pen = new Pen();
+
+  /** color to draw the body in */
+  private Color bodyColor = null;
+
+  /** color to draw the shell in */
+  private Color shellColor = null;
+
+  /** color of information string */
+  private Color infoColor = Color.black;
+
+  /** flag to say if this turtle is visible */
+  private boolean visible = true;
+
+  /** flag to say if should show turtle info */
+  private boolean showInfo = false;
+
+  /** the name of this turtle */
+  private String name = "No name";
+
+  ////////////////// constructors ///////////////////
+
+  /**
+   * Constructor that takes the x and y position for the
+   * turtle
+   * @param x the x pos
+   * @param y the y pos
+   */
+  public SimpleTurtle(int x, int y)
+  {
+    xPos = x;
+    yPos = y;
+    bodyColor = colorArray[numTurtles % colorArray.length];
+    setPenColor(bodyColor);
+    numTurtles++;
+  }
+
+  /**
+   * Constructor that takes the x and y position and the
+   * model displayer
+   * @param x the x pos
+   * @param y the y pos
+   * @param display the model display
+   */
+  public SimpleTurtle(int x, int y, ModelDisplay display)
+  {
+    this(x,y); // call constructor that takes x and y
+    modelDisplay = display;
+    display.addModel(this);
+  }
+  //THIS IS A MODIFICATION
+  //The following constructor was modified to accept and
+  // save a String parameter.
+  String turtleName = null;
+  /**
+   * Constructor that takes a model display and adds
+   * a turtle in the middle of it
+   * @param display the model display
+   */
+  public SimpleTurtle(ModelDisplay display,
+                      String turtleName){
+
+    // call constructor that takes x and y
+    this((int) (display.getWidth() / 2),
+         (int) (display.getHeight() / 2));
+    modelDisplay = display;
+    display.addModel(this);
+    this.turtleName = turtleName;
+    Picture picture = ((World)(display)).getPicture();
+    //THIS IS A MODIFICATION
+    picture.setAllPixelsToAColor(Color.BLUE);
+    picture.addMessage("Dick Baldwin",10,20);
+  }
+
+  /**
+   * Constructor that takes the x and y position and the
+   * picture to draw on
+   * @param x the x pos
+   * @param y the y pos
+   * @param picture the picture to draw on
+   */
+  public SimpleTurtle(int x, int y, Picture picture)
+  {
+    this(x,y); // call constructor that takes x and y
+    this.picture = picture;
+    this.visible = false; // default is not to see the turtle
+  }
+
+  /**
+   * Constructor that takes the
+   * picture to draw on and will appear in the middle
+   * @param picture the picture to draw on
+   */
+  public SimpleTurtle(Picture picture)
+  {
+    // call constructor that takes x and y
+    this((int) (picture.getWidth() / 2),
+         (int) (picture.getHeight() / 2));
+    this.picture = picture;
+    this.visible = false; // default is not to see the turtle
+  }
+
+  //////////////////// methods /////////////////////////
+
+  /**
+   * Get the distance from the passed x and y location
+   * @param x the x location
+   * @param y the y location
+   */
+  public double getDistance(int x, int y)
+  {
+    int xDiff = x - xPos;
+    int yDiff = y - yPos;
+    return (Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
+  }
+
+  /**
+   * Method to turn to face another simple turtle
+   */
+  public void turnToFace(SimpleTurtle turtle)
+  {
+    turnToFace(turtle.xPos,turtle.yPos);
+  }
+
+   /**
+   * Method to turn towards the given x and y
+   * @param x the x to turn towards
+   * @param y the y to turn towards
+   */
+  public void turnToFace(int x, int y)
+  {
+    double dx = x - this.xPos;
+    double dy = y - this.yPos;
+    double arcTan = 0.0;
+    double angle = 0.0;
+
+    // avoid a divide by 0
+    if (dx == 0)
+    {
+      // if below the current turtle
+      if (dy &gt; 0)
+        heading = 180;
+
+      // if above the current turtle
+      else if (dy &lt; 0)
+        heading = 0;
+    }
+    // dx isn't 0 so can divide by it
+    else
+    {
+      arcTan = Math.toDegrees(Math.atan(dy / dx));
+      if (dx &lt; 0)
+        heading = arcTan - 90;
+      else
+        heading = arcTan + 90;
+    }
+
+    // notify the display that we need to repaint
+    updateDisplay();
+  }
+
+  /**
+   * Method to get the picture for this simple turtle
+   * @return the picture for this turtle (may be null)
+   */
+  public Picture getPicture() { return this.picture; }
+
+  /**
+   * Method to set the picture for this simple turtle
+   * @param pict the picture to use
+   */
+  public void setPicture(Picture pict) { this.picture = pict; }
+
+  /**
+   * Method to get the model display for this simple turtle
+   * @return the model display if there is one else null
+   */
+  public ModelDisplay getModelDisplay() { return this.modelDisplay; }
+
+  /**
+   * Method to set the model display for this simple turtle
+   * @param theModelDisplay the model display to use
+   */
+  public void setModelDisplay(ModelDisplay theModelDisplay)
+  { this.modelDisplay = theModelDisplay; }
+
+  /**
+   * Method to get value of show info
+   * @return true if should show info, else false
+   */
+  public boolean getShowInfo() { return this.showInfo; }
+
+  /**
+   * Method to show the turtle information string
+   * @param value the value to set showInfo to
+   */
+  public void setShowInfo(boolean value) { this.showInfo = value; }
+
+  /**
+   * Method to get the shell color
+   * @return the shell color
+   */
+  public Color getShellColor()
+  {
+    Color color = null;
+    if (this.shellColor == null &amp;&amp; this.bodyColor != null)
+      color = bodyColor.darker();
+    else color = this.shellColor;
+    return color;
+  }
+
+  /**
+   * Method to set the shell color
+   * @param color the color to use
+   */
+  public void setShellColor(Color color) {  this.shellColor = color; }
+
+  /**
+   * Method to get the body color
+   * @return the body color
+   */
+  public Color getBodyColor() { return this.bodyColor; }
+
+  /**
+   * Method to set the body color which
+   * will also set the pen color
+   * @param color the color to use
+   */
+  public void setBodyColor(Color color)
+  {
+    this.bodyColor = color;
+    setPenColor(this.bodyColor);
+  }
+
+  /**
+   * Method to set the color of the turtle.
+   * This will set the body color
+   * @param color the color to use
+   */
+  public void setColor(Color color) { this.setBodyColor(color); }
+
+  /**
+   * Method to get the information color
+   * @return the color of the information string
+   */
+  public Color getInfoColor() { return this.infoColor; }
+
+  /**
+   * Method to set the information color
+   * @param color the new color to use
+   */
+  public void setInfoColor(Color color) { this.infoColor = color; }
+
+  /**
+   * Method to return the width of this object
+   * @return the width in pixels
+   */
+  public int getWidth() { return this.width; }
+
+  /**
+   * Method to return the height of this object
+   * @return the height in pixels
+   */
+  public int getHeight() { return this.height; }
+
+  /**
+   * Method to set the width of this object
+   * @param theWidth in width in pixels
+   */
+  public void setWidth(int theWidth) { this.width = theWidth; }
+
+  /**
+   * Method to set the height of this object
+   * @param theHeight the height in pixels
+   */
+  public void setHeight(int theHeight) { this.height = theHeight; }
+
+  /**
+   * Method to get the current x position
+   * @return the x position (in pixels)
+   */
+  public int getXPos() { return this.xPos; }
+
+  /**
+   * Method to get the current y position
+   * @return the y position (in pixels)
+   */
+  public int getYPos() { return this.yPos; }
+
+  /**
+   * Method to get the pen
+   * @return the pen
+   */
+  public Pen getPen() { return this.pen; }
+
+  /**
+   * Method to set the pen
+   * @param thePen the new pen to use
+   */
+  public void setPen(Pen thePen) { this.pen = thePen; }
+
+  /**
+   * Method to check if the pen is down
+   * @return true if down else false
+   */
+  public boolean isPenDown() { return this.pen.isPenDown(); }
+
+  /**
+   * Method to set the pen down boolean variable
+   * @param value the value to set it to
+   */
+  public void setPenDown(boolean value) { this.pen.setPenDown(value); }
+
+  /**
+   * Method to lift the pen up
+   */
+  public void penUp() { this.pen.setPenDown(false);}
+
+  /**
+   * Method to set the pen down
+   */
+  public void penDown() { this.pen.setPenDown(true);}
+
+  /**
+   * Method to get the pen color
+   * @return the pen color
+   */
+  public Color getPenColor() { return this.pen.getColor(); }
+
+  /**
+   * Method to set the pen color
+   * @param color the color for the pen ink
+   */
+  public void setPenColor(Color color) { this.pen.setColor(color); }
+
+  /**
+   * Method to set the pen width
+   * @param width the width to use in pixels
+   */
+  public void setPenWidth(int width) { this.pen.setWidth(width); }
+
+  /**
+   * Method to get the pen width
+   * @return the width of the pen in pixels
+   */
+  public int getPenWidth() { return this.pen.getWidth(); }
+
+  /**
+   * Method to clear the path (history of
+   * where the turtle has been)
+   */
+  public void clearPath()
+  {
+    this.pen.clearPath();
+  }
+
+  /**
+   * Method to get the current heading
+   * @return the heading in degrees
+   */
+  public double getHeading() { return this.heading; }
+
+  /**
+   * Method to set the heading
+   * @param heading the new heading to use
+   */
+  public void setHeading(double heading)
+  {
+    this.heading = heading;
+  }
+
+  /**
+   * Method to get the name of the turtle
+   * @return the name of this turtle
+   */
+  public String getName() { return this.name; }
+
+  /**
+   * Method to set the name of the turtle
+   * @param theName the new name to use
+   */
+  public void setName(String theName)
+  {
+    this.name = theName;
+  }
+
+  /**
+   * Method to get the value of the visible flag
+   * @return true if visible else false
+   */
+  public boolean isVisible() { return this.visible;}
+
+  /**
+   * Method to hide the turtle (stop showing it)
+   * This doesn't affect the pen status
+   */
+  public void hide() { this.setVisible(false); }
+
+  /**
+   * Method to show the turtle (doesn't affect
+   * the pen status
+   */
+  public void show() { this.setVisible(true); }
+
+  /**
+   * Method to set the visible flag
+   * @param value the value to set it to
+   */
+  public void setVisible(boolean value)
+  {
+    // if the turtle wasn't visible and now is
+    if (visible == false &amp;&amp; value == true)
+    {
+      // update the display
+      this.updateDisplay();
+    }
+
+    // set the visibile flag to the passed value
+    this.visible = value;
+  }
+
+  /**
+   * Method to update the display of this turtle and
+   * also check that the turtle is in the bounds
+   */
+  public synchronized void updateDisplay()
+  {
+    // check that x and y are at least 0
+    if (xPos &lt; 0)
+      xPos = 0;
+    if (yPos &lt; 0)
+      yPos = 0;
+
+    // if picture
+    if (picture != null)
+    {
+      if (xPos &gt;= picture.getWidth())
+        xPos = picture.getWidth() - 1;
+      if (yPos &gt;= picture.getHeight())
+        yPos = picture.getHeight() - 1;
+      Graphics g = picture.getGraphics();
+      paintComponent(g);
+    }
+    else if (modelDisplay != null)
+    {
+      if (xPos &gt;= modelDisplay.getWidth())
+        xPos = modelDisplay.getWidth() - 1;
+      if (yPos &gt;= modelDisplay.getHeight())
+        yPos = modelDisplay.getHeight() - 1;
+      modelDisplay.modelChanged();
+    }
+  }
+
+  /**
+   * Method to move the turtle foward 100 pixels
+   */
+  public void forward() { forward(100); }
+
+  /**
+   * Method to move the turtle forward the given number of pixels
+   * @param pixels the number of pixels to walk forward in the heading direction
+   */
+  public void forward(int pixels)
+  {
+    int oldX = xPos;
+    int oldY = yPos;
+
+    // change the current position
+    xPos = oldX + (int) (pixels * Math.sin(Math.toRadians(heading)));
+    yPos = oldY + (int) (pixels * -Math.cos(Math.toRadians(heading)));
+
+    // add a move from the old position to the new position to the pen
+    pen.addMove(oldX,oldY,xPos,yPos);
+
+    // update the display to show the new line
+    updateDisplay();
+  }
+
+  /**
+   * Method to go backward by 100 pixels
+   */
+  public void backward()
+  {
+    backward(100);
+  }
+
+  /**
+   * Method to go backward a given number of pixels
+   * @param pixels the number of pixels to walk backward
+   */
+  public void backward(int pixels)
+  {
+    forward(-pixels);
+  }
+
+  /**
+   * Method to move to turtle to the given x and y location
+   * @param x the x value to move to
+   * @param y the y value to move to
+   */
+  public void moveTo(int x, int y)
+  {
+    this.pen.addMove(xPos,yPos,x,y);
+    this.xPos = x;
+    this.yPos = y;
+    this.updateDisplay();
+  }
+
+  /**
+   * Method to turn left
+   */
+  public void turnLeft()
+  {
+   this.turn(-90);
+  }
+
+  /**
+   * Method to turn right
+   */
+  public void turnRight()
+  {
+    this.turn(90);
+  }
+
+  /**
+   * Method to turn the turtle the passed degrees
+   * use negative to turn left and pos to turn right
+   * @param degrees the amount to turn in degrees
+   */
+  public void turn(int degrees)
+  {
+    this.heading = (heading + degrees) % 360;
+    this.updateDisplay();
+  }
+
+  /**
+   * Method to draw a passed picture at the current turtle
+   * location and rotation in a picture or model display
+   * @param dropPicture the picture to drop
+   */
+  public synchronized void drop(Picture dropPicture)
+  {
+    Graphics2D g2 = null;
+
+    // only do this if drawing on a picture
+    if (picture != null)
+      g2 = (Graphics2D) picture.getGraphics();
+    else if (modelDisplay != null)
+      g2 = (Graphics2D) modelDisplay.getGraphics();
+
+    // if g2 isn't null
+    if (g2 != null)
+    {
+
+      // save the current tranform
+      AffineTransform oldTransform = g2.getTransform();
+
+      // rotate to turtle heading and translate to xPos and yPos
+      g2.rotate(Math.toRadians(heading),xPos,yPos);
+
+      // draw the passed picture
+      g2.drawImage(dropPicture.getImage(),xPos,yPos,null);
+
+      // reset the tranformation matrix
+      g2.setTransform(oldTransform);
+
+      //  draw the pen
+      pen.paintComponent(g2);
+    }
+  }
+
+  /**
+   * Method to paint the turtle
+   * @param g the graphics context to paint on
+   */
+  public synchronized void paintComponent(Graphics g)
+  {
+    // cast to 2d object
+    Graphics2D g2 = (Graphics2D) g;
+
+    // if the turtle is visible
+    if (visible)
+    {
+      // save the current tranform
+      AffineTransform oldTransform = g2.getTransform();
+
+      // rotate the turtle and translate to xPos and yPos
+      g2.rotate(Math.toRadians(heading),xPos,yPos);
+
+      // determine the half width and height of the shell
+      int halfWidth = (int) (width/2); // of shell
+      int halfHeight = (int) (height/2); // of shell
+      int quarterWidth = (int) (width/4); // of shell
+      int thirdHeight = (int) (height/3); // of shell
+      int thirdWidth = (int) (width/3); // of shell
+
+      // draw the body parts (head)
+      g2.setColor(bodyColor);
+      g2.fillOval(xPos - quarterWidth,
+                  yPos - halfHeight - (int) (height/3),
+                  halfWidth, thirdHeight);
+      g2.fillOval(xPos - (2 * thirdWidth),
+                  yPos - thirdHeight,
+                  thirdWidth,thirdHeight);
+      g2.fillOval(xPos - (int) (1.6 * thirdWidth),
+                  yPos + thirdHeight,
+                  thirdWidth,thirdHeight);
+      g2.fillOval(xPos + (int) (1.3 * thirdWidth),
+                  yPos - thirdHeight,
+                  thirdWidth,thirdHeight);
+      g2.fillOval(xPos + (int) (0.9 * thirdWidth),
+                  yPos + thirdHeight,
+                  thirdWidth,thirdHeight);
+
+
+      // draw the shell
+      g2.setColor(getShellColor());
+      g2.fillOval(xPos - halfWidth,
+                  yPos - halfHeight, width, height);
+
+      // draw the info string if the flag is true
+      if (showInfo)
+        drawInfoString(g2);
+
+      // reset the tranformation matrix
+      g2.setTransform(oldTransform);
+    }
+
+    //  draw the pen
+    pen.paintComponent(g);
+  }
+
+  /**
+   * Method to draw the information string
+   * @param g the graphics context
+   */
+  public synchronized void drawInfoString(Graphics g)
+  {
+    g.setColor(infoColor);
+    g.drawString(this.toString(),xPos + (int) (width/2),yPos);
+  }
+  //This toString method was modified.
+  /**
+   * Method to return a string with informaiton
+   * about this turtle
+   * @return a string with information about this object
+   */
+  //THIS IS A MODIFICATION
+  //MODIFIED toString METHOD
+  public String toString()
+  {
+//    return this.name + " turtle at " + this.xPos + ", " +
+//      this.yPos + " heading " + this.heading + ".";
+    return "My name is " + turtleName + " the turtle.";
+  }
+
+} // end of class</code>
+
+
+
+	
+
+<para id="p1039">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,2866 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3128 Java OOP Using a JColorChooser object</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44923</md:content-id>
+  <md:title>Java3128 Java OOP Using a JColorChooser object</md:title>
+  <md:abstract>Learn how to use a JColorChooser object to specify a color in any one of five different ways.</md:abstract>
+  <md:uuid>818c8323-01d2-4ef0-adbb-6bcb61c1e1bf</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output at startup.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program output after clicking the Choose Color button.
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Program output after selecting a reddish color and clicking the OK button.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Program output after clicking the Darker button.
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. The showDialog method.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Event handler for the Choose Color button. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Show the JColorChooser object.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Darkening the color.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+In this module, you will learn how to use a 
+
+<emphasis id="strong1000" effect="bold">
+JColorChooser
+
+</emphasis>
+ 
+	object to specify a color in any one of five different ways:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1020">
+Swatches
+
+</item>
+
+
+	
+
+<item id="li1021">
+HSV
+
+</item>
+
+
+	
+
+<item id="li1022">
+HSL
+
+</item>
+
+
+	
+
+<item id="li1023">
+RGB
+
+</item>
+
+
+	
+
+<item id="li1024">
+CMYK
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1003">
+The details regarding the five different ways are not explained. Instead, an 
+understanding of the five ways for specifying a color is left as an exercise for 
+the student.
+
+</para>
+
+
+
+
+<para id="p1004">
+This module concentrates on the programming aspects of the color chooser as 
+opposed to the aesthetic aspects of the color chooser.
+
+</para>
+
+
+
+
+<para id="p1005">
+You will also learn how to create brighter and darker shades of a given 
+color.
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+What is a JColorChooser object?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+According to the Java documentation,
+
+</para>
+
+
+
+
+<para id="p1008">
+<emphasis id="em1000" effect="italics">
+"JColorChooser provides a pane of controls designed to allow a user to 
+manipulate and select a color."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1002" effect="bold">
+Program output at startup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+A complete listing of the program discussed in this module is provided in
+
+
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1011">
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the program output at 
+startup.
+
+</para>
+
+
+
+
+<para id="p1012">
+The program output is a GUI containing
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1025">
+three text fields, one each for red, green, and blue color values
+
+</item>
+
+
+	
+
+<item id="li1026">
+three labels that identify the contents of each text field
+
+</item>
+
+
+	
+
+<item id="li1027">
+a button labeled 
+
+<emphasis id="strong1003" effect="bold">
+Choose Color
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+two buttons labeled 
+
+<emphasis id="strong1004" effect="bold">
+Brighter
+
+</emphasis>
+ and 
+
+<emphasis id="strong1005" effect="bold">
+Darker
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1029">
+a square 
+
+<emphasis id="strong1006" effect="bold">
+<emphasis id="em1001" effect="italics">
+color swatch
+
+</emphasis>
+</emphasis>
+ whose color reflects the 
+	color specified by the color component values in the text fields
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1007" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Program output at startup.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/prob014a.jpg" width="333" height="105"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1015">
+<emphasis id="strong1008" effect="bold">
+Program output after clicking the Choose Color button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+<link id="a1022" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the result of clicking the
+
+
+<emphasis id="strong1009" effect="bold">
+Choose Color
+
+</emphasis>
+ button shown in 
+
+<link id="a1023" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1017">
+The bottom image in 
+
+<link id="a1024" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is an object 
+of the 
+
+<emphasis id="strong1010" effect="bold">
+JColorChooser
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1018">
+<emphasis id="em1002" effect="italics">
+(The color chooser object doesn't actually appear below the GUI as 
+shown in 
+
+</emphasis>
+ 
+
+<link id="a1025" target-id="Figure_2">
+
+
+<emphasis id="em1003" effect="italics">
+Figure 2
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1004" effect="italics">
+. Instead, it appears in the 
+upper-left corner of the screen and hides the GUI. I manually dragged it down 
+below the GUI to produce this image.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Program output after clicking the Choose Color button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/prob014b.jpg" width="622" height="491"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1021">
+<emphasis id="strong1012" effect="bold">
+The initial color selection 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+Note in 
+
+<link id="a1026" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ that the selected color 
+when the color chooser appears matches the color of the square color swatch in
+
+
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ 
+
+<emphasis id="em1005" effect="italics">
+(black)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1013" effect="bold">
+Program output after selecting a reddish color and clicking the OK 
+button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+<link id="a1028" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ shows the result of
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1030">
+selecting a reddish color in the color chooser, and
+
+</item>
+
+
+	
+
+<item id="li1031">
+clicking the OK button in the color chooser.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1014" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure3
+
+</emphasis>
+
+ - Program output after selecting a reddish color and clicking the OK button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+<media id="media1002" alt="Missing image." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/prob014c.jpg" width="333" height="105"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1027">
+<emphasis id="strong1015" effect="bold">
+New color in the GUI 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1028">
+Note in 
+
+<link id="a1029" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ that
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+the color selected in the color chooser now appears in the square color 
+	swatch in 
+
+<link id="a1030" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+the color swatch in 
+
+<link id="a1031" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ has a 
+	black border
+
+</item>
+
+
+	
+
+<item id="li1034">
+the color values in the three text fields describe the color showing in 
+	the swatch
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1029">
+<emphasis id="em1006" effect="italics">
+(The color in the swatch is based on the three color values in 
+the text fields.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1016" effect="bold">
+Program output after clicking the Darker button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+<link id="a1032" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ shows the result of clicking the
+
+
+<emphasis id="strong1017" effect="bold">
+Darker
+
+</emphasis>
+ button once.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1018" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Program output after clicking the Darker button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+<media id="media1003" alt="Missing image." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/prob014d.jpg" width="333" height="105"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1034">
+<emphasis id="strong1019" effect="bold">
+A darker color
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+The color swatch in 
+
+<link id="a1033" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ shows a 
+darker version of the color swatch shown in 
+
+<link id="a1034" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1036">
+The numeric color values in 
+
+<link id="a1035" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ describe the color in the color swatch, and are lower than the corresponding color values in
+	
+
+<link id="a1036" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+
+</para>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1020" effect="bold">
+A brighter color
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+Although not demonstrated here, the color in the swatch could be made 
+brighter by clicking the 
+
+<emphasis id="strong1021" effect="bold">
+Brighter
+
+</emphasis>
+ button.
+
+</para>
+
+
+
+
+<para id="p1039">
+If you click the 
+
+<emphasis id="strong1022" effect="bold">
+Darker
+
+</emphasis>
+ button enough times, the color will 
+go to black. Similarly, if you click the 
+
+<emphasis id="strong1023" effect="bold">
+Brighter
+
+</emphasis>
+ button enough 
+times, the color will go to white.
+
+</para>
+
+
+	
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1040">
+A complete listing of the program is provided in
+	
+
+<link id="a1037" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1041">
+Much of the code in this program is very similar to code that I explained in 
+earlier modules. Therefore, I won't repeat those explanations here. Instead, I 
+will concentrate on the code that is new and different.
+
+</para>
+
+
+
+
+<para id="p1042">
+Given that caveat, I will skip all the way down to the event handler for the
+
+
+<emphasis id="strong1024" effect="bold">
+Choose Color
+
+</emphasis>
+ button.
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1025" effect="bold">
+Event handler for the Choose Color button
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ defines, instantiates, and registers an 
+
+<emphasis id="strong1026" effect="bold">
+
+ActionListener
+
+</emphasis>
+ object on the 
+
+<emphasis id="strong1027" effect="bold">
+Choose Color
+
+</emphasis>
+ button.
+
+</para>
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Event handler for the Choose Color button. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">    chooseButton.addActionListener(
+      new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          Color selColor = JColorChooser.showDialog(
+                    chooseButton,"Choose color",new Color(
+                       redInt,greenInt,blueInt));
+          if(selColor != null){
+            //Don't change the color if the user cancels
+            // out.
+            redField.setText("" + selColor.getRed());
+            greenField.setText("" + selColor.getGreen());
+            blueField.setText("" + selColor.getBlue());
+          }//end if
+
+        }//end action performed
+      }//end new ActionListener
+    );//end addActionListener
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1045">
+<emphasis id="strong1028" effect="bold">
+Show the JColorChooser object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the code, 
+
+<emphasis id="em1007" effect="italics">
+(extracted 
+from 
+
+</emphasis>
+<link id="a1040" target-id="Listing_1">
+
+
+<emphasis id="em1008" effect="italics">
+Listing 1
+
+</emphasis>
+</link>
+
+) that causes the
+
+
+<emphasis id="strong1029" effect="bold">
+color chooser
+
+</emphasis>
+ to appear on the screen.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Show the JColorChooser object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">Color selColor = JColorChooser.showDialog(
+                    chooseButton,
+                    "Choose color",
+                    new Color(redInt,greenInt,blueInt));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1047">
+<emphasis id="strong1030" effect="bold">
+Call the static showDialog method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+<link id="a1041" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ calls the static 
+
+<emphasis id="strong1031" effect="bold">
+
+showDialog
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1032" effect="bold">
+JColorChooser
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1049">
+<link id="a1042" target-id="Figure_5">
+
+Figure 5 
+
+</link>
+
+provides information for the
+
+
+<emphasis id="strong1033" effect="bold">
+showDialog
+
+</emphasis>
+ method.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - The showDialog method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+public static Color showDialog(
+                      Component component,
+                      String title,
+                      Color initialColor)
+                        throws HeadlessException
+                        
+Shows a modal color-chooser dialog and blocks 
+until the dialog is hidden. If the user presses 
+the "OK" button, then this method hides/disposes 
+the dialog and returns the selected color. If 
+the user presses the "Cancel" button or closes 
+the dialog without pressing "OK", then this 
+method hides/disposes the dialog and returns null.
+
+Parameters:
+  component - the parent Component for the dialog
+  title - the String containing the dialog's title
+  initialColor - the initial Color set when the 
+    color-chooser is shown
+Returns:
+  the selected color or null if the user opted out
+</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1050">
+<emphasis id="strong1034" effect="bold">
+A straightforward explanation
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+The behavior of the dialog is explained in 
+
+<link id="a1043" target-id="Figure_5">
+
+
+Figure 5 
+
+</link>
+
+and shouldn't require further explanation.
+
+</para>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1035" effect="bold">
+Parameters to the showDialog method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+A comparison of 
+
+<link id="a1044" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ and
+
+
+<link id="a1045" target-id="Figure_5">
+
+Figure 5 
+
+</link>
+
+shows how the color chooser is 
+integrated into the program.
+
+</para>
+
+
+
+
+<para id="p1054">
+Perhaps the most important aspects of that integration are the 
+
+<emphasis id="em1009" effect="italics">
+third 
+parameter
+
+</emphasis>
+ and the 
+
+<emphasis id="em1010" effect="italics">
+return value
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1036" effect="bold">
+The third parameter
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The third parameter is an anonymous 
+
+<emphasis id="strong1037" effect="bold">
+Color
+
+</emphasis>
+ object that matches the color specified by the text fields in the GUI, which determine the color of the swatch.
+
+</para>
+
+
+
+
+<para id="p1057">
+Thus, the initial color for the color chooser matches the color of the swatch 
+in the GUI when the color chooser first appears.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1038" effect="bold">
+The return value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+The return value from the color chooser is a reference to an object of type
+
+
+<emphasis id="strong1039" effect="bold">
+Color
+
+</emphasis>
+, which is saved in a variable named 
+
+<emphasis id="strong1040" effect="bold">
+selColor
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1041" effect="bold">
+Processing the return value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+Returning to the code in 
+
+<link id="a1046" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1035">
+if the return value is not null, 
+
+</item>
+
+
+	
+
+<item id="li1036">
+the color components of the return value are converted to strings and
+	
+
+</item>
+
+
+	
+
+<item id="li1037">
+stored in the red, green, and blue text fields.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1042" effect="bold">
+What happens next?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+You learned in an earlier module that if the values stored in any of the 
+three text fields changes for any reason, 
+
+<emphasis id="strong1043" effect="bold">
+DocumentListener
+
+</emphasis>
+ objects registered on the three text 
+	fields cause the color of the swatch to change to match the new values of the color components.
+
+</para>
+
+
+
+
+<para id="p1064">
+Thus, the color that is chosen by the user from the color chooser modifies the values in the text fields causing the color of the swatch in the GUI to match the chosen color.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1044" effect="bold">
+Darkening and brightening the color
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+<link id="a1047" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows an 
+
+<emphasis id="strong1045" effect="bold">
+ActionListener
+
+</emphasis>
+ 
+object being registered on the button labeled 
+
+<emphasis id="strong1046" effect="bold">
+Darker
+
+</emphasis>
+ in
+
+
+<link id="a1048" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Darkening the color. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    darkerButton.addActionListener(
+      new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          Color color = new Color(
+               redInt,greenInt,blueInt).darker();
+          redField.setText("" + color.getRed());
+          greenField.setText("" + color.getGreen());
+          blueField.setText("" + color.getBlue());
+        }//end action performed
+      }//end newActionListener
+    );//end addActionListener
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1067">
+<emphasis id="strong1047" effect="bold">
+The darkening action listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+This code creates a new 
+
+<emphasis id="strong1048" effect="bold">
+Color
+
+</emphasis>
+ object that matches the color 
+values in the three text fields.
+
+</para>
+
+
+
+
+<para id="p1069">
+Then it calls the 
+
+<emphasis id="strong1049" effect="bold">
+darker
+
+</emphasis>
+ method on that 
+
+<emphasis id="strong1050" effect="bold">
+Color
+
+</emphasis>
+ 
+object causing its color to be darkened.
+
+</para>
+
+
+
+
+<para id="p1070">
+Then it extracts the color components from the darker 
+
+<emphasis id="strong1051" effect="bold">
+Color
+
+</emphasis>
+ 
+object and stores those values in the text fields.
+
+</para>
+
+
+
+
+<para id="p1071">
+This, in turn, causes the color swatch to change to match the new color 
+values.
+
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1052" effect="bold">
+A brightening event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+A similar event handler is registered on the button labeled 
+
+<emphasis id="strong1053" effect="bold">
+Brighter
+
+</emphasis>
+ 
+in 
+
+<link id="a1049" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1074">
+This code, which you can view in 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+calls the 
+
+<emphasis id="strong1054" effect="bold">
+brighter
+
+</emphasis>
+ method instead of the 
+
+<emphasis id="strong1055" effect="bold">
+darker
+
+</emphasis>
+ 
+method on the 
+
+<emphasis id="strong1056" effect="bold">
+Color
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1057" effect="bold">
+End of story
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+That concludes the explanation of material that is new and different in this 
+program.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1077">
+I encourage you to copy the code from 
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Compile the code and execute it. Experiment with the code, making changes, and observing the results of your changes. Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+In this module, you will learned how to use a 
+
+<emphasis id="strong1058" effect="bold">
+JColorChooser
+
+</emphasis>
+ 
+object to specify a color in any one of five different ways.
+
+</para>
+
+
+
+
+<para id="p1079">
+You also learned how to create brighter and darker shades of a given color.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+In the next module, you will learn how to write an editor program that you can use to modify the colors in an image on a pixel-by-pixel basis.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1081">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1059" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1038">
+Module name: Java OOP: Using a JColorChooser object
+
+</item>
+
+
+					
+
+<item id="li1039">
+File: Java3128.htm
+
+
+</item>
+
+
+					
+
+<item id="li1040">
+Published: 09/11/12
+
+</item>
+
+
+
+
+<item id="li1041">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1060" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1082">
+<emphasis id="strong1061" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1083">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1084">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1085">
+<emphasis id="strong1062" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+A complete listing of the source code discussed in this module is shown in
+
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1063" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Complete program listing.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1004" display="block">/*File Prob14 Copyright 2012 R.G.Baldwin
+
+Old material:
+This program services document events on the contents of
+text fields containing color values.
+
+The values are used to create a color swatch that displays
+the color indicated by the color values in the red, green,
+and blue text fields.
+
+New material:
+Demonstrates how to create and use a JColorChooser dialog.
+Also demonstrates use of the darker and brighter methods.
+Also demonstrates how to cause JTextField objects to be
+non-editable.
+*********************************************************/
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.Dimension;
+import javax.swing.JColorChooser;
+
+public class Prob14{
+  public static void main(String[] args){
+    new Prob14Runner();
+  }//end main method
+}//end class Prob14
+//======================================================//
+
+class Prob14Runner extends JFrame{
+
+  private JPanel controlPanel = new JPanel();
+  private JPanel colorPanel = new JPanel();
+  private JPanel buttonPanel = new JPanel();
+  private JPanel colorIndicatorPanel = new JPanel();
+
+  private JTextField redField = new JTextField("000000");
+  private JTextField greenField = 
+                                 new JTextField("000000");
+  private JTextField blueField = new JTextField("000000");
+  
+  private int redInt = 0;
+  private int greenInt = 0;
+  private int blueInt = 0;
+
+  private JButton chooseButton = 
+                              new JButton("Choose Color");
+  private JButton brighterButton = 
+                                  new JButton("Brighter");
+  private JButton darkerButton = new JButton("Darker");
+  //----------------------------------------------------//
+
+  public Prob14Runner(){//constructor
+
+    setDefaultCloseOperation(
+                           WindowConstants.EXIT_ON_CLOSE);
+
+    controlPanel.setLayout(new GridLayout(2,1));
+    controlPanel.add(colorPanel);
+    controlPanel.add(buttonPanel);
+
+    colorPanel.setBackground(Color.GREEN);
+    colorPanel.add(new JLabel("Red = "));
+    colorPanel.add(redField);
+    colorPanel.add(new JLabel(" Green = "));
+    colorPanel.add(greenField);
+    colorPanel.add(new JLabel(" Blue = "));
+    colorPanel.add(blueField);
+    colorPanel.add(colorIndicatorPanel);
+    
+    redField.setEditable(false);
+    greenField.setEditable(false);
+    blueField.setEditable(false);
+
+    colorIndicatorPanel.setBorder(
+                           new LineBorder(Color.black,1));
+    colorIndicatorPanel.setPreferredSize(
+                                    new Dimension(20,20));
+
+    buttonPanel.setBackground(Color.BLUE);
+    buttonPanel.add(chooseButton);
+    buttonPanel.add(brighterButton);
+    buttonPanel.add(darkerButton);
+    
+    //Color the swatch for the first time.
+    paintColorSwatch();
+
+    //Add the controlPanel to the content pane, adjust to
+    // the correct size, and set the title.
+    getContentPane().add(controlPanel);
+    pack();
+    setTitle("Dick Baldwin");
+
+    //Make the GUI visible
+    setVisible(true);
+
+    //--------------------------------------------------//
+    //Register listeners on the user input components.
+    //--------------------------------------------------//
+    chooseButton.addActionListener(
+      new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          Color selColor = JColorChooser.showDialog(
+                    chooseButton,"Choose color",new Color(
+                       redInt,greenInt,blueInt));
+          if(selColor != null){
+            //Don't change the color if the user cancels
+            // out.
+            redField.setText("" + selColor.getRed());
+            greenField.setText(
+                                "" + selColor.getGreen());
+            blueField.setText("" + selColor.getBlue());
+          }//end if
+
+        }//end action performed
+      }//end new ActionListener
+    );//end addActionListener
+    //--------------------------------------------------//
+
+    darkerButton.addActionListener(
+      new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          Color color = new Color(
+               redInt,greenInt,blueInt).darker();
+          redField.setText("" + color.getRed());
+          greenField.setText("" + color.getGreen());
+          blueField.setText("" + color.getBlue());
+        }//end action performed
+      }//end newActionListener
+    );//end addActionListener
+    //--------------------------------------------------//
+
+    brighterButton.addActionListener(
+      new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+          Color color = new Color(
+             redInt,greenInt,blueInt).brighter();
+          redField.setText("" + color.getRed());
+          greenField.setText("" + color.getGreen());
+          blueField.setText("" + color.getBlue());
+        }//end action performed
+      }//end newActionListener
+    );//end addActionListener
+    //--------------------------------------------------//
+
+    //Register a document listener on the red text field.
+    // This listener will respond when the contents of
+    // the text field are modified either by the program
+    // or by the user.
+    redField.getDocument().addDocumentListener(
+      new DocumentListener(){
+        public void changedUpdate(DocumentEvent e){
+          //Empty method - not needed
+        }//end changedUpdate
+
+        public void removeUpdate(DocumentEvent e){
+          try{
+            redInt = Integer.parseInt(
+                                   redField.getText());
+            if((redInt &gt;= 0) &amp;&amp; (redInt &lt;= 255)){
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end removeUpdate
+
+        public void insertUpdate(DocumentEvent e){
+          try{
+            redInt = Integer.parseInt(
+                                   redField.getText());
+            if((redInt &gt;= 0) &amp;&amp; (redInt &lt;= 255)){
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end insertUpdate
+
+      }//end new DocumentListener
+    );//end addDocumentListener
+    //--------------------------------------------------//
+
+    //Register a document listener on the green text
+    // field. Essentially the same as the above.
+    greenField.getDocument().addDocumentListener(
+      new DocumentListener(){
+        public void changedUpdate(DocumentEvent e){}
+
+        public void removeUpdate(DocumentEvent e){
+          try{
+            greenInt = Integer.parseInt(
+                                 greenField.getText());
+            if((greenInt &gt;= 0) &amp;&amp; (greenInt &lt;= 255))
+            {
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end removeUpdate
+
+        public void insertUpdate(DocumentEvent e){
+          try{
+            greenInt = Integer.parseInt(
+                                 greenField.getText());
+            if((greenInt &gt;= 0) &amp;&amp; (greenInt &lt;= 255))
+            {
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end insertUpdate
+
+      }//end new DocumentListener
+    );//end addDocumentListener
+    //--------------------------------------------------//
+    
+    //Register a document listener on the blue text
+    // field. Essentially the same as the above.
+    blueField.getDocument().addDocumentListener(
+      new DocumentListener(){
+        public void changedUpdate(DocumentEvent e){}
+
+        public void removeUpdate(DocumentEvent e){
+          try{
+            blueInt = Integer.parseInt(
+                                  blueField.getText());
+            if((blueInt &gt;= 0) &amp;&amp; (blueInt &lt;= 255)){
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end removeUpdate
+
+        public void insertUpdate(DocumentEvent e){
+          try{
+            blueInt = Integer.parseInt(
+                                  blueField.getText());
+            if((blueInt &gt;= 0) &amp;&amp; (blueInt &lt;= 255)){
+              paintColorSwatch();
+            }//end if
+          }catch(Exception ex){
+            //do nothing on exception
+          }//end catch
+        }//end insertUpdate
+
+      }//end new DocumentListener
+    );//end addDocumentListener
+    //--------------------------------------------------//
+  }//end constructor
+  //----------------------------------------------------//
+
+  //The purpose of this method is to color a swatch 
+  // located next to the RGB color values.
+  private void paintColorSwatch(){
+    colorIndicatorPanel.setBackground(
+                      new Color(redInt,greenInt,blueInt));
+  }//end paintColorSwatch
+
+  //----------------------------------------------------//
+
+  //The purpose of this method is to absorb any exceptions
+  // that may be thrown by the parseInt method in order
+  // to avoid having the program abort. In the event that
+  // an exception is thrown, this method simply returns an
+  // int value of 0;
+  private int goParseInt(String string){
+    int result = 0;
+    try{
+      result = Integer.parseInt(string);
+    }catch(Exception e){
+      result = 0;
+    }//end catch
+    return result;
+  }//end goParseInt
+
+  //----------------------------------------------------//
+
+
+}//end class Prob14Runner
+</code>
+
+
+
+	
+
+<para id="p1088">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

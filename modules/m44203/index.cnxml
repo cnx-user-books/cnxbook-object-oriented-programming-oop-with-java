@@ -1,0 +1,3808 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3004: Image Processing Algorithms, Image Inversion, and PictureExplorer Objects</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44203</md:content-id>
+  <md:title>Java3004: Image Processing Algorithms, Image Inversion, and PictureExplorer Objects</md:title>
+  <md:abstract>Learn how to invert images and how to display images in Ericson's PictureExplorer object.</md:abstract>
+  <md:uuid>1eb1513c-807b-4cc5-9d9a-1d5b5f8256f1</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Apr 02 15:08:04 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The raw image. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The modified image. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Output text on the command line screen.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. javadocs description of the explore method. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. javadocs description of the getPixels method. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. javadocs description of the Pixel class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob02Runner. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The beginning of the run method. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Implementing the algorithm. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Display again and terminate.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+The program that I will explain in this module is designed to be used as 
+	a test of the student's understanding of programming using Java and 
+	Ericson's media library.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+The student is provided an image file named 
+
+<emphasis id="strong1000" effect="bold">
+Prob02.jpg
+
+</emphasis>
+ along with a 
+pair of 
+
+<emphasis id="strong1001" effect="bold">
+PictureExplorer
+
+</emphasis>
+ windows containing the raw image and a modified 
+version of the image. 
+
+<emphasis id="em1003" effect="italics">
+(See 
+
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and
+
+
+<link id="a1028" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1002" effect="bold">
+Deduce the algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+The first part of the test is to determine if the student can examine the raw 
+image shown in the 
+
+<emphasis id="strong1003" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window in 
+
+<emphasis id="em1004" effect="italics">
+<link id="a1029" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+
+</emphasis>
+ and deduce the algorithm required to produce the output shown 
+in the 
+
+<emphasis id="strong1004" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window in 
+
+<emphasis id="em1005" effect="italics">
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+Implement the algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+The second part of the test is to determine if the student can implement the 
+algorithm once it is established and also satisfy some requirements for text 
+output on the command line screen. Among other things, this requires that 
+the student be able to:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1026">
+Create a 
+
+<emphasis id="strong1006" effect="bold">
+Picture
+
+</emphasis>
+ object from an image file.
+
+</item>
+
+
+	
+
+<item id="li1027">
+Write an accessor method to return a reference to the 
+
+<emphasis id="strong1007" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+	
+
+<item id="li1028">
+Modify the pixels in the picture according to the algorithm.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Display the raw picture and the modified picture in 
+
+<emphasis id="strong1008" effect="bold">
+PictureExplorer
+
+</emphasis>
+ 
+	objects by calling the 
+
+<emphasis id="strong1009" effect="bold">
+explore
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1010" effect="bold">
+Picture
+
+</emphasis>
+ object 
+	before and after it is modified.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1011" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+The raw image is displayed in the 
+
+<emphasis id="strong1012" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window shown in
+
+
+<link id="a1031" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ 
+
+<emphasis id="strong1013" effect="bold">
+ The raw image
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+ 
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<media id="media1000" alt="Image of a penguin in the snow in front of some houses." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/image-a-7584.jpg" width="377" height="404"/>
+</media>
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1013">
+The modified image is shown in the 
+
+<emphasis id="strong1014" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window in
+
+
+<link id="a1032" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ 
+
+<emphasis id="strong1015" effect="bold">
+ The modified image
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+
+
+<media id="media1001" alt="Image of a penguin with the colors modified according to the algorithm developed in this module." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/image-b-86ae.jpg" width="377" height="404"/>
+</media>
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1014">
+The required output on the command-line screen is shown by the last two lines 
+of text in 
+
+<link id="a1033" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. The other text in 
+
+
+<link id="a1034" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ was produced by the system during 
+the compilation and execution process.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Output text on the command line screen.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+							
+
+<code id="pre1000" display="block">java version "1.6.0_14"
+Java(TM) SE Runtime Environment (build 1.6.0_14-b08)
+Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode,
+ sharing)
+javac 1.6.0_14
+
+Dick Baldwin
+Picture, filename Prob02.jpg height 274 width 365</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1015">
+<emphasis id="strong1016" effect="bold">
+The algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+The algorithm required to transform the image from 
+
+<link id="a1035" target-id="Figure_1">
+
+Figure 
+1
+
+</link>
+
+ to 
+
+<link id="a1036" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1030">
+Set the blue color value for every pixel to zero.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Invert the red and green color values for every pixel.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1017">
+
+A color value is inverted by subtracting the value from 255 and using the 
+difference as the new color value.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1017" effect="bold">
+Obvious that the blue color value is reduced to zero
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+It should be obvious to the student when comparing the two images in the 
+
+<emphasis id="strong1018" effect="bold">
+
+PictureExplorer
+
+</emphasis>
+ objects that the blue pixel value has been set to zero for 
+every pixel in the modified image.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1019" effect="bold">
+Color inversion is not quite so obvious
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+Deducing that the red and green colors in the output pixels are the inverse 
+of the red and green colors in the input image isn't quite as straightforward. 
+However, using algebra to compare several corresponding pixels in the two images 
+should make it obvious fairly quickly to the curious student.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The implementation of the algorithm will be explained below.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1023">
+<emphasis id="strong1020" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+I will explain this program in fragments. A complete listing is 
+provided in 
+
+<link id="a1037" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+I will begin with the driver class named 
+
+<emphasis id="strong1021" effect="bold">
+Prob02
+
+</emphasis>
+, which is shown in its 
+entirety in 
+
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The driver class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1001" display="block">public class Prob02{//the driver class
+  public static void main(String[] args){
+    Prob02Runner obj = new Prob02Runner();
+    
+    obj.run();
+    
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob02</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+You should already be familiar with everything in 
+
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+	The most important aspect of 
+
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ for purposes 
+	of this discussion is the call to the 
+
+<emphasis id="strong1022" effect="bold">
+run
+
+</emphasis>
+ method belonging to the object instantiated from the
+	
+
+<emphasis id="strong1023" effect="bold">
+Prob02Runner
+
+</emphasis>
+ class. I will explain the 
+
+<emphasis id="strong1024" effect="bold">
+run
+
+</emphasis>
+ method 
+	shortly.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1025" effect="bold">
+Beginning of the class named Prob02Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The class definition for the class named 
+
+<emphasis id="strong1026" effect="bold">
+Prob02Runner
+
+</emphasis>
+ begins in
+
+
+<link id="a1041" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of the class named Prob02Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1002" display="block">class Prob02Runner{
+  private Picture pic = new Picture("Prob02.jpg");
+
+  public Prob02Runner(){//constructor
+    System.out.println("Dick Baldwin");
+  }//end constructor
+  //----------------------------------------------------//
+
+  //Accessor method
+  public Picture getPicture(){return pic;}</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1029">
+Again, you should be familiar with everything in
+
+
+<link id="a1042" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. I will simply highlight the 
+	instantiation of a new 
+
+<emphasis id="strong1027" effect="bold">
+Picture
+
+</emphasis>
+ object using an image file as input 
+	and the saving of a reference to that object in the private instance 
+	variable named 
+
+<emphasis id="strong1028" effect="bold">
+pic
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1029" effect="bold">
+The beginning of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The 
+
+<emphasis id="strong1030" effect="bold">
+run
+
+</emphasis>
+ method begins in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. This is where the action is, 
+so to speak.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The beginning of the run method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1003" display="block">public void run(){
+
+    pic.addMessage("Dick Baldwin",10,20);
+    
+    pic.explore();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1032">
+You are already familiar with the call to the 
+
+<emphasis id="strong1031" effect="bold">
+addMessage
+
+</emphasis>
+ method to 
+	add my name as text to the image encapsulated in the 
+
+<emphasis id="strong1032" effect="bold">
+Picture
+
+</emphasis>
+ object.
+	
+
+<emphasis id="em1006" effect="italics">
+(
+
+<link id="a1044" target-id="Figure_1">
+
+See Figure 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1033" effect="bold">
+The explore method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+The call to the 
+
+<emphasis id="strong1034" effect="bold">
+explore
+
+</emphasis>
+ method is new to this module.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+The 
+
+<emphasis id="strong1035" effect="bold">
+explore
+
+</emphasis>
+ method is defined in the 
+
+<emphasis id="strong1036" effect="bold">
+SimplePicture
+
+</emphasis>
+ class, which 
+is the superclass of the 
+
+<emphasis id="strong1037" effect="bold">
+Picture
+
+</emphasis>
+ class. The method is inherited 
+into the 
+
+<emphasis id="strong1038" effect="bold">
+Picture
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1039" effect="bold">
+javadocs description of the explore method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The javadocs description of this method is shown in 
+
+<link id="a1045" target-id="Figure_4">
+
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+. javadocs description of the explore method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+							
+
+<code id="pre1004" display="block">Method to open a picture explorer on a copy of this simple picture.</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1038">
+<emphasis id="strong1040" effect="bold">
+Result of calling the explore method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+The result of calling the 
+
+<emphasis id="strong1041" effect="bold">
+explore
+
+</emphasis>
+ method in 
+
+<link id="a1046" target-id="Listing_3">
+
+
+Listing 3
+
+</link>
+
+ is to create and display the 
+
+<emphasis id="strong1042" effect="bold">
+PictureExplorer
+
+</emphasis>
+ object shown 
+in 
+
+<link id="a1047" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1043" effect="bold">
+Very important capability
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The availability of the 
+
+<emphasis id="strong1044" effect="bold">
+explore
+
+</emphasis>
+ method and the 
+
+<emphasis id="strong1045" effect="bold">
+PictureExplorer
+
+</emphasis>
+ 
+class is very important in at least two respects:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+The 
+
+<emphasis id="strong1046" effect="bold">
+explore
+
+</emphasis>
+ method makes it easy to display copies of an image at 
+	various stages during the processing of the image. Once the 
+
+<emphasis id="strong1047" effect="bold">
+
+	PictureExplorer
+
+</emphasis>
+ object is created and displayed, it won't be effected by 
+	subsequent changes to the image.
+
+</item>
+
+
+	
+
+<item id="li1033">
+The availability of a 
+
+<emphasis id="strong1048" effect="bold">
+PictureExplorer
+
+</emphasis>
+ object makes it easy to 
+	manually analyze the colors of the individual pixels in an image 
+	encapsulated in that object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1049" effect="bold">
+Implementing the algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The code in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ implements the algorithm 
+required to modify the original image to make it look like the image shown in
+
+
+<link id="a1049" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Implementing the algorithm.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1005" display="block">    Pixel[] pixelArray = pic.getPixels();
+
+    for(Pixel pixel:pixelArray ){
+      pixel.setRed(255 - pixel.getRed());
+      pixel.setGreen(255 - pixel.getGreen());
+      pixel.setBlue(0);
+    }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1044">
+In particular, the code in 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ sets the 
+	blue color components to 0 and inverts the red and green color components 
+	for every pixel in the picture.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1050" effect="bold">
+One of several approaches
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+There are several ways to do this, and this is only one of those ways. 
+This approach makes use of a method named 
+
+<emphasis id="strong1051" effect="bold">
+getPixels
+
+</emphasis>
+ that is defined in 
+the 
+
+<emphasis id="strong1052" effect="bold">
+SimplePicture
+
+</emphasis>
+ class and inherited into the 
+
+<emphasis id="strong1053" effect="bold">
+Picture
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1054" effect="bold">
+Very useful when...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+This approach is particularly useful when you want to perform the same action 
+on every pixel in an image. The advantage is that you don't have to worry 
+about horizontal and vertical coordinates with this approach. Access to 
+all of the pixels is provided in a one-dimensional array.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1055" effect="bold">
+javadocs description of the getPixels method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+The javadocs description of this method is shown in 
+
+<link id="a1051" target-id="Figure_5">
+
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+. javadocs description of the getPixels method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+							
+
+<code id="pre1006" display="block">
+Method to get a one-dimensional array of 
+Pixels for this simple picture.
+							
+Returns: a one-dimensional array of Pixel 
+objects starting with y=0 to y=height-1 
+and x=0 to x=width-1.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1051">
+<emphasis id="strong1056" effect="bold">
+What is a Pixel object?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+An object of Ericson's 
+
+<emphasis id="strong1057" effect="bold">
+Pixel
+
+</emphasis>
+ class encapsulates an individual pixel 
+from an image. 
+
+<link id="a1052" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ shows the javadocs 
+description of the 
+
+<emphasis id="strong1058" effect="bold">
+Pixel
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+. javadocs description of the Pixel class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+
+<code id="pre1007" display="block">Class that references a pixel in a picture.
+
+A pixel has an x and y location in a picture.
+
+A pixel knows how to get and set the red, green, 
+blue, and alpha values in the picture.
+
+A pixel also knows how to get and set the color 
+using a Color object.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1053">
+<emphasis id="strong1059" effect="bold">
+Many methods available
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+The 
+
+<emphasis id="strong1060" effect="bold">
+Pixel
+
+</emphasis>
+ class defines a large number of methods. Once you have 
+a reference to a 
+
+<emphasis id="strong1061" effect="bold">
+Pixel
+
+</emphasis>
+ object, you can manipulate the underlying pixel 
+encapsulated in that object in a variety of ways.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1062" effect="bold">
+Get the pixels in the image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+Recall that a reference to the 
+
+<emphasis id="strong1063" effect="bold">
+Picture
+
+</emphasis>
+ object that encapsulates our 
+image is stored in the variable named
+
+<emphasis id="strong1064" effect="bold">
+ pic
+
+</emphasis>
+. 
+
+<emphasis id="em1007" effect="italics">
+(See
+
+
+<link id="a1053" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+<link id="a1054" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ begins by calling the 
+
+<emphasis id="strong1065" effect="bold">
+getPixels
+
+</emphasis>
+ method on that reference.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+All of the pixels in the image are returned in a one-dimensional array.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+A reference to the array is stored in a local reference variable of type 
+
+<emphasis id="strong1066" effect="bold">
+
+Pixel[]
+
+</emphasis>
+ named 
+
+<emphasis id="strong1067" effect="bold">
+pixelArray
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1068" effect="bold">
+A for-each loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+A special kind of 
+
+<emphasis id="strong1069" effect="bold">
+for
+
+</emphasis>
+ loop 
+
+<emphasis id="em1008" effect="italics">
+(often called a for-each loop)
+
+</emphasis>
+ 
+is used to access and process each pixel in the array. You can learn more about 
+the for-each loop
+
+
+<link id="a1055" url="http://docs.oracle.com/javase/1.5.0/docs/guide/language/foreach.html">
+
+
+here
+
+</link>
+
+. 
+
+<emphasis id="em1009" effect="italics">
+(A conventional
+
+
+<emphasis id="strong1070" effect="bold">
+for
+
+</emphasis>
+ loop could also be used here.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1071" effect="bold">
+During each iteration of the loop...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+The three statements inside the loop modify the red, green, and blue color values of a single 
+pixel.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+The first two statements invert the red and green color values by subtracting 
+the values from 255.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The third statement in the loop sets the blue color value to zero.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Every pixel in the image will have been modified as described above when the 
+loop terminates.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1072" effect="bold">
+Not a reversible process
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+Because the blue color values were set to zero, the image has now been 
+modified in an irreversible manner.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1073" effect="bold">
+A reversible process
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+However, if the blue color values had also been inverted, the process would 
+be reversible.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+All that would be necessary to recover the original image would be to invert 
+all of the pixels again.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1074" effect="bold">
+An important process
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Color inversion is a very important process in many areas of computing that 
+involve images. The process is:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1034">
+Computationally cheap
+
+</item>
+
+
+	
+
+<item id="li1035">
+Very fast
+
+</item>
+
+
+	
+
+<item id="li1036">
+Usually visually obvious
+
+</item>
+
+
+	
+
+<item id="li1037">
+Totally reversible
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1075" effect="bold">
+Often used to highlight selected images
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+For example, many software program invert all of the colors in an image when 
+it is selected for some purpose, such as copying to the clipboard. Then 
+the colors are restored to their original values when the image is deselected.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+Next to redeye correction, color inversion is probably the most commonly used 
+color modification algorithm in use in modern image processing.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1076" effect="bold">
+Display again and terminate
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The variable named 
+
+<emphasis id="strong1077" effect="bold">
+pic
+
+</emphasis>
+ still contains a reference to the original 
+
+<emphasis id="strong1078" effect="bold">
+
+Picture
+
+</emphasis>
+ object. However, the image that is encapsulated in that object 
+has been significantly modified.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1079" effect="bold">
+explore
+
+</emphasis>
+ method again, creating and displaying 
+another 
+
+<emphasis id="strong1080" effect="bold">
+PictureExplorer
+
+</emphasis>
+ object that encapsulates a copy of the 
+
+<emphasis id="strong1081" effect="bold">
+Picture
+
+</emphasis>
+ 
+object with the modified image.
+
+</para>
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Display again and terminate.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1008" display="block">    pic.explore();
+      
+  }//end run method
+}//end class Prob02Runner
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1080">
+The result is shown in 
+
+<link id="a1057" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1082" effect="bold">
+The end of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+<link id="a1058" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1083" effect="bold">
+run
+
+</emphasis>
+ method and the end of the 
+
+<emphasis id="strong1084" effect="bold">
+
+Prob02Runner
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1085" effect="bold">
+Return control to main
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+The 
+
+<emphasis id="strong1086" effect="bold">
+run
+
+</emphasis>
+ method terminates and returns control to the 
+
+<emphasis id="strong1087" effect="bold">
+main
+
+</emphasis>
+ 
+method in 
+
+<link id="a1059" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The code in the 
+
+<emphasis id="strong1088" effect="bold">
+main
+
+</emphasis>
+ method calls a 
+
+<emphasis id="em1010" effect="italics">
+getter
+
+</emphasis>
+ method to get a reference 
+to the 
+
+<emphasis id="strong1089" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1086">
+The reference is passed to the 
+
+<emphasis id="strong1090" effect="bold">
+println
+
+</emphasis>
+ method, which displays the 
+information about the 
+
+<emphasis id="strong1091" effect="bold">
+Picture
+
+</emphasis>
+ object in the last line of
+
+
+<link id="a1060" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1092" effect="bold">
+The program terminates
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+Then the 
+
+<emphasis id="strong1093" effect="bold">
+main
+
+</emphasis>
+ method terminates, at which time the program terminates 
+and returns control to the operating system.
+
+</para>
+
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1089">
+I encourage you to copy the code from 
+
+<link id="a1061" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, 
+compile it and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain 
+why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+<para id="p1090">
+You can download a copy of the raw image file
+
+
+<link id="a1062" url="Prob02.jpg">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1091">
+In this module, you learned how to invert images and how to display images in
+
+
+<emphasis id="strong1094" effect="bold">
+PictureExplorer
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1092">
+You will learn how to implement a space-wise 
+linear color-modification algorithm in the next module.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1093">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1038">
+<link id="a1063" url="http://www.youtube.com/playlist?list=PL713DB9A1FF4B92DF">
+
+ITSE 
+	2321 Lecture 02
+
+</link>
+
+
+<list id="ul1011" list-type="bulleted">
+
+		
+
+<item id="li1039">
+<link id="a1064" url="http://www.youtube.com/watch?v=SVq_IN4TsTs">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1065" url="http://www.youtube.com/watch?v=vcVLr8Z1mo4">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1066" url="http://www.youtube.com/watch?v=M1Nns7vYTiM">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1067" url="http://www.youtube.com/watch?v=Qw-yzEGuFJU">
+
+Part04
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1094">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1095" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1043">
+Module name: Java OOP: Image Processing Algorithms, Image Inversion, and PictureExplorer Objects
+
+</item>
+
+
+					
+
+<item id="li1044">
+File: Java3004.htm
+
+
+</item>
+
+
+					
+
+<item id="li1045">
+Published: 07/29/12
+
+</item>
+
+
+								
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1096" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1095">
+<emphasis id="strong1097" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1096">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1097">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1098">
+<emphasis id="strong1098" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1099">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1068" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ below.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Complete program listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1009" display="block">/*File Prob02 Copyright 2008 R.G.Baldwin
+*********************************************************/
+
+public class Prob02{//the driver class
+  public static void main(String[] args){
+    Prob02Runner obj = new Prob02Runner();
+    obj.run();
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob02
+//======================================================//
+
+class Prob02Runner{
+  private Picture pic = new Picture("Prob02.jpg");
+
+  public Prob02Runner(){//constructor
+    System.out.println("Dick Baldwin");
+  }//end constructor
+  //----------------------------------------------------//
+
+  //Accessor method
+  public Picture getPicture(){return pic;}
+  //----------------------------------------------------//
+
+  //This method is where the action is.
+  public void run(){
+    //Display the raw picture.
+    pic.addMessage("Dick Baldwin",10,20);
+    pic.explore();
+
+    //Set the blue color components to 0 and invert the
+    // red and green color components for every pixel in
+    // the picture.
+    Pixel[] pixelArray = pic.getPixels();
+    for(Pixel pixel:pixelArray ){
+      pixel.setRed(255 - pixel.getRed());
+      pixel.setGreen(255 - pixel.getGreen());
+      pixel.setBlue(0);
+    }//end for loop
+
+    //Display the modified picture
+    pic.explore();
+  }//end run method
+}//end class Prob02Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1100">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

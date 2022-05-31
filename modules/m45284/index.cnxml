@@ -1,0 +1,6686 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0010: Self-assessment, Primitive Types</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45284</md:content-id>
+  <md:title>Ap0010: Self-assessment, Primitive Types</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about Java primitive types.</md:abstract>
+  <md:uuid>93379670-173d-480e-80f4-99b2a91a4c94</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 08 23:47:01 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/1CVBGBJj">
+
+
+<emphasis id="em1001" effect="italics">
+Java OOP Self-Assessment 
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1012" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Programming_challenge">
+
+Programming challenge questions
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1015" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1016" target-id="question12">
+
+12
+
+</link>
+
+,
+		
+
+<link id="a1017" target-id="question13">
+
+13
+
+</link>
+
+, 
+
+<link id="a1018" target-id="question14">
+
+14
+
+</link>
+
+,
+		
+
+<link id="a1019" target-id="question15">
+
+15
+
+</link>
+
+, 
+
+<link id="a1020" target-id="question16">
+
+16
+
+</link>
+
+,
+		
+
+<link id="a1021" target-id="question17">
+
+17
+
+</link>
+
+, 
+
+<link id="a1022" target-id="question18">
+
+18
+
+</link>
+
+
+</item>
+
+
+		
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1023" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1025" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+<emphasis id="strong1000" effect="bold">
+Questions and answers
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+The test consists of a series of 
+
+<link id="a1026" target-id="Questions">
+
+questions
+
+</link>
+
+ with 
+
+
+<link id="a1027" target-id="Answers">
+
+answers
+
+</link>
+
+ and explanations of 
+the answers.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Programming challenge questions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+The module also contains a section titled 
+
+<link id="a1028" target-id="Programming_challenge">
+
+
+Programming challenge questions
+
+</link>
+
+. This section provides specifications for one or 
+more programs that you should be able to write once you understand the answers 
+to all of the questions. 
+
+<emphasis id="em1003" effect="italics">
+(Note that it is not always possible to confine the 
+programming knowledge requirement to this and earlier modules. Therefore, you 
+may occasionally need to refer ahead to future modules in order to write the 
+programs.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+Unlike the other questions, solutions are not provided for the 
+
+<emphasis id="em1004" effect="italics">
+
+Programming challenge questions
+
+</emphasis>
+. However, in most cases, the specifications 
+will describe the output that your program should produce.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1002" effect="bold">
+Listings
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1029" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1003" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1011">
+What output is produced by the program in 
+
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. Hello World
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. Goodbye Cruel World
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap001{
+  public static void main(
+                        String args[]){
+    new Worker().hello();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void hello(){
+    System.out.println("Hello World");
+  }//end hello()
+}//end class definition</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1012">
+<link id="a1031" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+<emphasis id="strong1004" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1013">
+What is the largest (algebraic) value of type int? 
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. 32767
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. 2147483647
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. -2147483647
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. -32768
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1014">
+<link id="a1032" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+
+<emphasis id="strong1005" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1015">
+What is the smallest (algebraic) value of type int? 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. -2147483648
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. -2147483647
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. 32767
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. -32768
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1016">
+<link id="a1033" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+<emphasis id="strong1006" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1017">
+What two values are displayed by the program in 
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. -2147483648
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. 1.7976931348623157E308
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. -2147483647
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. 4.9E-324
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Question 4.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap003{
+  public static void main(
+                        String args[]){
+    new Worker().printDouble();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printDouble(){
+    System.out.println(
+                     Double.MAX_VALUE);
+    System.out.println(
+                     Double.MIN_VALUE);
+  }//end printDouble()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1018">
+<link id="a1035" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+<emphasis id="strong1007" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1019">
+What output is produced by the program in 
+
+<link id="a1036" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+?
+
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. true
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. false
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. 1
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. 0
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Question 5.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap004{
+  public static void main(
+                        String args[]){
+    new Worker().printBoolean();
+  }//end main()
+}//end class definition
+
+class Worker{
+  private boolean myVar;
+  public void printBoolean(){
+    System.out.println(myVar);
+  }//end printBoolean()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1020">
+<link id="a1037" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+<emphasis id="strong1008" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1021">
+What output is produced by the program shown in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1030">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1031">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1033">
+D. false
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap005{
+  public static void main(
+                        String args[]){
+    new Worker().printBoolean();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printBoolean(){
+    boolean myVar;
+    System.out.println(myVar);
+  }//end printBoolean()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1022">
+<link id="a1039" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+<emphasis id="strong1009" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1023">
+What output is produced by the program shown in 
+
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1034">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1035">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1036">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1037">
+D. false
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap006{
+  public static void main(
+                        String args[]){
+    new Worker().printBoolean();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printBoolean(){
+    boolean myVar = true;
+    myVar = false;
+    System.out.println(myVar);
+  }//end printBoolean()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1024">
+<link id="a1041" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+
+<emphasis id="strong1010" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1025">
+The plus (+) character can be used to perform numeric addition in Java. What 
+output is produced by the program shown in 
+
+<link id="a1042" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1038">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1039">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1040">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1041">
+D. 2
+
+</item>
+
+
+	
+
+<item id="li1042">
+E. 1
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap007{
+  public static void main(
+                        String args[]){
+    new Worker().printBoolean();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printBoolean(){
+    boolean myVar = true;
+    System.out.println(1 + myVar);
+  }//end printBoolean()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1026">
+<link id="a1043" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+<emphasis id="strong1011" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1027">
+The plus (+) character can be used to perform numeric addition in Java. What 
+output is produced by the program shown in 
+
+<link id="a1044" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1043">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1045">
+C. 6
+
+</item>
+
+
+	
+
+<item id="li1046">
+D. 6.0
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap008{
+  public static void main(
+                        String args[]){
+    new Worker().printMixed();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printMixed(){
+    double x = 3;
+    int y = 3;
+    System.out.println(x+y);
+  }//end printMixed()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1028">
+<link id="a1045" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+<emphasis id="strong1012" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1029">
+The slash (/) character can be used to perform numeric division in Java. What 
+output is produced by the program shown in 
+
+<link id="a1046" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1047">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1048">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1049">
+C. 0.33333334
+
+</item>
+
+
+	
+
+<item id="li1050">
+D. 0.3333333333333333
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Question 10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap009{
+  public static void main(
+                        String args[]){
+    new Worker().printMixed();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void printMixed(){
+    System.out.println(1.0/3);
+  }//end printMixed()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<para id="p1030">
+<link id="a1047" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Programming_challenge" effect="bold">
+
+Programming challenge questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+Write the program described in 
+
+<link id="a1048" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Question 11.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">
+/*File Ap0010a1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+This program refuses to compile without errors.
+
+Make the necessary corrections to cause the program to
+compile and run successfully to produce the output shown
+below:
+
+ITSE
+2321
+**********************************************************/
+public class Ap0010a1{
+  public static void main(String args[]){
+    System.out.println("ITSE");
+    new Worker().doIt();
+  }//end main()
+}//end class definition 
+//=======================================================//
+
+Class Worker{
+  public void doIt(){
+    System.out.println("2321");
+  }//end doIt()
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+Write the program described in 
+
+<link id="a1049" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Question 12. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">
+/*File Ap0010b1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+Beginning with the code fragment shown below, write a
+method named doIt that:
+1. Receives and displays an incoming parameter of type int. 
+
+The result should be similar to the following but the
+values should be different each time the program is
+run.
+
+484495695
+484495695
+**********************************************************/
+//Student is not expected to understand import directives
+// at this point.
+import java.util.Random;
+import java.util.Date;
+
+public class Ap0010b1{
+  public static void main(String args[]){
+    //Create a random number for testing. Student is not
+    // expected to understand how this works at this point.
+    Random random = new Random(new Date().getTime());
+    int intVar = random.nextInt();
+    
+    //Student should understand the following
+    int var = intVar;
+    System.out.println(var);
+    new Worker().doIt(var);
+  }//end main()
+}//end class definition 
+//=======================================================//
+
+class Worker{
+  //-----------------------------------------------------//
+  //Student: insert the method named doIt between these
+  // lines.
+  //-----------------------------------------------------//
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+Write the program described in 
+
+<link id="a1050" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Question 13. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">
+/*File Ap0010c1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+Beginning with the code fragment shown below, write a
+method named doIt that returns the largest value of type 
+int as type float. 
+
+The result should be 2.14748365E9
+**********************************************************/
+public class Ap0010c1{
+  public static void main(String args[]){
+    float val = new Worker().doIt();
+    System.out.println(val);
+  }//end main()
+}//end class definition 
+//=======================================================//
+
+class Worker{
+  //-----------------------------------------------------//
+  //Insert the method named doIt between these lines.
+  //-----------------------------------------------------//
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+Write the program described in 
+
+<link id="a1051" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Question 14. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+
+
+<code id="pre1011" display="block">
+/*File Ap0010d1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+Beginning with the code fragment shown below, write a
+method named doIt that:
+1. Receives an incoming parameter of type double.
+2. Converts that value to type int.
+3. Returns the int
+
+The result should be similar to the following but the
+values should be different each time the program is
+run.
+
+6.672032181818181E8
+667203218
+**********************************************************/
+//Student is not expected to understand import directives
+// at this point.
+import java.util.Random;
+import java.util.Date;
+
+public class Ap0010d1{
+  public static void main(String args[]){
+    //Create a random number for testing. Student is not
+    // expected to understand how this works at this point.
+    Random random = new Random(new Date().getTime());
+    int intVar = random.nextInt();
+    
+    //Student should understand the following
+    double var = intVar/1.1;
+    System.out.println(var);
+    System.out.println(new Worker().doIt(var));
+  }//end main()
+}//end class definition 
+//=======================================================//
+
+class Worker{
+  //-----------------------------------------------------//
+  //Student: insert the method named doIt between these
+  // lines.
+  //-----------------------------------------------------//
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+Write the program described in 
+
+<link id="a1052" target-id="Listing_13">
+
+Listing 13.
+
+</link>
+
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Question 15. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1012" display="block">
+/*File Ap0010e1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+This program refuses to compile without errors.
+
+Make the necessary corrections to cause the program to
+compile and run successfully to produce an output similar
+to that shown below. Note that the values should be
+different each time the program is
+run.
+
+-1.30240579E8
+-1.30240579E8
+**********************************************************/
+//Student is not expected to understand import directives
+// at this point.
+import java.util.Random;
+import java.util.Date;
+
+public class Ap0010e1{
+  public static void main(String args[]){
+    //Create a random number for testing. Student is not
+    // expected to understand how this works at this point.
+    Random random = new Random(new Date().getTime());
+    double doubleVar = random.nextInt()/1.0;
+
+    //Student should understand the following
+    double var = doubleVar;
+    System.out.println(doubleVar);
+    new Worker().doIt(doubleVar);
+  }//end main()
+}//end class definition
+//=======================================================//
+
+class Worker{
+  public void doIt(double val){
+    int var = val;
+    System.out.println(var);
+  }//end doIt()
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="question16" effect="bold">
+
+Question 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+Write the program described in 
+
+<link id="a1053" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. Question 16. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1013" display="block">
+/*File Ap0010f1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+Beginning with the code shown below, modify the
+code in the method named doIt so that the program 
+displays
+
+3.3333333333333335 instead of 3
+
+Then modify the method again so that the program displays
+
+3.3333333 instead of 3
+**********************************************************/
+public class Ap0010f1{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class definition 
+//=======================================================//
+
+class Worker{
+  public void doIt(){
+    System.out.println(10/3);
+  }//end doIt()
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="question17" effect="bold">
+
+Question 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+Write the program described in 
+
+<link id="a1054" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1014" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. Question 17. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+
+
+<code id="pre1014" display="block">
+/*File Ap0010g1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+Beginning with the code shown below, modify the
+code in the method named doIt so that the program
+displays
+
+2048 instead of 2730
+
+Did you notice anything particularly interesting about the
+values involved?
+**********************************************************/
+public class Ap0010g1{
+  public static void main(String args[]){
+    new Worker().doIt(16384);
+  }//end main()
+}//end class definition
+//=======================================================//
+
+class Worker{
+  public void doIt(int val){
+    System.out.println(val/6);
+  }//end doIt()
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="question18" effect="bold">
+
+Question 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+Write the program described in 
+
+<link id="a1055" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1015" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+. Question 18. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+
+
+<code id="pre1015" display="block">
+/*File Ap0010h1.java Copyright 2012, R.G.Baldwin
+
+Instructions to student:
+This program refuses to compile without errors.
+
+Make the necessary corrections to cause the program to
+compile and run successfully to produce the output shown
+below:
+
+false
+**********************************************************/
+
+public class Ap0010h1{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class definition
+//=======================================================//
+
+class Worker{
+  public void doIt(){
+    boolean var;
+    System.out.println(var);
+  }//end doIt()
+}//end class definition
+//=======================================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1051">
+<link id="a1056" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1. 
+
+</item>
+
+
+	
+
+<item id="li1052">
+<link id="a1057" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 4. 
+
+</item>
+
+
+	
+
+<item id="li1053">
+<link id="a1058" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 5. 
+
+</item>
+
+
+	
+
+<item id="li1054">
+<link id="a1059" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 6. 
+
+</item>
+
+
+	
+
+<item id="li1055">
+<link id="a1060" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 7.
+
+</item>
+
+
+	
+
+<item id="li1056">
+<link id="a1061" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 8.
+
+</item>
+
+
+	
+
+<item id="li1057">
+<link id="a1062" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Question 9.
+
+</item>
+
+
+	
+
+<item id="li1058">
+<link id="a1063" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Question 10.
+
+</item>
+
+
+	
+
+<item id="li1059">
+<link id="a1064" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Question 11.
+
+</item>
+
+
+	
+
+<item id="li1060">
+<link id="a1065" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Question 12.
+
+</item>
+
+
+	
+
+<item id="li1061">
+<link id="a1066" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Question 13.
+
+</item>
+
+
+	
+	
+
+<item id="li1062">
+<link id="a1067" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Question 14.
+
+</item>
+
+
+	
+
+<item id="li1063">
+<link id="a1068" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Question 15.
+
+</item>
+
+
+	
+
+<item id="li1064">
+<link id="a1069" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Question 16.
+
+</item>
+
+
+	
+
+<item id="li1065">
+<link id="a1070" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Question 17.
+
+</item>
+
+
+	
+
+<item id="li1066">
+<link id="a1071" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Question 18.
+
+</item>
+
+
+	
+
+<item id="li1067">
+<link id="a1072" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Answer 1.
+
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1013" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1015" list-type="bulleted">
+
+				
+
+<item id="li1068">
+Module name: Ap0010: Self-assessment, Primitive types
+
+</item>
+
+
+				
+
+<item id="li1069">
+File: Ap0010.htm 
+
+</item>
+
+
+				
+
+<item id="li1070">
+Originally published: December 17, 2001 
+
+</item>
+
+
+				
+
+<item id="li1071">
+Published at cnx.org: 12/01/12
+
+</item>
+
+
+				
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1014" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1040">
+<emphasis id="strong1015" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1041">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1042">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1043">
+<emphasis id="strong1016" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21018">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+<emphasis id="strong1017" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1044">
+D. 0.3333333333333333 
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+Explanation 10
+
+</title>
+
+
+<para id="p1045">
+
+
+
+<emphasis id="strong1018" effect="bold">
+Divide floating type by integer type
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1046">
+This program divides the literal floating value of 1.0 by the literal integer 
+value of 3 
+
+<emphasis id="em1005" effect="italics">
+(no decimal point is specified in the integer literal value)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1019" effect="bold">
+Automatic conversion from narrow to wider type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+To begin with, whenever division is performed between a floating type and an 
+integer type, the integer type is automatically converted 
+
+<emphasis id="em1006" effect="italics">
+(sometimes called 
+promoted)
+
+</emphasis>
+ to a floating type and floating arithmetic is performed. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1020" effect="bold">
+What is the actual floating type, float or double? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The real question here is, what is the type of the literal shown by 1.0 
+
+<emphasis id="em1007" effect="italics">
+(with 
+a decimal point separating the 1 and the 0)
+
+</emphasis>
+. Is it a 
+
+<emphasis id="strong1021" effect="bold">
+double
+
+</emphasis>
+ or a 
+
+
+<emphasis id="strong1022" effect="bold">
+float
+
+</emphasis>
+?
+
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1023" effect="bold">
+Type double is the default 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+By default, a literal floating value is treated as a 
+
+<emphasis id="strong1024" effect="bold">
+double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1025" effect="bold">
+The result is type double
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+Consequently, this program divides a 
+
+<emphasis id="strong1026" effect="bold">
+double
+
+</emphasis>
+ type by an integer type, 
+producing a result of type 
+
+<emphasis id="strong1027" effect="bold">
+double
+
+</emphasis>
+. This is somewhat evident in the output, 
+which shows about 17 digits plus a decimal point in the result. 
+
+<emphasis id="em1008" effect="italics">
+(Recall that the 
+maximum value for a float shown earlier had only about eight digits plus the 
+decimal point and the exponent.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1028" effect="bold">
+How can you create literals of type float?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+What if you don't want your literal floating value to be treated as a 
+
+
+<emphasis id="strong1029" effect="bold">
+double
+
+</emphasis>
+, 
+but would prefer that it be treated as a 
+
+<emphasis id="strong1030" effect="bold">
+float
+
+</emphasis>
+ instead. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+You can usually force this to be the case by adding a suffix of either F or f 
+to the end of the literal value 
+
+<emphasis id="em1009" effect="italics">
+(as in 1.0F)
+
+</emphasis>
+. If you were to modify this 
+program to cause it to divide 1.0F by 3, the output would be 0.33333334 with 
+only nine digits in the result. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<link id="a1073" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+
+<emphasis id="strong1031" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1059">
+D. 6.0 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+Explanation 9
+
+</title>
+
+
+<para id="p1060">
+
+
+
+<emphasis id="strong1032" effect="bold">
+Declare and initialize two local variables
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1061">
+This program declares and initializes two local variables, one of type 
+
+
+<emphasis id="strong1033" effect="bold">
+double
+
+</emphasis>
+ 
+and the other of type 
+
+<emphasis id="strong1034" effect="bold">
+int
+
+</emphasis>
+. Each variable is initialized with the integer 
+value 3. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1035" effect="bold">
+Automatic conversion to floating type double 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+However, before the value of 3 is stored in the 
+
+<emphasis id="strong1036" effect="bold">
+double
+
+</emphasis>
+ variable, it is 
+automatically converted to type 
+
+<emphasis id="strong1037" effect="bold">
+double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1038" effect="bold">
+Automatic conversion in mixed-type arithmetic 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Numeric addition is performed on the two variables. Whenever addition 
+is performed between a floating type and an integer type, the integer type is 
+automatically converted to a floating type and floating arithmetic is performed.
+
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1039" effect="bold">
+A floating result 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+This produces a floating result. When this floating result is passed to 
+the 
+
+<emphasis id="strong1040" effect="bold">
+println
+
+</emphasis>
+ method for display, a decimal point and a zero are displayed to 
+indicate a floating type, even though in this case, the fractional part of the 
+result is zero. 
+
+</para>
+
+
+
+
+
+
+<para id="p1068">
+<link id="a1074" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+
+<emphasis id="strong1041" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1069">
+A. Compiler Error 
+
+</para>
+
+
+
+
+
+<section id="h31002">
+<title>
+Explanation 8
+
+</title>
+
+
+<para id="p1070">
+
+
+
+<emphasis id="strong1042" effect="bold">
+Initialize boolean variable to true
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1071">
+This program declares and initializes a 
+
+<emphasis id="strong1043" effect="bold">
+boolean
+
+</emphasis>
+ variable with the value 
+
+
+<emphasis id="em1010" effect="italics">
+true
+
+</emphasis>
+. 
+Then it attempts to add the literal value 1 to the value stored in the 
+
+<emphasis id="strong1044" effect="bold">
+boolean
+
+</emphasis>
+ 
+variable named 
+
+<emphasis id="strong1045" effect="bold">
+myVar
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1046" effect="bold">
+Arithmetic with boolean values is not allowed 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+As mentioned earlier, unlike C++, 
+
+<emphasis id="strong1047" effect="bold">
+boolean
+
+</emphasis>
+ types in Java cannot participate in 
+arithmetic expressions. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+Therefore, this program will not compile. The compiler error produced 
+by this program under JDK 1.3 reads partially as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1016" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="td1016">
+<code id="pre1016" display="block">Ap007.java:13: operator + cannot be applied to int,boolean 
+    System.out.println(1 + myVar);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1075">
+<link id="a1075" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+
+<emphasis id="strong1048" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1076">
+D. false 
+
+</para>
+
+
+
+
+
+<section id="h31003">
+<title>
+Explanation 7
+
+</title>
+
+
+<para id="p1077">
+
+
+
+<emphasis id="strong1049" effect="bold">
+Format for variable initialization
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1078">
+This program declares a local 
+
+<emphasis id="strong1050" effect="bold">
+boolean
+
+</emphasis>
+ variable and initializes it to the 
+value 
+
+<emphasis id="em1011" effect="italics">
+true
+
+</emphasis>
+. All variables, local or otherwise, can be initialized in this 
+manner provided that the expression on the right of the equal sign evaluates to 
+a value that is assignment compatible with the type of the variable. 
+
+<emphasis id="em1012" effect="italics">
+(I will have 
+more to say about assignment compatibility in a future module)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1051" effect="bold">
+Value is changed before display
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+However, before calling the 
+
+<emphasis id="strong1052" effect="bold">
+println
+
+</emphasis>
+ method to display the initial value of 
+the variable, the program uses the assignment operator (=) to assign the value 
+
+
+<emphasis id="em1013" effect="italics">
+false
+
+</emphasis>
+ to the variable. Thus, when it is displayed, the value is 
+
+
+<emphasis id="em1014" effect="italics">
+false
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1076" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21022">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+<emphasis id="strong1053" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1082">
+A. Compiler Error 
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+Explanation 6
+
+</title>
+
+
+<para id="p1083">
+
+
+
+<emphasis id="strong1054" effect="bold">
+A local boolean variable
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1084">
+In this program, the primitive variable named 
+
+<emphasis id="strong1055" effect="bold">
+myVar
+
+</emphasis>
+ is a local variable 
+belonging to the method named 
+
+<emphasis id="strong1056" effect="bold">
+printBoolean
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1057" effect="bold">
+Local variables are not automatically initialized 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+Unlike instance variables, if you fail to initialize a local variable, the 
+variable is not automatically initialized. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1058" effect="bold">
+Cannot access value from uninitialized local variable 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+If you attempt to access and use the value from an uninitialized local 
+variable before you assign a value to it, you will get a compiler error. 
+The compiler error produced by this program under JDK 1.3 reads partially as 
+follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1017" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1017">
+<code id="pre1017" display="block">Ap005.java:13: variable myVar might not have been initialized 
+    System.out.println(myVar);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1059" effect="bold">
+Must initialize or assign value to all local variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+Thus, the programmer is responsible for either initializing all local 
+variables, or assigning a value to them before attempting to access their value 
+with code later in the program. The good news is that the system won't allow you 
+to compute with garbage left over in memory occupied by variables, either local 
+variables or member variables.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1091">
+<link id="a1077" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21023">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+<emphasis id="strong1060" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1092">
+B. false 
+
+</para>
+
+
+
+
+
+<section id="h31005">
+<title>
+Explanation 5
+
+</title>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1061" effect="bold">
+The boolean type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+In this program, the primitive variable named 
+
+<emphasis id="strong1062" effect="bold">
+myVar
+
+</emphasis>
+ is an instance variable 
+of the type 
+
+<emphasis id="strong1063" effect="bold">
+boolean
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1064" effect="bold">
+What is an instance variable? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+An instance variable is a variable that is declared inside a class, outside 
+of all methods and constructors of the class, and is not declared static. 
+Every object instantiated from the class has one. That is why it is called 
+an instance variable. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1065" effect="bold">
+Cannot use uninitialized variables in Java
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+One of the great things about Java is that it is not possible to make the 
+mistake of using variables that have not been initialized. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1066" effect="bold">
+Can initialize when declared 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+All Java variables can be initialized when they are declared. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1067" effect="bold">
+Member variables are automatically initialized
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+If the programmer doesn't initialize the variables declared inside the class 
+but outside of a method 
+
+<emphasis id="em1015" effect="italics">
+(often referred to as member variables as opposed to 
+local variables)
+
+</emphasis>
+, they are automatically initialized to a default value. 
+The default value for a 
+
+<emphasis id="strong1068" effect="bold">
+boolean
+
+</emphasis>
+ variable is false. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1069" effect="bold">
+Did you know the boolean default value? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+I wouldn't be overly concerned if you had selected the answer A. true, 
+because I wouldn't necessarily expect you to memorize the default initialization 
+value. 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1070" effect="bold">
+Great cause for concern 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+However, I would be very concerned if you selected either C. 1 or D. 0. 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1071" effect="bold">
+Java has a true boolean type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+Unlike C++, Java does not represent true and false by the numeric values of 1 
+and 0. 
+
+<emphasis id="em1016" effect="italics">
+(At least the numeric values that represent true and false are not readily 
+accessible by the programmer.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+Thus, you cannot include boolean types in arithmetic expressions, as is the 
+case in C++. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<link id="a1078" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+
+<emphasis id="strong1072" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1072">
+B. 1.7976931348623157E308 
+
+
+
+</item>
+
+
+	
+
+<item id="li1073">
+D. 4.9E-324 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31006">
+<title>
+Explanation 4
+
+</title>
+
+
+<para id="p1111">
+
+
+
+<emphasis id="strong1073" effect="bold">
+Floating type versus integer type
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1112">
+If you missed this one, shame on you! 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+I didn't expect you to memorize the maximum and minimum values represented by 
+the floating type double, but I did expect you to be able to distinguish between 
+the display of a floating value and the display of an integer value. 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1074" effect="bold">
+Both values are positive 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+Note that both of the values given above are positive values. 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+Unlike the integer types discussed earlier, the constants named 
+
+<emphasis id="strong1075" effect="bold">
+MAX_VALUE
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1076" effect="bold">
+MIN_VALUE
+
+</emphasis>
+ don't represent the ends of a signed number range for type 
+
+
+<emphasis id="strong1077" effect="bold">
+double
+
+</emphasis>
+. 
+Rather, they represent the largest and smallest 
+
+<emphasis id="em1017" effect="italics">
+(non-zero)
+
+</emphasis>
+ values that can be 
+expressed by the type. 
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1078" effect="bold">
+An indication of granularity 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1079" effect="bold">
+MIN_VALUE
+
+</emphasis>
+ is an indication of the degree of granularity of values expressed 
+as type 
+
+<emphasis id="strong1080" effect="bold">
+double
+
+</emphasis>
+. Any 
+
+<emphasis id="strong1081" effect="bold">
+double
+
+</emphasis>
+ value can be treated as either positive or 
+negative. 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1082" effect="bold">
+Two floating types are available 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+Java provides two floating types: 
+
+<emphasis id="strong1083" effect="bold">
+float
+
+</emphasis>
+ and 
+
+<emphasis id="strong1084" effect="bold">
+double
+
+</emphasis>
+. The 
+
+
+<emphasis id="strong1085" effect="bold">
+double
+
+</emphasis>
+ 
+type provides the greater range, or to use another popular terminology, it is 
+the 
+
+<emphasis id="em1018" effect="italics">
+wider
+
+</emphasis>
+ of the two. 
+
+</para>
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1086" effect="bold">
+What is the value range for a float?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+In case you are interested, using the same syntax as above, the value range 
+for type float is from 1.4E-45 to 3.4028235E38 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1087" effect="bold">
+Double is often the default type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+There is another thing that is significant about type 
+
+<emphasis id="strong1088" effect="bold">
+double
+
+</emphasis>
+. In many 
+cases where a value is automatically converted to a floating type, it is 
+converted to type double rather than to type float. This will come up in 
+future modules. 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<link id="a1079" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+
+<emphasis id="strong1089" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1126">
+A. -2147483648 
+
+</para>
+
+
+
+
+
+<section id="h31007">
+<title>
+Explanation 3
+
+</title>
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1090" effect="bold">
+Could easily have guessed 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+As a practical matter, you had one chance in two of guessing the correct 
+answer to this question, already having been given the value of the largest 
+algebraic value for type int. 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1091" effect="bold">
+And the winner is ... 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+Did you answer B. -2147483647? -- WRONG
+
+</para>
+
+
+
+
+
+<para id="p1131">
+If so, you may be wondering why the most negative value isn't equal to the 
+negative version of the most positive value? 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1092" effect="bold">
+A twos-complement characteristic
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+Without going into the details of why, it is a well-known characteristic of 
+binary twos-complement notation that the value range extends one unit further in 
+the negative direction than in the positive direction. 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1093" effect="bold">
+What about the other two values? 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+Do the values of -32768 and 32767 in the set of multiple-choice answers 
+to this question represent anything in particular? 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+Yes, they represent the extreme ends of the value range for a 16-bit binary 
+number in twos-complement notation. 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1094" effect="bold">
+Does Java have a 16-bit integer type? 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1138">
+Just in case you are interested, the 
+
+<emphasis id="strong1095" effect="bold">
+short
+
+</emphasis>
+ type in Java is 
+represented in 16-bit binary twos-complement signed notation, so this is the 
+value range for type short. 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1096" effect="bold">
+What about type byte? 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1140">
+Similarly, a value of type 
+
+<emphasis id="strong1097" effect="bold">
+byte
+
+</emphasis>
+ is represented in 8-bit 
+binary twos-complement signed notation, with a value range extending from -128 
+to 127. 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<link id="a1080" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+<emphasis id="strong1098" effect="bold">
+. 
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1142">
+B. 2147483647 
+
+</para>
+
+
+
+
+
+<section id="h31008">
+<title>
+Explanation 2
+
+</title>
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1099" effect="bold">
+First question on types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1144">
+This is the first question on Java types in this group of 
+self-assessment 
+modules. 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1100" effect="bold">
+32-bit signed twos-complement integers 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1146">
+In Java, values of type 
+
+<emphasis id="strong1101" effect="bold">
+int
+
+</emphasis>
+ 
+are stored as 32-bit signed integers in twos-complement notation. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1102" effect="bold">
+Can you calculate the values?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+There are no unsigned integer types in Java, as there are in C++. If 
+you are handy with binary notation, you could calculate the largest positive 
+value that can be stored in 32 bits in twos-complement notation. 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1103" effect="bold">
+See documentation for the Integer class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1150">
+Otherwise, you can visit the 
+
+<link id="a1081" url="http://cnx.org/content/m45117">
+
+
+documentation
+
+</link>
+
+ for the 
+
+<emphasis id="strong1104" effect="bold">
+Integer
+
+</emphasis>
+ 
+class, which provides a symbolic constant 
+
+<emphasis id="em1019" effect="italics">
+(public static final variable)
+
+</emphasis>
+ 
+named 
+
+<emphasis id="strong1105" effect="bold">
+MAX_VALUE
+
+</emphasis>
+. The description of MAX_VALUE reads as 
+follows: 
+
+</para>
+
+
+
+
+	
+
+<para id="p1151">
+<emphasis id="em1020" effect="italics">
+"The largest value of type int. The constant value of this field is 
+	2147483647."
+
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+<para id="p1152">
+<link id="a1082" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+
+<emphasis id="strong1106" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1153">
+C. Hello World 
+
+</para>
+
+
+
+
+
+<section id="h31009">
+<title>
+Explanation 1
+
+</title>
+
+
+
+
+<para id="p1154">
+
+The answer to this first question is intended to be easy. The purpose of the 
+first question is to introduce you to the syntax that will frequently be used 
+for program code in this group of self-assessment modules.
+
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1107" effect="bold">
+The controlling class and the main method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+In this example, the class named 
+
+<emphasis id="strong1108" effect="bold">
+Ap001
+
+</emphasis>
+ is the 
+
+<emphasis id="em1021" effect="italics">
+controlling class
+
+</emphasis>
+. It 
+contains a method named 
+
+<emphasis id="strong1109" effect="bold">
+main
+
+</emphasis>
+, with a signature that matches the required signature 
+for the 
+
+<emphasis id="strong1110" effect="bold">
+main
+
+</emphasis>
+ method. When the user executes this program, the Java 
+virtual machine automatically calls the method named 
+
+<emphasis id="strong1111" effect="bold">
+main
+
+</emphasis>
+ in the controlling 
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1112" effect="bold">
+Create an instance of Worker 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1158">
+The 
+
+<emphasis id="strong1113" effect="bold">
+main
+
+</emphasis>
+ method uses the 
+
+<emphasis id="strong1114" effect="bold">
+new
+
+</emphasis>
+ operator along with the default constructor 
+for the class named 
+
+<emphasis id="strong1115" effect="bold">
+Worker
+
+</emphasis>
+ to create a new instance of the class named 
+
+
+<emphasis id="strong1116" effect="bold">
+Worker
+
+</emphasis>
+ 
+
+<emphasis id="em1022" effect="italics">
+(an object of the Worker class)
+
+</emphasis>
+. This is often referred to as 
+instantiating an object. 
+
+</para>
+
+
+
+
+
+<para id="p1159">
+<emphasis id="strong1117" effect="bold">
+A reference to an anonymous object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+The combination of the 
+
+<emphasis id="strong1118" effect="bold">
+new
+
+</emphasis>
+ operator and the default constructor for the 
+
+
+<emphasis id="strong1119" effect="bold">
+Worker
+
+</emphasis>
+ class returns a reference to the new object. In this case, the 
+object is instantiated as an 
+
+<emphasis id="em1023" effect="italics">
+anonymous object
+
+</emphasis>
+, meaning that the 
+object's reference is not saved in a named reference variable. 
+
+<emphasis id="em1024" effect="italics">
+(Instantiation of a 
+non-anonymous object will be illustrated later.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1120" effect="bold">
+Call hello method on Worker object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+The main method contains a single executable statement.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+As soon as the reference to the new object is returned, the single statement 
+in the 
+
+<emphasis id="strong1121" effect="bold">
+main
+
+</emphasis>
+ method calls the 
+
+<emphasis id="strong1122" effect="bold">
+hello
+
+</emphasis>
+ method on that reference. 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1123" effect="bold">
+Output to standard output device
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1165">
+This causes the 
+
+<emphasis id="strong1124" effect="bold">
+hello
+
+</emphasis>
+ method belonging to the new object 
+
+<emphasis id="em1025" effect="italics">
+(of the class 
+named 
+
+<emphasis id="strong1125" effect="bold">
+Worker
+
+</emphasis>
+)
+
+</emphasis>
+ to execute. The code in the 
+
+<emphasis id="strong1126" effect="bold">
+hello
+
+</emphasis>
+ method calls the 
+
+
+<emphasis id="strong1127" effect="bold">
+println
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1128" effect="bold">
+static
+
+</emphasis>
+ variable of the 
+
+
+<emphasis id="strong1129" effect="bold">
+System
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1130" effect="bold">
+out
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1131" effect="bold">
+Lots of OOP embodied in the hello method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+I often tell my students that I can tell a lot about whether a student really 
+understands object-oriented programming in Java by asking them to explain 
+everything that they know about the following statement: 
+
+</para>
+
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1132" effect="bold">
+System.out.println("Hello World");
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1169">
+I would expect the answer to consume about ten to fifteen minutes if the 
+student really understands Java OOP. 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1133" effect="bold">
+The one-minute version 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1171">
+When the virtual machine starts a Java application running, it automatically 
+instantiates an I/O stream object linked to the standard output device 
+
+<emphasis id="em1026" effect="italics">
+(normally 
+the screen)
+
+</emphasis>
+ and stores a reference to that object in the 
+
+<emphasis id="strong1134" effect="bold">
+static
+
+</emphasis>
+ variable named 
+
+
+<emphasis id="strong1135" effect="bold">
+out
+
+</emphasis>
+ belonging to the class named 
+
+<emphasis id="strong1136" effect="bold">
+System
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1137" effect="bold">
+Call the println instance method on out 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+Calling the 
+
+<emphasis id="strong1138" effect="bold">
+println
+
+</emphasis>
+ method on that reference, and passing a literal string 
+
+
+<emphasis id="em1027" effect="italics">
+("Hello World")
+
+</emphasis>
+ to that method causes the contents of the literal 
+
+
+<emphasis id="strong1139" effect="bold">
+String
+
+</emphasis>
+ object 
+to be displayed on the standard output device. 
+
+</para>
+
+
+
+
+
+<para id="p1174">
+<emphasis id="strong1140" effect="bold">
+Display Hello World on the screen 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1175">
+In this case, this causes the words 
+
+<emphasis id="em1028" effect="italics">
+Hello World
+
+</emphasis>
+ to be displayed on the 
+standard output device. This is the answer to the original question. 
+
+</para>
+
+
+
+
+
+<para id="p1176">
+<emphasis id="strong1141" effect="bold">
+Time for main method to terminate 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1177">
+When the 
+
+<emphasis id="strong1142" effect="bold">
+hello
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1143" effect="bold">
+main
+
+</emphasis>
+ method has nothing further to do, 
+so it terminates. When the 
+
+<emphasis id="strong1144" effect="bold">
+main
+
+</emphasis>
+ method terminates in a Java application, 
+the application terminates and returns control to the operating system. 
+This causes the system prompt to reappear. 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+<emphasis id="strong1145" effect="bold">
+A less-cryptic form 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1179">
+A less cryptic form of this program is shown in 
+
+<link id="a1083" target-id="Listing_17">
+
+Listing 
+17
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1018" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+. Answer 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1018">
+
+
+
+<code id="pre1018" display="block">public class Ap002{
+  public static void main(
+                        String args[]){
+    Worker refVar = new Worker();
+    refVar.hello();
+  }//end main()
+}//end class definition
+class Worker{
+
+  public void hello(){
+    System.out.println("Hello World");
+  }//end hello()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1180">
+<emphasis id="strong1146" effect="bold">
+Decompose single statement into two statements 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1181">
+In this version, the single statement in the earlier version of the 
+
+<emphasis id="strong1147" effect="bold">
+
+main
+
+</emphasis>
+ method is replaced by two statements. 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+<emphasis id="strong1148" effect="bold">
+A non-anonymous object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1183">
+In the class named 
+
+<emphasis id="strong1149" effect="bold">
+Ap002
+
+</emphasis>
+ shown in 
+
+<link id="a1084" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, the 
+object of the class named 
+
+<emphasis id="strong1150" effect="bold">
+Worker
+
+</emphasis>
+ is not 
+instantiated anonymously. Rather, a new object of the 
+
+<emphasis id="strong1151" effect="bold">
+Worker
+
+</emphasis>
+ 
+class is instantiated and the object's reference is stored in 
+
+<emphasis id="em1029" effect="italics">
+(assigned 
+to)
+
+</emphasis>
+ the named reference variable named 
+
+<emphasis id="strong1152" effect="bold">
+refVar
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+<emphasis id="strong1153" effect="bold">
+Call hello method on named reference 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1185">
+Then the 
+
+<emphasis id="strong1154" effect="bold">
+hello
+
+</emphasis>
+ method is called on that reference in a 
+separate statement. 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1155" effect="bold">
+Produces the same result as before 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1187">
+The final result is exactly the same as before. The only difference is 
+that a little more typing is required to create the source code for the second 
+version. 
+
+</para>
+
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1156" effect="bold">
+Will often use anonymous objects 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1189">
+In order to minimize the amount of typing required, I will probably use the 
+anonymous form of instantiation whenever appropriate in these modules. 
+
+</para>
+
+
+
+
+
+<para id="p1190">
+<emphasis id="strong1157" effect="bold">
+Now that you understand the framework ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1191">
+Now that you understand the framework for the program code, I can present 
+more specific questions. Also, the explanations will usually be shorter.
+
+</para>
+
+
+
+
+
+<para id="p1192">
+<link id="a1085" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<para id="p1193">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

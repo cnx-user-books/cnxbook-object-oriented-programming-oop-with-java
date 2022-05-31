@@ -1,0 +1,2650 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0280r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45241</md:content-id>
+  <md:title>Jb0280r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Jb0280: Java OOP: String and StringBuffer.</md:abstract>
+  <md:uuid>b869b728-c4ea-4580-a45d-dccf964c3932</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Mar 29 11:29:05 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1012" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question10">
+
+10
+
+</link>
+
+, 
+		
+
+<link id="a1014" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question12">
+
+12
+
+</link>
+
+, 
+		
+
+<link id="a1016" target-id="question13">
+
+13
+
+</link>
+
+, 
+		
+
+<link id="a1017" target-id="question14">
+
+14
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1018" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1019" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled 
+
+
+<link id="a1021" url="http://cnx.org/content/m45237">
+
+Jb0280: Java OOP: String and StringBuffer
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+Java provides two different string classes from which string objects can be 
+instantiated. What are they? 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<link id="a1022" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+True or false? The 
+
+<emphasis id="strong1001" effect="bold">
+StringBuffer
+
+</emphasis>
+ class is used for strings 
+that are not allowed to change. The 
+
+<emphasis id="strong1002" effect="bold">
+String
+
+</emphasis>
+ class is used for 
+strings that are modified by the program. If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<link id="a1023" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+True or false? While the contents of a 
+
+<emphasis id="strong1003" effect="bold">
+String
+
+</emphasis>
+ object cannot 
+be modified, a reference to a 
+
+<emphasis id="strong1004" effect="bold">
+String
+
+</emphasis>
+ object can be caused to 
+point to a different 
+
+<emphasis id="strong1005" effect="bold">
+String
+
+</emphasis>
+ object. If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1024" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+True or false? The use of the 
+
+<emphasis id="strong1006" effect="bold">
+new
+
+</emphasis>
+ operator is required for 
+instantiation of objects of type 
+
+<emphasis id="strong1007" effect="bold">
+String
+
+</emphasis>
+. If false, explain your 
+answer. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1025" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or false? The use of the 
+
+<emphasis id="strong1008" effect="bold">
+new
+
+</emphasis>
+ operator is required for 
+instantiation of objects of type 
+
+<emphasis id="strong1009" effect="bold">
+StringBuffer
+
+</emphasis>
+. If false, 
+explain your answer
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1026" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+Provide a code fragment that illustrates how to instantiate an empty 
+
+<emphasis id="strong1010" effect="bold">
+
+StringBuffer
+
+</emphasis>
+ object of a default length and then use a version of the
+
+
+<emphasis id="strong1011" effect="bold">
+append
+
+</emphasis>
+ method to put some data into the object. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+Without specifying any explicit numeric values, provide a code fragment that 
+will instantiate an empty 
+
+<emphasis id="strong1012" effect="bold">
+StringBuffer
+
+</emphasis>
+ object of the correct 
+initial length to contain the string 
+
+<emphasis id="em1003" effect="italics">
+"StringBuffer named str6"
+
+</emphasis>
+ and then store 
+that string in the object. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<link id="a1028" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+Provide a code fragment consisting of a single statement showing how to use 
+the 
+
+<emphasis id="strong1013" effect="bold">
+Integer
+
+</emphasis>
+ wrapper class to convert a string containing digits 
+to an integer and store it in a variable of type 
+
+<emphasis id="strong1014" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<link id="a1029" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+Explain the difference between the 
+
+<emphasis id="strong1015" effect="bold">
+capacity
+
+</emphasis>
+ method and the
+
+
+<emphasis id="strong1016" effect="bold">
+length
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1017" effect="bold">
+StringBuffer
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<link id="a1030" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or false? The following is a valid code fragment. If false, explain why. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1000" display="block">
+StringBuffer str6 = 
+  new StringBuffer("StringBuffer named str6".length());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1023">
+<link id="a1031" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+Which of the following code fragments is the most efficient, first or second?
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1001" display="block">
+String str1 = "THIS STRING IS NAMED str1";
+
+String str1 = new String("THIS STRING IS NAMED str1");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1025">
+<link id="a1032" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+Write a Java
+application that illustrates the fact that while a 
+
+<emphasis id="strong1018" effect="bold">
+String
+
+</emphasis>
+ 
+object cannot be modified, the reference variable can be 
+modified to point to a new 
+
+<emphasis id="strong1019" effect="bold">
+String
+
+</emphasis>
+ object, which can have the
+appearance of modifying the original 
+
+<emphasis id="strong1020" effect="bold">
+String
+
+</emphasis>
+ object.
+
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<link id="a1033" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+Write a Java application that illustrates different ways to
+create 
+
+<emphasis id="strong1021" effect="bold">
+String
+
+</emphasis>
+ objects and 
+
+<emphasis id="strong1022" effect="bold">
+StringBuffer
+
+</emphasis>
+ objects.
+
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<link id="a1034" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+Write a Java application that illustrates conversion from string to numeric.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1035" target-id="answer14">
+
+Answer 14
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1008">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. File SampProg26.java.
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. File SampProg25.java.
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. File SampProg24.java.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1023" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+This image was inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+The image is also an example of the kinds of things that we do in my course 
+titled ITSE 2321, Object-Oriented Programming.
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1035">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+
+
+
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21014">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. File SampProg26.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1002" display="block">
+/*File SampProg26.java from module 50
+Copyright 1997, R.G.Baldwin
+Without viewing the solution that follows, write a Java
+application that illustrates conversion from string to 
+numeric, similar to the atoi() function in C.
+
+The output from the program should be:
+The value of the int variable num is 3625
+===========================================================
+*/
+
+class SampProg26{
+  public static void main(String[] args){
+    int num = new Integer("3625").intValue();
+    System.out.println(
+      "The value of the int variable num is " + num);
+  }//end main()
+}//end class SampProg26
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1037">
+<link id="a1039" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1024" effect="bold">
+File SampProg25.java.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+
+
+<code id="pre1003" display="block">
+/*File SampProg25.java from module 50
+Copyright 1997, R.G.Baldwin
+Write a Java application that illustrates different ways to
+create String objects and StringBuffer objects.
+
+The output from this program should be (line breaks 
+manually inserted to make it fit the format):
+
+Create a String using new and display it
+String named str2
+
+Create a String without using new and display it
+String named str1
+
+Create, initialize, and display a StringBuffer using new
+StringBuffer named str3
+
+Try to create/initialize StringBuffer without using new 
+
+Create an empty StringBuffer of default length
+Now put some data in it and display it
+StringBuffer named str5
+
+Create an empty StringBuffer and specify length when 
+created
+Now put some data in it and display it
+StringBuffer named str6
+
+Try to create and append to StringBuffer without using new
+**********************************************************/
+
+class SampProg25{
+  void d(String displayString){//method to display strings
+    System.out.println(displayString);
+  }//end method d()
+
+  public static void main(String[] args){
+    //instantiate an object to display methods
+    SampProg25 o = new SampProg25();
+    
+    o.d("Create a String using new and display it");
+    String str1 = new String("String named str2");
+    o.d(str1 + "\n");
+    
+    o.d(
+    "Create a String without using new and display it");
+    String str2 = "String named str1";
+    o.d(str2 + "\n");
+  
+    o.d("Create, initialize, and display a StringBuffer " 
+      + "using new");
+    StringBuffer str3 = new StringBuffer(
+      "StringBuffer named str3");
+    o.d(str3.toString()+"\n");
+
+    o.d("Try to create/initialize StringBuffer without " 
+      + "using new \n");    
+    //StringBuffer str4 = //not allowed by compiler
+    //  "StringBuffer named str4";
+    
+    o.d(
+    "Create an empty StringBuffer of default length");  
+    //accept default initial length
+    StringBuffer str5 = new StringBuffer();
+    o.d("Now put some data in it and display it");
+    //modify length as needed
+    str5.append("StringBuffer named str5");
+    o.d(str5.toString() + "\n");
+    
+    o.d("Create an empty StringBuffer and specify length "
+      + "when created");
+    StringBuffer str6 = new StringBuffer(
+      "StringBuffer named str6".length());
+    o.d("Now put some data in it and display it");    
+    str6.append("StringBuffer named str6");
+    o.d(str6.toString() + "\n");
+    
+    o.d(
+    "Try to create and append to StringBuffer without "
+      + "using new");
+    //StringBuffer str7;
+    //str7.append("StringBuffer named str7");
+  }//end main()  
+}//end class SampProg25
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1038">
+<link id="a1040" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. File SampProg24.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1004" display="block">
+/*File SampProg24.java from module 50
+Copyright 1997, R.G.Baldwin
+Without viewing the solution that follows, Write a Java
+application that illustrates the fact that while a String 
+object cannot be modified, the reference variable can be 
+modified to point to a new String object which can have the
+appearance of modifying the original String object.
+
+The output from this program should be
+
+Display original string values
+THIS STRING IS NAMED str1
+This string is named str2
+Replace str1 with another string
+Display new string named str1
+THIS STRING IS NAMED str1 This string is named str2
+Terminating program
+**********************************************************/
+
+class SampProg24{
+  String str1 = "THIS STRING IS NAMED str1";
+  String str2 = "This string is named str2";
+  
+  public static void main(String[] args){
+    SampProg24 thisObj = new SampProg24();
+    System.out.println("Display original string values");
+    System.out.println(thisObj.str1);
+    System.out.println(thisObj.str2);
+    System.out.println(
+      "Replace str1 with another string");
+    thisObj.str1 = thisObj.str1 + " " + thisObj.str2;
+    System.out.println("Display new string named str1");
+    System.out.println(thisObj.str1);
+    System.out.println("Terminating program");
+  }//end main()
+}//end class SampProg24
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1039">
+<link id="a1041" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+The first code fragment is the most efficient. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1042" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1043" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1044">
+The 
+
+<emphasis id="strong1025" effect="bold">
+capacity
+
+</emphasis>
+ method returns the amount of space currently 
+allocated for the 
+
+<emphasis id="strong1026" effect="bold">
+StringBuffer
+
+</emphasis>
+ object. The 
+
+<emphasis id="strong1027" effect="bold">
+length
+
+</emphasis>
+ 
+method returns the amount of space used. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<link id="a1044" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1005" display="block">
+    int num = new Integer("3625").intValue();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1046">
+<link id="a1045" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1006" display="block">
+StringBuffer str6 = 
+  new StringBuffer("StringBuffer named str6".length());
+str6.append("StringBuffer named str6");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1047">
+<link id="a1046" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1007" display="block">
+StringBuffer str5 = 
+  new StringBuffer();//accept default initial length
+str5.append(
+      "StringBuffer named str5");//modify length as needed</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1048">
+<link id="a1047" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21023">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<link id="a1048" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1051">
+False. A String object can be instantiated using either of the following 
+statements: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1008" display="block">
+    String str1 = new String("String named str2");
+   
+    String str2 = "String named str1";</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1052">
+<link id="a1049" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<link id="a1050" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+False. This statement is backwards. The 
+
+<emphasis id="strong1028" effect="bold">
+String
+
+</emphasis>
+ class is used 
+for strings that are not allowed to change. The 
+
+<emphasis id="strong1029" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+class is used for strings that are modified by the program. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<link id="a1051" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1057">
+The two classes are: 
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1011">
+String 
+
+</item>
+
+
+	
+
+<item id="li1012">
+StringBuffer 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1058">
+<link id="a1052" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1059">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1030" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1005" list-type="bulleted">
+
+				
+
+<item id="li1013">
+Module name: Jb0280r Review: String and StringBuffer
+
+</item>
+
+
+				
+
+<item id="li1014">
+File: Jb0280r.htm 
+
+</item>
+
+
+				
+
+<item id="li1015">
+Originally published: 1997
+
+</item>
+
+
+				
+
+<item id="li1016">
+Published at cnx.org: 11/29/12
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1031" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1060">
+<emphasis id="strong1032" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1061">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1062">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1063">
+<emphasis id="strong1033" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+	
+
+<para id="p1064">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

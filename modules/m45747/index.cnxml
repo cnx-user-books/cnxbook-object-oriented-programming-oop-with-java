@@ -1,0 +1,466 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jy0060: Anatomy of a Game Engine</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45747</md:content-id>
+  <md:title>Jy0060: Anatomy of a Game Engine</md:title>
+  <md:abstract>This module serves as a link to the material for Anatomy of a Game Engine, which I use in some of the courses that I teach at Austin Community College in Austin, TX.</md:abstract>
+  <md:uuid>1b01bf1c-20f6-4c67-ae06-6e45229b2f01</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Welcome">
+
+Welcome
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Welcome" effect="bold">
+
+Welcome
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+
+<para id="p1000">
+Click the link to view the material for
+
+
+<link url="/content/col11489/latest/" id="a1002">
+
+Anatomy of a Game Engine
+
+</link>
+
+, 
+which I use in some of the courses that I teach at 
+
+
+
+Austin Community College
+
+
+
+ in Austin, TX.
+
+</para>
+
+
+
+
+<para id="p1001">
+This is a collection of modules designed to teach students about the anatomy 
+of a typical game or simulation engine 
+
+<emphasis id="em1000" effect="italics">
+(sometimes called a game or 
+simulation framework)
+
+</emphasis>
+<emphasis id="strong1000" effect="bold">
+.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+The collection is built around the 
+
+<emphasis id="strong1001" effect="bold">
+Slick2D
+
+</emphasis>
+ Game library.
+
+</para>
+
+
+
+
+<para id="p1003">
+<emphasis id="strong1002" effect="bold">
+The Slick2D library
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1004">
+I chose to concentrate on the free game library named
+
+
+<link id="a1003" url="http://slick.cokeandcode.com/index.php">
+
+Slick2D
+
+</link>
+
+ 
+
+<emphasis id="em1001" effect="italics">
+,(which is 
+written in Java)
+
+</emphasis>
+ for several reasons including the following:
+
+</para>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+Java is the language with which I am the most comfortable. Hence, I can 
+	probably do a better job of explaining the anatomy of a game engine that 
+	uses Slick2D than would be the case for a game engine written in C++, C#, 
+	Python, or some other programming language.
+
+</item>
+
+
+	
+
+<item id="li1003">
+Java has proven in recent years to be a commercially successful game 
+	programming language. For example, I cite the commercial game named
+	
+
+<link id="a1004" url="http://minecraft.net/">
+
+Minecraft
+
+</link>
+
+, written in Java, for which 
+	apparently millions of copies have been sold. Also, knowing Java is very 
+	beneficial for those who might want to develop apps for Android.
+
+</item>
+
+
+	
+
+<item id="li1004">
+Slick2D is free and the source code for Slick2D is readily available.
+
+</item>
+
+
+	
+
+<item id="li1005">
+The overall structure of a basic Slick2D game engine is very similar to 
+	Dark GDK and XNA, and is probably similar to other game engines as well.
+
+</item>
+
+
+	
+
+<item id="li1006">
+Java is platform independent. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1003" effect="bold">
+Applicable to other environments as well
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1006">
+Although the modules in this collection concentrate on the Java game library 
+named Slick2D, the concepts involved and the knowledge that you will gain is 
+applicable to other game engines written in different programming languages.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1007">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1004" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+				
+
+<list id="ul1002" list-type="bulleted">
+
+					
+
+<item id="li1007">
+Module name: Jy0060: Anatomy of a Game Engine
+
+</item>
+
+
+					
+
+<item id="li1008">
+File: Jy0060.htm
+
+
+</item>
+
+
+					
+
+<item id="li1009">
+Published: 02/05/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1005" effect="bold">
+Disclaimers::
+
+</emphasis>
+<para id="p1008">
+<emphasis id="strong1006" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1009">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1010">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1011">
+<emphasis id="strong1007" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1012">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

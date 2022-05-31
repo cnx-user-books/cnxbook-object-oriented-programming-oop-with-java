@@ -1,0 +1,5141 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4580: Session Tracking using the Session Tracking API</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48579</md:content-id>
+  <md:title>Java4580: Session Tracking using the Session Tracking API</md:title>
+  <md:abstract>The purpose of this module is to explain session tracking using a servlet and the session tracking API.</md:abstract>
+  <md:uuid>0400ebbc-b775-4632-bd8f-1d2911b6e914</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Program_output">
+
+Program output
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="The_HttpSession_Interface">
+
+The HttpSession Interface
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. The purpose of this module is to explain 
+	session tracking using a servlet and the 
+
+<emphasis id="em1000" effect="italics">
+session tracking API
+
+</emphasis>
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them. 
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output from access #1. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output from access #2. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Output from access #3. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Output from access #4. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Output from access #5. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Output from access #6. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Output from access #7. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the doGet method. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Get the session object. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get an output stream.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. A hit counter.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Insert a Date object into the session.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. An object of type MyClass.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display information about the session.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Display information about the objects.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The inner class named MyClass.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. The servlet named Java4580a.java.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This is the fourth in a series of modules designed to show you how to implement session tracking using servlets. As mentioned earlier, the purpose of this module is 
+to illustrate session tracking using the 
+
+<emphasis id="em1001" effect="italics">
+session tracking API
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1003">
+Earlier modules have illustrated three different ways to implement session tracking 
+with servlets
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1029">
+hidden fields
+
+</item>
+
+
+	
+
+<item id="li1030">
+URL rewriting
+
+</item>
+
+
+	
+
+<item id="li1031">
+cookies
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1001" effect="bold">
+A higher-level approach to session tracking
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+The servlet programs in those earlier modules were 
+written at a fairly low level. The 
+
+<emphasis id="em1002" effect="italics">
+session tracking API
+
+</emphasis>
+ allows 
+you to program at a somewhat higher level. Before you get too excited, however, 
+be aware that this may or may not be the answer to your needs. In some cases, 
+depending on the server involved, you may find that the session tracking API 
+relies exclusively on cookies. If that is the case with your server and if your clients 
+don't allow cookies, then the API may not meet your needs. You 
+may find yourself back at square one -- 
+
+<emphasis id="em1003" effect="italics">
+hidden fields
+
+</emphasis>
+ or 
+
+<emphasis id="em1004" effect="italics">
+URL 
+rewriting
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1006">
+ 
+
+<emphasis id="strong1002" effect="bold">
+The HttpSession interface
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+The capability that I have referred to as the 
+
+<emphasis id="em1005" effect="italics">
+session tracking API
+
+</emphasis>
+ is 
+primarily based on the 
+
+<emphasis id="strong1003" effect="bold">
+HttpSession
+
+</emphasis>
+ interface that I will discuss 
+later. It also 
+includes some other interfaces and classes as well.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Program_output" effect="bold">
+
+Program output
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+<link id="a1029" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ through 
+
+<link id="a1030" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ show the output produced by the servlet named 
+
+
+<emphasis id="strong1004" effect="bold">
+Java4580a
+
+</emphasis>
+ for each of the first seven times it is accessed by the same browser. 
+You might just want to glance over these Figures now. I will 
+refer back to them and explain their meaning throughout the discussion of the servlet.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Output from access #1.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+<media id="media1000" alt="Missing Figure" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/java4580a-01.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Output from access #2.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+<media id="media1001" alt="Missing Figure" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java4580a-02.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1007" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Output from access #3.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+<media id="media1002" alt="Missing Figure" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/java4580a-03.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1008" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Output from access #4.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+<media id="media1003" alt="Missing Figure" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/java4580a-04.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1009" effect="bold">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Output from access #5.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+<media id="media1004" alt="Missing Figure" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/java4580a-05.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1010" effect="bold">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Output from access #6.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+<media id="media1005" alt="Missing Figure" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/java4580a-06.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Output from access #7.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+<media id="media1006" alt="Missing Figure" display="block">
+<image id="img1006" mime-type="image/jpeg" src="../../media/java4580a-07.jpg" width="538" height="530"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_HttpSession_Interface" effect="bold">
+
+The HttpSession Interface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+I will explain the code in this servlet in fragments. A complete listing of 
+the servlet is provided in 
+
+<link id="a1031" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1012" effect="bold">
+Beginning of the doGet method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1025">
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows typical code for beginning the definition of a servlet 
+class and for beginning the definition of the 
+
+<emphasis id="strong1013" effect="bold">
+doGet
+
+</emphasis>
+ method. You 
+have seen code like this in earlier modules so I won't discuss it further in 
+this module.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the doGet 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Java4580a extends HttpServlet{
+  
+  public void doGet(HttpServletRequest request, 
+                    HttpServletResponse response)
+                           throws ServletException, IOException{
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1014" effect="bold">
+Get the session object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+I will continue the discussion with the code fragment 
+shown in 
+
+<link id="a1033" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, where
+
+
+<emphasis id="strong1015" effect="bold">
+request
+
+</emphasis>
+ is a reference to the standard object of type 
+
+<emphasis id="strong1016" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ 
+passed to the 
+
+<emphasis id="strong1017" effect="bold">
+doGet
+
+</emphasis>
+ method that begins in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Get the session object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    HttpSession session = request.getSession(true);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1018" effect="bold">
+An object of type HttpSession
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+The call to the 
+
+<emphasis id="strong1019" effect="bold">
+getSession
+
+</emphasis>
+ method in 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+	returns a reference to an object of the interface type 
+
+<emphasis id="strong1020" effect="bold">
+HttpSession
+
+</emphasis>
+. 
+As you can see, the reference is saved in the local variable named 
+
+<emphasis id="strong1021" effect="bold">
+
+session
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1030">
+The 
+
+<emphasis id="strong1022" effect="bold">
+HttpSession
+
+</emphasis>
+ object provides an association 
+
+<emphasis id="em1006" effect="italics">
+(a 
+session)
+
+</emphasis>
+ between an HTTP client and an 
+HTTP server. This association, or session, persists over multiple connections 
+and/or requests during a given time period. Sessions are used to maintain state 
+and user identity across multiple page requests. 
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1023" effect="bold">
+How is the session maintained?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+Apparently the manner in which the association between the client and the 
+server 
+
+<emphasis id="em1007" effect="italics">
+(the session)
+
+</emphasis>
+ is maintained varies from one 
+server to the next. One books states, 
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1008" effect="italics">
+"A session can be maintained 
+either by using cookies or by URL rewriting." 
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1033">
+Another book states that the 
+minimum requirement for servers is to maintain the session using cookies, and 
+that the server may optionally support URL rewriting as well. There are 
+inferences in other books to the effect that some servers may not support 
+URL rewriting.
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1024" effect="bold">
+The HttpSession object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+The 
+
+<emphasis id="strong1025" effect="bold">
+HttpSession
+
+</emphasis>
+ object returned by the code in 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+behaves as a container for the storage of:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Information about the session 
+
+</item>
+
+
+	
+
+<item id="li1033">
+Data 
+
+<emphasis id="em1009" effect="italics">
+(objects)
+
+</emphasis>
+ that persist from one call to the servlet to the next 
+	call to the servlet by the same client.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1026" effect="bold">
+Client ID is transparent
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+The requirement to maintain the identification of each individual client is 
+transparent to the programmer. That information is encapsulated in the 
+
+<emphasis id="strong1027" effect="bold">
+
+HttpSession
+
+</emphasis>
+ object and the process that backs it up. 
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1028" effect="bold">
+The lifetime of a session
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+An 
+
+<emphasis id="strong1029" effect="bold">
+HttpSession
+
+</emphasis>
+ object represents an ongoing session with a 
+particular client. The actual lifetime of a session isn't clear in the books 
+that I have read. 
+
+</para>
+
+
+
+
+<para id="p1040">
+The books seems to imply that the session can remain 
+active over long periods of time. However, on my local Tomcat server, the 
+session ends when the browser is terminated. The behavior is similar to that 
+which occurs with the 
+
+<link id="a1037" url="http://cnx.org/content/m48571/latest/#What_are_cookies">
+
+default 
+behavior
+
+</link>
+
+ of cookies that expire when the browser exits.
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1010" effect="italics">
+
+(Recall however, the 
+
+<emphasis id="strong1030" effect="bold">
+setMaxAge
+
+</emphasis>
+ method can be called on a cookie to 
+cause it to persist beyond the current active period of the browser. Browsers 
+save long-life cookies from one active period to the next. There may be some way 
+to accomplish that using the session tracking API as well but that is 
+	speculation on my part.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1041">
+On my server, the session continues until 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1034">
+The client exits the browser
+
+</item>
+
+
+	
+
+<item id="li1035">
+The 
+servlet purposely invalidates the session
+
+</item>
+
+
+	
+
+<item id="li1036">
+The server invalidates the session due to timeout or other condition 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1031" effect="bold">
+Maintaining session state
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+All that the programmer has to do to maintain session state is to put objects 
+into the 
+
+<emphasis id="strong1032" effect="bold">
+HttpSession 
+
+</emphasis>
+object, and to get objects from the
+
+
+<emphasis id="strong1033" effect="bold">
+HttpSession 
+
+</emphasis>
+object. 
+
+</para>
+
+
+
+
+<para id="p1044">
+The programmer can also get information 
+about the session from the 
+
+<emphasis id="strong1034" effect="bold">
+HttpSession
+
+</emphasis>
+ object as well.
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1035" effect="bold">
+Name::value pairs
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+Data objects are stored in the 
+
+<emphasis id="strong1036" effect="bold">
+HttpSession
+
+</emphasis>
+ object using a 
+dictionary-like interface. Each object stored in the 
+
+<emphasis id="strong1037" effect="bold">
+HttpSession
+
+</emphasis>
+ 
+object is stored under a 
+
+<emphasis id="strong1038" effect="bold">
+String
+
+</emphasis>
+  name. Data objects are retrieved under the name associated with the object. 
+
+<emphasis id="em1011" effect="italics">
+(This is another 
+case of using name::value pairs.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+The fact that the data objects may actually be stored on the client machine
+
+
+<emphasis id="em1012" effect="italics">
+(possibly in cookies)
+
+</emphasis>
+ is transparent to the programmer. 
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1039" effect="bold">
+Is the data stored in cookies?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+With my local Tomcat server, the fact that the data objects are being stored 
+in cookies on the client machine can be verified by setting the browser 
+preferences to disallow the use of cookies. This results in the counter value 
+that I will explain later never progressing beyond that shown in 
+
+<link id="a1038" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. This 
+indicates that the servlet is unable to establish a session when cookies are 
+disabled.
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1040" effect="bold">
+Events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+If you instantiate your data objects from classes of your own design, you can 
+process events that are generated whenever the object is put in or removed from 
+the 
+
+<emphasis id="strong1041" effect="bold">
+HttpSession
+
+</emphasis>
+ object. In order to be able to receive events, 
+your classes must implement the 
+
+<emphasis id="strong1042" effect="bold">
+HttpSessionBindingListener
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1013" effect="italics">
+(I also believe, but am not certain, that in order for the 
+objects instantiated from your classes to be eligible for being saved in the 
+session object, your classes must implement the Serializable interface. This 
+makes it possible to decompose an object into a stream of bytes and to reconstruct 
+those bytes into an object later.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1043" effect="bold">
+Event handlers
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+When a data object of a class that implements the 
+
+<emphasis id="strong1044" effect="bold">
+
+HttpSessionBindingListener
+
+</emphasis>
+ interface is put into the 
+
+<emphasis id="strong1045" effect="bold">
+
+HttpSession
+
+</emphasis>
+  object, the following method is called on the data object:
+
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1046" effect="bold">
+<emphasis id="em1014" effect="italics">
+valueBound(HttpSessionBindingEvent e) 
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+When a data object of a class that implements the 
+
+<emphasis id="strong1047" effect="bold">
+
+HttpSessionBindingListener
+
+</emphasis>
+ interface is removed from the 
+
+<emphasis id="strong1048" effect="bold">
+
+HttpSession
+
+</emphasis>
+  object, the following method is called on the data object:
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1049" effect="bold">
+<emphasis id="em1015" effect="italics">
+valueUnbound(HttpSessionBindingEvent e)
+
+</emphasis>
+ 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1050" effect="bold">
+No registration is required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+Unlike the typical case in Java programming, no special registration of the event listener is required. Simply implementing the interface on the object is 
+sufficient to cause it to receive events when it is put into or removed from the 
+
+<emphasis id="strong1051" effect="bold">
+HttpSession
+
+</emphasis>
+ object. You can define those two methods to provide 
+whatever behavior may be needed when the events occur.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1052" effect="bold">
+The isNew method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+An implementation of 
+
+<emphasis id="strong1053" effect="bold">
+HttpSession
+
+</emphasis>
+ represents the server's 
+view of the session. The server considers a session to be 
+
+<emphasis id="em1016" effect="italics">
+new
+
+</emphasis>
+  until the 
+client has joined it. Until the client joins the session, the 
+
+<emphasis id="strong1054" effect="bold">
+isNew
+
+</emphasis>
+ 
+method returns true. 
+
+</para>
+
+
+
+
+<para id="p1061">
+A value of true can indicate one of the following three cases: 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1037">
+The client does not yet know about the session 
+
+</item>
+
+
+	
+
+<item id="li1038">
+The session has not yet begun 
+
+</item>
+
+
+	
+
+<item id="li1039">
+The client chooses not to join the session. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+The third case will occur if the server supports only cookies and the client 
+chooses to reject cookies sent by the server 
+
+<emphasis id="em1017" effect="italics">
+(the client has disabled 
+cookies on the browser)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1055" effect="bold">
+URL rewriting
+
+</emphasis>
+</para>
+
+
+<para id="p1064">
+According to the some books, the third 
+case will not commonly occur, if the server supports URL rewriting. However, according to one of my books, even if the 
+server supports URL rewriting, that capability is not freely available. The 
+programmer must provide special programming constructs to take advantage of URL 
+rewriting.
+
+</para>
+
+
+
+
+<para id="p1065">
+In any event, it is the responsibility of the programmer to design the application to 
+account for situations where a client has not joined a session.
+
+</para>
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1066">
+Now that you have the background information under your belt, let's take 
+	a look at a sample program.
+
+</para>
+
+
+
+
+<para id="p1067">
+The name of the servlet that I will explain in this module is
+
+<emphasis id="strong1056" effect="bold">
+ Java4580a
+
+</emphasis>
+. 
+	As mentioned earlier, I will explain this program in fragments. A complete 
+	listing is provided in 
+
+<link id="a1039" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1057" effect="bold">
+Beginning of the servlet program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+The program begins in the typical manner shown earlier in 
+
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Then the 
+program gets a valid 
+
+<emphasis id="strong1058" effect="bold">
+HttpSession
+
+</emphasis>
+ object for 
+the current request from the client as shown by the call to the 
+
+<emphasis id="strong1059" effect="bold">
+getSession
+
+</emphasis>
+ 
+method in 
+
+<link id="a1041" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1060" effect="bold">
+What does Oracle have to say?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+Here is some of what Oracle has to say about the 
+
+<emphasis id="strong1061" effect="bold">
+getSession
+
+</emphasis>
+ method, 
+where 
+
+<emphasis id="strong1062" effect="bold">
+create
+
+</emphasis>
+ is the name of the 
+
+<emphasis id="strong1063" effect="bold">
+boolean
+
+</emphasis>
+ 
+parameter passed to the method:
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+<emphasis id="em1018" effect="italics">
+"Returns the current 
+
+</emphasis>
+<emphasis id="strong1064" effect="bold">
+<emphasis id="em1019" effect="italics">
+HttpSession
+
+</emphasis>
+</emphasis>
+<emphasis id="em1020" effect="italics">
+ associated with this request or, if there is no current session and 
+
+
+</emphasis>
+<emphasis id="strong1065" effect="bold">
+<emphasis id="em1021" effect="italics">
+create
+
+</emphasis>
+</emphasis>
+<emphasis id="em1022" effect="italics">
+ is true, returns a new session.
+
+If 
+
+</emphasis>
+<emphasis id="strong1066" effect="bold">
+<emphasis id="em1023" effect="italics">
+create
+
+</emphasis>
+</emphasis>
+<emphasis id="em1024" effect="italics">
+ is false and the request has no valid 
+
+
+</emphasis>
+<emphasis id="strong1067" effect="bold">
+<emphasis id="em1025" effect="italics">
+HttpSession
+
+</emphasis>
+</emphasis>
+<emphasis id="em1026" effect="italics">
+, this method returns null.
+
+To make sure the session is properly maintained, you must call this method before the response is committed."
+
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+<para id="p1072">
+Apparently the server identifies the first request of the session by the fact 
+that the browser doesn't send a cookie 
+
+<emphasis id="em1027" effect="italics">
+(or the URL hasn't been rewritten)
+
+</emphasis>
+, 
+but that is just speculation on my part.
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1068" effect="bold">
+Get an output stream
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+An output stream is needed in order for the servlet to send content to the 
+client browser. An output stream object is created and saved in the session 
+object, thus making it available for as long as the session is active.
+
+</para>
+
+
+
+
+<para id="p1075">
+You are already familiar with the first statement in 
+
+<link id="a1042" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, 
+so nothing more needs to be said about that statement.
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1069" effect="bold">
+Retrieve the stream object from the session object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+Beyond that, the code in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ begins by attempting to 
+retrieve an output stream object from the session object. 
+
+</para>
+
+
+
+
+<para id="p1078">
+If the call to the 
+
+<emphasis id="strong1070" effect="bold">
+
+getValue
+
+</emphasis>
+ method on the session object returns null, this indicates that 
+an output stream has not yet been created and saved in the session object. In 
+that case, an output stream object is created and put into the session object 
+where it will be available on subsequent requests to the servlet. 
+
+</para>
+
+
+
+
+<para id="p1079">
+A 
+reference to the new output stream is also saved in the local variable named
+
+
+<emphasis id="strong1071" effect="bold">
+out 
+
+</emphasis>
+ so that it will be available during the remainder of the 
+
+
+<emphasis id="strong1072" effect="bold">
+doGet
+
+</emphasis>
+ method. This is what happens at the beginning of a new session 
+with a specific browser.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get an output stream.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+				
+
+<code id="pre1002" display="block">    response.setContentType("text/html");
+    
+    PrintWriter out = (PrintWriter)session.getValue("out");
+    if(out == null){
+      //First request from this client
+      out = response.getWriter();
+      session.putValue("out",out);
+    }//end if
+    
+    //Create HTML page header
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4580a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1073" effect="bold">
+An output stream already exists
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+If the call to the 
+
+<emphasis id="strong1074" effect="bold">
+getValue
+
+</emphasis>
+ method in 
+
+<link id="a1044" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ returns an output stream, 
+a reference to the output stream is saved in the local variable named 
+
+<emphasis id="strong1075" effect="bold">
+
+out
+
+</emphasis>
+. This is what happens in the second and subsequent calls to the 
+servlet during an ongoing session with a specific browser.
+
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1076" effect="bold">
+Create the HTML header text
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+Once the output stream is available, the code in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+ uses it to create the normal header text on the outgoing HTML page.
+
+</para>
+
+
+	
+
+<para id="p1084">
+<emphasis id="strong1077" effect="bold">
+A hit counter
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+<link id="a1046" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ instantiates a hit counter object and stores it in the session 
+object under the name "
+
+<emphasis id="strong1078" effect="bold">
+counter
+
+</emphasis>
+".     If the session doesn't have a 
+
+
+<emphasis id="strong1079" effect="bold">
+counter
+
+</emphasis>
+, one is created and its 
+value is initialized to 1. If the session already has a 
+
+<emphasis id="strong1080" effect="bold">
+counter
+
+</emphasis>
+, it is 
+incremented by 1. Then the new or incremented 
+
+<emphasis id="strong1081" effect="bold">
+counter
+
+</emphasis>
+ is put in the session, 
+replacing the one that was already there.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - A hit counter.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    Integer cnt = (Integer)session.getValue("counter");
+
+    if(cnt == null) cnt = new Integer(1);
+    else cnt = new Integer(cnt.intValue() + 1);
+    session.putValue("counter",cnt);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1086">
+Note that because an object of the 
+
+<emphasis id="strong1082" effect="bold">
+Integer
+
+</emphasis>
+ class is 
+immutable, the only way to increment the 
+
+<emphasis id="strong1083" effect="bold">
+counter
+
+</emphasis>
+ is to create a 
+new 
+
+<emphasis id="strong1084" effect="bold">
+Integer
+
+</emphasis>
+ object to replace the existing one.
+
+</para>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1085" effect="bold">
+The putValue and getValue methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+<link id="a1047" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also illustrates the 
+
+<emphasis id="strong1086" effect="bold">
+putValue
+
+</emphasis>
+ and 
+
+<emphasis id="strong1087" effect="bold">
+
+getValue
+
+
+</emphasis>
+ methods. These methods are used to store and retrieve objects from the 
+session object. The 
+
+<emphasis id="strong1088" effect="bold">
+putValue()
+
+</emphasis>
+ method requires two parameters: 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1040">
+an object to be stored
+
+</item>
+
+
+	
+
+<item id="li1041">
+the 
+
+<emphasis id="strong1089" effect="bold">
+String 
+
+</emphasis>
+name under which the object is to be stored
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1089">
+The 
+
+<emphasis id="strong1090" effect="bold">
+getValue
+
+</emphasis>
+ method requires the 
+
+<emphasis id="strong1091" effect="bold">
+String
+
+</emphasis>
+ name of 
+the object to retrieve.
+
+</para>
+
+
+	
+
+<para id="p1090">
+<emphasis id="strong1092" effect="bold">
+Insert a Date object into the session
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1091">
+As shown in 
+
+<link id="a1048" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, each time the servlet is called, a new 
+
+<emphasis id="strong1093" effect="bold">
+Date
+
+</emphasis>
+ 
+object containing the current date and time is instantiated and stored in the 
+session object. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Insert a Date object into 
+				the session.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    Date theDate = new Date();
+    long millis = theDate.getTime();
+    String strMillis = "" + millis;
+    session.putValue(strMillis,theDate);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1092">
+Each 
+
+<emphasis id="strong1094" effect="bold">
+Date
+
+</emphasis>
+ object is stored under a name created by 
+converting the current date and time in milliseconds to a 
+
+<emphasis id="strong1095" effect="bold">
+String
+
+</emphasis>
+. 
+Thus, the amount of data stored in the session object increases with each call 
+to the servlet.
+
+</para>
+
+
+	
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1028" effect="italics">
+(Note that if the servlet is called twice by the same client within one millisecond, this 
+naming scheme will fail due to duplicate names being created and put into the 
+session object.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1096" effect="bold">
+An object of type MyClass
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+When the value of the hit counter is 1, an object of type 
+
+<emphasis id="strong1097" effect="bold">
+MyClass
+
+</emphasis>
+ 
+is instantiated and stored in the session object under the name 
+
+<emphasis id="strong1098" effect="bold">
+
+MyClassObj
+
+</emphasis>
+. This is shown in 
+
+<link id="a1049" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Note 
+in particular that a reference to the output stream object is passed to the 
+constructor for the 
+
+<emphasis id="strong1099" effect="bold">
+MyClass
+
+</emphasis>
+ object. You will see why later.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - An object of type 
+				MyClass.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">
+    if(cnt.intValue() == 1) 
+               session.putValue("MyClassObj", new MyClass(out));
+    if(cnt.intValue() == 4) session.removeValue("MyClassObj");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1095">
+Also as shown in 
+
+<link id="a1050" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, this object is removed from 
+the session object when the value of the hit counter is 4.
+
+</para>
+
+
+
+
+<para id="p1096">
+An 
+
+<emphasis id="strong1100" effect="bold">
+HttpSessionBindingEvent
+
+</emphasis>
+ event happens when the object is 
+put into the session object and happens again when the object is removed from 
+the session object.
+
+</para>
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1101" effect="bold">
+Event handling
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1098">
+The object of type 
+
+<emphasis id="strong1102" effect="bold">
+MyClass
+
+</emphasis>
+ is a listener for events of type 
+
+<emphasis id="strong1103" effect="bold">
+HttpSessionBindingEvent
+
+</emphasis>
+. 
+Therefore, it receives an event notification when it is put into the session object, and 
+receives another event notification when it is removed from the session object. Information 
+about the two events is displayed on the client screen when the events occur.
+
+</para>
+
+
+
+
+<para id="p1099">
+The text at the top of 
+
+<link id="a1051" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ was produced when the 
+
+<emphasis id="strong1104" effect="bold">
+MyClass
+
+</emphasis>
+ 
+object was put into the session. The text at the top of 
+
+<link id="a1052" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ was produced 
+when the object was removed from the session. More information about that text 
+will be provided later during the discussion of the class named 
+
+<emphasis id="strong1105" effect="bold">
+MyClass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1106" effect="bold">
+Display information about the session
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1101">
+The code in 
+
+<link id="a1053" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ displays several pieces of information about the 
+session each time the servlet is called. This information is obtained from the 
+session object by calling various methods on the session object. The information 
+is then mixed with standard HTML code and displayed on the client screen as 
+shown in 
+
+<link id="a1054" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ through 
+
+<link id="a1055" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Display information about 
+				the session.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    out.println("&lt;p&gt;Session Characteristics:&lt;br/&gt;"); 
+    out.println("New Session: " + session.isNew()+ "&lt;br/&gt;");
+    out.println("Session ID: " + session.getId()+ "&lt;br/&gt;");
+    out.println("Session Context: " 
+                        + session.getSessionContext()+ "&lt;br/&gt;");
+    out.println("Creation Time: " 
+               + new Date(session.getCreationTime()) + "&lt;br/&gt;");
+    out.println("Last Accessed: " 
+            + new Date(session.getLastAccessedTime()) + "&lt;/p&gt;");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1102">
+<emphasis id="strong1107" effect="bold">
+Display information about the objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1103">
+The code in 
+
+<link id="a1056" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ displays information about each of the objects stored 
+in the session object each time the servlet is called. Note that the order of 
+the display of objects doesn't seem to follow any particular pattern.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Display information about the objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">    out.println("&lt;p&gt;Session Data:&lt;br/&gt;");
+    String[] names = session.getValueNames();
+    for(int i = 0; i &lt; names.length; i++){
+      out.println(names[i] + ": " 
+                        + session.getValue(names[i]) + "&lt;br/&gt;");
+    }//end for loop
+
+
+    //Finish off the HTML page
+    out.println("&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;");
+  }//end doGet()
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1104">
+The code in 
+
+<link id="a1057" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1108" effect="bold">
+getValueNames
+
+</emphasis>
+ method to 
+create a 
+
+<emphasis id="strong1109" effect="bold">
+String
+
+</emphasis>
+ array containing the names of each of the 
+objects currently stored in the session object. A 
+
+<emphasis id="strong1110" effect="bold">
+for
+
+</emphasis>
+ loop then 
+iterates on that array, calling the 
+
+<emphasis id="strong1111" effect="bold">
+getValue
+
+</emphasis>
+ method on each 
+name to get and display each of the objects stored in the session object.
+
+</para>
+
+
+	
+
+<quote id="blockquote1005" display="block">
+
+		
+
+<emphasis id="em1029" effect="italics">
+(The code in 
+
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ also finishes off 
+		the web page and signals the end of the 
+
+<emphasis id="strong1112" effect="bold">
+doGet
+
+</emphasis>
+ method.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1113" effect="bold">
+The information that is displayed
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+The following information about the objects is displayed in 
+
+<link id="a1059" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ through 
+
+<link id="a1060" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+: 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1042">
+<emphasis id="counter_information" effect="bold">
+
+counter information
+
+</emphasis>
+
+
+</item>
+
+
+	
+
+<item id="li1043">
+information 
+about each of the 
+
+<emphasis id="strong1114" effect="bold">
+Date
+
+</emphasis>
+ objects
+
+</item>
+
+
+	
+
+<item id="li1044">
+information about the output stream object
+
+</item>
+
+
+	
+
+<item id="li1045">
+information about the 
+object of type 
+
+<emphasis id="strong1115" effect="bold">
+MyClass
+
+</emphasis>
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1107">
+Beginning with 
+
+<link id="a1061" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+, the
+
+
+<emphasis id="strong1116" effect="bold">
+MyClass
+
+</emphasis>
+ object is no longer contained in the session object 
+when the list is constructed, so only information about the first three items in 
+the 
+
+<link id="a1062" target-id="counter_information">
+
+above list
+
+</link>
+
+ is 
+displayed.
+
+</para>
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1117" effect="bold">
+Miscellaneous things worthy of note
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1109">
+In 
+
+<link id="a1063" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, you see three types of information being displayed:
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1046">
+Event
+
+</item>
+
+
+	
+
+<item id="li1047">
+Session Characteristics
+
+</item>
+
+
+	
+
+<item id="li1048">
+Session Data
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1110">
+The 
+
+<emphasis id="strong1118" effect="bold">
+Event 
+
+</emphasis>
+output resulted from the fact that the object of 
+type 
+
+<emphasis id="strong1119" effect="bold">
+MyClass
+
+</emphasis>
+ was put into the session object. This caused the
+
+
+<emphasis id="strong1120" effect="bold">
+valueBound
+
+</emphasis>
+ method to be called.
+
+</para>
+
+
+
+
+<para id="p1111">
+The 
+
+<emphasis id="strong1121" effect="bold">
+Session Characteristics
+
+</emphasis>
+ show that the creation time and 
+the time last accessed are equal, and the session is a new session.
+
+</para>
+
+
+
+
+<para id="p1112">
+The 
+
+<emphasis id="strong1122" effect="bold">
+Session Characteristics
+
+</emphasis>
+ also show the 
+
+<emphasis id="strong1123" effect="bold">
+Session ID
+
+</emphasis>
+ 
+which has been automatically created for this session and the 
+
+<emphasis id="strong1124" effect="bold">
+Session 
+Context
+
+</emphasis>
+, which is peculiar to the Tomcat server being used. Neither of 
+these will change for the duration of the session.
+
+</para>
+
+
+
+
+<para id="p1113">
+The 
+
+<emphasis id="strong1125" effect="bold">
+Session Data
+
+</emphasis>
+ in 
+
+<link id="a1064" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows information on one counter object, 
+one 
+
+<emphasis id="strong1126" effect="bold">
+Date
+
+</emphasis>
+ object, one output stream object, and one object of type 
+
+<emphasis id="strong1127" effect="bold">
+MyClass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1114">
+<link id="a1065" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ through 
+
+<link id="a1066" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ all show the same
+
+<emphasis id="strong1128" effect="bold">
+ Session ID
+
+</emphasis>
+ and the 
+same 
+
+<emphasis id="strong1129" effect="bold">
+Session Context
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<quote id="blockquote1006" display="block">
+<emphasis id="em1030" effect="italics">
+(Note that unlike the servlet code in earlier modules, I did not write the 
+code that created the session ID.)
+
+</emphasis>
+</quote>
+
+
+	
+
+
+<para id="p1115">
+In 
+
+<link id="a1067" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and 
+
+<link id="a1068" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, you see only two types of information being displayed:
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+
+	
+
+<item id="li1049">
+Session Characteristics
+
+</item>
+
+
+	
+
+<item id="li1050">
+Session Data
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+<para id="p1116">
+There is no event output in these two Figures because the object of type 
+
+<emphasis id="strong1130" effect="bold">
+MyClass
+
+</emphasis>
+ is 
+	neither put 
+	into nor removed from the session during these calls to the servlet.
+
+</para>
+
+
+
+
+<para id="p1117">
+Beginning with 
+
+<link id="a1069" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, the 
+
+<emphasis id="strong1131" effect="bold">
+New Session
+
+</emphasis>
+ value shows false. 
+In other words, the session is no longer new.
+
+</para>
+
+
+
+
+<para id="p1118">
+Beginning with 
+
+<link id="a1070" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, the 
+
+<emphasis id="strong1132" effect="bold">
+Last Accessed
+
+</emphasis>
+ time differs from 
+the 
+
+<emphasis id="strong1133" effect="bold">
+Creation Time
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1119">
+The entire sequence of Figures show a sequence of seven calls to the servlet. Hence, the 
+value of the counter increases by one in each succeeding Figure. Also, the number 
+of objects in the list increases by one during each of the first three Figures.
+
+</para>
+
+
+
+
+<para id="p1120">
+<link id="a1071" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ shows the screen output for the fourth call to the servlet. This is 
+the call where the 
+
+<emphasis id="strong1134" effect="bold">
+MyClass
+
+</emphasis>
+ object was removed from the 
+session object. Hence an 
+
+<emphasis id="strong1135" effect="bold">
+Event
+
+</emphasis>
+ occurred showing that the
+
+
+<emphasis id="strong1136" effect="bold">
+valueUnbound
+
+</emphasis>
+ method was called.
+
+</para>
+
+
+
+
+<para id="p1121">
+The 
+
+<emphasis id="strong1137" effect="bold">
+Session Data
+
+</emphasis>
+ consists of one counter object, one output 
+stream object, and four
+
+
+<emphasis id="strong1138" effect="bold">
+Date
+
+</emphasis>
+ objects. The 
+
+<emphasis id="strong1139" effect="bold">
+MyClass
+
+</emphasis>
+ object no longer 
+appears in the list because it was removed from the session object before the 
+list was constructed.
+
+</para>
+
+
+
+
+<para id="p1122">
+Finally, 
+
+<link id="a1072" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ shows the screen output for the seventh call to the servlet. There is 
+no 
+
+<emphasis id="strong1140" effect="bold">
+Event
+
+</emphasis>
+ output and the 
+
+<emphasis id="strong1141" effect="bold">
+Session Characteristics
+
+</emphasis>
+ 
+are the same as before except for the time last accessed.
+
+</para>
+
+
+
+
+<para id="p1123">
+The 
+
+<emphasis id="strong1142" effect="bold">
+Session Data
+
+</emphasis>
+ consists of one counter object, one output 
+stream object, and seven
+
+
+<emphasis id="strong1143" effect="bold">
+Date
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1144" effect="bold">
+The inner class named MyClass
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1125">
+The code in 
+
+<link id="a1073" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ defines an inner class named 
+
+
+<emphasis id="strong1145" effect="bold">
+MyClass
+
+</emphasis>
+. It could have been implemented 
+as a top-level class but I elected to make it an inner class 
+
+<emphasis id="em1031" effect="italics">
+(actually a
+
+
+<link id="a1074" url="http://cnx.org/content/m44347/latest/?collection=col11441/latest">
+
+
+member class
+
+</link>
+
+)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - The inner class named MyClass.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">  class MyClass implements HttpSessionBindingListener,
+                                                   Serializable{
+    PrintWriter localOut;//local copy of output stream to client
+    
+    public MyClass(PrintWriter out){//constructor
+      //Save a local copy of the output stream to the client.
+      localOut = out;
+    }//end constructor
+
+    public String toString(){
+      return "This is a MyClass object";
+    }//end toString()
+    
+    //This method is called when the object is put into
+    // the session.
+    public void valueBound(HttpSessionBindingEvent e){
+      localOut.println("&lt;p&gt;Event&lt;br/&gt;");
+      localOut.println("In valueBound method&lt;br/&gt;");
+      //Returns the name of the object as identified when
+      // put into the session
+      localOut.println("Name = " +e.getName() + "&lt;/p&gt;");
+    }//end valueBound()
+
+    //This method is called when the object is removed
+    // from the session.
+    public void valueUnbound(HttpSessionBindingEvent e){
+      localOut.println("&lt;p&gt;Event&lt;br/&gt;");
+      localOut.println("In valueUnbound method&lt;br/&gt;");
+      localOut.println("Name = " +e.getName() + "&lt;/p&gt;");
+    }//end valueUnbound()
+  }//end inner class named MyClass 
+  
+
+}//end class Java4580a
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1146" effect="bold">
+Deploying the servlet
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1127">
+When this program is compiled, it produces the following two class files:
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1051">
+Java4580a.class
+
+</item>
+
+
+	
+
+<item id="li1052">
+Java4580a$MyClass.class
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1128">
+The second class file results from the compilation of the member class.
+
+</para>
+
+
+
+
+<para id="p1129">
+I mention this as a reminder that it is necessary to copy both of these class 
+files in order to deploy the servlet onto a web server. Note however that when 
+deploying on my local Tomcat server, only the information about the top level 
+class must be entered into the file named 
+
+<emphasis id="strong1147" effect="bold">
+web.xml
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1148" effect="bold">
+A MyClass object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1131">
+An object of the class named 
+
+<emphasis id="strong1149" effect="bold">
+MyClass
+
+</emphasis>
+ is instantiated and put into the session object 
+during the first call to the servlet when the hit counter equals one. 
+
+<emphasis id="em1032" effect="italics">
+(See 
+
+<link id="a1075" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.)
+
+</emphasis>
+ The object is removed during the fourth 
+call to the servlet when the hit counter equals four. 
+
+<emphasis id="em1033" effect="italics">
+(Again, see
+
+
+<link id="a1076" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1150" effect="bold">
+A listener object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1133">
+Because the class implements the 
+
+<emphasis id="strong1151" effect="bold">
+HttpSessionBindingListener 
+
+</emphasis>
+
+interface, an object of the class is a listener for events of type 
+
+<emphasis id="strong1152" effect="bold">
+
+HttpSessionBindingEvent
+
+</emphasis>
+. An event of this type occurs when the object 
+is put into the session object. Another event of this type occurs when the 
+object is removed from the session object.
+
+</para>
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1153" effect="bold">
+Event handler methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1135">
+The method named 
+
+<emphasis id="strong1154" effect="bold">
+valueBound
+
+</emphasis>
+ is called when the object is put 
+into the session object. The method named 
+
+<emphasis id="strong1155" effect="bold">
+valueUnbound
+
+</emphasis>
+ is 
+called when the object is removed from the session object. 
+
+</para>
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1156" effect="bold">
+No registration necessary
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1137">
+Unlike typical Java event programming, it is not necessary to register the 
+listener on a source. Simply implementing the
+
+<emphasis id="strong1157" effect="bold">
+ HttpSessionBindingListener 
+
+</emphasis>
+interface is sufficient to cause 
+the object to be notified of the events when an object of the class is put into 
+or removed from the session object.
+
+</para>
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1158" effect="bold">
+An object of type HttpSessionBindingEvent
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1139">
+When an event occurs, the event handler methods named 
+
+<emphasis id="strong1159" effect="bold">
+valueBound
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1160" effect="bold">
+valueUnbound
+
+</emphasis>
+ receive a reference to an object of type
+
+
+<emphasis id="strong1161" effect="bold">
+HttpSessionBindingEvent
+
+</emphasis>
+ as a parameter. 
+
+</para>
+
+
+
+
+<para id="p1140">
+In this program, the event handlers call 
+the 
+
+<emphasis id="strong1162" effect="bold">
+getName
+
+</emphasis>
+ method on the event objects to display information about the events on the 
+client screen when the events occur. This is shown in 
+
+<link id="a1077" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1078" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. 
+Several other methods are available to be called on the event object including:
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1053">
+getName
+
+</item>
+
+
+	
+
+<item id="li1054">
+getSession
+
+</item>
+
+
+	
+
+<item id="li1055">
+getValue
+
+</item>
+
+
+	
+
+<item id="li1056">
+getSource
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1163" effect="bold">
+An overridden toString method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1142">
+In addition to the two event handler methods, the 
+
+<emphasis id="strong1164" effect="bold">
+MyClass
+
+</emphasis>
+ class also overrides the
+
+
+<emphasis id="strong1165" effect="bold">
+toString
+
+</emphasis>
+ method. Note that the string returned by the 
+overridden 
+
+<emphasis id="strong1166" effect="bold">
+toString
+
+</emphasis>
+ method is displayed in 
+
+<link id="a1079" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+ 
+through 
+
+<link id="a1080" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ to represent the 
+
+<emphasis id="strong1167" effect="bold">
+MyClass
+
+</emphasis>
+ 
+object that is contained in the session object.
+
+</para>
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1168" effect="bold">
+Event handler behavior
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1144">
+My objective was to display the name returned by the 
+
+<emphasis id="strong1169" effect="bold">
+getName
+
+</emphasis>
+ 
+method on the browser screen for each event as shown by the third line in
+
+
+<link id="a1081" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and the third line in 
+
+<link id="a1082" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. 
+In order to accomplish this, the code in the event handler methods need access 
+to the output stream object. This was accomplished by 
+
+</para>
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1057">
+passing a reference to the output stream object to the 
+
+<emphasis id="strong1170" effect="bold">
+MyClass
+
+</emphasis>
+ 
+	constructor
+
+</item>
+
+
+	
+
+<item id="li1058">
+saving that reference in an instance variable of the 
+
+<emphasis id="strong1171" effect="bold">
+MyClass
+
+</emphasis>
+ 
+	object
+
+</item>
+
+
+	
+
+<item id="li1059">
+using that reference inside the event handler methods to send content to 
+	the browser
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1172" effect="bold">
+Standard source-listener event handling
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1146">
+Except for the fact that there is no requirement to register the event 
+listener object on a source, this is straightforward source-listener event 
+handling material that you should already be familiar with.
+
+</para>
+
+
+
+
+<para id="p1147">
+The code in 
+
+<link id="a1083" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ also signals the end of the class named 
+
+
+<emphasis id="strong1173" effect="bold">
+Java4590a
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1148">
+I encourage you to copy the code from 
+
+<link id="a1084" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Compile the code and 
+deploy it on your server. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1149">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1174" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1017" list-type="bulleted">
+
+					
+
+<item id="li1060">
+Module name: Java4580: Session Tracking using the 
+					Session Tracking API
+
+</item>
+
+
+					
+
+<item id="li1061">
+File: Java4580.htm
+
+
+</item>
+
+
+					
+
+<item id="li1062">
+Published: 12/30/13
+
+</item>
+
+
+
+
+<item id="li1063">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1175" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1150">
+<emphasis id="strong1176" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1151">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1152">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1153">
+<emphasis id="strong1177" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1178" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - The servlet named Java4580a.java.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1009" display="block">
+/*File Java4580a.java, Copyright 1999, R.G.Baldwin
+Revised 12/30/13
+
+This servlet illustrates use of the session tracking API.
+A variety of different aspects of session tracking using
+the API are illustrated.
+***************************************************************/
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Java4580a extends HttpServlet{
+  
+  public void doGet(HttpServletRequest request, 
+                    HttpServletResponse response)
+                           throws ServletException, IOException{
+    
+    //Get the session associated with this request,
+    HttpSession session = request.getSession(true);
+
+    response.setContentType("text/html");
+    
+    //Get the output stream from the session object.
+    // If this is the first call to servlet, create an output
+    // stream and save it in the session object.
+    PrintWriter out = (PrintWriter)session.getValue("out");
+    if(out == null){
+      //First request from this client
+      out = response.getWriter();
+      session.putValue("out",out);
+    }//end if
+    
+    //Create HTML page header
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4580a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+    
+    //Create a hit counter for this servlet 
+    Integer cnt = (Integer)session.getValue("counter");
+    if(cnt == null) cnt = new Integer(1);
+    else cnt = new Integer(cnt.intValue() + 1);
+    session.putValue("counter",cnt);
+    
+    //Add a new Date object each time the servlet i called
+    Date theDate = new Date();
+    long millis = theDate.getTime();
+    String strMillis = "" + millis;
+    session.putValue(strMillis,theDate);
+    
+    //When the hit counter is 1, instantiate a new object of
+    // type MyClass and put it in the session. Pass
+    // a reference to the output stream to the constructor.
+    //Remove the object from the session when the value
+    // of the hit counter is 4.
+    if(cnt.intValue() == 1) 
+               session.putValue("MyClassObj", new MyClass(out));
+    if(cnt.intValue() == 4) session.removeValue("MyClassObj");
+
+    //Display information about the session.
+    out.println("&lt;p&gt;Session Characteristics:&lt;br/&gt;"); 
+    out.println("New Session: " + session.isNew()+ "&lt;br/&gt;");
+    out.println("Session ID: " + session.getId()+ "&lt;br/&gt;");
+    out.println("Session Context: " 
+                        + session.getSessionContext()+ "&lt;br/&gt;");
+    out.println("Creation Time: " 
+               + new Date(session.getCreationTime()) + "&lt;br/&gt;");
+    out.println("Last Accessed: " 
+            + new Date(session.getLastAccessedTime()) + "&lt;/p&gt;");
+
+    //Display information about all of the objects currently in
+    // the session.  Note that the session now contains a
+    // PrintWriter object that was not in the session in the
+    // original version of the servlet named Java4580a.
+    out.println("&lt;p&gt;Session Data:&lt;br/&gt;");
+    String[] names = session.getValueNames();
+    for(int i = 0; i &lt; names.length; i++){
+      out.println(names[i] + ": " 
+                        + session.getValue(names[i]) + "&lt;br/&gt;");
+    }//end for loop
+
+    //Finish off the HTML page
+    out.println("&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;");
+  }//end doGet()
+  //==========================================================//
+  
+  //This is an inner class. In the original version, this
+  class MyClass implements HttpSessionBindingListener,
+                                                   Serializable{
+    PrintWriter localOut;//local copy of output stream to client
+    
+    public MyClass(PrintWriter out){//constructor
+      //Save a local copy of the output stream to the client.
+      localOut = out;
+    }//end constructor
+
+    public String toString(){
+      return "This is a MyClass object";
+    }//end toString()
+    
+    //This method is called when the object is put into
+    // the session.
+    public void valueBound(HttpSessionBindingEvent e){
+      localOut.println("&lt;p&gt;Event&lt;br/&gt;");
+      localOut.println("In valueBound method&lt;br/&gt;");
+      //Returns the name of the object as identified when
+      // put into the session
+      localOut.println("Name = " +e.getName() + "&lt;/p&gt;");
+    }//end valueBound()
+
+    //This method is called when the object is removed
+    // from the session.
+    public void valueUnbound(HttpSessionBindingEvent e){
+      localOut.println("&lt;p&gt;Event&lt;br/&gt;");
+      localOut.println("In valueUnbound method&lt;br/&gt;");
+      localOut.println("Name = " +e.getName() + "&lt;/p&gt;");
+    }//end valueUnbound()
+  }//end inner class named MyClass 
+  
+
+}//end class Java4580a
+</code>
+
+
+
+
+
+<para id="p1155">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

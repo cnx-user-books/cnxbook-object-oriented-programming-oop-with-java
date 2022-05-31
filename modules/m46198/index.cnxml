@@ -1,0 +1,4576 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4160: The toArray Method, Part 2</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46198</md:content-id>
+  <md:title>Java4160: The toArray Method, Part 2</md:title>
+  <md:abstract>This module shows you how to use the more-complex version of the toArray method declared in the Collection interface. The module discusses issues regarding the type of the array and the types of the objects referred to by the elements in the collection. The module also discusses issues regarding the relative sizes of the array and the collection. Finally, the module reaffirms that you need to exercise caution when using the elements stored in the array, to avoid corrupting the state of the objects referred to by the elements in the collection.</md:abstract>
+  <md:uuid>3c7e4f60-ac78-4103-bc6d-f092325a3f64</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 08 13:14:35 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+
+
+<item id="li1008">
+<link id="a1008" target-id="Beginning_with_a_quiz">
+
+Beginning with a quiz
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="And_the_answer_is_">
+
+And the answer is ... 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Similar_to_previous_program">
+
+Similar to previous program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="A_populated_array_">
+
+A populated array 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Display_the_array_contents_">
+
+Display the array contents 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="A_new_LinkedList_collection_">
+
+A new LinkedList collection 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Populating_the_LinkedList_collection_">
+
+Populating the LinkedList collection 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Four_buttons_and_two_labels_">
+
+Four buttons and two labels 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="The_toolTipText_property_">
+
+The toolTipText property 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="JButton_and_JLabel_">
+
+JButton and JLabel 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Making_the_objects_distinguishable">
+
+Making the objects distinguishable
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Identifying_the_buttons_and_labels">
+
+Identifying the buttons and labels
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Display_the_collection">
+
+Display the collection
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Copy_collection_elements_into_an_array">
+
+Copy collection elements into an array
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1022">
+<link id="a1022" target-id="The_toArray_method_">
+
+The toArray method 
+
+</link>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="The_essential_difference_">
+
+The essential difference
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Type_is_not_an_issue_for_the_simpler_version">
+
+Type is not an issue for the simpler version
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="Size_is_not_an_issue_for_the_simpler_version_">
+
+Size is not an issue for the simpler version 
+	
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1026">
+<link id="a1026" target-id="More_complex_version_presents_some_issues">
+
+More-complex version presents some issues
+
+</link>
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="The_type_issue">
+
+The type issue
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" target-id="Two_types_of_objects_in_this_collection">
+
+Two types of objects in this collection
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1029" target-id="The_size_issue_">
+
+The size issue 
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="So_what_did_I_do">
+
+So, what did I do?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1031" target-id="More_information_from_Oracle_">
+
+More information from Oracle 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1032">
+<link id="a1032" target-id="The_output">
+
+The output
+
+</link>
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Demonstrates_same_array_was_used_">
+
+Demonstrates same array was used 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1034" target-id="What_if_the_array_was_too_small">
+
+What if the array was too small?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1035" target-id="Not_difficult_to_demonstrate_">
+
+Not difficult to demonstrate 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1036" target-id="Array_as_large_as_or_larger_than_collection_">
+
+Array as large as or larger than collection 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1037" target-id="Array_smaller_than_the_collection_">
+
+Array smaller than the collection
+
+</link>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1038">
+<link id="a1038" target-id="Modify_an_object_">
+
+Modify an object 
+
+
+</link>
+
+ 
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1039">
+<link id="a1039" target-id="Now_for_the_caution">
+
+Now for the caution
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1040" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1041" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1042" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1043" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module shows you how to use the more-complex version of the 
+
+<emphasis id="strong1000" effect="bold">
+toArray
+
+</emphasis>
+ method declared in the 
+
+
+<emphasis id="strong1001" effect="bold">
+Collection
+
+</emphasis>
+ interface. The module discusses issues regarding the type of the array and the types of the objects referred to by the elements in the collection. 
+The module also discusses issues regarding the relative sizes of the array and the collection. Finally, 
+the module reaffirms that you need to exercise caution when using the elements stored in the array, to avoid corrupting the state of the objects referred to by the elements in the collection.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1044" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1045" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1044">
+<link id="a1046" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named ToArray02. 
+
+</item>
+
+
+	
+
+<item id="li1045">
+<link id="a1047" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. A populated array. 
+
+</item>
+
+
+	
+
+<item id="li1046">
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. A new LinkedList collection.
+
+</item>
+
+
+	
+
+<item id="li1047">
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The fillIt method. 
+
+</item>
+
+
+	
+
+<item id="li1048">
+<link id="a1050" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Copy collection elements into an array.
+
+</item>
+
+
+	
+
+<item id="li1049">
+<link id="a1051" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Modify an object .
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+The 
+
+<emphasis id="strong1002" effect="bold">
+Collection
+
+</emphasis>
+ interface declares the following two overloaded 
+versions of the 
+
+<emphasis id="strong1003" effect="bold">
+toArray
+
+</emphasis>
+ method: 
+
+</para>
+
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+
+<code id="pre1000" display="block">
+
+public Object[] toArray()
+
+public Object[] toArray(Object[] a)</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1007">
+In the previous module, I taught you how to use the first 
+
+<emphasis id="em1003" effect="italics">
+(simpler)
+
+</emphasis>
+ of 
+the two methods. I also discussed the need to exercise care when using the 
+elements stored in the returned array to avoid corrupting the state of the 
+objects referred to by elements in the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+In this module, I will teach you how to use the second 
+
+<emphasis id="em1004" effect="italics">
+(more-complex)
+
+</emphasis>
+ 
+version of the 
+
+<emphasis id="strong1004" effect="bold">
+toArray
+
+</emphasis>
+ method declared in the 
+
+<emphasis id="strong1005" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. I will discuss issues regarding the type of the array and the types 
+of the objects referred to by the elements in the collection. I will also 
+discuss issues regarding the relative sizes of the array and the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Finally, I will reaffirm that you need to exercise care when using the 
+elements stored in the array, to avoid corrupting the state of the objects 
+referred to by the elements in the collection. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1052" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1005" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Beginning_with_a_quiz" effect="bold">
+
+Beginning with a quiz
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1012">
+As has been the case in the last few modules, let's begin with a quiz 
+to test your prior knowledge of the Collections Framework. To take this quiz, 
+examine the program shown in 
+
+<link id="a1053" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and write down the output produced by 
+that program.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1006" effect="bold">
+The program named ToArray02
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">//File ToArray02.java
+//Copyright 2001, R.G.Baldwin
+import java.util.*;
+import javax.swing.*;
+
+public class ToArray02{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class ToArray02
+//===================================//
+
+class Worker{
+  public void doIt(){
+    Collection ref;
+
+    //Create, populate, and display
+    // the contents of an array
+    JComponent[] array = new JComponent[8];
+    for(int cnt=0;cnt&lt;8;cnt++){
+      array[cnt] = new JButton();
+      array[cnt].setToolTipText("" + (cnt+10));
+    }//end for loop
+    System.out.println();
+    showArray(array,"Original array contents");
+
+
+    //Create, populate, and display the
+    // contents of a collection
+    ref = new LinkedList();
+    Populator.fillIt(ref);
+    showCollection(ref,"Collection contents");
+
+    //Get collection contents into the
+    // array and display the new
+    // contents of the array.
+    array = (JComponent[])ref.toArray(array);
+    showArray(array,"New array contents");
+
+    //Modify a property of an object
+    // referred to by one of the
+    // elements in the array. Display
+    // array contents after
+    // modification
+    ((JComponent)array[0]).setToolTipText("XX");
+    showArray(array,"Modified array contents");
+
+    //Display the contents of the collection
+    showCollection(ref,"Collection contents");
+  }//end doIt()
+//-----------------------------------//
+
+  //Utility method for displaying
+  // array contents
+  void showArray(Object[] array,String title){
+    System.out.println(title);
+    for(int i = 0; i &lt; array.length;i++){
+      if(array[i] == null){
+        System.out.print("null ");
+      }else{
+        System.out.print(((JComponent)array[i]).
+                                 getToolTipText() + " ");
+      }//end else
+    }//end for loop
+    System.out.println();
+  }//end showArray()
+//-----------------------------------//
+
+  //Utility method for displaying
+  // collection contents
+  void showCollection(Collection ref,String title){
+    System.out.println(title);
+    Iterator iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(((JComponent)iter.next()).
+                                 getToolTipText() + " ");
+    }//end while loop
+    System.out.println();
+  }//end showCollection
+}// end class Worker
+//===================================//
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(new JButton());
+    ref.add(new JButton());
+    ref.add(new JLabel());
+    ref.add(new JButton());
+    ref.add(new JButton());
+    ref.add(new JLabel());
+
+    Iterator iter = ref.iterator();
+    int cnt = 0;
+    JComponent refVar;
+    while(iter.hasNext()){
+      refVar = (JComponent)iter.next();
+      if(refVar instanceof JButton){
+        refVar.setToolTipText("B"+cnt++);
+      }else{
+        refVar.setToolTipText("L" + cnt++);
+      }//end else
+    }//end while loop
+
+  }//end fillIt()
+}//end class Populator
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="And_the_answer_is_" effect="bold">
+
+And the answer is ... 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1013">
+The correct answer to the quiz is the program output shown below: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1002" display="block">
+
+Original array contents
+10 11 12 13 14 15 16 17 
+Collection contents
+B0 B1 L2 B3 B4 L5 
+New array contents
+B0 B1 L2 B3 B4 L5 null 17 
+Modified array contents
+XX B1 L2 B3 B4 L5 null 17 
+Collection contents
+XX B1 L2 B3 B4 L5</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1014">
+If that was your answer, you probably already understand most of the material 
+covered in this module. In that case, you might consider skipping this module 
+and moving on to some more productive activity. If that wasn't your answer, you should 
+probably continue with your study of this module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Similar_to_previous_program" effect="bold">
+
+Similar to previous program
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1015">
+Except for the use of a different version of the 
+
+<emphasis id="strong1007" effect="bold">
+toArray
+
+</emphasis>
+ method, the 
+overall structure of the program in 
+
+<link id="a1054" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is similar to the program in the 
+previous module. Therefore, I will concentrate on those aspects of this program 
+that differentiate it from the program in the previous module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="A_populated_array_" effect="bold">
+
+A populated array 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1016">
+Unlike the program in the previous module, the code in 
+
+<link id="a1055" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ creates and 
+populates an eight-element array of type 
+
+<emphasis id="strong1008" effect="bold">
+JComponent
+
+</emphasis>
+. This array 
+will be re-populated by the 
+
+<emphasis id="strong1009" effect="bold">
+toArray
+
+</emphasis>
+ method later in the program. The 
+array is populated with a set of initial element values at this point to make it 
+obvious when it is re-populated 
+
+<emphasis id="em1006" effect="italics">
+(overwritten elements)
+
+</emphasis>
+ by the 
+
+<emphasis id="strong1010" effect="bold">
+toArray
+
+</emphasis>
+ 
+method later. 
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. A populated 
+				array.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1003" display="block">    JComponent[] array = new JComponent[8];
+
+    for(int cnt=0;cnt&lt;8;cnt++){
+      array[cnt] = new JButton();
+      array[cnt].setToolTipText("" + (cnt+10));
+    }//end for loop
+    System.out.println();
+    showArray(array,"Original array contents");
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1017">
+The 
+
+<emphasis id="strong1011" effect="bold">
+JButton
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1012" effect="bold">
+JLabel
+
+</emphasis>
+ class, and the 
+
+<emphasis id="strong1013" effect="bold">
+setToolTipText
+
+</emphasis>
+ 
+method were discussed in detail in the previous module, so I won't repeat that 
+discussion here. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="Display_the_array_contents_" effect="bold">
+
+Display the array contents 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+After the array is populated by the code in 
+
+<link id="a1056" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, a reference to the 
+array object is passed to the 
+
+<emphasis id="strong1014" effect="bold">
+showArray
+
+</emphasis>
+ method 
+
+<emphasis id="em1007" effect="italics">
+(also in 
+
+<link id="a1057" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+)
+
+</emphasis>
+ 
+to display the contents of the array. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+With the exception of some minor changes implemented in this program to make 
+the use of the 
+
+<emphasis id="strong1015" effect="bold">
+showArray
+
+</emphasis>
+ method more compact, this is the same 
+
+<emphasis id="strong1016" effect="bold">
+
+showArray
+
+</emphasis>
+ method used in the previous module. Therefore, I won't discuss 
+that method further in this module. The output produced by the code in 
+
+<link id="a1058" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+is as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1004" display="block">
+
+Original array contents
+10 11 12 13 14 15 16 17</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1020">
+As you can see, each of the eight elements in the array was initialized with 
+an easily-recognizable and unique value, (
+
+<emphasis id="em1008" effect="italics">
+which may be overwritten by the 
+
+
+<emphasis id="strong1017" effect="bold">
+toArray
+
+</emphasis>
+ method later).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="A_new_LinkedList_collection_" effect="bold">
+
+A new LinkedList collection 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1021">
+The code in 
+
+<link id="a1059" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ creates and populates a new 
+
+<emphasis id="strong1018" effect="bold">
+LinkedList
+
+</emphasis>
+ 
+collection. The collection is populated by passing the 
+
+<emphasis id="strong1019" effect="bold">
+LinkedList
+
+</emphasis>
+ 
+object's reference to a method named 
+
+<emphasis id="strong1020" effect="bold">
+fillIt
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The code in 
+
+<link id="a1060" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ also displays the contents of the 
+
+<emphasis id="strong1021" effect="bold">
+LinkedList
+
+</emphasis>
+ 
+collection after it has been populated. The list is displayed by passing the 
+
+<emphasis id="strong1022" effect="bold">
+
+LinkedList
+
+</emphasis>
+ object's reference to a method named 
+
+<emphasis id="strong1023" effect="bold">
+showCollection
+
+</emphasis>
+. 
+
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. A new LinkedList collection.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1005" display="block">    ref = new LinkedList();
+    Populator.fillIt(ref);
+    showCollection(ref,"Collection contents");
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1023">
+Except for a couple of minor changes to the 
+
+<emphasis id="strong1024" effect="bold">
+showCollection
+
+</emphasis>
+ method, the 
+code to create, populate, and display the collection is the same as the code in 
+the previous module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Populating_the_LinkedList_collection_" effect="bold">
+
+Populating the LinkedList collection
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+A couple of points regarding the 
+
+<emphasis id="strong1025" effect="bold">
+fillIt
+
+</emphasis>
+ method 
+
+<emphasis id="em1009" effect="italics">
+(shown in 
+
+<link id="a1061" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+)
+
+</emphasis>
+ 
+are worthy of note. 
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The fillIt 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1006" display="block">  public static void fillIt(Collection ref){
+    ref.add(new JButton());
+    ref.add(new JButton());
+    ref.add(new JLabel());
+    ref.add(new JButton());
+    ref.add(new JButton());
+    ref.add(new JLabel());
+
+    Iterator iter = ref.iterator();
+    int cnt = 0;
+    JComponent refVar;
+    while(iter.hasNext()){
+      refVar = (JComponent)iter.next();
+      if(refVar instanceof JButton){
+        refVar.setToolTipText("B"+cnt++);
+      }else{
+        refVar.setToolTipText("L" + cnt++);
+      }//end else
+    }//end while loop
+
+  }//end fillIt()
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1025">
+The 
+
+<emphasis id="strong1026" effect="bold">
+fillIt
+
+</emphasis>
+ method begins by calling the 
+
+<emphasis id="strong1027" effect="bold">
+add
+
+</emphasis>
+ method six times in 
+succession, passing references to new anonymous objects 
+
+<emphasis id="em1010" effect="italics">
+(of types JButton and 
+JLabel)
+
+</emphasis>
+ as a parameter to the 
+
+<emphasis id="strong1028" effect="bold">
+add
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Four_buttons_and_two_labels_" effect="bold">
+
+Four buttons and two labels 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1026">
+Four of the objects are instantiated from the class named 
+
+<emphasis id="strong1029" effect="bold">
+JButton
+
+</emphasis>
+. The 
+other two objects are instantiated from the class named 
+
+<emphasis id="strong1030" effect="bold">
+JLabel
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Both 
+
+<emphasis id="strong1031" effect="bold">
+JButton
+
+</emphasis>
+ and 
+
+<emphasis id="strong1032" effect="bold">
+JLabel
+
+</emphasis>
+ belong to the 
+
+<emphasis id="strong1033" effect="bold">
+javax.swing
+
+</emphasis>
+ 
+package. Further, both are subclasses of the class named 
+
+<emphasis id="strong1034" effect="bold">
+JComponent
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="The_toolTipText_property_" effect="bold">
+
+The toolTipText property 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1028">
+Finally, both classes have a property named 
+
+<emphasis id="strong1035" effect="bold">
+toolTipText
+
+</emphasis>
+, which can be 
+set and accessed by calling the following methods on a reference to the object:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1007" display="block">
+
+void setToolTipText(String text)
+
+String getToolTipText()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="JButton_and_JLabel_" effect="bold">
+
+JButton and JLabel 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1029">
+I chose to use objects of these two classes for illustration purposes simply 
+because they possess the characteristics that I need for this module. Those 
+characteristics are: 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1050">
+Both classes subclass the class named JComponent 
+
+<emphasis id="em1011" effect="italics">
+(a common superclass 
+	below the Object class).
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1051">
+Both classes inherit a property 
+
+<emphasis id="em1012" effect="italics">
+(toolTipText)
+
+</emphasis>
+ that can be used to 
+	identify them later.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Making_the_objects_distinguishable" effect="bold">
+
+Making the objects distinguishable
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1030">
+After adding the objects' references to the collection, the code in 
+
+<link id="a1062" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+uses the 
+
+<emphasis id="strong1036" effect="bold">
+setToolTipText
+
+</emphasis>
+ method to store a unique 
+
+<emphasis id="strong1037" effect="bold">
+String 
+
+</emphasis>
+value in 
+the 
+
+<emphasis id="strong1038" effect="bold">
+toolTipText
+
+</emphasis>
+ property of the object referred to by each of the 
+elements in the collection. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Identifying_the_buttons_and_labels" effect="bold">
+
+Identifying the buttons and labels
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1031">
+In addition to storing a unique value in the 
+
+<emphasis id="strong1039" effect="bold">
+toolTipText
+
+</emphasis>
+ property of 
+the object referred to by each element, the code in 
+
+<link id="a1063" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also makes it 
+possible to distinguish between the 
+
+<emphasis id="strong1040" effect="bold">
+JButton
+
+</emphasis>
+ objects and the 
+
+<emphasis id="strong1041" effect="bold">
+JLabel
+
+</emphasis>
+ 
+objects. This is accomplished by including an upper-case "B" in the property 
+value for each 
+
+<emphasis id="strong1042" effect="bold">
+JButton
+
+</emphasis>
+, and including an upper-case "L" in the property 
+value for each 
+
+<emphasis id="strong1043" effect="bold">
+JLabel
+
+</emphasis>
+ button. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="Display_the_collection" effect="bold">
+
+Display the collection
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1032">
+The code in 
+
+<link id="a1064" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ above calls the 
+
+<emphasis id="strong1044" effect="bold">
+showCollection
+
+</emphasis>
+ method to display 
+the contents of the populated 
+
+<emphasis id="strong1045" effect="bold">
+LinkedList
+
+</emphasis>
+ collection. The output produced 
+by the code in 
+
+<link id="a1065" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is shown below: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1008" display="block">
+
+Collection contents
+B0 B1 L2 B3 B4 L5</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1033">
+Each term in the output is the 
+
+<emphasis id="strong1046" effect="bold">
+String
+
+</emphasis>
+ value of the 
+
+<emphasis id="strong1047" effect="bold">
+toolTipText
+
+</emphasis>
+ 
+property for a particular object. Hence, there are six terms in the output, one 
+for each element in the collection. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="Copy_collection_elements_into_an_array" effect="bold">
+
+Copy collection elements into an array
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1034">
+Having completed the preliminaries, we have now reached the point that is the main thrust of this module. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+The code in 
+
+<link id="a1066" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows how to use the more-complex version of the 
+
+<emphasis id="strong1048" effect="bold">
+
+toArray
+
+</emphasis>
+ method to copy the elements in the collection into an array. 
+
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Copy collection elements into an array.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1009" display="block">    array = (JComponent[])ref.toArray(array);
+    showArray(array,"New array contents");
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1036">
+The code in 
+
+<link id="a1067" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ also causes the contents of the array to be displayed 
+after it receives the elements from the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+The first statement in 
+
+<link id="a1068" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ causes the first seven elements in the array 
+to be overwritten with element values from the collection 
+
+<emphasis id="em1013" effect="italics">
+(plus one null 
+value).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The second statement in 
+
+<link id="a1069" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ causes the contents of the array to be 
+displayed. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_toArray_method_" effect="bold">
+
+The toArray method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+The most important thing to note about 
+
+<link id="a1070" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is that a reference to an 
+array object is passed as a parameter to the 
+
+<emphasis id="strong1049" effect="bold">
+toArray
+
+</emphasis>
+ method. 
+
+<emphasis id="em1014" effect="italics">
+(The 
+simpler version of the toArray method, discussed in the previous module, doesn't 
+take any parameters.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<section id="h31014">
+<title>
+<emphasis id="The_essential_difference_" effect="bold">
+
+The essential difference 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1040">
+The essential difference between the two overloaded versions of the 
+
+<emphasis id="strong1050" effect="bold">
+
+toArray
+
+</emphasis>
+ method has to do with the origin of the array into which the 
+
+<emphasis id="strong1051" effect="bold">
+
+toArray
+
+</emphasis>
+ method copies the elements from the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+With the simpler version of the 
+
+<emphasis id="strong1052" effect="bold">
+toArray
+
+</emphasis>
+ method that takes no 
+parameters. The 
+
+<emphasis id="strong1053" effect="bold">
+toArray
+
+</emphasis>
+ method creates a new array object of type 
+
+<emphasis id="strong1054" effect="bold">
+
+Object
+
+</emphasis>
+, populates it, and returns that object's reference as type 
+
+<emphasis id="strong1055" effect="bold">
+Object
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="Type_is_not_an_issue_for_the_simpler_version" effect="bold">
+
+Type is not an issue for the simpler version
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1042">
+Since the new array object is of type 
+
+<emphasis id="strong1056" effect="bold">
+Object
+
+</emphasis>
+, 
+
+<emphasis id="em1015" effect="italics">
+(when the rules for 
+Generics are not adhered to)
+
+</emphasis>
+ there are no issues 
+regarding type compatibility between the type of the array and the types of the 
+elements stored in the collection. A reference to an object of any type can be 
+stored in an array of the generic type 
+
+<emphasis id="strong1057" effect="bold">
+Object[]
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Size_is_not_an_issue_for_the_simpler_version_" effect="bold">
+
+Size is not an issue for the simpler version
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1043">
+Also, since the array is created when it is needed by the simpler version of 
+the 
+
+<emphasis id="strong1058" effect="bold">
+toArray
+
+</emphasis>
+ method, there are also no size issues. The array is created 
+to be of the correct size to contain copies of all of the elements in 
+the collection. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="More_complex_version_presents_some_issues" effect="bold">
+
+More-complex version presents some issues
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1044">
+With the more-complex version of the 
+
+<emphasis id="strong1059" effect="bold">
+toArray
+
+</emphasis>
+ method
+
+<emphasis id="em1016" effect="italics">
+ (shown in 
+
+
+<link id="a1071" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+)
+
+</emphasis>
+, the programmer must provide the array object that will be 
+populated by the 
+
+<emphasis id="strong1060" effect="bold">
+toArray
+
+</emphasis>
+ method. In this situation, there are size issues 
+as well as type issues to be dealt with. 
+
+</para>
+
+
+
+
+
+<section id="h31017">
+<title>
+<emphasis id="The_type_issue" effect="bold">
+
+The type issue
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1045">
+Here is some of what the Oracle documentation for the 
+
+<emphasis id="strong1061" effect="bold">
+LinkedList
+
+</emphasis>
+ class 
+has to say about the type issue for this version of the 
+
+<emphasis id="strong1062" effect="bold">
+toArray
+
+</emphasis>
+ method:
+
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1017" effect="italics">
+"Returns an array containing all of the elements in this list in the 
+	correct order. The runtime type of the returned array is that of the 
+	specified array. ... Throws: ArrayStoreException - if the runtime type of 
+	(the specified array) is not a supertype of the runtime type of every 
+	element in this list.
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1046">
+In other words, the type of the array passed as a parameter to the 
+
+<emphasis id="strong1063" effect="bold">
+toArray
+
+</emphasis>
+ 
+method must be a superclass of the classes from which all of the objects being 
+managed by the collection were instantiated. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31018">
+<title>
+<emphasis id="Two_types_of_objects_in_this_collection" effect="bold">
+
+Two types of objects in this collection
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1047">
+In this program, the collection is managing objects of the types 
+
+<emphasis id="strong1064" effect="bold">
+JButton
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1065" effect="bold">
+JLabel
+
+</emphasis>
+. Each of these types is a subclass of the class named 
+
+<emphasis id="strong1066" effect="bold">
+
+JComponent
+
+</emphasis>
+. For that reason, the type of array that I instantiated and 
+passed to the 
+
+<emphasis id="strong1067" effect="bold">
+toArray
+
+</emphasis>
+ method is 
+
+<emphasis id="strong1068" effect="bold">
+JComponent[]
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31019">
+<title>
+<emphasis id="The_size_issue_" effect="bold">
+
+The size issue 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1048">
+Here is some of what the Oracle documentation for the 
+
+<emphasis id="strong1069" effect="bold">
+LinkedList
+
+</emphasis>
+ class 
+has to say about the size issue for this version of the 
+
+<emphasis id="strong1070" effect="bold">
+toArray
+
+</emphasis>
+ method.
+
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1018" effect="italics">
+"If the list fits in the specified array, it is returned therein. 
+	Otherwise, a new array is allocated with the runtime type of the specified 
+	array and the size of this list. If the list fits in the specified array 
+	with room to spare (i.e., the array has more elements than the list), the 
+	element in the array immediately following the end of the collection is set 
+	to null. This is useful in determining the length of the list only if the 
+	caller knows that the list does not contain any null elements."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31020">
+<title>
+<emphasis id="So_what_did_I_do" effect="bold">
+
+So, what did I do?
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1049">
+Knowing all of this in advance, I purposely caused the size of the 
+
+<emphasis id="strong1071" effect="bold">
+
+JComponent
+
+</emphasis>
+ array to be larger 
+
+<emphasis id="em1019" effect="italics">
+(by two elements)
+
+</emphasis>
+ than the number of 
+elements in the collection. Therefore, the array that I passed to the 
+
+<emphasis id="strong1072" effect="bold">
+toArray
+
+</emphasis>
+ 
+method was populated and a reference to that populated array was returned. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1020" effect="italics">
+(Had my array been smaller than the number of elements in the collection, 
+the toArray method would have created and populated a new array of type 
+JComponent and would have returned a reference to that new array object. In that 
+case, my array would have been used by the toArray method only for the purpose 
+of determining the runtime type of my array.)
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31021">
+<title>
+<emphasis id="More_information_from_Oracle_" effect="bold">
+
+More information from Oracle 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1050">
+Here is some additional information about the 
+
+<emphasis id="strong1073" effect="bold">
+toArray
+
+</emphasis>
+ method provided 
+by the Oracle documentation for the 
+
+<emphasis id="strong1074" effect="bold">
+Collection
+
+</emphasis>
+ interface: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1021" effect="italics">
+"If this collection makes any guarantees as to what order its elements 
+	are returned by its iterator, this method must return the elements in the 
+	same order."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1051">
+Because the iterator for a 
+
+<emphasis id="strong1075" effect="bold">
+LinkedList
+
+</emphasis>
+ object returns the elements in 
+increasing index order, the 
+
+<emphasis id="strong1076" effect="bold">
+toArray
+
+</emphasis>
+ method, in this case, copies the 
+element at each index position in the collection into the element at the same 
+index position in the array. Thus, reference values are copied from each element 
+in the collection into the first six elements in the array. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_output" effect="bold">
+
+The output
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1052">
+The output produced by the code in 
+
+<link id="a1072" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is shown below:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1010" display="block">
+
+New array contents
+B0 B1 L2 B3 B4 L5 null 17</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1053">
+You will note that the first six elements in the array match the six elements 
+in the collection 
+
+<emphasis id="em1022" effect="italics">
+(the initial values placed in the array earlier when the 
+array was instantiated have been overwritten).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+You will also note that the value of the seventh element in the array 
+
+<emphasis id="em1023" effect="italics">
+
+(index value 6)
+
+</emphasis>
+ has been overwritten with a null reference. 
+
+</para>
+
+
+
+
+
+<section id="h31022">
+<title>
+<emphasis id="Demonstrates_same_array_was_used_" effect="bold">
+
+Demonstrates same array was used
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1055">
+Note finally that the last element in the array was not overwritten. It still 
+contains the value placed there when the array object was instantiated. This 
+demonstrates that the array that I passed to the 
+
+<emphasis id="strong1077" effect="bold">
+toArray
+
+</emphasis>
+ method was 
+populated with the collection data, and a reference to that array was returned 
+by the 
+
+<emphasis id="strong1078" effect="bold">
+toArray
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31023">
+<title>
+<emphasis id="What_if_the_array_was_too_small" effect="bold">
+
+What if the array was too small?
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1056">
+Had my array been too small, it would have been discarded by the 
+
+<emphasis id="strong1079" effect="bold">
+toArray
+
+</emphasis>
+ 
+method. The 
+
+<emphasis id="strong1080" effect="bold">
+toArray
+
+</emphasis>
+ method would have created and populated a new array 
+object of the correct size and runtime type, and would have returned a reference 
+to that new array. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31024">
+<title>
+<emphasis id="Not_difficult_to_demonstrate_" effect="bold">
+
+Not difficult to demonstrate 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1057">
+Although this is not demonstrated by this program, it is easy to modify the 
+program to demonstrate this feature. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+A 
+
+<emphasis id="strong1081" effect="bold">
+String
+
+</emphasis>
+ representation of the array object can be displayed using a
+
+
+<emphasis id="strong1082" effect="bold">
+System.out.println(array) 
+
+</emphasis>
+statement before and after the array is passed 
+to the 
+
+<emphasis id="strong1083" effect="bold">
+toArray
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31025">
+<title>
+<emphasis id="Array_as_large_as_or_larger_than_collection_" effect="bold">
+
+Array as large as or larger than collection
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1059">
+For the cases where my array contained six, seven, or eight elements, and the 
+collection contained six elements, the 
+
+<emphasis id="strong1084" effect="bold">
+String
+
+</emphasis>
+ representations of the 
+array object before and after the call to the 
+
+<emphasis id="strong1085" effect="bold">
+toArray
+
+</emphasis>
+ method were the 
+same. For one case, those 
+
+<emphasis id="strong1086" effect="bold">
+String
+
+</emphasis>
+ representations were as follows:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1011" display="block">
+
+[Ljavax.swing.JComponent;@49ba38
+[Ljavax.swing.JComponent;@49ba38</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1060">
+In other words, the reference variable named 
+
+<emphasis id="strong1087" effect="bold">
+array 
+
+</emphasis>
+referred to the 
+same array object before and after the call to the 
+
+<emphasis id="strong1088" effect="bold">
+toArray
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31026">
+<title>
+<emphasis id="Array_smaller_than_the_collection_" effect="bold">
+
+Array smaller than the collection
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1061">
+When I reduced the size of the array to five elements, keeping the size of 
+the collection at six elements, the before and after 
+
+<emphasis id="strong1089" effect="bold">
+String
+
+</emphasis>
+ 
+representations of the array object were as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1012" display="block">
+
+[Ljavax.swing.JComponent;@506411
+[Ljavax.swing.JComponent;@21807c</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1062">
+In this case, the reference to the array object returned by the 
+
+<emphasis id="strong1090" effect="bold">
+toArray
+
+</emphasis>
+ 
+method was different from the reference that was passed to the 
+
+<emphasis id="strong1091" effect="bold">
+toArray
+
+</emphasis>
+ 
+method. In other words, the returned reference referred to a different array 
+object than was referred to by the reference that was passed to the 
+
+<emphasis id="strong1092" effect="bold">
+toArray
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Modify_an_object_" effect="bold">
+
+Modify an object 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1063">
+As in the program in the previous module, the code shown in 
+
+<link id="a1073" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ modifies the value of the 
+
+<emphasis id="strong1093" effect="bold">
+toolTipText
+
+</emphasis>
+ 
+property of the object whose reference is stored in index 0 of the array. 
+
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Modify an object .
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1013" display="block">    ((JComponent)array[0]).setToolTipText("XX");
+    showArray(array,"Modified array contents");
+
+    showCollection(ref,"Collection contents");
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1064">
+The code in 
+
+<link id="a1074" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ also displays the contents of the array and the 
+contents of the collection after the modification is made. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+The output produced by the code in 
+
+<link id="a1075" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ is shown below: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+
+<code id="pre1014" display="block">
+
+Modified array contents
+XX B1 L2 B3 B4 L5 null 17 
+Collection contents
+XX B1 L2 B3 B4 L5</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<section id="h31027">
+<title>
+<emphasis id="Now_for_the_caution" effect="bold">
+
+Now for the caution
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+Note that the value of the 
+
+<emphasis id="strong1094" effect="bold">
+toolTipText
+
+</emphasis>
+ property of the object referred 
+to by the reference at index 0 of the array, and the same property of the object 
+referred to by the reference at index 0 of the collection was overwritten by 
+"XX". 
+
+<emphasis id="em1024" effect="italics">
+(This is true because both references refer to the same object.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1067">
+This is the case regardless of which version of the 
+
+<emphasis id="strong1095" effect="bold">
+toArray
+
+</emphasis>
+ method is 
+used. Therefore, the same cautions discussed in the previous module apply here 
+as well.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+I encourage you to copy the code from 
+
+<link id="a1076" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+Paste the code into your Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+In this module, I taught you how to use the more-complex version of the two 
+overloaded versions of the 
+
+<emphasis id="strong1096" effect="bold">
+toArray
+
+</emphasis>
+ method, declared in the 
+
+<emphasis id="strong1097" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface, to copy the elements from a collection into an array of type 
+
+<emphasis id="strong1098" effect="bold">
+
+JComponent
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+I discussed issues regarding the type of the array and the type of the 
+objects referred to by the elements in the container. I also discussed issues 
+regarding the size of the array as compared to the number of elements in the 
+collection. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+Finally, I reaffirmed that you need to exercise care when using the elements 
+stored in the array, to avoid corrupting the state of the objects referred to by 
+the elements in the collection. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+For now, at least, this module concludes the series of modules on the Java 
+Collections Framework. If I have time later, I will come back and add more 
+modules to teach you how to use the 
+
+<emphasis id="strong1099" effect="bold">
+Map
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1100" effect="bold">
+SortedMap 
+
+</emphasis>
+interfaces, and the concrete class implementations of those 
+interfaces.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1101" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1052">
+Module name: Java4160: The toArray Method, Part 2
+
+</item>
+
+
+					
+
+<item id="li1053">
+File: Java4160.htm
+
+
+</item>
+
+
+					
+
+<item id="li1054">
+Published: 05/07/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1102" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1075">
+<emphasis id="strong1103" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1076">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1077">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1078">
+<emphasis id="strong1104" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1079">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

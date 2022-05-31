@@ -1,0 +1,4666 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3018: Darkening, Brightening, and Tinting the Colors in a Picture</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44234</md:content-id>
+  <md:title>Java3018: Darkening, Brightening, and Tinting the Colors in a Picture</md:title>
+  <md:abstract>Learn how to darken, brighten, and tint the colors in a Picture object.</md:abstract>
+  <md:uuid>5c55bb32-5733-4fec-84ed-c4ebb5a1bf51</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Apr 03 14:24:32 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="GeneralBackgroundInformation">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1015" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Input file Prob04a.bmp. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Input file Prob04b.bmp. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Input file Prob04c.jpg.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Required output image. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Required text output. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Cropped version of the snow scene image. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. The skater with a red tint applied. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob04.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob04Runne. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the run method. 
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Darken the background of the snow scene. 
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1027" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the darkenBackground method.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1028" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the processing loop.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1029" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The else clause in the processing loop.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1030" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Apply a red tint to the skater.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1031" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The remainder of the run method.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1032" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, you will learn how to darken, brighten, and tint the 
+	colors in a 
+
+<emphasis id="strong1000" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1002" effect="bold">
+Prob04
+
+</emphasis>
+ that uses the class definition shown in
+
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along with the 
+image files in the following list to produce the four graphic output images 
+shown in 
+
+<link id="a1034" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ through 
+
+<link id="a1035" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Prob04a.bmp
+
+</item>
+
+
+	
+
+<item id="li1033">
+Prob04b.bmp
+
+</item>
+
+
+	
+
+<item id="li1034">
+Prob04c.jpg 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1003" effect="bold">
+<link id="a1036" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1004" effect="bold">
+ - Input file Prob04a.bmp.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image of a female ice skater on a green background." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/image-a-7c93.jpg" width="418" height="490"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1010">
+<emphasis id="Figure_2" effect="bold">
+
+
+<emphasis id="strong1005" effect="bold">
+<link id="a1037" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1006" effect="bold">
+ - Input file Prob04b.bmp.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="Image of a black ellipse on a green background." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/image-b-98a6.jpg" width="418" height="490"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1012">
+<emphasis id="Figure_3" effect="bold">
+
+
+<emphasis id="strong1007" effect="bold">
+<link id="a1038" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1008" effect="bold">
+ - Input file Prob04c.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<media id="media1002" alt="Image of a frozen lake with some houses on the far side." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/image-c-9aee.jpg" width="418" height="490"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1014">
+<emphasis id="Figure_4" effect="bold">
+
+
+<emphasis id="strong1009" effect="bold">
+<link id="a1039" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1010" effect="bold">
+ - Required output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+<media id="media1003" alt="Image of the ice skater standing on the lake with a pink spotlight shining on her." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/image-d-894c.jpg" width="404" height="422"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1011" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named 
+
+<emphasis id="strong1012" effect="bold">
+
+Prob04
+
+</emphasis>
+ shown in 
+
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1013" effect="bold">
+Required text output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+In addition to the four output images mentioned above, your program must 
+display your name and the other line of text shown in 
+
+<link id="a1041" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ on the 
+command-line screen.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Required text output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename None height 293 width 392</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="GeneralBackgroundInformation" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+This program uses a black ellipse on a green background 
+
+<emphasis id="em1003" effect="italics">
+(see 
+
+
+<link id="a1042" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+)
+
+</emphasis>
+ 
+as a pattern to cause the pixels in a snow scene 
+
+<emphasis id="em1004" effect="italics">
+(see 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+)
+
+</emphasis>
+ at the 
+location of the ellipse to be given a red tint and causes all other pixels in 
+the snow scene to be darkened 
+
+<emphasis id="em1005" effect="italics">
+(see 
+
+<link id="a1044" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The program also causes a red skater in a green background 
+
+<emphasis id="em1006" effect="italics">
+(see 
+
+
+<link id="a1045" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+ 
+to be given a red tint and then drawn on the snow scene at the location of the 
+red-tinted ellipse. The effect is that of a spotlight with a red tint shining on 
+the skater 
+
+<emphasis id="em1007" effect="italics">
+(see 
+
+<link id="a1046" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+)
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1022">
+<emphasis id="strong1014" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+I will discuss this program in fragments. A complete listing of the program 
+is provided in 
+
+<link id="a1047" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1015" effect="bold">
+The driver class named Prob04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+The driver class containing the 
+
+<emphasis id="strong1016" effect="bold">
+main
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob04.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.awt.Color;
+
+public class Prob04{
+  public static void main(String[] args){
+    Prob04Runner obj = new Prob04Runner();
+    obj.run();
+  }//end main
+}//end class Prob04</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+As has been the case in several earlier modules, the code in the 
+
+<emphasis id="strong1017" effect="bold">
+main
+
+</emphasis>
+ 
+	method instantiates an object of the class named 
+
+<emphasis id="strong1018" effect="bold">
+Prob04Runner
+
+</emphasis>
+ and 
+	calls the 
+
+<emphasis id="strong1019" effect="bold">
+run
+
+</emphasis>
+ method on that object.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+When the 
+
+<emphasis id="strong1020" effect="bold">
+run
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1021" effect="bold">
+main
+
+</emphasis>
+ method terminates causing 
+the program to terminate.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1022" effect="bold">
+Beginning of the class named Prob04Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The class named 
+
+<emphasis id="strong1023" effect="bold">
+Prob04Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1049" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob04Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob04Runner{
+
+  public Prob04Runner(){//constructor
+    System.out.println("Display your name here.");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1030">
+ 
+
+<link id="a1050" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the constructor for the class, 
+	which simply displays the student's name on the command line screen as shown 
+	in 
+
+<link id="a1051" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1024" effect="bold">
+Beginning of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The beginning of the 
+
+<emphasis id="strong1025" effect="bold">
+run
+
+</emphasis>
+ method, which is called in
+
+
+<link id="a1052" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, is shown in 
+
+<link id="a1053" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the run method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public void run(){
+
+    Picture skater = new Picture("Prob04a.bmp");
+    skater.explore();
+    skater = crop(skater,6,59,392,293);
+
+    Picture hole = new Picture("Prob04b.bmp");
+    hole.explore();
+    hole = crop(hole,6,59,392,293);
+
+
+    Picture snowScene = new Picture("Prob04c.jpg");
+    snowScene.explore();
+    snowScene = crop(snowScene,6,59,392,293);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1033">
+<emphasis id="strong1026" effect="bold">
+Instantiate and display three Picture objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+The code in 
+
+<link id="a1054" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ instantiates 
+
+<emphasis id="strong1027" effect="bold">
+Picture
+
+</emphasis>
+ 
+objects from the three image files and displays those pictures in
+
+
+<link id="a1055" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, 
+
+<link id="a1056" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, and
+
+
+<link id="a1057" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1028" effect="bold">
+Crop the pictures
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+Note that the images in those three pictures contain the 
+
+<emphasis id="strong1029" effect="bold">
+
+
+
+<link id="a1058" url="http://www.alice.org/">
+
+Alice
+
+</link>
+
+
+</emphasis>
+ runtime window controls as a 
+banner that reads
+
+<emphasis id="strong1030" effect="bold">
+ World Running...
+
+</emphasis>
+ and a line of buttons.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1031" effect="bold">
+The method named crop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+ 
+
+<link id="a1059" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls a method named 
+
+<emphasis id="strong1032" effect="bold">
+crop
+
+</emphasis>
+ on all 
+three 
+
+<emphasis id="strong1033" effect="bold">
+Picture
+
+</emphasis>
+ objects to eliminate the 
+
+<emphasis id="strong1034" effect="bold">
+Alice
+
+</emphasis>
+ runtime controls. 
+Note that the same rectangular area is preserved for all three images. Thus, all 
+three images are the same size after cropping.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1035" effect="bold">
+The cropped snow scene image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+If you were to display the picture whose reference is stored in the variable 
+named 
+
+<emphasis id="strong1036" effect="bold">
+snowScene
+
+</emphasis>
+ after the 
+
+<emphasis id="strong1037" effect="bold">
+crop
+
+</emphasis>
+ method returns, you would see the 
+image shown in 
+
+<link id="a1060" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ with the 
+
+<emphasis id="strong1038" effect="bold">
+Alice
+
+</emphasis>
+ runtime controls no longer 
+visible.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="Figure_6" effect="bold">
+
+
+<emphasis id="strong1039" effect="bold">
+<link id="a1061" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1040" effect="bold">
+ - Cropped version of the snow scene image.
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<media id="media1004" alt="Cropped image of the frozen lake." display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/image-e-e39f.jpg" width="404" height="428"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1043">
+<emphasis id="strong1041" effect="bold">
+The crop method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+The method named 
+
+<emphasis id="strong1042" effect="bold">
+crop
+
+</emphasis>
+ that was used to crop the three pictures is 
+essentially the same as the cropping methods that I explained in earlier 
+modules. Therefore, I won't repeat that explanation here. You can view the 
+
+<emphasis id="strong1043" effect="bold">
+
+crop
+
+</emphasis>
+ method in its entirety in 
+
+<link id="a1062" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the 
+end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1044" effect="bold">
+Darken the background of the snow scene
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+<link id="a1063" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the method named 
+
+<emphasis id="strong1045" effect="bold">
+darkenBackground
+
+</emphasis>
+ 
+to make all of the pixels darker in the snow scene except for those in the 
+location of the ellipse as shown in 
+
+<link id="a1064" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. The pixels 
+at the location of the ellipse are given a red tint.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Darken the background of the snow scene.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    darkenBackground(hole,snowScene);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1047">
+<emphasis id="strong1046" effect="bold">
+Put the run method on temporary hold
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+I will put the explanation of the 
+
+<emphasis id="strong1047" effect="bold">
+run
+
+</emphasis>
+ method on hold at this point and 
+explain the method named 
+
+<emphasis id="strong1048" effect="bold">
+darkenBackground
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1049" effect="bold">
+The method named darkenBackground
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+The method named 
+
+<emphasis id="strong1050" effect="bold">
+darkenBackground
+
+</emphasis>
+ receives references to two 
+
+<emphasis id="strong1051" effect="bold">
+
+Picture
+
+</emphasis>
+ objects as parameters. It uses the first picture as a 
+
+<emphasis id="em1008" effect="italics">
+pattern
+
+</emphasis>
+ 
+from which it determines which pixels in the second picture 
+
+<emphasis id="em1009" effect="italics">
+(destination)
+
+</emphasis>
+ 
+should be darkened.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1052" effect="bold">
+The 
+
+<emphasis id="em1010" effect="italics">
+pattern
+
+</emphasis>
+ and 
+
+<emphasis id="em1011" effect="italics">
+destination
+
+</emphasis>
+ images
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+In this case, a cropped version of the image of the black ellipse shown in
+
+
+<link id="a1065" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is the pattern. The cropped image of the snow 
+scene shown in 
+
+<link id="a1066" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ is the destination image whose 
+pixels will be darkened.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1053" effect="bold">
+Assumptions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+The 
+
+<emphasis id="strong1054" effect="bold">
+darkenBackground
+
+</emphasis>
+ method assumes that the pattern image has a pure 
+green background as shown in 
+
+<link id="a1067" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. It also assumes 
+that the pattern and the destination have the same dimensions.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1055" effect="bold">
+Behavior of the method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1056" effect="bold">
+darkenBackground
+
+</emphasis>
+ method darkens every pixel in the destination 
+that is at the location of a green pixel in the pattern.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+The method applies a red tint to every pixel in the destination that is at 
+the location of a non-green pixel in the pattern
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1057" effect="bold">
+Beginning of the darkenBackground method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+The 
+
+<emphasis id="strong1058" effect="bold">
+darkenBackground
+
+</emphasis>
+ method begins in 
+
+<link id="a1068" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Beginning of the darkenBackground method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">  private void darkenBackground(Picture pattern,
+                                Picture dest){
+
+    Pixel[] patternPixels = pattern.getPixels();
+    Pixel[] destPixels = dest.getPixels();
+    Color color = null;
+    int red = 0;
+    int green = 0;
+    int blue = 0;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1060">
+<emphasis id="strong1059" effect="bold">
+Get two arrays of pixel data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+The 
+
+<emphasis id="strong1060" effect="bold">
+darkenBackground
+
+</emphasis>
+ method begins by calling the 
+
+<emphasis id="strong1061" effect="bold">
+getPixels
+
+</emphasis>
+ method on each of the 
+picture objects to create a pair of array objects containing pixel data. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+You learned how to use the 
+
+<emphasis id="strong1062" effect="bold">
+getPixels
+
+</emphasis>
+ method in an earlier module. 
+Recall that this approach is useful when you don't need to be concerned about 
+the locations of the pixels in an x-y coordinate system.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1063" effect="bold">
+Arrays have the same length
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+Because the two pictures have the same dimensions, the two arrays have the 
+same length.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+A given array index specifies pixel data from the same location in both 
+pictures.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1064" effect="bold">
+Beginning of the processing loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+The method uses a 
+
+<emphasis id="strong1065" effect="bold">
+for
+
+</emphasis>
+ loop to traverse the two arrays of pixel data in 
+parallel, using information from the 
+
+<emphasis id="em1012" effect="italics">
+pattern
+
+</emphasis>
+ picture to make the color 
+changes to the 
+
+<emphasis id="em1013" effect="italics">
+destination
+
+</emphasis>
+ picture described above. The 
+
+<emphasis id="strong1066" effect="bold">
+for
+
+</emphasis>
+ loop 
+begins in 
+
+<link id="a1069" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Beginning of the processing loop.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    for(int cnt = 0;cnt &lt; patternPixels.length;cnt++){
+      color = patternPixels[cnt].getColor();
+      if(color.equals(Color.GREEN)){
+        //Darken corresponding pixel in the destination.
+        color = destPixels[cnt].getColor();
+        destPixels[cnt].setColor(color.darker());</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1068">
+<emphasis id="strong1067" effect="bold">
+Behavior of the processing loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The loop begins by getting the color value of the next pixel in the pattern 
+array. If the color of the pattern pixel is green, the code in
+
+
+<link id="a1070" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1035">
+Gets the color from the corresponding pixel in the destination array.
+
+</item>
+
+
+	
+
+<item id="li1036">
+Calls the method named 
+
+<emphasis id="strong1068" effect="bold">
+darker
+
+</emphasis>
+, which is a method of the 
+
+<emphasis id="strong1069" effect="bold">
+Color
+
+</emphasis>
+ 
+	class in the standard Sun library, to produce a darker version of the pixel 
+	color.
+
+</item>
+
+
+	
+
+<item id="li1037">
+Replaces the pixel color in the destination array with the darker 
+	version of the color.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1070" effect="bold">
+Compare images to see the results
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+If you compare 
+
+<link id="a1071" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ with 
+
+<link id="a1072" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+, you will see that 
+
+<emphasis id="em1014" effect="italics">
+(ignoring the skater and the ellipse)
+
+</emphasis>
+, all of the pixels in 
+
+<link id="a1073" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ 
+are darker versions of the colors in 
+
+<link id="a1074" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1071" effect="bold">
+The brighter method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+The 
+
+<emphasis id="strong1072" effect="bold">
+Color
+
+</emphasis>
+ class also provides a method named 
+
+<emphasis id="strong1073" effect="bold">
+brighter
+
+</emphasis>
+ which has 
+the opposite effect. In particular, it can be used to brighten the color of a 
+pixel.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+These two methods are very useful for making a pixel darker or brighter 
+without having to know anything about the actual color of the pixel.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1074" effect="bold">
+The else clause in the processing loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+If the color of the pattern pixel 
+
+<emphasis id="em1015" effect="italics">
+(tested in 
+
+<link id="a1075" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+)
+
+</emphasis>
+ is not green, the code in the 
+
+<emphasis id="strong1075" effect="bold">
+else
+
+</emphasis>
+ clause in
+
+
+<link id="a1076" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is executed.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - The else clause in the processing loop.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">      }else{
+        //Apply a red tint to the corresponding pixel in
+        // the destination.
+        color = destPixels[cnt].getColor();
+        red = color.getRed();
+        if(red*1.25 &lt; 255){
+          red = (int)(red * 1.25);
+        }else{
+          red = 255;
+        }//end else
+        green = (int)(color.getGreen() * 0.8);
+        blue = (int)(color.getBlue() * 0.8);
+        destPixels[cnt].setColor(new Color(red,green,blue));
+      }//end else
+    }//end for loop
+    
+  }//end darkenBackground</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1076" effect="bold">
+The snow scene and the ellipse only...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+At this point, only the images from 
+
+<link id="a1077" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+
+<emphasis id="em1016" effect="italics">
+(the 
+ellipse)
+
+</emphasis>
+ and 
+
+<link id="a1078" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ 
+
+<emphasis id="em1017" effect="italics">
+(the snow scene)
+
+</emphasis>
+ are being processed. The image of the skater in
+
+
+<link id="a1079" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ hasn't entered the picture yet.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1077" effect="bold">
+Application of the ellipse pattern
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+The code in 
+
+<link id="a1080" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is executed only if the pixel 
+from the destination picture is at a location that matches one of the non-green
+
+
+<emphasis id="em1018" effect="italics">
+(black)
+
+</emphasis>
+ pixels in the ellipse in 
+
+<link id="a1081" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="em1019" effect="italics">
+(The fact that the pixel is black is of no consequence. The only thing 
+that matters is that it is not green.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1078" effect="bold">
+The objective of the else clause
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+The objective is to modify the pixel color in the destination picture at this 
+location to give it a red tint as shown in 
+
+<link id="a1082" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1079" effect="bold">
+Get, save, and modify the red color value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1085">
+<link id="a1083" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ begins by getting the color of the pixel 
+from the current location in the destination picture. It extracts and saves the 
+red color value of the pixel. Then, depending on the current value of the red 
+color value, it either:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1038">
+Multiplies the red color value by a factor of 1.25, or
+
+</item>
+
+
+	
+
+<item id="li1039">
+Sets the red color value to the maximum allowable value of 255.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1080" effect="bold">
+Decrease the color values for blue and green
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+Following this, it gets the green and blue color values and multiplies each 
+of them by 0.8.
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1081" effect="bold">
+Replace the old pixel color with the new color
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+Finally, it replaces the pixel color with a new color using the modified 
+values of red, green, and blue.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1082" effect="bold">
+The texture is preserved
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+As you can see in 
+
+<link id="a1084" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, this process causes the 
+pixels in locations that match the ellipse to take on a red tint, but the 
+texture of the image is not destroyed as it would be if the pixels had simply 
+been replaced by pixels that all have the same color of pink.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1083" effect="bold">
+The end of the darkenBackground method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1093">
+<link id="a1085" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ signals the end of the processing loop and 
+the end of the 
+
+<emphasis id="strong1084" effect="bold">
+darkenBackground
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1085" effect="bold">
+Apply a red tint to the skater
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+Returning to where we left off in the 
+
+<emphasis id="strong1086" effect="bold">
+run
+
+</emphasis>
+ method in
+
+
+<link id="a1086" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, the code in 
+
+<link id="a1087" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+calls a method named 
+
+<emphasis id="strong1087" effect="bold">
+redTint
+
+</emphasis>
+, passing a reference to the picture that 
+contains a cropped image of the skater. The method applies a red tint to the 
+skater.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Apply a red tint to the skater.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">    redTint(skater);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1096">
+The 
+
+<emphasis id="strong1088" effect="bold">
+redTint
+
+</emphasis>
+ method assumes that the image being processed has a 
+	pure green background like that shown in 
+
+<link id="a1088" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+	The method applies an algorithm very similar to that shown in
+	
+
+<link id="a1089" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ to apply a red tint to every pixel that 
+	is not pure green.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+Because of the similarity of the code in the 
+
+<emphasis id="strong1089" effect="bold">
+redTint
+
+</emphasis>
+ method and the 
+code in 
+
+<link id="a1090" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, a detailed explanation of the 
+
+<emphasis id="strong1090" effect="bold">
+
+redTint
+
+</emphasis>
+ method should not be required. You can view the method in its 
+entirety in 
+
+<link id="a1091" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1091" effect="bold">
+The skater with the red tint applied
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+If you were to display the picture referred to by 
+
+<emphasis id="strong1092" effect="bold">
+skater
+
+</emphasis>
+ immediately 
+after the 
+
+<emphasis id="strong1093" effect="bold">
+redTint
+
+</emphasis>
+ method returns in 
+
+<link id="a1092" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+, 
+you would see the image shown in 
+
+<link id="a1093" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="Figure_7" effect="bold">
+
+
+<emphasis id="strong1094" effect="bold">
+<link id="a1094" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1095" effect="bold">
+ - The skater with a red tint applied.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+<media id="media1005" alt="The ice skater with a red tint applied." display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/image-f-e993.jpg" width="404" height="428"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1102">
+<emphasis id="strong1096" effect="bold">
+Compare 
+
+<link id="a1095" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+ with 
+
+<link id="a1096" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+You can see the effect of applying the red tint process to the skater by 
+comparing 
+
+<link id="a1097" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ with 
+
+<link id="a1098" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+Note that the process does not change the color of the green pixels.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1097" effect="bold">
+The remainder of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1105">
+Continuing with the 
+
+<emphasis id="strong1098" effect="bold">
+run
+
+</emphasis>
+ method, 
+
+<link id="a1099" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+calls a method named 
+
+<emphasis id="strong1099" effect="bold">
+greenScreenDraw
+
+</emphasis>
+ to draw the cropped, red-tinted 
+skater on the snow scene as shown in 
+
+<link id="a1100" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - The remainder of the run method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">    //Draw the skater on the snowScene.
+    greenScreenDraw(skater,snowScene,0,0);
+
+    //Display students name on the final output and
+    // display it.
+    snowScene.addMessage("Display your name here.",10,15);
+
+    snowScene.explore();
+    System.out.println(snowScene);
+
+  }//end run method</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1106">
+<emphasis id="strong1100" effect="bold">
+Behavior of the method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+The 
+
+<emphasis id="strong1101" effect="bold">
+greenScreenDraw
+
+</emphasis>
+ method copies all non-green pixels from a source 
+image to a destination image at a specified location. This method is very 
+similar to methods that I have explained in earlier modules. Therefore, an 
+explanation of the method in this module should not be needed.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+You can view the 
+
+<emphasis id="strong1102" effect="bold">
+greenScreenDraw
+
+</emphasis>
+ method in its entirety in 
+
+
+<link id="a1101" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1103" effect="bold">
+Add text and display the final output image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1110">
+When the 
+
+<emphasis id="strong1104" effect="bold">
+greenScreenDraw
+
+</emphasis>
+ method returns, 
+
+<link id="a1102" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1105" effect="bold">
+
+addMessage
+
+</emphasis>
+ method to display the student's name on the snow scene and then 
+calls the 
+
+<emphasis id="strong1106" effect="bold">
+explore
+
+</emphasis>
+ method to produce the output image shown in 
+
+
+<link id="a1103" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. 
+None of that should be new to you at this point.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1107" effect="bold">
+Display text and return
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+Finally, 
+
+<link id="a1104" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ displays some information on the command line screen as 
+shown in 
+
+<link id="a1105" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ and returns control to the 
+
+<emphasis id="strong1108" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+
+<link id="a1106" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1109" effect="bold">
+Terminate the program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Having nothing more to do, the 
+
+<emphasis id="strong1110" effect="bold">
+main
+
+</emphasis>
+ method terminates, causing the 
+program to terminate and return control to the operating system.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1115">
+I encourage you to copy the code from 
+
+<link id="a1107" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, making changes, and observing the results 
+of your changes. Make certain that you can explain why your changes behave as 
+they do.
+
+</para>
+
+
+
+
+
+<para id="p1116">
+Click the following links to download the required input files:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1040">
+<link id="a1108" url="Prob04a.bmp">
+
+Prob04a.bmp
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1109" url="Prob04b.bmp">
+
+Prob04b.bmp
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1110" url="Prob04c.jpg">
+
+Prob04c.jpg
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1117">
+In this module, you learned how to darken, brighten, and tint the colors in a
+
+
+<emphasis id="strong1111" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1118">
+You will probably learn more than you already know 
+about interfaces, arrays of type Object, etc., in the next module.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1119">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1043">
+<link id="a1111" url="http://www.youtube.com/playlist?list=PL11F9AC688AC89E56">
+
+ITSE 
+	2321 Lecture 09
+
+</link>
+
+
+<list id="ul1011" list-type="bulleted">
+
+		
+
+<item id="li1044">
+<link id="a1112" url="http://www.youtube.com/watch?v=T-pcmz5XmQY">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1113" url="http://www.youtube.com/watch?v=T16JMwpBIUI">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1114" url="http://www.youtube.com/watch?v=aXLKqYA_0Ng">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1120">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1112" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1047">
+Module name: Java OOP: Darkening, Brightening, and Tinting the Colors in a Picture
+
+</item>
+
+
+					
+
+<item id="li1048">
+File: Java3018.htm
+
+
+</item>
+
+
+					
+
+<item id="li1049">
+Published: 08/01/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1113" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1121">
+<emphasis id="strong1114" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1122">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1123">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1124">
+<emphasis id="strong1115" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1125">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1115" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1010">
+
+
+
+<row id="tr1020">
+
+
+
+<entry id="th1010">
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1116" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1010">
+
+
+
+<row id="tr1021">
+
+
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">/*File Prob04 Copyright 2008 R.G.Baldwin
+*********************************************************/
+
+import java.awt.Color;
+public class Prob04{
+  public static void main(String[] args){
+    Prob04Runner obj = new Prob04Runner();
+    obj.run();
+  }//end main
+}//end class Prob04
+//======================================================//
+
+class Prob04Runner{
+
+  public Prob04Runner(){//constructor
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+
+  public void run(){
+
+    Picture skater = new Picture("Prob04a.bmp");
+    skater.explore();
+    skater = crop(skater,6,59,392,293);
+
+    Picture hole = new Picture("Prob04b.bmp");
+    hole.explore();
+    hole = crop(hole,6,59,392,293);
+
+
+    Picture snowScene = new Picture("Prob04c.jpg");
+    snowScene.explore();
+    snowScene = crop(snowScene,6,59,392,293);
+
+    //Make all the pixels darker in the snow scene except
+    // for those in the location of the hole. Make them
+    // brighter.
+    darkenBackground(hole,snowScene);
+
+    //Apply a red tint to the skater
+    redTint(skater);
+
+    //Draw the skater on the snowScene.
+    greenScreenDraw(skater,snowScene,0,0);
+
+    //Display students name on the final output and
+    // display it.
+    snowScene.addMessage("Display your name here.",10,15);
+
+    snowScene.explore();
+    System.out.println(snowScene);
+
+  }//end run method
+  //----------------------------------------------------//
+
+  //Assumes the source has a pure green background.
+  // Applies a red tint to every pixel that is not pure
+  // green.
+  private void redTint(Picture pic){
+    Pixel[] pixels = pic.getPixels();
+    Color color = null;
+    int red = 0;
+    int green = 0;
+    int blue = 0;
+    for(int cnt = 0;cnt &lt; pixels.length;cnt++){
+      color = pixels[cnt].getColor();
+      //Apply a red tint to all non-green pixels
+      if(!(color.equals(Color.GREEN))){
+        //Increase the value of the red component
+        red = color.getRed();
+        if(red*1.25 &lt; 255){
+          red = (int)(red * 1.25);
+        }else{
+          red = 255;
+        }//end else
+        //Decrease the value of blue and green
+        green = (int)(color.getGreen()*0.8);
+        blue = (int)(color.getBlue()*0.8);
+
+        //Apply the new color to the pixel.
+        pixels[cnt].setColor(new Color(red,green,blue));
+      }//end if
+    }//end for loop
+  }//end redTint
+  //----------------------------------------------------//
+
+  //Assumes the pattern image has a pure green background.
+  // Assumes that the pattern and the destination have the
+  // same dimensions. Darkens every pixel in the
+  // destination that is at the location of a green pixel
+  // in the pattern. Applies a red tint to every pixel
+  // in the destination that is at the location of a
+  // non-green pixel in the pattern
+  private void darkenBackground(
+                           Picture pattern,
+                           Picture dest){
+
+    Pixel[] patternPixels = pattern.getPixels();
+    Pixel[] destPixels = dest.getPixels();
+    Color color = null;
+    int red = 0;
+    int green = 0;
+    int blue = 0;
+
+    for(int cnt = 0;cnt &lt; patternPixels.length;cnt++){
+      color = patternPixels[cnt].getColor();
+      if(color.equals(Color.GREEN)){
+        //Darken corresponding pixel in the destination.
+        color = destPixels[cnt].getColor();
+        destPixels[cnt].setColor(color.darker());
+      }else{
+        //Apply a red tint to the corresponding pixel in
+        // the destination.
+        color = destPixels[cnt].getColor();
+        red = color.getRed();
+        if(red*1.25 &lt; 255){
+          red = (int)(red * 1.25);
+        }else{
+          red = 255;
+        }//end else
+        green = (int)(color.getGreen() * 0.8);
+        blue = (int)(color.getBlue() * 0.8);
+        destPixels[cnt].setColor(new Color(red,green,blue));
+      }//end else
+    }//end for loop
+  }//end darkenBackground
+  //----------------------------------------------------//
+
+  //Assumes a source image with a pure green background.
+  // Copies all non-green pixels from the source image to
+  // the destination image at the location explained
+  // below. Note that JPEG images typically won't have
+  // a pure green background even if they had a pure
+  // green background before being compressed into the
+  // JPEG format.  BMP images work well for this.
+  private void greenScreenDraw(
+                           Picture source,
+                           Picture dest,
+                           //Place the upper-left corner
+                           // of the source image at the
+                           // following location in the
+                           // destination image.
+                           int destX,
+                           int destY){
+    int width = source.getWidth();
+    int height = source.getHeight();
+    Pixel pixel = null;
+    Color color = null;
+
+    for(int row = 0;row &lt; height;row++){
+      for(int col = 0;col &lt; width;col++){
+        color = source.getPixel(col,row).getColor();
+        if(!(color.equals(Color.GREEN))){
+          pixel = dest.getPixel(destX + col,destY + row);
+          pixel.setColor(color);
+        }//end if
+      }//end inner loop
+    }//end outer loop
+
+  }//end greenScreenDraw
+  //----------------------------------------------------//
+
+  //Crops a Picture object to the given width and height
+  // with the upper-left corner located at startCol and
+  // startRow.
+  private Picture crop(Picture pic,int startCol,
+                                   int startRow,
+                                   int width,
+                                   int height){
+    Picture output = new Picture(width,height);
+
+    int colOut = 0;
+    int rowOut = 0;
+    int col = 0;
+    int row = 0;
+    Pixel pixel = null;
+    Color color = null;
+    for(col = startCol;col &lt; startCol+width;col++){
+      for(row = startRow;row &lt; startRow+height;row++){
+        color = pic.getPixel(col,row).getColor();
+        pixel = output.getPixel(colOut,rowOut);
+        pixel.setColor(color);
+        rowOut++;
+      }//end inner loop
+      rowOut = 0;
+      colOut++;
+    }//end outer loop
+    return output;
+  }//end crop
+
+}//end class Prob04Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1126">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

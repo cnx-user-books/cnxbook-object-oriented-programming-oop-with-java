@@ -1,0 +1,1400 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3014r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45778</md:content-id>
+  <md:title>Java3014r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java3014: Cropping, Flipping, and Combining Pictures.</md:abstract>
+  <md:uuid>a5735270-1efd-43d0-8d32-8f53b0e05843</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Apr 03 12:08:03 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1007" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1008" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled 
+
+
+<link id="a1010" url="http://cnx.org/content/m44238">
+
+Java3014: Cropping, Flipping, and 
+Combining Pictures
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+True or False? The code in 
+
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ combined with 
+the images in 
+
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+produces the output shown in 
+
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1001" effect="bold">
+Question 1
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File Java3014ra Copyright 2013 R.G.Baldwin
+Revised 02/15/13
+*********************************************************/
+import java.awt.Color;
+
+public class Java3014ra{
+  public static void main(String[] args){
+    Picture[] pictures = new Java3014raRunner().run();
+  }//end main method
+}//end class Java3014ra
+//======================================================//
+
+class Java3014raRunner{
+
+  public Picture[] run(){
+    Picture picA = new Picture("Prob02a.jpg");
+    Picture picB = new Picture("Prob02b.jpg");
+    Picture picC = cropAndFlip(picA,4,5,80,105);
+    copyPictureWithCrop(picA,picB,130,10,4,5,77,101);
+    copyPictureWithCrop(picC,picB,130,120,0,0,77,101);
+    picB.explore();
+
+    Picture[] output = {picA,picB,picC};
+    return output;
+
+  }//end run
+  //----------------------------------------------------//
+
+  //Crops a picture to the specified coordinate values and
+  // flips it around a vertical line at its center.
+  private Picture cropAndFlip(Picture pic,int x1,int y1,
+                              int x2,int y2){
+    Picture output = new Picture(x2-x1+1,y2-y1+1);
+
+    int width = output.getWidth();
+    Pixel pixel = null;
+    Color color = null;
+    for(int col = x1;col &lt; (x2+1);col++){
+      for(int row = y1;row &lt; (y2+1);row++){
+        color = pic.getPixel(col,row).getColor();
+        pixel = output.getPixel(width-col+x1-1,row-y1);
+        pixel.setColor(color);
+      }//end inner loop
+    }//end outer loop
+
+    return output;
+  }//end crop and flip
+  //----------------------------------------------------//
+
+  //Copies part of the source picture into the destination
+  // picture with an offset on both axes after first
+  // confirming that the part will fit. Does nothing if it
+  // won't fit.
+  private void copyPictureWithCrop(
+           Picture source,Picture dest,int xOff,
+                                       int yOff,
+                                       int xCoor,
+                                       int yCoor,
+                                       int width,
+                                       int height){
+
+    //Confirm that source will fit in destination
+    if(((width+xOff) &lt;= dest.getWidth()) &amp;&amp;
+         ((height+yOff) &lt;= dest.getHeight())){
+      Pixel pixel = null;
+      Color color = null;
+      for(int col = 0;col &lt; width;col++){
+        for(int row = 0;row &lt; height;row++){
+          color = source.getPixel(
+                      col + xCoor,row + yCoor).getColor();
+          pixel = dest.getPixel(col+xOff,row+yOff);
+          pixel.setColor(color);
+        }//end inner loop
+      }//end outer loop
+    }//end if
+  }//end copyPictureWithCrop method
+}//end class Java3014raRunner
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1005">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1002" effect="bold">
+<link id="a1015" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1003" effect="bold">
+ - Prob02a.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+<media id="media1000" alt="This is an image of a butterfly." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Prob02a-3bd9.jpg" width="100" height="118"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1007">
+<emphasis id="Figure_2" effect="bold">
+
+
+<emphasis id="strong1004" effect="bold">
+<link id="a1016" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1005" effect="bold">
+ - Prob02b.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+<media id="media1001" alt="This is an image of a beach scene." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Prob02b.jpg" width="320" height="240"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1009">
+<emphasis id="Figure_3" effect="bold">
+
+
+<emphasis id="strong1006" effect="bold">
+<link id="a1017" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1007" effect="bold">
+ - Possible output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+<media id="media1002" alt="Possible output image from the program shown in Listing 1." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/java3014r01.jpg" width="332" height="383"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1011">
+<link id="a1018" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? The call to the run method in 
+
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+returns a reference to an object of the class 
+
+<emphasis id="strong1008" effect="bold">
+Picture
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Question 2.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+Picture[] pictures = new Java3014raRunner().run();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1013">
+<link id="a1020" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Prob02a.jpg. 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1022" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Prob02b.jpg. 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1023" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Possible output image. 
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1024" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Answer 1. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1013">
+<link id="a1025" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1. 
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 2. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1009" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+This image was inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+The image is also an example of the kinds of things that we do in my course 
+titled ITSE 2321, Object-Oriented Programming.
+
+</para>
+
+
+
+
+
+
+<media id="media1003" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1017">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+
+
+
+<media id="media1004" alt="Spacer image of a penguin in the snow in front of some houses." display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21002">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+False. The call to the run method in 
+
+<link id="a1027" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+returns a reference to an array object whose elements may or may not contain 
+references to objects of the class 
+
+<emphasis id="strong1010" effect="bold">
+Picture
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(or some 
+subclass of the class 
+
+<emphasis id="strong1011" effect="bold">
+Picture
+
+</emphasis>
+)
+
+</emphasis>
+. However, since array 
+objects in Java may have a 
+
+<emphasis id="strong1012" effect="bold">
+length
+
+</emphasis>
+ of 0, without seeing the 
+source code for the 
+
+<emphasis id="strong1013" effect="bold">
+run
+
+</emphasis>
+ method, it is impossible to know what 
+is contained in the array object.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<link id="a1028" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+False. The code in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ combined with 
+the images in 
+
+<link id="a1030" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1031" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+produces the output shown in 
+
+<link id="a1032" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="Figure_4" effect="bold">
+
+
+<emphasis id="strong1014" effect="bold">
+<link id="a1033" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1015" effect="bold">
+ - Answer 1.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+<media id="media1005" alt="Actual output image from code in Listing 1." display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/java3014r02.jpg" width="332" height="383"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1024">
+<link id="a1034" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1016" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1005" list-type="bulleted">
+
+				
+
+<item id="li1015">
+Module name: Java3014r Review
+
+</item>
+
+
+				
+
+<item id="li1016">
+File: Java3014r.htm 
+
+</item>
+
+
+				
+
+<item id="li1017">
+Published: 02/15/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1017" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1018" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1029">
+<emphasis id="strong1019" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+	
+
+<para id="p1030">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

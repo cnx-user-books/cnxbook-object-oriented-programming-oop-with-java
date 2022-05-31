@@ -1,0 +1,9311 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1630: Exception Handling</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44202</md:content-id>
+  <md:title>Java1630: Exception Handling</md:title>
+  <md:abstract>Baldwin discusses and illustrates many of the details having to do with exception handling in Java.</md:abstract>
+  <md:uuid>19a72de1-4852-4c82-b0d6-a12585692d56</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Aug 12 11:02:23 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Throwable constructors. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Methods of the Throwable class. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Compiler error from an unhandled checked exception.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Another compiler error. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Output from program that throws ArithmeticException. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Syntax of a try block. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Syntax of a catch block. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Output produced by the finally block. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Syntax for declaring that a method throws exceptions.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+. Example of a throw statement.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. Output from the for loop.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+. Output from the exception handler.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Figure_13">
+
+Figure 13
+
+</link>
+
+. Output from code following the catch block.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Sample program with no exception handling code.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Sample program that fixes one compiler error. 
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Sample program that fixes the remaining compiler error. 
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. A sample program that throws an exception. 
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The power of the finally block.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The class named MyException.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The try block.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1031" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. A matching catch block.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1032" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Code following the catch block.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1033" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Complete program listing for Excep16.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module explains Exception Handling in Java. The discussion includes 
+	the following topics: 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1034">
+What is an exception?
+
+</item>
+
+
+	
+
+<item id="li1035">
+How do you throw and catch exceptions?
+
+</item>
+
+
+	
+
+<item id="li1036">
+What do you do with an exception once you have caught it?
+
+</item>
+
+
+	
+
+<item id="li1037">
+How do you make use of the exception class hierarchy provided by the 
+	Java development environment?
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+This module will cover many of the details having to do with exception 
+handling in Java. By the end of the module, you should know that the use of 
+exception handling is not optional in Java, and you should have a pretty good 
+idea how to use exception handling in a beneficial way. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Introduction
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Stated simply, the exception-handling capability of Java makes it possible 
+for you to: 
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1038">
+Monitor for exceptional conditions within your program
+
+</item>
+
+
+	
+
+<item id="li1039">
+Transfer control to special exception-handling code 
+
+<emphasis id="em1003" effect="italics">
+(which you 
+	design)
+
+</emphasis>
+ if an exceptional condition occurs
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1001" effect="bold">
+The basic concept
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+This is accomplished using the keywords: 
+
+<emphasis id="strong1002" effect="bold">
+try
+
+</emphasis>
+, 
+
+<emphasis id="strong1003" effect="bold">
+catch
+
+</emphasis>
+, 
+
+<emphasis id="strong1004" effect="bold">
+throw
+
+</emphasis>
+,
+
+
+<emphasis id="strong1005" effect="bold">
+throws
+
+</emphasis>
+, and 
+
+<emphasis id="strong1006" effect="bold">
+finally
+
+</emphasis>
+. The basic concept is as follows: 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1040">
+You 
+
+<emphasis id="strong1007" effect="bold">
+try
+
+</emphasis>
+ to execute the statements contained within a block of 
+	code. 
+
+<emphasis id="em1004" effect="italics">
+(A block of code is a group of one or more statements surrounded by 
+	curly brackets.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1041">
+If you detect an exceptional condition within that block, you 
+
+<emphasis id="strong1008" effect="bold">
+throw
+
+</emphasis>
+ 
+	an exception object of a specific type.
+
+</item>
+
+
+	
+
+<item id="li1042">
+You 
+
+<emphasis id="strong1009" effect="bold">
+catch
+
+</emphasis>
+ and process the exception object using code that you 
+	have designed.
+
+</item>
+
+
+	
+
+<item id="li1043">
+You optionally execute a block of code, designated by 
+
+<emphasis id="strong1010" effect="bold">
+finally
+
+</emphasis>
+<emphasis id="em1005" effect="italics">
+,
+
+</emphasis>
+ 
+	which needs to be executed whether or not an exception occurs. 
+
+<emphasis id="em1006" effect="italics">
+(Code in 
+	the 
+
+<emphasis id="strong1011" effect="bold">
+finally
+
+</emphasis>
+ block is normally used to perform some type of cleanup.)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1012" effect="bold">
+Exceptions in code written by others
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+There are also situations where you don't write the code to 
+
+<emphasis id="strong1013" effect="bold">
+throw
+
+</emphasis>
+ the 
+exception object, but an exceptional condition that occurs in code written by 
+someone else transfers control to exception-handling code that you write. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+For example, the 
+
+<emphasis id="strong1014" effect="bold">
+read
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1015" effect="bold">
+InputStream
+
+</emphasis>
+ class throws an 
+exception of type 
+
+<emphasis id="strong1016" effect="bold">
+IOException
+
+</emphasis>
+ if an exception occurs while the
+
+<emphasis id="strong1017" effect="bold">
+ read
+
+</emphasis>
+ 
+method is executing. In this case, you are responsible only for the code in the
+
+
+<emphasis id="strong1018" effect="bold">
+catch
+
+</emphasis>
+ block and optionally for the code in the 
+
+<emphasis id="strong1019" effect="bold">
+finally
+
+</emphasis>
+ block. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="em1007" effect="italics">
+(This is the reason that you must surround the call to 
+
+<emphasis id="strong1020" effect="bold">
+System.in.read()
+
+</emphasis>
+ 
+with a 
+
+<emphasis id="strong1021" effect="bold">
+try
+
+</emphasis>
+ block followed by a 
+
+<emphasis id="strong1022" effect="bold">
+catch
+
+</emphasis>
+ block, or optionally declare 
+that your method 
+
+<emphasis id="strong1023" effect="bold">
+throws
+
+</emphasis>
+ an exception of type 
+
+<emphasis id="strong1024" effect="bold">
+IOException
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1025" effect="bold">
+Exception hierarchy, an overview
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+When an exceptional condition causes an exception to be 
+
+<emphasis id="em1008" effect="italics">
+thrown
+
+</emphasis>
+, that 
+exception is represented by an object instantiated from the class named 
+
+<emphasis id="strong1026" effect="bold">
+
+Throwable
+
+</emphasis>
+ or one of its subclasses. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+Here is part of what Sun has to say about the 
+
+<emphasis id="strong1027" effect="bold">
+Throwable
+
+</emphasis>
+ class: 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="em1009" effect="italics">
+"The 
+
+<emphasis id="strong1028" effect="bold">
+Throwable
+
+</emphasis>
+ class is the superclass of all errors and exceptions 
+in the Java language. Only objects that are instances of this class (or one of 
+its subclasses) are thrown by the Java Virtual Machine or can be thrown by the 
+Java 
+
+<emphasis id="strong1029" effect="bold">
+throw
+
+</emphasis>
+ statement. Similarly, only this class or one of its subclasses 
+can be the argument type in a 
+
+<emphasis id="strong1030" effect="bold">
+catch
+
+</emphasis>
+ clause."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+Sun goes on to say: 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="em1010" effect="italics">
+"Instances of two subclasses, 
+
+<emphasis id="strong1031" effect="bold">
+Error
+
+</emphasis>
+ and 
+
+<emphasis id="strong1032" effect="bold">
+Exception
+
+</emphasis>
+, are 
+conventionally used to indicate that exceptional situations have occurred. 
+Typically, these instances are freshly created in the context of the exceptional 
+situation so as to include relevant information (such as stack trace data)."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1033" effect="bold">
+The Error and Exception classes
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The virtual machine and many different methods in many different classes 
+throw 
+
+<emphasis id="em1011" effect="italics">
+exceptions 
+
+</emphasis>
+and 
+
+<emphasis id="em1012" effect="italics">
+errors
+
+</emphasis>
+. I will have quite a lot more to say 
+about the classes named 
+
+<emphasis id="strong1034" effect="bold">
+Error
+
+</emphasis>
+ and 
+
+<emphasis id="strong1035" effect="bold">
+Exception
+
+</emphasis>
+ later in this module.
+
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1036" effect="bold">
+Defining your own exception types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+You may have concluded from the Sun quotation given above that you can define 
+and 
+
+<emphasis id="strong1037" effect="bold">
+throw
+
+</emphasis>
+ exception objects of your own design, and if you did, that is a 
+correct conclusion. 
+
+<emphasis id="em1013" effect="italics">
+(Your new class must extend 
+
+<emphasis id="strong1038" effect="bold">
+Throwable
+
+</emphasis>
+ or one of 
+its subclasses.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1039" effect="bold">
+The difference between Error and Exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+As mentioned above, the 
+
+<emphasis id="strong1040" effect="bold">
+Throwable
+
+</emphasis>
+ class has two subclasses: 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1044">
+<emphasis id="strong1041" effect="bold">
+Error
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1045">
+<emphasis id="strong1042" effect="bold">
+Exception
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1043" effect="bold">
+What is an error?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+What is the difference between an 
+
+<emphasis id="strong1044" effect="bold">
+Error
+
+</emphasis>
+ and an 
+
+<emphasis id="strong1045" effect="bold">
+Exception
+
+</emphasis>
+? 
+Paraphrasing David Flanagan and his excellent series of books entitled Java 
+in a Nutshell, an 
+
+<emphasis id="strong1046" effect="bold">
+Error
+
+</emphasis>
+ indicates that a non-recoverable error has 
+occurred that should not be caught. Errors usually cause the Java virtual 
+machine to display a message and exit. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Sun says the same thing in a slightly different way: 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="em1014" effect="italics">
+"An 
+
+<emphasis id="strong1047" effect="bold">
+Error
+
+</emphasis>
+ is a subclass of 
+
+<emphasis id="strong1048" effect="bold">
+Throwable
+
+</emphasis>
+ that indicates serious 
+problems that a reasonable application should not try to catch. Most such errors 
+are abnormal conditions."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+For example, one of the subclasses of 
+
+<emphasis id="strong1049" effect="bold">
+Error
+
+</emphasis>
+ is named 
+
+<emphasis id="strong1050" effect="bold">
+
+VirtualMachineError
+
+</emphasis>
+. This error is 
+
+<emphasis id="em1015" effect="italics">
+"Thrown to indicate that the Java 
+Virtual Machine is broken or has run out of resources necessary for it to 
+continue operating. "
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1051" effect="bold">
+What is an exception?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Paraphrasing Flanagan again, an 
+
+<emphasis id="strong1052" effect="bold">
+Exception
+
+</emphasis>
+ indicates an abnormal 
+condition that must be properly handled to prevent program termination. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Sun explains it this way: 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="em1016" effect="italics">
+"The class 
+
+<emphasis id="strong1053" effect="bold">
+Exception
+
+</emphasis>
+ and its subclasses are a form of 
+
+<emphasis id="strong1054" effect="bold">
+Throwable
+
+</emphasis>
+ 
+that indicates conditions that a reasonable application might want to catch."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+As of JDK 1.4.0, there are more than fifty known subclasses of the 
+
+<emphasis id="strong1055" effect="bold">
+
+Exception
+
+</emphasis>
+ class. Many of these subclasses themselves have numerous 
+subclasses, so there is quite a lot of material that you need to become familiar 
+with. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1056" effect="bold">
+The RuntimeException class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+One subclass of 
+
+<emphasis id="strong1057" effect="bold">
+Exception
+
+</emphasis>
+ is the class named 
+
+<emphasis id="strong1058" effect="bold">
+RuntimeException
+
+</emphasis>
+ 
+As of JDK 1.4.0, this class has about 30 subclasses, many which are further 
+subclassed. The class named 
+
+<emphasis id="strong1059" effect="bold">
+RuntimeException
+
+</emphasis>
+ is a very important class.
+
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1060" effect="bold">
+Unchecked exceptions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+The 
+
+<emphasis id="strong1061" effect="bold">
+RuntimeException
+
+</emphasis>
+ class, and its subclasses, are important not so 
+much for what they do, but for what they don't do. I will refer to exceptions 
+instantiated from 
+
+<emphasis id="strong1062" effect="bold">
+RuntimeException
+
+</emphasis>
+ and its subclasses as 
+
+<emphasis id="em1017" effect="italics">
+unchecked 
+
+</emphasis>
+
+exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+Basically, an unchecked exception is a type of exception that you can 
+optionally handle, or ignore. If you elect to ignore the possibility of an 
+unchecked exception, and one occurs, your program will terminate as a result. If 
+you elect to handle an unchecked exception and one occurs, the result will 
+depend on the code that you have written to handle the exception. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1063" effect="bold">
+Checked exceptions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+All exceptions instantiated from the 
+
+<emphasis id="strong1064" effect="bold">
+Exception
+
+</emphasis>
+ class, or from 
+subclasses of 
+
+<emphasis id="strong1065" effect="bold">
+Exception
+
+</emphasis>
+ other than 
+
+<emphasis id="strong1066" effect="bold">
+RuntimeException
+
+</emphasis>
+ and its 
+subclasses must either be: 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1046">
+Handled with a 
+
+<emphasis id="strong1067" effect="bold">
+try
+
+</emphasis>
+ block followed by a 
+
+<emphasis id="strong1068" effect="bold">
+catch
+
+</emphasis>
+ block, or
+
+</item>
+
+
+	
+
+<item id="li1047">
+Declared in a 
+
+<emphasis id="strong1069" effect="bold">
+throws
+
+</emphasis>
+ clause of any method that can throw them
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1043">
+In other words, checked exceptions 
+
+<emphasis id="em1018" effect="italics">
+cannot be ignored
+
+</emphasis>
+ when you write 
+the code in your methods. According to Flanagan, the exception classes in this 
+category represent routine abnormal conditions that should be anticipated and 
+caught to prevent program termination. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1070" effect="bold">
+Checked by the compiler
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Your code must anticipate and either handle or declare checked exceptions. 
+Otherwise, your program won't compile. 
+
+<emphasis id="em1019" effect="italics">
+(These are exception types that are 
+checked by the compiler.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1071" effect="bold">
+Throwable constructors and methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+As mentioned above, all errors and exceptions are subclasses of the 
+
+<emphasis id="strong1072" effect="bold">
+
+Throwable
+
+</emphasis>
+ class. As of JDK 1.4.0, the 
+
+<emphasis id="strong1073" effect="bold">
+Throwable
+
+</emphasis>
+ class provides four 
+constructors and about a dozen methods. The four constructors are shown in 
+
+
+<link id="a1034" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Throwable constructors.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+
+<code id="pre1000" display="block">
+Throwable()
+Throwable(String message)
+Throwable(String message,Throwable cause)
+Throwable(Throwable cause)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1048">
+The first two constructors have been in Java for a very long time. 
+	Basically, these two constructors allow you to construct an exception object 
+	with, or without a 
+
+<emphasis id="strong1074" effect="bold">
+String
+
+</emphasis>
+ message encapsulated in the object. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1075" effect="bold">
+New to JDK 1.4
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The last two constructors are new in JDK 1.4.0. These two constructors are 
+provided to support the 
+
+<emphasis id="em1020" effect="italics">
+cause facility.
+
+</emphasis>
+ The 
+
+<emphasis id="em1021" effect="italics">
+cause facility
+
+</emphasis>
+ is new 
+in release 1.4. It is also known as the 
+
+<emphasis id="em1022" effect="italics">
+
+
+
+<link id="a1035" url="http://softwaredev.earthweb.com/java/article/0,,12082_1431531_1,00.html">
+
+
+chained exception
+
+</link>
+
+
+</emphasis>
+ facility. 
+
+<emphasis id="em1023" effect="italics">
+(I won't cover this facility in this 
+module. Rather, I plan to cover it in a series of future modules.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1076" effect="bold">
+Methods of the Throwable class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<link id="a1036" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows some of the methods of the 
+
+<emphasis id="strong1077" effect="bold">
+Throwable
+
+</emphasis>
+ class. 
+
+<emphasis id="em1024" effect="italics">
+(I 
+omitted some of the methods introduced in JDK 1.4 for the reasons given above.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Methods of the Throwable class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+							
+
+<code id="pre1001" display="block">
+fillInStackTrace()
+getStackTrace()
+printStackTrace().
+setStackTrace(StackTraceElement[] stackTrace)
+
+getLocalizedMessage()
+getMessage()
+toString()</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1053">
+<emphasis id="strong1078" effect="bold">
+The StackTrace
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+The first four methods in 
+
+<link id="a1037" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ deal with the 
+
+<emphasis id="em1025" effect="italics">
+
+StackTrace
+
+</emphasis>
+. In case you are unfamiliar with the term 
+
+<emphasis id="em1026" effect="italics">
+StackTrace,
+
+</emphasis>
+ this 
+is a list of the methods executed in sequence that led to the exception. 
+
+<emphasis id="em1027" effect="italics">
+
+(This is what you typically see on the screen when your program aborts with a 
+runtime error that hasn't been handled.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1079" effect="bold">
+Messages
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The two methods dealing with messages provide access to a 
+
+<emphasis id="strong1080" effect="bold">
+String
+
+</emphasis>
+ 
+message that may be encapsulated in the exception object. The 
+
+<emphasis id="strong1081" effect="bold">
+getMessage
+
+</emphasis>
+ 
+class simply returns the message that was encapsulated when the object was 
+instantiated. 
+
+<emphasis id="em1028" effect="italics">
+(If no message was encapsulated, this method returns null.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1057">
+The 
+
+<emphasis id="strong1082" effect="bold">
+getLocalizedMessage
+
+</emphasis>
+ method is a little more complicated to use. 
+According to Sun, 
+
+<emphasis id="em1029" effect="italics">
+"Subclasses may override this method in order to produce a 
+locale-specific message."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1083" effect="bold">
+The toString method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+The 
+
+<emphasis id="strong1084" effect="bold">
+toString
+
+</emphasis>
+ method is inherited from the 
+
+<emphasis id="strong1085" effect="bold">
+Object
+
+</emphasis>
+ class and 
+overridden in the exception subclass to 
+
+<emphasis id="em1030" effect="italics">
+"return a short description of the 
+
+<emphasis id="strong1086" effect="bold">
+
+Throwable
+
+</emphasis>
+".
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1087" effect="bold">
+Inherited methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+All exception objects inherit the methods of the 
+
+<emphasis id="strong1088" effect="bold">
+Throwable
+
+</emphasis>
+ class, 
+which are listed in 
+
+<link id="a1038" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Thus, any of these methods may be called by the 
+code in the 
+
+<emphasis id="strong1089" effect="bold">
+catch
+
+</emphasis>
+ block in its attempt to successfully handle the 
+exception. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+For example, exceptions may have a message encapsulated in the exception 
+object, which can be accessed using the 
+
+<emphasis id="strong1090" effect="bold">
+getMessage
+
+</emphasis>
+ method. You can use 
+this to display a message describing the error or exception. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+You can also use other methods of the 
+
+<emphasis id="strong1091" effect="bold">
+Throwable
+
+</emphasis>
+ class to: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1048">
+Display a stack trace showing where the exception or error occurred
+
+</item>
+
+
+	
+
+<item id="li1049">
+Produce a 
+
+<emphasis id="strong1092" effect="bold">
+String
+
+</emphasis>
+ representation of the exception object
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1093" effect="bold">
+So, what is an exception?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+According to the online book entitled
+
+
+<link id="a1039" url="http://java.sun.com/docs/books/tutorial/">
+
+The Java Tutorial
+
+</link>
+
+ by 
+Campione and Walrath: 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="em1031" effect="italics">
+"The term exception is shorthand for the phrase "exceptional event". It 
+can be defined as follows: 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="em1032" effect="italics">
+Definition: An exception is an event that occurs 
+during the execution of a program that disrupts the normal flow of 
+instructions."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+When an exceptional condition occurs within a method, the method may 
+instantiate an exception object and hand it off to the runtime system to deal 
+with it. This is accomplished using the 
+
+<emphasis id="strong1094" effect="bold">
+throw
+
+</emphasis>
+ keyword. 
+
+<emphasis id="em1033" effect="italics">
+(This is called 
+throwing an exception.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+To be useful, the exception object should probably contain information about 
+the exception, including its type and the state of the program when the 
+exception occurred. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1095" effect="bold">
+Handling the exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+At that point, the runtime system becomes responsible for finding a block of 
+code designed to handle the exception. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+The runtime system begins its search with the method in which the exception 
+occurred and searches backwards through the call stack until it finds a method 
+that contains an 
+
+<emphasis id="em1034" effect="italics">
+appropriate
+
+</emphasis>
+ exception handler 
+
+<emphasis id="em1035" effect="italics">
+(catch block).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+An exception handler is 
+
+<emphasis id="em1036" effect="italics">
+appropriate
+
+</emphasis>
+ if the type of the exception 
+thrown is the same as the type of exception handled by the handler, or is a 
+subclass of the type of exception handled by the handler. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+Thus, the requirement to handle an exception that has been thrown progresses 
+up through the call stack until an appropriate handler is found to handle the 
+exception. If no appropriate handler is found, the runtime system and the 
+program terminate. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="em1037" effect="italics">
+(If you have ever had a program terminate with a 
+
+<emphasis id="strong1096" effect="bold">
+NullPointerException
+
+</emphasis>
+, 
+then you know how program termination works).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+According to the jargon, the exception handler that is chosen is said to 
+
+<emphasis id="em1038" effect="italics">
+
+catch the exception.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1097" effect="bold">
+Advantages of using exception handling
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+According to Campione and Walrath, exception handling provides the following 
+advantages over "traditional" error management techniques: 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1050">
+Separating Error Handling Code from "Regular" Code
+
+</item>
+
+
+	
+
+<item id="li1051">
+Propagating Errors Up the Call Stack
+
+</item>
+
+
+	
+
+<item id="li1052">
+Grouping Error Types and Error Differentiation
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1098" effect="bold">
+Separating error handling code from regular code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+I don't plan to discuss these advantages in detail. Rather, I will simply 
+refer you to 
+
+<link id="a1040" url="http://java.sun.com/docs/books/tutorial/">
+
+The Java 
+Tutorial
+
+</link>
+
+ and other good books where you can read their discussions. However, 
+I will comment briefly. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+Campione and Walrath provide a good illustration where they show how a simple 
+program having about six lines of code get "bloated" into about 29 lines of very 
+confusing code through the use of traditional error management techniques. Not 
+only does the program suffer bloat, the logical flow of the original program 
+gets lost in the clutter of the modified program. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+They then show how to accomplish the same error management using exception 
+handling. Although the version with exception handling contains about seventeen 
+lines of code, it is orderly and easy to understand. The additional lines of 
+code do not cause the original logic of the program to get lost. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1099" effect="bold">
+You must still do the hard work
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+However, the use of exception handling does not spare you from the hard work 
+of detecting, reporting, and handling errors. What it does is provide a means to 
+separate the details of what to do when something out-of-the-ordinary happens 
+from the normal logical flow of the program code. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1100" effect="bold">
+Propagating exceptions up the call stack
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+Sometimes it is desirable to propagate exception handling up the call stack 
+and let the corrective action be taken at a higher level. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+For example, you might provide a class with methods that implement a 
+
+<emphasis id="em1039" effect="italics">
+stack
+
+</emphasis>
+. 
+One of the methods of your class might be to 
+
+<emphasis id="em1040" effect="italics">
+pop
+
+</emphasis>
+ an element off the 
+stack. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+What should your program do if a using program attempts to pop an element off 
+an empty stack? That decision might best be left to the user of your stack 
+class, and you might simply propagate the notification up to the calling method 
+and let that method take the corrective action. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1101" effect="bold">
+Grouping exception types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+When an exception is thrown, an object of one of the exception classes is 
+passed as a parameter. Objects are instances of classes, and classes fall into 
+an inheritance hierarchy in Java. Therefore, a natural hierarchy can be created, 
+which causes exceptions to be grouped in logical ways. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+For example, going back to the stack example, you might create an exception 
+class that applies to all exceptional conditions associated with an object of 
+your stack class. Then you might extend that class into other classes that 
+pertain to specific exceptional conditions, such as 
+
+<emphasis id="em1041" effect="italics">
+push 
+
+</emphasis>
+exceptions, 
+
+<emphasis id="em1042" effect="italics">
+
+pop 
+
+</emphasis>
+exceptions, and 
+
+<emphasis id="em1043" effect="italics">
+initialization 
+
+</emphasis>
+exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+When your code throws an exception object of a specific type, that object can 
+be caught by an exception handler designed either to: 
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1053">
+Catch on the basis of a group of exceptions, or
+
+</item>
+
+
+	
+
+<item id="li1054">
+Catch on the basis of a subgroup of that group, or
+
+</item>
+
+
+	
+
+<item id="li1055">
+Catch on the basis of one of the specialized exceptions.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1093">
+In other words, an exception handler can catch exceptions of the class 
+specified by the type of its parameter, or can catch exceptions of any subclass 
+of the class specified by the type of its parameter. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1102" effect="bold">
+More detailed information on exception handling
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+As explained earlier, except for 
+
+<emphasis id="strong1103" effect="bold">
+Throwable
+
+</emphasis>
+ objects of type 
+
+<emphasis id="strong1104" effect="bold">
+Error
+
+</emphasis>
+ 
+and for 
+
+<emphasis id="strong1105" effect="bold">
+Throwable.Exception
+
+</emphasis>
+ objects of type 
+
+<emphasis id="strong1106" effect="bold">
+RuntimeException
+
+</emphasis>
+, Java 
+programs must either 
+
+<emphasis id="em1044" effect="italics">
+handle
+
+</emphasis>
+ or 
+
+<emphasis id="em1045" effect="italics">
+declare 
+
+</emphasis>
+all 
+
+<emphasis id="strong1107" effect="bold">
+Exception 
+
+</emphasis>
+
+objects that are thrown. Otherwise, the compiler will refuse to compile the 
+program. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+In other words, all exceptions other than those specified above are 
+
+<emphasis id="em1046" effect="italics">
+
+checked
+
+</emphasis>
+ by the compiler, and the compiler will refuse to compile the program 
+if the exceptions aren't handled or declared. As a result, exceptions other than 
+those specified above are often referred to as 
+
+<emphasis id="em1047" effect="italics">
+checked
+
+</emphasis>
+ exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1108" effect="bold">
+Catching an exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Just to make certain that we are using the same terminology, a method 
+
+<emphasis id="em1048" effect="italics">
+
+catches
+
+</emphasis>
+ an exception by providing an exception handler whose parameter type 
+is appropriate for that type of exception object. 
+
+<emphasis id="em1049" effect="italics">
+(I will more or less use 
+the terms 
+
+<emphasis id="strong1109" effect="bold">
+catch
+
+</emphasis>
+ block and exception handler interchangeably.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+The type of the parameter in the 
+
+<emphasis id="strong1110" effect="bold">
+catch
+
+</emphasis>
+ block must be the class from 
+which the exception was instantiated, or a superclass of that class that resides 
+somewhere between that class and the 
+
+<emphasis id="strong1111" effect="bold">
+Throwable
+
+</emphasis>
+ class in the inheritance 
+hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1112" effect="bold">
+Declaring an exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+If the code in a method can throw a checked exception, and the method does 
+not provide an exception handler for the type of exception object thrown, the 
+method must 
+
+<emphasis id="em1050" effect="italics">
+declare
+
+</emphasis>
+ that it can throw that exception. The 
+
+<emphasis id="strong1113" effect="bold">
+throws
+
+</emphasis>
+ 
+keyword is used in the method declaration to declare that it 
+
+<emphasis id="strong1114" effect="bold">
+throws
+
+</emphasis>
+ an 
+exception of a particular type. 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+Any checked exception that can be thrown by a method is part of the method's 
+programming interface 
+
+<emphasis id="em1051" effect="italics">
+(see the 
+
+<emphasis id="strong1115" effect="bold">
+read
+
+</emphasis>
+ method of the InputStream class, 
+which throws 
+
+<emphasis id="strong1116" effect="bold">
+IOException
+
+</emphasis>
+, for example).
+
+</emphasis>
+ Users of a method must know 
+about the exceptions that a method can throw in order to be able to handle them. 
+Thus, you must declare the exceptions that the method can throw in the method 
+signature. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1117" effect="bold">
+Checked exceptions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+Checked exceptions are all exception objects instantiated from subclasses of 
+the 
+
+<emphasis id="strong1118" effect="bold">
+Exception
+
+</emphasis>
+ class other than those of the 
+
+<emphasis id="strong1119" effect="bold">
+RuntimeException
+
+</emphasis>
+ 
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+Exceptions of all 
+
+<emphasis id="strong1120" effect="bold">
+Exception 
+
+</emphasis>
+subclasses other than 
+
+<emphasis id="strong1121" effect="bold">
+RuntimeException
+
+
+</emphasis>
+are checked by the compiler and will result in compiler errors if they are 
+neither 
+
+<emphasis id="em1052" effect="italics">
+caught 
+
+</emphasis>
+nor 
+
+<emphasis id="em1053" effect="italics">
+declared
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+You will learn how you can create your own exception classes later. Whether 
+your exception objects become checked or not depends on the class that you 
+extend when you define your exception class. 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="em1054" effect="italics">
+(If you extend a checked exception class, your new exception type will be 
+a checked exception. Otherwise, it will not be a checked exception.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1122" effect="bold">
+Exceptions that can be thrown within the scope of a method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+The exceptions that can be thrown within the scope of a method include not 
+only exceptions which are thrown by code written into the method, but also 
+includes exceptions thrown by methods called by that method, or methods called 
+by those methods, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+According to Campione and Walrath, 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="em1055" effect="italics">
+"This ... includes any exception that can be thrown while the flow of 
+control remains within the method. Thus, this ... includes both exceptions that 
+are thrown directly by the method with Java's throw statement, and exceptions 
+that are thrown indirectly by the method through calls to other methods."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1123" effect="bold">
+Sample programs
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+Now it's time to take a look at some sample code designed to deal with 
+exceptions of the types delivered with the JDK. Initially I won't include 
+exception classes that are designed for custom purposes. However, I will deal 
+with exceptions of those types later in the module. 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+The first three sample programs will illustrate the successive stages of 
+dealing with checked exceptions by either catching or declaring those 
+exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1124" effect="bold">
+Sample program with no exception handling code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+The first sample program shown in 
+
+<link id="a1041" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ neither catches nor declares the
+
+
+<emphasis id="strong1125" effect="bold">
+InterruptedException 
+
+</emphasis>
+which can be thrown by the 
+
+<emphasis id="strong1126" effect="bold">
+sleep 
+
+</emphasis>
+method of 
+the 
+
+<emphasis id="strong1127" effect="bold">
+Thread 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Sample program with no exception handling code.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">/*File Excep11.java
+Copyright 2002, R.G.Baldwin
+Tested using JDK 1.4.0 under Win2000
+**************************************/
+import java.lang.Thread;
+
+class Excep11{
+  public static void main(
+                        String[] args){
+    Excep11 obj = new Excep11();
+    obj.myMethod();
+  }//end main
+  //---------------------------------//
+
+  void myMethod(){
+    Thread.currentThread().sleep(1000);
+  }//end myMethod
+}//end class Excep11</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1117">
+<emphasis id="strong1128" effect="bold">
+A possible InterruptedException
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+The code in the 
+
+<emphasis id="strong1129" effect="bold">
+main
+
+</emphasis>
+ method of 
+
+<link id="a1042" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+calls the method named 
+
+<emphasis id="strong1130" effect="bold">
+myMethod
+
+</emphasis>
+. The method named 
+
+<emphasis id="strong1131" effect="bold">
+myMethod
+
+</emphasis>
+ calls 
+the method named 
+
+<emphasis id="strong1132" effect="bold">
+sleep
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1133" effect="bold">
+Thread
+
+</emphasis>
+ class. The method named 
+
+<emphasis id="strong1134" effect="bold">
+
+sleep
+
+</emphasis>
+ declares that it throws 
+
+<emphasis id="strong1135" effect="bold">
+InterruptedException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1136" effect="bold">
+InterruptedException
+
+</emphasis>
+ is a checked exception. The program illustrates 
+the failure to either catch or declare 
+
+<emphasis id="strong1137" effect="bold">
+InterruptedException
+
+</emphasis>
+ in the method 
+named 
+
+<emphasis id="strong1138" effect="bold">
+myMethod
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+As a result, this program won't compile. The compiler error is similar to 
+that shown in 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Note the caret in the last line that points to the point 
+where the compiler detected the problem. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Compiler error from an 
+				unhandled checked exception.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+							
+
+<code id="pre1003" display="block">unreported exception
+java.lang.InterruptedException;
+must be caught or declared to be thrown
+    Thread.currentThread().sleep(1000);
+                        ^</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1121">
+As you can see, the compiler detected a problem where the 
+
+<emphasis id="strong1139" effect="bold">
+sleep
+
+</emphasis>
+ 
+	method was called, because the method named 
+
+<emphasis id="strong1140" effect="bold">
+myMethod
+
+</emphasis>
+ failed to deal 
+	properly with an exception that can be thrown by the 
+
+<emphasis id="strong1141" effect="bold">
+sleep
+
+</emphasis>
+ method.
+
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1142" effect="bold">
+Sample program that fixes one compiler error
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+The next version of the program, shown in 
+
+<link id="a1044" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, 
+fixes the problem identified with the call to the 
+
+<emphasis id="strong1143" effect="bold">
+sleep
+
+</emphasis>
+ method, by declaring the exception 
+in the signature for the method named 
+
+<emphasis id="strong1144" effect="bold">
+myMethod
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Sample program that fixes one compiler error.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">/*File Excep12.java
+Copyright 2002, R.G.Baldwin
+Tested using JDK 1.4.0 under Win2000
+**************************************/
+import java.lang.Thread;
+
+class Excep12{
+  public static void main(
+                        String[] args){
+    Excep12 obj = new Excep12();
+    obj.myMethod();
+  }//end main
+  //---------------------------------//
+
+  void myMethod()
+           throws InterruptedException{
+    Thread.currentThread().sleep(1000);
+  }//end myMethod
+}//end class Excep12</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1124">
+<emphasis id="strong1145" effect="bold">
+Another possible InterruptedException
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+As was the case in the previous program, this program also illustrates a 
+failure to catch or declare an 
+
+<emphasis id="strong1146" effect="bold">
+InterruptedException
+
+</emphasis>
+. However, in this 
+case, the problem has moved up one level in the call stack relative to the 
+problem with the program in 
+
+<link id="a1045" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1126">
+This program also fails to compile, producing a compiler error similar to 
+that shown in 
+
+<link id="a1046" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Note that the caret indicates that the problem is 
+associated with the call to 
+
+<emphasis id="strong1147" effect="bold">
+myMethod
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+. Another compiler error.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+							
+
+<code id="pre1005" display="block">unreported exception
+java.lang.InterruptedException;
+must be caught or declared to be thrown
+    obj.myMethod();
+       ^</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1127">
+<emphasis id="strong1148" effect="bold">
+Didn't solve the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1128">
+Simply declaring a checked exception doesn't solve the problem. Ultimately, 
+the exception must be handled if the compiler problem is to be solved. 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="em1056" effect="italics">
+(Note, however, that it is possible to declare that the 
+
+<emphasis id="strong1149" effect="bold">
+main
+
+</emphasis>
+ method 
+throws a checked exception, which will cause the compiler to ignore it and allow 
+your program to compile.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+The program in 
+
+<link id="a1047" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ eliminated the compiler 
+error identified with the call to the method named 
+
+<emphasis id="strong1150" effect="bold">
+sleep
+
+</emphasis>
+. This was accomplished by declaring that 
+the method named 
+
+<emphasis id="strong1151" effect="bold">
+myMethod 
+
+</emphasis>
+<emphasis id="em1057" effect="italics">
+throws InterruptedException
+
+</emphasis>
+. However, 
+this simply passed the exception up the call stack to the next higher-level 
+method in the stack. This didn't solve the problem, it simply handed it off to 
+another method to solve. 
+
+</para>
+
+
+
+
+
+<para id="p1131">
+The problem still exists, and is now identified with the call to 
+
+<emphasis id="strong1152" effect="bold">
+myMethod
+
+</emphasis>
+ 
+where it will have to be handled in order to make the compiler error go away.
+
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1153" effect="bold">
+Sample program that fixes the remaining compiler error
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+The version of the program shown in 
+
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ fixes 
+the remaining compiler error. This program illustrates both declaring and 
+handling a checked exception. This program compiles and runs successfully. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Sample program that fixes the remaining compiler error.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">/*File Excep13.java
+Copyright 2002, R.G.Baldwin
+
+Tested using JDK 1.4.0 under Win2000
+**************************************/
+import java.lang.Thread;
+
+class Excep13{
+  public static void main(
+                        String[] args){
+    Excep13 obj = new Excep13();
+    try{//begin try block
+      obj.myMethod();
+    }catch(InterruptedException e){
+      System.out.println(
+              "Handle exception here");
+    }//end catch block
+  }//end main
+  //---------------------------------//
+
+  void myMethod()
+           throws InterruptedException{
+    Thread.currentThread().sleep(1000);
+  }//end myMethod
+}//end class Excep13</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1134">
+<emphasis id="strong1154" effect="bold">
+The solution to the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+This solution to the problem is accomplished by surrounding the call to 
+
+<emphasis id="strong1155" effect="bold">
+
+myMethod
+
+</emphasis>
+ with a 
+
+<emphasis id="strong1156" effect="bold">
+try
+
+</emphasis>
+ block, which is followed immediately by an 
+
+<emphasis id="em1058" effect="italics">
+
+appropriate 
+
+</emphasis>
+<emphasis id="strong1157" effect="bold">
+catch
+
+</emphasis>
+ block. In this case, an appropriate 
+
+<emphasis id="strong1158" effect="bold">
+catch
+
+</emphasis>
+ 
+block is one whose parameter type is either 
+
+<emphasis id="strong1159" effect="bold">
+InterruptedException
+
+</emphasis>
+, or a 
+superclass of 
+
+<emphasis id="strong1160" effect="bold">
+InterruptedException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="em1059" effect="italics">
+(Note, however, that the superclass cannot be higher than the 
+
+<emphasis id="strong1161" effect="bold">
+Throwable
+
+</emphasis>
+ 
+class in the inheritance hierarchy.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1162" effect="bold">
+The myMethod method declares the exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+As in the previous version, the method named 
+
+<emphasis id="strong1163" effect="bold">
+myMethod 
+
+</emphasis>
+(declares the 
+exception and passes it up the call stack to the method from which it was 
+called. 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1164" effect="bold">
+The main method handles the exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+In the new version shown in 
+
+<link id="a1049" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, the 
+
+<emphasis id="strong1165" effect="bold">
+main
+
+</emphasis>
+ method provides a 
+
+<emphasis id="strong1166" effect="bold">
+
+try
+
+</emphasis>
+ block with an 
+
+<emphasis id="em1060" effect="italics">
+appropriate 
+
+</emphasis>
+<emphasis id="strong1167" effect="bold">
+catch
+
+</emphasis>
+ block
+
+<emphasis id="em1061" effect="italics">
+ 
+
+</emphasis>
+for dealing 
+with the problem 
+
+<emphasis id="em1062" effect="italics">
+(although it doesn't actually deal with it in any 
+significant way). 
+
+</emphasis>
+This can be interpreted as follows: 
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1056">
+Try
+
+<emphasis id="strong1168" effect="bold">
+ 
+
+</emphasis>
+to execute the code within the 
+
+<emphasis id="strong1169" effect="bold">
+try
+
+</emphasis>
+ block.
+
+</item>
+
+
+	
+
+<item id="li1057">
+If an exception occurs, search for a 
+
+<emphasis id="strong1170" effect="bold">
+catch
+
+</emphasis>
+ block that matches the 
+	type of object thrown by the exception.
+
+</item>
+
+
+	
+
+<item id="li1058">
+If such a 
+
+<emphasis id="strong1171" effect="bold">
+catch
+
+</emphasis>
+ block can be found, immediately transfer control 
+	to the catch block without executing any of the remaining code in the 
+
+<emphasis id="strong1172" effect="bold">
+try
+
+</emphasis>
+ 
+	block. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1141">
+ 
+
+<emphasis id="em1063" effect="italics">
+(For simplicity, this program didn't have any remaining code. Some 
+	later sample programs will illustrate code being skipped due to the 
+	occurrence of an exception.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1173" effect="bold">
+Not a method call
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+Note that this transfer of control is not a method call. It is an 
+unconditional transfer of control. There is no 
+
+<emphasis id="em1064" effect="italics">
+return
+
+</emphasis>
+ from a catch block.
+
+
+</para>
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1174" effect="bold">
+Matching catch block was found
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+In this case, there was a matching 
+
+<emphasis id="strong1175" effect="bold">
+catch
+
+</emphasis>
+ block to receive control. In 
+the event that an 
+
+<emphasis id="strong1176" effect="bold">
+InterruptedException
+
+</emphasis>
+ is thrown, the program would 
+execute the statement within the body of the 
+
+<emphasis id="strong1177" effect="bold">
+catch
+
+</emphasis>
+ block, and then 
+transfer control to the code following the final 
+
+<emphasis id="strong1178" effect="bold">
+catch
+
+</emphasis>
+ block in the group 
+of 
+
+<emphasis id="strong1179" effect="bold">
+catch
+
+</emphasis>
+ blocks 
+
+<emphasis id="em1065" effect="italics">
+(in this case, there was only one 
+
+<emphasis id="strong1180" effect="bold">
+catch
+
+</emphasis>
+ block).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1181" effect="bold">
+No output is produced
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+It is unlikely that you will see any output when you run this program, 
+because it is unlikely that an 
+
+<emphasis id="strong1182" effect="bold">
+InterruptedException
+
+</emphasis>
+ will be thrown. 
+
+<emphasis id="em1066" effect="italics">
+(I 
+didn't provide any code that will cause such an exception to occur.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1183" effect="bold">
+A sample program that throws an exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+Now let's look at the sample program in 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, which throws an exception 
+and deals with it. This program illustrates the implementation of exception 
+handling using the try/catch block structure. 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. A sample program that throws an exception.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">/*File Excep14.java
+Copyright 2002, R. G. Baldwin
+
+Tested with JDK 1.4.0 under Win2000
+**************************************/
+
+class Excep14{
+  public static void main(
+                        String[] args){
+    try{
+      for(int cnt = 2; cnt &gt;-1; cnt--){
+        System.out.println(
+               "Running. Quotient is: "
+                              + 6/cnt);
+      }//end for-loop
+    }//end try block
+    catch(ArithmeticException e){
+      System.out.println(
+              "Exception message is:  "
+              + e.getMessage()
+              + "\nStacktrace shows:");
+      e.printStackTrace();
+      System.out.println(
+        "String representation is\n " +
+                         e.toString());
+      System.out.println(
+         "Put corrective action here");
+    }//end catch block
+    System.out.println(
+                 "Out of catch block");
+  }//end main
+
+}//end class Excep14</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1150">
+<emphasis id="strong1184" effect="bold">
+Keeping it simple
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1151">
+I try to keep my sample programs as simple as possible, introducing the 
+minimum amount of complexity necessary to illustrate the main point of the 
+program. It is easy to write a 
+
+<emphasis id="em1067" effect="italics">
+really simple
+
+</emphasis>
+ program that throws an 
+unchecked 
+
+<emphasis id="strong1185" effect="bold">
+ArithmeticException
+
+</emphasis>
+. Therefore, the program in
+
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ was written to throw an 
+
+<emphasis id="strong1186" effect="bold">
+
+ArithmeticException
+
+</emphasis>
+. This was accomplished by trying 
+to perform an integer divide by zero. 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1187" effect="bold">
+The try/catch structure is the same ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1153">
+It is important to note that the 
+
+<emphasis id="em1068" effect="italics">
+try/catch
+
+</emphasis>
+ structure illustrated in
+
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ would be the same whether the exception is 
+checked or unchecked. The main difference is that you are not required by the 
+compiler to handle unchecked exceptions and you are required by the compiler to 
+either handle or declare checked exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1188" effect="bold">
+Throwing an ArithmeticException
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+The code in 
+
+<link id="a1053" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ executes a simple counting 
+loop inside a 
+
+<emphasis id="strong1189" effect="bold">
+try
+
+</emphasis>
+ 
+block. During each iteration, the counting loop divides the integer 6 by the 
+value of the counter. When the value of the counter goes to zero, the runtime 
+system tries to perform an integer divide by zero operation, which causes it to 
+throw an 
+
+<emphasis id="strong1190" effect="bold">
+ArithmeticException
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1191" effect="bold">
+Transfer control immediately
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1157">
+At that point, control is transferred directly to the 
+
+<emphasis id="strong1192" effect="bold">
+catch
+
+</emphasis>
+ block that 
+follows the 
+
+<emphasis id="strong1193" effect="bold">
+try
+
+</emphasis>
+ block. This is an 
+
+<emphasis id="em1069" effect="italics">
+appropriate 
+
+</emphasis>
+<emphasis id="strong1194" effect="bold">
+catch
+
+</emphasis>
+ block 
+because the type of parameter declared for the 
+
+<emphasis id="strong1195" effect="bold">
+catch
+
+</emphasis>
+ block is 
+
+<emphasis id="strong1196" effect="bold">
+
+ArithmeticException
+
+</emphasis>
+. It matches the type of the object that is thrown. 
+
+</para>
+
+
+
+
+
+<para id="p1158">
+<emphasis id="em1070" effect="italics">
+(It would also be appropriate if the declared type of the parameter were a 
+superclass of 
+
+<emphasis id="strong1197" effect="bold">
+ArithmeticException
+
+</emphasis>
+, up to and including the class named 
+
+<emphasis id="strong1198" effect="bold">
+
+Throwable
+
+</emphasis>
+. 
+
+<emphasis id="strong1199" effect="bold">
+Throwable
+
+</emphasis>
+ is a direct subclass of 
+
+<emphasis id="strong1200" effect="bold">
+Object
+
+</emphasis>
+. If you 
+were to declare the parameter type for the 
+
+<emphasis id="strong1201" effect="bold">
+catch
+
+</emphasis>
+ block as 
+
+<emphasis id="strong1202" effect="bold">
+Object
+
+</emphasis>
+, 
+the compiler would produce an incompatible type error.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1159">
+<emphasis id="strong1203" effect="bold">
+Calling methods inside the catch block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+Once control enters the 
+
+<emphasis id="strong1204" effect="bold">
+catch
+
+</emphasis>
+ block, three of the methods of the 
+
+<emphasis id="strong1205" effect="bold">
+
+Throwable
+
+</emphasis>
+ class are called to cause information about the situation to be 
+displayed on the screen. The output produced by the program is similar to that 
+shown in 
+
+<link id="a1054" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+. Output from program that 
+				throws ArithmeticException.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+							
+
+<code id="pre1008" display="block">Running. Quotient is: 3
+Running. Quotient is: 6
+Exception message is:  / by zero
+Stacktrace shows:
+java.lang.ArithmeticException:
+  / by zero
+  at Excep14.main(Excep14.java:35)
+String representation is
+java.lang.ArithmeticException:
+/ by zero
+Put corrective action here
+Out of catch block</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1161">
+<emphasis id="strong1206" effect="bold">
+Key things to note
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+The key things to note about the code in 
+
+<link id="a1055" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+and the output in 
+
+<link id="a1056" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+are: 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1059">
+The code to be protected is contained in a 
+
+<emphasis id="strong1207" effect="bold">
+try
+
+</emphasis>
+ block.
+
+</item>
+
+
+	
+
+<item id="li1060">
+The 
+
+<emphasis id="strong1208" effect="bold">
+try
+
+</emphasis>
+ block is followed immediately by an appropriate 
+
+<emphasis id="strong1209" effect="bold">
+catch
+
+</emphasis>
+ 
+	block.
+
+</item>
+
+
+	
+
+<item id="li1061">
+When an exception is thrown within the 
+
+<emphasis id="strong1210" effect="bold">
+try
+
+</emphasis>
+ block, control is 
+	transferred immediately to the 
+
+<emphasis id="strong1211" effect="bold">
+catch
+
+</emphasis>
+ block with the matching or 
+	appropriate parameter type.
+
+</item>
+
+
+	
+
+<item id="li1062">
+Although the code in the 
+
+<emphasis id="strong1212" effect="bold">
+catch
+
+</emphasis>
+ block simply displays the current 
+	state of the program, it could contain code that attempts to rectify the 
+	problem.
+
+</item>
+
+
+	
+
+<item id="li1063">
+Once the code in the 
+
+<emphasis id="strong1213" effect="bold">
+catch
+
+</emphasis>
+ block finishes executing, control is 
+	passed to the next executable statement following the 
+
+<emphasis id="strong1214" effect="bold">
+catch
+
+</emphasis>
+ block, 
+	which in this program is a print statement.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1215" effect="bold">
+Doesn't attempt to rectify the problem
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+This program doesn't attempt to show how an actual program might recover from 
+an exception of this sort. However, it is clear that 
+
+<emphasis id="em1071" effect="italics">
+(rather than 
+experiencing automatic and unconditional termination)
+
+</emphasis>
+ the program remains in 
+control, and in some cases, recovery might be possible. 
+
+</para>
+
+
+
+
+
+<para id="p1165">
+This sample program illustrates 
+
+<emphasis id="strong1216" effect="bold">
+try
+
+</emphasis>
+ and 
+
+<emphasis id="strong1217" effect="bold">
+catch
+
+</emphasis>
+. The use of 
+
+<emphasis id="strong1218" effect="bold">
+
+finally
+
+</emphasis>
+, will be discussed and illustrated later. 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1219" effect="bold">
+A nuisance problem explained
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+While we are at it, I would be remiss in failing to mention a nuisance 
+problem associated with exception handling. 
+
+</para>
+
+
+
+
+
+<para id="p1168">
+As you may recall, the scope of a variable in Java is limited to the block of 
+code in which it is declared. A block is determined by enclosing code within a 
+pair of matching curly brackets: {...}. 
+
+</para>
+
+
+
+
+
+<para id="p1169">
+Since a pair of curly brackets is required to define a 
+
+<emphasis id="strong1220" effect="bold">
+try
+
+</emphasis>
+ block, the 
+scope of any variables or objects declared inside the 
+
+<emphasis id="strong1221" effect="bold">
+try
+
+</emphasis>
+<emphasis id="em1072" effect="italics">
+ 
+
+</emphasis>
+block is 
+limited to the 
+
+<emphasis id="strong1222" effect="bold">
+try
+
+</emphasis>
+<emphasis id="em1073" effect="italics">
+ 
+
+</emphasis>
+block. 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+While this is not an insurmountable problem, it may require you to modify 
+your programming style in ways that you find distasteful. In particular, if you 
+need to access a variable both within and outside the 
+
+<emphasis id="strong1223" effect="bold">
+try
+
+</emphasis>
+ block, you must 
+declare it before entering the 
+
+<emphasis id="strong1224" effect="bold">
+try
+
+</emphasis>
+ block. 
+
+</para>
+
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1225" effect="bold">
+The process in more detail
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+Now that you have seen some sample programs to help you visualize the 
+process, lets discuss the process in more detail. 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+<emphasis id="strong1226" effect="bold">
+The try block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1174">
+According to Campione and Walrath, 
+
+</para>
+
+
+
+
+
+<para id="p1175">
+<emphasis id="em1074" effect="italics">
+"The first step in writing any exception handler is putting the Java 
+statements within which an exception can occur into a try block. The try block 
+is said to govern the statements enclosed within it and defines the scope of any 
+exception handlers (established by subsequent catch blocks) associated with it."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1176">
+Note that the terminology being used by Campione and Walrath treats the 
+
+<emphasis id="strong1227" effect="bold">
+
+catch block
+
+</emphasis>
+ as the 
+
+<emphasis id="em1075" effect="italics">
+"exception handler"
+
+</emphasis>
+ and treats the 
+
+<emphasis id="strong1228" effect="bold">
+try
+
+</emphasis>
+ 
+block as something that precedes one or more exception handlers. I don't 
+disagree with their terminology. I mention it only for the purpose of avoiding 
+confusion over terminology. 
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1229" effect="bold">
+The syntax of a try block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+The general syntax of a 
+
+<emphasis id="strong1230" effect="bold">
+try
+
+</emphasis>
+ block, as you saw in the previous program, 
+has the keyword 
+
+<emphasis id="strong1231" effect="bold">
+try
+
+</emphasis>
+<emphasis id="em1076" effect="italics">
+ 
+
+</emphasis>
+followed by one or more statements enclosed in 
+a pair of matching curly brackets, as shown in 
+
+<link id="a1057" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+. Syntax of a try block.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+							
+
+<code id="pre1009" display="block">try{
+  //java statements
+}//end try block</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1179">
+<emphasis id="strong1232" effect="bold">
+Single statement and multiple exceptions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1180">
+You may have more than one statement that can throw one or more exceptions 
+and you will need to deal with all of them. 
+
+</para>
+
+
+
+
+
+<para id="p1181">
+You could put each such statement that might throw exceptions within its own
+
+
+<emphasis id="strong1233" effect="bold">
+try
+
+</emphasis>
+<emphasis id="em1077" effect="italics">
+ 
+
+</emphasis>
+block and provide separate exception handlers for each 
+
+<emphasis id="strong1234" effect="bold">
+try
+
+</emphasis>
+ 
+block. 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+<emphasis id="em1078" effect="italics">
+(Note that some statements, particularly those that call other methods, 
+could potentially throw many different types of exceptions.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1183">
+Thus a 
+
+<emphasis id="strong1235" effect="bold">
+try
+
+</emphasis>
+ block consisting of a single statement might require many 
+different exception handlers or 
+
+<emphasis id="strong1236" effect="bold">
+catch
+
+</emphasis>
+ blocks following it. 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+<emphasis id="strong1237" effect="bold">
+Multiple statements and multiple exceptions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1185">
+You could put all or several of the statements that might throw exceptions 
+within a single 
+
+<emphasis id="strong1238" effect="bold">
+try
+
+</emphasis>
+ block and associate multiple exception handlers with 
+it. There are a number of practical issues involved here, and only you can 
+decide in any particular instance which approach would be best. 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1239" effect="bold">
+The catch blocks must follow the try block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1187">
+However you decide to do it, the exception handlers associated with a 
+
+<emphasis id="strong1240" effect="bold">
+try
+
+</emphasis>
+ 
+block must be placed immediately following their associated 
+
+<emphasis id="em1079" effect="italics">
+try
+
+</emphasis>
+ block. If 
+an exception occurs within the 
+
+<emphasis id="strong1241" effect="bold">
+try
+
+</emphasis>
+<emphasis id="em1080" effect="italics">
+ 
+
+</emphasis>
+block, that exception is 
+handled by the appropriate exception handler associated with the 
+
+<emphasis id="strong1242" effect="bold">
+try
+
+</emphasis>
+ 
+block. If there is no appropriate exception handler associated with the 
+
+<emphasis id="strong1243" effect="bold">
+try
+
+</emphasis>
+ 
+block, the system attempts to find an appropriate exception handler in the next 
+method up the call stack. 
+
+</para>
+
+
+
+
+
+<para id="p1188">
+A 
+
+<emphasis id="strong1244" effect="bold">
+try
+
+</emphasis>
+ block must be accompanied by at least one 
+
+<emphasis id="strong1245" effect="bold">
+catch 
+
+</emphasis>
+block 
+
+<emphasis id="em1081" effect="italics">
+
+(or one 
+
+<emphasis id="strong1246" effect="bold">
+finally
+
+</emphasis>
+ block).
+
+</emphasis>
+ Otherwise, a compiler error that reads 
+something like 
+
+<emphasis id="em1082" effect="italics">
+'try' without 'catch' or 'finally'
+
+</emphasis>
+ will occur. 
+
+</para>
+
+
+
+
+
+<para id="p1189">
+<emphasis id="strong1247" effect="bold">
+The catch block(s)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1190">
+Continuing with what Campione and Walrath have to say: 
+
+</para>
+
+
+
+
+
+<para id="p1191">
+<emphasis id="em1083" effect="italics">
+"Next, you associate exception handlers with a try block by providing one 
+or more catch blocks directly after the try block."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1192">
+There can be no intervening code between the end of the 
+
+<emphasis id="strong1248" effect="bold">
+try 
+
+</emphasis>
+block and 
+the beginning of the first 
+
+<emphasis id="strong1249" effect="bold">
+catch
+
+</emphasis>
+<emphasis id="em1084" effect="italics">
+ 
+
+</emphasis>
+block, and no intervening code 
+between 
+
+<emphasis id="strong1250" effect="bold">
+catch
+
+</emphasis>
+ blocks. 
+
+</para>
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1251" effect="bold">
+Syntax of a catch block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1194">
+The general form of a 
+
+<emphasis id="strong1252" effect="bold">
+catch
+
+</emphasis>
+ block is shown in 
+
+<link id="a1058" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+. Syntax of a catch block.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+							
+
+<code id="pre1010" display="block">catch(ThrowableObjectType paramName){
+  //Java statements to handle the
+  // exception
+}//end catch block</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1195">
+The declaration for the 
+
+<emphasis id="strong1253" effect="bold">
+catch
+
+</emphasis>
+ block requires a single argument as 
+	shown. The syntax for the argument declaration is the same as an argument 
+	declaration for a method. 
+
+</para>
+
+
+
+
+
+<para id="p1196">
+<emphasis id="strong1254" effect="bold">
+Argument type specifies type of matching exception object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1197">
+The argument type declares the type of exception object that a particular 
+
+<emphasis id="strong1255" effect="bold">
+
+catch
+
+</emphasis>
+ block can handle. The type must be 
+
+<emphasis id="strong1256" effect="bold">
+Throwable
+
+</emphasis>
+, or a subclass of 
+the 
+
+<emphasis id="strong1257" effect="bold">
+Throwable
+
+</emphasis>
+ class discussed earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1198">
+<emphasis id="strong1258" effect="bold">
+A parameter provides the local name
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1199">
+Also, as in a method declaration, there is a parameter, which is the name by 
+which the handler can refer to the exception object. For example, in an earlier 
+program, I used statements such as 
+
+<emphasis id="strong1259" effect="bold">
+e.getMessage() 
+
+</emphasis>
+to access an instance 
+method of an exception object caught by the exception handler. In that case, the 
+name of the parameter was 
+
+<emphasis id="strong1260" effect="bold">
+e
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1200">
+You access the instance variables and methods of exception objects the same 
+way that you access the instance variables and methods of other objects. 
+
+</para>
+
+
+
+
+
+<para id="p1201">
+<emphasis id="strong1261" effect="bold">
+Proper order of catch blocks
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1202">
+According to Campione and Walrath: 
+
+</para>
+
+
+
+
+
+<para id="p1203">
+<emphasis id="em1085" effect="italics">
+"The catch block contains a series of legal Java statements. These 
+statements are executed if and when the exception handler is called. The runtime 
+system calls the exception handler when the handler is the first one in the call 
+stack whose type matches that of the exception thrown."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1204">
+Therefore, the order of your exception handlers is very important, 
+particularly if you have some handlers, which are further up the exception 
+hierarchy than others. 
+
+</para>
+
+
+
+
+
+<para id="p1205">
+Those handlers that are designed to handle exception types furthermost from 
+the root of the hierarchy tree 
+
+<emphasis id="em1086" effect="italics">
+(
+
+<emphasis id="strong1262" effect="bold">
+Throwable
+
+</emphasis>
+)
+
+</emphasis>
+ should be placed first 
+in the list of exception handlers. 
+
+</para>
+
+
+
+
+
+<para id="p1206">
+Otherwise, an exception handler designed to handle a specific type of object 
+may be preempted by another handler whose exception type is a superclass of that 
+type, if the superclass exception handler appears earlier in the list of 
+exception handlers. 
+
+</para>
+
+
+
+
+
+<para id="p1207">
+<emphasis id="strong1263" effect="bold">
+Catching multiple exception types with one handler
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1208">
+Exception handlers that you write may be more or less specialized. In 
+addition to writing handlers for very specialized exception objects, the Java 
+language allows you to write general exception handlers that handle multiple 
+types of exceptions. 
+
+</para>
+
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1264" effect="bold">
+A hierarchy of Throwable classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1210">
+Java exceptions are 
+
+<emphasis id="strong1265" effect="bold">
+Throwable
+
+</emphasis>
+ objects 
+
+<emphasis id="em1087" effect="italics">
+(instances of the 
+
+<emphasis id="strong1266" effect="bold">
+
+Throwable
+
+</emphasis>
+ class or a subclass of the 
+
+<emphasis id="strong1267" effect="bold">
+Throwable 
+
+</emphasis>
+class).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1211">
+The Java standard library contains numerous classes that are subclasses of 
+
+<emphasis id="strong1268" effect="bold">
+
+Throwable
+
+</emphasis>
+ and thus build a hierarchy of 
+
+<emphasis id="strong1269" effect="bold">
+Throwable
+
+</emphasis>
+ classes. 
+
+</para>
+
+
+
+
+
+<para id="p1212">
+According to Campione and Walrath: 
+
+</para>
+
+
+
+
+
+<para id="p1213">
+<emphasis id="em1088" effect="italics">
+"Your exception handler can be written to handle any class that inherits 
+from 
+
+<emphasis id="strong1270" effect="bold">
+Throwable
+
+</emphasis>
+. If you write a handler for a "leaf" class (a class with 
+no subclasses), you've written a specialized handler: it will only handle 
+exceptions of that specific type. If you write a handler for a "node" class (a 
+class with subclasses), you've written a general handler: it will handle any 
+exception whose type is the node class or any of its subclasses."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1214">
+<emphasis id="strong1271" effect="bold">
+You have a choice
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1215">
+Therefore, when writing exception handlers, you have a choice. You can write 
+a handler whose exception type corresponds to a node in the inheritance 
+hierarchy, and it will be appropriate to 
+
+<emphasis id="strong1272" effect="bold">
+catch
+
+</emphasis>
+ exceptions of that type, 
+or any subclass of that type. 
+
+</para>
+
+
+
+
+
+<para id="p1216">
+Alternately, you can write a handler whose exception type corresponds to a 
+
+<emphasis id="em1089" effect="italics">
+
+leaf, 
+
+</emphasis>
+in which case, it will be appropriate to 
+
+<emphasis id="strong1273" effect="bold">
+catch
+
+</emphasis>
+ exceptions of 
+that type only. 
+
+</para>
+
+
+
+
+
+<para id="p1217">
+And finally, you can mix and match, writing some exception handlers whose 
+type corresponds to a node, and other exception handlers whose type corresponds 
+to a leaf. In all cases, however, be sure to position your exception handlers in 
+reverse subclass order, with the furthermost subclass from the root appearing 
+first, and the root class appearing last. 
+
+</para>
+
+
+
+
+
+<para id="p1218">
+<emphasis id="strong1274" effect="bold">
+The finally block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1219">
+And finally 
+
+<emphasis id="em1090" effect="italics">
+(no pun intended),
+
+</emphasis>
+ Campione and Walrath tell us: 
+
+</para>
+
+
+
+
+
+<para id="p1220">
+<emphasis id="em1091" effect="italics">
+"Java's finally block provides a mechanism that allows your method to 
+clean up after itself regardless of what happens within the try block. Use the 
+finally block to close files or release other system resources."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1221">
+To elaborate, the 
+
+<emphasis id="strong1275" effect="bold">
+finally
+
+</emphasis>
+ block can be used to provide a mechanism for 
+cleaning up open files, etc., before allowing control to be passed to a 
+different part of the program. You accomplish this by writing the cleanup code 
+within a 
+
+<emphasis id="strong1276" effect="bold">
+finally
+
+</emphasis>
+ block. 
+
+</para>
+
+
+
+
+
+<para id="p1222">
+<emphasis id="strong1277" effect="bold">
+Code in finally block is always executed
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1223">
+It is important to remember that the runtime system always executes the code 
+within the 
+
+<emphasis id="strong1278" effect="bold">
+finally
+
+</emphasis>
+ block regardless of what happens within the 
+
+<emphasis id="strong1279" effect="bold">
+try
+
+</emphasis>
+ 
+block. 
+
+</para>
+
+
+
+
+
+<para id="p1224">
+If no exceptions are thrown, none of the code in 
+
+<emphasis id="strong1280" effect="bold">
+catch
+
+</emphasis>
+ blocks is 
+executed, but the code in the 
+
+<emphasis id="strong1281" effect="bold">
+finally
+
+</emphasis>
+ block is executed. 
+
+</para>
+
+
+
+
+
+<para id="p1225">
+If an exception is thrown and the code in an exception handler is executed, 
+once the execution of that code is complete, control is passed to the 
+
+<emphasis id="strong1282" effect="bold">
+finally
+
+</emphasis>
+ 
+block and the code in the 
+
+<emphasis id="strong1283" effect="bold">
+finally
+
+</emphasis>
+ block is executed. 
+
+</para>
+
+
+
+
+
+<para id="p1226">
+<emphasis id="em1092" effect="italics">
+(There is one important exception to the above. If the code in the 
+
+<emphasis id="strong1284" effect="bold">
+
+catch
+
+</emphasis>
+ block terminates the program by executing 
+
+<emphasis id="strong1285" effect="bold">
+System.exit(0)
+
+</emphasis>
+, the 
+code in the 
+
+<emphasis id="strong1286" effect="bold">
+finally
+
+</emphasis>
+ block will not be executed.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1227">
+<emphasis id="strong1287" effect="bold">
+The power of the finally block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1228">
+The sample program shown in 
+
+<link id="a1059" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ illustrates the power of the 
+
+<emphasis id="strong1288" effect="bold">
+finally
+
+</emphasis>
+ 
+block. 
+
+</para>
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The power of the finally block.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1011" display="block">/*File Excep15.java
+Copyright 2002, R. G. Baldwin
+
+Tested with JDK 1.4.0 under Win2000
+**************************************/
+
+class Excep15{
+  public static void main(
+                        String[] args){
+    new Excep15().aMethod();
+  }//end main
+  //---------------------------------//
+
+  void aMethod(){
+    try{
+      int x = 5/0;
+    }//end try block
+    catch(ArithmeticException e){
+      System.out.println(
+      "In catch, terminating aMethod");
+      return;
+    }//end catch block
+
+    finally{
+      System.out.println(
+            "Executing finally block");
+    }//end finally block
+
+    System.out.println(
+                "Out of catch block");
+  }//end aMethod
+
+}//end class Excep15</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1229">
+<emphasis id="strong1289" effect="bold">
+Execute return statement in catch block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1230">
+The code in 
+
+<link id="a1060" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ forces an 
+
+<emphasis id="strong1290" effect="bold">
+
+ArithmeticException
+
+</emphasis>
+ by attempting to 
+do an integer divide by zero. Control is immediately transferred to the matching
+
+
+<emphasis id="strong1291" effect="bold">
+catch
+
+</emphasis>
+ block, which prints a message and then executes a 
+
+<emphasis id="strong1292" effect="bold">
+return
+
+</emphasis>
+ 
+statement. 
+
+</para>
+
+
+
+
+
+<para id="p1231">
+Normally, execution of a 
+
+<emphasis id="strong1293" effect="bold">
+return
+
+</emphasis>
+ statement terminates the method 
+immediately. In this case, however, before the method terminates and returns 
+control to the calling method, the code in the 
+
+<emphasis id="strong1294" effect="bold">
+finally
+
+</emphasis>
+ block is executed. 
+Then control is transferred to the 
+
+<emphasis id="strong1295" effect="bold">
+main
+
+</emphasis>
+ method, which called this method 
+in the first place. 
+
+</para>
+
+
+
+
+
+<para id="p1232">
+<link id="a1061" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+ shows the output produced by this program.
+
+
+</para>
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+. Output produced by the 
+				finally block.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+							
+
+<code id="pre1012" display="block">In catch, terminating aMethod
+Executing finally block</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1233">
+This program demonstrates that the 
+
+<emphasis id="strong1296" effect="bold">
+finally
+
+</emphasis>
+ block really does have 
+	the final word. 
+
+</para>
+
+
+
+
+
+<para id="p1234">
+<emphasis id="strong1297" effect="bold">
+Declaring exceptions thrown by a method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1235">
+Sometimes it is better to handle exceptions in the method in which they are 
+detected, and sometimes it is better to pass them up the call stack and let 
+another method handle them. 
+
+</para>
+
+
+
+
+
+<para id="p1236">
+In order to pass exceptions up the call stack, you must 
+
+<emphasis id="em1093" effect="italics">
+declare
+
+</emphasis>
+ them 
+in your method signature. 
+
+</para>
+
+
+
+
+
+<para id="p1237">
+To 
+
+<emphasis id="em1094" effect="italics">
+declare
+
+</emphasis>
+ that a method throws one or more exceptions, you add a 
+
+<emphasis id="strong1298" effect="bold">
+
+throws
+
+</emphasis>
+ clause to the method signature for the method. The 
+
+<emphasis id="strong1299" effect="bold">
+throws 
+
+</emphasis>
+
+clause is composed of the 
+
+<emphasis id="strong1300" effect="bold">
+throws
+
+</emphasis>
+<emphasis id="em1095" effect="italics">
+ 
+
+</emphasis>
+keyword followed by a 
+comma-separated list of all the exceptions thrown by that method. 
+
+</para>
+
+
+
+
+
+<para id="p1238">
+The 
+
+<emphasis id="strong1301" effect="bold">
+throws
+
+</emphasis>
+ clause goes after the method name and argument list and 
+before the curly bracket that defines the scope of the method. 
+
+</para>
+
+
+
+
+
+<para id="p1239">
+<link id="a1062" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ shows the syntax for declaring that a method
+
+
+<emphasis id="strong1302" effect="bold">
+throws
+
+</emphasis>
+ four 
+different types of exceptions. 
+
+</para>
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+. Syntax for declaring that a 
+				method throws exceptions.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+							
+
+<code id="pre1013" display="block">void myMethod() throws
+          InterruptedException,
+          MyException,
+          HerException,
+          UrException
+{
+  //method code
+}//end myMethod()</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1240">
+Assuming that these are checked exceptions, any method calling this 
+	method would be required to either handle these exception types, or continue 
+	passing them up the call stack. Eventually, some method must handle them or 
+	the program won't compile. 
+
+</para>
+
+
+
+
+
+<para id="p1241">
+<emphasis id="em1096" effect="italics">
+(Note however that while it might not represent good programming practice, 
+it is allowable to declare that the 
+
+<emphasis id="strong1303" effect="bold">
+main
+
+</emphasis>
+ method 
+
+<emphasis id="strong1304" effect="bold">
+throws
+
+</emphasis>
+ exceptions. 
+This is a way to avoid handling checked exceptions and still get your program to 
+compile.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1242">
+<emphasis id="strong1305" effect="bold">
+The throw keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1243">
+Before your code can 
+
+<emphasis id="strong1306" effect="bold">
+catch
+
+</emphasis>
+ an exception, some Java code must 
+
+<emphasis id="strong1307" effect="bold">
+throw
+
+</emphasis>
+ 
+one. The exception can be thrown by code that you write, or by code that you are 
+using that was written by someone else. 
+
+</para>
+
+
+
+
+
+<para id="p1244">
+Regardless of who wrote the code that throws the exception, it's always 
+thrown with the Java 
+
+<emphasis id="strong1308" effect="bold">
+throw
+
+</emphasis>
+<emphasis id="em1097" effect="italics">
+ 
+
+</emphasis>
+keyword. At least that is true for 
+exceptions that are thrown by code written in the Java language. 
+
+</para>
+
+
+
+
+
+<para id="p1245">
+<emphasis id="em1098" effect="italics">
+(Exceptions such as 
+
+<emphasis id="strong1309" effect="bold">
+ArithmeticException
+
+</emphasis>
+ are also thrown by the 
+runtime system, which is probably not written using Java source code.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1246">
+<emphasis id="strong1310" effect="bold">
+A single argument is required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1247">
+When formed into a statement, the 
+
+<emphasis id="strong1311" effect="bold">
+throw
+
+</emphasis>
+ keyword requires a single 
+argument, which must be a reference to an object instantiated from the 
+
+<emphasis id="strong1312" effect="bold">
+
+Throwable
+
+</emphasis>
+ class, or any subclass of the 
+
+<emphasis id="strong1313" effect="bold">
+Throwable
+
+</emphasis>
+ class. 
+
+
+<link id="a1063" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+ 
+shows an example of such a statement. 
+
+</para>
+
+
+
+	
+
+<table id="table1014" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Figure_10" effect="bold">
+
+Figure 10
+
+</emphasis>
+
+.  Example of a throw 
+				statement.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+
+							
+
+<code id="pre1014" display="block">throw new myThrowableClass("Message");</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1248">
+If you attempt to throw an object that is not instantiated from 
+
+<emphasis id="strong1314" effect="bold">
+
+	Throwable
+
+</emphasis>
+ or one of its subclasses, the compiler will refuse to compile 
+	your program. 
+
+</para>
+
+
+
+
+
+<para id="p1249">
+<emphasis id="strong1315" effect="bold">
+Defining your own exception classes
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1250">
+Now you know how to write exception handlers for those exception objects that 
+are thrown by the runtime system, and thrown by methods in the standard class 
+library. 
+
+</para>
+
+
+
+
+
+<para id="p1251">
+It is also possible for you to define your own exception classes, and to 
+cause objects of those classes to be thrown whenever an exception occurs. In 
+this case, you get to decide just what constitutes an exceptional condition. 
+
+</para>
+
+
+
+
+
+<para id="p1252">
+For example, you could write a data-processing application that processes 
+integer data obtained via a TCP/IP link from another computer. If the 
+specification for the program indicates that the integer value 10 should never 
+be received, you could use an occurrence of the integer value 10 to cause an 
+exception object of your own design to be thrown. 
+
+</para>
+
+
+
+
+
+<para id="p1253">
+<emphasis id="strong1316" effect="bold">
+Choosing the exception type to throw
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1254">
+Before throwing an exception, you must decide on its type. Basically, you 
+have two choices in this regard: 
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1064">
+Use an exception class written by someone else, such as the myriad of 
+	exception classes defined in the Java standard library.
+
+</item>
+
+
+	
+
+<item id="li1065">
+Define an exception class of your own.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1255">
+<emphasis id="strong1317" effect="bold">
+An important question
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1256">
+So, an important question is, when should you define your own exception 
+classes and when should you use classes that are already available. Because this 
+is only one of many design issues, I'm not going to try to give you a ready 
+answer to the question. However, I will refer you to
+
+
+<link id="a1064" url="http://java.sun.com/docs/books/tutorial/">
+
+The Java Tutorial
+
+</link>
+
+ by 
+Campione and Walrath where you will find a checklist to help you make this 
+decision. 
+
+</para>
+
+
+
+
+
+<para id="p1257">
+<emphasis id="strong1318" effect="bold">
+Choosing a superclass to extend
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1258">
+If you decide to define your own exception class, it must be a subclass of 
+
+<emphasis id="strong1319" effect="bold">
+
+Throwable
+
+</emphasis>
+. You must decide which class you will extend. 
+
+</para>
+
+
+
+
+
+<para id="p1259">
+The two existing subclasses of 
+
+<emphasis id="strong1320" effect="bold">
+Throwable
+
+</emphasis>
+ are 
+
+<emphasis id="strong1321" effect="bold">
+Exception
+
+</emphasis>
+ and 
+
+<emphasis id="strong1322" effect="bold">
+
+Error
+
+</emphasis>
+. Given the earlier description of 
+
+<emphasis id="strong1323" effect="bold">
+Error
+
+</emphasis>
+ and its subclasses, it 
+is not likely that your exceptions would fit the 
+
+<emphasis id="strong1324" effect="bold">
+Error
+
+</emphasis>
+ category. 
+
+<emphasis id="em1099" effect="italics">
+(In 
+concept, errors are reserved for serious hard errors that occur deep within the 
+system.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1260">
+<emphasis id="strong1325" effect="bold">
+Checked or unchecked exception
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1261">
+Therefore, your new class should probably be a subclass of 
+
+<emphasis id="strong1326" effect="bold">
+Exception
+
+</emphasis>
+. 
+If you make it a subclass of 
+
+<emphasis id="strong1327" effect="bold">
+RuntimeException
+
+</emphasis>
+, it won't be a checked 
+exception. If you make it a subclass of 
+
+<emphasis id="strong1328" effect="bold">
+Exception
+
+</emphasis>
+, but not a subclass of
+
+
+<emphasis id="strong1329" effect="bold">
+RuntimeException
+
+</emphasis>
+, it will be a checked exception. 
+
+</para>
+
+
+
+
+
+<para id="p1262">
+Only you can decide how far down the 
+
+<emphasis id="strong1330" effect="bold">
+Exception
+
+</emphasis>
+ hierarchy you want to 
+go before creating a new branch of exception classes that are unique to your 
+application. 
+
+</para>
+
+
+
+
+
+<para id="p1263">
+<emphasis id="strong1331" effect="bold">
+Naming conventions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1264">
+Many Java programmers append the word 
+
+<emphasis id="strong1332" effect="bold">
+Exception
+
+</emphasis>
+ to the end of all 
+class names that are subclasses of 
+
+<emphasis id="strong1333" effect="bold">
+Exception
+
+</emphasis>
+, and append the word 
+
+<emphasis id="strong1334" effect="bold">
+
+Error
+
+</emphasis>
+ to the end of all class names that are subclasses of 
+
+<emphasis id="strong1335" effect="bold">
+Error
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1265">
+<emphasis id="strong1336" effect="bold">
+One more sample program
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1266">
+Let's wrap up this module with one more sample program named 
+
+<emphasis id="strong1337" effect="bold">
+Excep16
+
+</emphasis>
+. 
+We will define our own exception class in this program. Then we will 
+
+<emphasis id="strong1338" effect="bold">
+throw
+
+</emphasis>
+,
+
+
+<emphasis id="strong1339" effect="bold">
+catch and
+
+</emphasis>
+ process an exception object instantiated from that class. 
+
+</para>
+
+
+
+
+
+<para id="p1267">
+<emphasis id="strong1340" effect="bold">
+Discuss in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1268">
+This program is a little longer than the previous programs, so I will break 
+it down and discuss it in fragments. A complete listing of the program is shown 
+in 
+
+<link id="a1065" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1269">
+The class definition shown in 
+
+<link id="a1066" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ is used to 
+construct a custom exception object that encapsulates a message. Note that this 
+class extends 
+
+<emphasis id="strong1341" effect="bold">
+Exception
+
+</emphasis>
+. 
+
+<emphasis id="em1100" effect="italics">
+(Therefore, it is a checked exception.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+	
+	
+
+<table id="table1015" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. The class named MyException .
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+				
+
+<code id="pre1015" display="block">class MyException extends Exception{
+  MyException(String message){//constr
+    super(message);
+  }//end constructor
+}//end MyException class</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1270">
+The constructor for this class receives an incoming 
+
+<emphasis id="strong1342" effect="bold">
+String
+
+</emphasis>
+ message 
+	parameter and passes it to the constructor for the superclass. This makes 
+	the message available for access by the 
+
+<emphasis id="strong1343" effect="bold">
+getMessage
+
+</emphasis>
+ method called in 
+	the catch block. 
+
+</para>
+
+
+
+
+
+<para id="p1271">
+<emphasis id="strong1344" effect="bold">
+The try block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1272">
+<link id="a1067" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ shows the beginning of the 
+
+<emphasis id="strong1345" effect="bold">
+main
+
+</emphasis>
+ method, including the entire
+
+
+<emphasis id="strong1346" effect="bold">
+try
+
+</emphasis>
+ block 
+
+</para>
+
+
+
+	
+
+<table id="table1016" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. The try block.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1016" display="block">class Excep16{//controlling class
+  public static void main(
+                        String[] args){
+    try{
+      for(int cnt = 0; cnt &lt; 5; cnt++){
+        //Throw a custom exception, and
+        // pass  message when cnt == 3
+        if(cnt == 3) throw
+                  new MyException("3");
+        //Transfer control before
+        // processing for cnt == 3
+        System.out.println(
+           "Processing data for cnt = "
+                                + cnt);
+      }//end for-loop
+    }//end try block</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1273">
+The 
+
+<emphasis id="strong1347" effect="bold">
+main
+
+</emphasis>
+ method executes a 
+
+<emphasis id="strong1348" effect="bold">
+for
+
+</emphasis>
+ loop 
+
+<emphasis id="em1101" effect="italics">
+(inside the 
+
+<emphasis id="strong1349" effect="bold">
+try
+
+</emphasis>
+ 
+	block)
+
+</emphasis>
+ that guarantees that the variable named 
+
+<emphasis id="strong1350" effect="bold">
+cnt
+
+</emphasis>
+ will reach a 
+	value of 3 after a couple of iterations. 
+
+</para>
+
+
+
+
+
+<para id="p1274">
+Once during each iteration, 
+
+<emphasis id="em1102" effect="italics">
+(until the value of 
+
+<emphasis id="strong1351" effect="bold">
+cnt
+
+</emphasis>
+ reaches 3)
+
+</emphasis>
+ 
+a print statement inside the 
+
+<emphasis id="strong1352" effect="bold">
+for
+
+</emphasis>
+ loop displays the value of 
+
+<emphasis id="strong1353" effect="bold">
+cnt
+
+</emphasis>
+. 
+This results in the output shown in 
+
+<link id="a1068" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1017" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Figure_11" effect="bold">
+
+Figure 11
+
+</emphasis>
+
+. Output from the for loop.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+
+							
+
+<code id="pre1017" display="block">Processing data for cnt = 0
+Processing data for cnt = 1
+Processing data for cnt = 2</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1275">
+<emphasis id="strong1354" effect="bold">
+What happens when cnt equals 3?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1276">
+However, when the value of 
+
+<emphasis id="strong1355" effect="bold">
+cnt
+
+</emphasis>
+ equals 3, the 
+
+<emphasis id="strong1356" effect="bold">
+throw
+
+</emphasis>
+ statement in
+
+
+<link id="a1069" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is executed. This causes control to transfer 
+immediately to the matching 
+
+<emphasis id="strong1357" effect="bold">
+catch
+
+</emphasis>
+ block following the 
+
+<emphasis id="strong1358" effect="bold">
+try
+
+</emphasis>
+ 
+block 
+
+<emphasis id="em1103" effect="italics">
+(see 
+
+<link id="a1070" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+).
+
+</emphasis>
+ During this iteration, 
+the print statement following the 
+
+<emphasis id="strong1359" effect="bold">
+throw
+
+</emphasis>
+ statement is not executed. 
+Therefore, the output never shows a value for 
+
+<emphasis id="strong1360" effect="bold">
+cnt
+
+</emphasis>
+ greater than 2, as 
+shown in 
+
+<link id="a1071" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1277">
+<emphasis id="strong1361" effect="bold">
+The catch block
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1278">
+<link id="a1072" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ shows a 
+
+<emphasis id="strong1362" effect="bold">
+catch
+
+</emphasis>
+ block whose type 
+matches the type of exception thrown in 
+
+<link id="a1073" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1018" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1018">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="th1018">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. A matching catch block.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1018" display="block">    catch(MyException e){
+      System.out.println(
+               "In exception handler, "
+                  + "get the message\n"
+                     + e.getMessage());
+    }//end catch block</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1279">
+When the 
+
+<emphasis id="strong1363" effect="bold">
+throw
+
+</emphasis>
+ statement is executed in 
+
+<link id="a1074" target-id="Listing_7">
+
+
+	Listing 7
+
+</link>
+
+, control is transferred immediately to the 
+
+<emphasis id="strong1364" effect="bold">
+catch
+
+</emphasis>
+ block in 
+
+<link id="a1075" target-id="Listing_8">
+
+
+	Listing 8
+
+</link>
+
+. No further code is executed within the 
+
+<emphasis id="strong1365" effect="bold">
+try
+
+</emphasis>
+ block. 
+
+</para>
+
+
+
+
+
+<para id="p1280">
+A reference to the object instantiated as the argument to the 
+
+<emphasis id="strong1366" effect="bold">
+throw
+
+</emphasis>
+ 
+keyword in 
+
+<link id="a1076" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is passed as a parameter to the 
+
+<emphasis id="strong1367" effect="bold">
+
+catch
+
+</emphasis>
+ block. That 
+reference is known locally by the name 
+
+<emphasis id="strong1368" effect="bold">
+e
+
+</emphasis>
+ inside the 
+
+<emphasis id="strong1369" effect="bold">
+catch
+
+</emphasis>
+ block.
+
+
+</para>
+
+
+
+
+
+<para id="p1281">
+<emphasis id="strong1370" effect="bold">
+Using the incoming parameter
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1282">
+The code in the 
+
+<emphasis id="strong1371" effect="bold">
+catch
+
+</emphasis>
+ block calls the method named 
+
+<emphasis id="strong1372" effect="bold">
+getMessage 
+
+</emphasis>
+
+
+
+<emphasis id="em1104" effect="italics">
+(inherited from the 
+
+<emphasis id="strong1373" effect="bold">
+Throwable
+
+</emphasis>
+ class) 
+
+</emphasis>
+on the incoming parameter and 
+displays that message on the screen. This produces the output shown in
+
+
+<link id="a1077" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1019" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1019">
+
+			
+
+<row id="tr1038">
+
+				
+
+<entry id="th1019">
+<emphasis id="Figure_12" effect="bold">
+
+Figure 12
+
+</emphasis>
+
+. Output from the exception 
+				handler.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1039">
+
+				
+
+<entry id="td1019">
+
+
+							
+
+<code id="pre1019" display="block">In exception handler, get the message
+3</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1283">
+<emphasis id="strong1374" effect="bold">
+When the catch block finishes execution ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1284">
+When the code in the 
+
+<emphasis id="strong1375" effect="bold">
+catch
+
+</emphasis>
+ block has completed execution, control is 
+transferred to the first executable statement following the 
+
+<emphasis id="strong1376" effect="bold">
+catch
+
+</emphasis>
+ block 
+as shown in 
+
+<link id="a1078" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1020" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1020">
+
+			
+
+<row id="tr1040">
+
+				
+
+<entry id="th1020">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Code following the catch 
+				block.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1041">
+
+				
+
+<entry id="td1020">
+
+				
+
+<code id="pre1020" display="block">    System.out.println(
+      "Out of catch block");
+  }//end main
+}//end class Excep16</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1285">
+That executable statement is a print statement that produces the output 
+	shown in 
+
+<link id="a1079" target-id="Figure_13">
+
+Figure 13
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1021" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1021">
+
+			
+
+<row id="tr1042">
+
+				
+
+<entry id="th1021">
+<emphasis id="Figure_13" effect="bold">
+
+Figure 13
+
+</emphasis>
+
+. Output from code 
+				following the catch block.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1043">
+
+				
+
+<entry id="td1021">
+
+
+							
+
+<code id="pre1021" display="block">Out of catch block</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1286">
+<emphasis id="strong1377" effect="bold">
+Complete program listing
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1287">
+A complete listing of the program named 
+
+<emphasis id="strong1378" effect="bold">
+Excep16
+
+</emphasis>
+ is shown in 
+
+<link id="a1080" target-id="Listing_10">
+
+
+	Listing 10
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1022" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1022">
+
+
+
+<row id="tr1044">
+
+
+
+<entry id="th1022">
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1379" effect="bold">
+Complete program listing for 
+Excep16
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1022">
+
+
+
+<row id="tr1045">
+
+
+
+<entry id="td1022">
+
+
+
+<code id="pre1022" display="block">/*File Excep16.java
+Copyright 2002, R. G. Baldwin
+Illustrates defining, throwing,
+catching, and processing a custom
+exception object that contains a
+message.
+
+Tested using JDK 1.4.0 under Win 2000
+
+The output is:
+
+Processing data for cnt = 0
+
+Processing data for cnt = 1
+Processing data for cnt = 2
+In exception handler, get the message
+3
+Out of catch block
+**************************************/
+
+//The following class is used to
+// construct a customized exception
+// object containing a message
+class MyException extends Exception{
+  MyException(String message){//constr
+    super(message);
+  }//end constructor
+}//end MyException class
+//===================================//
+
+class Excep16{//controlling class
+  public static void main(
+                        String[] args){
+    try{
+      for(int cnt = 0; cnt &lt; 5; cnt++){
+        //Throw a custom exception, and
+        // pass  message when cnt == 3
+        if(cnt == 3) throw
+                  new MyException("3");
+        //Transfer control before
+        // processing for cnt == 3
+        System.out.println(
+           "Processing data for cnt = "
+                                + cnt);
+      }//end for-loop
+    }//end try block
+    catch(MyException e){
+      System.out.println(
+               "In exception handler, "
+                  + "get the message\n"
+                     + e.getMessage());
+    }//end catch block
+    //-------------------------------//
+
+    System.out.println(
+      "Out of catch block");
+  }//end main
+}//end class Excep16
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1288">
+This module has covered many of the details having to do with exception 
+handling in Java. By now, you should know that the use of exception handling is 
+not optional in Java, and you should have a pretty good idea how to use 
+exception handling in a beneficial way. 
+
+</para>
+
+
+
+
+
+<para id="p1289">
+Along the way, the discussion has included the following topics: 
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1066">
+What is an exception?
+
+</item>
+
+
+	
+
+<item id="li1067">
+How do you throw and catch exceptions?
+
+</item>
+
+
+	
+
+<item id="li1068">
+What do you do with an exception once you have caught it?
+
+</item>
+
+
+	
+
+<item id="li1069">
+How do you make use of the exception class hierarchy provided by the 
+	Java development environment?
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1290">
+That concludes the "Essence of OOP" portion of the ITSE 2321 sub-collection. 
+The series is continued in the ITSE 2317 sub-collection.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1291">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1380" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1018" list-type="bulleted">
+
+					
+
+<item id="li1070">
+Module name: Java OOP: Exception Handling
+
+</item>
+
+
+					
+
+<item id="li1071">
+File: Java1630.htm
+
+
+</item>
+
+
+					
+
+<item id="li1072">
+Published: 09/03/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1381" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1292">
+<emphasis id="strong1382" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1293">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1294">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1295">
+<emphasis id="strong1383" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1296">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

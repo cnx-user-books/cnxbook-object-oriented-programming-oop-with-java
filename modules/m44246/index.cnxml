@@ -1,0 +1,2797 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3028: Clipping Images</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44246</md:content-id>
+  <md:title>Java3028: Clipping Images</md:title>
+  <md:abstract>Learn how to use shapes to clip images during the drawing process.</md:abstract>
+  <md:uuid>7b030cf9-d923-4d89-99cc-cbb962dcdb34</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 10:32:52 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video link
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Input file named Prob04a.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. First output image. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Second output image.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Required text output. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob04.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob04Runner. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Clip the picture and display your name. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The method named clipToEllipse. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, you will learn how to use shapes to clip images during 
+	the drawing process.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1001" effect="bold">
+Prob04
+
+</emphasis>
+ that uses the class definition 
+shown in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along 
+with the image file named 
+
+<emphasis id="strong1002" effect="bold">
+Prob04a.jpg
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(see 
+
+<link id="a1025" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+ to 
+produce the graphic output images shown in 
+
+<link id="a1026" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and
+
+
+<link id="a1027" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Don't forget to display your name in the 
+output image as shown.
+
+</para>
+
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Input file named Prob04a.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image of a beach scene" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/javaexam3.04a.jpg" width="341" height="256"/>
+</media>
+
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1010">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - First output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="First output image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/javaexam3.04b.jpg" width="437" height="539"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Second output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<media id="media1002" alt="Second output image shows the first output image clipped by an ellipse." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/javaexam3.04c.jpg" width="437" height="539"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1014">
+<emphasis id="strong1006" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named
+
+
+<emphasis id="strong1007" effect="bold">
+Prob04
+
+</emphasis>
+ shown in 
+
+<link id="a1028" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1008" effect="bold">
+Rotate, mirror, and clip
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+The program rotates a 
+
+<emphasis id="strong1009" effect="bold">
+Picture
+
+</emphasis>
+ object by 35 degrees with no 
+scaling. Then it does a four-way mirror on the rotated picture. Finally, it 
+clips the image to an elliptical format as shown in 
+
+<link id="a1029" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1010" effect="bold">
+Required output text
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+In addition to the two output images shown above, your program must display 
+your name and the other line of text shown in 
+
+<link id="a1030" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Required text output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename None height 404 width 425</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1020">
+<emphasis id="strong1011" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+I will discuss and explain this program in fragments. A complete 
+listing of the program is provided in 
+
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near 
+the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1012" effect="bold">
+The driver class named Prob04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+The driver class containing the 
+
+<emphasis id="strong1013" effect="bold">
+main
+
+</emphasis>
+ method is shown in 
+
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob04.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Prob04{
+  public static void main(String[] args){
+    new Prob04Runner().run();
+  }//end main method
+}//end class Prob04</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1024">
+If you have been studying the earlier modules in this collection, no 
+	explanation of 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ should be required.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1014" effect="bold">
+Beginning of the class named Prob04Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+The class named 
+
+<emphasis id="strong1015" effect="bold">
+Prob04Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob04Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob04Runner{
+
+  public Prob04Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+
+  public void run(){
+    Picture pix = new Picture("Prob04a.jpg");
+
+    //Rotate and mirror the picture.
+    pix = rotatePicture(pix,35);
+    pix = mirrorUpperQuads(pix);
+    pix = mirrorHoriz(pix);
+
+    pix.explore();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+<emphasis id="strong1016" effect="bold">
+Nothing new here
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+There is nothing new in 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+After instantiating a new 
+
+<emphasis id="strong1017" effect="bold">
+Picture
+
+</emphasis>
+ object from the given 
+image file, 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ calls three methods to rotate, 
+mirror, and display the picture, producing the graphic output shown in
+
+
+<link id="a1037" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+All of the code to accomplish this is essentially the same as code that I 
+have explained in earlier modules.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1018" effect="bold">
+Clip the picture and display your name
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+Then 
+
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1019" effect="bold">
+clipToEllipse
+
+</emphasis>
+ 
+method to clip the picture to an ellipse on a red background as shown in
+
+
+<link id="a1039" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. The 
+
+<emphasis id="strong1020" effect="bold">
+clipToEllipse
+
+</emphasis>
+ method is 
+new to this module, so I will explain it shortly.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Clip the picture and display your name.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    pix = clipToEllipse(pix);
+
+    //Add your name and display the output picture.
+    pix.addMessage("Display your name here.",10,20);
+    pix.explore();
+
+    System.out.println(pix);
+  }//end run</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1033">
+The remaining code in 
+
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is a repeat of 
+	code that I have explained in earlier modules, so I won't have anything 
+	further to say about it.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1021" effect="bold">
+The method named clipToEllipse
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The method named 
+
+<emphasis id="strong1022" effect="bold">
+clipToEllipse
+
+</emphasis>
+ is shown in its entirety in
+
+
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - The method named clipToEllipse.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  private Picture clipToEllipse(Picture pix){
+    Picture result = 
+              new Picture(pix.getWidth(),pix.getHeight());
+    result.setAllPixelsToAColor(Color.RED);
+
+    //Get the graphics2D object
+    Graphics2D g2 = (Graphics2D)(result.getGraphics());
+
+    //Create an ellipse for clipping
+    Ellipse2D.Double ellipse =
+      new Ellipse2D.Double(28,64,366,275);
+
+    //Use the ellipse for clipping
+    g2.setClip(ellipse);
+
+    //Draw the image
+    g2.drawImage(pix.getImage(),0,0,pix.getWidth(),
+                                pix.getHeight(),
+                                null);
+
+    return result;
+  }//end clipToEllipse</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1036">
+<emphasis id="strong1023" effect="bold">
+Behavior of the clipToEllipse method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The 
+
+<emphasis id="strong1024" effect="bold">
+clipToEllipse
+
+</emphasis>
+ method receives an incoming parameter that 
+is a reference to an object of the 
+
+<emphasis id="strong1025" effect="bold">
+Picture
+
+</emphasis>
+ class. Basically, 
+here is what the method does:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+Instantiate a 
+
+<emphasis id="strong1026" effect="bold">
+Picture
+
+</emphasis>
+ object with an all white 
+	background that is the same size as the incoming 
+
+<emphasis id="strong1027" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+	
+
+<item id="li1024">
+Call Ericson's 
+
+<emphasis id="strong1028" effect="bold">
+setAllPixelsToAColor
+
+</emphasis>
+ method to convert 
+	the white background into a red background.
+
+</item>
+
+
+	
+
+<item id="li1025">
+Call Ericson's 
+
+<emphasis id="strong1029" effect="bold">
+getGraphics
+
+</emphasis>
+ method to get the 
+
+<emphasis id="strong1030" effect="bold">
+
+	Graphics
+
+</emphasis>
+ object encapsulated in the red 
+
+<emphasis id="strong1031" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+	
+
+<item id="li1026">
+Cast the 
+
+<emphasis id="strong1032" effect="bold">
+Graphics
+
+</emphasis>
+ object's reference to type 
+
+<emphasis id="strong1033" effect="bold">
+
+	Graphics2D
+
+</emphasis>
+<emphasis id="em1004" effect="italics">
+.
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1027">
+Construct a new 
+
+<emphasis id="strong1034" effect="bold">
+Ellipse2D.Double
+
+</emphasis>
+ object with the 
+	position, width, and height specified by the constructor parameters.
+
+</item>
+
+
+	
+
+<item id="li1028">
+Call Sun's 
+
+<emphasis id="strong1035" effect="bold">
+setClip
+
+</emphasis>
+ method to set the clipping area on 
+	the red 
+
+<emphasis id="strong1036" effect="bold">
+Picture
+
+</emphasis>
+ object to match the position and shape of 
+	the ellipse.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Call Ericson's 
+
+<emphasis id="strong1037" effect="bold">
+getImage
+
+</emphasis>
+ method to get the 
+
+<emphasis id="strong1038" effect="bold">
+Image
+
+</emphasis>
+ 
+	object encapsulated in the incoming 
+
+<emphasis id="strong1039" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1030">
+Call Sun's 
+
+<emphasis id="strong1040" effect="bold">
+drawImage
+
+</emphasis>
+ method to draw that portion of the 
+	incoming picture that fits inside the ellipse on the red 
+
+<emphasis id="strong1041" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1042" effect="bold">
+The new code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+The only code in 
+
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ that is new to this 
+module is the call to the 
+
+<emphasis id="strong1043" effect="bold">
+setClip
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The 
+
+<emphasis id="strong1044" effect="bold">
+setClip
+
+</emphasis>
+ method is defined in the 
+
+<emphasis id="strong1045" effect="bold">
+Graphics
+
+</emphasis>
+ 
+class and inherited into the 
+
+<emphasis id="strong1046" effect="bold">
+Graphics2D
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="em1005" effect="italics">
+(Among other things, that means that it wasn't 
+necessary for me to cast the 
+
+<emphasis id="strong1047" effect="bold">
+Graphics
+
+</emphasis>
+ object to type 
+
+<emphasis id="strong1048" effect="bold">
+
+Graphics2D
+
+</emphasis>
+ in 
+
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1049" effect="bold">
+The setClip method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+There are a couple of overloaded versions of the 
+
+<emphasis id="strong1050" effect="bold">
+setClip
+
+</emphasis>
+ 
+method. The one used in 
+
+<link id="a1044" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ requires an incoming parameter of the 
+interface type 
+
+<emphasis id="strong1051" effect="bold">
+Shape
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1052" effect="bold">
+The Shape interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+Briefly, Sun tells us that the 
+
+<emphasis id="strong1053" effect="bold">
+Shape
+
+</emphasis>
+ interface 
+
+<emphasis id="em1006" effect="italics">
+"provides 
+definitions for objects that represent some form of geometric shape."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+There are several dozen classes that implement the 
+
+<emphasis id="strong1054" effect="bold">
+Shape
+
+</emphasis>
+ 
+interface, one of which is the class named 
+
+<emphasis id="strong1055" effect="bold">
+Ellipse2D.Double
+
+</emphasis>
+. 
+Therefore, the object of that type that is instantiated in 
+
+<link id="a1045" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ satisfies 
+the type requirement for being passed to the 
+
+<emphasis id="strong1056" effect="bold">
+setClip
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1057" effect="bold">
+Behavior of the setClip method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+With regard to the behavior of the 
+
+<emphasis id="strong1058" effect="bold">
+setClip
+
+</emphasis>
+ method, Sun tells 
+us that the method
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="em1007" effect="italics">
+"Sets the current clipping area to an arbitrary 
+clip shape."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1059" effect="bold">
+What is the significance of the clipping area?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The closest answer that I can find for that question is the following 
+statement in Sun's description of the 
+
+<emphasis id="strong1060" effect="bold">
+Graphics
+
+</emphasis>
+ class:
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="em1008" effect="italics">
+"All rendering operations modify only pixels 
+which lie within the area bounded by the current clip, which is specified by a
+
+
+<emphasis id="strong1061" effect="bold">
+Shape
+
+</emphasis>
+ in user space and is controlled by the program using the
+
+
+<emphasis id="strong1062" effect="bold">
+Graphics
+
+</emphasis>
+ object." 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1063" effect="bold">
+In other words...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+The 
+
+<emphasis id="em1009" effect="italics">
+clipping area
+
+</emphasis>
+ is analogous to the 
+
+<emphasis id="em1010" effect="italics">
+current clip
+
+</emphasis>
+. In this 
+case, the position and shape of the current clip is the position and shape of 
+the ellipse.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+When the image is later drawn on the red 
+
+<emphasis id="strong1064" effect="bold">
+Picture
+
+</emphasis>
+ object, 
+only those pixels within the ellipse are modified to show the image. The 
+remaining pixels retain their original color, which was set to red early in 
+
+
+<link id="a1046" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1065" effect="bold">
+End of discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+That concludes my explanation of this program. You will find the methods that 
+I didn't discuss in 
+
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near the end of the module. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1058">
+I encourage you to copy the code from 
+
+<link id="a1048" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+Click 
+
+<link id="a1049" url="Prob04a.jpg">
+
+Prob04a.jpg
+
+</link>
+
+ to download the required input 
+image file.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+In this module, you learned how to use shapes to clip images during the 
+drawing process.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1061">
+In the next module, you will learn how to merge pictures.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video link
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1062">
+While not a requirement of the course, you can select the following link to 
+view an optional online video lecture on the material in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1031">
+<link id="a1050" url="http://vimeo.com/channels/itse2321/21221510">
+
+ITSE 2321 Lecture 
+	14
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1063">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1066" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1008" list-type="bulleted">
+
+					
+
+<item id="li1032">
+Module name: Java OOP: Clipping Images
+
+</item>
+
+
+					
+
+<item id="li1033">
+File: Java3028.htm
+
+
+</item>
+
+
+					
+
+<item id="li1034">
+Published: 08/06/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1067" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1064">
+<emphasis id="strong1068" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1065">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1066">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1067">
+<emphasis id="strong1069" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+A complete listing of the program discussed in this module is provided in
+
+
+<link id="a1051" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1005">
+
+
+
+<row id="tr1010">
+
+
+
+<entry id="th1005">
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1070" effect="bold">
+ Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1005">
+
+
+
+<row id="tr1011">
+
+
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">/*File Prob04 Copyright 2008 R.G.Baldwin
+*********************************************************/
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.Graphics;
+import java.awt.geom.Ellipse2D;
+import java.awt.Color;
+
+public class Prob04{
+  public static void main(String[] args){
+    new Prob04Runner().run();
+  }//end main method
+}//end class Prob04
+//======================================================//
+
+class Prob04Runner{
+  public Prob04Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture pix = new Picture("Prob04a.jpg");
+
+    //Rotate and mirror the picture.
+    pix = rotatePicture(pix,35);
+    pix = mirrorUpperQuads(pix);
+    pix = mirrorHoriz(pix);
+
+    pix.explore();
+
+    //Clip the picture to an ellipse on a red background.
+    pix = clipToEllipse(pix);
+
+    //Add your name and display the output picture.
+    pix.addMessage("Display your name here.",10,20);
+    pix.explore();
+
+    System.out.println(pix);
+  }//end run
+  //----------------------------------------------------//
+
+  private Picture clipToEllipse(Picture pix){
+    Picture result = 
+             new Picture(pix.getWidth(),pix.getHeight());
+    result.setAllPixelsToAColor(Color.RED);
+
+    //Get the graphics2D object
+    Graphics2D g2 = (Graphics2D)(result.getGraphics());
+
+    //Create an ellipse for clipping
+    Ellipse2D.Double ellipse =
+      new Ellipse2D.Double(28,64,366,275);
+
+    //Use the ellipse for clipping
+    g2.setClip(ellipse);
+
+    //Draw the image
+    g2.drawImage(pix.getImage(),0,0,pix.getWidth(),
+                                pix.getHeight(),
+                                null);
+
+    return result;
+  }//end clipToEllipse
+  //----------------------------------------------------//
+  
+  private Picture rotatePicture(Picture pix,
+                                double angle){
+
+    //Set up the rotation transform
+    AffineTransform rotateTransform =
+                                    new AffineTransform();
+    rotateTransform.rotate(Math.toRadians(angle),
+                           pix.getWidth()/2,
+                           pix.getHeight()/2);
+
+    //Get the required dimensions of a rectangle that will
+    // contain the rotated image.
+    Rectangle2D rectangle2D =
+           pix.getTransformEnclosingRect(rotateTransform);
+    int resultWidth = (int)(rectangle2D.getWidth());
+    int resultHeight = (int)(rectangle2D.getHeight());
+
+    //Set up the translation transform that will translate
+    // the rotated image to the center of the new Picture
+    // object.
+    AffineTransform translateTransform =
+                                    new AffineTransform();
+    translateTransform.translate(
+                      (resultWidth - pix.getWidth())/2,
+                      (resultHeight - pix.getHeight())/2);
+
+    //Concatenate the two transforms so that the image
+    // will first be rotated around its center and then
+    // translated to the center of the new Picture object.
+    translateTransform.concatenate(rotateTransform);
+    //Create a new Picture object to contain the results
+    // of the transformation.
+    Picture result = new Picture(
+                              resultWidth,resultHeight);
+
+    //Get the graphics context of the new Picture object,
+    // apply the transform to the incoming picture and
+    // draw the transformed picture on the new Picture
+    // object.
+    Graphics2D g2 = (Graphics2D)result.getGraphics();
+    g2.drawImage(pix.getImage(),translateTransform,null);
+
+    return result;
+  }//end rotatePicture
+  //----------------------------------------------------//
+
+  //This method mirrors the upper-left quadrant of a
+  // picture into the upper-right quadrant.
+  private Picture mirrorUpperQuads(Picture pix){
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int midpoint = pix.getWidth()/2;
+    int width = pix.getWidth();
+    for(int row = 0;row &lt; pix.getHeight()/2;row++){
+      for(int col = 0;col &lt; midpoint;col++){
+        leftPixel = pix.getPixel(col,row);
+        rightPixel =
+                   pix.getPixel(width-1-col,row);
+        rightPixel.setColor(leftPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorUpperQuads
+  //----------------------------------------------------//
+
+  //This method mirrors the top half of a picture into
+  // the bottom half.
+  private Picture mirrorHoriz(Picture pix){
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int midpoint = pix.getHeight()/2;
+    int height = pix.getHeight();
+    for(int col = 0;col &lt; pix.getWidth();col++){
+      for(int row = 0;row &lt; midpoint;row++){
+        topPixel = pix.getPixel(col,row);
+        bottomPixel =
+                   pix.getPixel(col,height-1-row);
+        bottomPixel.setColor(topPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorHoriz
+  //----------------------------------------------------//
+
+}//end class Prob04Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1069">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

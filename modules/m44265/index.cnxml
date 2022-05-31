@@ -1,0 +1,1970 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java OOP: ITSE 2317 Practice Programs 2</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44265</md:content-id>
+  <md:title>Java OOP: ITSE 2317 Practice Programs 2</md:title>
+  <md:abstract>A practice test with solutions for ITSE 2317</md:abstract>
+  <md:uuid>1d098394-0b7f-467e-a627-716be54c88ba</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+ITSE2317 - Java Programming (Intermediate) - Practice Test 2
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Java_and_Media_Library_Version_Requirements">
+
+Java and Media Library Version Requirements
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Image_Files">
+
+Input Image Files
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Solution_source_code_files">
+
+Solution source code files
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Output_Images">
+
+Output Images
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="New_Classes">
+
+New Classes
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Important_Hints">
+
+Hints
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Testing_Your_Program">
+
+Testing Your Programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Program_Specifications">
+
+Program Specifications
+
+</link>
+
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Program_1">
+
+Program 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Program_2">
+
+Program 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Program_3">
+
+Program 3
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Program_4">
+
+Program 4
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Program_5">
+
+Program 5
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous Information
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Java_and_Media_Library_Version_Requirements" effect="bold">
+
+Java and Media Library Version Requirements
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+Your programs must be compatible with Sun's Standard Edition JDK 
+Version 1.7 or later. 
+
+</para>
+
+
+
+
+<para id="p1001">
+Some of the programs on this test require you to use the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Image_Files" effect="bold">
+
+Input Image Files
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+Links are provided within the individual program specifications for 
+downloading zip files that contain any image files that may be required to write, compile, and test 
+your programs. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Solution_source_code_files" effect="bold">
+
+Solution source code files
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+The downloadable zip files mentioned above also contains source code files 
+for the programming solutions. You can compile and 
+execute those programs using procedures described in 
+
+<link id="a1015" url="http://cnx.org/content/m44148/latest/">
+
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Output_Images" effect="bold">
+
+Output Images
+
+</emphasis>
+
+
+</title>
+
+
+							
+
+<para id="p1004">
+Your output image(s) must match my output image(s) in every 
+							respect including color, size, position, 
+							etc. Don't forget to display your name in the output 
+							image(s) as shown. 
+
+</para>
+
+
+							
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="New_Classes" effect="bold">
+
+New Classes
+
+</emphasis>
+
+
+</title>
+
+
+							
+
+<para id="p1005">
+You may define new classes and add import 
+							directives as needed to cause 
+							your programs to behave as required, but you may not 
+							modify the class definitions for the given classes named ProbXX 
+							when such class definitions are provided.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Important_Hints" effect="bold">
+
+Hints
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+For some of the programs, you may first need to 
+deduce the algorithm used to transform the input image into the output image, 
+and then write a working program that implements that algorithm. In some cases, 
+you may need to compare numeric color values for corresponding pixels in the 
+input and output images in order to deduce the algorithm. 
+
+</para>
+
+
+
+
+<para id="p1007">
+You can obtain those color values using the following procedure:
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1014">
+Click the download link for the zip files that contain input image files 
+	and solution source code files. Use the capabilities of your browser to 
+	download and save the contents of those zip files.
+
+</item>
+
+
+	
+
+<item id="li1015">
+If necessary, replace calls to the 
+
+<emphasis id="strong1000" effect="bold">
+show
+
+</emphasis>
+ method in my 
+	source code with calls to the 
+
+<emphasis id="strong1001" effect="bold">
+explore
+
+</emphasis>
+ method to force the 
+	program to display the output images in a 
+
+<emphasis id="strong1002" effect="bold">
+PictureExplorer
+
+</emphasis>
+ 
+	window.
+
+</item>
+
+
+	
+
+<item id="li1016">
+Compile and run the source code.
+
+</item>
+
+
+	
+
+<item id="li1017">
+Write, compile, and run a simple Java program that will display each 
+	input image file in a 
+
+<emphasis id="strong1003" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window.
+
+</item>
+
+
+	
+
+<item id="li1018">
+Use the input and output 
+
+<emphasis id="strong1004" effect="bold">
+PictureExplorer
+
+</emphasis>
+ windows to 
+	compare the input and output color values on a pixel by pixel basis.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+You may find other useful hints in my online tutorials and slides for this 
+course.
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Testing_Your_Program" effect="bold">
+
+Testing Your Programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+You can compile and execute your program by following the instructions given 
+at 
+
+<link id="a1016" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson 
+Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Program_Specifications" effect="bold">
+
+Program Specifications
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Program_1" effect="bold">
+
+Program 1
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Write the Java 
+				application described below.
+
+</emphasis>
+</para>
+
+
+
+							
+
+<para id="p1011">
+/*File Prob01 Copyright 2012 R.G.Baldwin 
+
+</para>
+
+
+							
+
+<para id="p1012">
+Write a program named Prob01 that uses the class 
+							definition shown below and Ericson's media library 
+							along with the image files named
+							Prob01a.jpg and Prob01b.jpg to produce the 
+							graphic output images shown in 
+
+<link id="a1017" target-id="Figure_1">
+
+
+							Figure 1
+
+</link>
+
+, 
+
+<link id="a1018" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, and 
+
+<link id="a1019" target-id="Figure_3">
+
+
+							Figure 3
+
+</link>
+
+ below.
+
+</para>
+
+
+							
+
+<para id="p1013">
+Click 
+
+<link id="a1020" url="Prob01solution.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the 
+							required image files along with the source code for a 
+							solution.
+
+</para>
+
+
+							
+
+<para id="p1014">
+Just in case you haven't noticed it, the image in 
+
+<link id="a1021" target-id="Figure_3">
+
+
+							Figure 3
+
+</link>
+
+ contains a partially transparent image of a
+butterfly superimposed and centered on the beach image.
+
+</para>
+
+
+							
+
+<para id="p1015">
+In order to write this program, you must modify the class
+from Ericson's media library named SimplePicture. Your
+modifications must make it possible for you to display a
+partially transparent image on top of another image with
+the background image showing through. The degree of
+transparency can range from being completely transparent
+at one extreme to being totally opaque at the other
+extreme. In this case, the butterfly image is about
+37-percent opaque. Don't forget to compile the
+SimplePicture class after you modify it.
+
+</para>
+
+
+							
+
+<para id="p1016">
+You will probably need to do some outside research in
+order to write this program. For example, you will need to
+learn about the following topics and probably some other
+topics as well:
+
+</para>
+
+
+							
+
+<list id="ul1002" list-type="bulleted">
+
+								
+
+<item id="li1019">
+Alpha transparency 
+
+</item>
+
+
+								
+
+<item id="li1020">
+BufferedImage objects of TYPE_INT_ARGB
+
+
+</item>
+
+
+								
+
+<item id="li1021">
+The representation of a pixel as type int.
+								
+
+</item>
+
+
+								
+
+<item id="li1022">
+Bit manipulation of pixels.
+
+
+</item>
+
+
+								
+
+<item id="li1023">
+The drawImage method of the Graphics class.
+
+</item>
+
+
+							
+
+</list>
+
+
+							
+
+<para id="p1017">
+In addition to the output images described above, your
+program must produce the following output on the command-line screen, and must substitute your name for mine
+wherever my name appears both in the images and on the
+command-line screen:
+
+</para>
+
+
+							
+
+<code id="pre1000" display="block">Dick Baldwin.
+Dick Baldwin
+Picture, filename Prob01a.jpg height 118 width 100
+Picture, filename Prob01b.jpg height 240 width 320
+Picture, filename None height 101 width 77
+*********************************************************/
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
+
+public class Prob01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Picture[] pictures = new Prob01Runner().run();
+    System.out.println(pictures[0]);
+    System.out.println(pictures[1]);
+    System.out.println(pictures[2]);
+  }//end main method
+}//end class Prob01
+//End program specifications.</code>
+
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - The first of three required output images for Prob01.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/exam2prob01a.jpg" width="310/" height="249"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1020">
+<emphasis id="strong1007" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - The second of three required output images for Prob01.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/exam2prob01b.jpg" width="332" height="371"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1008" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - The third of three required output images for Prob01.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/exam2prob01c.jpg" width="329" height="271"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Program_2" effect="bold">
+
+Program 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1009" effect="bold">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Write the Java application described below.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<para id="p1025">
+/*File Prob02 Copyright 2012 R.G.Baldwin
+
+</para>
+
+
+							
+
+<para id="p1026">
+Write a program named Prob02 that uses Ericson's media library 
+							along with the image files named
+							Prob02a.jpg and Prob02b.jpg to produce the 
+							graphic output images shown in 
+
+<link id="a1022" target-id="Figure_4">
+
+Figure 
+							4
+
+</link>
+
+ below.
+
+</para>
+
+
+							
+
+<para id="p1027">
+Click 
+
+<link id="a1023" url="Prob02solution.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the 
+							required image files along with the source code for a 
+							solution.
+
+</para>
+
+
+							
+
+<para id="p1028">
+The top image shown in 
+
+<link id="a1024" target-id="Figure_4">
+
+Figure 
+							4
+
+</link>
+
+ is a beach scene with a
+partially opaque butterfly superimposed on the beach
+scene. The bottom image is a slider that is used to
+control the percent opacity of the butterfly image.
+
+</para>
+
+
+				
+
+<para id="p1029">
+At startup, the slider is positioned at the 50-percent
+mark and the opacity of the butterfly is 50 percent.
+
+</para>
+
+
+				
+
+<para id="p1030">
+As you move the slider to the right, the butterfly becomes
+more opaque, becoming totally opaque when the slider is
+positioned at 100 percent.
+
+As you move the slider to the left, the butterfly becomes
+less opaque, becoming totally transparent when the slider
+is positioned at 0 percent.
+
+</para>
+
+
+				
+
+<para id="p1031">
+In order to write this program, you must modify the class
+from Ericson's media library named SimplePicture. Your
+modifications must make it possible for you to display a
+partially transparent image on top of another image with
+the background image showing through.
+
+</para>
+
+
+				
+
+<para id="p1032">
+Your modification
+must also make it possible to display your name in the dark blue
+banner at the top of the image of the beach scene.
+
+</para>
+
+
+				
+
+<para id="p1033">
+The program must terminate and return control to the
+operating system when you click the large X in the upper-
+right corner of the GUI containing the slider.
+
+</para>
+
+
+				
+
+<para id="p1034">
+In order to improve the responsiveness and memory
+utilization of the program, you should instantiate all of
+the Picture objects that the program needs at startup, and
+should not instantiate additional Picture objects when
+handling events fired by the slider.
+
+</para>
+
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1010" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Required output images for Prob02.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/exam2prob02.jpg" width="324" height="362"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Program_3" effect="bold">
+
+Program 3
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Write the Java application described below.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<para id="p1038">
+/*File Prob03 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+							
+
+<para id="p1039">
+Write a program named Prob03 that uses Ericson's media library 
+							along with the image file named
+							Prob3.jpg to produce the 
+							graphic output images shown in 
+
+<link id="a1025" target-id="Figure_5">
+
+Figure 
+							5
+
+</link>
+
+ below.
+
+</para>
+
+
+							
+
+<para id="p1040">
+Click 
+
+<link id="a1026" url="Prob03solution.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the 
+							required image file along with the source code for a 
+							solution.
+
+</para>
+
+
+							
+
+<para id="p1041">
+The top image shown in 
+
+<link id="a1027" target-id="Figure_5">
+
+Figure 
+							5
+
+</link>
+
+ is an image of a butterfly to
+which an edge detection algorithm has been applied.
+
+The bottom image is a slider that is used to control the
+edge-detection threshold.
+
+</para>
+
+
+				
+
+<para id="p1042">
+The edge-detection algorithm performs edge detection on a
+Picture object by rows and also by columns.
+
+All edges that are detected by processing adjacent pixels
+on a row are marked in red.
+
+All edges that are detected by processing adjacent pixels
+on a column are marked in black.
+
+If a pixel is determined to be on an edge using both
+approaches, it ends up being black.
+
+If an edge is not detected, the corresponding pixel is
+marked in white.
+
+</para>
+
+
+				
+
+<para id="p1043">
+At startup, the slider is positioned at the 50-percent
+mark and the image has been edge-detected using a
+threshold value of 50.
+
+As you move the slider to the right, the threshold
+increases up to a value of 100, which in turn causes
+the amount of white area in the image to increase.
+
+As you move the slider to the left, the threshold
+decreases down to a value of zero, which in turn causes
+the amount of white area in the image to decrease.
+
+</para>
+
+
+				
+
+<para id="p1044">
+The program must terminate and return control to the
+operating system when you click the large X in the upper-
+right corner of the GUI containing the slider.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1012" effect="bold">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Required output images for Prob03.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/exam2prob03.jpg" width="220" height="371"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Program_4" effect="bold">
+
+Program 4
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1047">
+<emphasis id="strong1013" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Write the Java application described below.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<para id="p1048">
+/*File Prob04 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+							
+
+<para id="p1049">
+Write a program named Prob04 that uses Ericson's media library 
+							along with the image files named
+							Prob04a.jpg and Prob04b.jpg to produce the 
+							graphic output images shown in 
+
+<link id="a1028" target-id="Figure_6">
+
+Figure 
+							6
+
+</link>
+
+ and 
+
+<link id="a1029" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ below.
+
+</para>
+
+
+							
+
+<para id="p1050">
+Click 
+
+<link id="a1030" url="Prob04solution.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the 
+							required image files along with the source code for a 
+							solution.
+
+</para>
+
+
+							
+
+<para id="p1051">
+The top image shown in 
+
+<link id="a1031" target-id="Figure_6">
+
+Figure 
+							6
+
+</link>
+
+ is a butterfly image. The image
+immediately below that one is a slider that is used to
+control a scale factor that is applied to an image of a
+beach.
+
+</para>
+
+
+				
+
+<para id="p1052">
+At startup, the slider is positioned at the zero-percent
+mark 
+
+<emphasis id="em1000" effect="italics">
+(at the far left)
+
+</emphasis>
+ and the beach image is too small to
+be seen in the upper-left corner of the butterfly image.
+
+</para>
+
+
+				
+
+<para id="p1053">
+As you move the slider to the right, an image of a beach
+emerges from the upper-left corner covering the image of
+the butterfly.
+
+
+
+</para>
+
+
+				
+
+<para id="p1054">
+<link id="a1032" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ shows the result of
+moving the slider to the 50-percent mark.
+
+</para>
+
+
+				
+
+<para id="p1055">
+The size of the beach image increases and decreases
+smoothly as you move the slider back and forth. The upper-
+left corner of the beach image is always in the upper-
+left corner of the butterfly image.
+
+The butterfly becomes completely covered by the beach
+image when the slider is positioned at 100 percent 
+
+<emphasis id="em1001" effect="italics">
+(the
+far right)
+
+</emphasis>
+.
+
+</para>
+
+
+				
+
+<para id="p1056">
+The program must terminate and return control to the
+operating system when you click the large X in the upper-
+right corner of the GUI containing the slider.
+
+</para>
+
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1014" effect="bold">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Required output images for Prob04.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/exam2prob04a.jpg" width="327" height="362"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1015" effect="bold">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Required output image for Prob04.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+<media id="media1006" alt="Missing image" display="block">
+<image id="img1006" mime-type="image/jpeg" src="../../media/exam2prob04b.jpg" width="329" height="363"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="Program_5" effect="bold">
+
+Program 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1016" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Write the Java application described below.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<para id="p1062">
+/*File Prob05 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+							
+
+<para id="p1063">
+Write a program named Prob05 that uses Ericson's media library 
+							along with the image file named
+							Prob05.jpg to produce the 
+							graphic output images shown in 
+
+<link id="a1033" target-id="Figure_8">
+
+Figure 
+							8
+
+</link>
+
+ and 
+
+<link id="a1034" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ below.
+
+</para>
+
+
+							
+
+<para id="p1064">
+Click 
+
+<link id="a1035" url="Prob05solution.zip">
+
+here
+
+</link>
+
+ to download a zip file containing the 
+							required image file along with the source code for a 
+							solution.
+
+</para>
+
+
+							
+
+<para id="p1065">
+The top image in 
+
+<link id="a1036" target-id="Figure_8">
+
+Figure 
+							8
+
+</link>
+
+ is a butterfly image. The image
+of the butterfly can be rotated in its picture by any
+angle ranging from -360 degrees to +360 degrees.
+
+
+
+</para>
+
+
+				
+
+<para id="p1066">
+The image immediately below that one is a slider that is
+used to control the rotation angle that is applied to the
+butterfly image.
+
+
+
+</para>
+
+
+				
+
+<para id="p1067">
+At startup, the slider is positioned at the zero-degrees
+mark 
+
+<emphasis id="em1002" effect="italics">
+(in the center)
+
+</emphasis>
+ and the butterfly image is displayed
+with no rotation.
+
+As you move the slider to the right, the butterfly image
+rotates clockwise around its center through an angle that
+can be as large as 360 degrees.
+
+</para>
+
+
+				
+
+<para id="p1068">
+ 
+
+<link id="a1037" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ shows the result of
+moving the slider to the +120-degree mark.
+
+</para>
+
+
+				
+
+<para id="p1069">
+As you move the slider to the left, the butterfly image
+rotates counter-clockwise around its center through an
+angle that can be as large as -360 degrees.
+
+</para>
+
+
+				
+
+<para id="p1070">
+The butterfly image rotates smoothly around its center as
+you move the slider back and forth.
+
+</para>
+
+
+				
+
+<para id="p1071">
+The program must terminate and return control to the
+operating system when you click the large X in the upper-
+right corner of the GUI containing the slider.
+
+</para>
+
+
+							
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1017" effect="bold">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Required output image for Prob05.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+<media id="media1007" alt="Missing image" display="block">
+<image id="img1007" mime-type="image/jpeg" src="../../media/exam2prob05a.jpg" width="408" height="522"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1074">
+<emphasis id="strong1018" effect="bold">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Required output image for Prob05.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+<media id="media1008" alt="Missing image" display="block">
+<image id="img1008" mime-type="image/jpeg" src="../../media/exam2prob05b.jpg" width="408" height="523"/>
+</media>
+
+
+</para>
+
+
+
+
+
+	
+	
+
+</section>
+</section>
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous Information
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1076">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1019" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1003" list-type="bulleted">
+
+					
+
+<item id="li1024">
+Module name: Java OOP: ITSE 2317 Practice Test 2
+
+</item>
+
+
+					
+
+<item id="li1025">
+File: PracticeTest02.htm
+
+
+</item>
+
+
+					
+
+<item id="li1026">
+Published: August 10, 2012
+
+</item>
+
+
+
+
+<item id="li1027">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1020" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1077">
+<emphasis id="strong1021" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1078">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1079">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1080">
+<emphasis id="strong1022" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1081">
+-end-
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

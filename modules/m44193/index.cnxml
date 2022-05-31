@@ -1,0 +1,3723 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1604: Inheritance, Part 1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44193</md:content-id>
+  <md:title>Java1604: Inheritance, Part 1</md:title>
+  <md:abstract>Baldwin shows you how to extend an existing class to create a new class. The new class is the blueprint for a new type. This is the mechanism for class inheritance in Java. Inheritance provides a formal mechanism for code reuse.</md:abstract>
+  <md:uuid>64c03771-f072-4c05-84fb-4739a8bead71</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Aug 11 14:31:01 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the Combo class.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The insertTape method. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The removeTape method. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The playTape method. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Modified Radio class.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Tape status.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Change to the playStation method.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The class named Radio02.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The program named Radio02.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+Extending a class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+This module shows you how to extend an existing class to create a new class. The new class is the blueprint for a new type.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Inheritance and code reuse
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+The existing class is often called the 
+
+<emphasis id="em1003" effect="italics">
+superclass
+
+</emphasis>
+ and the new class is often called the 
+
+
+<emphasis id="em1004" effect="italics">
+subclass
+
+</emphasis>
+. This is the mechanism for class inheritance in Java. Inheritance provides a formal mechanism for code reuse.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+The subclass inherits all of the variables and all of the methods defined in the superclass.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Although not explicitly demonstrated in this module, whenever you declare a 
+reference variable whose type is defined by a class, that variable can be used 
+to store references to objects instantiated from that class or instantiated from 
+any subclass of that class. Furthermore, that reference can be used to call 
+methods defined in or inherited into that class with no requirement for a cast. 
+If the method is defined in that class and overridden in the subclass, and if 
+the object is actually of the subclass type, the overridden version will be 
+executed. This is polymorphism. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1002" effect="bold">
+Car radios with tape players
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+A class from a previous module 
+
+<emphasis id="em1005" effect="italics">
+(whose objects represent car radios)
+
+</emphasis>
+ is extended to define a new class, whose objects represent expanded car radios that contain tape players. 
+
+
+<emphasis id="em1006" effect="italics">
+(Yes, at one point in history, car radios did contain tape players instead 
+of CDs.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1003" effect="bold">
+Sending messages to the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+Objects of the new class know how to respond to messages for inserting, playing, and removing a tape, in addition to those messages that are appropriate for objects of the original Radio class. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1014">
+<emphasis id="strong1004" effect="bold">
+The three pillars of OOP
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+In an earlier module, I explained that most books on OOP will tell you that in order to understand OOP, you must understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+Encapsulation
+
+</item>
+
+
+	
+
+<item id="li1023">
+Inheritance
+
+</item>
+
+
+	
+
+<item id="li1024">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1016">
+I agree with that assessment.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1005" effect="bold">
+Encapsulation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The first module in this series provided an explanation of encapsulation.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1006" effect="bold">
+Inheritance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+This module 
+
+<emphasis id="em1007" effect="italics">
+(and some modules to follow)
+
+</emphasis>
+ will provide an explanation of inheritance. I will use another simple program to explain the concept of inheritance. 
+
+</para>
+
+
+
+	
+
+<para id="p1021">
+<emphasis id="strong1007" effect="bold">
+Polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+Polymorphism is the most complex of the three, and will be explained in future modules.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1008" effect="bold">
+A new data type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+Whenever you define a class in Java, you cause a new data type to become available to the program. Therefore, whenever you need a new data type, you can define a new class to make that type available.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1009" effect="bold">
+Extending a class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+Defining a new class 
+
+<emphasis id="em1008" effect="italics">
+(to create a new type)
+
+</emphasis>
+ can involve a lot of effort. Sometimes you have an option that can greatly reduce the effort required to create your new type. If a class 
+
+
+<emphasis id="em1009" effect="italics">
+(type)
+
+</emphasis>
+ already exists that is close to what you need, you can often extend that class to produce a new class that is closer to what you need.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+In many cases, this will require much less effort than that required to start from scratch and define a new class to establish a new type.
+
+The ability to extend one class into another new class is the 
+
+<emphasis id="em1010" effect="italics">
+essence of inheritance
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1028">
+According to the current jargon, the new class is called the 
+
+<emphasis id="em1011" effect="italics">
+subclass
+
+</emphasis>
+ and the class that is extended is called the 
+	
+
+<emphasis id="em1012" effect="italics">
+superclass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Although not explicitly demonstrated in this module, whenever you declare a 
+reference variable whose type is defined by a class, that variable can be used 
+to store references to objects instantiated from that class or instantiated from 
+any subclass of that class. Furthermore, that reference can be used to call 
+methods defined in or inherited into that class with no requirement for a cast. 
+If the method is defined in that class and overridden in the subclass, and if 
+the object is actually of the subclass type, the overridden version will be 
+executed. This is polymorphism. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1010" effect="bold">
+What is inherited?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The subclass inherits all of the variables and all of the methods defined in 
+
+
+<emphasis id="em1013" effect="italics">
+(or inherited into)
+
+</emphasis>
+ the superclass, almost as if you had completely defined the new class from scratch, and had reproduced all of the code already defined in the existing superclasses.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1011" effect="bold">
+Code reuse
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+Therefore, inheritance often makes it possible to define a new class with a minimum requirement to write new code by formally reusing the code that was previously written into the superclasses.
+
+Sometimes you can get by with simply extending the existing class.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Sometimes, however, it is also necessary to make changes to the existing class to improve its ability to be extended in a meaningful way. 
+
+
+<emphasis id="em1014" effect="italics">
+(That is the case with the sample program discussed in this module, but the next module will show you how to avoid that issue.)
+
+</emphasis>
+ It all depends on how the existing class was designed in the first place. 
+Ideally the original design of the class will be such that modification of the 
+original class is not necessary.
+
+</para>
+
+
+
+	
+
+<para id="p1035">
+<emphasis id="strong1012" effect="bold">
+The Radio class
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1036">
+A previous program defined a class named 
+
+<emphasis id="strong1013" effect="bold">
+Radio
+
+</emphasis>
+. Objects instantiated from the 
+	
+
+<emphasis id="strong1014" effect="bold">
+Radio
+
+</emphasis>
+ class 
+
+<emphasis id="em1015" effect="italics">
+(see the previous modules for a discussion of instantiating objects)
+	
+
+</emphasis>
+were intended to simulate car radios. 
+
+<emphasis id="em1016" effect="italics">
+(Note that the car radios simulated by objects of the 
+	
+
+<emphasis id="strong1015" effect="bold">
+Radio
+
+</emphasis>
+ class didn't have built-in tape players.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1016" effect="bold">
+The Combo class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+In this module, I will use inheritance to extend the 
+
+<emphasis id="strong1017" effect="bold">
+Radio
+
+</emphasis>
+ class into a new class named 
+
+
+<emphasis id="strong1018" effect="bold">
+Combo
+
+</emphasis>
+. Objects instantiated from the 
+
+<emphasis id="strong1019" effect="bold">
+Combo
+
+</emphasis>
+ class are intended to simulate car radios with a built-in tape player.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+A complete listing of the new program is shown in 
+
+<link id="a1022" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1020" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+As usual, I will discuss this program in fragments. I will begin my discussion with the definition of the new class named 
+
+
+<emphasis id="strong1021" effect="bold">
+Combo
+
+</emphasis>
+. Then I will come back and discuss the class named 
+
+
+<emphasis id="strong1022" effect="bold">
+Radio
+
+</emphasis>
+ and the driver class named 
+
+<emphasis id="strong1023" effect="bold">
+Radio02
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1024" effect="bold">
+The combo class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The code in 
+
+<link id="a1023" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the class named 
+
+
+<emphasis id="strong1025" effect="bold">
+Combo
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the Combo 
+				class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class Combo extends Radio{
+  
+  public Combo(){//constructor
+    System.out.println(
+           "Combo object constructed");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1044">
+<emphasis id="strong1026" effect="bold">
+Two new items
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+There are two new items in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ that you did not see in the code in the previous modules.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1027" effect="bold">
+Combo extends Radio
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+First, the class named 
+
+<emphasis id="strong1028" effect="bold">
+Combo
+
+</emphasis>
+ 
+
+<emphasis id="strong1029" effect="bold">
+<emphasis id="em1017" effect="italics">
+extends
+
+</emphasis>
+</emphasis>
+ the class named 
+
+<emphasis id="strong1030" effect="bold">
+Radio
+
+</emphasis>
+. This means that an object instantiated from the 
+
+
+<emphasis id="strong1031" effect="bold">
+Combo
+
+</emphasis>
+ class will contain all of the variables and all the methods defined in the 
+
+
+<emphasis id="strong1032" effect="bold">
+Combo
+
+</emphasis>
+ class, plus all the variables and methods defined in the 
+
+
+<emphasis id="strong1033" effect="bold">
+Radio
+
+</emphasis>
+ class, and its superclasses. 
+
+<emphasis id="em1018" effect="italics">
+(The variables and methods of the superclass are inherited into the subclass.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1034" effect="bold">
+An explicit constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+Second, the class named 
+
+<emphasis id="strong1035" effect="bold">
+Combo
+
+</emphasis>
+ defines an explicit constructor.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1036" effect="bold">
+Defining a constructor is optional
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+When defining a new class, it is not necessary to define a constructor. If you don't define a constructor, a default constructor will be provided automatically.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1037" effect="bold">
+Why define a constructor?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+The intended purpose of a constructor is to initialize the instance variables belonging to the new object. However, constructors can do other things as well. In this case, I used an explicit constructor to display a message when the object is instantiated from the class named 
+
+
+<emphasis id="strong1038" effect="bold">
+Combo
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1039" effect="bold">
+Brief discussion of constructors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+I'm not going to discuss constructors in detail at this point. However, I will give you a few rules regarding constructors.
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Constructors 
+
+<emphasis id="em1019" effect="italics">
+(like methods)
+
+</emphasis>
+ can be overloaded. 
+
+<emphasis id="em1020" effect="italics">
+(I will explain what overloading means in a subsequent module.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1026">
+The names of constructors must match the names of the classes in which they are defined.
+
+</item>
+
+
+	
+
+<item id="li1027">
+A constructor signature never indicates a return type 
+
+<emphasis id="em1021" effect="italics">
+(such as void or double)
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1028">
+The code in a constructor never contains a return statement.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1040" effect="bold">
+Instance methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+The new class named 
+
+<emphasis id="strong1041" effect="bold">
+Combo
+
+</emphasis>
+ defines three instance methods, each of which has to do with the handling of tape in the tape player:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1029">
+insertTape
+
+</item>
+
+
+	
+
+<item id="li1030">
+removeTape
+
+</item>
+
+
+	
+
+<item id="li1031">
+playTape
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1058">
+<emphasis id="em1022" effect="italics">
+(If you feel ambitious, you could upgrade this class even further to add features such as rewind, fast forward, pause, etc.).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1042" effect="bold">
+The insertTape method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+The entire method named 
+
+<emphasis id="strong1043" effect="bold">
+insertTape
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. This is the method that is used to simulate the insertion of a tape by the user. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The insertTape method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  public void insertTape(){
+    System.out.println("Insert Tape");
+    tapeIn = true;
+    System.out.println("  Tape is in");
+    System.out.println(
+                     "  Radio is off");
+  }//end insertTape method</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+The most significant thing about the code in  
+
+
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is the assignment of the 
+
+<emphasis id="strong1044" effect="bold">
+true
+
+</emphasis>
+ value to the 
+	
+
+<emphasis id="strong1045" effect="bold">
+boolean
+
+</emphasis>
+ variable named 
+
+<emphasis id="strong1046" effect="bold">
+tapeIn
+
+</emphasis>
+. Other than setting the value of the 
+	
+
+<emphasis id="strong1047" effect="bold">
+tapeIn
+
+</emphasis>
+ variable to 
+
+<emphasis id="strong1048" effect="bold">
+true
+
+</emphasis>
+, the code in  
+
+
+<link id="a1027" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ simply prints some messages to indicate what is going on.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1049" effect="bold">
+What is tapeIn used for?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+As you will see shortly, the value of the variable named 
+
+<emphasis id="strong1050" effect="bold">
+tapeIn
+
+</emphasis>
+ is used to determine if it is possible to play the tape or to play the radio.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+According to that logic:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1032">
+If 
+
+<emphasis id="strong1051" effect="bold">
+tapeIn
+
+</emphasis>
+ is true, it is possible to play the tape but it is not possible to play the radio.
+
+</item>
+
+
+	
+
+<item id="li1033">
+If 
+
+<emphasis id="strong1052" effect="bold">
+tapeIn
+
+</emphasis>
+ is false, it is possible to play the radio, but it is not possible to play the tape.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1053" effect="bold">
+tapeIn is not declared in the Combo class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+It is also worthy of note that in this version of the program, the variable named
+
+
+<emphasis id="strong1054" effect="bold">
+tapeIn
+
+</emphasis>
+ is not declared in the 
+
+<emphasis id="strong1055" effect="bold">
+Combo
+
+</emphasis>
+ class 
+
+<emphasis id="em1023" effect="italics">
+(this will change in the next module where the program uses method overriding)
+
+</emphasis>
+. Rather, this variable is inherited from the 
+
+
+<emphasis id="strong1056" effect="bold">
+Radio
+
+</emphasis>
+ class that is extended by the 
+
+<emphasis id="strong1057" effect="bold">
+Combo
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1058" effect="bold">
+The removeTape method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+The 
+
+<emphasis id="strong1059" effect="bold">
+removeTape
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1060" effect="bold">
+Combo
+
+</emphasis>
+ class is shown in 
+
+
+<link id="a1028" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Its behavior is pretty much the reverse of the 
+
+
+<emphasis id="strong1061" effect="bold">
+insertTape
+
+</emphasis>
+ method, so I won't discuss it further. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The removeTape method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">  public void removeTape(){
+    System.out.println("Remove Tape");
+    tapeIn = false;
+    System.out.println(
+                      "  Tape is out");
+    System.out.println(
+                      "  Radio is on");
+  }//end removeTape method\</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1069">
+<emphasis id="strong1062" effect="bold">
+The playTape method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+<link id="a1029" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the method named 
+
+<emphasis id="strong1063" effect="bold">
+playTape
+
+</emphasis>
+ defined in the new 
+
+
+<emphasis id="strong1064" effect="bold">
+Combo
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The playTape method
+.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">public void playTape(){
+    System.out.println("Play Tape");
+    if(!tapeIn){//tapeIn is false
+      System.out.println(
+            "  Insert the tape first");
+    }else{//tapeIn is true
+      System.out.println(
+                  "  Tape is playing");
+    }//end if/else
+  }//end playTape</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1071">
+<emphasis id="strong1065" effect="bold">
+Confirm that the tape is ready
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+Calling the method named 
+
+<emphasis id="strong1066" effect="bold">
+playTape
+
+</emphasis>
+ can be thought of as sending a message to the 
+
+
+<emphasis id="strong1067" effect="bold">
+Combo
+
+</emphasis>
+ object asking it to play the tape. The code in the 
+
+
+<emphasis id="strong1068" effect="bold">
+playTape
+
+</emphasis>
+ method checks to confirm that the value stored in the 
+
+
+<emphasis id="strong1069" effect="bold">
+tapeIn
+
+</emphasis>
+ variable is 
+
+<emphasis id="strong1070" effect="bold">
+true
+
+</emphasis>
+ before executing the request to play the tape.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+If 
+
+<emphasis id="strong1071" effect="bold">
+tapeIn
+
+</emphasis>
+ is 
+
+<emphasis id="strong1072" effect="bold">
+false
+
+</emphasis>
+, an error message is displayed advising the user to insert the tape first.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+If 
+
+<emphasis id="strong1073" effect="bold">
+tapeIn
+
+</emphasis>
+ is 
+
+<emphasis id="strong1074" effect="bold">
+true
+
+</emphasis>
+, the method prints a message indicating that the tape is playing.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1075" effect="bold">
+Modified Radio class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+<link id="a1030" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the definition of the modified version of the class named 
+
+
+<emphasis id="strong1076" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Modified Radio class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">class Radio{
+  protected double[] stationNumber = 
+                         new double[5];
+  protected boolean tapeIn = false;
+  //---------------------------------//
+  
+  public void setStationNumber(
+                int index,double freq){
+    stationNumber[index] = freq;
+    System.out.println("Button " 
+              + index + " programmed");
+  }//end method setStationNumber
+  //---------------------------------//
+  
+  public void playStation(int index){
+    System.out.println("Play Radio");
+    if(!tapeIn){//tapeIn is false
+      System.out.println(
+          "  Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+    }else{//tapeIn is true
+      System.out.println(
+            "  Remove the tape first");
+    }//end if/else
+  }//end method playStation
+  
+}//end class Radio</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1077" effect="bold">
+Tape status
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The first significant change that was made to the class named 
+
+<emphasis id="strong1078" effect="bold">
+Radio
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1031" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Tape status.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">  protected boolean tapeIn = false;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1079">
+The statement in  
+
+
+<link id="a1032" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ declares and initializes a new instance variable named 
+	
+
+<emphasis id="strong1079" effect="bold">
+tapeIn
+
+</emphasis>
+. As explained earlier, this instance variable is used to indicate whether or not a tape is inserted. 
+	
+
+<emphasis id="em1024" effect="italics">
+(The Combo class inherits this variable.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+Earlier in this module, I explained how the 
+
+<emphasis id="strong1080" effect="bold">
+playTape
+
+</emphasis>
+ method of the 
+
+
+<emphasis id="strong1081" effect="bold">
+Combo
+
+</emphasis>
+ class uses this value to determine whether or not to attempt to play a tape.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1082" effect="bold">
+Change to the playStation method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+The significant change that was made to the method named 
+
+<emphasis id="strong1083" effect="bold">
+playStation
+
+</emphasis>
+ of the 
+
+
+<emphasis id="strong1084" effect="bold">
+Radio
+
+</emphasis>
+ class is shown in 
+
+<link id="a1033" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Change to the playStation method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    if(!tapeIn){//tapeIn is false
+      System.out.println(
+          "  Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+    }else{//tapeIn is true
+      System.out.println(
+            "  Remove the tape first");
+    }//end if/else</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1083">
+<emphasis id="strong1085" effect="bold">
+Check the tape status
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+The code in 
+
+<link id="a1034" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ uses 
+
+<emphasis id="strong1086" effect="bold">
+tapeIn
+
+</emphasis>
+ to check the tape status before attempting to tune the radio station and play the radio. If a tape is inserted, this method simply displays an error message instructing the user to remove the tape first.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1087" effect="bold">
+So, what's the big deal with inheritance?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+The fact that it was necessary for me to make changes to the class named 
+
+
+<emphasis id="strong1088" effect="bold">
+Radio
+
+</emphasis>
+ greatly reduced the benefit of inheritance in this case. However, even in this case, the use of inheritance eliminated the need for me to define a new class that reproduces all of the code in the class named 
+
+
+<emphasis id="strong1089" effect="bold">
+Radio
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="em1025" effect="italics">
+(In the next module, I will explain the process of overriding methods. I will show you how to use method overriding to accomplish these same purposes by extending the 
+
+
+<emphasis id="strong1090" effect="bold">
+Radio
+
+</emphasis>
+ class, without any requirement to modify the code in the 
+
+
+<emphasis id="strong1091" effect="bold">
+Radio
+
+</emphasis>
+ class. That will be a much better illustration of the benefits of inheritance.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1092" effect="bold">
+The driver class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+The new driver class named 
+
+<emphasis id="strong1093" effect="bold">
+Radio02
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1035" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. The class named Radio02.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">public class Radio02{
+  //This class simulates the 
+  // manufacturer and the human user
+  public static void main(
+                        String[] args){
+    Combo myObjRef = new Combo();
+    myObjRef.setStationNumber(3,93.5);
+    myObjRef.playStation(3);
+    myObjRef.insertTape();
+    myObjRef.playStation(3);
+    myObjRef.removeTape();
+    myObjRef.playStation(3);
+    myObjRef.playTape();
+    myObjRef.insertTape();
+    myObjRef.playTape();
+    myObjRef.removeTape();
+    myObjRef.playStation(3);
+  }//end main
+}//end class Radio02</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1090">
+<emphasis id="strong1094" effect="bold">
+New object of the Combo class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+The most significant change in this class 
+
+<emphasis id="em1026" effect="italics">
+(relative to the driver class named
+
+
+</emphasis>
+<emphasis id="strong1095" effect="bold">
+<emphasis id="em1027" effect="italics">
+Radio01
+
+</emphasis>
+</emphasis>
+<emphasis id="em1028" effect="italics">
+ in a previous module)
+
+</emphasis>
+ is the statement that instantiates a new object of the 
+
+
+<emphasis id="strong1096" effect="bold">
+Combo
+
+</emphasis>
+ class 
+
+<emphasis id="em1029" effect="italics">
+(instead of the Radio class)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+All of the other new code in  
+
+
+<link id="a1036" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ is used to send messages to the new object in order to exercise its behavior. 
+
+</para>
+
+
+
+	
+
+<para id="p1093">
+<emphasis id="strong1097" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+The 
+
+<emphasis id="strong1098" effect="bold">
+Combo
+
+</emphasis>
+ object responds to those messages by producing the 
+screen output shown in 
+
+<link id="a1037" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Program output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+							
+
+<code id="pre1008" display="block">Combo object constructed
+Button 3 programmed
+Play Radio
+  Playing the station at 93.5 Mhz
+Insert Tape
+  Tape is in
+  Radio is off
+Play Radio
+  Remove the tape first
+Remove Tape
+  Tape is out
+  Radio is on
+Play Radio
+  Playing the station at 93.5 Mhz
+Play Tape
+  Insert the tape first
+Insert Tape
+  Tape is in
+  Radio is off
+Play Tape
+  Tape is playing
+Remove Tape
+  Tape is out
+  Radio is on
+Play Radio
+  Playing the station at 93.5 Mhz</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1095">
+<emphasis id="strong1099" effect="bold">
+An exercise for the student
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+As the old saying goes, I will leave it as an exercise for the student to 
+correlate the messages in 
+
+<link id="a1038" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ with the output 
+shown in 
+
+<link id="a1039" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1097">
+Extending an existing class often provides an easy way to create a new type. This is primarily true when an existing class creates a type whose features are close to, but not identical to the features needed in the new type.
+
+</para>
+
+
+
+
+
+<para id="p1098">
+When an existing class is extended to define a new class, the existing class is often called the 
+
+
+<emphasis id="em1030" effect="italics">
+superclass
+
+</emphasis>
+ and the new class is often called the 
+
+<emphasis id="em1031" effect="italics">
+subclass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+The subclass inherits all of the variables and all of the methods defined in the superclass and its superclasses.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+Although not explicitly demonstrated in this module, whenever you declare a 
+reference variable whose type is defined by a class, that variable can be used 
+to store references to objects instantiated from that class or instantiated from 
+any subclass of that class. Furthermore, that reference can be used to call 
+methods defined in or inherited into that class with no requirement for a cast. 
+If the method is defined in that class and overridden in the subclass, and if 
+the object is actually of the subclass type, the overridden version will be 
+executed. This is polymorphism. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+Inheritance provides a formal mechanism for code reuse.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+This module modifies slightly, and then extends the 
+
+<emphasis id="strong1100" effect="bold">
+Radio
+
+</emphasis>
+ class from a previous module to define a new class named 
+
+
+<emphasis id="strong1101" effect="bold">
+Combo
+
+</emphasis>
+. Objects of the 
+
+<emphasis id="strong1102" effect="bold">
+Combo
+
+</emphasis>
+ class simulate car radios that contain tape players. Objects of the 
+
+
+<emphasis id="strong1103" effect="bold">
+Combo
+
+</emphasis>
+ class know how to respond to messages for inserting, playing, and removing a tape, in addition to those messages appropriate for an object of the 
+
+
+<emphasis id="strong1104" effect="bold">
+Radio
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+The changes that were required in the definition of the 
+
+<emphasis id="strong1105" effect="bold">
+Radio
+
+</emphasis>
+ class provide for the fact that it is not possible to play a radio station and to play a tape at the same time. This change was necessary because the original designer of the 
+
+
+<emphasis id="strong1106" effect="bold">
+Radio
+
+</emphasis>
+ class 
+
+<emphasis id="em1032" effect="italics">
+(this author)
+
+</emphasis>
+ didn't design that class with the idea of extending it to include a tape player. This points out the importance of thinking ahead when defining a new class. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1104">
+In the next module, I will show you how to use 
+
+<emphasis id="em1033" effect="italics">
+method overriding
+
+</emphasis>
+ to cause the behavior of a method inherited into a subclass to be appropriate for an object instantiated from the subclass.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+I will also show you how to use method overriding to eliminate the above requirement to modify the 
+
+
+<emphasis id="strong1107" effect="bold">
+Radio
+
+</emphasis>
+ class before extending it. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1106">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1108" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1034">
+Module name: Java OOP: Inheritance, Part 1
+
+</item>
+
+
+					
+
+<item id="li1035">
+File: Java1604.htm
+
+
+</item>
+
+
+					
+
+<item id="li1036">
+Published: 01/14/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1109" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1107">
+<emphasis id="strong1110" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1108">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1109">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1110">
+<emphasis id="strong1111" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1111">
+A complete listing of the program is shown in 
+
+<link id="a1040" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+The primary difference between this program and the program in the earlier module 
+
+
+<emphasis id="em1034" effect="italics">
+(whose objects simulate car radios)
+
+</emphasis>
+ is the inclusion in this program of a new class named 
+
+
+<emphasis id="strong1112" effect="bold">
+Combo
+
+</emphasis>
+. The class named 
+
+<emphasis id="strong1113" effect="bold">
+Combo
+
+</emphasis>
+ extends the original 
+
+
+<emphasis id="strong1114" effect="bold">
+Radio
+
+</emphasis>
+ class to create a new type of radio that also contains a tape player. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. The program named Radio02.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">/*File Radio02.java
+Copyright 2002, R.G.Baldwin
+Simulates the manufacture and use of a 
+combination car radio and tape player.
+
+This program produces the following
+output on the computer screen:
+  
+Combo object constructed
+Button 3 programmed
+Play Radio
+  Playing the station at 93.5 Mhz
+Insert Tape
+  Tape is in
+  Radio is off
+Play Radio
+  Remove the tape first
+Remove Tape
+  Tape is out
+  Radio is on
+Play Radio
+  Playing the station at 93.5 Mhz
+Play Tape
+  Insert the tape first
+Insert Tape
+  Tape is in
+  Radio is off
+Play Tape
+  Tape is playing
+Remove Tape
+  Tape is out
+  Radio is on
+Play Radio
+  Playing the station at 93.5 Mhz
+**************************************/
+
+public class Radio02{
+  //This class simulates the 
+  // manufacturer and the human user
+  public static void main(
+                        String[] args){
+    Combo myObjRef = new Combo();
+    myObjRef.setStationNumber(3,93.5);
+    myObjRef.playStation(3);
+    myObjRef.insertTape();
+    myObjRef.playStation(3);
+    myObjRef.removeTape();
+    myObjRef.playStation(3);
+    myObjRef.playTape();
+    myObjRef.insertTape();
+    myObjRef.playTape();
+    myObjRef.removeTape();
+    myObjRef.playStation(3);
+  }//end main
+}//end class Radio02
+//===================================//
+
+class Radio{
+  //This class simulates the plans from
+  // which the radio object is created.
+  protected double[] stationNumber = 
+                         new double[5];
+  protected boolean tapeIn = false;
+  //---------------------------------//
+  
+  public void setStationNumber(
+                int index,double freq){
+    stationNumber[index] = freq;
+    System.out.println("Button " 
+              + index + " programmed");
+  }//end method setStationNumber
+  //---------------------------------//
+  
+  public void playStation(int index){
+    System.out.println("Play Radio");
+    if(!tapeIn){
+      System.out.println(
+          "  Playing the station at " 
+               + stationNumber[index]
+               + " Mhz");
+    }else{
+      System.out.println(
+            "  Remove the tape first");
+    }//end if/else
+  }//end method playStation
+  
+}//end class Radio
+//===================================//
+
+class Combo extends Radio{
+  
+  public Combo(){//constructor
+    System.out.println(
+           "Combo object constructed");
+  }//end constructor
+  //---------------------------------//
+  
+  public void insertTape(){
+    System.out.println("Insert Tape");
+    tapeIn = true;
+    System.out.println("  Tape is in");
+    System.out.println(
+                     "  Radio is off");
+  }//end insertTape method
+  //---------------------------------//
+  
+  public void removeTape(){
+    System.out.println("Remove Tape");
+    tapeIn = false;
+    System.out.println(
+                      "  Tape is out");
+    System.out.println(
+                      "  Radio is on");
+  }//end removeTape method
+  //---------------------------------//
+  
+  public void playTape(){
+    System.out.println("Play Tape");
+    if(!tapeIn){
+      System.out.println(
+            "  Insert the tape first");
+    }else{
+      System.out.println(
+                  "  Tape is playing");
+    }//end if/else
+  }//end playTape
+}//end class combo</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1113">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

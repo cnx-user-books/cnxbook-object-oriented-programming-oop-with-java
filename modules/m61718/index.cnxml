@@ -1,0 +1,1135 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0205: Getting Started</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61718</md:content-id>
+  <md:title>Json0205: Getting Started</md:title>
+  <md:abstract>Learn how to download, install, and test the json-simple Java library.</md:abstract>
+  <md:uuid>f4cb306a-3718-4ff1-a2d2-86d06d370403</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Jun 02 19:21:59 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="The_jsonSimple_library">
+
+The json-simple library
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1009">
+<link id="a1009" target-id="Download_the_library">
+
+Download the library
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="Library_documentation">
+
+Library documentation
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Install_the_library">
+
+Install the library
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Testing_your_installation">
+
+Test your installation
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. 
+	The book explains how to use the 
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to generate, transform, and query JSON text. 
+	This page explains how to get started using the library. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them. 
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output from test program. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Java test program.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Sample batch file. 
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="The_jsonSimple_library" effect="bold">
+
+The json-simple library
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Download_the_library" effect="bold">
+
+Download the library
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+As of May 2016, the library can be downloaded in a jar file named
+
+
+<link id="a1017" url="https://code.google.com/archive/p/json-simple/downloads">
+
+
+json-simple-1.1.1.jar
+
+</link>
+
+. The name of the jar file may be expected to change 
+over time as new versions are released.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Library_documentation" effect="bold">
+
+Library documentation
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1005">
+Also as of May 2016, a file named 
+
+<emphasis id="strong1002" effect="bold">
+json_simple-1.1-all.zip
+
+</emphasis>
+, which contains source code 
+	for the library, can be 
+	downloaded from that same page. See the contents of that zip file for a copy 
+	of the 
+	license covering the material in the library. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+I used the source code from 
+	that file to create a 
+	documentation package for version 1.1, which you can download 	
+
+<link id="a1018" url="docs.zip">
+
+here
+
+</link>
+
+. 
+Download and extract the contents of the file named 
+
+<emphasis id="strong1003" effect="bold">
+docs.zip
+
+</emphasis>
+ into an 
+	empty folder and open the file named 
+
+<emphasis id="strong1004" effect="bold">
+index.html
+
+</emphasis>
+ in your 
+	browser to view the documentation in standard 
+
+<emphasis id="strong1005" effect="bold">
+javadoc
+
+</emphasis>
+ 
+	format.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Install_the_library" effect="bold">
+
+Install the library
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1007">
+To use the library, you need to download the latest version of the jar file, 
+store it somewhere on your system, and put it on your classpath. The 
+instructions on this page apply to Windows 7. If you are using some other 
+operating system, you will need to adjust the instructions to make them 
+compatible with your operating system.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Testing_your_installation" effect="bold">
+
+Test your installation
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+Create a Java source code file named 
+
+<emphasis id="strong1006" effect="bold">
+Code
+
+</emphasis>
+ containing the 
+code shown in 
+
+<link id="a1019" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ and store it in a folder somewhere on your system.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Java test program.
+
+
+<code id="pre1000" display="block">
+/****************************************************
+Tested with Java 8, Windows 7, and 
+json-simple-1.1.1.jar
+*****************************************************/
+import org.json.simple.ItemList;
+
+class Code{
+  public static void main(String[] args){
+    System.out.println("ItemList: " + new ItemList().
+                         getClass().getSuperclass());
+  }//end main
+}//end class code</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1009">
+Assuming that you have downloaded the jar file and stored it in a folder 
+named 
+
+<emphasis id="strong1007" effect="bold">
+json-simple
+
+</emphasis>
+ in the root directory of your C drive, create a batch file 
+containing the commands shown in 
+
+<link id="a1020" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ and store the batch file in the same 
+folder as the source code file named 
+
+<emphasis id="strong1008" effect="bold">
+Code
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Sample batch file.
+
+
+<code id="pre1001" display="block">
+echo off
+rem Sets the classpath, compiles, and runs Code.java.
+
+del *.class
+
+javac -cp .;C:\json-simple\json-simple-1.1.1.jar Code.java
+
+java -cp .;C:\json-simple\json-simple-1.1.1.jar Code
+pause</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1010">
+Double-click the batch file. Assuming that you have a compatible version of the 
+Java Development Kit installed on your system, your test program should 
+be compiled and executed, producing the output shown in 
+
+<link id="a1021" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ on your 
+computer screen.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Output from test program.
+
+
+<code id="pre1002" display="block">
+ItemList: class java.lang.Object
+Press any key to continue . . .</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1011">
+By way of explanation, the code in 
+
+<link id="a1022" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ instantiates a new object of the 
+class named 
+
+<emphasis id="strong1009" effect="bold">
+ItemList
+
+</emphasis>
+ from the JSON library. Then it gets and 
+displays the superclass of that class, which is the class named 
+
+<emphasis id="strong1010" effect="bold">
+Object
+
+</emphasis>
+. 
+In other words, the JSON library class named 
+
+<emphasis id="strong1011" effect="bold">
+ItemList
+
+</emphasis>
+ extends 
+the standard class named 
+
+<emphasis id="strong1012" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<para id="p1012">
+If you were able to produce the output shown in 
+
+<link id="a1023" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+, you are ready to 
+start generating, transforming, and querying JSON text using Java and the
+
+
+<emphasis id="strong1013" effect="bold">
+json-simple
+
+</emphasis>
+ Java library.
+
+</para>
+
+
+
+
+
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1013">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1014" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1017">
+Module name: Json0205: Getting Started
+
+</item>
+
+
+					
+
+<item id="li1018">
+File: Json0205.htm
+
+</item>
+
+
+					
+
+<item id="li1019">
+Published: 05/30/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1015" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1014">
+<emphasis id="strong1016" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1015">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1016">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1017">
+<emphasis id="strong1017" effect="bold">
+Affiliation
+
+</emphasis>
+: : I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1018">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

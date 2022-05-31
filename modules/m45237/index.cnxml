@@ -1,0 +1,3653 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0280: Java OOP: String and StringBuffer</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45237</md:content-id>
+  <md:title>Jb0280: Java OOP: String and StringBuffer</md:title>
+  <md:abstract>This module discusses the String and StringBuffer classes in detail.</md:abstract>
+  <md:uuid>160d3e6d-4937-4532-bb6d-ca2d9fdae098</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Mar 29 11:14:56 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="YouCant">
+
+You can't modify a String object, but you can replace it
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="WhyAreThereTwoStringClasses">
+
+Why are there two string classes?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="CreatingStringsandStringBuffers">
+
+Creating String and StringBuffer objects
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="FirstSampleProgram">
+
+The sample program named String02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="AlternativeString">
+
+Alternative String instantiation constructs
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="InstantiatingStringBufferObjects">
+
+Instantiating StringBuffer objects
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="DeclarationMemory">
+
+Declaration, memory allocation, and initialization
+		
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="InstantiatinganEmpty">
+
+Instantiating an empty StringBuffer object
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="AccessorMethods">
+
+Accessor methods
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Constructorsand">
+
+Constructors and methods of the String class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="StringEncapsulatesData">
+
+String objects encapsulate data
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="CreatingStringObjectswithout">
+
+Creating String objects without calling the constructor
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="MemoryManagement">
+
+Memory management by the StringBuffer class
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="ThetoStringMethod">
+
+The toString method
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="StringsandtheJavaCompiler">
+
+Strings and the Java compiler
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="ConcatenationandtheOperator">
+
+Concatenation and the + operator
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Looking_ahead">
+
+Looking ahead
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module discusses the 
+
+<emphasis id="strong1000" effect="bold">
+String
+
+</emphasis>
+ and 
+
+<emphasis id="strong1001" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+classes in detail. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. File String01.java
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. File String02.java.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+
+</emphasis>
+
+Introduction
+
+</title>
+
+
+
+
+<para id="p1004">
+A string in Java is an object. Java provides two different string classes from which objects 
+that encapsulate string data can be 
+instantiated: 
+
+</para>
+
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+
+
+<item id="li1027">
+<emphasis id="strong1002" effect="bold">
+String
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+<item id="li1028">
+<emphasis id="strong1003" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+
+</item>
+
+
+</list>
+
+
+
+
+
+<para id="p1005">
+The 
+
+<emphasis id="strong1004" effect="bold">
+String
+
+</emphasis>
+ class is used for strings that are not allowed to change 
+once an object has been instantiated 
+
+<emphasis id="em1003" effect="italics">
+(an immutable object)
+
+</emphasis>
+. 
+The 
+
+<emphasis id="strong1005" effect="bold">
+StringBuffer
+
+</emphasis>
+ class is used for strings that may be modified by the 
+program. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="YouCant" effect="bold">
+
+
+</emphasis>
+
+You can't modify 
+a String object, but you can replace it
+
+</title>
+
+
+
+
+<para id="p1006">
+While the contents of a 
+
+<emphasis id="strong1006" effect="bold">
+String
+
+</emphasis>
+ object 
+cannot be modified, a reference to a 
+
+<emphasis id="strong1007" effect="bold">
+String
+
+</emphasis>
+ object can be 
+caused to point to a different 
+
+<emphasis id="strong1008" effect="bold">
+String
+
+</emphasis>
+ object as illustrated in 
+the sample program shown in 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Sometimes this makes it appear that the 
+original 
+
+<emphasis id="strong1009" effect="bold">
+String
+
+</emphasis>
+ object is being modified. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. File String01.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File String01.java Copyright 1997, R.G.Baldwin
+This application illustrates the fact that while a String 
+object cannot be modified, the reference variable can be 
+modified to point to a new String object which can have 
+the appearance of modifying the original String object.
+
+The program was tested using JDK 1.1.3 under Win95.
+
+The output from this program is
+
+Display original string values
+THIS STRING IS NAMED str1
+This string is named str2
+Replace str1 with another string
+Display new string named str1
+THIS STRING IS NAMED str1 This string is named str2
+Terminating program
+
+**********************************************************/
+
+class String01{
+  String str1 = "THIS STRING IS NAMED str1";
+  String str2 = "This string is named str2";
+  
+  public static void main(String[] args){
+    String01 thisObj = new String01();
+    System.out.println("Display original string values");
+    System.out.println(thisObj.str1);
+    System.out.println(thisObj.str2);
+    System.out.println("Replace str1 with another string");
+    thisObj.str1 = thisObj.str1 + " " + thisObj.str2;
+    System.out.println("Display new string named str1");
+    System.out.println(thisObj.str1);
+    System.out.println("Terminating program");
+  }//end main()
+}//end class String01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1007">
+It is important to note that the following statement does not modify 
+the original object pointed to by the reference variable named 
+
+<emphasis id="strong1010" effect="bold">
+str1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1001" display="block">
+thisObj.str1 = thisObj.str1 + " " + thisObj.str2;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1008">
+Rather, this statement creates a new object, which is concatenation of 
+two existing objects and causes the reference variable named 
+
+<emphasis id="strong1011" effect="bold">
+str1
+
+</emphasis>
+ to 
+point to the new object instead of the original object. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+The original object then becomes eligible for garbage collection 
+
+<emphasis id="em1004" effect="italics">
+(unless 
+there is another reference to the object hanging around somewhere)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Many aspects of string manipulation can be accomplished in this manner, 
+particularly when the methods of the 
+
+<emphasis id="strong1012" effect="bold">
+String
+
+</emphasis>
+ class are brought into 
+play. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="WhyAreThereTwoStringClasses" effect="bold">
+
+
+</emphasis>
+
+
+Why are there two string classes?
+
+</title>
+
+
+
+
+<para id="p1011">
+According to 
+
+<emphasis id="em1005" effect="italics">
+The Java Tutorial
+
+</emphasis>
+ by Campione and Walrath:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1012">
+"Because they are constants, Strings are typically cheaper than 
+StringBuffers and they can be shared. So it's important to use Strings 
+when they're appropriate."
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="CreatingStringsandStringBuffers" effect="bold">
+
+
+</emphasis>
+
+
+Creating String and StringBuffer objects
+
+</title>
+
+
+
+
+<para id="p1013">
+The 
+
+<emphasis id="strong1013" effect="bold">
+String
+
+</emphasis>
+ and 
+
+<emphasis id="strong1014" effect="bold">
+StringBuffer
+
+</emphasis>
+ classes have 
+numerous overloaded constructors and many different methods. I will attempt to provide a 
+sampling of constructors and methods that will prepare you to explore other 
+constructors and methods on your own. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+The next sample program touches on some of the possibilities provided by the 
+wealth of constructors and methods in the 
+
+<emphasis id="strong1015" effect="bold">
+String
+
+</emphasis>
+ and 
+
+<emphasis id="strong1016" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+classes. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+At this point, I will refer you to 
+
+<link id="a1028" url="http://cnx.org/content/m45117">
+
+
+Java OOP: Java Documentation
+
+</link>
+
+ where you will find a link to online Java 
+documentation. Among other things, the online documentation provides a list of the 
+overloaded constructors and methods for the 
+
+<emphasis id="strong1017" effect="bold">
+String
+
+</emphasis>
+ and 
+
+<emphasis id="strong1018" effect="bold">
+
+StringBuffer
+
+</emphasis>
+ classes.
+
+</para>
+
+
+
+
+
+
+<para id="p1016">
+As of Java version 7, there are four overloaded constructors in the 
+
+
+<emphasis id="strong1019" effect="bold">
+StringBuffer
+
+</emphasis>
+ class and about thirteen different overloaded versions of the 
+
+
+<emphasis id="strong1020" effect="bold">
+append
+
+</emphasis>
+ 
+method. There are many additional methods in the 
+
+
+<emphasis id="strong1021" effect="bold">
+StringBuffer
+
+</emphasis>
+ class including about twelve overloaded versions of the 
+
+
+<emphasis id="strong1022" effect="bold">
+insert
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+As you can see, there are lots of constructors and lots of methods from which 
+to choose. One of your challenges as a Java programmer will be to find the right 
+methods of the right classes to accomplish what you want your program 
+to accomplish. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="FirstSampleProgram" effect="bold">
+
+
+</emphasis>
+
+The sample program named String02
+
+</title>
+
+
+
+
+<para id="p1018">
+The sample program shown in 
+
+<link id="a1029" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ illustrates a variety of ways to create 
+and initialize 
+
+<emphasis id="strong1023" effect="bold">
+String
+
+</emphasis>
+ and 
+
+<emphasis id="strong1024" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+objects. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1025" effect="bold">
+File String02.java.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+
+
+<code id="pre1002" display="block">
+/*File String02.java Copyright 1997, R.G.Baldwin
+Illustrates different ways to create String objects and 
+StringBuffer objects.
+
+The program was tested using JDK 1.1.3 under Win95.
+
+The output from this program is as follows.  In some cases,
+manual line breaks were inserted to make the material fin
+this presentation format.
+
+Create a String the long way and display it
+String named str2
+
+Create a String the short way and display it
+String named str1
+
+Create, initialize, and display a StringBuffer using new
+StringBuffer named str3
+
+Try to create/initialize StringBuffer without 
+using new - not allowed
+
+Create an empty StringBuffer of default length
+Now put some data in it and display it
+StringBuffer named str5
+
+Create an empty StringBuffer and specify length 
+when it is created
+Now put some data in it and display it
+StringBuffer named str6
+
+Try to create and append to StringBuffer without 
+using new -- not allowed
+
+**********************************************************/
+
+class String02{
+  void d(String displayString){//method to display strings
+    System.out.println(displayString);
+  }//end method d()
+
+  public static void main(String[] args){
+    String02 o = new String02();//obj of controlling class
+    
+    o.d("Create a String the long way and display it");
+    String str1 = new String("String named str2");
+    o.d(str1 + "\n");
+    
+    o.d("Create a String the short way and display it");
+    String str2 = "String named str1";
+    o.d(str2 + "\n");
+  
+    o.d("Create, initialize, and display a StringBuffer " +
+                                              "using new");
+    StringBuffer str3 = new StringBuffer(
+                                "StringBuffer named str3");
+    o.d(str3.toString()+"\n");
+
+    o.d("Try to create/initialize StringBuffer without " +
+                              "using new - not allowed\n");
+    //StringBuffer str4 = "StringBuffer named str4";x    
+    
+    o.d("Create an empty StringBuffer of default length");
+    StringBuffer str5 = new StringBuffer();
+    
+    o.d("Now put some data in it and display it");
+    //modify length as needed
+    str5.append("StringBuffer named str5");
+    o.d(str5.toString() + "\n");
+    
+    o.d("Create an empty StringBuffer and specify " +
+                             "length when it is created");
+    StringBuffer str6 = new StringBuffer(
+                      "StringBuffer named str6".length());
+    o.d("Now put some data in it and display it");    
+    str6.append("StringBuffer named str6");
+    o.d(str6.toString() + "\n");
+    
+    o.d("Try to create and append to StringBuffer " +
+                      "without using new -- not allowed");
+    //StringBuffer str7;
+    //str7.append("StringBuffer named str7");
+  }//end main()  
+}//end class String02
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="AlternativeString" effect="bold">
+
+
+</emphasis>
+
+
+Alternative String instantiation constructs
+
+</title>
+
+
+
+
+<para id="p1019">
+The first thing to notice is that a 
+
+<emphasis id="strong1026" effect="bold">
+String
+
+</emphasis>
+ object can be created 
+using either of the following constructs: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="AlternativeString0" effect="bold">
+
+
+</emphasis>
+
+
+				
+
+<emphasis id="strong1027" effect="bold">
+Alternative String instantiation constructs
+
+</emphasis>
+
+				
+
+<code id="pre1003" display="block">
+    String str1 = new String("String named str2");
+   
+    String str2 = "String named str1";</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1020">
+The first approach uses the 
+
+<emphasis id="strong1028" effect="bold">
+new
+
+</emphasis>
+ operator to instantiate an object 
+while the shorter version doesn't use the new operator. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+Later I will discuss the fact that 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1029">
+the second approach is not simply a 
+shorthand version of the first construct, but that 
+
+</item>
+
+
+	
+
+<item id="li1030">
+they involve two 
+different compilation scenarios with the second construct being more efficient 
+than the first. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="InstantiatingStringBufferObjects" effect="bold">
+
+
+</emphasis>
+
+
+Instantiating StringBuffer objects
+
+</title>
+
+
+
+
+<para id="p1022">
+The next thing to notice is that a similar alternative strategy does 
+not hold for the 
+
+<emphasis id="strong1029" effect="bold">
+StringBuffer
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+For example, it is not possible to create a 
+
+<emphasis id="strong1030" effect="bold">
+StringBuffer
+
+</emphasis>
+ object 
+without use of the 
+
+<emphasis id="strong1031" effect="bold">
+new
+
+</emphasis>
+ operator. 
+
+<emphasis id="em1006" effect="italics">
+(It is possible to create a reference to 
+a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1032" effect="bold">
+<emphasis id="em1007" effect="italics">
+StringBuffer
+
+</emphasis>
+</emphasis>
+<emphasis id="em1008" effect="italics">
+ object but it is later necessary to use the 
+
+
+<emphasis id="strong1033" effect="bold">
+new
+
+</emphasis>
+ 
+operator to actually instantiate an object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+Note the following code fragments that illustrate allowable and non-allowable instantiation 
+scenarios for 
+
+<emphasis id="strong1034" effect="bold">
+StringBuffer
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1035" effect="bold">
+Instantiating StringBuffer objects
+
+</emphasis>
+
+				
+
+<code id="pre1004" display="block">
+//allowed
+StringBuffer str3 = new StringBuffer(
+                      "StringBuffer named str3");
+
+//not allowed     
+//StringBuffer str4 = "StringBuffer named str4";
+
+
+o.d("Try to create and append to StringBuffer " +
+             "without using new -- not allowed");
+//StringBuffer str7;
+//str7.append("StringBuffer named str7");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="DeclarationMemory" effect="bold">
+
+
+</emphasis>
+
+
+Declaration, memory allocation, and initialization
+
+</title>
+
+
+
+
+<para id="p1025">
+To review what you learned in an earlier module, three steps are 
+normally involved in creating an object 
+
+<emphasis id="em1009" effect="italics">
+(but the third step may be omitted)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+
+
+<item id="li1031">
+declaration 
+
+</item>
+
+
+
+
+<item id="li1032">
+memory allocation 
+
+</item>
+
+
+
+
+<item id="li1033">
+initialization 
+
+</item>
+
+
+</list>
+
+
+
+
+
+<para id="p1026">
+The following code fragment performs all three steps: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1036" effect="bold">
+
+				
+
+<emphasis id="Declaration_memory_allocation_and_initialization" effect="bold">
+
+Declaration, memory allocation, and initialization
+
+</emphasis>
+
+
+</emphasis>
+
+				
+
+<code id="pre1005" display="block">
+StringBuffer str3 = 
+  new StringBuffer("StringBuffer named str3");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1027">
+The code 
+
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">StringBuffer str3 </code>
+
+
+
+
+<para id="p1028">
+declares the type and name 
+of a reference variable of the correct type for the benefit of the compiler. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The 
+
+<emphasis id="strong1037" effect="bold">
+new
+
+</emphasis>
+ operator allocates memory for the new object. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+The constructor call 
+
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">StringBuffer("StringBuffer named str3") </code>
+
+
+
+
+<para id="p1031">
+constructs and 
+initializes the object. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="InstantiatinganEmpty" effect="bold">
+
+
+</emphasis>
+
+
+Instantiating an empty StringBuffer object
+
+</title>
+
+
+
+
+<para id="p1032">
+The instantiation of the 
+
+<emphasis id="strong1038" effect="bold">
+StringBuffer
+
+</emphasis>
+ object shown 
+
+
+<link id="a1030" target-id="Declaration_memory_allocation_and_initialization">
+
+above
+
+</link>
+
+ uses a version of 
+the constructor that accepts a 
+
+<emphasis id="strong1039" effect="bold">
+String
+
+</emphasis>
+ object and initializes the 
+
+
+<emphasis id="strong1040" effect="bold">
+StringBuffer
+
+</emphasis>
+ object when it is 
+created. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The following code fragment instantiates an empty 
+
+<emphasis id="strong1041" effect="bold">
+StringBuffer
+
+</emphasis>
+ object 
+of a default capacity and then uses a version of the 
+
+<emphasis id="strong1042" effect="bold">
+append
+
+</emphasis>
+ method 
+to put some data into the object. 
+
+<emphasis id="em1010" effect="italics">
+(Note that the data is actually a 
+
+<emphasis id="strong1043" effect="bold">
+
+String
+
+</emphasis>
+ object -- a sequence of characters surrounded by quotation 
+marks.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1044" effect="bold">
+Instantiating an empty StringBuffer object
+
+</emphasis>
+
+				
+
+<code id="pre1008" display="block">
+//default initial length
+StringBuffer str5 = new StringBuffer();
+
+//modify length as needed
+str5.append("StringBuffer named str5");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1034">
+It is also possible to specify the capacity when you instantiate a 
+
+
+<emphasis id="strong1045" effect="bold">
+StringBuffer
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Some authors suggest that if you know the final length of such an object, it 
+is more efficient to specify that length when the object is instantiated than to 
+start with the default length and then require the system to increase the length 
+"on the fly" as you manipulate the object. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+This is illustrated in the following code fragment. This fragment also illustrates the 
+use of the 
+
+<emphasis id="strong1046" effect="bold">
+length
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1047" effect="bold">
+String
+
+</emphasis>
+ class just to make things 
+interesting. 
+
+<emphasis id="em1011" effect="italics">
+(A simple integer value for the capacity of the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1048" effect="bold">
+<emphasis id="em1012" effect="italics">
+StringBuffer
+
+</emphasis>
+</emphasis>
+<emphasis id="em1013" effect="italics">
+ 
+object would have worked just as well.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1049" effect="bold">
+Instantiating a StringBuffer object of a non-default length
+
+</emphasis>
+
+				
+
+<code id="pre1009" display="block">
+    StringBuffer str6 = new StringBuffer(
+                "StringBuffer named str6".length());
+    str6.append("StringBuffer named str6");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="AccessorMethods" effect="bold">
+
+
+</emphasis>
+
+Accessor 
+methods
+
+</title>
+
+
+
+
+<para id="p1037">
+The following quotation is taken directly from 
+
+<emphasis id="em1014" effect="italics">
+The Java Tutorial
+
+</emphasis>
+ by Campione and Walrath. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1038">
+"An object's instance variables are encapsulated within 
+the object, hidden inside, safe from inspection or manipulation by other 
+objects. With certain well-defined exceptions, the object's methods are the 
+only means by which other objects can inspect or alter an object's instance 
+variables. Encapsulation of an object's data protects the object from corruption 
+by other objects and conceals an object's implementation details from outsiders. 
+This encapsulation of data behind an object's methods is one of 
+the cornerstones of object-oriented programming."
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1039">
+The above statement lays out an important consideration in good 
+object-oriented programming. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The methods used to obtain information about an object are often referred to 
+as 
+
+<emphasis id="em1015" effect="italics">
+accessor methods
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="Constructorsand" effect="bold">
+
+
+</emphasis>
+
+
+Constructors and methods of the String class
+
+</title>
+
+
+
+
+<para id="p1041">
+I told you in an 
+
+<link id="a1031" target-id="CreatingStringsandStringBuffers">
+
+earlier section
+
+</link>
+
+ that the 
+
+<emphasis id="strong1050" effect="bold">
+StringBuffer
+
+</emphasis>
+ class 
+provides a large number of overloaded constructors and methods. The same holds 
+true for the 
+
+<emphasis id="strong1051" effect="bold">
+String
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+Once again, I will refer you to 
+
+<link id="a1032" url="http://cnx.org/content/m45117">
+
+Java 
+OOP: Java Documentation
+
+</link>
+
+ where you will find a link to online Java 
+documentation. Among other things, the documentation provides a list of the 
+overloaded constructors and methods for the 
+
+<emphasis id="strong1052" effect="bold">
+String
+
+</emphasis>
+ class 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="StringEncapsulatesData" effect="bold">
+
+
+</emphasis>
+
+
+String objects encapsulate data
+
+</title>
+
+
+
+
+<para id="p1043">
+The characters in a 
+
+<emphasis id="strong1053" effect="bold">
+String
+
+</emphasis>
+ object are not directly available to 
+other objects. However, as you can see from the documentation, there are a large number of methods 
+that can be 
+used to access and manipulate those characters. For example, in an 
+earlier sample program 
+
+<emphasis id="em1016" effect="italics">
+(
+
+</emphasis>
+<link id="a1033" target-id="Listing_2">
+
+
+<emphasis id="em1017" effect="italics">
+<link id="a1034" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1018" effect="italics">
+)
+
+</emphasis>
+, 
+I used the 
+
+<emphasis id="strong1054" effect="bold">
+length
+
+</emphasis>
+ method to access the 
+number of characters stored in a 
+
+<emphasis id="strong1055" effect="bold">
+String
+
+</emphasis>
+ object as shown in the 
+following code fragment. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">
+StringBuffer str6 = new StringBuffer(
+                    "StringBuffer named str6".length());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1044">
+In this case, I applied the 
+
+<emphasis id="strong1056" effect="bold">
+length
+
+</emphasis>
+ method to a literal string, but 
+it can be applied to any valid representation of an object of type 
+
+
+<emphasis id="strong1057" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+I then passed the value returned by the 
+
+<emphasis id="strong1058" effect="bold">
+length
+
+</emphasis>
+ method to the 
+constructor for a 
+
+<emphasis id="strong1059" effect="bold">
+StringBuffer
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+As you can determine by examining the argument lists for the various methods of 
+the 
+
+<emphasis id="strong1060" effect="bold">
+String
+
+</emphasis>
+ class, 
+
+</para>
+
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1034">
+some methods return data stored in the string while 
+
+</item>
+
+
+
+
+<item id="li1035">
+other methods return information about that data. 
+
+</item>
+
+
+</list>
+
+
+
+
+
+<para id="p1047">
+For example, the 
+
+<emphasis id="strong1061" effect="bold">
+length
+
+</emphasis>
+ method returns information about the data 
+stored in the 
+
+<emphasis id="strong1062" effect="bold">
+String
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+Methods such as 
+
+<emphasis id="strong1063" effect="bold">
+charAt
+
+</emphasis>
+ and 
+
+<emphasis id="strong1064" effect="bold">
+substring
+
+</emphasis>
+ return portions of 
+the actual data. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+Methods such 
+
+<emphasis id="strong1065" effect="bold">
+toUpperCase
+
+</emphasis>
+ can be thought of as returning the data, 
+but returning it in a different format. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="CreatingStringObjectswithout" effect="bold">
+
+
+</emphasis>
+
+
+Creating String objects without calling the constructor
+
+</title>
+
+
+
+
+<para id="p1050">
+Methods in other classes and objects may create 
+
+<emphasis id="strong1066" effect="bold">
+String
+
+</emphasis>
+ objects without an explicit call to 
+the constructor by the programmer. For example the 
+
+<emphasis id="strong1067" effect="bold">
+toString
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1068" effect="bold">
+Float
+
+</emphasis>
+ class receives a 
+
+<emphasis id="strong1069" effect="bold">
+float
+
+</emphasis>
+ 
+value as an incoming parameter and returns a reference to a 
+
+<emphasis id="strong1070" effect="bold">
+String
+
+</emphasis>
+ 
+object that represents the 
+
+<emphasis id="strong1071" effect="bold">
+float
+
+</emphasis>
+ argument. 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11007">
+<title>
+<emphasis id="MemoryManagement" effect="bold">
+
+
+</emphasis>
+
+Memory 
+management by the 
+
+<emphasis id="strong1072" effect="bold">
+StringBuffer
+
+</emphasis>
+ class
+
+</title>
+
+
+
+
+<para id="p1051">
+If the additional characters cause the size of the 
+
+<emphasis id="strong1073" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+to grow beyond its current capacity when characters are added, additional memory is automatically allocated. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+However, memory allocation is a relatively expensive operation and you can 
+make your code more efficient by initializing 
+
+<emphasis id="strong1074" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+capacity to a reasonable first guess. This will minimize the number of times 
+memory must be allocated for it. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+When using the 
+
+<emphasis id="strong1075" effect="bold">
+insert
+
+</emphasis>
+ methods of the 
+
+<emphasis id="strong1076" effect="bold">
+StringBuffer
+
+</emphasis>
+ 
+class, you specify the index 
+
+
+<emphasis id="em1019" effect="italics">
+before which
+
+</emphasis>
+ you want the data inserted. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="ThetoStringMethod" effect="bold">
+
+
+</emphasis>
+
+The 
+toString method
+
+</title>
+
+
+
+
+<para id="p1054">
+Frequently you will need to convert an object to a 
+
+<emphasis id="strong1077" effect="bold">
+String
+
+</emphasis>
+ 
+object because you need to pass it to a method that accepts only 
+
+<emphasis id="strong1078" effect="bold">
+String
+
+</emphasis>
+ 
+values 
+
+<emphasis id="em1020" effect="italics">
+(or perhaps for some other reason)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+All classes inherit the 
+
+<emphasis id="strong1079" effect="bold">
+toString
+
+</emphasis>
+ method from the 
+
+<emphasis id="strong1080" effect="bold">
+Object
+
+</emphasis>
+ 
+class. Many of the classes 
+
+<emphasis id="em1021" effect="italics">
+override
+
+</emphasis>
+ this method 
+to provide an implementation that is meaningful for objects of that class. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+In addition, you may sometimes need to 
+
+<emphasis id="em1022" effect="italics">
+override
+
+</emphasis>
+ the 
+
+<emphasis id="strong1081" effect="bold">
+toString
+
+</emphasis>
+ method 
+for classes that you define to provide a meaningful 
+
+<emphasis id="strong1082" effect="bold">
+toString
+
+</emphasis>
+ behavior for 
+objects of that class. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+I explain the concept of overriding the 
+
+<emphasis id="strong1083" effect="bold">
+toString
+
+</emphasis>
+ method in detail in the module titled
+
+
+<link id="a1035" url="http://cnx.org/content/m44190">
+
+Java OOP: Polymorphism and the Object Class
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="StringsandtheJavaCompiler" effect="bold">
+
+
+</emphasis>
+
+
+Strings and the Java compiler
+
+</title>
+
+
+
+
+<para id="p1058">
+In Java, you specify literal strings between double quotes as in:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1084" effect="bold">
+Literal strings
+
+</emphasis>
+
+				
+
+<code id="pre1011" display="block">
+"I am a literal string of the String type."</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1059">
+You can use literal strings anywhere you would use a 
+
+<emphasis id="strong1085" effect="bold">
+String
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+You can also apply 
+
+<emphasis id="strong1086" effect="bold">
+String
+
+</emphasis>
+ methods directly to a literal string as in 
+an 
+
+<link id="a1036" target-id="Listing_2">
+
+earlier program
+
+</link>
+
+ that calls the 
+
+<emphasis id="strong1087" effect="bold">
+length
+
+</emphasis>
+ 
+method on a literal string as shown below. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1088" effect="bold">
+Using String methods with literal strings
+
+</emphasis>
+
+				
+
+<code id="pre1012" display="block">
+StringBuffer str6 = new StringBuffer(
+	       StringBuffer named str6".length());</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1061">
+Because the compiler automatically creates a new 
+
+
+<emphasis id="strong1089" effect="bold">
+String
+
+</emphasis>
+ object for every literal string, you can use a literal string to 
+initialize a 
+
+<emphasis id="strong1090" effect="bold">
+String
+
+</emphasis>
+ object 
+
+<emphasis id="em1023" effect="italics">
+(without use of the new operator)
+
+</emphasis>
+ as in 
+the following code fragment from a 
+
+<link id="a1037" target-id="Listing_1">
+
+previous program
+
+</link>
+
+:
+
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">
+String str1 = "THIS STRING IS NAMED str1";</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1062">
+The above construct is equivalent to, but more efficient than the following, 
+which, according to 
+
+<emphasis id="em1024" effect="italics">
+The Java Tutorial
+
+</emphasis>
+ by Campione and Walrath, ends up 
+creating two 
+
+<emphasis id="strong1091" effect="bold">
+String
+
+</emphasis>
+ objects instead of one: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">
+String str1 = new String("THIS STRING IS NAMED str1");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1063">
+In this case, the compiler creates the first 
+
+<emphasis id="strong1092" effect="bold">
+String
+
+</emphasis>
+ object when it encounters the 
+literal string, and the second one when it encounters 
+
+<emphasis id="strong1093" effect="bold">
+new String()
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="ConcatenationandtheOperator" effect="bold">
+
+
+</emphasis>
+
+
+Concatenation and the + operator
+
+</title>
+
+
+
+
+<para id="p1064">
+The plus (+) operator is overloaded so that in addition to performing the normal arithmetic 
+operations, it can also be used to concatenate strings.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+This will come as no surprise to you because we have been using code such as 
+the following since the beginning of this group of 
+
+<emphasis id="em1025" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+modules: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+	
+
+<code id="pre1015" display="block">
+String cat = "cat"; </code>
+
+
+	
+
+<code id="pre1016" display="block">
+System.out.println("con" + cat + "enation");</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1066">
+According to Campione and Walrath, Java uses 
+
+<emphasis id="strong1094" effect="bold">
+StringBuffer
+
+</emphasis>
+ objects 
+behind the scenes to implement concatenation. They indicate that the above code 
+fragment compiles to: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">
+String cat = "cat"; 
+System.out.println(new StringBuffer().append("con").
+                      append(cat).append("enation"));</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1067">
+Fortunately, that takes place behind the scenes and we don't have to deal 
+directly with the syntax.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11011">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+I encourage you to copy the code from 
+
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and
+
+
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11012">
+<title>
+<emphasis id="Looking_ahead" effect="bold">
+
+Looking ahead
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1069">
+As you approach the end of this group of 
+
+<emphasis id="em1026" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+modules, you should be preparing yourself for the more challenging 
+
+
+<link id="a1040" url="http://cnx.org/content/m45222">
+
+ITSE 2321 OOP
+
+</link>
+
+ 
+tracks identified below:
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1036">
+<link id="a1041" url="http://cnx.org/content/m44148">
+
+Java OOP: The Guzdial-Ericson 
+	Multimedia Class Library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1042" url="http://cnx.org/content/m44153">
+
+Java OOP: Objects and 
+	Encapsulation
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11013">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1070">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1095" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1038">
+Module name: Jb0280: Java OOP: String and StringBuffer
+
+</item>
+
+
+					
+
+<item id="li1039">
+File: Jb0280.htm
+
+
+</item>
+
+
+					
+
+<item id="li1040">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1041">
+Published at cnx.org: 11/25/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1096" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1071">
+<emphasis id="strong1097" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1072">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1073">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1074">
+<emphasis id="strong1098" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1075">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,2345 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java0078 Java OOP Callbacks - II</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m59589</md:content-id>
+  <md:title>Java0078 Java OOP Callbacks - II</md:title>
+  <md:abstract>A previous lesson introduced you to the basic Java callback mechanism using interfaces, and walked you through the development of a set of classes that implement a simple multicast form of callback. In that lesson, the definition of the CallBack interface was limited to a single method declaration. In a real program involving callbacks, many different objects may ask one object to notify them when any interesting event in a family of interesting events happens, and to identify the specific event that actually happened along with the notification. This lesson will enhance our previous program to accommodate this possibility.</md:abstract>
+  <md:uuid>557fa7fb-ce18-4bf3-8513-61b27fbec607</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Jul 05 19:16:25 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1009">
+<link id="a1009" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="Summary">
+
+Summary
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listings">
+
+Complete program listing
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the 
+	
+
+<link id="a1013" url="http://cnx.org/contents/Rl23r3Lw:qfO9iJX-">
+
+Event Handling
+
+</link>
+
+ 
+	section of the book titled
+	
+
+<link id="a1014" url="http://cnx.org/contents/Rl23r3Lw:JVTd7bX1">
+
+ITSE2317 - Java Programming (Intermediate)
+
+</link>
+
+. The 
+	
+
+<emphasis id="strong1000" effect="bold">
+Event Handling
+
+</emphasis>
+ section explains how to write programs that 
+	handle events in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This is the second in a series of three consecutive lessons on 
+
+<emphasis id="em1003" effect="italics">
+Callbacks
+
+</emphasis>
+ in Java. The three lessons are named Callbacks - I, Callbacks - II, and Callbacks - III.
+
+Students in Prof. Baldwin's 
+
+<emphasis id="strong1001" effect="bold">
+ITSE 2317 Intermediate Java Programming
+
+</emphasis>
+ classes at ACC are responsible for knowing and understanding all of the material in this lesson. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Output from the program named Callback03.
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+
+
+<item id="li1014">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+
+. The CallBack interface.
+
+
+</item>
+
+
+
+
+<item id="li1015">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+
+. The callRecess method in the Teacher class.
+
+
+</item>
+
+
+
+
+<item id="li1016">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+
+. The Dog class.
+
+
+</item>
+
+
+
+
+<item id="li1017">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+
+. The controlling class named Callback03.
+
+
+</item>
+
+
+
+
+<item id="li1018">
+<link id="a1020" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+
+. The program named Callback03.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+Many processes in the standard Java API make use of a mechanism that in other programming environments might be referred to as a 
+
+
+<emphasis id="em1004" effect="italics">
+callback
+
+</emphasis>
+ mechanism.
+
+Basically, this is a mechanism where a method in one object asks a method in another object to 
+
+
+<emphasis id="em1005" effect="italics">
+"call me back"
+
+</emphasis>
+ or 
+
+<emphasis id="em1006" effect="italics">
+"notify me"
+
+</emphasis>
+ when an interesting event happens.
+
+For example, an interesting event might be that the price of a specified stock goes above its previous high value, or the toaster finishes toasting the bread.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1006">
+A previous lesson introduced you to the basic Java callback mechanism using interfaces and walked you through the development of a set of classes that implement a simple multicast form of callback. In that lesson, the definition of the
+
+
+<emphasis id="strong1002" effect="bold">
+CallBack
+
+</emphasis>
+ interface was limited to a single method declaration.
+
+In a real program involving callbacks, many different objects may ask one object to notify them when any interesting event in a family of interesting events happens, and to identify the specific event that actually happened along with the notification.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1007">
+This lesson will enhance our previous program to accommodate this possibility.
+
+As mentioned in the earlier lesson, it is usually easier to understand abstract concepts if they are explained in terms of a meaningful scenario. For that reason, we have conjured up a scenario in which to develop and explain our callback programs.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Our scenario consists of a teacher and some students. In the beginning there was only one student. Then we expanded the scenario to include many students and some animals in the classroom as well.
+
+The students 
+
+<emphasis id="em1007" effect="italics">
+(and the animals) 
+
+</emphasis>
+register themselves on the teachers roll book to be notified of interesting events. Initially the interesting event was simply the teacher taking the roll. In this lesson, we expand that scenario to include notification that it is either time for recess, or it is time for lunch.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Initially, only one student received notification of one type of event. In this lesson, all of the students and all of the animals receive notification of both types of event 
+
+
+<emphasis id="em1008" effect="italics">
+(recess or lunch)
+
+</emphasis>
+ but some of those who are notified choose to ignore the notification.
+
+Without further discussion, let's look at some code. 
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+In case you just started reading at this point, this program named 
+
+<emphasis id="strong1003" effect="bold">
+Callback03
+
+</emphasis>
+ is an enhanced version of the program named 
+
+
+<emphasis id="strong1004" effect="bold">
+Callback02
+
+</emphasis>
+ that you learned about in an 
+
+
+<link id="a1021" url="http://cnx.org/contents/Rl23r3Lw:0pd-9uyZ">
+
+earlier
+
+</link>
+
+ lesson. You should familiarize yourself with the earlier program before trying to understand this program.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1011">
+The earlier version of the program defined two different classes that implemented the 
+
+
+<emphasis id="strong1005" effect="bold">
+CallBack
+
+</emphasis>
+ interface. In order to give us more to work with, this version defines three different classes named 
+
+
+<emphasis id="strong1006" effect="bold">
+Student
+
+</emphasis>
+, 
+
+<emphasis id="strong1007" effect="bold">
+Dog
+
+</emphasis>
+, and 
+
+<emphasis id="strong1008" effect="bold">
+Cat
+
+</emphasis>
+ that implement the 
+
+
+<emphasis id="strong1009" effect="bold">
+CallBack
+
+</emphasis>
+ interface. Mixed objects of those three types are registered and maintained on a list and notified at callback time.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1012">
+As before, this program defines a 
+
+<emphasis id="strong1010" effect="bold">
+CallBack
+
+</emphasis>
+ interface. However, this version of the interface declares two different methods that can be invoked as callback methods instead of just one.
+
+In other words, in this case, the objects register to be notified whenever an interesting event from a family of interesting events occurs 
+
+
+<emphasis id="em1009" effect="italics">
+(the family has two members)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+When notified, the objects also need to be advised as to which interesting event actually happened.
+
+The methodology for differentiating between the two different kinds of interesting events is to invoke one callback method in the case of one event, and to invoke the other callback method in the case of the other event.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1014">
+All classes that implement the 
+
+<emphasis id="strong1011" effect="bold">
+CallBack
+
+</emphasis>
+ interface must define both methods, but it is allowable to define the method as an empty method. The net effect of defining a callback method as an empty method is to simply ignore the callback associated with that method. Note however, there is some overhead associated with the invocation of an empty method.
+
+
+
+<emphasis id="em1010" effect="italics">
+(Although we haven't discussed the topic yet, I believe that this overhead is the reason that JavaSoft chose to separate the 
+
+
+<emphasis id="strong1012" effect="bold">
+MouseListener
+
+</emphasis>
+ and 
+
+<emphasis id="strong1013" effect="bold">
+MouseMotionListener
+
+</emphasis>
+ interfaces. Perhaps someone will remember to remind me to discuss that when we get to the topic of 
+
+
+<emphasis id="strong1014" effect="bold">
+MouseMotionListener
+
+</emphasis>
+ interface in the classroom lecture.)
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+One of the callback methods in this version of our program is named 
+
+<emphasis id="strong1015" effect="bold">
+recess
+
+</emphasis>
+ and the other callback method is named 
+
+
+<emphasis id="strong1016" effect="bold">
+lunch
+
+</emphasis>
+. Thus, registered objects can be notified either of a 
+
+<emphasis id="em1011" effect="italics">
+recess
+
+</emphasis>
+ event, or of a 
+
+
+<emphasis id="em1012" effect="italics">
+lunch
+
+</emphasis>
+ event.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1016">
+The 
+
+<emphasis id="strong1017" effect="bold">
+Dog
+
+</emphasis>
+ class ignores the recess callback by defining an empty 
+
+
+<emphasis id="strong1018" effect="bold">
+recess
+
+</emphasis>
+ method, and the 
+
+<emphasis id="strong1019" effect="bold">
+Cat
+
+</emphasis>
+ class ignores the lunch callback by defining an empty 
+
+
+<emphasis id="strong1020" effect="bold">
+lunch
+
+</emphasis>
+ method. The 
+
+<emphasis id="strong1021" effect="bold">
+Student
+
+</emphasis>
+ class responds to both types of callbacks with fully- defined methods.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1017">
+The program defines a 
+
+<emphasis id="strong1022" effect="bold">
+Teacher
+
+</emphasis>
+ class that has the ability to create and maintain a list of objects of the interface type, and to notify those objects that something interesting has happened by invoking either the 
+
+
+<emphasis id="strong1023" effect="bold">
+recess
+
+</emphasis>
+ method or the 
+
+<emphasis id="strong1024" effect="bold">
+lunch
+
+</emphasis>
+ method on all the objects on the list.
+
+It is important to note that every object on the list will be notified of both types of callbacks, although as mentioned above, a particular type of callback can be ignored by a class simply by leaving the callback method empty when it is defined.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1018">
+As before, objects can be added to the list and then removed from the list. However, removal of objects from the list was demonstrated in the previous program, so removal is not demonstrated in this program.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1019">
+Notification takes the form of invoking either the 
+
+<emphasis id="strong1025" effect="bold">
+recess
+
+</emphasis>
+ method or the 
+
+
+<emphasis id="strong1026" effect="bold">
+lunch
+
+</emphasis>
+ method on all the objects on the list.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Finally, the program defines a controlling class that ties all the pieces together and exercises them.
+
+The program was originally tested using JDK 1.1.3 under Win95.
+
+The program was more recently retested using JDK 8 and Win7. The output from the program is shown later. 
+
+</para>
+
+
+
+
+	
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1021">
+The code in 
+
+<link id="a1022" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ defines an interface named 
+
+<emphasis id="strong1027" effect="bold">
+CallBack
+
+</emphasis>
+ that will create a new type and that declares two generic methods that can be used to call back any object that is of a class that implements the interface. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The CallBack interface.
+
+
+<code id="pre1000" display="block">
+interface CallBack{
+  public void recess();
+  public void lunch();
+}//end interface CallBack
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1022">
+<link id="a1023" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ defines a class whose objects can maintain a list of registered objects 
+
+
+<emphasis id="em1013" effect="italics">
+(registration is the process of placing an object on the list)
+
+</emphasis>
+ of type 
+
+
+<emphasis id="strong1028" effect="bold">
+CallBack
+
+</emphasis>
+ and can notify all the objects on that list when something interesting happens. This class differs form the one in the 
+earlier lesson in that it has the ability to notify for two different types of callbacks:
+
+
+<emphasis id="strong1029" effect="bold">
+recess
+
+</emphasis>
+ and 
+
+<emphasis id="strong1030" effect="bold">
+lunch
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The name of this class is 
+
+<emphasis id="strong1031" effect="bold">
+Teacher
+
+</emphasis>
+.
+
+The code to construct the 
+
+<emphasis id="strong1032" effect="bold">
+Teacher
+
+</emphasis>
+ object, add objects to the list, and remove objects from the list hasn't changed in a significant way, so we 
+will skip over that code and go straight to the code that is new and different.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Basically what we now have is two different methods in place of one. One of the methods is named
+
+
+<emphasis id="strong1033" effect="bold">
+callRecess
+
+</emphasis>
+ and the other is named 
+
+<emphasis id="strong1034" effect="bold">
+callLunch
+
+</emphasis>
+. Except for their names, these methods are almost identical to the single method named
+
+
+<emphasis id="strong1035" effect="bold">
+callTheRoll
+
+</emphasis>
+ in the earlier lesson, so a lot of discussion isn't needed.
+
+The code in the method makes a copy of the list and then uses a 
+
+<emphasis id="strong1036" effect="bold">
+for
+
+</emphasis>
+ loop along with some 
+
+
+<emphasis id="strong1037" effect="bold">
+Vector
+
+</emphasis>
+ methods to access each object reference. Then the callback method is invoked on each object reference.
+
+We will show one of the methods below for reference. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The callRecess method in the Teacher class.
+
+
+<code id="pre1001" display="block">
+  void callRecess(){
+    Vector tempList;//save a temporary copy of list here
+    
+    //Make a copy of the list.
+    synchronized(this){
+      tempList = (Vector)objList.clone();
+    }//end synchronized block
+    
+    //Invoke the recess() method on each object on
+    // the list.
+    for(int cnt = 0; cnt &lt; tempList.size(); cnt++){
+      ((CallBack)tempList.elementAt(cnt)).recess();
+    }//end for loop
+  }//end callRecess()</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1025">
+That concludes the discussion of the class named 
+
+<emphasis id="strong1038" effect="bold">
+Teacher
+
+</emphasis>
+. The 
+
+<emphasis id="strong1039" effect="bold">
+
+Teacher
+
+</emphasis>
+ class is 
+followed by three class definitions that implement the 
+
+<emphasis id="strong1040" effect="bold">
+CallBack
+
+</emphasis>
+ 
+interface: 
+
+<emphasis id="strong1041" effect="bold">
+Student, Dog
+
+</emphasis>
+, and 
+
+<emphasis id="strong1042" effect="bold">
+Cat. 
+
+</emphasis>
+These class definitions differ 
+from the ones in the earlier lesson in that they define two 
+callback methods instead of just one: 
+
+<emphasis id="strong1043" effect="bold">
+recess
+
+</emphasis>
+ and 
+
+<emphasis id="strong1044" effect="bold">
+lunch
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1026">
+Recall that I said that a class can ignore a particular type of callback 
+simply by defining the callback method as an empty method. Recall also that I 
+said that the 
+
+<emphasis id="strong1045" effect="bold">
+Dog
+
+</emphasis>
+ class ignores the 
+
+<emphasis id="strong1046" effect="bold">
+recess()
+
+</emphasis>
+ callback in just this 
+way. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Because of the similarity of these three classes, I am only going to show one 
+of them below. 
+
+<link id="a1024" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1047" effect="bold">
+Dog
+
+</emphasis>
+ class to illustrate how it defines an 
+empty method to ignore the 
+
+<emphasis id="strong1048" effect="bold">
+recess
+
+</emphasis>
+ callback.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The Dog class.
+
+
+<code id="pre1002" display="block">
+class Dog implements CallBack{
+  String name; //store name here for later ID
+  //-----------------------------------------------------//
+  
+  Dog(String name){//constructor
+    this.name = name; //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can invoke this method
+  // as the callback mechanism.
+  
+  public void recess(){//announce recess
+    //ignore this callback with an empty method
+  }//end overridden recess()
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can also invoke this 
+  // method as a callback mechanism.
+  public void lunch(){//announce recess
+    System.out.println(name + " lunch");
+  }//end overridden lunch()
+}//end class Dog</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1028">
+That brings us to the controlling class that ties all the pieces together and 
+exercises them 
+
+<emphasis id="em1014" effect="italics">
+(see 
+
+<link id="a1025" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+)
+
+</emphasis>
+. Except for the fact that the 
+
+<emphasis id="strong1049" effect="bold">
+main
+
+</emphasis>
+ method triggers two 
+callbacks instead of just one, and the code to remove an object from the list 
+was deleted for brevity, this code is essentially the same as the code in the 
+earlier lesson. Therefore, I am going to delete some of the redundant code from 
+this fragment and primarily show only the new code. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The code in the 
+
+<emphasis id="strong1050" effect="bold">
+main
+
+</emphasis>
+ method of the controlling class instantiates a 
+
+<emphasis id="strong1051" effect="bold">
+
+Teacher
+
+</emphasis>
+ object named 
+
+<emphasis id="strong1052" effect="bold">
+missJones
+
+</emphasis>
+, and then instantiates some objects 
+of the three types: 
+
+<emphasis id="strong1053" effect="bold">
+Student
+
+</emphasis>
+, 
+
+<emphasis id="strong1054" effect="bold">
+Dog
+
+</emphasis>
+, and 
+
+<emphasis id="strong1055" effect="bold">
+Cat
+
+</emphasis>
+. These objects are 
+registered for callback by invoking the 
+
+<emphasis id="strong1056" effect="bold">
+register
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1057" effect="bold">
+
+Teacher
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+Then the code triggers a 
+
+<emphasis id="strong1058" effect="bold">
+recess
+
+</emphasis>
+ callback and a 
+
+<emphasis id="strong1059" effect="bold">
+lunch
+
+</emphasis>
+ 
+callback. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The controlling class named Callback03.
+
+
+<code id="pre1003" display="block">
+class Callback03{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+
+    //Instantiate some Student objects
+    //... code deleted for brevity
+    
+    //Instantiate some Dog objects.
+    //... code deleted for brevity
+            
+    //Instantiate some Cat objects
+    //... code deleted for brevity
+    
+    //Register some Student, Dog, and Cat objects with 
+    // the Teacher object.
+    missJones.register(tom);
+    missJones.register(spot);
+    missJones.register(sue);
+    missJones.register(cleo);
+    missJones.register(fido);
+    missJones.register(peg);
+    missJones.register(kitty);
+    missJones.register(bob);
+    missJones.register(brownie);
+    
+    //Cause the Teacher object to call recess on all
+    // the objects on the list.
+    missJones.callRecess();
+    //Cause the Teacher object to call lunch on all
+    // the objects on the list.
+    missJones.callLunch();
+  }//end main()
+}//end class Callback03</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1031">
+The output produced by this program is shown in 
+
+<link id="a1026" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Output from the program named Callback03.
+
+
+<code id="pre1004" display="block">
+Tom recess
+Sue recess
+CleoCat recess
+Peg recess
+KittyKat recess
+Bob recess
+Tom lunch
+SpotDog lunch
+Sue lunch
+FidoDog lunch
+Peg lunch
+Bob lunch
+BrownieDog lunch
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1032">
+In summary then, we have objects of different classes registered on a common 
+callback list where every object on the list receives a callback for every 
+different type of callback event associated with the list. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The different types of callbacks are established by the method declarations 
+in the 
+
+<emphasis id="strong1060" effect="bold">
+CallBack
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Each class of object that registers for callbacks can either respond to all 
+of the different types of callbacks by providing full definitions for all of the 
+callback methods, or can selectively ignore some types of callbacks by defining 
+those callback methods as empty methods. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+A complete listing of the program named Callback03 is shown in 
+
+<link id="a1027" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The program named Callback03.
+
+
+<code id="pre1005" display="block">
+/*File Callback03.java Copyright 1997, R.G.Baldwin
+The purpose of this program is to develop a callback
+capability using Interfaces.  
+
+This is an enhanced version of the program named 
+Callback02. You should familiarize yourself with
+the earlier program before getting into this program.
+
+This version defines three different classes named
+Student, Dog, and Cat that implement the CallBack 
+interface.  Mixed objects of those three types are 
+maintained on a list and notified at CallBack time.
+
+As before, this program defines a CallBack interface 
+that can be used to establish a new type of object.
+
+This version of the interface declares two
+different methods that can be invoked as callback
+methods instead of just one.  All classes that implement
+the interface must define both methods, but it is
+allowable to define the method as an empty method and
+ignore the callback associated with a particular method.
+
+One of the callback methods is now called recess() and
+the other is called lunch().
+
+The Dog class ignores the recess() callback by defining
+an empty method, and the Cat class ignores the lunch()
+callback by defining an empty method.  The Student
+class responds to both types of callbacks with fully-
+defined methods.
+
+The program defines a Teacher class that has the 
+ability to create and maintain a list of objects
+of the interface type, and to notify those objects
+that something interesting has happened by invoking
+either the recess() method or the lunch() method on all 
+the objects on the list.  It is important to note that
+every object on the list will be notified of both
+types of callback, although as mentioned above, a
+particular type of callback can be ignored simply by
+leaving the method empty when it is defined.
+
+Note that objects can be added to the list and then
+removed from the list.  However, removal of objects from
+the list was demonstrated in the previous program, so
+removal is not demonstrated in this program.
+
+As always, notification takes the form of invoking 
+either the recess() method or the lunch() method on all
+the objects on the list.
+
+Finally, the program defines a controlling class that
+ties all the pieces together and exercises them.
+
+Tested using JDK 1.1.3 under Win95.
+
+The output from the program was:
+
+Tom recess
+Sue recess
+CleoCat recess
+Peg recess
+KittyKat recess
+Bob recess
+Tom lunch
+SpotDog lunch
+Sue lunch
+FidoDog lunch
+Peg lunch
+Bob lunch
+BrownieDog lunch
+**********************************************************/
+import java.util.*;
+
+//First we define an interface that will create a new type
+// and declare two generic methods that can be used to 
+// callback any object that is of a class that implements
+// the interface.
+interface CallBack{
+  public void recess();
+  public void lunch();
+}//end interface CallBack
+//=======================================================//
+
+//Next we need a class whose objects can maintain a 
+// registered list of objects of type CallBack and can 
+// notify all the objects on that list when something
+// interesting happens. This class has the ability to
+// notify of two different types of callbacks, recess()
+// and lunch().  
+
+class Teacher{
+  Vector objList; //list of objects of type CallBack
+  //-----------------------------------------------------//
+  
+  Teacher(){//constructor
+    //Instantiate a Vector object to contain the list
+    // of registered objects.
+    objList = new Vector();
+  }//end constructor
+  //-----------------------------------------------------//
+  
+  //Method to add objects to the list.
+  synchronized void register(CallBack obj){
+    this.objList.addElement(obj);
+  }//end register()
+  //-----------------------------------------------------//
+  
+  //Method to remove objects from the list.
+  synchronized void unRegister(CallBack obj){
+    if(this.objList.removeElement(obj))
+      System.out.println(obj + " removed");
+    else
+      System.out.println(obj + " not in the list");
+  }//end register()
+  //-----------------------------------------------------//
+  
+  //Method to notify all objects on the list that 
+  // something interesting has happened regarding recess.  
+  void callRecess(){
+    Vector tempList;//save a temporary copy of list here
+    
+    //Make a copy of the list.
+    synchronized(this){
+      tempList = (Vector)objList.clone();
+    }//end synchronized block
+    
+    //Invoke the recess() method on each object on
+    // the list.
+    for(int cnt = 0; cnt &lt; tempList.size(); cnt++){
+      ((CallBack)tempList.elementAt(cnt)).recess();
+    }//end for loop
+  }//end callRecess()
+  //-----------------------------------------------------//
+  //Method to notify all objects on the list that 
+  // something interesting has happened regarding lunch.  
+  void callLunch(){
+    Vector tempList;//save a temporary copy of list here
+    
+    //Make a copy of the list.
+    synchronized(this){
+      tempList = (Vector)objList.clone();
+    }//end synchronized block
+    
+    //Invoke the lunch() method on each object on
+    // the list.
+    for(int cnt = 0; cnt &lt; tempList.size(); cnt++){
+      ((CallBack)tempList.elementAt(cnt)).lunch();
+    }//end for loop
+  }//end callRecess()
+  //-----------------------------------------------------//
+}//end class Teacher
+//=======================================================//
+
+//Class that implements the CallBack interface.  Objects
+// of this class can be registered on the list maintained
+// by an object of the Teacher class, and will be notified
+// whenever that object invokes either the recess() method
+// or the lunch() method on the registered objects on 
+// the list.  This method provides a full definition for
+// both methods.
+
+class Student implements CallBack{
+  String name; //store the object name here for later ID
+  //-----------------------------------------------------//
+  
+  Student(String name){//constructor
+    this.name = name;  //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can invoke this method
+  // as a callback mechanism.
+  public void recess(){//announce recess
+    System.out.println(name + " recess");
+  }//end overridden recess()
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can also invoke this 
+  // method as a callback mechanism.
+  public void lunch(){//announce recess
+    System.out.println(name + " lunch");
+  }//end overridden lunch()
+
+}//end class Student
+
+//=======================================================//
+
+//Another Class that implements the CallBack interface.  
+// See description above. This class defines the recess()
+// method as an empty method.
+
+class Dog implements CallBack{
+  String name; //store name here for later ID
+  //-----------------------------------------------------//
+  
+  Dog(String name){//constructor
+    this.name = name; //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can invoke this method
+  // as the callback mechanism.
+  
+  public void recess(){//announce recess
+    //ignore this callback with an empty method
+  }//end overridden recess()
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can also invoke this 
+  // method as a callback mechanism.
+  public void lunch(){//announce recess
+    System.out.println(name + " lunch");
+  }//end overridden lunch()
+}//end class Dog
+//=======================================================//
+
+//A third Class that implements the CallBack interface,
+// similar to the other two classes.  This class defines
+// the lunch() method as an empty method.
+
+class Cat implements CallBack{
+  String name; //store name here for later ID
+  //-----------------------------------------------------//
+  
+  Cat(String name){//constructor
+    this.name = name; //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can invoke this method
+  // as the callback mechanism.
+  
+  public void recess(){//announce recess
+    System.out.println(name + " recess");
+  }//end overridden recess()
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class can also invoke this 
+  // method as a callback mechanism.
+  public void lunch(){//announce recess
+    //ignore this callback with an empty method
+  }//end overridden lunch()
+}//end class Cat
+//=======================================================//
+
+//Controlling class that ties all the pieces together and
+// exercises them.
+class Callback03{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+
+    //Instantiate some Student objects
+    Student tom = new Student("Tom");
+    Student sue = new Student("Sue");
+    Student peg = new Student("Peg");
+    Student bob = new Student("Bob");
+    Student joe = new Student("Joe");
+    
+    //Instantiate some Dog objects.
+    Dog spot = new Dog("SpotDog");
+    Dog fido = new Dog("FidoDog");
+    Dog brownie = new Dog("BrownieDog");
+    
+    //Instantiate some Cat objects
+    Cat cleo = new Cat("CleoCat");
+    Cat kitty = new Cat("KittyKat");
+
+    //Register some Student, Dog, and Cat objects with 
+    // the Teacher object.
+    missJones.register(tom);
+    missJones.register(spot);
+    missJones.register(sue);
+    missJones.register(cleo);
+    missJones.register(fido);
+    missJones.register(peg);
+    missJones.register(kitty);
+    missJones.register(bob);
+    missJones.register(brownie);
+    
+    //Cause the Teacher object to call recess on all
+    // the objects on the list.
+    missJones.callRecess();
+    //Cause the Teacher object to call lunch on all
+    // the objects on the list.
+    missJones.callLunch();
+  }//end main()
+}//end class Callback03
+//=======================================================//
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1036">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1061" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1019">
+Module name: Java0078 Java OOP Callbacks - II
+
+</item>
+
+
+					
+
+<item id="li1020">
+File: Java0078.htm
+
+</item>
+
+
+					
+
+<item id="li1021">
+Published: 1997
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1062" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1037">
+<emphasis id="strong1063" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1038">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1039">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1040">
+<emphasis id="strong1064" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1041">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,3771 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3008: Abstract Methods, Abstract Classes, and Overridden Methods</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44205</md:content-id>
+  <md:title>Java3008: Abstract Methods, Abstract Classes, and Overridden Methods</md:title>
+  <md:abstract>Learn about abstract methods, abstract classes, and overridden methods.  You will also learn about overriding the toString method.</md:abstract>
+  <md:uuid>77aee57d-8921-4f08-95f0-ebbf176d4e1c</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Apr 02 20:33:36 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output on the command line screen. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Default behavior of the toString method. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. More on the default behavior of the toString method.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Source code for class Prob04.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob04MyClass. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Override the abstract getData method. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Override the toString method. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+The program that I will explain in this module produces no graphics and 
+	does not require the use of Ericson's media library.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1000" effect="bold">
+OOP concepts
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+The program illustrates the following OOP concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+Extending an abstract class.
+
+</item>
+
+
+	
+
+<item id="li1023">
+Parameterized constructor.
+
+</item>
+
+
+	
+
+<item id="li1024">
+Defining an abstract method in the superclass and overriding it in a 
+	subclass.
+
+</item>
+
+	
+
+<item id="li1025">
+Overridden 
+
+<emphasis id="strong1001" effect="bold">
+toString
+
+</emphasis>
+ method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1002" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+Write a program named 
+
+<emphasis id="strong1003" effect="bold">
+Prob04
+
+</emphasis>
+ that uses the class definition shown in
+
+
+<link id="a1022" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ to produce the output on the command-line 
+screen shown in 
+
+<link id="a1023" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Program output on the command line screen.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Prob04
+Dick
+Baldwin
+95
+95</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1009">
+<emphasis id="strong1004" effect="bold">
+Pseudo random data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Because the program generates and uses a pseudo random data value each time 
+it is run, the actual values displayed in the last two lines of
+
+
+<link id="a1024" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ will differ from one run to the next. However, 
+in all cases, the two values must match.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1005" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named 
+
+<emphasis id="strong1006" effect="bold">
+
+Prob04
+
+</emphasis>
+ given below.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1013">
+<emphasis id="strong1007" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+I will explain this program in fragments. A complete listing is 
+provided in 
+
+<link id="a1025" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+I will begin with the driver class named 
+
+<emphasis id="strong1008" effect="bold">
+Prob04
+
+</emphasis>
+, which is shown in its 
+entirety in 
+
+<link id="a1026" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Source code for class Prob04.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.util.*;
+
+abstract class Prob04{
+  public static void main(String[] args){
+    Random generator = new Random(new Date().getTime());
+    int randomNumber = (byte)generator.nextInt();
+
+    Prob04 objRef = new Prob04MyClass(randomNumber);
+    
+    System.out.println(objRef);
+    System.out.println(objRef.getData());
+    System.out.println(randomNumber);
+  }//end main
+
+  //Declare the signature of an abstract class.
+  public abstract int getData();
+
+}//end class Prob04</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1016">
+<emphasis id="strong1009" effect="bold">
+The import directive
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+The import directive at the beginning of 
+
+<link id="a1027" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+is required because the program requires access to the 
+
+<emphasis id="strong1010" effect="bold">
+Random
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1011" effect="bold">
+Date
+
+</emphasis>
+ class, 
+both of which are defined in the 
+
+<emphasis id="strong1012" effect="bold">
+java.util
+
+</emphasis>
+ package.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1013" effect="bold">
+Lazy programming practice
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+It would be better programming practice to provide two explicit import 
+directives, one for the 
+
+<emphasis id="strong1014" effect="bold">
+Random
+
+</emphasis>
+ class and the other for the 
+
+<emphasis id="strong1015" effect="bold">
+Date
+
+</emphasis>
+ 
+class. However, if you are lazy like I apparently was when I wrote this 
+program, you can use the wildcard character 
+
+<emphasis id="em1003" effect="italics">
+(*)
+
+</emphasis>
+ to 
+
+<emphasis id="em1004" effect="italics">
+import
+
+</emphasis>
+ all of 
+the classes in a package.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1016" effect="bold">
+An 
+
+<emphasis id="em1005" effect="italics">
+abstract
+
+</emphasis>
+ method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+I'm going to begin by skipping down to the second line from the bottom in 
+
+
+<link id="a1028" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and explain the declaration of the 
+
+<emphasis id="em1006" effect="italics">
+abstract
+
+</emphasis>
+ method named 
+
+<emphasis id="strong1017" effect="bold">
+
+getData
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1018" effect="bold">
+Purpose of an abstract method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+The purpose of an abstract method declaration is to establish the signature 
+of a method that must be overridden in every 
+
+<emphasis id="em1007" effect="italics">
+(non-abstract)
+
+</emphasis>
+ subclass of 
+the class in which the abstract method is declared.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1019" effect="bold">
+An incomplete method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+As you can see the abstract method has no body. Therefore, it is 
+incomplete, has no behavior, and cannot be executed.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+An abstract method must be overridden in a subclass in order to be useful.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1020" effect="bold">
+Override in different ways
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The same abstract method can be overridden in different ways in different 
+subclasses. In other words, the behavior of the overridden version can be 
+tailored to 
+
+<emphasis id="em1008" effect="italics">
+(appropriate for)
+
+</emphasis>
+ the class in which it is overridden.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1021" effect="bold">
+A guarantee
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+The existence of an abstract method in a superclass guarantees that every 
+
+<emphasis id="em1009" effect="italics">
+
+(non-abstract)
+
+</emphasis>
+ subclass of that superclass will have a 
+
+<emphasis id="concrete" effect="bold">
+
+
+concrete
+
+</emphasis>
+
+ 
+
+<emphasis id="em1010" effect="italics">
+(executable)
+
+</emphasis>
+ version of a method having that same signature.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1022" effect="bold">
+An 
+
+<emphasis id="em1011" effect="italics">
+abstract
+
+</emphasis>
+ class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The class named 
+
+<emphasis id="strong1023" effect="bold">
+Prob04
+
+</emphasis>
+ is declared 
+
+<emphasis id="em1012" effect="italics">
+abstract
+
+</emphasis>
+ in
+
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Any class can be declared abstract. The consequence of declaring a 
+class abstract is that it is not possible to instantiate an object of the class.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1024" effect="bold">
+Must be declared abstract...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+More importantly, a class must be declared abstract if it contains one or 
+more abstract method declarations. The idea here is that it must not be 
+possible to instantiate objects containing incomplete 
+
+<emphasis id="em1013" effect="italics">
+(non-executable)
+
+</emphasis>
+ 
+methods.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1025" effect="bold">
+The main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+As you have seen in previous modules, the driver class for every Java 
+application must contain a method named 
+
+<emphasis id="strong1026" effect="bold">
+main
+
+</emphasis>
+ with a signature matching 
+that shown in 
+
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1027" effect="bold">
+A pseudo-random number generator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+I will leave it as an exercise for the student to go to the javadocs and read 
+up on the class named 
+
+<emphasis id="strong1028" effect="bold">
+Random
+
+</emphasis>
+, along with the class named 
+
+<emphasis id="strong1029" effect="bold">
+Date
+
+</emphasis>
+ and 
+the method named 
+
+<emphasis id="strong1030" effect="bold">
+getTime
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1031" effect="bold">
+Why pseudo-random?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+I refer to this as a pseudo-random number generator because the sequence will 
+probably repeat after an extremely large number of values has been generated.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1032" effect="bold">
+An object of the class Random
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+Briefly, however, the first statement in the 
+
+<emphasis id="strong1033" effect="bold">
+main
+
+</emphasis>
+ method in
+
+
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object that will return a 
+pseudo-random number each time certain methods are called on the object.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1034" effect="bold">
+Seeding the generator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The value passed as a parameter to the 
+
+<emphasis id="strong1035" effect="bold">
+Random
+
+</emphasis>
+ constructor represents 
+the current time and guarantees that the series of pseudo-random values returned 
+by the methods will be different each time the program is run. This is 
+commonly known as 
+
+<emphasis id="em1014" effect="italics">
+seeding
+
+</emphasis>
+ the generator.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1036" effect="bold">
+Get and save a pseudo random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The next statement in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 1 calls the 
+
+<emphasis id="strong1037" effect="bold">
+
+nextInt
+
+</emphasis>
+ method on the generator object to get and save the next value of 
+type 
+
+<emphasis id="strong1038" effect="bold">
+int
+
+</emphasis>
+ in the pseudo-random sequence. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1039" effect="bold">
+Cast to type byte
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+This value is cast to type 
+
+<emphasis id="strong1040" effect="bold">
+byte
+
+</emphasis>
+, which discards all but the eight 
+least significant bits of the 
+
+<emphasis id="strong1041" effect="bold">
+int
+
+</emphasis>
+ value. When it is stored in the 
+variable named 
+
+<emphasis id="strong1042" effect="bold">
+randomNumber
+
+</emphasis>
+ of type 
+
+<emphasis id="strong1043" effect="bold">
+int
+
+</emphasis>
+, the sign is extended 
+through the most significant 24 bits and it becomes a value of type int that is 
+guaranteed to be of relatively small magnitude.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1044" effect="bold">
+Why cast to byte?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+I cast the random value to type byte simply to cause the values that are 
+displayed to be smaller and easier to compare visually.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1045" effect="bold">
+Instantiate an object of type Prob04MyClass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+The next statement in 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an 
+object of the class named 
+
+<emphasis id="strong1046" effect="bold">
+Prob04MyClass
+
+</emphasis>
+, passing the random value as a parameter to the constructor. 
+At this point, I will put the explanation of the class named 
+
+<emphasis id="strong1047" effect="bold">
+Prob04
+
+</emphasis>
+ on 
+temporary hold and explain the class named 
+
+<emphasis id="strong1048" effect="bold">
+Prob04MyClass
+
+</emphasis>
+, which begins in
+
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of the class named Prob04MyClass.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob04MyClass extends Prob04{
+  private int data;
+
+  public Prob04MyClass(int inData){//constructor
+    System.out.println("Prob04");
+    System.out.println("Dick");
+    data = inData;
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1054">
+<emphasis id="strong1049" effect="bold">
+Extends the abstract class named Prob04
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+First note that the class named 
+
+<emphasis id="strong1050" effect="bold">
+Prob04MyClass
+
+</emphasis>
+ extends the abstract 
+class named 
+
+<emphasis id="strong1051" effect="bold">
+Prob04
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+Among other things, this means that either this class must override the 
+abstract method named 
+
+<emphasis id="strong1052" effect="bold">
+getData
+
+</emphasis>
+ that was declared in the superclass, or 
+this class must also be declared abstract.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1053" effect="bold">
+Does it override getData?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Seeing that this class isn't declared abstract, we can surmise at this point 
+that it does override the abstract method named 
+
+<emphasis id="strong1054" effect="bold">
+getData
+
+</emphasis>
+. We will 
+see more about this later.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1055" effect="bold">
+Beginning of the class named Prob04MyClass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+The class definition in
+
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ begins by declaring a private instance 
+variable of type 
+
+<emphasis id="strong1056" effect="bold">
+int
+
+</emphasis>
+ named 
+
+<emphasis id="strong1057" effect="bold">
+data
+
+</emphasis>
+. Note that it does not 
+initialize the variable. Therefore, the value is automatically initialized 
+to an 
+
+<emphasis id="strong1058" effect="bold">
+int
+
+</emphasis>
+ value of zero.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1059" effect="bold">
+The constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+Then
+
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ defines the constructor for the class. 
+The first two statements in the constructor cause the first two lines of text 
+shown in 
+
+<link id="a1037" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ to be displayed on the command line 
+screen.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1060" effect="bold">
+Save the incoming parameter value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+The last line in the constructor saves the incoming value in the instance 
+variable named 
+
+<emphasis id="strong1061" effect="bold">
+data
+
+</emphasis>
+, overwriting the default value of zero that it finds 
+there.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+This statement is more in keeping with the intended usage of a constructor 
+than the first two statements. The primary purpose of a constructor is to 
+assist in the initialization of the 
+
+<emphasis id="em1015" effect="italics">
+state of an object
+
+</emphasis>
+, which depends on 
+the values stored in its variables.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1062" effect="bold">
+Override the abstract getData method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ overrides the abstract 
+
+<emphasis id="strong1063" effect="bold">
+getData
+
+</emphasis>
+ method declared in the 
+abstract superclass named 
+
+<emphasis id="strong1064" effect="bold">
+Prob04
+
+</emphasis>
+ and inherited into the subclass named 
+
+<emphasis id="strong1065" effect="bold">
+
+Prob04MyClass
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Override the abstract getData method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public int getData(){//overridden abstract method
+    return data;
+  }//end getData()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1068">
+<emphasis id="strong1066" effect="bold">
+Very simple behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+Although the overridden version of the method simply returns a copy of the 
+value stored in the private instance variable named 
+
+<emphasis id="strong1067" effect="bold">
+data
+
+</emphasis>
+, it is
+
+
+<link id="a1039" target-id="concrete">
+
+concrete
+
+</link>
+
+ and can be executed. We 
+will see later that it is called in the 
+
+<emphasis id="strong1068" effect="bold">
+main
+
+</emphasis>
+ method of the driver class 
+named 
+
+<emphasis id="strong1069" effect="bold">
+Prob04
+
+</emphasis>
+ in 
+
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1070" effect="bold">
+Override the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+The ultimate superclass of every class is the predefined system class named
+
+
+<emphasis id="strong1071" effect="bold">
+Object
+
+</emphasis>
+. The 
+
+<emphasis id="strong1072" effect="bold">
+Object
+
+</emphasis>
+ class defines eleven methods with default 
+behavior, including the method named 
+
+<emphasis id="strong1073" effect="bold">
+toString
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ overrides the inherited 
+
+<emphasis id="strong1074" effect="bold">
+toString
+
+</emphasis>
+ method, overriding the 
+default behavior of the method insofar as objects of the class named 
+
+<emphasis id="strong1075" effect="bold">
+
+Prob04MyClass
+
+</emphasis>
+ are concerned.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Override the toString method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  public String toString(){//overridden method
+    return "Baldwin";
+  }//end overloaded toString()
+
+}//end class Prob04MyClass</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1073">
+<emphasis id="strong1076" effect="bold">
+Default behavior of the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+If the 
+
+<emphasis id="strong1077" effect="bold">
+toString
+
+</emphasis>
+ method had not been overridden in the 
+
+<emphasis id="strong1078" effect="bold">
+Prob04MyClass
+
+</emphasis>
+ 
+class, calling the 
+
+<emphasis id="strong1079" effect="bold">
+toString
+
+</emphasis>
+ method on an object of the class would return 
+a string similar to that shown in 
+
+<link id="a1042" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Default behavior of the toString method
+.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+							
+
+<code id="pre1005" display="block">Prob04MyClass@42e816</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1075">
+<link id="a1043" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the default behavior of the 
+
+<emphasis id="strong1080" effect="bold">
+toString
+
+</emphasis>
+ method as 
+	defined in the 
+
+<emphasis id="strong1081" effect="bold">
+Object
+
+</emphasis>
+ class. For this program, only the six 
+	hexadecimal digits at the end would change from one run to the next.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1082" effect="bold">
+More on the default behavior of the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+Furthermore, if the 
+
+<emphasis id="strong1083" effect="bold">
+toString
+
+</emphasis>
+ method had not been overridden in the 
+
+<emphasis id="strong1084" effect="bold">
+
+Prob04MyClass
+
+</emphasis>
+ class, the output produced by the program on the command line 
+screen would be similar to that shown in 
+
+<link id="a1044" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ 
+instead of that shown in 
+
+<link id="a1045" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. More on the default behavior of the toString method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+							
+
+<code id="pre1006" display="block">Prob04
+Dick
+Prob04MyClass@42e816
+-34
+-34</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1078">
+<emphasis id="strong1085" effect="bold">
+Compare to see the difference
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+If you compare 
+
+<link id="a1046" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ with 
+
+<link id="a1047" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+, you will see that the difference results from the fact that the 
+overridden version of the 
+
+<emphasis id="strong1086" effect="bold">
+toString
+
+</emphasis>
+ method 
+in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ returns 
+
+<emphasis id="em1016" effect="italics">
+"Baldwin"
+
+</emphasis>
+ as a string 
+rather than returning the default string shown in 
+
+<link id="a1049" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1087" effect="bold">
+The end of the class named Prob04MyClass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ signals the end of the class definition 
+for the class named 
+
+<emphasis id="strong1088" effect="bold">
+Prob04MyClass
+
+</emphasis>
+. Therefore, it is time to return 
+to the explanation of the driver class shown in 
+
+<link id="a1051" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1089" effect="bold">
+Display information about the object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+When the 
+
+<emphasis id="strong1090" effect="bold">
+Prob04MyClass
+
+</emphasis>
+ constructor returns, 
+
+<link id="a1052" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1091" effect="bold">
+println
+
+</emphasis>
+ method passing a reference to the new object as a parameter.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1092" effect="bold">
+Many overloaded 
+
+<emphasis id="em1017" effect="italics">
+(not overridden)
+
+</emphasis>
+ versions of println
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1085">
+There are many overloaded versions of the 
+
+<emphasis id="strong1093" effect="bold">
+println
+
+</emphasis>
+ method, each of 
+which requires a different type of incoming parameter or parameters.
+
+</para>
+
+
+
+
+
+<para id="p1086">
+For example, different overloaded versions of the method know how to receive 
+incoming parameters of each of the different primitive types, convert them to 
+characters, and display the characters on the screen.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1094" effect="bold">
+An incoming parameter of type Object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+There is also an overloaded version of the 
+
+<emphasis id="strong1095" effect="bold">
+println
+
+</emphasis>
+ method that 
+requires an incoming parameter of type 
+
+<emphasis id="strong1096" effect="bold">
+Object
+
+</emphasis>
+. That is the version 
+of the method that is executed when the reference to this object is passed to 
+the method in 
+
+<link id="a1053" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1097" effect="bold">
+One object, several types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+Recall that the reference to this object can be treated as its true type, or 
+as the type of any superclass. Therefore, the reference can be treated as 
+any of the following types:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1026">
+<emphasis id="strong1098" effect="bold">
+Prob04MyClass
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<emphasis id="strong1099" effect="bold">
+Prob04
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+<emphasis id="strong1100" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1101" effect="bold">
+Will satisfy type requirement...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+Because it can be treated as type 
+
+<emphasis id="strong1102" effect="bold">
+Object
+
+</emphasis>
+, it will satisfy the type 
+requirement for the overloaded version of the 
+
+<emphasis id="strong1103" effect="bold">
+println
+
+</emphasis>
+ method that 
+requires an incoming parameter of type 
+
+<emphasis id="strong1104" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1105" effect="bold">
+Call the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+The first thing that this version of the 
+
+<emphasis id="strong1106" effect="bold">
+println
+
+</emphasis>
+ method does is to 
+call the 
+
+<emphasis id="strong1107" effect="bold">
+toString
+
+</emphasis>
+ method on the incoming reference. Then it 
+displays the string value returned by the 
+
+<emphasis id="strong1108" effect="bold">
+toString
+
+</emphasis>
+ method on the screen.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+In this case, the overridden 
+
+<emphasis id="strong1109" effect="bold">
+toString
+
+</emphasis>
+ method returns the string 
+
+<emphasis id="em1018" effect="italics">
+
+"Baldwin"
+
+</emphasis>
+, which is what you see displayed in 
+
+<link id="a1054" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1110" effect="bold">
+Runtime polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+This is a clear example of an OOP concept known as 
+
+<emphasis id="em1019" effect="italics">
+runtime polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Runtime polymorphism is much too complicated to explain in this module. 
+However, I explain it in detail 
+
+
+<link id="a1055" url="http://cnx.org/contents/dzOvxPFw:rOlnsVRr">
+
+here
+
+</link>
+
+ and
+
+
+<link id="a1056" url="http://cnx.org/contents/1CVBGBJj">
+
+here
+
+</link>
+
+. I strongly 
+recommend that you study it there until you thoroughly understand it.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1111" effect="bold">
+A critical concept
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+It is critical that you understand runtime polymorphism if you expect to go 
+further in Java OOP.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+It is almost impossible to write a useful Java application without making 
+heavy use of runtime polymorphism. That is the foundation of the event 
+driven Java graphical user interface system as well as the collections framework.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1112" effect="bold">
+Call the overridden getData method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+The next statement in 
+
+<link id="a1057" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ calls the overridden
+
+
+<emphasis id="strong1113" effect="bold">
+getData
+
+</emphasis>
+ method and displays the return value.
+
+</para>
+
+
+
+
+
+<para id="p1104">
+As you saw earlier, this method returns a copy of the random value that was 
+received and saved by the constructor for the 
+
+<emphasis id="strong1114" effect="bold">
+Prob04MyClass
+
+</emphasis>
+ class in
+
+
+<link id="a1058" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1115" effect="bold">
+Display the original random value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+Finally, the last statement in the 
+
+<emphasis id="strong1116" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+<link id="a1059" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ displays the contents of the instance variable named 
+
+<emphasis id="strong1117" effect="bold">
+
+randomNumber
+
+</emphasis>
+. This variable contains the random value that was passed 
+to the constructor for the 
+
+<emphasis id="strong1118" effect="bold">
+
+Prob04MyClass
+
+</emphasis>
+ earlier in 
+
+<link id="a1060" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1119" effect="bold">
+The two values must match
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+Therefore, the final two statements in the 
+
+<emphasis id="strong1120" effect="bold">
+main
+
+</emphasis>
+ method in
+
+
+<link id="a1061" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ display the same random value. This is 
+shown in the command line screen output in 
+
+<link id="a1062" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1121" effect="bold">
+The program terminates
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1110">
+After displaying this value, the 
+
+<emphasis id="strong1122" effect="bold">
+main
+
+</emphasis>
+ method terminates causing the 
+program to terminate.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1111">
+I encourage you to copy the code from 
+
+<link id="a1063" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, compile it and execute it. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they 
+do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+You have learned about abstract methods, abstract classes, and overridden 
+methods in this module. Very importantly, you have learned about overriding the
+
+
+<emphasis id="strong1123" effect="bold">
+toString
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1113">
+You will learn more about indirection, array 
+objects, and casting in the next module.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1114">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1029">
+<link id="a1064" url="http://www.youtube.com/playlist?list=PL6C202D624F8C5972">
+
+ITSE 
+	2321 Lecture 04
+
+</link>
+
+
+<list id="ul1009" list-type="bulleted">
+
+		
+
+<item id="li1030">
+<link id="a1065" url="http://www.youtube.com/watch?v=wReb-ZdxgwQ">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1066" url="http://www.youtube.com/watch?v=AMe_hVVZ7CA">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1067" url="http://www.youtube.com/watch?v=DveltVjYqhQ">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1068" url="http://www.youtube.com/watch?v=EPwoHu3O1ww">
+
+Part04
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1115">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1124" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1034">
+Module name: Java OOP: Abstract Methods, Abstract Classes, and Overridden Methods
+
+</item>
+
+
+					
+
+<item id="li1035">
+File: Java3008.htm
+
+
+</item>
+
+
+					
+
+<item id="li1036">
+Published: 08/02/12
+
+</item>
+
+
+					
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1125" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1116">
+<emphasis id="strong1126" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1117">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1118">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1119">
+<emphasis id="strong1127" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1120">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1069" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ below.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Complete program listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">/*File Prob04 Copyright 2001, R.G.Baldwin
+Rev 12/16/08
+*********************************************************/
+import java.util.*;
+
+abstract class Prob04{
+  public static void main(String[] args){
+    Random generator = new Random(new Date().getTime());
+    int randomNumber = (byte)generator.nextInt();
+
+    Prob04 objRef = new Prob04MyClass(randomNumber);
+    System.out.println(objRef);
+    System.out.println(objRef.getData());
+    System.out.println(randomNumber);
+  }//end main
+
+  //Declare the signature of an abstract class.
+  public abstract int getData();
+
+}//end class Prob04
+//======================================================//
+
+class Prob04MyClass extends Prob04{
+  private int data;
+
+  public Prob04MyClass(int inData){//constructor
+    System.out.println("Prob04");
+    System.out.println("Dick");
+    data = inData;
+  }//end constructor
+
+  public int getData(){//overridden abstract method
+    return data;
+  }//end getData()
+
+  public String toString(){//overridden method
+    return "Baldwin";
+  }//end overloaded toString()
+
+}//end class Prob04MyClass</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1121">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

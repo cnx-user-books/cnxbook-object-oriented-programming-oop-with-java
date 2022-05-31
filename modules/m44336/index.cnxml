@@ -1,0 +1,2329 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java0081 Java OOP Swing and the Delegation Event Model</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44336</md:content-id>
+  <md:title>Java0081 Java OOP Swing and the Delegation Event Model</md:title>
+  <md:abstract>A discussion of the use of the delegation event model with Swing.</md:abstract>
+  <md:uuid>d3ed9b32-7419-44d3-8cbe-5a4defb3bef8</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="sample_program">
+
+Sample Program
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="interesting_code_fragments">
+
+Interesting Code Fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="program_listing">
+
+Program Listing
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Another_Sample_Program">
+
+Another Sample Program
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="swingevent09_interesting_code_fragments">
+
+Interesting Code Fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Program_Listing01">
+
+Program 
+			Listing
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="summary0">
+
+Summary
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Listings01">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="em1000" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX.
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1001" effect="italics">
+(Editor's note: As you read this module, you will see that it was 
+originally written around 1997. However, despite many improvements in Java since 
+then, most of what was true then is still true in 2013.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+This module makes several references to my website, which is located at
+
+
+<link id="a1014" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+. 
+A copy of the original html version of this module is available
+
+
+<link id="a1015" url="http://cnx.org/content/m45597/latest/Java081.htm">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the constructor for the GUI class. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Complete listing of the program 
+		named SwingEvent08. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The class named MyFrame. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Complete listing of the program named SwingEvent09. 
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="introduction" effect="bold">
+
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+Introduction
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1004">
+To begin with, what is Swing? 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+Swing is the name given to a new set of lightweight components developed by 
+Sun to supplement 
+
+<emphasis id="em1002" effect="italics">
+(and possibly replace)
+
+</emphasis>
+ the components in the AWT. 
+
+<emphasis id="em1003" effect="italics">
+(The general topic of lightweight components is covered in a separate module.)
+
+</emphasis>
+ 
+With the exception of top-level containers, Swing components are developed 
+completely using Java and don't depend on the 
+
+<emphasis id="em1004" effect="italics">
+peer
+
+</emphasis>
+
+component rendering provided by the operating system. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Swing components have several advantages over AWT components, and probably 
+some disadvantages as well. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+One of the advantages is that because the components are not rendered on the 
+screen by the operating system, the look and feel of a component does not change 
+as the application or applet is executed on different platforms running under 
+different operating systems. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Furthermore, it is possible to cause Swing components to mimic the look and 
+feel of a specific platform no matter what platform the program is running on. 
+This is known as 
+
+<emphasis id="em1005" effect="italics">
+pluggable look and feel
+
+</emphasis>
+. 
+
+<emphasis id="em1006" effect="italics">
+(A complete module is 
+dedicated to pluggable look and feel.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+In any event, Swing components are here to stay, and from this point forward 
+in these tutorial modules, we will attempt to incorporate Swing into the modules 
+in a meaningful way. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Swing components support the 
+
+
+<link id="a1020" url="http://cnx.org/content/m44340/latest/?collection=col11441/latest">
+
+JDK 1.1 Delegation Event Model
+
+</link>
+
+. They do 
+not support the JDK 1.0 event model, so if you want to use Swing components, 
+you must program using the Delegation Event Model. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+In some cases, conversion of an application or applet from AWT components to 
+Swing components involves nothing more complex than replacing the AWT components 
+with corresponding Swing components. For example, the Swing component that 
+corresponds to the AWT 
+
+<emphasis id="strong1001" effect="bold">
+Button
+
+</emphasis>
+ component is the Swing 
+
+<emphasis id="strong1002" effect="bold">
+JButton
+
+</emphasis>
+
+component. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+In all cases that you use Swing you will need to import, or otherwise 
+recognize the package that contains the Swing classes so that the compiler and 
+interpreter will have access to those classes. Note that the way to do 
+this will probably change between JDK 1.1.x and JDK 1.2, but hopefully the 
+change won't be too great. 
+
+<emphasis id="em1007" effect="italics">
+(Rumor has it that Swing will be more tightly 
+integrated into JDK 1.2 than is the case with JDK 1.1.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+This module is designed as a follow-on to the earlier module titled "
+
+<link id="a1021" url="http://cnx.org/content/m44340/latest/?collection=col11441/latest">
+
+Event 
+Handling in JDK 1.1, A First Look, Delegation Event Model
+
+</link>
+
+." As such, 
+material presented in that module will not be repeated here. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+The two AWT sample programs in that module were converted to Swing programs 
+for presentation in this module using the simple substitution procedure 
+described above. As you will see, the Swing version of one of the sample 
+program behaves essentially the same as its AWT counterpart. The Swing 
+version of the other sample program does not behave the same as its AWT 
+counterpart. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+So, where does that leave us? Well, fortunately, from an event handling 
+viewpoint, Swing components operate the same as AWT components 
+
+<emphasis id="em1008" effect="italics">
+(except that 
+Swing provides a number of new event types)
+
+</emphasis>
+. From other viewpoints, Swing 
+components may or may not behave the same as their AWT counterparts. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+In addition, many Swing components don't have an AWT counterpart. A 
+number of new and exciting components are included in the Swing library that 
+don't exist in the AWT 
+
+<emphasis id="em1009" effect="italics">
+(tooltips, progress bars, trees, etc.)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Since this module is primarily concerned with event handling, we 
+will pursue the Swing components from an event-handling viewpoint in this module 
+and leave other considerations surrounding Swing components for subsequent 
+modules. As you will see, this module will raise some interesting questions 
+regarding the behavior of Swing components, but won't provide the answers to 
+those questions.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="sample_program" effect="bold">
+
+
+</emphasis>
+
+Sample Program
+
+</title>
+
+
+
+
+
+<para id="p1018">
+The sample program in this section, named 
+
+<link id="a1022" target-id="Listing_2">
+
+SwingEvent08
+
+</link>
+
+, was created by 
+replacing each instance of 
+
+<emphasis id="strong1003" effect="bold">
+Frame
+
+</emphasis>
+ in the program named 
+
+<emphasis id="strong1004" effect="bold">
+Event08
+
+</emphasis>
+, 
+with an instance of 
+
+<emphasis id="strong1005" effect="bold">
+JFrame
+
+</emphasis>
+. In addition, an import declaration was 
+added to cause the Swing classes to be accessible to the compiler and the 
+interpreter.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="em1010" effect="italics">
+(Note that as of JDK 1.7.x, the import declaration must read 
+
+<emphasis id="strong1006" effect="bold">
+import javax.swing.*;
+
+</emphasis>
+ 
+instead of 
+
+<emphasis id="strong1007" effect="bold">
+import com.sun.java.swing.*;
+
+</emphasis>
+ as shown in
+
+
+<link id="a1023" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+The event handling in this program is exactly the same as in 
+
+<emphasis id="strong1008" effect="bold">
+Event08
+
+</emphasis>
+ 
+from the earlier module. 
+If you haven't reviewed that program, and the module on the Delegation Event 
+Model, you should probably go back and review it now. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+This program illustrates the use of 
+
+<emphasis id="em1011" effect="italics">
+Event Sources
+
+</emphasis>
+,
+
+<emphasis id="em1012" effect="italics">
+
+Event Listeners
+
+</emphasis>
+, and 
+
+<emphasis id="em1013" effect="italics">
+Adapters 
+
+</emphasis>
+in the 
+
+<emphasis id="em1014" effect="italics">
+Delegation Event Model
+
+</emphasis>
+ 
+for Swing components. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Briefly, this application instantiates an object that creates a user 
+interface consisting of a simple 
+
+<emphasis id="strong1009" effect="bold">
+JFrame 
+
+</emphasis>
+object. This object is an 
+
+<emphasis id="em1015" effect="italics">
+
+Event Source
+
+</emphasis>
+ that notifies two different 
+
+<emphasis id="em1016" effect="italics">
+Event Listener
+
+</emphasis>
+ objects of 
+
+<emphasis id="strong1010" effect="bold">
+
+Window 
+
+</emphasis>
+events. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+One of the 
+
+<emphasis id="strong1011" effect="bold">
+Listener 
+
+</emphasis>
+objects 
+
+<emphasis id="em1017" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1012" effect="bold">
+WindowListener
+
+
+</emphasis>
+interface and defines all of the methods declared in that interface. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+The other 
+
+<emphasis id="strong1013" effect="bold">
+Listener 
+
+</emphasis>
+object 
+
+<emphasis id="em1018" effect="italics">
+extends 
+
+</emphasis>
+the 
+
+<emphasis id="strong1014" effect="bold">
+Adapter
+
+
+</emphasis>
+class named 
+
+<emphasis id="strong1015" effect="bold">
+WindowAdapter
+
+</emphasis>
+. As explained in the earlier module, the 
+purpose of 
+
+<emphasis id="strong1016" effect="bold">
+Adapter 
+
+</emphasis>
+classes 
+
+<emphasis id="em1019" effect="italics">
+(as used in this context)
+
+</emphasis>
+ is to implement the 
+
+<emphasis id="strong1017" effect="bold">
+
+Listener 
+
+</emphasis>
+interfaces and to define all of the methods with empty methods. 
+
+
+<emphasis id="em1020" effect="italics">
+(Adapter classes are viewed in a broader context in the advanced modules on the 
+Reflection API.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Classes that 
+
+<emphasis id="em1021" effect="italics">
+extend 
+
+</emphasis>
+the 
+
+<emphasis id="strong1018" effect="bold">
+Adapter 
+
+</emphasis>
+classes can then 
+selectively override only those methods of interest. This Listener object 
+overrides only two of the methods. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+Note that this application does not terminate and return control to 
+the operating system. You must forcefully terminate it. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+This program was tested using JDK 1.1.6 and Swing 1.0.1 under Win95. 
+
+<emphasis id="em1022" effect="italics">
+
+(Also, it was recently tested using JDK 1.7 running under Windows Vista after 
+modifying the import directive mentioned above.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The output produced by running the program is presented in the 
+comments at the beginning of the program listing.
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="interesting_code_fragments" effect="bold">
+
+
+</emphasis>
+
+Interesting Code Fragments
+
+</title>
+
+
+
+
+
+<para id="p1029">
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ provides the first and only code fragment, that I am going to show and discuss. 
+This fragment shows the 
+beginning of the constructor for the 
+
+<emphasis id="strong1019" effect="bold">
+GUI
+
+</emphasis>
+
+class. The fragment illustrates that this program uses the 
+
+<emphasis id="strong1020" effect="bold">
+JFrame
+
+</emphasis>
+ class to 
+instantiate a top-level container for the graphical user interface instead of a
+
+
+<emphasis id="strong1021" effect="bold">
+Frame
+
+</emphasis>
+ object as in the 
+
+
+<link id="a1025" url="http://cnx.org/content/m44340/latest/?collection=col11441/latest">
+
+earlier module
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+If you compile and run this program, you will see that it 
+behaves essentially the same as its AWT counterpart named
+
+
+<emphasis id="strong1022" effect="bold">
+Event08
+
+</emphasis>
+ that was discussed extensively in the 
+
+
+<link id="a1026" url="http://cnx.org/content/m44340/latest/?collection=col11441/latest">
+
+earlier module
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="program_listing" effect="bold">
+
+
+</emphasis>
+
+Program Listing
+
+</title>
+
+
+
+
+
+<para id="p1031">
+A complete listing of the program is provided in 
+
+<link id="a1027" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Another_Sample_Program" effect="bold">
+
+Another Sample Program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1032">
+This is a Swing version of the program named 
+
+<emphasis id="strong1023" effect="bold">
+Event09
+
+</emphasis>
+ from the 
+
+
+<link id="a1028" url="http://cnx.org/content/m44340/latest/?collection=col11441/latest">
+
+earlier module
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The purpose of this program is to illustrate that in some cases, conversion 
+of an AWT program to a Swing program isn't as simple as importing the Swing 
+package and replacing the AWT components with their Swing counterparts. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+That is what was done with this program. This program is identical to 
+the AWT program named 
+
+<emphasis id="strong1024" effect="bold">
+Event09
+
+</emphasis>
+ except that all instances of 
+
+<emphasis id="strong1025" effect="bold">
+Frame
+
+</emphasis>
+ 
+were replaced by 
+
+<emphasis id="strong1026" effect="bold">
+JFrame
+
+</emphasis>
+ and the Swing package was imported. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+The intended behavior of this program 
+
+<emphasis id="em1023" effect="italics">
+(go back and review 
+
+</emphasis>
+ 
+
+<emphasis id="strong1027" effect="bold">
+<emphasis id="em1024" effect="italics">
+Event09
+
+</emphasis>
+</emphasis>
+<emphasis id="em1025" effect="italics">
+
+if necessary)
+
+</emphasis>
+ is to display the coordinates of the mouse pointer each time the mouse is clicked inside the client area of the
+
+
+<emphasis id="strong1028" effect="bold">
+JFrame
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Initially, this program appears to work correctly. As each new click 
+occurs on the client area of the 
+
+<emphasis id="strong1029" effect="bold">
+JFrame
+
+</emphasis>
+, a new pair of coordinate values 
+is displayed. However, the previous pairs of coordinate values does not disappear as 
+is the case with the program named 
+
+<emphasis id="strong1030" effect="bold">
+Event09
+
+</emphasis>
+. Thus, the behavior is 
+significantly different under JDK 1.1.6 and Swing 1.0.1 under Win95. 
+
+<emphasis id="em1026" effect="italics">
+(The 
+behavior is similarly different under JDK 1.7x and Windows Vista.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+Furthermore, in some cases, while this GUI is on the screen, if focus is 
+transferred to a different application, all of the coordinate values except the 
+last one that was created will disappear. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+It will be left as an exercise for the student to dig into the documentation on Swing in order to understand and explain this 
+behavior. 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+As explained earlier, this module is concerned with event handling in Swing 
+and this program is adequate to illustrate the use of the Delegation Event Model 
+with Swing. We will leave the subtle behavior of the Swing components for 
+discussion in subsequent modules. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+If you compile and execute this program, whenever you click the 
+mouse inside the 
+
+<emphasis id="strong1031" effect="bold">
+JFrame
+
+</emphasis>
+, you should see the coordinates of the mouse 
+pointer displayed above the mouse pointer. 
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="swingevent09_interesting_code_fragments" effect="bold">
+
+
+</emphasis>
+
+Interesting Code Fragments
+
+</title>
+
+
+
+
+
+<para id="p1041">
+<link id="a1029" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the only code fragment that will be highlighted 
+for this program in this module. 
+This fragment illustrates 
+how this program extends 
+
+<emphasis id="strong1032" effect="bold">
+JFrame
+
+</emphasis>
+ into a new class named 
+
+<emphasis id="strong1033" effect="bold">
+MyFrame
+
+</emphasis>
+ to 
+make it possible to override the 
+
+<emphasis id="strong1034" effect="bold">
+paint()
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1035" effect="bold">
+JFrame
+
+</emphasis>
+ 
+class. Recall that in the program named 
+
+<emphasis id="strong1036" effect="bold">
+Event09
+
+</emphasis>
+, the 
+
+<emphasis id="strong1037" effect="bold">
+Frame
+
+</emphasis>
+ class 
+was extended in a similar way. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Program_Listing01" effect="bold">
+
+Program Listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1042">
+A complete listing of this program is provided in 
+
+<link id="a1030" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="summary0" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1043">
+Swing provides a new set of lightweight components that can be programmed 
+using the Delegation Event Model first introduced in JDK 1.1. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The Swing components cannot be programmed using the event model from JDK 1.0. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+In some cases, all that is necessary to convert a program built around AWT 
+components to a program built around Swing components is to import the Swing 
+classes and replace all instances of AWT components with their Swing 
+counterparts. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+In other cases, a simple substitution as described above will not produce the 
+same behavior. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Many of the Swing components do not have an AWT counterpart. The Swing 
+classes contain a number of components that were never added to the AWT 
+component library. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+This module has dealt exclusively with the use of the Delegation Event Model 
+for programming Swing components and has left some unanswered questions 
+regarding how the behavior of Swing components does, and in some cases does not, 
+mirror that of their AWT counterparts. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1049">
+I encourage you to copy the code from 
+
+<link id="a1031" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ and 
+
+
+<link id="a1032" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1050">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1038" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1006" list-type="bulleted">
+
+					
+
+<item id="li1018">
+Module name: Java OOP: Swing and the Delegation Event Model
+
+</item>
+
+
+					
+
+<item id="li1019">
+File: Java0081.htm
+
+
+</item>
+
+
+					
+
+<item id="li1020">
+Published: 11/17/13
+
+</item>
+
+
+
+
+<item id="li1021">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1039" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1051">
+<emphasis id="strong1040" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1052">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1053">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1054">
+<emphasis id="strong1041" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Listings01" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the 
+				constructor for the GUI class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+
+<code id="pre1000" display="block">class GUI{
+  public GUI(){//constructor
+    //Create a new JFrame object
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");</code>
+
+
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1055">
+<emphasis id="strong1042" effect="bold">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Complete listing of the 
+				program named SwingEvent08.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">
+/*File SwingEvent08.java Copyright 1998, R.G.Baldwin
+Rev 05/09/98
+
+This is a Swing version of the program named Event08.
+
+The purpose of this program is to illustrate that in many
+respects, programming with Swing components is no different
+from programming with AWT components.
+
+Conversion of this program from AWT to Swing involved
+nothing more complex than using the search and replace
+feature of an editor to replace all instances of Frame
+with JFrame and to import the swing package.
+
+Illustrates the use of Event Sources, Event Listeners, and
+Adapters in the Delegation Event Model for Swing
+components.
+
+Briefly, this application instantiates an object which;
+creates a user interface consisting of a simple JFrame;
+object.  This object is an Event Source which notifies two
+different Event Listener objects of Window events.
+
+One of the Listener objects implements the WindowListener
+interface and overrides all of the methods declared in;
+that interface.
+
+The other Listener object extends the Adapter class named;
+WindowAdapter.  The purpose of Adapter classes is to
+implement the  Listener interfaces and to define all of
+the methods with empty methods.  Classes which extend the
+Adapter classes can then selectively override only those
+methods of interest.  This Listener object overrides only
+two of the methods.
+
+Note that this application does not terminate and return
+control to the operating system.  You must forcefully
+terminate it.
+
+Tested using JDK 1.1.6 and Swing 1.0.1 under Win95.
+
+When executed, this application places a simple empty;
+JFrame object on the screen.
+
+Starting the program produces screen output similar to
+the following:
+
+WProc1 windowActivated test msg
+Wproc1 windowOpened test msg
+
+Pressing the minimize button on the JFrame produces the;
+output similar to the following:
+
+WProc1 windowIconified test msg
+******** WProc2 windowIconified test msg
+WProc1 windowDeactivated test msg
+
+Restoring the JFrame after minimization produces the;
+output similar to the following:
+
+WProc1 windowActivated test msg
+WProc1 windowDeiconified test msg
+******** WProc2 windowDeiconified test msg
+WProc1 windowActivated test msg
+
+Closing the JFrame by pressing the X-icon in the upper;
+right of the JFrame produces output similar to the;
+following:
+
+WProc1 windowClosing test msg
+WProc1 windowDeactivated test msg
+WProc1 windowClosed test msg
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import com.sun.java.swing.*;
+
+public class SwingEvent08 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class SwingEvent08
+//=======================================================//
+
+//The following class is used to instantiate a user;
+// interface object, to instantiate two Listener objects,
+// and to register those two objects for notification;
+// whenever a Window event occurs.
+class GUI{
+  public GUI(){//constructor
+    //Create a new JFrame object
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");
+
+    //Instantiate two Listener objects which will process
+    // Window events
+    WProc1 winProcCmd1 = new WProc1(displayWindow);
+    WProc2 winProcCmd2 = new WProc2();
+
+    //Register the Listener objects for notification of
+    // Window events. This object is the Event Source.
+    displayWindow.addWindowListener(winProcCmd1);
+    displayWindow.addWindowListener(winProcCmd2);
+
+    //windowActivated and windowOpened test messages
+    // are produced here
+    displayWindow.setVisible(true);
+
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+//The following two classes can be used to instantiate;
+// Listener objects. Note that this class implements the;
+// WindowListener interface.  This requires that all the
+// methods declared in the interface be overridden in this
+// class. This class overrides all of the methods  and
+// displays a descriptive message whenever one of the
+// methods is invoked.
+class WProc1 implements WindowListener{
+  //used to save a reference to the JFrame object
+  JFrame displayWindowRef;
+
+  WProc1(JFrame windowIn){//constructor
+    // save ref to JFrame object
+    this.displayWindowRef = windowIn;
+  }//end constructor
+
+  public void windowClosed(WindowEvent e){
+    System.out.println("WProc1 windowClosed test msg");
+  }//end windowClosed()
+
+  public void windowIconified(WindowEvent e){
+    System.out.println("WProc1 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowOpened(WindowEvent e){
+    System.out.println("WProc1 windowOpened test msg");
+  }//end windowOpened()
+
+  public void windowClosing(WindowEvent e){
+    System.out.println("WProc1 windowClosing test msg");
+    displayWindowRef.dispose();//generate WindowClosed
+  }//end windowClosing()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+                      "WProc1 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+  public void windowActivated(WindowEvent e){
+    System.out.println("WProc1 windowActivated test msg");
+  }//end windowActivated()
+
+  public void windowDeactivated(WindowEvent e){
+    System.out.println(
+                     "WProc1 windowDeactivated test msg");
+  }//end windowDeactivated()
+}//end class WProc1
+//=======================================================//
+
+//This and the previous class can be used to instantiate;
+// Listener objects. Note that this class extends an;
+// Adapter class which can be used to avoid the;
+// requirement to define all of the methods of the
+// actual Listener class named WindowListener. This class
+// overrides only two of the methods declared in the;
+// interface.  It displays a message whenever one of the
+// methods is invoked.
+class WProc2 extends WindowAdapter{
+
+  public void windowIconified(WindowEvent e){
+    System.out.println(
+              "******** WProc2 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+            "******** WProc2 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+}//end class WProc2
+</code>
+
+
+
+	
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The class named MyFrame.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1002" display="block">
+class MyFrame extends JFrame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+             "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1056">
+<emphasis id="strong1043" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Complete listing of the 
+				program named SwingEvent09.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">
+/*File SwingEvent09.java Copyright 1998, R.G.Baldwin
+Rev 5/9/98 by RGB
+This is a Swing version of the program named Event09.
+
+The purpose of this program is to illustrate that in some
+cases, conversion of an AWT program to a Swing program
+isn't as simple as importing the Swing package and replacing
+the AWT components with Swing components.
+
+That is what was done with this program.  In other words,
+this program is identical to the AWT program named Event09
+except that all instances of Frame were replaced by JFrame
+and the Swing package was imported.
+
+At the surface, the program appears to work correctly.
+However, as each new click occurs on the client area of
+the JFrame, a new pair of coordinate values is displayed,
+but the previous pairs of coordinate values don't disappear
+as is the case with the program named Event09.
+
+Furthermore, in some cases, while this GUI is on the screen,
+if focus is transferred to a different application, all of
+the coordinate values except the last one created will;
+disappear.
+
+It will be left as an exercise for the student to dig into
+the (currently very sparse) documentation on Swing in order
+to understand and explain this behavior.
+
+Illustrates the use of Event Sources, Event Listeners, and;
+Adapters in the Delegation Event Model for Swing.
+
+This program instantiates a Listener object to process;
+mouse events. When a mouse press occurs in a JFrame object,
+the program gets the coordinates and then displays those
+coordinates near the point of the mouse press.
+
+Tested using JDK 1.1.6 and Swing 1.0.1 under Win95.
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+import com.sun.java.swing.*;
+
+public class SwingEvent09 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class SwingEvent09
+//=======================================================//
+
+//Subclass JFrame in order to override the paint method.
+class MyFrame extends JFrame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+             "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame
+//=======================================================//
+
+//The following class is used to instantiate a;
+// graphical user interface object.
+class GUI {
+  public GUI(){//constructor
+    //Create a new JFrame object, set size, title, etc.
+    MyFrame displayWindow = new MyFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");
+    displayWindow.setVisible(true);
+
+    //Instantiate and register an anonymous Listener;
+    // object which will terminate the program when the;
+    // user closes the JFrame.
+    displayWindow.addWindowListener(new WProc1());
+
+    //Instantiate and register an anonymous Listener;
+    // object that will process mouse events to determine
+    // and display the coordinates when the user presses
+    // the mouse button in the client area of the JFrame.
+    displayWindow.addMouseListener(
+                             new MouseProc(displayWindow));
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+//This listener class monitors for mouse presses and;
+// displays the coordinates of the mouse pointer when the
+// mouse is pressed on the source object. Note that this
+// class extends is an adapter class.
+class MouseProc extends MouseAdapter{
+  MyFrame refToWin; //save a reference to the source here
+
+  MouseProc(MyFrame inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  //Override the mousePressed method to determine and;
+  // display the coordinates when the mouse is pressed.
+  public void mousePressed(MouseEvent e){
+    //Get X and Y coordinates of mouse pointer and store
+    // in an instance variable of the JFrame object
+    refToWin.clickX = e.getX();
+    refToWin.clickY = e.getY();
+
+    //Force the JFrame object to be repainted in order to
+    // display the coordinate information.
+    refToWin.repaint();
+  }//end mousePressed()
+}//end class MouseProc
+//=======================================================//
+
+//The following listener is used to terminate the program
+// when the user closes the frame.  Note that this class
+// extends an adapter class.
+class WProc1 extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class WProc1
+//=======================================================//
+</code>
+
+
+
+	
+
+<para id="p1057">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

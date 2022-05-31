@@ -1,0 +1,3803 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4010r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48040</md:content-id>
+  <md:title>Java4010r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java4010: Getting Started with Java Collections.</md:abstract>
+  <md:uuid>572a539c-9fb8-4a6a-9a5e-cedbd6d54f60</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Apr 05 13:42:12 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1012" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question10">
+
+10
+
+</link>
+
+, 
+		
+
+<link id="a1014" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question12">
+
+12
+
+</link>
+
+, 
+		
+
+<link id="a1016" target-id="question13">
+
+13
+
+</link>
+
+, 
+		
+
+<link id="a1017" target-id="question14">
+
+14
+
+</link>
+
+, 
+		
+
+<link id="a1018" target-id="question15">
+
+15
+
+</link>
+
+,
+		
+
+<link id="a1019" target-id="question16">
+
+16
+
+</link>
+
+,
+		
+
+<link id="a1020" target-id="question17">
+
+17
+
+</link>
+
+, 
+		
+
+<link id="a1021" target-id="question18">
+
+18
+
+</link>
+
+,
+		
+
+<link id="a1022" target-id="question19">
+
+19
+
+</link>
+
+,
+		
+
+<link id="a1023" target-id="question20">
+
+20
+
+</link>
+
+,
+		
+
+<link id="a1024" target-id="question21">
+
+21
+
+</link>
+
+,
+		
+
+<link id="a1025" target-id="question22">
+
+22
+
+</link>
+
+,
+		
+
+<link id="a1026" target-id="question23">
+
+23
+
+</link>
+
+,
+		
+
+<link id="a1027" target-id="question24">
+
+24
+
+</link>
+
+,
+		
+
+<link id="a1028" target-id="question25">
+
+25
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1005">
+<link id="a1029" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1030" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1031" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one in a collection of modules on Java Collections designed for 
+teaching 
+
+<emphasis id="em1003" effect="italics">
+ITSE2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+ at Austin Community 
+College in Austin, TX.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module contains review questions and answers keyed to the module titled
+
+
+<link id="a1032" url="http://cnx.org/contents/BaPSYll8">
+
+Java4010: Getting Started with Java Collections
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+Once you study that module, you should be able to answer the review 
+questions in this module.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+The questions and the answers in this module are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1006">
+True or False? The Collections framework is designed to encourage to 
+reinvent collections and maps.
+
+</para>
+
+
+
+
+
+
+<para id="p1007">
+<link id="a1033" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+True or False? Some collections allow duplicate elements while others 
+do not.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1034" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False? All collections are ordered.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1035" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? The 
+
+<emphasis id="em1004" effect="italics">
+Collections Framework
+
+</emphasis>
+ is defined by a set 
+of interfaces and associated contracts, and provides concrete implementations of 
+the interfaces for the most common data structures.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1036" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+Several questions in this module will be based on 
+
+<link id="a1037" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Used with several different questions.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">import java.util.TreeSet;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class AP400{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class AP400
+
+class Worker{
+  public void doIt(){
+    Collection ref = new TreeSet();
+    Populator.fillIt(ref);
+    Iterator iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(
+                       Collection ref){
+    ref.add(new Integer(4));
+    ref.add(new Integer(4));
+    ref.add(new Integer(3));
+    ref.add(new Integer(2));
+    ref.add(new Integer(1));
+  }//end fillIt()
+}//end class populator
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1015">
+True or False? 
+
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of 
+the 
+
+<emphasis id="strong1001" effect="bold">
+TreeSet
+
+</emphasis>
+ class and stores the 
+object's reference in a reference variable of type 
+
+<emphasis id="strong1002" effect="bold">
+Object 
+
+</emphasis>
+named
+
+<emphasis id="strong1003" effect="bold">
+ 
+ref
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<link id="a1039" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+True or False? The 
+
+<emphasis id="strong1004" effect="bold">
+TreeSet
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1005" effect="bold">
+SortedSet
+
+</emphasis>
+ 
+interface, which extends the 
+
+<emphasis id="strong1006" effect="bold">
+Set
+
+</emphasis>
+ interface, which in turn extends the 
+
+<emphasis id="strong1007" effect="bold">
+
+Collection
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<link id="a1040" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+True or False? A reference to a 
+
+<emphasis id="strong1008" effect="bold">
+TreeSet
+
+</emphasis>
+ object cannot be stored in a 
+reference variable of type 
+
+<emphasis id="strong1009" effect="bold">
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<link id="a1041" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+True or False? The 
+
+<emphasis id="strong1010" effect="bold">
+TreeSet
+
+</emphasis>
+ class guarantees that the sorted set will 
+be in ascending element order
+
+</para>
+
+
+
+
+
+
+
+<para id="p1022">
+<link id="a1042" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+True or False? The 
+
+<emphasis id="strong1011" effect="bold">
+TreeSet
+
+</emphasis>
+ class provides guaranteed log(n) time cost 
+for the basic operations (
+
+<emphasis id="em1005" effect="italics">
+add
+
+</emphasis>
+, 
+
+<emphasis id="em1006" effect="italics">
+remove
+
+</emphasis>
+ and 
+
+<emphasis id="em1007" effect="italics">
+contains
+
+</emphasis>
+). 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<link id="a1043" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+True or False? A 
+
+<emphasis id="strong1012" effect="bold">
+TreeSet
+
+</emphasis>
+ object can contain duplicate elements.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<link id="a1044" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+True or False? A TreeSet object is not a SortedSet.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<link id="a1045" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+True or False? A TreeSet object is a Collection.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<link id="a1046" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+True or False? Because an object of the 
+
+<emphasis id="strong1013" effect="bold">
+TreeSet
+
+</emphasis>
+ class 
+
+<emphasis id="em1008" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1014" effect="bold">
+
+Collection
+
+</emphasis>
+, a reference to such an object can be passed to any method that 
+requires an incoming parameter of type 
+
+<emphasis id="strong1015" effect="bold">
+Collection
+
+</emphasis>
+. The receiving method 
+can call any method on that reference that is declared in the 
+
+<emphasis id="strong1016" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface
+
+<emphasis id="strong1017" effect="bold">
+.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+<link id="a1047" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+True or False? The behavior of the 
+
+<emphasis id="strong1018" effect="bold">
+fillIt
+
+</emphasis>
+ method in
+
+
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is to add elements to the incoming 
+
+<emphasis id="strong1019" effect="bold">
+
+Collection
+
+</emphasis>
+ object without regard for the actual type of the object 
+
+<emphasis id="em1009" effect="italics">
+
+(the class from which the object was instantiated).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+<link id="a1049" target-id="answer14">
+
+Answer 14
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+True or False? In 
+
+<link id="a1050" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, a reference to an 
+object of type 
+
+<emphasis id="strong1020" effect="bold">
+Button
+
+</emphasis>
+ 
+
+<emphasis id="em1010" effect="italics">
+(see the Java documentation)
+
+</emphasis>
+ 
+could be passed as a parameter to the 
+
+<emphasis id="strong1021" effect="bold">
+fillIt
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<link id="a1051" target-id="answer15">
+
+Answer 15
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="question16" effect="bold">
+
+Question 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+True or False? In 
+
+<link id="a1052" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, the 
+
+<emphasis id="strong1022" effect="bold">
+fillIt
+
+</emphasis>
+ 
+method can call the 
+
+<emphasis id="strong1023" effect="bold">
+add
+
+</emphasis>
+ method on the incoming object with 
+confidence that the behavior of the 
+
+<emphasis id="strong1024" effect="bold">
+add
+
+</emphasis>
+ method will be appropriate for the specific 
+type of object involved.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<link id="a1053" target-id="answer16">
+
+Answer 16
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="question17" effect="bold">
+
+Question 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+True or False? In 
+
+<link id="a1054" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, when the 
+
+<emphasis id="strong1025" effect="bold">
+fillIt
+
+</emphasis>
+ 
+method returns, the 
+
+<emphasis id="strong1026" effect="bold">
+TreeSet
+
+</emphasis>
+ object contains five elements.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<link id="a1055" target-id="answer17">
+
+Answer 17
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="question18" effect="bold">
+
+Question 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+True or False? In 
+
+<link id="a1056" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, when the 
+
+<emphasis id="strong1027" effect="bold">
+fillIt
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1028" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object contains four 
+
+<emphasis id="em1011" effect="italics">
+(not five)
+
+</emphasis>
+ elements with no duplicates. Each element 
+is a reference to an object of type 
+
+<emphasis id="strong1029" effect="bold">
+Integer
+
+</emphasis>
+. Those references are 
+maintained in such a way as to make them accessible in descending order, based 
+on the 
+
+<emphasis id="strong1030" effect="bold">
+int
+
+</emphasis>
+ values encapsulated in each of the 
+
+<emphasis id="strong1031" effect="bold">
+Integer
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<link id="a1057" target-id="answer18">
+
+Answer 18
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="question19" effect="bold">
+
+Question 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1043">
+True or False? The call to the 
+
+<emphasis id="strong1032" effect="bold">
+iterator
+
+</emphasis>
+ method on any 
+
+<emphasis id="strong1033" effect="bold">
+Collection
+
+</emphasis>
+ 
+object returns an instance of a class that implements the 
+
+<emphasis id="strong1034" effect="bold">
+Iterator
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<link id="a1058" target-id="answer19">
+
+Answer 19
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="question20" effect="bold">
+
+Question 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+True or False? An 
+
+<emphasis id="strong1035" effect="bold">
+Iterator
+
+</emphasis>
+ object can be used to traverse a 
+
+<emphasis id="strong1036" effect="bold">
+
+Collection
+
+</emphasis>
+ object, gaining access to each element 
+
+<emphasis id="strong1037" effect="bold">
+<emphasis id="em1012" effect="italics">
+in order
+
+</emphasis>
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<link id="a1059" target-id="answer20">
+
+Answer 20
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="question21" effect="bold">
+
+Question 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+True or False? The concept of 
+
+<emphasis id="strong1038" effect="bold">
+in order
+
+</emphasis>
+ means the same thing 
+for all 
+
+<emphasis id="strong1039" effect="bold">
+Collection
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<link id="a1060" target-id="answer21">
+
+Answer 21
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="question22" effect="bold">
+
+Question 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+True or False? 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The 
+
+<emphasis id="strong1040" effect="bold">
+Iterator
+
+</emphasis>
+ interface declares three methods:
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1008">
+hasNext()
+
+</item>
+
+
+	
+
+<item id="li1009">
+next()
+
+</item>
+
+
+	
+
+<item id="li1010">
+remove()
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1051">
+<link id="a1061" target-id="answer22">
+
+Answer 22
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="question23" effect="bold">
+
+Question 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+True or False? The 
+
+<emphasis id="strong1041" effect="bold">
+Iterator
+
+</emphasis>
+ object associated with a particular 
+
+<emphasis id="strong1042" effect="bold">
+
+Collection
+
+</emphasis>
+ object provides access to the contents of the collection in 
+a very specific way. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<link id="a1062" target-id="answer23">
+
+Answer 23
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21023">
+<title>
+<emphasis id="question24" effect="bold">
+
+Question 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1054">
+True or False? The 
+
+<emphasis id="strong1043" effect="bold">
+while
+
+</emphasis>
+ loop in the 
+
+<emphasis id="strong1044" effect="bold">
+Worker
+
+</emphasis>
+ 
+class in 
+
+<link id="a1063" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ traverses the collection
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1011">
+accessing each of the object's elements in succession, and
+
+</item>
+
+
+	
+
+<item id="li1012">
+displaying the value encapsulated in the object referred to by each 
+	element.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1055">
+<link id="a1064" target-id="answer24">
+
+Answer 24
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="question25" effect="bold">
+
+Question 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1056">
+True or False? 
+
+<link id="a1065" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ causes the following text 
+to appear on the screen:
+
+</para>
+
+
+
+
+
+<para id="p1057">
+44321
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<link id="a1066" target-id="answer25">
+
+Answer 25
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1067" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Used with several different 
+		questions.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1045" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1061">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21025">
+<title>
+<emphasis id="answer25" effect="bold">
+
+Answer 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1063">
+False. 
+
+<link id="a1068" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ causes the following text to appear 
+on the screen:
+
+</para>
+
+
+
+
+
+<para id="p1064">
+1234
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<link id="a1069" target-id="question25">
+
+Back to Question 25
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer24" effect="bold">
+
+Answer 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<link id="a1070" target-id="question24">
+
+Back to Question 24
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer23" effect="bold">
+
+Answer 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<link id="a1071" target-id="question23">
+
+Back to Question 23
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21028">
+<title>
+<emphasis id="answer22" effect="bold">
+
+Answer 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<link id="a1072" target-id="question22">
+
+Back to Question 22
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21029">
+<title>
+<emphasis id="answer21" effect="bold">
+
+Answer 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1072">
+False. The concept of 
+
+<emphasis id="strong1046" effect="bold">
+in order
+
+</emphasis>
+ means different things for 
+different 
+
+<emphasis id="strong1047" effect="bold">
+Collection
+
+</emphasis>
+ objects. For a collection instantiated 
+from the 
+
+<emphasis id="strong1048" effect="bold">
+TreeSet
+
+</emphasis>
+ class, for example, 
+
+<emphasis id="strong1049" effect="bold">
+in order
+
+</emphasis>
+ 
+means in ascending order. However, that may not be the case for a different 
+object instantiated from a class that implements the 
+
+<emphasis id="strong1050" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<link id="a1073" target-id="question21">
+
+Back to Question 21
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21030">
+<title>
+<emphasis id="answer20" effect="bold">
+
+Answer 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<link id="a1074" target-id="question20">
+
+Back to Question 20
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21031">
+<title>
+<emphasis id="answer19" effect="bold">
+
+Answer 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1076">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<link id="a1075" target-id="question19">
+
+Back to Question 19
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21032">
+<title>
+<emphasis id="answer18" effect="bold">
+
+Answer 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+False. In 
+
+<link id="a1076" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, when the 
+
+<emphasis id="strong1051" effect="bold">
+fillIt
+
+</emphasis>
+ method 
+returns, the 
+
+<emphasis id="strong1052" effect="bold">
+TreeSet
+
+</emphasis>
+ object contains four 
+
+<emphasis id="em1013" effect="italics">
+(not five)
+
+</emphasis>
+ elements with 
+no duplicates. Each element is a reference to an object of type 
+
+<emphasis id="strong1053" effect="bold">
+Integer
+
+</emphasis>
+. 
+Those references are maintained in such a way as to make them accessible in
+
+
+<emphasis id="strong1054" effect="bold">
+ascending
+
+</emphasis>
+ order, based on the 
+
+<emphasis id="strong1055" effect="bold">
+int
+
+</emphasis>
+ values encapsulated in each of the 
+
+<emphasis id="strong1056" effect="bold">
+
+Integer
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<link id="a1077" target-id="question18">
+
+Back to Question 18
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21033">
+<title>
+<emphasis id="answer17" effect="bold">
+
+Answer 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+False. In 
+
+<link id="a1078" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, when the 
+
+<emphasis id="strong1057" effect="bold">
+fillIt
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1058" effect="bold">
+TreeSet
+
+</emphasis>
+ object 
+contains four 
+
+<emphasis id="em1014" effect="italics">
+(not five)
+
+</emphasis>
+ elements with no duplicates.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1079" target-id="question17">
+
+Back to Question 17
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21034">
+<title>
+<emphasis id="answer16" effect="bold">
+
+Answer 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+True. For example, the behavior of the 
+
+<emphasis id="strong1059" effect="bold">
+add
+
+</emphasis>
+ method for 
+an object of the TreeSet class will probably be different from the behavior of 
+the 
+
+<emphasis id="strong1060" effect="bold">
+add
+
+</emphasis>
+ method for an object of some other class that 
+implements the 
+
+<emphasis id="strong1061" effect="bold">
+Collection
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<link id="a1080" target-id="question16">
+
+Back to Question 16
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21035">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+False. The 
+
+<emphasis id="strong1062" effect="bold">
+fillIt
+
+</emphasis>
+ method receives the reference as type 
+
+<emphasis id="strong1063" effect="bold">
+Collection
+
+</emphasis>
+. This method doesn't know, and doesn't care, 
+what the actual type of the object is. All it cares about is that the object 
+
+<emphasis id="em1015" effect="italics">
+
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1064" effect="bold">
+Collection
+
+</emphasis>
+ object. 
+
+<emphasis id="em1016" effect="italics">
+(Otherwise, the object's reference 
+couldn't be passed in as a parameter. A type mismatch would occur.)
+
+</emphasis>
+ A
+
+
+<emphasis id="strong1065" effect="bold">
+TreeSet
+
+</emphasis>
+ object is a 
+
+<emphasis id="strong1066" effect="bold">
+Collection
+
+</emphasis>
+ because the
+
+
+<emphasis id="strong1067" effect="bold">
+TreeSet
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1068" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. A 
+
+<emphasis id="strong1069" effect="bold">
+Button
+
+</emphasis>
+ object is not a 
+
+<emphasis id="strong1070" effect="bold">
+Collection
+
+</emphasis>
+ because the
+
+
+<emphasis id="strong1071" effect="bold">
+Button
+
+</emphasis>
+ class does not implement the 
+
+<emphasis id="strong1072" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<link id="a1081" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21036">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<link id="a1082" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21037">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<link id="a1083" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21038">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1090">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<link id="a1084" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21039">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1092">
+False. The 
+
+<emphasis id="strong1073" effect="bold">
+TreeSet
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1074" effect="bold">
+SortedSet
+
+</emphasis>
+ 
+interface. This guarantees that the contents of a 
+
+<emphasis id="strong1075" effect="bold">
+TreeSet
+
+</emphasis>
+ object will be 
+in ascending element order, regardless of the order in which the elements are 
+added.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<link id="a1085" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21040">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+False. An object of the 
+
+<emphasis id="strong1076" effect="bold">
+TreeSet
+
+</emphasis>
+ class also 
+
+<emphasis id="em1017" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1077" effect="bold">
+Set
+
+</emphasis>
+. One 
+of the characteristics of a Java 
+
+<emphasis id="strong1078" effect="bold">
+Set
+
+</emphasis>
+ 
+
+<emphasis id="em1018" effect="italics">
+(an object that implements the 
+Set interface)
+
+</emphasis>
+ is that it can contain no duplicate elements. Therefore, a 
+
+<emphasis id="strong1079" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object can contain 
+
+<emphasis id="strong1080" effect="bold">
+no
+
+</emphasis>
+ duplicate elements.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+<link id="a1086" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21041">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1096">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<link id="a1087" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21042">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1098">
+True.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1099">
+<link id="a1088" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21043">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1100">
+False. a 
+
+<emphasis id="strong1081" effect="bold">
+TreeSet
+
+</emphasis>
+ object 
+
+<emphasis id="em1019" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1082" effect="bold">
+Collection
+
+</emphasis>
+. Therefore, a 
+reference to a 
+
+<emphasis id="strong1083" effect="bold">
+TreeSet
+
+</emphasis>
+ object can be stored in a reference variable of 
+type 
+
+<emphasis id="strong1084" effect="bold">
+Collection
+
+</emphasis>
+, and can be treated as the generic type 
+
+<emphasis id="strong1085" effect="bold">
+Collection
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<link id="a1089" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21044">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1102">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<link id="a1090" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21045">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1104">
+False. 
+
+<link id="a1091" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of the 
+
+<emphasis id="strong1086" effect="bold">
+
+TreeSet
+
+</emphasis>
+ class and stores the object's reference in a reference variable of 
+type 
+
+<emphasis id="strong1087" effect="bold">
+Collection 
+
+</emphasis>
+named
+
+<emphasis id="strong1088" effect="bold">
+ ref
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<link id="a1092" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21046">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1106">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<link id="a1093" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21047">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1108">
+False. Some collections are ordered and others are not.
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<link id="a1094" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21048">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1110">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<link id="a1095" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21049">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1112">
+False. The framework is designed to encourage you to reuse rather than to 
+reinvent collections and maps. 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<link id="a1096" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1114">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1089" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1006" list-type="bulleted">
+
+				
+
+<item id="li1014">
+Module name: Java4010r Review: Java4010: Getting Started 
+				with Java Collections
+
+</item>
+
+
+				
+
+<item id="li1015">
+File: Java4010r.htm 
+
+</item>
+
+
+				
+
+<item id="li1016">
+Published: 11/24/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1090" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1115">
+<emphasis id="strong1091" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1116">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1117">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1118">
+<emphasis id="strong1092" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1119">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

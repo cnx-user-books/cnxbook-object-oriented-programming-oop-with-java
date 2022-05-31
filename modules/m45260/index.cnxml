@@ -1,0 +1,6613 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0040: Self-assessment, Logical Operations, Numeric Casting, String Concatenation, and the toString Method</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45260</md:content-id>
+  <md:title>Ap0040: Self-assessment, Logical Operations, Numeric Casting, String Concatenation, and the toString Method</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about logical operations, numeric casting, string concatenation, and the toString method in Java.</md:abstract>
+  <md:uuid>258b3193-2024-4665-af4d-1b10e700db17</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. B
+
+</item>
+
+
+	
+
+<item id="li1010">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap039{
+  public static void main(
+                        String args[]){
+    new Worker().doLogical();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLogical(){
+    int x = 5, y = 6;
+    if((x &gt; y) || (y &lt; x/0)){
+      System.out.println("A");
+    }else{
+      System.out.println("B");
+    }//end else
+  }//end doLogical()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1011">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1013">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1014">
+D. B
+
+</item>
+
+
+	
+
+<item id="li1015">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap040{
+  public static void main(
+                        String args[]){
+    new Worker().doLogical();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLogical(){
+    int x = 5, y = 6;
+    if((x &lt; y) || (y &lt; x/0)){
+      System.out.println("A");
+    }else{
+      System.out.println("B");
+    }//end else
+  }//end doLogical()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1016">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1017">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1018">
+C. A
+
+</item>
+
+
+	
+
+<item id="li1019">
+D. B
+
+</item>
+
+
+	
+
+<item id="li1020">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap041{
+  public static void main(
+                        String args[]){
+    new Worker().doLogical();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLogical(){
+    int x = 5, y = 6;
+    if(!(x &lt; y) &amp;&amp; !(y &lt; x/0)){
+      System.out.println("A");
+    }else{
+      System.out.println("B");
+    }//end else
+  }//end doLogical()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="question04">
+
+Listing 
+4
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1021">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1022">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1024">
+D. 1
+
+</item>
+
+
+	
+
+<item id="li1025">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap042{
+  public static void main(
+                        String args[]){
+    new Worker().doCast();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doCast(){
+    boolean x = true;
+    int y = (int)x;
+    System.out.println(y);
+  }//end doCast()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. 4 -4
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. 3 -3
+
+</item>
+
+
+	
+
+<item id="li1030">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap043{
+  public static void main(
+                        String args[]){
+    new Worker().doCast();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doCast(){
+    double w = 3.7;
+    double x = -3.7;
+    int y = (int)w;
+    int z = (int)x;
+    System.out.println(y + " " + z);
+  }//end doCast()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1013">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1031">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+C. 4 -3
+
+</item>
+
+
+	
+
+<item id="li1034">
+D. 3 -4
+
+</item>
+
+
+	
+
+<item id="li1035">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap044{
+  public static void main(
+                        String args[]){
+    new Worker().doCast();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doCast(){
+    double w = 3.5;
+    double x = -3.499999999999;
+
+    System.out.println(doIt(w) + 
+                       " " +
+                       doIt(x));
+  }//end doCast()
+    
+  private int doIt(double arg){
+    if(arg &gt; 0){
+      return (int)(arg + 0.5);
+    }else{
+      return (int)(arg - 0.5);
+    }//end else
+  }//end doIt()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+C. 3.5/9/true
+
+</item>
+
+
+	
+
+<item id="li1039">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap045{
+  public static void main(
+                        String args[]){
+    new Worker().doConcat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doConcat(){
+    double w = 3.5;
+    int x = 9;
+    boolean y = true;
+    String z = w + "/" + x + "/" + y;
+    System.out.println(z);
+  }//end doConcat()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1017">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+Which of the following best approximates the output from the program shown in
+
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1040">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1041">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+C. Dummy@273d3c
+
+</item>
+
+
+	
+
+<item id="li1043">
+D. Joe 35 162.5
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap046{
+  public static void main(
+                        String args[]){
+    new Worker().doConcat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doConcat(){
+    Dummy y = new Dummy();
+    System.out.println(y);
+  }//end doConcat()
+}// end class
+
+class Dummy{
+  private String name = "Joe";
+  private int age = 35;
+  private double weight = 162.5; 
+}//end class dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+Which of the following best approximates the output from the program shown in
+
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1044">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1045">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1046">
+C. C. Dummy@273d3c
+
+</item>
+
+
+	
+
+<item id="li1047">
+D. Joe Age = 35 Weight = 162.5
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap047{
+  public static void main(
+                        String args[]){
+    new Worker().doConcat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doConcat(){
+    Dummy y = new Dummy();
+    System.out.println(y);
+  }//end doConcat()
+}// end class
+
+class Dummy{
+  private String name = "Joe";
+  private int age = 35;
+  private double weight = 162.5;
+  
+  public String toString(){
+    String x = name + " " +
+               " Age = " + age + " " +
+               " Weight = " + weight;
+    return x;
+  } 
+}//end class dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+Which of the following best approximates the output from the program shown in
+
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+? 
+
+<emphasis id="em1000" effect="italics">
+(Note the use of the constructor for the 
+
+</emphasis>
+<emphasis id="strong1001" effect="bold">
+<emphasis id="em1001" effect="italics">
+Date
+
+</emphasis>
+</emphasis>
+<emphasis id="em1002" effect="italics">
+ class that 
+takes no parameters.) 
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1048">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1049">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1050">
+C. Sun Dec 02 17:35:00 CST 2012 1354491300781
+
+</item>
+
+
+	
+
+<item id="li1051">
+D. Thur Jan 01 00:00:00 GMT 1970
+
+</item>
+
+
+	
+
+<item id="li1052">
+0
+
+</item>
+
+
+	
+
+<item id="li1053">
+None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">import java.util.*;
+public class Ap048{
+  public static void main(
+                        String args[]){
+    new Worker().doConcat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doConcat(){
+    Date w = new Date();
+    String y = w.toString();
+    System.out.print(y);
+    System.out.println(" " + w.getTime());
+  }//end doConcat()
+}// end class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+
+
+
+<para id="p1023">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1054">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+	
+
+<item id="li1055">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+	
+
+<item id="li1056">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+	
+
+<item id="li1057">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+	
+
+<item id="li1058">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+	
+
+<item id="li1059">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+	
+
+<item id="li1060">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+	
+
+<item id="li1061">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+	
+
+<item id="li1062">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+	
+
+<item id="li1063">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10.
+
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1064">
+Module name: Ap0040: Self-assessment, Logical Operations, 
+				Numeric Casting, String Concatenation, and the toString Method
+
+</item>
+
+
+				
+
+<item id="li1065">
+File: Ap0040.htm 
+
+</item>
+
+
+				
+
+<item id="li1066">
+Originally published: 2002
+
+</item>
+
+
+				
+
+<item id="li1067">
+Published at cnx.org: 12/02/12
+
+</item>
+
+
+
+
+<item id="li1068">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1003" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1004" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1029">
+<emphasis id="strong1005" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+C. Sun Dec 02 17:35:00 CST 2012 1354491300781
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1006" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+<para id="p1031">
+
+
+
+<emphasis id="strong1007" effect="bold">
+The noarg constructor for the Date class
+
+</emphasis>
+</para>
+
+
+<para id="p1032">
+
+The 
+
+<emphasis id="strong1008" effect="bold">
+Date
+
+</emphasis>
+ class has a constructor that takes no parameters 
+and is described in the documentation as follows: 
+
+</para>
+
+
+
+	
+
+<para id="p1033">
+<emphasis id="em1003" effect="italics">
+"Allocates a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1009" effect="bold">
+<emphasis id="em1004" effect="italics">
+Date
+
+</emphasis>
+</emphasis>
+<emphasis id="em1005" effect="italics">
+ object and initializes it so that it 
+	represents the time at which it was allocated, measured to the nearest 
+	millisecond."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+In other words, this constructor can be used to instantiate a 
+
+<emphasis id="strong1010" effect="bold">
+Date
+
+</emphasis>
+ 
+object that represents the current date and time according to the system clock.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1011" effect="bold">
+A property named time of type long
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1036">
+The actual date and time information encapsulated in a 
+
+<emphasis id="strong1012" effect="bold">
+Date
+
+</emphasis>
+ 
+object is apparently stored in a property named 
+
+<emphasis id="strong1013" effect="bold">
+time
+
+</emphasis>
+ as a 
+
+
+<emphasis id="strong1014" effect="bold">
+long
+
+</emphasis>
+ integer. 
+
+</para>
+
+
+<para id="p1037">
+
+
+
+<emphasis id="strong1015" effect="bold">
+Milliseconds since the epoch
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1038">
+The 
+
+<emphasis id="strong1016" effect="bold">
+long
+
+</emphasis>
+ integer encapsulated in a 
+
+<emphasis id="strong1017" effect="bold">
+Date
+
+</emphasis>
+ object represents 
+the total number of milliseconds for the encapsulated date and time, relative to 
+the epoch, which was Jan 01 00:00:00 GMT 1970. 
+
+</para>
+
+
+
+
+<para id="p1039">
+Earlier dates are represented as negative values. Later dates are represented 
+as positive values. 
+
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1018" effect="bold">
+An overridden toString method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1041">
+An object of the 
+
+<emphasis id="strong1019" effect="bold">
+Date
+
+</emphasis>
+ class has an overridden 
+
+<emphasis id="strong1020" effect="bold">
+
+toString
+
+</emphasis>
+ method that converts the value in milliseconds to a form that 
+is more useful for a human observer, such as: 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1021" effect="bold">
+Sun Dec 02 17:35:00 CST 2012
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1022" effect="bold">
+Instantiate a Date object with the noarg constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1044">
+This program instantiates an object of the 
+
+<emphasis id="strong1023" effect="bold">
+Date
+
+</emphasis>
+ class using 
+the constructor that takes no parameters. 
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1024" effect="bold">
+Call the overridden toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1046">
+Then it calls the overridden 
+
+<emphasis id="strong1025" effect="bold">
+toString
+
+</emphasis>
+ method to populate a
+
+
+<emphasis id="strong1026" effect="bold">
+String
+
+</emphasis>
+ object that represents the 
+
+<emphasis id="strong1027" effect="bold">
+Date
+
+</emphasis>
+ object.
+
+
+</para>
+
+
+
+
+<para id="p1047">
+Following this, it displays that 
+
+<emphasis id="strong1028" effect="bold">
+String
+
+</emphasis>
+ object by calling 
+the 
+
+<emphasis id="strong1029" effect="bold">
+print
+
+</emphasis>
+ method, producing 
+the first part of the output shown above. 
+
+<emphasis id="em1006" effect="italics">
+(The actual date and time will vary depending on when 
+the program is executed.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1030" effect="bold">
+Get the time property value 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1049">
+Then it calls the 
+
+<emphasis id="strong1031" effect="bold">
+getTime
+
+</emphasis>
+ method to get and display the 
+value of the 
+
+<emphasis id="strong1032" effect="bold">
+time
+
+</emphasis>
+ property. 
+
+</para>
+
+
+
+
+<para id="p1050">
+This is a representation of the same date and time shown 
+
+<link id="a1046" target-id="answer10">
+
+above
+
+</link>
+
+, but in 
+milliseconds: 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1033" effect="bold">
+1354491300781
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+<link id="a1047" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+D. Joe Age = 35 Weight = 162.5 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1034" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+<para id="p1054">
+
+
+
+<emphasis id="strong1035" effect="bold">
+Upgraded program from Question 8
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1055">
+The program used for this question is an upgrade to the program that was used 
+for 
+
+<link id="a1048" target-id="question08">
+
+Question 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1036" effect="bold">
+Dummy class overrides the toString method
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+<para id="p1057">
+In particular, in this program, the class named 
+
+<emphasis id="strong1037" effect="bold">
+Dummy
+
+</emphasis>
+ 
+overrides the 
+
+<emphasis id="strong1038" effect="bold">
+toString
+
+</emphasis>
+ method in such a way as to return a
+
+
+<emphasis id="strong1039" effect="bold">
+String
+
+</emphasis>
+ representing the object that would be useful to a human 
+observer. 
+
+</para>
+
+
+
+
+<para id="p1058">
+The 
+
+<emphasis id="strong1040" effect="bold">
+String
+
+</emphasis>
+ that is returned contains the values of the 
+instance variables of the object: name, age, and weight. 
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1041" effect="bold">
+Overridden toString method code 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1060">
+The overridden 
+
+<emphasis id="strong1042" effect="bold">
+toString
+
+</emphasis>
+ method for the 
+
+<emphasis id="strong1043" effect="bold">
+Dummy
+
+</emphasis>
+ 
+class is shown below for easy reference. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="td1010">
+<emphasis id="strong1044" effect="bold">
+Overridden 
+
+<emphasis id="em1007" effect="italics">
+toString
+
+</emphasis>
+ method
+
+</emphasis>
+
+				
+
+<code id="pre1010" display="block">  public String toString(){
+    String x = name + " " +
+               " Age = " + age + " " +
+               " Weight = " + weight;
+    return x;
+  }//end toString()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+
+<para id="p1061">
+The code in the overridden 
+
+<emphasis id="strong1045" effect="bold">
+toString
+
+</emphasis>
+ method is almost 
+trivial. 
+
+</para>
+
+
+
+
+<para id="p1062">
+The important thing is not the specific code in a specific overridden version 
+of the 
+
+<emphasis id="strong1046" effect="bold">
+toString
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1047" effect="bold">
+Why override the toString method? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1064">
+Rather, the important thing is to understand why you should probably override 
+the 
+
+<emphasis id="strong1048" effect="bold">
+toString
+
+</emphasis>
+ method in most of the new classes that you define. 
+
+</para>
+
+
+
+
+<para id="p1065">
+In fact, you should override the 
+
+<emphasis id="strong1049" effect="bold">
+toString
+
+</emphasis>
+ method in 
+all new classes that you define if a 
+
+<emphasis id="strong1050" effect="bold">
+String
+
+</emphasis>
+ representation of 
+an instance of that class will ever be needed for any purpose. 
+
+</para>
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1051" effect="bold">
+The code will vary 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1067">
+The code required to override the 
+
+<emphasis id="strong1052" effect="bold">
+toString
+
+</emphasis>
+ method will vary 
+from one class to another. The important point is that the code must return a 
+reference to a 
+
+<emphasis id="strong1053" effect="bold">
+String
+
+</emphasis>
+ object. The 
+
+<emphasis id="strong1054" effect="bold">
+String
+
+</emphasis>
+ 
+object should encapsulate information that represents the original object in a 
+format that is meaningful to a human observer. 
+
+</para>
+
+
+
+
+<para id="p1068">
+<link id="a1049" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1069">
+C. Dummy@273d3c 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1055" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+<para id="p1070">
+
+
+
+<emphasis id="strong1056" effect="bold">
+Display an object of the Dummy class
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1071">
+This program instantiates a new object of the 
+
+<emphasis id="strong1057" effect="bold">
+<emphasis id="strong1058" effect="bold">
+Dummy
+
+</emphasis>
+</emphasis>
+ class, and passes that 
+object's reference to the method named 
+
+<emphasis id="strong1059" effect="bold">
+println
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1072">
+The purpose of the 
+
+<emphasis id="strong1060" effect="bold">
+println
+
+</emphasis>
+ method is to display a 
+representation of the new object that is meaningful to a human observer. In 
+order to do so, it requires a 
+
+<emphasis id="strong1061" effect="bold">
+String
+
+</emphasis>
+ representation of the 
+object. 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1062" effect="bold">
+The toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1074">
+The class named 
+
+<emphasis id="strong1063" effect="bold">
+Object
+
+</emphasis>
+ defines a default version of a method named 
+
+<emphasis id="strong1064" effect="bold">
+
+toString
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1075">
+All classes inherit the 
+
+<emphasis id="strong1065" effect="bold">
+toString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1066" effect="bold">
+A child of the Object class 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+Those classes that extend directly from the class named 
+
+<emphasis id="strong1067" effect="bold">
+Object
+
+</emphasis>
+ inherit the 
+default version of the 
+
+<emphasis id="strong1068" effect="bold">
+toString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1069" effect="bold">
+Grandchildren of the Object class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1079">
+Those classes that don't directly extend the class named 
+
+<emphasis id="strong1070" effect="bold">
+Object
+
+</emphasis>
+ also inherit 
+a version of the 
+
+<emphasis id="strong1071" effect="bold">
+toString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1072" effect="bold">
+May be default or overridden version 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1081">
+The inherited 
+
+<emphasis id="strong1073" effect="bold">
+toString
+
+</emphasis>
+ method may be the default version, or 
+it may be an overridden version, depending on whether the method has been 
+overridden in a superclass of the new class. 
+
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1074" effect="bold">
+The purpose of the toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1083">
+The purpose of the 
+
+<emphasis id="strong1075" effect="bold">
+toString
+
+</emphasis>
+ method defined in the 
+
+<emphasis id="strong1076" effect="bold">
+Object
+
+</emphasis>
+ class is to be overridden in new classes. 
+
+</para>
+
+
+
+
+<para id="p1084">
+The body of the overridden version should return a reference to a 
+
+
+<emphasis id="strong1077" effect="bold">
+String
+
+</emphasis>
+ object that represents an object of the new class. 
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1078" effect="bold">
+Whenever a String representation of an object is required
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1086">
+Whenever a 
+
+<emphasis id="strong1079" effect="bold">
+String
+
+</emphasis>
+ representation of an object is required 
+for any purpose in Java, the 
+
+<emphasis id="strong1080" effect="bold">
+toString
+
+</emphasis>
+ method is called on a 
+reference to the object. 
+
+</para>
+
+
+
+
+<para id="p1087">
+The 
+
+<emphasis id="strong1081" effect="bold">
+String
+
+</emphasis>
+ that is returned by the 
+
+<emphasis id="strong1082" effect="bold">
+toString
+
+</emphasis>
+ 
+method is taken to be a 
+
+<emphasis id="strong1083" effect="bold">
+String
+
+</emphasis>
+ that represents the object. 
+
+</para>
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1084" effect="bold">
+When toString has not been overridden 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1089">
+When the 
+
+<emphasis id="strong1085" effect="bold">
+toString
+
+</emphasis>
+ method is called on a reference to an 
+object for which the method has not been overridden, the default version of the 
+method is called. 
+
+</para>
+
+
+
+
+<para id="p1090">
+The default 
+
+<emphasis id="strong1086" effect="bold">
+String
+
+</emphasis>
+ representation of an object 
+
+</para>
+
+
+
+
+<para id="p1091">
+The 
+
+<emphasis id="strong1087" effect="bold">
+String
+
+</emphasis>
+ returned by the default version consists of the 
+following: 
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1069">
+The name of the class from which the object was instantiated
+
+</item>
+
+
+	
+
+<item id="li1070">
+The @ character
+
+</item>
+
+
+	
+
+<item id="li1071">
+A hexadecimal value that is the 
+
+<emphasis id="strong1088" effect="bold">
+hashcode
+
+</emphasis>
+ value for the object
+
+</item>
+
+
+
+
+</list>
+
+
+<para id="p1092">
+
+As you can see, this does not include any information about the values of the 
+data stored in the object. 
+
+</para>
+
+
+
+
+<para id="p1093">
+Other than the name of the class from which the object was instantiated, this 
+is not particularly useful to a human observer. 
+
+</para>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1089" effect="bold">
+Dummy class does not override toString method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1095">
+In this program, the class named 
+
+<emphasis id="strong1090" effect="bold">
+Dummy
+
+</emphasis>
+ extends the 
+
+<emphasis id="strong1091" effect="bold">
+Object
+
+</emphasis>
+ class directly, and 
+doesn't override the 
+
+<emphasis id="strong1092" effect="bold">
+toString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1096">
+Therefore, when the 
+
+<emphasis id="strong1093" effect="bold">
+toString
+
+</emphasis>
+  method is called on a reference 
+to an object of the 
+
+<emphasis id="strong1094" effect="bold">
+Dummy
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1095" effect="bold">
+String
+
+</emphasis>
+ that is returned 
+looks something like the following: 
+
+</para>
+
+
+
+
+<para id="p1097">
+</para>
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1096" effect="bold">
+Dummy@273d3c
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+Note that the six hexadecimal digits at the end will probably be different 
+from one program to the next.
+
+</para>
+
+
+
+
+<para id="p1100">
+<link id="a1050" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1101">
+C. 3.5/9/true 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1097" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+<para id="p1102">
+
+
+
+<emphasis id="strong1098" effect="bold">
+More on String concatenation
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1103">
+This program illustrates 
+
+<emphasis id="strong1099" effect="bold">
+String
+
+</emphasis>
+ concatenation. 
+
+</para>
+
+
+
+
+<para id="p1104">
+The plus (+)
+operator is what is commonly called an 
+
+<emphasis id="em1008" effect="italics">
+overloaded operator
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1100" effect="bold">
+What is an overloaded operator?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+An overloaded operator is an operator whose behavior depends on the types of 
+its operands. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1101" effect="bold">
+Plus (+) as a unary operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1108">
+The plus operator can be used as either a 
+
+<emphasis id="strong1102" effect="bold">
+unary
+
+</emphasis>
+ operator or a 
+
+
+<emphasis id="strong1103" effect="bold">
+binary
+
+</emphasis>
+ 
+operator. However, as a unary operator, with only one operand to its right, it 
+doesn't do anything useful. This is illustrated by the following two statements, 
+which are functionally equivalent. 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<emphasis id="strong1104" effect="bold">
+x = y;
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1105" effect="bold">
+x = +y;
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1106" effect="bold">
+Plus (+) as a binary operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1112">
+As a binary operator, the plus operator requires two operands, one on either 
+side. 
+
+<emphasis id="em1009" effect="italics">
+(This is called infix notation.)
+
+</emphasis>
+ When used as a binary operator, its 
+behavior depends on the types of its operands. 
+
+</para>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1107" effect="bold">
+Two numeric operands 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1114">
+If both operands are numeric operands, the plus operator performs arithmetic 
+addition. 
+
+</para>
+
+
+
+
+<para id="p1115">
+If the two numeric operands are of different types, the narrower operand is 
+converted to the type of the wider operand, and the addition is performed as the 
+wider type. 
+
+</para>
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1108" effect="bold">
+Two String operands
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1117">
+If both operands are references to objects of type 
+
+<emphasis id="strong1109" effect="bold">
+String
+
+</emphasis>
+, the plus operator 
+creates and returns a new 
+
+<emphasis id="strong1110" effect="bold">
+String
+
+</emphasis>
+ object that contains the concatenated values of 
+the two operands. 
+
+</para>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1111" effect="bold">
+One String operand and one of another type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1119">
+If one operand is a reference to an object of type 
+
+<emphasis id="strong1112" effect="bold">
+String
+
+</emphasis>
+ and the other 
+operand is of some type other than 
+
+<emphasis id="strong1113" effect="bold">
+String
+
+</emphasis>
+, the plus operator causes a new 
+
+<emphasis id="strong1114" effect="bold">
+String
+
+</emphasis>
+ 
+object to come into existence. 
+
+</para>
+
+
+
+
+<para id="p1120">
+This new 
+
+<emphasis id="strong1115" effect="bold">
+String
+
+</emphasis>
+ object is a 
+
+<emphasis id="strong1116" effect="bold">
+String
+
+</emphasis>
+ representation of the 
+
+
+<emphasis id="em1010" effect="italics">
+non-String
+
+</emphasis>
+ operand 
+
+<emphasis id="em1011" effect="italics">
+(such as a value of type 
+
+<emphasis id="strong1117" effect="bold">
+int
+
+</emphasis>
+)
+
+</emphasis>
+, 
+
+</para>
+
+
+
+
+<para id="p1121">
+Then it concatenates the two 
+
+<emphasis id="strong1118" effect="bold">
+String
+
+</emphasis>
+ objects, producing another new 
+
+<emphasis id="strong1119" effect="bold">
+String
+
+</emphasis>
+  
+object, which is the concatenation of the two. 
+
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1120" effect="bold">
+How is the new String operand representing the non-string operand created?
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1123">
+The manner in which it creates the new 
+
+<emphasis id="strong1121" effect="bold">
+String
+
+</emphasis>
+ object that represents the 
+non-String operand varies with the actual type of the operand. 
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1122" effect="bold">
+A primitive operand 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1125">
+The simplest case is when the non-String operand is one of the primitive 
+types. In these cases, the capability already exists in the core programming 
+language to produce a 
+
+<emphasis id="strong1123" effect="bold">
+String
+
+</emphasis>
+  object 
+that represents the value of the primitive type. 
+
+</para>
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1124" effect="bold">
+A boolean operand 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1127">
+For example, if the operand is of type 
+
+<emphasis id="strong1125" effect="bold">
+boolean
+
+</emphasis>
+, the new 
+
+
+<emphasis id="strong1126" effect="bold">
+String
+
+</emphasis>
+  object that represents the operand will either contain the word true or 
+the word false. 
+
+</para>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1127" effect="bold">
+A numeric operand
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1129">
+If the operand is one of the numeric types, the new 
+
+<emphasis id="strong1128" effect="bold">
+String
+
+</emphasis>
+ object will be 
+composed of some of the following: 
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1072">
+numeric characters
+
+</item>
+
+
+	
+
+<item id="li1073">
+a decimal point character
+
+</item>
+
+
+	
+
+<item id="li1074">
+minus characters
+
+</item>
+
+
+	
+
+<item id="li1075">
+plus character
+
+</item>
+
+
+	
+
+<item id="li1076">
+other characters such as E or e
+
+</item>
+
+
+
+
+</list>
+
+
+<para id="p1130">
+
+These characters will be arranged in such a way as to represent the numeric 
+value of the operand to a human observer.
+
+
+</para>
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1129" effect="bold">
+In this program ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1132">
+In this program, a numeric 
+
+<emphasis id="strong1130" effect="bold">
+double
+
+</emphasis>
+ value, a numeric 
+
+<emphasis id="strong1131" effect="bold">
+
+int
+
+</emphasis>
+ value, and a 
+
+<emphasis id="strong1132" effect="bold">
+boolean
+
+</emphasis>
+ value were concatenated with 
+a pair of slash characters to produce a 
+
+<emphasis id="strong1133" effect="bold">
+String
+
+</emphasis>
+ object containing the following:
+
+
+</para>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1134" effect="bold">
+3.5/9/true
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1134">
+When a reference to this 
+
+<emphasis id="strong1135" effect="bold">
+String
+
+</emphasis>
+ object was passed as a 
+parameter to the 
+
+<emphasis id="strong1136" effect="bold">
+println
+
+</emphasis>
+ method, the code in that method extracted the character 
+string from the 
+
+<emphasis id="strong1137" effect="bold">
+String
+
+</emphasis>
+ object, and displayed that character string on the 
+screen. 
+
+</para>
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1138" effect="bold">
+The toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1136">
+If one of the operands to the plus operator is a reference to an object, the
+
+
+<emphasis id="strong1139" effect="bold">
+toString
+
+</emphasis>
+ method is called on the reference to produce a string 
+that represents the object. The 
+
+<emphasis id="strong1140" effect="bold">
+toString
+
+</emphasis>
+ method may be 
+overridden by the author of the class from which the object was instantiated to 
+produce a
+
+<emphasis id="strong1141" effect="bold">
+ String
+
+</emphasis>
+ that faithfully represents the object.
+
+<emphasis id="strong1142" effect="bold">
+
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1137">
+<link id="a1051" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1138">
+C. 4 -3 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1143" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+<para id="p1139">
+
+
+
+<emphasis id="strong1144" effect="bold">
+A rounding algorithm 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1140">
+The method named 
+
+<emphasis id="strong1145" effect="bold">
+doIt
+
+</emphasis>
+ in this program illustrates an algorithm that can be 
+used with a numeric cast operator 
+
+<emphasis id="strong1146" effect="bold">
+(int)
+
+</emphasis>
+ 
+to cause 
+
+<emphasis id="strong1147" effect="bold">
+double
+
+</emphasis>
+ values to be rounded to the nearest integer.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1148" effect="bold">
+Different than truncation toward zero 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1142">
+Note that this is different from simply truncating to the next integer closer 
+to zero 
+
+<emphasis id="em1012" effect="italics">
+(as was illustrated in 
+
+<link id="a1052" target-id="question05">
+
+Question 5
+
+</link>
+
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1143">
+<link id="a1053" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1144">
+D. 3 -3 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1149" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+<para id="p1145">
+
+
+
+<emphasis id="strong1150" effect="bold">
+Truncates toward zero
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1146">
+When a 
+
+<emphasis id="strong1151" effect="bold">
+double
+
+</emphasis>
+ value is cast to an 
+
+<emphasis id="strong1152" effect="bold">
+int
+
+</emphasis>
+, the fractional part of the 
+
+<emphasis id="strong1153" effect="bold">
+double
+
+</emphasis>
+ 
+value is discarded. 
+
+</para>
+
+
+
+
+<para id="p1147">
+This produces a result that is the next integer value closer to zero. 
+
+</para>
+
+
+
+
+<para id="p1148">
+This is true regardless of whether the 
+
+<emphasis id="strong1154" effect="bold">
+double
+
+</emphasis>
+ is positive or negative. This 
+is sometimes referred to as its 
+
+<emphasis id="em1013" effect="italics">
+"truncation toward zero"
+
+</emphasis>
+ behavior. 
+
+</para>
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1155" effect="bold">
+Not the same as rounding 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1150">
+If each of the values assigned to the variables named 
+
+<emphasis id="strong1156" effect="bold">
+w
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1157" effect="bold">
+x
+
+</emphasis>
+ in this program 
+were rounded to the nearest integer, the result would be 4 and -4, not 3 and -3 
+as produced by the program. 
+
+</para>
+
+
+
+
+<para id="p1151">
+<link id="a1054" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1152">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1158" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+<para id="p1153">
+
+
+
+<emphasis id="strong1159" effect="bold">
+Cannot cast a boolean type
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1154">
+A 
+
+<emphasis id="strong1160" effect="bold">
+boolean
+
+</emphasis>
+ type cannot be cast to any other type. This 
+program produces the following compiler error: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1011">
+<code id="pre1011" display="block">
+Ap042.java:13: inconvertible types
+found   : boolean
+required: int
+    int y = (int)x;
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1155">
+<link id="a1055" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1156">
+D. B 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1161" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+<para id="p1157">
+
+
+
+<emphasis id="strong1162" effect="bold">
+The logical and operator
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1158">
+The logical and operator shown below
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="td1012">
+<emphasis id="strong1163" effect="bold">
+The 
+
+</emphasis>
+ 
+
+<emphasis id="em1014" effect="italics">
+<emphasis id="strong1164" effect="bold">
+logical and 
+
+</emphasis>
+ 
+
+</emphasis>
+
+				
+
+<emphasis id="strong1165" effect="bold">
+operator
+				
+
+</emphasis>
+
+				
+
+<code id="pre1012" display="block">&amp;&amp;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+<para id="p1159">
+
+performs an 
+
+<emphasis id="strong1166" effect="bold">
+<emphasis id="em1015" effect="italics">
+and
+
+</emphasis>
+</emphasis>
+ operation between its two operands, 
+both of which must be of type 
+
+<emphasis id="strong1167" effect="bold">
+boolean
+
+</emphasis>
+. If both operands are true, the operator returns true. Otherwise, it 
+returns false.
+
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1168" effect="bold">
+The boolean negation operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+The boolean negation operator shown below
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1013">
+<emphasis id="strong1169" effect="bold">
+The 
+
+</emphasis>
+<emphasis id="em1016" effect="italics">
+<emphasis id="strong1170" effect="bold">
+boolean negation
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1171" effect="bold">
+ 
+				operator 
+
+</emphasis>
+
+				
+
+<para id="p1162">
+!
+
+</para>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1163">
+is a 
+
+<emphasis id="em1017" effect="italics">
+unary
+
+</emphasis>
+ operator, meaning that it always has only one operand. That 
+operand must be of type 
+
+<emphasis id="strong1172" effect="bold">
+boolean
+
+</emphasis>
+, and the operand always appears immediately to 
+the right of the operator.
+
+
+</para>
+
+
+
+
+<para id="p1164">
+The behavior of this operator is to change its right operand from true to 
+false, or from false to true. 
+
+</para>
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1173" effect="bold">
+Evaluation from left to right
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1166">
+Now, consider the following code fragment from this program.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1013" display="block">    int x = 5, y = 6;
+    if(!(x &lt; y) &amp;&amp; !(y &lt; x/0)){
+      System.out.println("A");
+    }else{
+      System.out.println("B");
+    }//end else</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1167">
+The individual operands of the 
+
+<emphasis id="em1018" effect="italics">
+logical and
+
+</emphasis>
+ operator are evaluated 
+from left to right.
+
+</para>
+
+
+
+
+
+<para id="p1168">
+Consider the left operand of the 
+
+<emphasis id="em1019" effect="italics">
+logical and
+
+</emphasis>
+ operator that reads:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1015" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1015">
+
+				
+
+<code id="pre1014" display="block">!(x&lt;y)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1169">
+</para>
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1174" effect="bold">
+The following expression is true 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1016" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="td1016">
+<code id="pre1015" display="block">(x &lt; y)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1171">
+In this case, 
+
+<emphasis id="strong1175" effect="bold">
+x
+
+</emphasis>
+ is less than 
+
+<emphasis id="strong1176" effect="bold">
+y
+
+</emphasis>
+, so the expression inside the parentheses 
+evaluates to true. 
+
+</para>
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1177" effect="bold">
+The following expression is false 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1017" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1017">
+<code id="pre1016" display="block">!(x &lt; y)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1173">
+The true result becomes the right operand for the 
+
+<emphasis id="em1020" effect="italics">
+boolean negation
+
+</emphasis>
+ 
+operator at this point.
+
+</para>
+
+
+
+
+<para id="p1174">
+You might think of the state of the evaluation process at this point as being 
+something like 
+
+</para>
+
+
+
+
+<para id="p1175">
+<emphasis id="strong1178" effect="bold">
+not true
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1176">
+When the 
+
+<emphasis id="strong1179" effect="bold">
+! 
+
+</emphasis>
+ 
+operator is applied to the 
+
+<emphasis id="strong1180" effect="bold">
+true 
+
+</emphasis>
+result, the combination of the two become a 
+
+
+<emphasis id="strong1181" effect="bold">
+false
+
+</emphasis>
+ 
+result.
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1182" effect="bold">
+Short-circuit evaluation applies
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1178">
+This, in turn, causes the left operand of the 
+
+<emphasis id="em1021" effect="italics">
+logical and
+
+</emphasis>
+ operator 
+to be 
+
+<emphasis id="strong1183" effect="bold">
+false
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1179">
+At that point, the final outcome of the logical expression has been 
+determined. It doesn't matter whether the right operand is true or false. The 
+final result will be false regardless. 
+
+</para>
+
+
+
+
+<para id="p1180">
+<emphasis id="strong1184" effect="bold">
+No attempt is made to evaluate the right operand 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1181">
+Therefore, no attempt is made to evaluate the right operand of the 
+
+<emphasis id="em1022" effect="italics">
+logical 
+and
+
+</emphasis>
+ operator in this case.
+
+</para>
+
+
+
+
+
+<para id="p1182">
+No attempt is made to divide the integer variable 
+
+<emphasis id="strong1185" effect="bold">
+x
+
+</emphasis>
+ by zero, no exception is 
+thrown, and the program doesn't terminate abnormally. It runs to completion and 
+displays a B on the screen. 
+
+</para>
+
+
+
+
+<para id="p1183">
+<link id="a1056" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1184">
+C. A 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1186" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+<para id="p1185">
+
+
+
+<emphasis id="strong1187" effect="bold">
+Short-circuit evaluation
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1186">
+<link id="a1057" target-id="question01">
+
+Question 1
+
+</link>
+
+ was intended to set the stage for this question. 
+
+</para>
+
+
+
+
+<para id="p1187">
+This Question, in combination with 
+
+<link id="a1058" target-id="question01">
+
+Question 1
+
+</link>
+
+, is intended to help you 
+understand and remember the concept of short-circuit evaluation. 
+
+</para>
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1188" effect="bold">
+What is short-circuit evaluation? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1189">
+Logical expressions are evaluated from left to right. That is, the left 
+operand of a logical operator is evaluated before the right operand of the same 
+operator is evaluated. 
+
+</para>
+
+
+
+
+<para id="p1190">
+When evaluating a logical expression, the final outcome can often be 
+determined without the requirement to evaluate all of the operands. 
+
+</para>
+
+
+
+
+<para id="p1191">
+Once the final outcome is determined, no attempt is made to evaluate the 
+remainder of the expression. This is short-circuit evaluation. 
+
+</para>
+
+
+
+
+<para id="p1192">
+<emphasis id="strong1189" effect="bold">
+Code from Question 1 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1193">
+Consider the following code fragment from 
+
+<link id="a1059" target-id="question01">
+
+Question 1
+
+</link>
+
+: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1018" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1017" display="block">    int x = 5, y = 6;
+    if((x &gt; y) || (y &lt; x/0)){
+      ...</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1194">
+The (||)
+operator is the 
+
+<emphasis id="em1023" effect="italics">
+logical or
+
+</emphasis>
+ operator.
+
+</para>
+
+
+
+
+
+<para id="p1195">
+<emphasis id="strong1190" effect="bold">
+Boolean operands required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1196">
+This operator requires that its left and right operands both be of type 
+
+
+<emphasis id="strong1191" effect="bold">
+boolean
+
+</emphasis>
+. This operator performs an 
+
+<emphasis id="em1024" effect="italics">
+inclusive or
+
+</emphasis>
+ on its left and right operands. 
+The rules for an inclusive or are: 
+
+</para>
+
+
+
+	
+
+<para id="p1197">
+<emphasis id="em1025" effect="italics">
+If either of its operands is true, the operator returns true. Otherwise, it 
+	returns false.
+
+</emphasis>
+</para>
+
+
+<para id="p1198">
+
+
+
+<emphasis id="strong1192" effect="bold">
+Left operand is false
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1199">
+In this particular expression, the value of 
+
+<emphasis id="strong1193" effect="bold">
+x
+
+</emphasis>
+ is not greater than the value 
+of 
+
+<emphasis id="strong1194" effect="bold">
+y
+
+</emphasis>
+. Therefore, the left operand of the 
+
+<emphasis id="em1026" effect="italics">
+logical or
+
+</emphasis>
+ operator is not true. 
+
+</para>
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1195" effect="bold">
+Right operand must be evaluated 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1201">
+This means that the right operand must be evaluated in order to determine the 
+final outcome. 
+
+</para>
+
+
+
+
+<para id="p1202">
+<emphasis id="strong1196" effect="bold">
+Right operand attempts to divide by zero
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1203">
+However, when an attempt is made to evaluate the right operand, an attempt is 
+made to divide 
+
+<emphasis id="strong1197" effect="bold">
+x
+
+</emphasis>
+ by zero. This throws an exception, which is not caught and 
+handled by the program, so the program terminates as described in 
+
+
+<link id="a1060" target-id="question01">
+
+Question 1
+
+</link>
+
+.
+
+
+</para>
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1198" effect="bold">
+Similar code from Question 2 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1205">
+Now consider the following code fragment from 
+
+<link id="a1061" target-id="question02">
+
+Question 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1019" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1019">
+
+				
+
+<code id="pre1018" display="block">    int x = 5, y = 6;
+    if((x &lt; y) || (y &lt; x/0)){
+      System.out.println("A");
+    ...</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1206">
+Note that the right operand of the 
+
+<emphasis id="em1027" effect="italics">
+logical or
+
+</emphasis>
+ operator still contains an 
+expression that attempts to divide the integer x by zero. 
+
+</para>
+
+
+
+
+
+<para id="p1207">
+<emphasis id="strong1199" effect="bold">
+No runtime error in this case 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1208">
+This program does not terminate with a runtime error. Why not? 
+
+</para>
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1200" effect="bold">
+And the answer is ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1210">
+In this case, 
+
+<emphasis id="strong1201" effect="bold">
+x
+
+</emphasis>
+ is less than 
+
+<emphasis id="strong1202" effect="bold">
+y
+
+</emphasis>
+. Therefore, the left operand of the 
+
+<emphasis id="em1028" effect="italics">
+logical or
+
+</emphasis>
+ 
+operator is true. 
+
+</para>
+
+
+
+
+<para id="p1211">
+<emphasis id="strong1203" effect="bold">
+Remember the rule for inclusive or 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1212">
+It doesn't matter whether the right operand is true or false. The final 
+outcome is determined as soon as it is determined that the left operand is true.
+
+
+</para>
+
+
+
+
+<para id="p1213">
+<emphasis id="strong1204" effect="bold">
+The bottom line
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1214">
+Because the final outcome has been determined as soon as it is determined 
+that the left operand is true, no attempt is made to evaluate the right operand.
+
+
+</para>
+
+
+
+
+<para id="p1215">
+Therefore, no attempt is made to divide 
+
+<emphasis id="strong1205" effect="bold">
+x
+
+</emphasis>
+ by zero, and no runtime error 
+occurs. 
+
+</para>
+
+
+
+
+<para id="p1216">
+<emphasis id="strong1206" effect="bold">
+Short-circuit evaluation 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1217">
+This behavior is often referred to as 
+
+<emphasis id="em1029" effect="italics">
+short-circuit evaluation
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1218">
+Only as much of a logical expression is evaluated as is required to determine 
+the final outcome. 
+
+</para>
+
+
+
+
+<para id="p1219">
+Once the final outcome is determined, no attempt is made to evaluate the 
+remainder of the logical expression. 
+
+</para>
+
+
+
+
+<para id="p1220">
+This is not only true for the 
+
+<emphasis id="em1030" effect="italics">
+logical or
+
+</emphasis>
+ operator, it is also true 
+for the 
+
+<emphasis id="em1031" effect="italics">
+logical and 
+
+</emphasis>
+
+operator, which consists of two ampersand characters with no space between them.
+
+</para>
+
+
+
+
+
+<para id="p1221">
+<link id="a1062" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1222">
+B. Runtime Error 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1207" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+<para id="p1223">
+
+
+
+<emphasis id="strong1208" effect="bold">
+Divide by zero
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1224">
+Whenever a Java program attempts to evaluate an expression requiring that a 
+value of one of the integer types be divided by zero, it will throw an 
+
+
+<emphasis id="strong1209" effect="bold">
+ArithmeticException
+
+</emphasis>
+. If this exception is not caught and handled by the program, 
+it will cause the program to terminate. 
+
+</para>
+
+
+
+
+<para id="p1225">
+<emphasis id="strong1210" effect="bold">
+Attempts to divide x by 0
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1226">
+This program attempts to evaluate the following expression:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1020" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="td1020">
+<code id="pre1019" display="block">(y &lt; x/0)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1227">
+This expression attempts to divide the variable named 
+
+<emphasis id="strong1211" effect="bold">
+x
+
+</emphasis>
+ by zero. This causes the program 
+to terminate with the following error message when running under JDK 1.3:
+
+</para>
+
+ 
+
+
+
+
+
+	
+
+<table id="table1021" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1021">
+
+				
+
+<code id="pre1020" display="block">java.lang.ArithmeticException: / by zero
+   at Worker.doLogical(Ap039.java:13)
+   at Ap039.main(Ap039.java:6)</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1228">
+</para>
+
+
+
+
+<para id="p1229">
+<link id="a1063" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1230">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

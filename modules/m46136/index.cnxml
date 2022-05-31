@@ -1,0 +1,2063 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4020: What is a Collection</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46136</md:content-id>
+  <md:title>Java4020: What is a Collection</md:title>
+  <md:abstract>The purpose of this module is to explain some of the details surrounding the use of a Java collection for creating data structures. The module also discusses the interfaces and some of the concrete implementations in the Java Collections Framework.</md:abstract>
+  <md:uuid>0089dfdc-ea06-4eb6-aa3d-7aee19b57724</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Apr 05 14:25:01 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="What_is_a_collection">
+
+What is a collection?
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Slightly_different_terminology_">
+
+Slightly different terminology 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Store_references_rather_than_objects">
+
+Store references rather than objects
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Stored_as_type_Object_">
+
+Stored as type Object 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Moving_data_among_methods_">
+
+Moving data among methods
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Polymorphic_behavior_">
+
+Polymorphic behavior 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Core_collection_interfaces_">
+
+Core collection interfaces
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Concrete_implementations_">
+
+Concrete implementations 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Iterator_is_not_a_class_">
+
+Iterator is not a class
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="What_about_Attributes_and_RenderingHints">
+
+What about Attributes and RenderingHints?
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="What_is_a_Collections_Framework">
+
+What is a Collections Framework?
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The purpose of this module is to explain some of the details surrounding the use of a Java collection for creating data structures. 
+The module also discusses the interfaces and some of the concrete implementations in the Java Collections Framework.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1019" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1020" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1000" effect="bold">
+Collection
+
+</emphasis>
+ is not only the name of a Java interface, it is also the term 
+given to an object that groups multiple elements into a single unit. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+I will discuss the advantages of passing collections between methods as type
+
+
+<emphasis id="strong1001" effect="bold">
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+I will summarize the core interfaces in the 
+
+<emphasis id="em1003" effect="italics">
+Collections Framework
+
+</emphasis>
+ and show 
+you how they are related. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+I will very briefly discuss some of the concrete implementations of the 
+interfaces that are provided by the framework.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+And finally, I will introduce you to the three kinds of things that are part 
+of a collections framework.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1021" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1004" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="What_is_a_collection" effect="bold">
+
+What is a collection?
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1012">
+Just to see if you are awake today, let's start with a little quiz. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+What is a collection insofar as Java programming is concerned?
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1019">
+A. Something they gather in plates at church.
+
+</item>
+
+
+	
+
+<item id="li1020">
+B. An object that groups multiple elements into a single unit.
+
+</item>
+
+
+	
+
+<item id="li1021">
+C. The name of a Java interface.
+
+</item>
+
+
+	
+
+<item id="li1022">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1014">
+If you answered A, you are probably reading an article on the wrong website 
+by mistake. If you answered 
+
+<emphasis id="em1005" effect="italics">
+Both B and C
+
+</emphasis>
+, then you are off to a good 
+start on this module. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1002" effect="bold">
+Collection
+
+</emphasis>
+ is the name of a Java interface. This interface is an 
+integral part of the 
+
+<emphasis id="em1006" effect="italics">
+Java Collections Framework
+
+</emphasis>
+. 
+
+<emphasis id="strong1003" effect="bold">
+Collection
+
+</emphasis>
+ is 
+one of two top-level interfaces in the framework. The other top-level interface 
+in the framework is named 
+
+<emphasis id="strong1004" effect="bold">
+Map
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+According to The Java Tutorial from Oracle, a collection 
+
+<emphasis id="em1007" effect="italics">
+(sometimes called 
+a container)
+
+</emphasis>
+ is also an object that groups multiple elements into a single 
+unit. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Typical collection objects might contain information about employees in the 
+company telephone book, all the purchase orders issued during the past year, or 
+the transactions occurring in a person's checking account. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Slightly_different_terminology_" effect="bold">
+
+Slightly different terminology 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1018">
+Note that this terminology may be somewhat different from what you are 
+accustomed to. For example, if you speak of your 
+
+<emphasis id="em1008" effect="italics">
+coin collection,
+
+</emphasis>
+ you are 
+probably speaking about the actual coins rather than the container that holds 
+the coins. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+This is an important distinction. The usage of the term 
+
+<emphasis id="em1009" effect="italics">
+collection
+
+</emphasis>
+ in 
+the 
+
+<emphasis id="em1010" effect="italics">
+Collections Framework
+
+</emphasis>
+ usually refers to the container and not to the contents 
+of the container. In the framework, the contents are usually referred to as the 
+
+<emphasis id="em1011" effect="italics">
+
+elements
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Store_references_rather_than_objects" effect="bold">
+
+Store references rather than 
+objects
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1020">
+The collections in the framework always store references to objects, rather 
+than storing the objects themselves. One consequence of this is that primitive 
+values cannot be stored in a collection without first encapsulating them in an 
+object. 
+
+<emphasis id="em1012" effect="italics">
+(Standard wrapper classes are provided for encapsulating all 
+primitive types.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Stored_as_type_Object_" effect="bold">
+
+Stored as type Object 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+Furthermore, the references are always stored as type 
+
+<emphasis id="strong1005" effect="bold">
+Object
+
+</emphasis>
+. Prior to 
+Java version 1.5, when you retrieved an element from a collection, you frequently needed to downcast 
+it before you could gain access to the members of the object to which the 
+reference refers. Version 1.5 introduced
+
+
+<link id="a1022" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+ into the Java programming environment, which eliminated that 
+requirement, 
+
+<emphasis id="em1013" effect="italics">
+(provided that you use the more complex syntax required by 
+Generics)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Moving_data_among_methods_" effect="bold">
+
+Moving data among methods 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+In addition to their use for storing, retrieving, and manipulating data, 
+collections are also used to move data among methods. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+One of the primary advantages of the Collections Framework is the ability to 
+pass a collection to a method as the generic interface type 
+
+<emphasis id="strong1006" effect="bold">
+Collection
+
+</emphasis>
+. 
+The receiving method doesn't need to know the actual type of the object referred 
+to by the incoming reference in order to call its methods. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Polymorphic_behavior_" effect="bold">
+
+Polymorphic behavior 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+The receiving method can call 
+
+<emphasis id="em1014" effect="italics">
+(on the reference to the Collection object)
+
+</emphasis>
+ 
+any of the methods declared in the 
+
+<emphasis id="strong1007" effect="bold">
+Collection
+
+</emphasis>
+ interface, with confidence 
+that the behavior of the method will be appropriate for the actual type of 
+
+<emphasis id="strong1008" effect="bold">
+
+Collection
+
+</emphasis>
+ object involved. 
+
+<emphasis id="em1015" effect="italics">
+(That is polymorphic behavior.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Core_collection_interfaces_" effect="bold">
+
+Core collection interfaces 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+If you have been working with the framework, you might be inclined to think 
+that all of the interfaces in the following list are members of the 
+
+<emphasis id="em1016" effect="italics">
+core 
+collection interfaces.
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1023">
+Collection
+
+</item>
+
+
+	
+
+<item id="li1024">
+Set
+
+</item>
+
+
+	
+
+<item id="li1025">
+List
+
+</item>
+
+
+	
+
+<item id="li1026">
+Queue
+
+</item>
+
+
+	
+
+<item id="li1027">
+Deque
+
+</item>
+
+
+	
+
+<item id="li1028">
+SortedSet
+
+</item>
+
+
+	
+
+<item id="li1029">
+Map
+
+</item>
+
+
+	
+
+<item id="li1030">
+SortedMap
+
+</item>
+
+
+	
+
+<item id="li1031">
+Iterator
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1026">
+However, that is not the case. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+While the 
+
+<emphasis id="strong1009" effect="bold">
+Iterator
+
+</emphasis>
+ interface is heavily used in conjunction with 
+collections, according to The Java Tutorial from Oracle, it is not one of the 
+
+<emphasis id="em1017" effect="italics">
+
+core collection interfaces.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+The core collection interfaces identified by the Oracle book are shown below, 
+with indentation showing the parent-child relationships among the 
+interfaces.
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1032">
+<emphasis id="strong1010" effect="bold">
+Collection
+
+</emphasis>
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1033">
+Set
+		
+
+<list id="ul1007" list-type="bulleted">
+
+			
+
+<item id="li1034">
+SortedSet
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1035">
+List
+
+</item>
+
+
+		
+
+<item id="li1036">
+Queue
+
+</item>
+
+
+		
+
+<item id="li1037">
+Deque
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1038">
+<emphasis id="strong1011" effect="bold">
+Map
+
+</emphasis>
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1039">
+SortedMap
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1029">
+As you can see, as mentioned earlier, 
+
+<emphasis id="strong1012" effect="bold">
+Collection
+
+</emphasis>
+ and 
+
+<emphasis id="strong1013" effect="bold">
+Map
+
+</emphasis>
+ are 
+the two top-level interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+You should probably commit the above list of interfaces and their 
+relationships to memory. You might find that helpful when navigating the Oracle 
+documentation. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Concrete_implementations_" effect="bold">
+
+Concrete implementations 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+In addition to interfaces, the framework provides several concrete 
+implementations of the interfaces defined in the framework. 
+
+<emphasis id="em1018" effect="italics">
+(A concrete 
+implementation is a class that implements one or more of the interfaces.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Are you still awake? If so, see if you can answer the following question. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+True or False? Each of the following classes provides an implementation of 
+one of the interfaces that make up the Java Collections Framework. If False, 
+which items don't belong in the list.
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1040">
+AbstractSet
+
+</item>
+
+
+	
+
+<item id="li1041">
+AbstractList
+
+</item>
+
+
+	
+
+<item id="li1042">
+AbstractMap
+
+</item>
+
+
+	
+
+<item id="li1043">
+HashSet
+
+</item>
+
+
+	
+
+<item id="li1044">
+TreeSet
+
+</item>
+
+
+	
+
+<item id="li1045">
+LinkedList
+
+</item>
+
+
+	
+
+<item id="li1046">
+Vector
+
+</item>
+
+
+	
+
+<item id="li1047">
+ArrayList
+
+</item>
+
+
+	
+
+<item id="li1048">
+HashMap
+
+</item>
+
+
+	
+
+<item id="li1049">
+Hashtable
+
+</item>
+
+
+	
+
+<item id="li1050">
+WeakHashMap
+
+</item>
+
+
+	
+
+<item id="li1051">
+TreeMap
+
+</item>
+
+
+	
+
+<item id="li1052">
+Iterator
+
+</item>
+
+
+	
+
+<item id="li1053">
+Attributes
+
+</item>
+
+
+	
+
+<item id="li1054">
+RenderingHints
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1034">
+Hopefully your answer was False, but even so, that isn't the complete answer.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Iterator_is_not_a_class_" effect="bold">
+
+Iterator is not a class 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+To begin with, 
+
+<emphasis id="strong1014" effect="bold">
+Iterator
+
+</emphasis>
+<emphasis id="em1019" effect="italics">
+ 
+
+</emphasis>
+is not a class. I told you that a 
+couple of paragraphs back. It is an interface. Therefore, it has no place in the 
+above list of classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="What_about_Attributes_and_RenderingHints" effect="bold">
+
+What about Attributes and 
+RenderingHints?
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1036">
+You may also have wondered if the classes named 
+
+<emphasis id="strong1015" effect="bold">
+Attributes
+
+</emphasis>
+ and 
+
+<emphasis id="strong1016" effect="bold">
+
+RenderingHints
+
+</emphasis>
+ belong on the list. Note that I didn't restrict the above 
+list to only those classes that might be considered part of the framework, so 
+this was sort of a trick question. 
+
+<emphasis id="em1020" effect="italics">
+(Of course you could have looked them up 
+in the Oracle documentation just like I did.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+While these two classes are not really a part of the core Java Collections 
+Framework, they do implement interfaces that are part of the framework. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The 
+
+<emphasis id="strong1017" effect="bold">
+RenderingHints
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1018" effect="bold">
+Map
+
+</emphasis>
+ interface, and is 
+used in conjunction with the 
+
+<emphasis id="strong1019" effect="bold">
+Graphics2D
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1020" effect="bold">
+Attributes
+
+</emphasis>
+ 
+class also implements the 
+
+<emphasis id="strong1021" effect="bold">
+Map 
+
+</emphasis>
+interface, 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="What_is_a_Collections_Framework" effect="bold">
+
+What is a Collections Framework?
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1039">
+According to The Java Tutorial from Oracle, 
+
+<emphasis id="em1021" effect="italics">
+"A collections framework is a 
+unified architecture for representing and manipulating collections. All 
+collections frameworks contain three things."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+Those three things are:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1055">
+Interfaces
+
+</item>
+
+
+	
+
+<item id="li1056">
+Implementations
+
+</item>
+
+
+	
+
+<item id="li1057">
+Algorithms
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1041">
+This is probably a good place to close off the discussion for this module. The 
+next module will pick up at this point and provide a more in-depth discussion of 
+the interfaces, implementations, and algorithms that make up the framework.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+I started out by telling you that a collection is not only the name of a Java 
+interface 
+
+<emphasis id="em1022" effect="italics">
+(Collection)
+
+</emphasis>
+ but is also an object that groups multiple 
+elements into a single unit. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+Java 
+
+<emphasis id="strong1022" effect="bold">
+Collection
+
+</emphasis>
+ objects don't store objects or primitive values 
+directly. Rather, they store references to objects. Further, all such references 
+are stored as the type 
+
+<emphasis id="strong1023" effect="bold">
+Object
+
+</emphasis>
+. However, the use of the 
+
+<emphasis id="strong1024" effect="bold">
+Generics
+
+</emphasis>
+ syntax 
+can eliminate the need to 
+downcast the reference in order to gain access to the members of the object to 
+which it refers. 
+
+<emphasis id="em1023" effect="italics">
+(Generics also provide other useful properties as well.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+If you need to store primitive values in a collection, you will first need to 
+wrap those values in appropriate objects. Standard wrapper classes are provided 
+for all the primitive types. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+Collections are not only useful for storing and retrieving data, they are 
+also useful for moving data among methods. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+Because a collection can be passed to a method as type 
+
+<emphasis id="strong1025" effect="bold">
+Collection
+
+</emphasis>
+, all 
+of the methods declared in the 
+
+<emphasis id="strong1026" effect="bold">
+Collection
+
+</emphasis>
+ interface can be called on the 
+incoming reference in a polymorphic manner. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+In addition to the interfaces defined in the Collections Framework, the 
+framework also provides various concrete implementations of the interfaces for 
+many of the commonly-used data structures. This makes it possible for you to 
+conveniently use the framework without the requirement to define new 
+
+<emphasis id="strong1027" effect="bold">
+
+Collection
+
+</emphasis>
+ classes. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+There are eight core interfaces in the Collections Framework. Although the
+
+
+<emphasis id="strong1028" effect="bold">
+Iterator
+
+</emphasis>
+ interface is often used with collections, it is not one of the 
+core interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+I ended the module by telling you that there are basically three things in a 
+collections framework: 
+
+<emphasis id="em1024" effect="italics">
+interfaces
+
+</emphasis>
+, 
+
+<emphasis id="em1025" effect="italics">
+implementations
+
+</emphasis>
+, and 
+
+<emphasis id="em1026" effect="italics">
+algorithms
+
+</emphasis>
+. 
+I will have more to say about this in a future module.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1029" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1058">
+Module name: Java4020: What is a Collection
+
+</item>
+
+
+					
+
+<item id="li1059">
+File: Java4020.htm
+
+
+</item>
+
+
+					
+
+<item id="li1060">
+Published: 04/18/13
+
+</item>
+
+
+					
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1030" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1051">
+<emphasis id="strong1031" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1052">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1053">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1054">
+<emphasis id="strong1032" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1055">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

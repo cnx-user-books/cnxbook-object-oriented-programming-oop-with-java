@@ -1,0 +1,1705 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0190: Java OOP: Using the System and PrintStream Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45148</md:content-id>
+  <md:title>Jb0190: Java OOP: Using the System and PrintStream Classes</md:title>
+  <md:abstract>Take a preliminary look at the complexity of OOP by examining some aspects of the System and PrintStream classes.</md:abstract>
+  <md:uuid>580aaea5-68da-4788-a208-43b37aaea872</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 11:44:44 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="A_word_about_class_variables">
+
+A word about class variables
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+This module takes a preliminary look at the complexity of OOP by examining some 
+	aspects of the 
+
+<emphasis id="strong1000" effect="bold">
+System
+
+</emphasis>
+ and 
+
+<emphasis id="strong1001" effect="bold">
+PrintStream
+
+</emphasis>
+ classes. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named hello1. 
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Display the string "Hello World". 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+This lesson introduces you to the use of the 
+
+<emphasis id="strong1002" effect="bold">
+System 
+
+</emphasis>
+and 
+
+<emphasis id="strong1003" effect="bold">
+PrintStream
+
+
+</emphasis>
+classes in Java. This is our first introduction to the complexity that can 
+accompany the 
+
+<emphasis id="strong1004" effect="bold">
+OOP 
+
+</emphasis>
+paradigm. It gets a little complicated, so you might 
+need to pay special attention to the discussion. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1005" effect="bold">
+What does the main method do?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+The 
+
+<emphasis id="strong1006" effect="bold">
+main
+
+</emphasis>
+ method in the controlling class of a Java 
+application controls the flow of the program. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+The 
+
+<emphasis id="strong1007" effect="bold">
+main
+
+</emphasis>
+ method can also access other classes along with the 
+variables and methods of those classes and of objects instantiated from those 
+classes. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1008" effect="bold">
+The hello1 Application
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1012" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows a simple Java application named
+
+
+<emphasis id="strong1009" effect="bold">
+hello1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="em1003" effect="italics">
+(By convention, class definitions should begin with an upper-case 
+character. However, the original version of this module was written and 
+published in 1997, before that convention was firmly established.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The program named hello1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File hello1.java Copyright 1997, R.G.Baldwin
+**********************************************************/
+class hello1 { //define the controlling class
+  //define main method
+  public static void main(String[] args){
+    //display text string
+    System.out.println("Hello World");
+  }//end main
+}//End hello1 class.  No semicolon at end of Java class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1011">
+<emphasis id="strong1010" effect="bold">
+Does this program Instantiate objects?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+This is a simple example that does not instantiate objects of any other 
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1011" effect="bold">
+Does this program access another class?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+However, it does access another class. It accesses the 
+
+<emphasis id="strong1012" effect="bold">
+System
+
+</emphasis>
+ 
+class that is provided with the Java development kit. 
+
+<emphasis id="em1004" effect="italics">
+(The 
+
+<emphasis id="strong1013" effect="bold">
+System
+
+</emphasis>
+ class will 
+be discussed in more detail in a future module.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1014" effect="bold">
+The variable named 
+
+<emphasis id="em1005" effect="italics">
+out
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+The variable named 
+
+<emphasis id="strong1015" effect="bold">
+out
+
+</emphasis>
+, referred to in 
+
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ as 
+
+<emphasis id="strong1016" effect="bold">
+System.out
+
+</emphasis>
+, 
+is a 
+
+<emphasis id="em1006" effect="italics">
+class variable
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1017" effect="bold">
+System
+
+</emphasis>
+ class. 
+
+<emphasis id="em1007" effect="italics">
+(A class 
+variable is a variable that is declared to be static.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+Recall that a class variable can be accessed without a requirement to 
+instantiate an object of the class. As is the case with all variables, the class 
+variable must be of some specific type. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1018" effect="bold">
+Primitive variables vs. reference variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+A class variable may be a 
+
+<emphasis id="em1008" effect="italics">
+primitive variable
+
+</emphasis>
+, which contains a 
+primitive value, or it may be a 
+
+<emphasis id="em1009" effect="italics">
+reference 
+variable
+
+</emphasis>
+, which contains a reference to an object. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="em1010" effect="italics">
+(I'll have more to say about the difference between primitive 
+variables and 
+reference variables in a future module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+The variable named 
+
+<emphasis id="strong1019" effect="bold">
+out
+
+</emphasis>
+ in this case is a
+
+
+<emphasis id="em1011" effect="italics">
+reference variable
+
+</emphasis>
+, which refers to an object of another type. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1020" effect="bold">
+Accessing class variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+You access class variables or class methods in Java by joining the name of 
+the class to the name of the variable or method with a period as shown below. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<para id="p1024">
+System.out
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1025">
+accesses the class variable named 
+
+<emphasis id="strong1021" effect="bold">
+out
+
+</emphasis>
+ in the Java class named 
+				
+
+<emphasis id="strong1022" effect="bold">
+System
+
+</emphasis>
+.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1026">
+<emphasis id="strong1023" effect="bold">
+The PrintStream class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+Another class that is provided with the Java development kit is the 
+
+<emphasis id="strong1024" effect="bold">
+
+PrintStream
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1025" effect="bold">
+PrintStream
+
+</emphasis>
+ class is in a 
+package of classes that are used to provide stream input/output capability for Java. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1026" effect="bold">
+What does the out variable refer to?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The 
+
+<emphasis id="strong1027" effect="bold">
+out
+
+</emphasis>
+ variable in the 
+
+<emphasis id="strong1028" effect="bold">
+System
+
+</emphasis>
+ class refers 
+to 
+
+<emphasis id="em1012" effect="italics">
+(points to)
+
+</emphasis>
+ an instance of the 
+
+<emphasis id="strong1029" effect="bold">
+PrintStream
+
+</emphasis>
+ class
+
+
+<emphasis id="em1013" effect="italics">
+(a 
+
+<emphasis id="strong1030" effect="bold">
+PrintStream
+
+</emphasis>
+ object),
+
+</emphasis>
+ which is automatically 
+instantiated when the 
+
+<emphasis id="strong1031" effect="bold">
+System
+
+</emphasis>
+ class is loaded into the 
+application. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+We will be discussing the 
+
+<emphasis id="strong1032" effect="bold">
+PrintStream
+
+</emphasis>
+ class along with a 
+number of other classes in detail in a future module on input/output streams, so 
+this is not intended to be an exhaustive discussion. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1033" effect="bold">
+The println method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The 
+
+<emphasis id="strong1034" effect="bold">
+PrintStream
+
+</emphasis>
+ class has an 
+
+<emphasis id="em1014" effect="italics">
+instance method
+
+</emphasis>
+ named 
+
+<emphasis id="strong1035" effect="bold">
+
+println
+
+</emphasis>
+, which causes its argument to be displayed on the standard 
+output device when it is called. 
+
+</para>
+
+
+
+	
+
+<para id="p1033">
+<emphasis id="em1015" effect="italics">
+(Typically, the standard output device is the command-line window. 
+	However, it is possible to redirect it to some other device.)
+
+</emphasis>
+</para>
+
+
+
+	
+	
+
+<para id="p1034">
+<emphasis id="strong1036" effect="bold">
+Accessing an instance method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The 
+method named 
+
+<emphasis id="strong1037" effect="bold">
+println
+
+</emphasis>
+ can be accessed by joining a 
+
+<emphasis id="strong1038" effect="bold">
+
+PrintStream
+
+</emphasis>
+ object's 
+reference to the name of the method using a period. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Thus, 
+
+<emphasis id="em1016" effect="italics">
+(assuming that the standard output device has not been redirected)
+
+</emphasis>
+, the 
+statement shown in 
+
+<link id="a1014" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ causes the string "Hello 
+World" 
+
+<emphasis id="em1017" effect="italics">
+(without the quotation marks)
+
+</emphasis>
+ to be displayed in the 
+command-line window.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Display the string "Hello 
+				World".
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+System.out.println("Hello World");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1037">
+This statement calls the 
+
+<emphasis id="strong1039" effect="bold">
+println
+
+</emphasis>
+ method of an object 
+	instantiated from 
+	the 
+
+<emphasis id="strong1040" effect="bold">
+PrintStream
+
+</emphasis>
+ class, which is referred to 
+
+<emphasis id="em1018" effect="italics">
+(pointed to)
+
+</emphasis>
+ 
+	by the variable named 
+
+<emphasis id="strong1041" effect="bold">
+out
+
+</emphasis>
+, which is a 
+
+<emphasis id="em1019" effect="italics">
+class variable
+
+</emphasis>
+ 
+	of the 
+
+<emphasis id="strong1042" effect="bold">
+System
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+Read the previous paragraph very carefully. As I indicated when I started this module, this is our first introduction to 
+the complexity that can result from use of the OOP paradigm. 
+
+<emphasis id="em1020" effect="italics">
+(It can get 
+even more complicated.)
+
+</emphasis>
+ If this is not clear to you, go back 
+over it and think about it until it becomes clear. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="A_word_about_class_variables" effect="bold">
+
+A word about class variables
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1043" effect="bold">
+How many instances of a class variable exist?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+The runtime system allocates a class variable only once no matter how many 
+instances 
+
+<emphasis id="em1021" effect="italics">
+(objects)
+
+</emphasis>
+ of the class are instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+All objects of the class share the same physical memory space for the class 
+variable. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+If a method in one object changes the value stored in the class variable, it 
+is changed insofar as all of the objects are concerned. 
+
+<emphasis id="em1022" effect="italics">
+(This is about as 
+close to a global variable as you can get in Java.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1044" effect="bold">
+Accessing a class variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+You can use the name of the class to access class variables by joining the 
+name of the class to the name of the variable using a period. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+You can also access a class variable by joining the name of a reference 
+variable containing an object's reference to the name of the variable using a 
+period as the joining operator.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1045" effect="bold">
+Referencing object methods via class variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+Class variables are either primitive variables or reference variables. 
+
+<emphasis id="em1023" effect="italics">
+
+(Primitive variables contain primitive values and reference variables contain references 
+to objects.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+A referenced object may provide methods to control the behavior of the 
+object. In 
+
+<link id="a1015" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, we accessed the 
+
+<emphasis id="strong1046" effect="bold">
+println
+
+</emphasis>
+ method of 
+an object of the 
+
+<emphasis id="strong1047" effect="bold">
+PrintStream
+
+</emphasis>
+ class 
+referred to by the class variable named 
+
+<emphasis id="strong1048" effect="bold">
+out
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1049" effect="bold">
+Instance variables and methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+As a side note, in addition to class variables, Java provides 
+
+<emphasis id="em1024" effect="italics">
+instance 
+variables
+
+</emphasis>
+ and 
+
+<emphasis id="em1025" effect="italics">
+instance methods
+
+</emphasis>
+. Every instance of a class has its 
+own set of instance variables. You can only access instance variables and 
+instance methods through an object of the class.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+I encourage you to copy the code from 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1052">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1050" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+				
+
+<list id="ul1005" list-type="bulleted">
+
+					
+
+<item id="li1012">
+Module name: Jb0190: Java OOP: Using the System and 
+					PrintStream Classes
+
+</item>
+
+
+					
+
+<item id="li1013">
+File: Jb0190.htm
+
+
+</item>
+
+
+					
+
+<item id="li1014">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1015">
+Published at cnx.org: 11/18/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1051" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1053">
+<emphasis id="strong1052" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1054">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1055">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1056">
+<emphasis id="strong1053" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1057">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

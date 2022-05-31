@@ -1,0 +1,1732 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0140: Java OOP: Java comments</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45140</md:content-id>
+  <md:title>Jb0140: Java OOP: Java comments</md:title>
+  <md:abstract>This module explains Java comments.</md:abstract>
+  <md:uuid>89940e63-cd9c-405f-83fc-e9d7a7f3250d</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Sun Mar 27 20:34:41 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Prerequisites">
+
+Prerequisites
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1006">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1007">
+<link id="a1007" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Comments">
+
+Comments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1002">
+This module is part of a collection of modules designed to help you learn 
+to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+It explains Java comments.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Prerequisites" effect="bold">
+
+Prerequisites
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+In addition to an Internet connection and a browser, you will need the 
+following tools 
+
+<emphasis id="em1003" effect="italics">
+(as a minimum) 
+
+</emphasis>
+to work through the exercises in these 
+modules:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1015">
+The Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1004" effect="italics">
+(See
+	
+
+<link id="a1015" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1016">
+Documentation for the Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1005" effect="italics">
+(See
+	
+
+<link id="a1016" url="http://download.oracle.com/javase/7/docs/api/">
+
+
+	http://download.oracle.com/javase/7/docs/api/
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1017">
+A simple IDE or text editor for use in writing Java code.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+The minimum prerequisites for understanding the material in these modules 
+include:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1018">
+An understanding of algebra.
+
+</item>
+
+
+	
+
+<item id="li1019">
+An understanding of all of the material covered in the earlier modules 
+	in this collection.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1020">
+<link id="a1017" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Three styles of comments. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1021">
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. A multi-line comment.
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Three single-line comments. 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1020" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The program named Comments01.
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1021" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Batch file to compile and run the program named Comments01.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="Discussion" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Comments" effect="bold">
+
+Comments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+Producing and using a Java program consists of the following steps:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1025">
+Write the source code. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+Compile the source code.
+    
+
+</item>
+
+
+	
+
+<item id="li1027">
+Execute the program.
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+The source code consists of a set of instructions that will later be presented to a special program called a compiler for the purpose of producing a program that can be executed.  In other words, when you write the source code, you are writing instructions that the compiler will use to produce the executable program. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1000" effect="bold">
+Some things should be ignored
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Sometimes, when you are writing source code, you would like to include information that may be useful to you, but should be ignored by the compiler.  Information of that sort is called 
+a 
+
+
+<emphasis id="strong1001" effect="bold">
+comment
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1002" effect="bold">
+Three styles of comments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Java supports the three styles of comments shown in 
+
+<link id="a1022" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1000">
+<row id="tr1000">
+<entry id="th1000">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Three styles of comments.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1000">
+<row id="tr1001">
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/** special documentation comment 
+used by the javadoc tool */
+
+/* This is a 
+multi-line comment */
+
+//Single-line comment
+program code // Another single-line comment</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1013">
+<emphasis id="strong1003" effect="bold">
+The javadoc tool
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+The javadoc tool mentioned in 
+
+<link id="a1023" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ is a special program that is used to produce documentation for Java programs.  Comments of this style begin with /** and end with */ as shown in 
+
+<link id="a1024" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+The compiler ignores everything in the source code that begins and ends with this pattern of characters.
+
+Documentation produced using the javadoc program is very useful for on-line or 
+on-screen documentation.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1004" effect="bold">
+Multi-line comments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+Multi-line comments begin with /* and end with */ as shown in 
+
+<link id="a1025" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.  As you have probably already guessed, the compiler also ignores everything in the source code that matches this format.
+
+
+<emphasis id="em1006" effect="italics">
+(A javadoc comment is simply a multi-line comment insofar as the compiler 
+knows. Only the special program named javadoc.exe cares about javadoc comments.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The multi-line comment style is particularly useful for creating large blocks of information that should be ignored by the compiler.  
+This style can be used to produce a comment consisting of a single line of text as well.  However, the single-line comment style discussed in the next section requires less typing. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1005" effect="bold">
+Single-line comments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+Single-line comments begin with // and end at the end of the line.  The compiler  ignores the // and everything following 
+the slash characters to the end of the line.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+This style is particularly useful for inserting short comments throughout the source code.  In this case, the // can appear at the beginning of the line 
+as shown in 
+
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, or can appear anywhere in the line, including at the end of some valid source code
+
+
+<emphasis id="em1007" effect="italics">
+(also shown in 
+
+</emphasis>
+ 
+
+<link id="a1027" target-id="Figure_1">
+
+
+<emphasis id="em1008" effect="italics">
+<link id="a1028" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1009" effect="italics">
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+The purpose of the program named 
+
+<emphasis id="strong1006" effect="bold">
+Comments01
+
+</emphasis>
+, which is shown in
+
+
+<link id="a1029" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+ near the end of the module, is to illustrate the use of single and multi-line comments.  The program does not 
+contain any javadoc comments.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The commands for a batch file that you can use to compile and run this 
+program are provided in 
+
+<link id="a1030" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+When you compile and run the program, the following text should appear on your 
+command-line screen:
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">Hello World </code>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+I will explain this program in fragments, and will explain only those portions of the program that are germane to this 
+module.  Don't worry about the other details of the program 
+at this time.  You will learn about those details in future modules.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1007" effect="bold">
+A multi-line comment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+shows a multi-line comment, which consists of three lines of text.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+As required, this multi-line comment begins with /* and ends with */.  The 
+extra stars on the third line are simply part of the comment.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+You will often see formats similar to this being used to provide a visual separation between multi-line comments and the other parts of a program. 
+
+</para>
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+<row id="tr1002">
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. A multi-line comment.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+<row id="tr1003">
+<entry id="td1001">
+
+
+
+<code id="pre1002" display="block">
+/*File Comments01.java
+This is a multi-line comment.
+*****************************************/
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1008" effect="bold">
+Single-line comments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows three 
+single-line comments. Can you spot them? Remember, single-line comments begin 
+with //.
+
+</para>
+
+
+
+
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1002">
+<row id="tr1004">
+<entry id="th1002">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Three single-line comments.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1002">
+<row id="tr1005">
+<entry id="td1002">
+
+
+
+<code id="pre1003" display="block">
+class Comments01 {
+  //This is a single-line comment 
+  public static void main(String[] args){ 
+    System.out.println("Hello World"); 
+  }//end main 
+}//End class</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1032">
+One of the comments in 
+
+<link id="a1033" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ starts at the 
+beginning of the line. The other two comments follow some program code.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<para id="p1033">
+I encourage you to run the program that I presented in this lesson 
+	to confirm that you get the same results. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+<link id="a1034" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ contains a complete listing of the 
+program named 
+
+<emphasis id="strong1009" effect="bold">
+Comments01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1003">
+<row id="tr1006">
+<entry id="th1003">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The program named Comments01.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1003">
+<row id="tr1007">
+<entry id="td1003">
+
+
+
+<code id="pre1004" display="block">
+/*File Comments01.java
+This is a multi-line comment.
+*****************************************/
+class Comments01 {
+  //This is a single-line comment 
+  public static void main(String[] args){ 
+    System.out.println("Hello World"); 
+  }//end main 
+}//End class</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1035">
+<link id="a1035" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ contains the commands for a batch file that can be used to compile 
+and run the program named 
+
+<emphasis id="strong1010" effect="bold">
+Comments01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1004">
+<row id="tr1008">
+<entry id="th1004">
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Batch file to compile and run the program 
+named Comments01.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1004">
+<row id="tr1009">
+<entry id="td1004">
+
+
+
+<code id="pre1005" display="block">
+echo off
+cls
+
+del *.class
+
+javac -cp .; Comments01.java
+java -cp .; Comments01
+
+pause</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+
+
+<emphasis id="strong1011" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+
+
+<item id="li1028">
+Module name: JJb0140: Java OOP: Java comments
+
+</item>
+
+
+
+
+<item id="li1029">
+File: Jb0140.htm 
+
+</item>
+
+
+
+
+<item id="li1030">
+Published: 11/16/12
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+<emphasis id="strong1012" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1037">
+<emphasis id="strong1013" effect="bold">
+Financial
+
+</emphasis>
+: 
+	Although the Connexions site makes it possible for you to download a PDF 
+	file for this module at no charge, and also makes it possible for you to 
+	purchase a pre-printed version of the PDF file, you should be aware that 
+	some of the HTML elements in this module may not translate well into PDF.
+
+</para>
+
+
+
+	
+
+<para id="p1038">
+I also want you to know that, I receive no financial compensation from 
+	the Connexions website even if you purchase the PDF version of the module.
+
+</para>
+
+
+
+	
+
+<para id="p1039">
+In the past, unknown individuals have copied my modules from cnx.org, 
+	converted them to Kindle books, and placed them for sale on Amazon.com 
+	showing me as the author. I neither receive compensation for those sales nor 
+	do I know who does receive compensation. If you purchase such a book, please 
+	be aware that it is a copy of a module that is freely available on cnx.org 
+	and that it was made and published without my prior knowledge.
+
+</para>
+
+
+
+		
+
+<para id="p1040">
+<emphasis id="strong1014" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+		Information Technology at Austin Community College in Austin, TX.
+		
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1041">
+-end-
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

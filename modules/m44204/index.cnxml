@@ -1,0 +1,3351 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3006: Implementing a space-wise linear color-modification algorithm.</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44204</md:content-id>
+  <md:title>Java3006: Implementing a space-wise linear color-modification algorithm.</md:title>
+  <md:abstract>Learn how to implement a space-wise linear color-modification algorithm.</md:abstract>
+  <md:uuid>b2e81f2a-c268-4749-b985-0080d8608f3c</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Apr 02 16:43:04 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Runtheprogram">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1014" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The raw image. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The modified image. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Text output on the command-line screen.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob03.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob03Runner. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The beginning of the run method. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the for loop. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Compute the column number and scale factors.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Apply the scale factors.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display the modified image.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+The program that I will explain in this module is designed to be used as 
+	a test of the student's understanding of programming using Java and 
+	Ericson's media library.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+The student is provided an image file named 
+
+<emphasis id="strong1000" effect="bold">
+Prob03.jpg
+
+</emphasis>
+ along with a 
+written specification of a space-wise linear image modification algorithm.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1001" effect="bold">
+Implement the algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+The primary purpose of the test is to determine if the student can implement 
+the algorithm and also satisfy some requirements for text output on the command 
+line screen. Among other things, this requires that the student be able to:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Create a 
+
+<emphasis id="strong1002" effect="bold">
+Picture
+
+</emphasis>
+ object from an image file.
+
+</item>
+
+
+	
+
+<item id="li1026">
+Write an 
+
+<emphasis id="em1003" effect="italics">
+accessor
+
+</emphasis>
+ method to return a reference to the 
+
+<emphasis id="strong1003" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object.
+
+</item>
+
+
+	
+
+<item id="li1027">
+Modify the pixels in the picture according to the specified algorithm.
+
+</item>
+
+
+	
+
+<item id="li1028">
+Display the raw picture and the modified picture in 
+
+<emphasis id="strong1004" effect="bold">
+PictureExplorer
+
+</emphasis>
+ 
+	objects by calling the 
+
+<emphasis id="strong1005" effect="bold">
+explore
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1006" effect="bold">
+Picture
+
+</emphasis>
+ object 
+	before and after it is modified.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1007" effect="bold">
+<emphasis id="The_algorithm" effect="bold">
+
+The algorithm
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Scale the blue and green color components by a scale factor that is less than 
+or equal to 1.0. The green scale factor:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Is equal to 1.0 on the left side of the image
+
+</item>
+
+
+	
+
+<item id="li1030">
+Is equal to 0.0 on the right side of the image
+
+</item>
+
+
+	
+
+<item id="li1031">
+Decreases linearly with distance going from left to right across the 
+	image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1011">
+The blue scale factor
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Is 0.0 on the left side of the image
+
+</item>
+
+
+	
+
+<item id="li1033">
+Is 1.0 on the right side of the image
+
+</item>
+
+
+	
+
+<item id="li1034">
+Increases linearly with distance going from left to right across the 
+	image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+Do not scale the red color component.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1008" effect="bold">
+The program output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+The program produces the images shown in 
+
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and produces 
+the output text shown in 
+
+<link id="a1028" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ on the command line screen.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1009" effect="bold">
+<link id="a1029" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1010" effect="bold">
+ - The raw image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+<media id="media1000" alt="A penguin in the snow in front of some houses." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/image-a-0ab8.jpg" width="377" height="404"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+<para id="p1017">
+<emphasis id="Figure_2" effect="bold">
+
+
+<emphasis id="strong1011" effect="bold">
+<link id="a1030" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1012" effect="bold">
+ - The modified image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+<media id="media1001" alt="The penguin image but with color modification. Colors tend to be yellow on the left and purple on the right." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/image-b-7a5b.jpg" width="377" height="404"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Text output on the command-line screen.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">java version "1.6.0_14"
+Java(TM) SE Runtime Environment (build 1.6.0_14-b08)
+Java HotSpot(TM) Client VM (build 14.0-b16, 
+mixed mode, sharing)
+javac 1.6.0_14
+
+Dick Baldwin
+Picture, filename Prob03.jpg height 274 width 365</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1019">
+The required output on the command-line screen is shown by the last two 
+	lines of text in 
+
+<link id="a1031" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. The remaining text in
+	
+
+<link id="a1032" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ was produced by the system during the 
+	compilation and execution process.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1020">
+<emphasis id="strong1013" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+I will explain this program in fragments. A complete listing is provided in
+
+
+<link id="a1033" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+I will begin with the driver class named 
+
+<emphasis id="strong1014" effect="bold">
+Prob03
+
+</emphasis>
+, which is shown in its 
+entirety in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The driver class named Prob03.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Prob03{
+  public static void main(String[] args){
+    Prob03Runner obj = new Prob03Runner();
+    obj.run();
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob03</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1023">
+There is nothing in 
+
+<link id="a1035" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ that I haven't 
+	explained in earlier modules. Therefore, no explanation of the code in 
+
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+	should be required.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1015" effect="bold">
+Beginning of the class named Prob03Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+The class definition for the class named 
+
+<emphasis id="strong1016" effect="bold">
+Prob03Runner
+
+</emphasis>
+ begins in
+
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of the class named Prob03Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob03Runner{
+  //Instantiate the Picture object.
+  private Picture pic = new Picture("Prob03.jpg");
+
+  public Prob03Runner(){//constructor
+    System.out.println("Dick Baldwin");
+  }//end constructor
+  //----------------------------------------------------//
+
+  //Accessor method
+  public Picture getPicture(){return pic;}</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+Once again, there is nothing in
+
+
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ that I haven't explained before. I included 
+	it here simply for the sake of continuity.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1017" effect="bold">
+The beginning of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The 
+
+<emphasis id="strong1018" effect="bold">
+run
+
+</emphasis>
+ method begins in 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The 
+
+<emphasis id="strong1019" effect="bold">
+
+run
+
+</emphasis>
+ method is where 
+most of the interesting action takes place.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The beginning of the run method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public void run(){
+    pic.addMessage("Dick Baldwin",10,20);
+    //Display a PictureExplorer object.
+    pic.explore();
+
+    //Get an array of Pixel objects.
+    Pixel[] pixels = pic.getPixels();
+
+    //Declare working variables
+    Pixel pixel = null;
+    int green = 0;
+    int blue = 0;
+    int width = pic.getWidth();
+    double greenScale = 0;
+    double blueScale = 0;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1029">
+Much of what you see in 
+
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ has been 
+	explained in earlier modules. However, 
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+	does deserve a few comments.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1020" effect="bold">
+Display the raw image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The call to the 
+
+<emphasis id="strong1021" effect="bold">
+explore
+
+</emphasis>
+ method produces the output shown in
+
+
+<link id="a1042" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1022" effect="bold">
+Get an array of Pixel data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+The call to the 
+
+<emphasis id="strong1023" effect="bold">
+getPixels
+
+</emphasis>
+ method in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+returns a reference to a one-dimensional array object. The elements in the array 
+are references to 
+
+<emphasis id="strong1024" effect="bold">
+Pixel
+
+</emphasis>
+ objects, where each 
+
+<emphasis id="strong1025" effect="bold">
+Pixel
+
+</emphasis>
+ object represents a single 
+pixel in the image. I will explain the organization of the pixel data
+
+
+<link id="a1044" url="Java3006old.htm#Organization_of_the_pixel_data">
+
+later
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1026" effect="bold">
+Get the width of the image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The call to the 
+
+<emphasis id="strong1027" effect="bold">
+getWidth
+
+</emphasis>
+ method in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+returns an 
+
+<emphasis id="strong1028" effect="bold">
+int
+
+</emphasis>
+ 
+value that specifies the width of the image in pixels. This value will be used 
+later to compute the column to which each pixel belongs.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1029" effect="bold">
+Local variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+ 
+
+<link id="a1046" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ declares six local variables. The purpose 
+of these variables should become clear during the explanation of the code that 
+implements the algorithm.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1030" effect="bold">
+Implementation of the algorithm
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+The 
+
+<link id="a1047" url="Java3006old.htm#The_algorithm">
+
+algorithm
+
+</link>
+
+ is implemented by 
+the code in a conventional 
+
+<emphasis id="strong1031" effect="bold">
+for
+
+</emphasis>
+ loop, which begins in 
+
+<link id="a1048" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Beginning of the for loop.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    for(int cnt = 0;cnt &lt; pixels.length;cnt++){
+
+      pixel = pixels[cnt];
+      
+      green = pixel.getGreen();
+      
+      blue = pixel.getBlue();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1040">
+The loop iterates through the array of 
+
+<emphasis id="strong1032" effect="bold">
+Pixel
+
+</emphasis>
+ data, modifying the 
+	colors in one pixel during each iteration.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1033" effect="bold">
+The length property of the array object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+Every array object in Java contains a 
+
+<emphasis id="strong1034" effect="bold">
+length
+
+</emphasis>
+ property that contains 
+the number of elements in the array. The value of this property is used in the 
+conditional clause in the 
+
+<emphasis id="strong1035" effect="bold">
+for
+
+</emphasis>
+ loop in 
+
+<link id="a1049" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+ to establish when the end of the array has been reached in order 
+to terminate the loop.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1036" effect="bold">
+Get reference to the next Pixel object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1044">
+The first statement inside the 
+
+<emphasis id="strong1037" effect="bold">
+for
+
+</emphasis>
+ loop in 
+
+<link id="a1050" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+ gets a reference to a 
+
+<emphasis id="strong1038" effect="bold">
+Pixel
+
+</emphasis>
+ object from the next array element. That reference is stored 
+in the local variable of type 
+
+<emphasis id="strong1039" effect="bold">
+Pixel
+
+</emphasis>
+ named 
+
+<emphasis id="strong1040" effect="bold">
+pixel
+
+</emphasis>
+ that was declared 
+in 
+
+<link id="a1051" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1041" effect="bold">
+Get the red and green color values for the current pixel
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+Having gotten a reference to the 
+
+<emphasis id="strong1042" effect="bold">
+Pixel
+
+</emphasis>
+ object, the next statement 
+calls the 
+
+<emphasis id="strong1043" effect="bold">
+getGreen
+
+</emphasis>
+ method on that reference to get and save the value of 
+the green color component in the current pixel.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Similarly, the statement following that one gets and saves the value of the 
+blue color component in the current pixel.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+Both values are returned as type 
+
+<emphasis id="strong1044" effect="bold">
+int
+
+</emphasis>
+, and can range in value from 0 up 
+to and including 255.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1045" effect="bold">
+Objective is to scale the green and blue color values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+Recall that the objective is to scale the green and blue color values on a 
+column by column basis, going from left to right across the image shown in
+
+
+<link id="a1052" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ in order to produce the output image shown in
+
+
+<link id="a1053" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1046" effect="bold">
+<emphasis id="Organization_of_the_pixel_data" effect="bold">
+
+Organization of the pixel data
+
+</emphasis>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+The pixel data is stored in the array on a row by row basis. In other words, 
+the first 
+
+<emphasis id="strong1047" effect="bold">
+width
+
+</emphasis>
+ elements contain references to pixels in the first row of 
+pixels going from left to right across the screen. The next 
+
+<emphasis id="strong1048" effect="bold">
+width
+
+</emphasis>
+ 
+elements contain references to pixels in the second row of pixels, etc.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1049" effect="bold">
+Compute the column number and scale factors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+<link id="a1054" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ uses the modulus operator to compute the 
+column number for each 
+
+<emphasis id="strong1050" effect="bold">
+Pixel
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Compute the column number and scale factors.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">      //Compute the column number and use it to compute
+      // the scale factor.
+      int col = cnt%width;
+      
+      greenScale = (double)(width - col)/width;
+      blueScale = (double)(col)/width;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1055">
+<emphasis id="strong1051" effect="bold">
+An exercise for the student
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+Knowing the column number in which the pixel is located, the next step is to 
+compute the green and blue scale factors necessary to satisfy the algorithm.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+I will leave it as an exercise for the student to think about how the 
+expressions contained in the last two statements in 
+
+<link id="a1055" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+ cause the two scale factors to vary linearly from left to right across the 
+image in accordance with the requirements of the algorithm. 
+
+<emphasis id="em1004" effect="italics">
+(Think about the 
+equation of a straight line from your high school math classes.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1052" effect="bold">
+Apply the scale factors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+The 
+
+<emphasis id="strong1053" effect="bold">
+Pixel
+
+</emphasis>
+ class contains methods named 
+
+<emphasis id="strong1054" effect="bold">
+setRed
+
+</emphasis>
+, 
+
+<emphasis id="strong1055" effect="bold">
+setGreen
+
+</emphasis>
+, 
+and 
+
+<emphasis id="strong1056" effect="bold">
+setBlue
+
+</emphasis>
+ that can be called to set the color values for the pixel 
+represented by a 
+
+<emphasis id="strong1057" effect="bold">
+Pixel
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<link id="a1056" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ computes new values for the red and green 
+components based on the existing color values for the pixel and the scale 
+factors computed in 
+
+<link id="a1057" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Apply the scale factors.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">      pixel.setGreen((int)(green * greenScale));
+      pixel.setBlue((int)(blue * blueScale));
+    }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+Then 
+
+<link id="a1058" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1058" effect="bold">
+setGreen
+
+</emphasis>
+ and 
+
+<emphasis id="strong1059" effect="bold">
+setBlue
+
+</emphasis>
+ methods on 
+	the 
+
+<emphasis id="strong1060" effect="bold">
+Pixel
+
+</emphasis>
+ object to set the green and blue color values to the newly 
+	computed values.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1061" effect="bold">
+The end of the for loop
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+<link id="a1059" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1062" effect="bold">
+for
+
+</emphasis>
+ 
+loop that began in 
+
+<link id="a1060" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1063" effect="bold">
+Display the modified image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+Finally, 
+
+<link id="a1061" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1064" effect="bold">
+explore
+
+</emphasis>
+ method 
+again to display the image shown in 
+
+<link id="a1062" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Display the modified image.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">    pic.explore();
+
+  }//end run method
+}//end class Prob03Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1066">
+<emphasis id="strong1065" effect="bold">
+The end of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+ 
+
+<link id="a1063" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1066" effect="bold">
+run
+
+</emphasis>
+ method and the end of the 
+
+<emphasis id="strong1067" effect="bold">
+
+Prob03Runner
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1068" effect="bold">
+Return control to main
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The 
+
+<emphasis id="strong1069" effect="bold">
+run
+
+</emphasis>
+ method terminates and returns control to the 
+
+<emphasis id="strong1070" effect="bold">
+main
+
+</emphasis>
+ 
+method shown in 
+
+<link id="a1064" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1070">
+The code in the 
+
+<emphasis id="strong1071" effect="bold">
+main
+
+</emphasis>
+ method calls a 
+
+<emphasis id="em1005" effect="italics">
+getter
+
+</emphasis>
+ method to get a 
+reference to the 
+
+<emphasis id="strong1072" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+The reference is passed to the 
+
+<emphasis id="strong1073" effect="bold">
+println
+
+</emphasis>
+ method, which displays the 
+information about the 
+
+<emphasis id="strong1074" effect="bold">
+Picture
+
+</emphasis>
+ object in the last line of
+
+
+<link id="a1065" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1075" effect="bold">
+The program terminates
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Then the 
+
+<emphasis id="strong1076" effect="bold">
+main
+
+</emphasis>
+ method terminates, at which time the program terminates 
+and returns control to the operating system.
+
+</para>
+
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Runtheprogram" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1074">
+I encourage you to copy the code from 
+
+<link id="a1066" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+, 
+compile it and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+
+	
+
+<para id="p1075">
+You can download a copy of the required input image file
+	
+
+<link id="a1067" url="Prob03.jpg">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1076">
+In this module, I showed you how to implement an algorithm that causes the 
+green and blue color values in an image to change in a linear fashion going from 
+left to right across the image.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1077">
+You will learn more about abstract methods, abstract classes, and overridden methods 
+in the next lesson.  Very importantly, you will learn more about overriding the 
+
+
+<emphasis id="strong1077" effect="bold">
+toString
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1035">
+<link id="a1068" url="http://www.youtube.com/playlist?list=PL43014B9ED4419642">
+
+ITSE 
+	2321 Lecture 03
+
+</link>
+
+
+<list id="ul1010" list-type="bulleted">
+
+		
+
+<item id="li1036">
+<link id="a1069" url="http://www.youtube.com/watch?v=pdqKvAuzkhg">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1070" url="http://www.youtube.com/watch?v=aXoSD7oauLQ">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1071" url="http://www.youtube.com/watch?v=1iRiXhTPmMU">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1079">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1078" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1039">
+Module name: Java OOP: Implementing a space-wise linear color-modification algorithm
+
+</item>
+
+
+					
+
+<item id="li1040">
+File: Java3006.htm
+
+
+</item>
+
+
+					
+
+<item id="li1041">
+Published: 07/30/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1079" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1080">
+<emphasis id="strong1080" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1081">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1082">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1083">
+<emphasis id="strong1081" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1072" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1008">
+
+
+
+<row id="tr1016">
+
+
+
+<entry id="th1008">
+
+
+
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1082" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1008">
+
+
+
+<row id="tr1017">
+
+
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">/*File Prob03 Copyright 2008 R.G.Baldwin
+*********************************************************/
+
+public class Prob03{
+  public static void main(String[] args){
+    Prob03Runner obj = new Prob03Runner();
+    obj.run();
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob03
+//======================================================//
+
+class Prob03Runner{
+  //Instantiate the Picture object.
+  private Picture pic = new Picture("Prob03.jpg");
+
+  public Prob03Runner(){//constructor
+    System.out.println("Dick Baldwin");
+  }//end constructor
+  //----------------------------------------------------//
+
+  //Accessor method
+  public Picture getPicture(){return pic;}
+  //----------------------------------------------------//
+
+  //This method is where the action is.
+  public void run(){
+    pic.addMessage("Dick Baldwin",10,20);
+    //Display a PictureExplorer object.
+    pic.explore();
+
+    //Get an array of Pixel objects.
+    Pixel[] pixels = pic.getPixels();
+
+    //Declare working variables
+    Pixel pixel = null;
+    int green = 0;
+    int blue = 0;
+    int width = pic.getWidth();
+    double greenScale = 0;
+    double blueScale = 0;
+
+    //Scale the blue and green color components according
+    // to the algorithm given above.
+    //Do not scale the red component.
+    for(int cnt = 0;cnt &lt; pixels.length;cnt++){
+      //Get blue and green values for current pixel.
+      pixel = pixels[cnt];
+      green = pixel.getGreen();
+      blue = pixel.getBlue();
+
+      //Compute the column number and use it to compute
+      // the scale factor.
+      int col = cnt%width;
+      greenScale = (double)(width - col)/width;
+      blueScale = (double)(col)/width;
+
+      //Apply the scale factor.
+      pixel.setGreen((int)(green * greenScale));
+      pixel.setBlue((int)(blue * blueScale));
+    }//end for loop
+
+    //Display a PictureExplorer object.
+    pic.explore();
+
+  }//end run method
+}//end class Prob03Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1085">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

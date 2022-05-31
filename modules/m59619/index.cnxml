@@ -1,0 +1,4559 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java090  Scrollbar (Adjustment) Event Handling</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m59619</md:content-id>
+  <md:title>Java090  Scrollbar (Adjustment) Event Handling</md:title>
+  <md:abstract>Event handling on a Scrollbar object differs from the event handling explained in previous lessons in several respects. This lesson explains those differences.</md:abstract>
+  <md:uuid>b5763a74-e818-46f5-bfd8-f05f26452f87</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Jul 11 13:04:48 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="Overview">
+
+Overview
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="The_sample_program">
+
+The sample program
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1010">
+<link id="a1010" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listings">
+
+Complete program listing
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Review">
+
+Review
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the 
+	
+
+<link id="a1015" url="http://cnx.org/contents/Rl23r3Lw:qfO9iJX-">
+
+Event Handling
+
+</link>
+
+ 
+	section of the book titled
+	
+
+<link id="a1016" url="http://cnx.org/contents/Rl23r3Lw:JVTd7bX1">
+
+ITSE2317 - Java Programming (Intermediate)
+
+</link>
+
+. The 
+	
+
+<emphasis id="strong1000" effect="bold">
+Event Handling
+
+</emphasis>
+ section explains how to write programs that handle 
+	events in Java. 
+
+</para>
+
+
+
+
+
+
+<para id="p1003">
+Students in Prof. Baldwin's 
+
+<emphasis id="strong1001" effect="bold">
+ITSE 2317 Intermediate Java Programming
+
+</emphasis>
+ 
+classes at ACC are responsible for knowing and understanding all of the material 
+in this lesson. 
+
+</para>
+
+
+
+	
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1004">
+Note: An object of the 
+
+<emphasis id="strong1002" effect="bold">
+JSlider
+
+</emphasis>
+ class in Java 8 can be used for some 
+
+
+<emphasis id="em1003" effect="italics">
+(but no all)
+
+</emphasis>
+ of the purposes that 
+a 
+
+<emphasis id="strong1003" effect="bold">
+Scrollbar
+
+</emphasis>
+ object may have been used for in the early days of 
+Java. 
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+
+
+<item id="li1015">
+<link id="a1017" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Graphic screen output for Event18.
+
+
+</item>
+
+
+
+
+<item id="li1016">
+<link id="a1018" target-id="Figure_2">
+
+Figure 2.
+
+</link>
+
+
+ Output produced by clicking right scrollbar 
+button.
+
+
+</item>
+
+
+
+
+<item id="li1017">
+<link id="a1019" target-id="Figure_3">
+
+Figure 3.
+
+</link>
+
+
+ Graphic screen output from SampProg125.java.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+
+
+<item id="li1018">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1.
+
+</link>
+
+
+ The controlling class for Event18.java.
+
+
+</item>
+
+
+
+
+<item id="li1019">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2.
+
+</link>
+
+
+ Beginning of the GUI class.
+
+
+</item>
+
+
+
+
+<item id="li1020">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3.
+
+</link>
+
+
+ Beginning of the constructor for the GUI 
+class.
+
+
+</item>
+
+
+
+
+<item id="li1021">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4.
+
+</link>
+
+
+ Set the unit and block increments.
+
+
+</item>
+
+
+
+
+<item id="li1022">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5.
+
+</link>
+
+
+ Complete the GUI.
+
+
+</item>
+
+
+
+
+<item id="li1023">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6.
+
+</link>
+
+
+ Beginning of class that implements 
+AdjustmentListener.
+
+
+</item>
+
+
+
+
+<item id="li1024">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7.
+
+</link>
+
+
+ Beginning of the adjustmentValueChanged 
+method.
+
+
+</item>
+
+
+
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8.
+
+</link>
+
+
+ Get and display the value of the scrollbar.
+
+
+</item>
+
+
+
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9.
+
+</link>
+
+
+ Complete listing of the program named 
+	Event18.java.
+
+
+</item>
+
+
+
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10.
+
+</link>
+
+
+ Complete listing of the program named SampProg125.java.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+JDK 1.1 was formally released on February 18, 1997. This lesson was 
+originally written on February 21, 1997 using the software in JDK 1.1. It was 
+upgraded to JDK 1.2 on 12/18/98. It was converted to CNXML with minor updates for publication on 
+OpenStax on 07/11/16.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Overview" effect="bold">
+
+Overview
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1007">
+Event handling on a 
+
+<emphasis id="strong1004" effect="bold">
+Scrollbar 
+
+</emphasis>
+object differs from the 
+	event handling in previous lessons in several respects. The 
+	following paragraphs 
+	contrast the 
+
+<emphasis id="strong1005" effect="bold">
+Scrollbar 
+
+</emphasis>
+with the 
+
+<emphasis id="strong1006" effect="bold">
+Mouse
+
+</emphasis>
+ in order to illustrate 
+	some of the differences. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+To create a listener object for the mouse, you either implement the 
+
+<emphasis id="strong1007" effect="bold">
+
+MouseListener 
+
+</emphasis>
+interface, or you extend the 
+
+<emphasis id="strong1008" effect="bold">
+MouseAdapter 
+
+</emphasis>
+
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+However, to create a listener object for a 
+
+<emphasis id="strong1009" effect="bold">
+Scrollbar
+
+</emphasis>
+, you do 
+not implement a 
+
+<emphasis id="em1004" effect="italics">
+ScrollbarListener 
+
+</emphasis>
+interface or extend a 
+
+<emphasis id="em1005" effect="italics">
+
+ScrollbarAdapter 
+
+</emphasis>
+class, because they do not exist. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Instead, you implement the 
+
+<emphasis id="strong1010" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface. The 
+single method declared in the 
+
+<emphasis id="strong1011" effect="bold">
+AdjustmentListener
+
+</emphasis>
+ interface receives an
+
+
+<emphasis id="strong1012" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ object as a parameter. This is one of the 
+
+<emphasis id="em1006" effect="italics">
+
+semantic
+
+</emphasis>
+ events 
+
+<emphasis id="em1007" effect="italics">
+(as opposed to low-level events) 
+
+</emphasis>
+similar to
+
+
+<emphasis id="strong1013" effect="bold">
+ActionEvent
+
+</emphasis>
+, 
+
+<emphasis id="strong1014" effect="bold">
+ItemEvent
+
+</emphasis>
+, and 
+
+<emphasis id="strong1015" effect="bold">
+TextEvent.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1011">
+As mentioned above, there is no 
+
+<emphasis id="em1008" effect="italics">
+AdjustmentAdapter
+
+</emphasis>
+ class. It isn't needed 
+because the 
+
+<emphasis id="strong1016" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface declares only one 
+method, which is shown below:
+
+</para>
+
+
+
+	
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<code id="pre1000" display="block">
+public abstract void adjustmentValueChanged(AdjustmentEvent e) 
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1012">
+The 
+
+<emphasis id="strong1017" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+ method is invoked when the 
+value of the adjustable object 
+
+<emphasis id="em1009" effect="italics">
+(the Scrollbar object in this lesson)
+
+</emphasis>
+ has changed.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Recall also that there are five different types of mouse events declared in 
+the 
+
+<emphasis id="strong1018" effect="bold">
+MouseListener 
+
+</emphasis>
+interface: 
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1028">
+mouseClicked,
+
+</item>
+
+
+	
+
+<item id="li1029">
+mouseEntered,
+
+</item>
+
+
+	
+
+<item id="li1030">
+mouseExited,
+
+</item>
+
+
+	
+
+<item id="li1031">
+mousePressed
+
+</item>
+
+
+	
+
+<item id="li1032">
+mouseReleased.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1014">
+There are two additional types of 
+mouse events that are declared in the 
+
+<emphasis id="strong1019" effect="bold">
+MouseMotionListener 
+
+</emphasis>
+
+interface: 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1033">
+mouseDragged
+
+</item>
+
+
+	
+
+<item id="li1034">
+mouseMoved
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1015">
+Each of these different types of mouse events is represented by a method 
+declaration in one or the other of the two interfaces defined for creating 
+listener classes for mouse activity. You 
+
+<emphasis id="em1010" effect="italics">
+override the method(s)
+
+</emphasis>
+ for 
+those types of events which interest you. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+There are five different types of adjustment events that correspond to the 
+five ways of moving the bubble in a 
+
+<emphasis id="strong1020" effect="bold">
+Scrollbar
+
+</emphasis>
+ object. However, 
+as mentioned above, there is only one method declared in the 
+
+<emphasis id="strong1021" effect="bold">
+
+AdjustmentListener
+
+</emphasis>
+ interface. It is named 
+
+<emphasis id="strong1022" effect="bold">
+
+adjustmentValueChanged
+
+</emphasis>
+. It receives an object of type 
+
+<emphasis id="strong1023" effect="bold">
+
+AdjustmentEvent 
+
+</emphasis>
+as a parameter when invoked. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+The type of event is encoded into the object that is passed in as a parameter 
+along with other information such as the 
+
+<emphasis id="em1011" effect="italics">
+value
+
+</emphasis>
+<emphasis id="strong1024" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1025" effect="bold">
+
+Scrollbar 
+
+</emphasis>
+and the 
+
+<emphasis id="em1012" effect="italics">
+name
+
+</emphasis>
+<emphasis id="strong1026" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1027" effect="bold">
+Scrollbar
+
+
+</emphasis>
+object. The 
+
+<emphasis id="em1013" effect="italics">
+value
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1028" effect="bold">
+Scrollbar
+
+</emphasis>
+ is 
+determined by the position of the bubble on the 
+
+<emphasis id="strong1029" effect="bold">
+Scrollbar
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The 
+
+<emphasis id="strong1030" effect="bold">
+AdjustmentEvent 
+
+</emphasis>
+class defines several methods that can 
+be used to extract information from the object in case you need access to that 
+information. This is discussed in more detail later. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The types of adjustment events 
+
+<emphasis id="em1014" effect="italics">
+(corresponding to physical methods of moving 
+the bubble on the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1031" effect="bold">
+<emphasis id="em1015" effect="italics">
+Scrollbar
+
+</emphasis>
+</emphasis>
+) are defined as static variables in 
+the 
+
+<emphasis id="strong1032" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ class. 
+
+<emphasis id="em1016" effect="italics">
+(This is similar to the approach used in the earlier 
+event model in JDK 1.0.2.)
+
+</emphasis>
+ The five different types of adjustment events and 
+their relationship to moving the bubble are: 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1035">
+<emphasis id="strong1033" effect="bold">
+UNIT_INCREMENT
+
+</emphasis>
+ - click button on one end of the Scrollbar
+	
+
+</item>
+
+
+	
+
+<item id="li1036">
+<emphasis id="strong1034" effect="bold">
+UNIT_DECREMENT
+
+</emphasis>
+ - click button on the other end of the Scrollbar
+	
+
+</item>
+
+
+	
+
+<item id="li1037">
+<emphasis id="strong1035" effect="bold">
+BLOCK_INCREMENT
+
+</emphasis>
+ - click in space between bubble and one button
+	
+
+</item>
+
+
+	
+
+<item id="li1038">
+<emphasis id="strong1036" effect="bold">
+BLOCK_DECREMENT
+
+</emphasis>
+ - click in space between bubble and other button
+	
+
+</item>
+
+
+	
+
+<item id="li1039">
+<emphasis id="strong1037" effect="bold">
+TRACK
+
+</emphasis>
+ - drag the bubble 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+As indicated, the two 
+
+<emphasis id="em1017" effect="italics">
+UNIT
+
+</emphasis>
+ types are generated by clicking on the buttons at 
+either end of the Scrollbar. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The two 
+
+<emphasis id="em1018" effect="italics">
+BLOCK
+
+</emphasis>
+ types are generated by clicking interior to the 
+
+
+<emphasis id="strong1038" effect="bold">
+Scrollbar
+
+</emphasis>
+ on 
+either side of the bubble. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The 
+
+<emphasis id="em1019" effect="italics">
+TRACK
+
+</emphasis>
+ event is generated by dragging the bubble. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+Methods are available for setting various parameters of the 
+
+<emphasis id="strong1039" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+including the range, the width of the bubble 
+
+<emphasis id="em1020" effect="italics">
+(alternately referred to in the 
+documentation as page size or visible
+
+</emphasis>
+), the size of the unit 
+and block increments or decrements, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+One might surmise that this rather general purpose adjustment 
+approach was defined to support a family of components that operate on an 
+adjustment basis. However, a quick search of the index in the JDK 1.1.3 
+documentation package did not identify any other components that use the 
+adjustment interface. Perhaps other adjustable objects are planned for future 
+versions of the AWT. 
+
+
+<emphasis id="em1021" effect="italics">
+(Note that as of Java 8, the 
+
+<emphasis id="strong1040" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface is also implemented by the 
+
+<emphasis id="strong1041" effect="bold">
+AWTEventMulticaster
+
+</emphasis>
+ class. 
+However, that class is not discussed in this lesson.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="The_sample_program" effect="bold">
+
+The sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1025">
+This section presents a discussion of the program followed by the program 
+listing. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+This program places a 
+
+<emphasis id="strong1042" effect="bold">
+Scrollbar 
+
+</emphasis>
+object and a 
+
+<emphasis id="strong1043" effect="bold">
+
+TextField 
+
+</emphasis>
+object in a 
+
+<emphasis id="strong1044" effect="bold">
+Frame
+
+</emphasis>
+ object as shown in 
+
+<link id="a1030" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Graphic screen output for Event18.
+
+
+<para id="p1027">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/event18a.jpg" width="301" height="76"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1028">
+Whenever the 
+
+<emphasis id="em1022" effect="italics">
+bubble
+
+
+</emphasis>
+in the 
+
+<emphasis id="strong1045" effect="bold">
+Scrollbar 
+
+</emphasis>
+is moved using any of the five available 
+physical methods for moving the bubble, the 
+
+<emphasis id="em1023" effect="italics">
+value
+
+</emphasis>
+ of the
+
+
+<emphasis id="strong1046" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+
+<emphasis id="em1024" effect="italics">
+(which normally should represent the position of the 
+center of the bubble
+
+</emphasis>
+) is extracted from the event object and displayed 
+in the TextField object. 
+
+<emphasis id="em1025" effect="italics">
+(Certain arithmetic corrections are required to cause 
+the value to represent the center of the bubble because the actual value 
+returned represents the left-hand edge of the bubble for a horizontal 
+
+</emphasis>
+ 
+
+<emphasis id="strong1047" effect="bold">
+
+
+
+<emphasis id="em1026" effect="italics">
+Scrollbar
+
+</emphasis>
+</emphasis>
+<emphasis id="em1027" effect="italics">
+.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Also, whenever the bubble is moved, several other pieces of information are 
+extracted from the object and displayed on the command-line screen. This includes the 
+identification of the adjustable object and the type of adjustable event. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+Note also that although five different initialization parameters are included 
+as parameters to the 
+
+<emphasis id="strong1048" effect="bold">
+Scrollbar 
+
+</emphasis>
+constructor, other important 
+initialization parameters such as 
+
+<emphasis id="strong1049" effect="bold">
+BlockIncrement
+
+</emphasis>
+ and 
+
+<emphasis id="strong1050" effect="bold">
+
+UnitIncrement
+
+</emphasis>
+ are not included in the parameter list. They must be set 
+following instantiation using methods such as 
+
+<emphasis id="strong1051" effect="bold">
+setBlockIncrement
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1031">
+Experimentation indicates that the default value for 
+
+<emphasis id="strong1052" effect="bold">
+BlockIncrement
+
+</emphasis>
+ 
+is ten units and the default value for 
+
+<emphasis id="strong1053" effect="bold">
+UnitIncrement
+
+</emphasis>
+ is one 
+unit. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Reiterating what was mentioned earlier, the 
+
+<emphasis id="strong1054" effect="bold">
+Scrollbar
+
+</emphasis>
+ listener object is not 
+added as a 
+
+<emphasis id="em1028" effect="italics">
+ScrollbarListener 
+
+</emphasis>
+but rather is defined by implementing the
+
+
+<emphasis id="strong1055" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface and then added as an 
+
+<emphasis id="strong1056" effect="bold">
+
+AdjustmentListener
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1057" effect="bold">
+AdjustmentListener
+
+</emphasis>
+ interface declares only one method 
+that may be overridden: 
+
+<emphasis id="strong1058" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+This method receives an object of type 
+
+<emphasis id="strong1059" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ that
+
+
+<emphasis id="em1029" effect="italics">
+(as of Java 8)
+
+</emphasis>
+ 
+provides five methods that can be used to obtain information about the event.
+
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1040">
+The 
+
+<emphasis id="strong1060" effect="bold">
+getAdjustable
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1061" effect="bold">
+
+	AdjustmentEvent
+
+</emphasis>
+ class returns information containing the 
+	identification of the object that generated the event.
+
+</item>
+
+
+	
+
+<item id="li1041">
+The 
+
+<emphasis id="strong1062" effect="bold">
+getAdjustmentType
+
+</emphasis>
+ method returns information 
+	containing the identification of the type of event (click the buttons on the 
+	Scrollbar, drag the bubble, etc.).
+
+</item>
+
+
+	
+
+<item id="li1042">
+The 
+
+<emphasis id="strong1063" effect="bold">
+paramString
+
+</emphasis>
+ method contains a variety of 
+	information which overlaps the two above methods to some extent.
+
+</item>
+
+
+	
+
+<item id="li1043">
+The 
+
+<emphasis id="strong1064" effect="bold">
+getValue
+
+</emphasis>
+ method returns the value produced by the 
+	adjustment.
+
+</item>
+
+
+	
+
+<item id="li1044">
+The 
+
+<emphasis id="strong1065" effect="bold">
+getValueIsAdjusting
+
+</emphasis>
+ method returns true if this is 
+	one of multiple adjustment events. 
+
+<emphasis id="em1030" effect="italics">
+(This method was not defined in the 
+	class when this lesson was originally written in 1997.)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1035">
+Three of these five methods are used in the following program. The 
+
+<emphasis id="strong1066" effect="bold">
+
+paramString
+
+</emphasis>
+ and 
+
+<emphasis id="strong1067" effect="bold">
+getValueIsAdjusting
+
+</emphasis>
+ methods are not used. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+There are many important comments in the program that 
+add to this discussion, particularly with respect to bugs in the 
+
+<emphasis id="strong1068" effect="bold">
+
+Scrollbar
+
+</emphasis>
+ component, and arithmetic adjustments required to compensate 
+for the width of the bubble. 
+
+<emphasis id="em1031" effect="italics">
+(Note, however, that the comments related to 
+bugs may no longer apply in Java 8 and beyond.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+I will discuss and explain this program in fragments. A complete listing is 
+provided in 
+
+<link id="a1031" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<link id="a1032" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ shows the controlling class that contains the requisite 
+
+<emphasis id="strong1069" effect="bold">
+main
+
+</emphasis>
+ method. The 
+
+<emphasis id="strong1070" effect="bold">
+main
+
+</emphasis>
+ method 
+instantiates an object of type 
+
+<emphasis id="strong1071" effect="bold">
+GUI
+
+</emphasis>
+ where all of the work is 
+done.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1.
+
+</emphasis>
+
+ The controlling class for Event18.java.
+
+
+<code id="pre1001" display="block">
+import java.awt.*;
+import java.awt.event.*;
+
+class Event18{
+  public static void main(String[] args){
+    GUI gui = new GUI(); 
+  }//end main
+}//end class Event18
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1039">
+<link id="a1033" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ shows the beginning of the 
+
+<emphasis id="strong1072" effect="bold">
+GUI
+
+</emphasis>
+ class along 
+with some instance variables used later in the program.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2.
+
+</emphasis>
+
+ Beginning of the GUI class.
+
+
+<code id="pre1002" display="block">
+class GUI{
+  Scrollbar myScrollbar;
+  TextField displayWindow;
+  int bubbleWidth;//needs to be accessible by event handler
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1040">
+<link id="a1034" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+ shows the beginning of the constructor for the 
+
+<emphasis id="strong1073" effect="bold">
+GUI
+
+</emphasis>
+ 
+class. The constructor begins by instantiating a 
+
+<emphasis id="strong1074" effect="bold">
+Frame
+
+</emphasis>
+ object 
+to serve as a top-level window for the application.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3.
+
+</emphasis>
+
+ Beginning of the constructor for the GUI 
+class.
+
+
+<code id="pre1003" display="block">
+  GUI(){
+    Frame myFrame = new Frame("Copyright 1997, R.G.Baldwin");
+
+    bubbleWidth = 20;
+    int initialPosition = 50 - bubbleWidth/2;
+    int min = 0 - bubbleWidth/2;
+    int max = 100 + bubbleWidth/2;
+    myScrollbar = new Scrollbar(Scrollbar.HORIZONTAL, 
+                     initialPosition, bubbleWidth, min, max);
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1041">
+This is followed by instantiation of a horizontal 
+
+<emphasis id="strong1075" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+object with a range from 0 to 100, an initial position at 50, a bubble width 
+
+<emphasis id="em1032" effect="italics">
+(page 
+size) 
+
+</emphasis>
+of 20, a unit increment of 2 
+
+<emphasis id="em1033" effect="italics">
+(see 
+
+<link id="a1035" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+)
+
+</emphasis>
+, and a block increment of 15
+
+
+<emphasis id="em1034" effect="italics">
+(see 
+
+<link id="a1036" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The 
+
+<emphasis id="strong1076" effect="bold">
+Scrollbar
+
+</emphasis>
+ component does not center the bubble on the value. 
+Rather, the left edge of the bubble is lined up with the value. The result is 
+that values in the upper end of the range cannot be reached unless appropriate 
+adjustments are made using half the bubble width. This distributes the 
+unreachable values at each end of the Scrollbar. You can then set the 
+
+<emphasis id="em1035" effect="italics">
+min
+
+</emphasis>
+ and 
+
+
+<emphasis id="em1036" effect="italics">
+max
+
+</emphasis>
+ values to extend beyond the desired values by one-half the bubble width.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1037" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ sets the unit increment to 2 and the block increment to 15. 
+The unit increment is the amount of change resulting from clicking a button on 
+the end of the 
+
+<emphasis id="strong1077" effect="bold">
+Scrollbar
+
+</emphasis>
+. The block increment is the amount of change resulting 
+from clicking between the bubble and the button on the end.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4.
+
+</emphasis>
+
+ Set the unit and block increments.
+
+
+<code id="pre1004" display="block">
+    myScrollbar.setBlockIncrement(15);
+    myScrollbar.setUnitIncrement(2);
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1044">
+The code in 
+
+<link id="a1038" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ should be very 
+familiar to you by now. It really isn't very interesting at this point, and is 
+included in this section solely for completeness.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5.
+
+</emphasis>
+
+ Complete the GUI.
+
+
+<code id="pre1005" display="block">
+    displayWindow = new TextField("Initial Text");
+    displayWindow.setEditable(false);//make non-editable
+
+    //add components to the GUI
+    myFrame.add("South", myScrollbar); 
+    myFrame.add("North", displayWindow);
+    myFrame.setSize(300,75);
+    myFrame.setVisible(true);
+
+    //Instantiate a listener object for the Scrollbar and 
+    // register it to receive notification of adjustment 
+    // events.    
+    MyScrollbarListener myScrollbarListener = 
+      new MyScrollbarListener(this);    
+    //Note that the Scrollbar listener is not added as a 
+    // ScrollbarListener but rather is added as an 
+    // AdjustmentListener.
+    myScrollbar.addAdjustmentListener(myScrollbarListener);
+
+    //Close Frame to terminate.    
+    myFrame.addWindowListener(new MyWindowListener());
+  }//end constructor
+}//end class GUI
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1045">
+This fragment creates the display window using a 
+
+<emphasis id="strong1078" effect="bold">
+
+TextField
+
+</emphasis>
+ object. It also adds the two components to the 
+
+<emphasis id="strong1079" effect="bold">
+Frame
+
+</emphasis>
+, 
+sets the size of the 
+
+<emphasis id="strong1080" effect="bold">
+Frame
+
+</emphasis>
+, and makes the whole thing visible.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The fragment also includes typical code to instantiate a 
+listener object for the 
+
+<emphasis id="strong1081" effect="bold">
+Scrollbar
+
+</emphasis>
+ and register it to receive 
+notification of adjustment events.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+This is followed by typical code to register a window listener 
+to terminate the program when the user clicks the close box on the 
+
+<emphasis id="strong1082" effect="bold">
+Frame
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+That ends the constructor and also ends the definition of the
+
+
+<emphasis id="strong1083" effect="bold">
+GUI
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The code in 
+
+<link id="a1039" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ shows the beginning of 
+the 
+
+<emphasis id="strong1084" effect="bold">
+AdjustmentListener
+
+</emphasis>
+ class from which a listener object is 
+instantiated and registered on the 
+
+<emphasis id="strong1085" effect="bold">
+Scrollbar
+
+</emphasis>
+ to listen for 
+adjustment events. This fragment shows the constructor for the class that saves 
+a reference to the 
+
+<emphasis id="strong1086" effect="bold">
+Scrollbar
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6.
+
+</emphasis>
+
+ Beginning of class that implements 
+AdjustmentListener.
+
+
+<code id="pre1006" display="block">
+class MyScrollbarListener implements AdjustmentListener{
+  GUI thisObject; //save ref to GUI object here
+  
+  MyScrollbarListener(GUI objectIn){//constructor
+    thisObject = objectIn;
+  }//end constructor
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1050">
+<link id="a1040" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ shows the beginning of the 
+
+<emphasis id="strong1087" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+ method, 
+which is the only method declared by the 
+
+<emphasis id="strong1088" effect="bold">
+AdjustmentListener
+
+</emphasis>
+ 
+interface. This method receives a parameter which is an object of type 
+
+<emphasis id="strong1089" effect="bold">
+
+AdjustmentEvent
+
+</emphasis>
+ and serves as the heart of this program.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1009" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7.
+
+</emphasis>
+
+ Beginning of the adjustmentValueChanged 
+method.
+
+
+<code id="pre1007" display="block">
+  public void adjustmentValueChanged(AdjustmentEvent e){
+    int value;
+    //Display the entire AdjustmentEvent object
+    System.out.println(e); 
+    System.out.println("Adjustable = " + e.getAdjustable());
+    System.out.println("AdjustmentType = " 
+                                   + e.getAdjustmentType());
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1051">
+This fragment uses the incoming object to obtain and display 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1045">
+the 
+incoming object, 
+
+</item>
+
+
+	
+
+<item id="li1046">
+the source of the event, and 
+
+</item>
+
+
+	
+
+<item id="li1047">
+the type of the event. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1052">
+The text output shown in 
+
+<link id="a1041" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ was produced by the above fragment when the button on 
+the right end of the scrollbar was clicked with the program running under Java 8 
+and Windows 7.
+
+</para>
+
+
+
+
+
+
+<note id="note1010" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ Output produced by clicking right scrollbar 
+button.
+
+
+<code id="pre1008" display="block">
+java.awt.event.AdjustmentEvent[ADJUSTMENT_VALUE_CHANGED,adjType=UNIT_INCREMENT,v
+alue=42,isAdjusting=false] on scrollbar0
+Adjustable = java.awt.Scrollbar[scrollbar0,4,51,292x20,val=42,vis=20,min=-10,max
+=110,horz,isAdjusting=false]
+AdjustmentType = 1
+value = 42
+value = 42
+</code>
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1053">
+<link id="a1042" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+ uses the incoming object to get the 
+
+<emphasis id="em1037" effect="italics">
+value
+
+</emphasis>
+ 
+of the scrollbar and display it in the 
+
+<emphasis id="strong1090" effect="bold">
+TextField
+
+</emphasis>
+ object. The 
+value should represent the position of the bubble 
+
+<emphasis id="em1038" effect="italics">
+(it really represents the 
+position of the left edge of the bubble, not the center).
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1011" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8.
+
+</emphasis>
+
+ Get and display the value of the scrollbar.
+
+
+<code id="pre1009" display="block">
+    value = e.getValue();//get and save the value
+    
+    //The following code is here to work around a possible
+    // bug in the Scrollbar object where small negative
+    // values are reported as very large positive values
+    // when the Scrollbar is adjusted by sliding the bubble.
+    // Note that this bug still exists in JDK 1.1.6 but has
+    // been fixed in JDK 1.2.
+    System.out.println("value = " + value);
+    if(value &gt; 65000) value = value - 65536;
+    System.out.println("value = " + value);
+    thisObject.displayWindow.setText("Value = " 
+                      + (value + thisObject.bubbleWidth/2));
+            
+    //The following seems like a kludge but is required to
+    // make the scrollbar bubble stay put. Otherwise, it
+    // jumps back to the previous value when you try to
+    // move it.
+    //Note that this statement is required for JDK 1.1.6
+    // but is not required for the first release of JDK 1.2
+    thisObject.myScrollbar.setValue(value);
+  }//end adjustmentValueChanged()
+  
+}//end class MyScrollbarListener
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1054">
+This fragment contains code to serve as a workaround for a bug 
+in JDK 1.1.6 where small negative values are reported as very large positive 
+values when the Scrollbar is adjusted by dragging the bubble. 
+
+<emphasis id="em1039" effect="italics">
+(Note that this bug 
+has been fixed in JDK 1.2.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+The fragment also contains code to adjust the reported value to 
+the center of the bubble instead of the left edge of the bubble by increasing 
+the value by one-half the width of the bubble. The adjusted value is displayed 
+in the 
+
+<emphasis id="strong1091" effect="bold">
+TextField
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+It also contains code to resolve another bug which causes the 
+bubble to jump back to its previous value when you attempt to drag it in JDK 
+1.1.6. 
+
+<emphasis id="em1040" effect="italics">
+(This also has been fixed in JDK 1.2.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+That concludes the interesting code fragments for this program. A complete 
+listing is provided in the next section.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+<link id="a1043" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+ provides a complete listing of the program. As mentioned earlier, 
+some of the comments related to bugs may no longer apply in Java 8 and beyond.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1012" type="">
+
+
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9.
+
+</emphasis>
+
+ Complete listing of the program named 
+	Event18.java.
+
+
+<code id="pre1010" display="block">
+/*File Event18.java Copyright 1997, R.G.Baldwin
+
+Revised 12/18/97
+This program was designed to be compiled and executed under
+JDK 1.1.3 or later version.
+
+In an earlier version of this program compiled under 
+JDK 1.1, in February 1997, I reported numerous bugs in the
+JDK Scrollbar handling.  I have now recompiled the program 
+and can report that most of the bugs seem to have been fixed,
+although a couple of bugs still seem to exist.
+
+One remaining bug is that if you adjust the scrollbar by
+dragging the bubble into an area which would report negative
+values, large positive values are reported instead of small
+negative values (ie: something like 65536 instead of -1).
+This does not happen if the scrollbar is adjusted by 
+clicking on the end buttons or in the area between the
+bubble and the buttons.  A numeric workaround was
+implemented in this program to work around that bug. Note
+that the bug still exists in JDK 1.1.6 but was fixed in the
+first release of JDK 1.2.
+
+Another possible bug is that the scrollbar seems to be able
+to report a value that is one unitIncrement too large for 
+the specified maximum value and bubble width.  Note
+that the bug still exists in JDK 1.1.6 but was fixed in the
+first release of JDK 1.2.
+
+This program places a Scrollbar object and a TextField 
+object in a Frame.  Whenever the bubble in the Scrollbar is
+moved using any of the five available methods for moving 
+the bubble the value of the Scrollbar (which should 
+represent the position of the bubble) is displayed in the
+TextField object.
+
+Also, whenever the bubble is moved, several other pieces of
+information are displayed on the screen which identify
+various parameters of the adjustment.
+
+Closing the frame terminates the program.
+*/
+//=========================================================
+import java.awt.*;
+import java.awt.event.*;
+
+class Event18{
+  public static void main(String[] args){
+    GUI gui = new GUI(); 
+  }//end main
+}//end class Event18
+//==========================================================
+class GUI{
+  Scrollbar myScrollbar;
+  TextField displayWindow;
+  int bubbleWidth;//needs to be accessible by event handler
+  
+  GUI(){
+    Frame myFrame = new Frame("Copyright 1997, R.G.Baldwin");
+    
+    //Instantiate a horizontal Scrollbar object with range 
+    // from 0 to 100, initial position at 50, bubble width 
+    // (page size) of 20, unitIncrement of 2 and a 
+    // blockIncrement of 15.  
+    
+    // The Scrollbar component does not center the bubble on
+    // the value.  Rather, the left edge of the bubble is 
+    // lined up with the value.  The result is that values 
+    // in the upper end of the range cannot be reached 
+    // unless appropriate adjustments are made using half
+    // the bubble width.  This distributes the unreachable
+    // values at each end of the Scrollbar. You can then
+    // set the min and max values to extend beyond the
+    // desired values by one-half the bubble width.
+    bubbleWidth = 20;
+    int initialPosition = 50 - bubbleWidth/2;
+    int min = 0 - bubbleWidth/2;
+    int max = 100 + bubbleWidth/2;
+    myScrollbar = new Scrollbar(Scrollbar.HORIZONTAL, 
+                    initialPosition, bubbleWidth, min, max);
+    
+    //It would have been nice to have included unitIncrement
+    // and blockIncrement as parameters to the constructor 
+    // along with the other constructor parameteters. See 
+    // next two statements which set the unitIncrement and
+    // the blockIncrement.  The unitIncrement is the amount
+    // of change resulting from clicking a button on the
+    // end of the Scrollbar.  The blockIncrement is the 
+    // amount of change resulting from clicking between the
+    // bubble and the button on the end.
+    myScrollbar.setBlockIncrement(15);
+    myScrollbar.setUnitIncrement(2);
+    
+    displayWindow = new TextField("Initial Text");
+    displayWindow.setEditable(false);//make non-editable
+
+    //add components to the GUI
+    myFrame.add("South", myScrollbar); 
+    myFrame.add("North", displayWindow);
+    myFrame.setSize(300,75);
+    myFrame.setVisible(true);
+
+    //Instantiate a listener object for the Scrollbar and 
+    // register it to receive notification of adjustment 
+    // events.    
+    MyScrollbarListener myScrollbarListener = 
+      new MyScrollbarListener(this);    
+    //Note that the Scrollbar listener is not added as a 
+    // ScrollbarListener but rather is added as an 
+    // AdjustmentListener.
+    myScrollbar.addAdjustmentListener(myScrollbarListener);
+
+    //Close Frame to terminate.    
+    myFrame.addWindowListener(new MyWindowListener());
+  }//end constructor
+}//end class GUI
+//=========================================================
+
+//Note that unlike some other components which have their 
+// own listener interface, this class does not implement 
+// ScrollbarListener because there is no such interface.
+// Rather, the AdjustmentListener interface is used as a 
+// listener interface for Scrollbars.
+class MyScrollbarListener implements AdjustmentListener{
+  GUI thisObject; //save ref to GUI object here
+  
+  MyScrollbarListener(GUI objectIn){//constructor
+    thisObject = objectIn;
+  }//end constructor
+  
+  public void adjustmentValueChanged(AdjustmentEvent e){
+    int value;
+    //Display the entire AdjustmentEvent object
+    System.out.println(e); 
+    System.out.println("Adjustable = " + e.getAdjustable());
+    System.out.println("AdjustmentType = " 
+                                   + e.getAdjustmentType());
+     
+    //Display the value of the Scrollbar object in the 
+    // TextField.  The value should represent the position 
+    // of the bubble.
+    value = e.getValue();//get and save the value
+    
+    //The following code is here to work around a possible
+    // bug in the Scrollbar object where small negative
+    // values are reported as very large positive values
+    // when the Scrollbar is adjusted by sliding the bubble.
+    // Note that this bug still exists in JDK 1.1.6 but has
+    // been fixed in JDK 1.2.
+    System.out.println("value = " + value);
+    if(value &gt; 65000) value = value - 65536;
+    System.out.println("value = " + value);
+    thisObject.displayWindow.setText("Value = " 
+                      + (value + thisObject.bubbleWidth/2));
+            
+    //The following seems like a kludge but is required to
+    // make the scrollbar bubble stay put. Otherwise, it
+    // jumps back to the previous value when you try to
+    // move it.
+    //Note that this statement is required for JDK 1.1.6
+    // but is not required for the first release of JDK 1.2
+    thisObject.myScrollbar.setValue(value);
+  }//end adjustmentValueChanged()
+  
+}//end class MyScrollbarListener
+//=========================================================
+//Listener to terminate the program when the Frame is 
+// closed.
+class MyWindowListener extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class MyWindowListener
+//=========================================================
+</code>
+
+
+</note>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Review" effect="bold">
+
+Review
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1059">
+Q - All of the 
+
+<emphasis id="strong1092" effect="bold">
+Scrollbar 
+
+</emphasis>
+bugs were eliminated in JDK 1.1.3: 
+True or False? If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+A - False. JDK 1.1.3 appears to still have at least two Scrollbar bugs. One 
+bug causes the 
+
+<emphasis id="em1041" effect="italics">
+track
+
+</emphasis>
+ event 
+
+<emphasis id="em1042" effect="italics">
+(which involves dragging the bubble in the 
+Scrollbar object) 
+
+</emphasis>
+to return large positive values such as 65535 when it should 
+be returning small negative values such as -1. The other apparent bug allows the 
+different versions of the event to return a value larger than would be 
+calculated using the minimum and maximum values along with the width of the 
+bubble. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+Q - The 
+
+<emphasis id="strong1093" effect="bold">
+Scrollbar 
+
+</emphasis>
+bugs listed above cause the 
+
+<emphasis id="strong1094" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+component to be completely unusable: True or False? If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+A - False. While these two bugs represent a significant inconvenience, it is 
+probably possible to work around both of them by making numeric corrections. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+Q - To create a listener object for a 
+
+<emphasis id="strong1095" effect="bold">
+Scrollbar
+
+</emphasis>
+, you must 
+implement the 
+
+<emphasis id="em1043" effect="italics">
+ScrollbarListener 
+
+</emphasis>
+interface or extend a 
+
+<emphasis id="em1044" effect="italics">
+
+ScrollbarAdapter
+
+</emphasis>
+ class: True or False? If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+A - False. To create a listener object for a 
+
+<emphasis id="strong1096" effect="bold">
+Scrollbar
+
+</emphasis>
+, you 
+do not implement a 
+
+<emphasis id="em1045" effect="italics">
+ScrollbarListener 
+
+</emphasis>
+interface or extend a 
+
+<emphasis id="em1046" effect="italics">
+
+ScrollbarAdapter 
+
+</emphasis>
+class, because they do not exist. Instead, you implement 
+an 
+
+<emphasis id="strong1097" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Q - To create a listener object for a 
+
+<emphasis id="strong1098" effect="bold">
+Scrollbar
+
+</emphasis>
+, you can 
+either implement the 
+
+<emphasis id="em1047" effect="italics">
+AdjustmentListener
+
+</emphasis>
+ interface or extend the 
+
+<emphasis id="em1048" effect="italics">
+
+AdjustmentAdapter
+
+</emphasis>
+ class: True or False? If False, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+A - False. There is no 
+
+<emphasis id="em1049" effect="italics">
+AdjustmentAdapter
+
+</emphasis>
+ class. It isn't needed 
+because the 
+
+<emphasis id="strong1099" effect="bold">
+AdjustmentListener 
+
+</emphasis>
+interface declares only one 
+method with the following signature: 
+
+</para>
+
+
+
+	
+
+
+
+<note id="note1013" type="">
+
+
+
+
+
+<code id="pre1011" display="block">
+public abstract void adjustmentValueChanged(AdjustmentEvent e) 
+</code>
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1067">
+Q - The 
+
+<emphasis id="strong1100" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+ method is invoked when the 
+value of the 
+
+<emphasis id="strong1101" effect="bold">
+Scrollbar 
+
+</emphasis>
+object is changed: True or False? If 
+false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+A - True. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+Q - There are five different types of adjustment events that correspond to 
+the different methods of moving the bubble in a 
+
+<emphasis id="strong1102" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+object: True or False. If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+A - True. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+Q - As with most of the other classes in the AWT, the 
+
+<emphasis id="em1050" effect="italics">
+AdjustmentListener
+
+</emphasis>
+ 
+interface declares a separate method for each type of adjustment event. Each of 
+these methods must be implemented in any class that implements the 
+
+<emphasis id="em1051" effect="italics">
+
+AdjustmentListener
+
+</emphasis>
+ interface: True or False? If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+A - False. Only one method is declared in the 
+
+<emphasis id="em1052" effect="italics">
+AdjustmentListener
+
+</emphasis>
+ 
+interface. The name of the method is 
+
+<emphasis id="strong1103" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1073">
+Q - The 
+
+<emphasis id="strong1104" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+ method receives an object 
+of type 
+
+<emphasis id="strong1105" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ as a parameter, and the type of event 
+is encoded into the object: True or False? If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+A - True. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+Q - In addition to the type of the event, additional information is also 
+encoded into the object that is passed to the 
+
+<emphasis id="strong1106" effect="bold">
+adjustmentValueChanged
+
+</emphasis>
+ 
+method. Give examples of two other kinds of information encoded into the 
+object.. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+A - Information such as the 
+
+<emphasis id="em1053" effect="italics">
+value
+
+</emphasis>
+<emphasis id="strong1107" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1108" effect="bold">
+Scrollbar
+
+
+</emphasis>
+and the 
+
+<emphasis id="em1054" effect="italics">
+name
+
+</emphasis>
+<emphasis id="strong1109" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1110" effect="bold">
+Scrollbar 
+
+</emphasis>
+
+component is also encoded into the object. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+Q - The types of adjustment events are defined as static variables in the 
+
+
+<emphasis id="strong1111" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ class. What are the names of these variables, and how 
+do they 
+correspond to user actions on the 
+
+<emphasis id="strong1112" effect="bold">
+Scrollbar 
+
+</emphasis>
+object? 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+A - The names of the 
+
+<emphasis id="strong1113" effect="bold">
+static
+
+</emphasis>
+ variables and their relationship 
+to the 
+
+<emphasis id="strong1114" effect="bold">
+Scrollbar 
+
+</emphasis>
+object are:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1048">
+UNIT_INCREMENT - click button on one end of the Scrollbar
+
+</item>
+
+
+	
+
+<item id="li1049">
+UNIT_DECREMENT - click button on the other end of the Scrollbar
+
+</item>
+
+
+	
+
+<item id="li1050">
+BLOCK_INCREMENT - click in space between bubble and one button
+
+</item>
+
+
+	
+
+<item id="li1051">
+BLOCK_DECREMENT - click in space between bubble and other button
+
+</item>
+
+
+	
+
+<item id="li1052">
+TRACK - drag the bubble
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1079">
+Q - The width of the bubble is also referred to by at least two other terms 
+in the 
+
+<emphasis id="strong1115" effect="bold">
+Scrollbar
+
+</emphasis>
+ documentation. What are they? 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+A - The other terms used to describe the bubble width are 
+
+<emphasis id="em1055" effect="italics">
+page size
+
+</emphasis>
+ 
+and 
+
+<emphasis id="em1056" effect="italics">
+visible
+
+</emphasis>
+. These terms seem to be related to the use of a 
+
+<emphasis id="strong1116" effect="bold">
+
+Scrollbar
+
+</emphasis>
+ on the side or bottom of a window of text where the size of 
+the bubble is indicative of the amount of text that is visible in the window in 
+relation to the amount of text in the entire document.. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+Q - In JDK 1.1.3, the 
+
+<emphasis id="em1057" effect="italics">
+value
+
+</emphasis>
+<emphasis id="strong1117" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1118" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+object is represented by the center of the bubble: True or False? If false, 
+explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+A - False. The 
+
+<emphasis id="em1058" effect="italics">
+value
+
+</emphasis>
+<emphasis id="strong1119" effect="bold">
+ 
+
+</emphasis>
+of the 
+
+<emphasis id="strong1120" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+object is represented by an edge of the bubble. For example, the 
+
+<emphasis id="em1059" effect="italics">
+value
+
+</emphasis>
+ 
+is represented by the position of the left edge of the bubble for a horizontal
+
+
+<emphasis id="strong1121" effect="bold">
+Scrollbar
+
+</emphasis>
+. If you want the position of the center of the bubble 
+to represent a 
+
+<emphasis id="em1060" effect="italics">
+value
+
+</emphasis>
+, you must perform a numeric correction 
+
+<emphasis id="em1061" effect="italics">
+(involving 
+half the width of the bubble)
+
+</emphasis>
+ on the 
+
+<emphasis id="em1062" effect="italics">
+value
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1122" effect="bold">
+
+Scrollbar 
+
+</emphasis>
+actually extracted from the event object. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+Q - All necessary initialization parameters for a 
+
+<emphasis id="strong1123" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+object are provided as parameters to one of the 
+
+<emphasis id="strong1124" effect="bold">
+Scrollbar
+
+</emphasis>
+ 
+constructors: True or False: If false, explain why. 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+A - False. Although five different initialization parameters are included as 
+parameters to the 
+
+<emphasis id="strong1125" effect="bold">
+Scrollbar 
+
+</emphasis>
+constructor, other important 
+initialization parameters such as 
+
+<emphasis id="strong1126" effect="bold">
+BlockIncrement
+
+</emphasis>
+ and 
+
+<emphasis id="strong1127" effect="bold">
+
+UnitIncrement
+
+</emphasis>
+ are not included in the parameter list. They must be set 
+following instantiation using methods such as 
+
+<emphasis id="strong1128" effect="bold">
+setBlockIncrement
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1085">
+Q - The 
+
+<emphasis id="strong1129" effect="bold">
+AdjustmentEvent
+
+</emphasis>
+ class provides five methods that can 
+be used to obtain information about the event. What are they and what kinds of 
+information do they return? 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+A - The five methods and the information that they return are listed below:
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1053">
+The 
+
+<emphasis id="strong1130" effect="bold">
+getAdjustable
+
+</emphasis>
+ method returns the identification 
+	of the object that generated the event.
+
+</item>
+
+
+	
+
+<item id="li1054">
+The 
+
+<emphasis id="strong1131" effect="bold">
+getAdjustmentType
+
+</emphasis>
+ method returns the 
+	identification of the type of event.
+
+</item>
+
+
+	
+
+<item id="li1055">
+The 
+
+<emphasis id="strong1132" effect="bold">
+paramString
+
+</emphasis>
+ method returns a variety of 
+	information which overlaps the two above methods to some extent.
+
+</item>
+
+
+	
+
+<item id="li1056">
+The 
+
+<emphasis id="strong1133" effect="bold">
+getValue
+
+</emphasis>
+ method returns the 
+
+<emphasis id="strong1134" effect="bold">
+value
+	
+
+</emphasis>
+produced by the adjustment.
+
+</item>
+
+
+	
+
+<item id="li1057">
+The 
+
+<emphasis id="strong1135" effect="bold">
+getValueIsAdjusting
+
+</emphasis>
+ method returns true if this is one of multiple adjustment events. 
+	
+
+<emphasis id="em1063" effect="italics">
+(This method was not defined in the class when this lesson was originally written in 1997.)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1087">
+Q - Write an application that meets the specifications given in the comments 
+in the program shown in 
+
+<link id="a1044" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+. The graphic screen output produced by the 
+program is shown in 
+
+<link id="a1045" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1014" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3.
+
+</emphasis>
+
+ Graphic screen output from SampProg125.java.
+
+
+<para id="p1088">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/sampprog125a.jpg" width="301" height="301"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1015" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10.
+
+</emphasis>
+
+ Complete listing of the program named SampProg125.java.
+
+
+<code id="pre1012" display="block">
+/*File SampProg125.java  from lesson 90
+Copyright 1997, R. G. Baldwin
+Without viewing the following solution, write a Java
+application that meets the specifications given below.
+
+To accommodate this program, you will need to be using
+JDK 1.1.3 or a later version.
+
+Write an application that places a vertical Scrollbar and a
+Label on a Frame.  The Label is used to display the 
+position of the center of the bubble in the Scrollbar.
+
+The Scrollbar values should range from approximately -50
+to +50 (exact end points are difficult to achieve).
+
+The width of the bubble should be 10 units.
+
+When you click on the buttons at the end of the Scrollbar,
+the bubble should move by 3 units.
+
+When you click in the area between the bubble and the
+buttons, the bubble should move by 6 units.
+
+When the program starts, the bubble should be centered
+and the Label should indicate a bubble position of 0.
+
+Closing the frame terminates the program.
+
+End of specifications.
+*/
+//=========================================================
+import java.awt.*;
+import java.awt.event.*;
+
+class SampProg125{
+  public static void main(String[] args){
+    GUI gui = new GUI(); 
+  }//end main
+}//end class SampProg125
+//==========================================================
+class GUI{
+  Scrollbar myScrollbar;
+  Label displayWindow;
+  int bubbleWidth;//needs to be accessible by event handler
+  
+  GUI(){
+    Frame myFrame = new Frame("Copyright 1997, R.G.Baldwin");
+    
+    bubbleWidth = 10;
+    int initialPosition = 0 - bubbleWidth/2;
+    int min = -50 - bubbleWidth/2;
+    int max = 50 + bubbleWidth/2;
+    myScrollbar = new Scrollbar(Scrollbar.VERTICAL, 
+                    initialPosition, bubbleWidth, min, max);
+       
+    myScrollbar.setBlockIncrement(6);
+    myScrollbar.setUnitIncrement(3);    
+    
+    displayWindow = new Label("value = 0");
+
+    //add components to the GUI
+    myFrame.add("East", myScrollbar); 
+    myFrame.add("North", displayWindow);
+    myFrame.setSize(300,300);
+    myFrame.setVisible(true);
+
+    //Instantiate a listener object for the Scrollbar and 
+    // register it to receive notification of adjustment 
+    // events.    
+    MyScrollbarListener myScrollbarListener = 
+                            new MyScrollbarListener(this);
+    //Note that the Scrollbar listener is not added as a 
+    // ScrollbarListener but rather is added as an 
+    // AdjustmentListener.
+    myScrollbar.addAdjustmentListener(myScrollbarListener);
+
+    //Close Frame to terminate.    
+    myFrame.addWindowListener(new MyWindowListener());
+  }//end constructor
+}//end class GUI
+//=========================================================
+
+//Note that unlike some other components which have their 
+// own listener interface, this class does not implement 
+// ScrollbarListener because there is no such interface.
+// Rather, the AdjustmentListener interface is used as a 
+// listener interface for Scrollbars.
+class MyScrollbarListener implements AdjustmentListener{
+  GUI thisObject; //save ref to GUI object here
+  
+  MyScrollbarListener(GUI objectIn){//constructor
+    thisObject = objectIn;
+  }//end constructor
+  
+  public void adjustmentValueChanged(AdjustmentEvent e){
+    int value;
+     
+    //Display the value of the Scrollbar object in the 
+    // Label.  The value should represent the position 
+    // of the bubble.
+    value = e.getValue();//get and save the value
+    
+    //The following code is here to work around a possible
+    // bug in the Scrollbar object where small negative
+    // values are reported as very large positive values
+    // when the Scrollbar is adjusted by sliding the bubble.
+    if(value &gt; 65000) value = value - 65536;
+    thisObject.displayWindow.setText("Value = " 
+                      + (value + thisObject.bubbleWidth/2));
+            
+    //The following seems like a kludge but is required to
+    // make the scrollbar bubble stay put. Otherwise, it
+    // jumps back to the previous value when you try to
+    // move it.
+    thisObject.myScrollbar.setValue(value);
+  }//end adjustmentValueChanged()
+  
+}//end class MyScrollbarListener
+//=========================================================
+//Listener to terminate the program when the Frame is 
+// closed.
+class MyWindowListener extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class MyWindowListener
+
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1089">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1136" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1014" list-type="bulleted">
+
+					
+
+<item id="li1058">
+Module name: Java090 Scrollbar (Adjustment) Event 
+					Handling
+
+</item>
+
+
+					
+
+<item id="li1059">
+File: Java090.htm
+
+</item>
+
+
+					
+
+<item id="li1060">
+Originally published: 1997
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1137" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1090">
+<emphasis id="strong1138" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1091">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1092">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1093">
+<emphasis id="strong1139" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1094">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

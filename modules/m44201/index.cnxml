@@ -1,0 +1,4465 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1628: The this and super Keywords</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44201</md:content-id>
+  <md:title>Java1628: The this and super Keywords</md:title>
+  <md:abstract>Baldwin explains the use of the keywords this and super, and provides sample programs to illustrate the use these keywords for several purposes.</md:abstract>
+  <md:uuid>3b385770-09eb-4afa-8b02-725b0f59c17e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 01 17:48:44 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The extends keyword. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named This01.
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The program named This02. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The program named This03. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The program named Super3. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The program named Super4.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module explains the use of the keywords 
+
+<emphasis id="strong1000" effect="bold">
+<emphasis id="em1003" effect="italics">
+this
+
+</emphasis>
+</emphasis>
+ and 
+
+<emphasis id="strong1001" effect="bold">
+
+	
+
+<emphasis id="em1004" effect="italics">
+super
+
+</emphasis>
+</emphasis>
+. Short sample programs illustrate how you can use these 
+	keywords for several purposes.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+I will discuss and illustrate the use of the 
+
+<emphasis id="strong1002" effect="bold">
+this
+
+</emphasis>
+ keyword in the 
+following situations: 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1017">
+To bypass local variables or parameters that hide member variables 
+	having the same name, in order to access the member variable.
+
+</item>
+
+
+	
+
+<item id="li1018">
+To make it possible for one overloaded constructor to call another 
+	overloaded constructor in the same class.
+
+</item>
+
+
+	
+
+<item id="li1019">
+To pass a reference to the current object to a method belonging to a 
+	different object 
+
+<emphasis id="em1005" effect="italics">
+(as in implementing callbacks, for example).
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1006">
+I will also discuss and illustrate the use of the 
+
+<emphasis id="strong1003" effect="bold">
+super
+
+</emphasis>
+ keyword in the 
+following situations:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1020">
+To bypass the overridden version of a method in a subclass and execute 
+	the version in the superclass.
+
+</item>
+
+
+	
+
+<item id="li1021">
+To bypass a member variable in a subclass in order to access a member 
+	variable having the same name in a superclass.
+
+</item>
+
+
+	
+
+<item id="li1022">
+To cause a constructor in a subclass to call a parameterized constructor 
+	in the immediate superclass.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1007">
+<emphasis id="strong1004" effect="bold">
+You already know quite a lot about OOP
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+By now you know that an 
+
+<emphasis id="em1006" effect="italics">
+object 
+
+</emphasis>
+is an 
+
+<emphasis id="em1007" effect="italics">
+instance of a class
+
+</emphasis>
+. You 
+know that all variables and methods in Java must be contained in a class or an 
+object. You know that the three primary characteristics of an object-oriented 
+programming language are:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<emphasis id="em1008" effect="italics">
+encapsulation
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1024">
+<emphasis id="em1009" effect="italics">
+inheritance
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1025">
+<emphasis id="em1010" effect="italics">
+polymorphism
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+If you have been studying this series of modules on the Essence of OOP in 
+Java, you already know quite a lot about OOP in general, and the implementation 
+of OOP in Java in particular.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1005" effect="bold">
+A few more important OOP/Java concepts
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+However, there are a few more important concepts that I haven't previously 
+discussed in this series of modules. In this module, I will explain the use of 
+the keywords 
+
+<emphasis id="strong1006" effect="bold">
+<emphasis id="em1011" effect="italics">
+this
+
+</emphasis>
+</emphasis>
+ and 
+
+<emphasis id="strong1007" effect="bold">
+<emphasis id="em1012" effect="italics">
+super
+
+</emphasis>
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1008" effect="bold">
+Data and methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+The class provides the plan from which objects are built. This plan defines 
+the 
+
+<emphasis id="em1013" effect="italics">
+data
+
+</emphasis>
+ that is to be stored in an object, and the 
+
+<emphasis id="em1014" effect="italics">
+methods
+
+</emphasis>
+ for 
+manipulating that data. The data is variously referred to as 
+
+<emphasis id="em1015" effect="italics">
+data members,
+
+</emphasis>
+
+
+
+<emphasis id="em1016" effect="italics">
+fields
+
+</emphasis>
+, and 
+
+<emphasis id="em1017" effect="italics">
+variables
+
+</emphasis>
+, depending on which book you are reading.
+
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1009" effect="bold">
+Non-static and static
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+The data can be further sub-divided into 
+
+<emphasis id="em1018" effect="italics">
+non-static
+
+</emphasis>
+ and 
+
+<emphasis id="em1019" effect="italics">
+static
+
+</emphasis>
+, 
+often referred to as i
+
+<emphasis id="em1020" effect="italics">
+nstance variables 
+
+</emphasis>
+and 
+
+<emphasis id="em1021" effect="italics">
+class variables
+
+</emphasis>
+ 
+respectively. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+The methods are also often referred to as 
+
+<emphasis id="em1022" effect="italics">
+member methods
+
+</emphasis>
+, and they can 
+also be 
+
+<emphasis id="em1023" effect="italics">
+static 
+
+</emphasis>
+or 
+
+<emphasis id="em1024" effect="italics">
+non-static
+
+</emphasis>
+. Static methods are often referred to 
+as 
+
+<emphasis id="em1025" effect="italics">
+class methods
+
+</emphasis>
+ while non-static methods are often referred to as 
+
+<emphasis id="em1026" effect="italics">
+
+instance methods
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1010" effect="bold">
+Instance variables and instance methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The class body contains the 
+
+<emphasis id="em1027" effect="italics">
+declarations 
+
+</emphasis>
+for, and possibly the 
+
+<emphasis id="em1028" effect="italics">
+
+initialization 
+
+</emphasis>
+of all data members 
+
+<emphasis id="em1029" effect="italics">
+(both class variables and instance 
+variables)
+
+</emphasis>
+ as well as the full definition of all 
+
+<emphasis id="em1030" effect="italics">
+methods
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+In this module, we will be particularly interested in instance variables and 
+instance methods. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1011" effect="bold">
+Every class is a subclass of Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+By default, every class in Java extends 
+
+<emphasis id="em1031" effect="italics">
+(either directly or indirectly)
+
+</emphasis>
+ 
+the class named 
+
+<emphasis id="strong1012" effect="bold">
+Object
+
+</emphasis>
+. A new class may either extend 
+
+<emphasis id="strong1013" effect="bold">
+Object
+
+</emphasis>
+, or 
+extend another class that extends 
+
+<emphasis id="strong1014" effect="bold">
+Object
+
+</emphasis>
+, or extend another class further 
+down the inheritance hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The immediate parent class of a new class is known as its 
+
+<emphasis id="em1032" effect="italics">
+superclass
+
+</emphasis>
+, 
+and the new class is known as the 
+
+<emphasis id="em1033" effect="italics">
+subclass
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="em1034" effect="italics">
+(Sometimes we use the word superclass to indicate the collection of 
+classes in the inheritance hierarchy from which a specific class is derived.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1024">
+If you do not specify the 
+
+<emphasis id="em1035" effect="italics">
+superclass 
+
+</emphasis>
+for a new class, it will extend
+
+
+<emphasis id="strong1015" effect="bold">
+Object
+
+</emphasis>
+ by default. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1016" effect="bold">
+The 
+
+<emphasis id="em1036" effect="italics">
+extends
+
+</emphasis>
+ keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+The keyword 
+
+<emphasis id="strong1017" effect="bold">
+extends
+
+</emphasis>
+ is used in the class declaration to specify the 
+immediate 
+
+<emphasis id="em1037" effect="italics">
+superclass 
+
+</emphasis>
+of the new class using the syntax shown in 
+
+
+<link id="a1017" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. The extends keyword.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">class NewClass extends SuperClassName{
+  //body of class
+}//end class definition</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+<emphasis id="strong1018" effect="bold">
+Inheritance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+A class inherits the variables and methods of its superclass, and of the 
+superclass of that class, etc., all the way back up the family tree to the 
+single class 
+
+<emphasis id="strong1019" effect="bold">
+Object
+
+</emphasis>
+, which is the root of all inheritance. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Thus, an object that is instantiated from a class contains all the instance 
+variables and all the instance methods defined by that that class and defined by 
+all its ancestors. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+However, the methods may have been 
+
+<emphasis id="em1038" effect="italics">
+overridden
+
+</emphasis>
+ one or more times along 
+the way. Also, access to those variables and methods may have been restricted 
+through the use of the 
+
+<emphasis id="strong1020" effect="bold">
+public
+
+</emphasis>
+, 
+
+<emphasis id="strong1021" effect="bold">
+private
+
+</emphasis>
+, and 
+
+<emphasis id="strong1022" effect="bold">
+protected
+
+</emphasis>
+ 
+keywords. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="em1039" effect="italics">
+(There is another access level, often referred to as 
+
+<emphasis id="strong1023" effect="bold">
+package private
+
+</emphasis>
+, 
+which is what you get when you don't use an access keyword.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1024" effect="bold">
+The this keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Every instance method in every object in Java receives a reference named 
+
+<emphasis id="strong1025" effect="bold">
+
+this
+
+</emphasis>
+ when the method is called. The reference named 
+
+<emphasis id="strong1026" effect="bold">
+this
+
+</emphasis>
+ is a 
+reference to the object on which the method was called. It can be used for any 
+purpose for which such a reference is needed. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1027" effect="bold">
+<emphasis id="Three_common_situations" effect="bold">
+
+Three common situations
+
+</emphasis>
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+There are at least three common situations where such a reference is needed:
+
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1026">
+To bypass local variables or parameters that hide member variables 
+	having the same name, in order to access the member variable.
+
+</item>
+
+
+	
+
+<item id="li1027">
+To make it possible for one overloaded constructor to call another 
+	overloaded constructor in the same class.
+
+</item>
+
+
+	
+
+<item id="li1028">
+To pass a reference to the current object to a method belonging to a 
+	different object 
+
+<emphasis id="em1040" effect="italics">
+(as in implementing callbacks, for example).
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+Normally, instance methods belonging to an object have direct access to the 
+instance variables belonging to that object, and to the class variables 
+belonging to the class from which that object was instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="em1041" effect="italics">
+(Class methods never have access to instance variables or instance 
+methods.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1028" effect="bold">
+Name can be duplicated
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+However, the name of a method parameter or constructor parameter can be the 
+same as the name of an instance variable belonging to the object or a class 
+variable belonging to the class. It is also allowable for the name of a local 
+variable to be the same as the name of an instance variable or a class variable. 
+In this case, the local variable or the parameter is said to 
+
+<emphasis id="em1042" effect="italics">
+hide 
+
+</emphasis>
+the 
+member variable having the same name. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1029" effect="bold">
+Reference named 
+
+<emphasis id="em1043" effect="italics">
+this
+
+</emphasis>
+ is passed to instance methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+As mentioned above, whenever an instance method is called on an object, a 
+hidden reference named 
+
+<emphasis id="strong1030" effect="bold">
+this 
+
+</emphasis>
+is always passed to the method. The 
+
+<emphasis id="strong1031" effect="bold">
+this
+
+
+</emphasis>
+reference always refers to the object on which the method was called. This 
+makes it possible for the code in the method to refer back to the object on 
+which the method was called. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The reference named 
+
+<emphasis id="strong1032" effect="bold">
+this 
+
+</emphasis>
+can be used to access the member variables 
+hidden by the local variables or parameters having of the same name. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1033" effect="bold">
+The sample program named This01
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The sample program shown in 
+
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ illustrates 
+the use of the 
+
+<emphasis id="strong1034" effect="bold">
+this 
+
+</emphasis>
+
+reference to access a hidden instance variable named 
+
+<emphasis id="strong1035" effect="bold">
+myVar
+
+</emphasis>
+ and a hidden 
+class variable named 
+
+<emphasis id="strong1036" effect="bold">
+yourVar
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1037" effect="bold">
+The program named This01
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">/*File This01.java
+Copyright 2002, R.G.Baldwin
+Illustrates use of this keyword to
+access hidden member variables.
+
+Tested using JDK 1.4.0 under Win2000
+
+The output from this program is:
+
+myVar parameter = 20
+local yourVar variable = 1
+Instance variable myVar = 5
+Class variable yourVar = 10
+**************************************/
+
+class This01 {
+  int myVar = 0;
+  static int yourVar = 0;
+
+  //Constructor with parameters named
+  // myVar and yourVar
+  public This01(int myVar,int yourVar){
+    this.myVar = myVar;
+    this.yourVar = yourVar;
+  }//end constructor
+  //---------------------------------//
+
+  //Method with parameter named myVar
+  // and local variable named yourVar
+  void myMethod(int myVar){
+    int yourVar = 1;
+    System.out.println(
+         "myVar parameter = " + myVar);
+    System.out.println(
+            "local yourVar variable = "
+                            + yourVar);
+    System.out.println(
+           "Instance variable myVar = "
+                         + this.myVar);
+    System.out.println(
+            "Class variable yourVar = "
+                       + this.yourVar);
+  }//end myMethod
+  //---------------------------------//
+
+  public static void main(
+                        String[] args){
+    This01 obj = new This01(5,10);
+    obj.myMethod(20);
+  }//end main method
+}//End This01 class definition.</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1045">
+<emphasis id="strong1038" effect="bold">
+The key points
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1046">
+The key points to observe in the program is 
+
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+are:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1029">
+When the code refers to 
+
+<emphasis id="strong1039" effect="bold">
+myVar
+
+</emphasis>
+ or 
+
+<emphasis id="strong1040" effect="bold">
+yourVar
+
+</emphasis>
+, the reference 
+	resolves to either an incoming parameter or to a local variable having that 
+	name.
+
+</item>
+
+
+	
+
+<item id="li1030">
+When the code refers to 
+
+<emphasis id="strong1041" effect="bold">
+this.myVar
+
+</emphasis>
+ or 
+
+<emphasis id="strong1042" effect="bold">
+this.yourVar
+
+</emphasis>
+, the 
+	reference resolves to the corresponding instance variable and class variable 
+	having that name.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1047">
+To summarize this situation, every time an instance method is called, it 
+receives a hidden reference named 
+
+<emphasis id="strong1043" effect="bold">
+this
+
+</emphasis>
+. That is a reference to the object 
+on which the method was called. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The code in the method can use that reference to access any instance member 
+of the object on which it was called, or any class member of the class from 
+which the object was instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+However, when class methods are called, they do not receive such a hidden 
+reference, and therefore, they cannot refer to any instance members of any 
+object instantiated from the class. They can only access class members of the 
+same class. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1044" effect="bold">
+Calling other constructors of the same class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Now I am going to discuss and illustrate the second common situation listed 
+earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+A class can define two or more overloaded constructors having the same name 
+and different argument lists. Sometimes it is useful for one overloaded 
+constructor to call another overloaded constructor in the same class. When this 
+is done, the constructor being called is referred to as though it were a method 
+whose name is 
+
+<emphasis id="strong1045" effect="bold">
+this
+
+</emphasis>
+, and whose argument list matches the argument list of 
+the constructor being called. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1046" effect="bold">
+The sample program named This02
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+This situation is illustrated in the program named 
+
+<emphasis id="strong1047" effect="bold">
+This02
+
+</emphasis>
+ shown in 
+
+
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The program named This02.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">/*File This02.java
+Copyright 2002, R.G.Baldwin
+Illustrates use of this keyword for one
+overloaded constructor to access
+another overloaded constructor of the
+same class.
+
+Tested using JDK 1.4.0 under Win2000
+
+The output from this program is:
+
+Instance variable myVar = 15
+**************************************/
+
+class This02 {
+  int myVar = 0;
+
+  public static void main(
+                        String[] args){
+    This02 obj = new This02();
+    obj.myMethod();
+  }//end main method
+  //---------------------------------//
+
+  //Constructor with no parameters
+  public This02(){
+    //Call parameterized constructor
+    this(15);
+  }//end constructor
+  //---------------------------------//
+
+  //Constructor with one parameter
+  public This02(int var){
+    myVar = var;
+  }//end constructor
+  //---------------------------------//
+
+  //Method to display member variable
+  // named myVar
+  void myMethod(){
+    System.out.println(
+           "Instance variable myVar = "
+                              + myVar);
+  }//end myMethod
+
+}//End This02 class definition.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1055">
+<emphasis id="strong1048" effect="bold">
+Calling a 
+
+<emphasis id="em1044" effect="italics">
+noarg
+
+</emphasis>
+ constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1049" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates a 
+new object by applying the 
+
+<emphasis id="strong1050" effect="bold">
+new
+
+</emphasis>
+ operator to the 
+
+<emphasis id="em1045" effect="italics">
+noarg
+
+</emphasis>
+ constructor 
+for the class named 
+
+<emphasis id="strong1051" effect="bold">
+This02
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="em1046" effect="italics">
+(The common jargon for a constructor that doesn't take any parameters is a 
+noarg constructor.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1052" effect="bold">
+The 
+
+<emphasis id="em1047" effect="italics">
+noarg
+
+</emphasis>
+ constructor calls a parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+The code in the 
+
+<emphasis id="em1048" effect="italics">
+noarg
+
+</emphasis>
+ constructor uses the 
+
+<emphasis id="strong1053" effect="bold">
+this
+
+</emphasis>
+ keyword to call 
+the other overloaded constructor, passing an 
+
+<emphasis id="strong1054" effect="bold">
+int
+
+</emphasis>
+ value of 15 as 
+a parameter. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+That constructor stores the value of the incoming parameter (15) in the 
+instance variable named 
+
+<emphasis id="strong1055" effect="bold">
+myVar
+
+</emphasis>
+. Then control returns to the 
+
+<emphasis id="em1049" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor, which in turn returns control to the 
+
+<emphasis id="strong1056" effect="bold">
+main
+
+</emphasis>
+ method. When 
+control returns to the 
+
+<emphasis id="strong1057" effect="bold">
+main
+
+</emphasis>
+ method, the new object has been constructed, 
+and the instance variable named 
+
+<emphasis id="strong1058" effect="bold">
+myVar
+
+</emphasis>
+ belonging to that object contains 
+the value 15. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1059" effect="bold">
+Display the value of the instance variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+The next statement in the 
+
+<emphasis id="strong1060" effect="bold">
+main
+
+</emphasis>
+ method calls the method named 
+
+<emphasis id="strong1061" effect="bold">
+
+myMethod
+
+</emphasis>
+ on the object, which causes the value stored in the instance 
+variable (15) to be displayed on the screen. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1062" effect="bold">
+The most important statement
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+For purposes of this discussion, the most important statement in the program 
+is the statement that reads: 
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">this(15);</code>
+
+
+
+
+<para id="p1065">
+This is the statement used by one overloaded constructor to call another 
+overloaded constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1063" effect="bold">
+Callbacks
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+An extremely important concept in programming is the third situation 
+mentioned in the 
+
+<link id="a1022" target-id="Three_common_situations">
+
+earlier list
+
+</link>
+
+. This is a situation where a method in one object 
+calls a method in another object and passes a reference to itself as a 
+parameter. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="em1050" effect="italics">
+(This is sometimes referred to as registration. That is to say, 
+one object registers itself on another object.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+The method in the second object saves the reference that it receives as an 
+incoming parameter. This makes it possible for a method in the second object to 
+make a callback to the first object sometime later. This is illustrated in the 
+program named 
+
+<emphasis id="strong1064" effect="bold">
+This03
+
+</emphasis>
+, shown in 
+
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1003">
+
+
+
+<row id="tr1006">
+
+
+
+<entry id="th1003">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1065" effect="bold">
+The program named This03
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1003">
+
+
+
+<row id="tr1007">
+
+
+
+<entry id="td1003">
+
+
+
+<code id="pre1004" display="block">/*File This03.java
+Copyright 2002, R.G.Baldwin
+Illustrates using the this keyword in
+a callback scenario.
+
+Tested using JDK 1.4.0 under Win2000
+
+The output from this program is:
+
+Instance variable myVar = 15
+**************************************/
+
+class This03 {
+  public static void main(
+                        String[] args){
+    ClassA objA = new ClassA();
+    ClassB objB = new ClassB();
+    objA.goRegister(objB);
+    objB.callHimBack();
+    objA.showData();
+  }//end main method
+}//End This03 class definition.
+//===================================//
+
+class ClassA{
+  int myVar;
+
+  void goRegister(ClassB refToObj){
+    refToObj.registerMe(this);
+
+  }//end goRegister
+  //---------------------------------//
+
+  void callMeBack(int var){
+    myVar = var;
+  }//end callMeBack
+  //---------------------------------//
+
+  void showData(){
+    System.out.println(
+           "Instance variable myVar = "
+                              + myVar);
+  }//end showData
+}//end ClassA
+//===================================//
+
+class ClassB{
+  ClassA ref;
+
+  void registerMe(ClassA var){
+    ref = var;
+  }//end registerMe
+  //---------------------------------//
+
+  void callHimBack(){
+    ref.callMeBack(15);
+  }//end callHimBack
+
+}//End ClassB class definition</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1070">
+<emphasis id="strong1066" effect="bold">
+Not intended to be useful
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+Note that the program in 
+
+<link id="a1024" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is intended 
+solely to illustrate the concept of a callback, and is not intended to do 
+anything useful. This is a rather long and convoluted explanation, so please 
+bear with me. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+The 
+
+<emphasis id="strong1067" effect="bold">
+main
+
+</emphasis>
+ method begins by instantiating two objects, one each from the 
+classes named 
+
+<emphasis id="strong1068" effect="bold">
+ClassA
+
+</emphasis>
+ and 
+
+<emphasis id="strong1069" effect="bold">
+ClassB
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1070" effect="bold">
+Go register yourself
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+Then the 
+
+<emphasis id="strong1071" effect="bold">
+main
+
+</emphasis>
+ method sends a message to 
+
+<emphasis id="strong1072" effect="bold">
+objA
+
+</emphasis>
+ telling it to go 
+register itself on 
+
+<emphasis id="strong1073" effect="bold">
+objB
+
+</emphasis>
+. A reference to 
+
+<emphasis id="strong1074" effect="bold">
+objB
+
+</emphasis>
+ is passed as a 
+parameter to the method named 
+
+<emphasis id="strong1075" effect="bold">
+goRegister
+
+</emphasis>
+ belonging to 
+
+<emphasis id="strong1076" effect="bold">
+objA
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The code in 
+
+<emphasis id="strong1077" effect="bold">
+objA
+
+</emphasis>
+ uses this reference to call the method named 
+
+<emphasis id="strong1078" effect="bold">
+
+registerMe
+
+</emphasis>
+ on 
+
+<emphasis id="strong1079" effect="bold">
+objB
+
+</emphasis>
+, passing 
+
+<emphasis id="strong1080" effect="bold">
+this
+
+</emphasis>
+ as a parameter. In other 
+words, the code in 
+
+<emphasis id="strong1081" effect="bold">
+objA
+
+</emphasis>
+ calls a method belonging to 
+
+<emphasis id="strong1082" effect="bold">
+objB
+
+</emphasis>
+ passing a 
+reference to itself as a parameter. The code in 
+
+<emphasis id="strong1083" effect="bold">
+objB
+
+</emphasis>
+ saves that reference 
+in an instance variable for later use. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1084" effect="bold">
+Make a callback
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+Then the 
+
+<emphasis id="strong1085" effect="bold">
+main
+
+</emphasis>
+ method sends a message to 
+
+<emphasis id="strong1086" effect="bold">
+objB
+
+</emphasis>
+ asking it to use 
+the saved reference to make a callback to 
+
+<emphasis id="strong1087" effect="bold">
+objA
+
+</emphasis>
+. The code in the method 
+named 
+
+<emphasis id="strong1088" effect="bold">
+callHimBack
+
+</emphasis>
+ uses the reference to 
+
+<emphasis id="strong1089" effect="bold">
+objA
+
+</emphasis>
+ saved earlier to call 
+the method named 
+
+<emphasis id="strong1090" effect="bold">
+callMeBack
+
+</emphasis>
+ on 
+
+<emphasis id="strong1091" effect="bold">
+objA
+
+</emphasis>
+, passing 15 as a parameter. 
+The method named 
+
+<emphasis id="strong1092" effect="bold">
+callMeBack
+
+</emphasis>
+ belonging to 
+
+<emphasis id="strong1093" effect="bold">
+objA
+
+</emphasis>
+ saves that value in 
+an instance variable. 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1094" effect="bold">
+Show the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+Finally, the 
+
+<emphasis id="strong1095" effect="bold">
+main
+
+</emphasis>
+ method calls the 
+
+<emphasis id="strong1096" effect="bold">
+showData
+
+</emphasis>
+ method on 
+
+<emphasis id="strong1097" effect="bold">
+objA
+
+</emphasis>
+ 
+to cause the value stored in the instance variable belonging to 
+
+<emphasis id="strong1098" effect="bold">
+objA
+
+</emphasis>
+ to 
+be displayed on the computer screen. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1099" effect="bold">
+Callbacks are important
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+Again, this program is provided solely to illustrate the concept of a 
+callback using the 
+
+<emphasis id="strong1100" effect="bold">
+this
+
+</emphasis>
+ keyword. In practice, callbacks are used 
+throughout Java, but they are implemented in a somewhat more elegant way, making 
+use of interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+For example, interfaces with names like 
+
+<emphasis id="strong1101" effect="bold">
+Observer
+
+</emphasis>
+ and 
+
+<emphasis id="strong1102" effect="bold">
+MouseListener
+
+</emphasis>
+ 
+are commonly used to register 
+
+<emphasis id="em1051" effect="italics">
+observer
+
+</emphasis>
+ objects on 
+
+<emphasis id="em1052" effect="italics">
+observable
+
+</emphasis>
+ 
+objects 
+
+<emphasis id="em1053" effect="italics">
+(sometimes referred to as listeners and sources).
+
+</emphasis>
+ Then later in 
+the program, when something of interest happens on the 
+
+<emphasis id="em1054" effect="italics">
+observable
+
+</emphasis>
+ object
+
+
+<emphasis id="em1055" effect="italics">
+(the source),
+
+</emphasis>
+ all registered 
+
+<emphasis id="em1056" effect="italics">
+observer
+
+</emphasis>
+ objects 
+
+<emphasis id="em1057" effect="italics">
+(the listeners),
+
+</emphasis>
+ 
+are notified of the event. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1103" effect="bold">
+The main point regarding the 
+
+<emphasis id="em1058" effect="italics">
+this
+
+</emphasis>
+ reference
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The main point of this discussion is that the 
+
+<emphasis id="strong1104" effect="bold">
+this
+
+</emphasis>
+ reference is 
+available to all instance methods belonging to an object, and can be used 
+whenever there is a need for a reference to the object on which the method is 
+called. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1105" effect="bold">
+To disambiguate something
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+At least one prominent author uses the word 
+
+<emphasis id="em1059" effect="italics">
+disambiguate
+
+</emphasis>
+ to describe 
+the process described by the first item in the
+
+
+<link id="a1025" target-id="Three_common_situations">
+
+earlier list
+
+</link>
+
+, where the 
+
+<emphasis id="strong1106" effect="bold">
+this
+
+</emphasis>
+ keyword is used to bypass one 
+variable in favor of a different variable having the same name. I will also use 
+that terminology in the following discussion. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1107" effect="bold">
+<emphasis id="Three_uses_of_the_super_keyword" effect="bold">
+
+Three uses of the 
+
+<emphasis id="em1060" effect="italics">
+super
+
+</emphasis>
+ 
+keyword
+
+</emphasis>
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+Here are three common uses of the 
+
+<emphasis id="strong1108" effect="bold">
+super
+
+</emphasis>
+ keyword:
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1031">
+If your class 
+
+<emphasis id="em1061" effect="italics">
+overrides 
+
+</emphasis>
+a method in a superclass, you can use the
+	
+
+<emphasis id="strong1109" effect="bold">
+super 
+
+</emphasis>
+keyword to bypass the overridden version in the class and 
+	execute the version in the superclass. 
+
+</item>
+
+
+	
+
+<item id="li1032">
+If a local variable in your method or a member variable in your class 
+	hides a member variable in the superclass 
+
+<emphasis id="em1062" effect="italics">
+(having the same name),
+
+</emphasis>
+ you 
+	can use the 
+
+<emphasis id="strong1110" effect="bold">
+super
+
+</emphasis>
+ keyword
+
+<emphasis id="strong1111" effect="bold">
+ 
+
+</emphasis>
+to access the member variable in the 
+	superclass. 
+
+</item>
+
+
+	
+
+<item id="li1033">
+You can also use 
+
+<emphasis id="strong1112" effect="bold">
+super
+
+</emphasis>
+ in a constructor of your class to call a 
+	parameterized constructor in the superclass. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1113" effect="bold">
+The program named Super3
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+The program in 
+
+<link id="a1026" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses 
+
+<emphasis id="strong1114" effect="bold">
+super
+
+</emphasis>
+ to call a parameterized 
+constructor in the superclass from the subclass constructor. This is an 
+important use of 
+
+<emphasis id="strong1115" effect="bold">
+super
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+The program also uses 
+
+<emphasis id="strong1116" effect="bold">
+this
+
+</emphasis>
+ and 
+
+<emphasis id="strong1117" effect="bold">
+super
+
+</emphasis>
+ to disambiguate a local 
+variable, an instance variable of the subclass, and an instance variable of the 
+superclass. All three variables have the same name. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1004">
+
+
+
+<row id="tr1008">
+
+
+
+<entry id="th1004">
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1118" effect="bold">
+The program named Super3
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1004">
+
+
+
+<row id="tr1009">
+
+
+
+<entry id="td1004">
+
+
+
+<code id="pre1005" display="block">/*File Super3.java
+Copyright 2002, R.G.Baldwin
+Illustrates use of super reference to
+access constructor in superclass.  Also
+illustrates use of super to
+disambiguate instance variable in
+subclass from instance variable in
+superclass.  Illustrates use of this
+to disambiguate local variable from
+instance variable in subclass.
+
+Tested using JDK 1.4.0 under Win2000
+
+The output from this program is:
+
+In SuperClass constructor.
+Setting superclass instance var to 500
+
+In subclass constructor.
+Setting subclass instance var to 400
+
+In main
+Subclass instance var = 400
+
+In method myMeth
+Local var = 300
+Subclass instance var = 400
+SuperClass instance var = 500
+**************************************/
+class SuperClass{
+  int data;
+
+  //Parameterized superclass
+  // constructor
+  public SuperClass(int val){
+    System.out.println(
+        "In SuperClass constructor. ");
+    System.out.println(
+         "Setting superclass instance "
+                   + "var to " + val);
+    data = val;
+    System.out.println();//blank line
+  }//end SuperClass constructor
+}//end SuperClass class definition
+//===================================//
+
+class Super3 extends SuperClass{
+  //Instance var in subclass has same
+  // name as instance var in superclass
+  int data;
+
+  //Subclass constructor
+  public Super3(){
+    //Call parameterized SuperClass
+    // constructor
+    super(500);
+    System.out.println(
+           "In subclass constructor.");
+    System.out.println(
+       "Setting subclass instance var "
+                           + "to 400");
+    data = 400;
+    System.out.println();//blank line
+  }//end subclass constructor
+  //---------------------------------//
+
+  //Method illustrates use of this and
+  // super to disambiguate local
+  // variable, instance variable of
+  // subclass, and instance variable
+  // of superclass.  All three
+  // variables have the same name.
+  void myMeth(){
+    int data = 300;//local variable
+    System.out.println(
+                   "In method myMeth");
+    System.out.println("Local var = "
+                               + data);
+    System.out.println(
+             "Subclass instance var = "
+                          + this.data);
+    System.out.println(
+           "SuperClass instance var = "
+                         + super.data);
+  }//end method myMeth
+  //---------------------------------//
+
+  public static void main(
+                       String[] args){
+    Super3 obj = new Super3();
+    System.out.println("In main");
+    System.out.println(
+             "Subclass instance var = "
+                           + obj.data);
+    System.out.println();//blank line
+    obj.myMeth();
+  }//end main method
+}//End Super3 class definition.</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1092">
+The keyword 
+
+<emphasis id="strong1119" effect="bold">
+super
+
+</emphasis>
+ is used twice in the program in
+	
+
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+
+<emphasis id="em1063" effect="italics">
+.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1120" effect="bold">
+Call a parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+The first usage of the keyword 
+
+<emphasis id="strong1121" effect="bold">
+super
+
+</emphasis>
+ appears as the first executable 
+statement in the 
+
+<emphasis id="em1064" effect="italics">
+noarg
+
+</emphasis>
+ constructor for the class named 
+
+<emphasis id="strong1122" effect="bold">
+Super3
+
+</emphasis>
+. 
+This statement reads as follows: 
+
+</para>
+
+
+
+
+
+
+<code id="pre1006" display="block">super(500);</code>
+
+
+
+
+
+<para id="p1095">
+This statement causes the parameterized constructor for the immediate 
+superclass 
+
+<emphasis id="em1065" effect="italics">
+(the class named 
+
+<emphasis id="strong1123" effect="bold">
+SuperClass
+
+</emphasis>
+)
+
+</emphasis>
+ of the class named 
+
+<emphasis id="strong1124" effect="bold">
+
+Super3
+
+</emphasis>
+, to be executed before the remaining code in the constructor for 
+
+<emphasis id="strong1125" effect="bold">
+
+Super3
+
+</emphasis>
+ is executed. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+This is the mechanism by which you can cause a parameterized constructor in 
+the immediate superclass to be executed. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1126" effect="bold">
+What if you don't do this?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+If you don't do this, an attempt will always be made to call a 
+
+<emphasis id="em1066" effect="italics">
+noarg
+
+</emphasis>
+ 
+constructor on the superclass before executing the remaining code in the 
+constructor for your class. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="em1067" effect="italics">
+(That is why you should almost always make 
+certain that the classes that you define have a noarg constructor in addition to 
+any parameterized constructors that you may define.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1127" effect="bold">
+First executable statement in constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+When 
+
+<emphasis id="strong1128" effect="bold">
+super(parameters)
+
+</emphasis>
+ is used to call the superclass constructor, it 
+must always be the first executable statement in the constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+Whenever you call the constructor of a class to instantiate an object, if 
+your constructor doesn't have a call to 
+
+<emphasis id="strong1129" effect="bold">
+super
+
+</emphasis>
+ as the first executable 
+statement in the constructor, the call to the 
+
+<emphasis id="em1068" effect="italics">
+noarg
+
+</emphasis>
+ constructor in the 
+superclass is made automatically. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+In other words, in order to construct an object of a class, it is necessary 
+to first construct that part of the object attributable to the superclass. That 
+normally happens automatically, making use of the superclass constructor that 
+doesn't take any parameters. 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1130" effect="bold">
+Calling a parameterized constructor
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+If you want to use a version of the superclass constructor that takes 
+parameters, you can make your own call to 
+
+<emphasis id="strong1131" effect="bold">
+super(parameters)
+
+</emphasis>
+ as the first 
+executable statement in your constructor 
+
+<emphasis id="em1069" effect="italics">
+(as was done in this program).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1132" effect="bold">
+Accessing a superclass member variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+The second use of the 
+
+<emphasis id="strong1133" effect="bold">
+super
+
+</emphasis>
+ keyword in the program shown in 
+
+
+<link id="a1028" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+uses the keyword to bypass an instance variable named 
+
+<emphasis id="strong1134" effect="bold">
+data
+
+</emphasis>
+ in the class 
+named 
+
+<emphasis id="strong1135" effect="bold">
+Super3
+
+</emphasis>
+, to access and display the value of an instance variable 
+named 
+
+<emphasis id="strong1136" effect="bold">
+data
+
+</emphasis>
+ in the superclass named 
+
+<emphasis id="strong1137" effect="bold">
+SuperClass
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+Note that in that same section of code, the 
+
+<emphasis id="strong1138" effect="bold">
+this
+
+</emphasis>
+ keyword is used to 
+bypass a local variable named 
+
+<emphasis id="strong1139" effect="bold">
+data
+
+</emphasis>
+ in order to display the value of an 
+instance variable named 
+
+<emphasis id="strong1140" effect="bold">
+data
+
+</emphasis>
+ in the class named 
+
+<emphasis id="strong1141" effect="bold">
+Super3
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+Similarly, a statement without the use of either 
+
+<emphasis id="strong1142" effect="bold">
+this
+
+</emphasis>
+ or 
+
+<emphasis id="strong1143" effect="bold">
+super
+
+</emphasis>
+ 
+is used to display the value of a local variable named 
+
+<emphasis id="strong1144" effect="bold">
+data
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1145" effect="bold">
+To disambiguate
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+Therefore, as stated earlier, the program uses 
+
+<emphasis id="strong1146" effect="bold">
+this
+
+</emphasis>
+ and 
+
+<emphasis id="strong1147" effect="bold">
+super
+
+</emphasis>
+ 
+to disambiguate a local variable, an instance variable of the subclass, and an 
+instance variable of the superclass, where all three variables have the same 
+name. 
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1148" effect="bold">
+Accessing overridden superclass method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+As mentioned 
+
+<link id="a1029" target-id="Three_uses_of_the_super_keyword">
+
+earlier
+
+</link>
+
+, if your method 
+
+<emphasis id="em1070" effect="italics">
+overrides 
+
+</emphasis>
+a method in its 
+superclass, you can use the keyword 
+
+<emphasis id="strong1149" effect="bold">
+super 
+
+</emphasis>
+to call the overridden version 
+in the superclass, possibly completely bypassing the overridden version in the 
+subclass. 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1150" effect="bold">
+The program named Super4
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1115">
+This is illustrated by the program in 
+
+<link id="a1030" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. This program contains an 
+overridden version of a superclass method named 
+
+<emphasis id="strong1151" effect="bold">
+meth
+
+</emphasis>
+. The subclass 
+version uses the value of an incoming parameter to decide whether to call the 
+superclass version and then to call some of its own code, or to execute its own 
+code exclusively. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1005">
+
+
+
+<row id="tr1010">
+
+
+
+<entry id="th1005">
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1152" effect="bold">
+The program named Super4
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1005">
+
+
+
+<row id="tr1011">
+
+
+
+<entry id="td1005">
+
+
+
+<code id="pre1007" display="block">/*File Super4.java
+Copyright 2002, R.G.Baldwin
+Illustrates calling the superclass
+version of an overridden method from
+code in the subclass version.
+
+Tested using JDK 1.4.0 under Win 2000.
+
+The output from this program is:
+
+In main
+Entering overridden method in subclass
+Incoming parameter is false
+Subclass version only is called
+Back in or still in subclass version
+Goodbye from subclass version
+
+Entering overridden method in subclass
+Incoming parameter is true
+SuperClass method called
+Back in or still in subclass version
+Goodbye from subclass version
+
+Back in main
+**************************************/
+class SuperClass{
+  //Following method is overridden in
+  // the subclass.
+  void meth(boolean par){
+    System.out.println(
+       "Incoming parameter is " + par);
+    System.out.println(
+          "SuperClass method called");
+  }//end meth
+}//end SuperClass class definition
+//===================================//
+
+class Super4 extends SuperClass{
+  //Following method overrides method
+  // in the superclass
+  void meth(boolean par){
+    System.out.println(
+          "Entering overridden method "
+                      + "in subclass");
+    //Decide whether to call
+    // superclass version
+    if(par)
+      //Call superclass version
+      super.meth(par);
+    else{
+      //Don't call superclass version
+      System.out.println(
+       "Incoming parameter is " + par);
+      System.out.println(
+            "Subclass version only is "
+                          + "called");
+    }//end else
+    //Execute some additional code
+    System.out.println(
+        "Back in or still in subclass "
+                          + "version");
+    System.out.println(
+      "Goodbye from subclass version");
+    System.out.println();//blank line
+
+  }//end overridden meth()
+  //---------------------------------//
+
+  public static void main(
+                        String[] args){
+    //instantiate an object of
+    // this type
+    Super4 obj = new Super4();
+    System.out.println("In main");
+    //Call overridden version of
+    // method
+    obj.meth(false);
+    //Call superclass version of
+    // method
+    obj.meth(true);
+    System.out.println("Back in main");
+  }//end main method
+}//End Super4 class definition.</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1116">
+<emphasis id="strong1153" effect="bold">
+Only one statement contains super
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1117">
+The 
+
+<emphasis id="strong1154" effect="bold">
+super
+
+</emphasis>
+ keyword is used in only one statement in the program in 
+
+
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. That statement appears in the subclass version of an overridden 
+method, and is as follows: 
+
+</para>
+
+
+
+
+
+
+<code id="pre1008" display="block">super.meth(par);</code>
+
+
+
+
+
+<para id="p1118">
+This statement is inside the body of an 
+
+<emphasis id="strong1155" effect="bold">
+if
+
+</emphasis>
+ statement. If the value of
+
+
+<emphasis id="strong1156" effect="bold">
+par
+
+</emphasis>
+ is true, then this statement is executed, causing the superclass 
+version of the method named 
+
+<emphasis id="strong1157" effect="bold">
+meth
+
+</emphasis>
+ to be executed 
+
+<emphasis id="em1071" effect="italics">
+(passing the value of
+
+
+<emphasis id="strong1158" effect="bold">
+par
+
+</emphasis>
+ as a parameter to the superclass method).
+
+</emphasis>
+ When the method 
+returns, the remaining code in the subclass version of the method is executed.
+
+
+</para>
+
+
+
+
+
+<para id="p1119">
+If the value of 
+
+<emphasis id="strong1159" effect="bold">
+par
+
+</emphasis>
+ is false, the above statement is bypassed, and the 
+superclass version of the method doesn't get executed. In this case, only the 
+code in the subclass version is executed. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1120">
+I have discussed and illustrated the use of the 
+
+<emphasis id="strong1160" effect="bold">
+this
+
+</emphasis>
+ keyword in the 
+following common situations:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1034">
+To bypass local variables or parameters that hide member variables 
+	having the same name, in order to access the member variable.
+
+</item>
+
+
+	
+
+<item id="li1035">
+To make it possible for one overloaded constructor to call another 
+	overloaded constructor in the same class.
+
+</item>
+
+
+	
+
+<item id="li1036">
+To pass a reference to the current object to a method belonging to a 
+	different object 
+
+<emphasis id="em1072" effect="italics">
+(as in implementing callbacks, for example).
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1121">
+I have also discussed and illustrated the use of the 
+
+<emphasis id="strong1161" effect="bold">
+super
+
+</emphasis>
+ keyword in 
+the following situations: 
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1037">
+To bypass the overridden version of a method in a subclass and execute 
+	the version in the superclass.
+
+</item>
+
+
+	
+
+<item id="li1038">
+To bypass a member variable in a subclass in order to access a member 
+	variable having the same name in a superclass.
+
+</item>
+
+
+	
+
+<item id="li1039">
+To cause a constructor in a subclass to call a parameterized constructor 
+	in the immediate superclass.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1122">
+The next module in this collection will teach you how to use exception 
+handling in Java.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1123">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1162" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1014" list-type="bulleted">
+
+					
+
+<item id="li1040">
+Module name: Java OOP: The this and super Keywords
+
+</item>
+
+
+					
+
+<item id="li1041">
+File: Java1628.htm
+
+
+</item>
+
+
+					
+
+<item id="li1042">
+Published: 08/08/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1163" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1124">
+<emphasis id="strong1164" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1125">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1126">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1127">
+<emphasis id="strong1165" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1128">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

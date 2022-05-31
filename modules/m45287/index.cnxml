@@ -1,0 +1,7234 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0030: Self-assessment, Relational Operators, Increment Operator, and Control Structures</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45287</md:content-id>
+  <md:title>Ap0030: Self-assessment, Relational Operators, Increment Operator, and Control Structures</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about relational operators, the increment operator, and control structures in Java.</md:abstract>
+  <md:uuid>b99f6008-a0c6-4487-adeb-ce084a0b9877</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+,
+		
+		
+
+<link id="a1012" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question12">
+
+12
+
+</link>
+
+,
+		
+
+<link id="a1014" target-id="question13">
+
+13
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question14">
+
+14
+
+</link>
+
+,
+		
+
+<link id="a1016" target-id="question15">
+
+15
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1017" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1019" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1020" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+Given: The use of 
+
+<emphasis id="strong1001" effect="bold">
+String
+
+</emphasis>
+ concatenation in the argument 
+list of the call to the 
+
+<emphasis id="strong1002" effect="bold">
+println
+
+</emphasis>
+ method in the program shown in
+
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ will cause seven items to be displayed on the 
+screen, separated by spaces. 
+
+</para>
+
+
+
+
+<para id="p1005">
+True or False? The program produces the output shown below: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">false true false false true true false</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap025{
+  public static void main(
+                        String args[]){
+    new Worker().doRelat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doRelat(){
+    int a = 1, b = 2, c = 3, d = 2;
+
+    System.out.println(
+                      (a == b) + " " +
+                      (b == d) + " " +
+                      (b != d) + " " +
+                      (c &lt; a) + " " +
+                      (b &lt;= d) + " " +
+                      (c &gt; d) + " " +
+                      (a &gt;= c));
+  }//end doRelat()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1006">
+<link id="a1022" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+What output is produced by the program shown in 
+
+<link id="a1023" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. false
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap026{
+  public static void main(
+                        String args[]){
+    new Worker().doRelat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doRelat(){
+    Dummy x = new Dummy();
+    Dummy y = new Dummy();
+    System.out.println(x == y);
+  }//end doRelat()
+}//end class definition
+
+class Dummy{
+  int x = 5;
+  double y = 5.5;
+  String z = "A String Object";
+}//end class Dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1008">
+<link id="a1024" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1009">
+What output is produced by the program shown in 
+
+<link id="a1025" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. false
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap027{
+  public static void main(
+                        String args[]){
+    new Worker().doRelat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doRelat(){
+    Dummy x = new Dummy();
+    Dummy y = new Dummy();
+    System.out.println(x.equals(y));
+  }//end doRelat()
+}//end class definition
+
+class Dummy{
+  int x = 5;
+  double y = 5.5;
+  String z = "A String Object";
+}//end class Dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1010">
+<link id="a1026" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+What output is produced by the program shown in 
+
+<link id="a1027" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. true false
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. false true
+
+</item>
+
+
+	
+
+<item id="li1018">
+E. true true
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">public class Ap028{
+  public static void main(
+                        String args[]){
+    new Worker().doRelat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doRelat(){
+    Dummy x = new Dummy();
+    Dummy y = x;
+    System.out.println(
+         (x == y) + " " + x.equals(y));
+  }//end doRelat()
+}//end class definition
+
+class Dummy{
+  int x = 5;
+  double y = 5.5;
+  String z = "A String Object";
+}//end class Dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1012">
+<link id="a1028" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+What output is produced by the program shown in 
+
+<link id="a1029" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1019">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1021">
+C. true
+
+</item>
+
+
+	
+
+<item id="li1022">
+D. false
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">public class Ap029{
+  public static void main(
+                        String args[]){
+    new Worker().doRelat();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doRelat(){
+    Dummy x = new Dummy();
+    Dummy y = new Dummy();
+    System.out.println(x &gt; y);
+  }//end doRelat()
+}//end class definition
+
+class Dummy{
+  int x = 5;
+  double y = 5.5;
+  String z = "A String Object";
+}//end class Dummy
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1014">
+<link id="a1030" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+What output is produced by the program shown in 
+
+<link id="a1031" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1025">
+C. 5 5 8.3 8.3
+
+</item>
+
+
+	
+
+<item id="li1026">
+D. 6 4 9.3 7.300000000000001
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">public class Ap030{
+  public static void main(
+                        String args[]){
+    new Worker().doIncr();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doIncr(){
+    int w = 5, x = 5;
+    double y = 8.3, z = 8.3;
+
+    w++;
+    x--;
+    y++;
+    z--;
+
+    System.out.println(w + "  " +
+                       x + "  " +
+                       y + "  " +
+                       z);
+  }//end doIncr()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1016">
+<link id="a1032" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+What output is produced by the program shown in 
+
+<link id="a1033" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1027">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1029">
+C. Hello
+
+</item>
+
+
+	
+
+<item id="li1030">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">public class Ap031{
+  public static void main(
+                        String args[]){
+    new Worker().doIf();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doIf(){
+    int x = 5, y = 6;
+    if(x - y){
+      System.out.println("Hello");
+    }//end if
+  }//end doIf()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1018">
+<link id="a1034" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+What output is produced by the program shown in 
+
+<link id="a1035" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1033">
+C. World
+
+</item>
+
+
+	
+
+<item id="li1034">
+D. Hello World
+
+</item>
+
+
+	
+
+<item id="li1035">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">public class Ap032{
+  public static void main(
+                        String args[]){
+    new Worker().doIf();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doIf(){
+    int x = 5, y = 6;
+    if(x &lt; y){
+      System.out.print("Hello ");
+    }//end if
+    System.out.println("World");
+  }//end doIf()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1020">
+<link id="a1036" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+What output is produced by the program shown in 
+
+<link id="a1037" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1037">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+C. Hello World
+
+</item>
+
+
+	
+
+<item id="li1039">
+D. Goodbye World
+
+</item>
+
+
+	
+
+<item id="li1040">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">public class Ap033{
+  public static void main(
+                        String args[]){
+    new Worker().doIf();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doIf(){
+    int x = 5, y = 6;
+    if(x == y){
+      System.out.println(
+                        "Hello World");
+    }else{
+      System.out.println(
+                      "Goodbye World");
+    }//end else
+  }//end doIf()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1022">
+<link id="a1038" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+What output is produced by the program shown in 
+
+<link id="a1039" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1041">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+C. x = 4
+
+</item>
+
+
+	
+
+<item id="li1044">
+D. x = 5
+
+</item>
+
+
+	
+
+<item id="li1045">
+E. x = 6
+
+</item>
+
+
+	
+
+<item id="li1046">
+F. x != 4,5,6
+
+</item>
+
+
+	
+
+<item id="li1047">
+G. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">public class Ap034{
+  public static void main(
+                        String args[]){
+    new Worker().doIf();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doIf(){
+    int x = 2;
+    if(x == 4){
+      System.out.println("x = 4");
+    }else if (x == 5){
+      System.out.println("x = 5");
+    }else if (x == 6){
+      System.out.println("x = 6");
+    }else{
+      System.out.println("x != 4,5,6");
+    }//end else
+  }//end doIf()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1024">
+<link id="a1040" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+What output is produced by the program shown in 
+
+<link id="a1041" target-id="Listing_11">
+
+Listing 
+11
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1048">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1049">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1050">
+C. 0 1 2 3 4
+
+</item>
+
+
+	
+
+<item id="li1051">
+D. 1 2 3 4 5
+
+</item>
+
+
+	
+
+<item id="li1052">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+	
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Listing for Question 
+				11.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="td1011">
+
+
+
+<code id="pre1011" display="block">public class Ap035{
+  public static void main(
+                        String args[]){
+    new Worker().doLoop();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLoop(){
+    int cnt = 0;
+    while(cnt&lt;5){
+      cnt++;
+      System.out.print(cnt + " ");
+      cnt++;
+    }//end while loop
+    System.out.println("");
+  }//end doLoop()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1026">
+<link id="a1042" target-id="answer11">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+What output is produced by the program shown in 
+
+<link id="a1043" target-id="Listing_12">
+
+Listing 
+12
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1053">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1054">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1055">
+C. 0 1 2 3 4 5
+
+</item>
+
+
+	
+
+<item id="li1056">
+D. 1 2 3 4 5 5
+
+</item>
+
+
+	
+
+<item id="li1057">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Listing for Question 
+				12.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1012" display="block">public class Ap036{
+  public static void main(
+                        String args[]){
+    new Worker().doLoop();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLoop(){
+    int cnt;
+    for(cnt = 0; cnt &lt; 5; cnt++){
+      System.out.print(cnt + " ");
+    }//end for loop
+    System.out.println(cnt + " ");
+  }//end doLoop()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1028">
+<link id="a1044" target-id="answer12">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+What output is produced by the program shown in 
+
+<link id="a1045" target-id="Listing_13">
+
+Listing 
+13
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1058">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1059">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1060">
+C. 0 1 2 3 4 5
+
+</item>
+
+
+	
+
+<item id="li1061">
+D. 1 2 3 4 5 5
+
+</item>
+
+
+	
+
+<item id="li1062">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Listing for Question 
+				13.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1013" display="block">public class Ap037{
+  public static void main(
+                        String args[]){
+    new Worker().doLoop();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLoop(){
+    for(int cnt = 0; cnt &lt; 5; cnt++){
+      System.out.print(cnt + " ");
+    }//end for loop
+    System.out.println(cnt + " ");
+  }//end doLoop()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1030">
+<link id="a1046" target-id="answer13">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+What output is produced by the program shown in 
+
+<link id="a1047" target-id="Listing_14">
+
+Listing 
+14
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1063">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1064">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1065">
+C. 0 1 2 3 3
+
+</item>
+
+
+	
+
+<item id="li1066">
+D. 0 1 2 3 4
+
+</item>
+
+
+	
+
+<item id="li1067">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. Listing for Question 
+				14.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="td1014">
+
+
+
+<code id="pre1014" display="block">public class Ap037{
+  public static void main(
+                        String args[]){
+    new Worker().doLoop();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public double doLoop(){
+    for(int cnt = 0; cnt &lt; 5; cnt++){
+      System.out.print(cnt + " ");
+      if(cnt == 3){
+        System.out.println(cnt);
+        return cnt;
+      }//end if
+    }//end for loop
+    //return 3.5;
+  }//end doLoop()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1032">
+<link id="a1048" target-id="answer14">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+What output is produced by the program shown in 
+
+<link id="a1049" target-id="Listing_15">
+
+Listing 
+15
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1068">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1069">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1070">
+C. 0 1 2 3 3
+
+</item>
+
+
+	
+
+<item id="li1071">
+D. 0 1 2 3 4
+
+</item>
+
+
+	
+
+<item id="li1072">
+E. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+	
+
+<table id="table1015" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. Listing for Question 
+				15.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="td1015">
+
+
+
+<code id="pre1015" display="block">public class Ap038{
+  public static void main(
+                        String args[]){
+    new Worker().doLoop();
+  }//end main()
+}//end class definition
+
+class Worker{
+  public void doLoop(){
+    for(int cnt = 0; cnt &lt; 5; cnt++){
+      System.out.print(cnt + " ");
+      if(cnt == 3){
+        System.out.println(cnt);
+        return;
+      }//end if
+    }//end for loop
+  }//end doLoop()
+}//end class definition
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1034">
+<link id="a1050" target-id="answer15">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1073">
+<link id="a1051" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1. 
+
+</item>
+
+
+	
+
+<item id="li1074">
+<link id="a1052" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2. 
+
+</item>
+
+
+	
+
+<item id="li1075">
+<link id="a1053" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3. 
+
+</item>
+
+
+	
+
+<item id="li1076">
+<link id="a1054" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4. 
+
+</item>
+
+
+	
+
+<item id="li1077">
+<link id="a1055" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5. 
+
+</item>
+
+
+	
+
+<item id="li1078">
+<link id="a1056" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6. 
+
+</item>
+
+
+	
+
+<item id="li1079">
+<link id="a1057" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7. 
+
+</item>
+
+
+	
+	
+
+<item id="li1080">
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8. 
+
+</item>
+
+
+	
+
+<item id="li1081">
+<link id="a1059" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9. 
+
+</item>
+
+
+	
+
+<item id="li1082">
+<link id="a1060" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+	
+
+<item id="li1083">
+<link id="a1061" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Listing for Question 11. 
+
+</item>
+
+
+	
+
+<item id="li1084">
+<link id="a1062" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Listing for Question 12. 
+
+</item>
+
+
+	
+
+<item id="li1085">
+<link id="a1063" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Listing for Question 13. 
+
+</item>
+
+
+	
+
+<item id="li1086">
+<link id="a1064" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Listing for Question 14. 
+
+</item>
+
+
+	
+
+<item id="li1087">
+<link id="a1065" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Listing for Question 15. 
+
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1003" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1017" list-type="bulleted">
+
+				
+
+<item id="li1088">
+Module name: Ap0030: Self-assessment, Relational Operators, 
+				Increment Operator, and Control Structures
+
+</item>
+
+
+				
+
+<item id="li1089">
+File: Ap0030.htm 
+
+</item>
+
+
+				
+
+<item id="li1090">
+Originally published: January, 2002
+
+</item>
+
+
+				
+
+<item id="li1091">
+Published at cnx.org: 12/02/12
+
+</item>
+
+
+
+
+<item id="li1092">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1004" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1037">
+<emphasis id="strong1005" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1038">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1039">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1040">
+<emphasis id="strong1006" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21015">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+C. 0 1 2 3 3 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1007" effect="bold">
+Explanation 15
+
+</emphasis>
+</title>
+
+
+<para id="p1042">
+
+
+
+<emphasis id="strong1008" effect="bold">
+No return statement is required
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1043">
+A method with a signature that specifies a 
+
+<emphasis id="strong1009" effect="bold">
+void
+
+</emphasis>
+ return type does not require 
+a 
+
+<emphasis id="strong1010" effect="bold">
+return
+
+</emphasis>
+ statement. 
+
+</para>
+
+
+
+
+<para id="p1044">
+However, such a method may contain a 
+
+<emphasis id="strong1011" effect="bold">
+return
+
+</emphasis>
+ statement, provided that it is 
+terminated immediately with a semicolon 
+
+<emphasis id="em1000" effect="italics">
+(no expression between the word return 
+and the semicolon)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="em1001" effect="italics">
+(Every method whose return type is not void must contain at least one return 
+statement.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1012" effect="bold">
+Multiple return statements are allowed
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1047">
+Any method may contain any number of 
+
+<emphasis id="strong1013" effect="bold">
+return
+
+</emphasis>
+ statements provided that they 
+make sense from a syntax viewpoint, and provided the expression 
+
+<emphasis id="em1002" effect="italics">
+(or lack 
+thereof)
+
+</emphasis>
+ between the word 
+
+<emphasis id="strong1014" effect="bold">
+return
+
+</emphasis>
+ and the semicolon evaluates to the type 
+specified in the method signature 
+
+<emphasis id="em1003" effect="italics">
+(or a type that will be automatically converted to the type 
+specified in the method signature)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1015" effect="bold">
+A return statement terminates a method immediately 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1049">
+Whenever the execution stream encounters any 
+
+<emphasis id="strong1016" effect="bold">
+return
+
+</emphasis>
+ statement, the method is 
+terminated immediately, and control is returned to the method that called that 
+method. 
+
+</para>
+
+
+
+
+<para id="p1050">
+<link id="a1066" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1017" effect="bold">
+Explanation 14
+
+</emphasis>
+</title>
+
+
+<para id="p1052">
+
+
+
+<emphasis id="strong1018" effect="bold">
+Missing return statement
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1053">
+This program produces the following compiler error under JDK 1.3: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1016" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1016" display="block">Ap037.java:11: missing return statement 
+  public int doLoop(){ </code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1054">
+Even though this program contains a 
+
+<emphasis id="strong1019" effect="bold">
+return
+
+</emphasis>
+ statement inside the 
+
+<emphasis id="strong1020" effect="bold">
+for
+
+</emphasis>
+ 
+loop, it is still necessary to place a 
+
+<emphasis id="strong1021" effect="bold">
+return
+
+</emphasis>
+ statement at the end of the method 
+to satisfy the compiler. 
+
+<emphasis id="em1004" effect="italics">
+(The one shown in the code is a comment.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1055">
+The method named 
+
+<emphasis id="strong1022" effect="bold">
+doLoop
+
+</emphasis>
+ must return a value of type 
+
+<emphasis id="strong1023" effect="bold">
+double
+
+</emphasis>
+. 
+Apparently the compiler assumes that the 
+
+<emphasis id="strong1024" effect="bold">
+return
+
+</emphasis>
+ statement inside the 
+
+<emphasis id="strong1025" effect="bold">
+for
+
+</emphasis>
+ 
+loop may never be executed 
+
+<emphasis id="em1005" effect="italics">
+(although that isn't true in this case)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1056">
+Both of the 
+
+<emphasis id="strong1026" effect="bold">
+return
+
+</emphasis>
+ statements must return a value that satisfies the 
+
+<emphasis id="strong1027" effect="bold">
+
+double
+
+</emphasis>
+ type requirement given in the method signature. 
+
+</para>
+
+
+
+
+<para id="p1057">
+Returning a value of type 
+
+<emphasis id="strong1028" effect="bold">
+int
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1029" effect="bold">
+for
+
+</emphasis>
+ loop will satisfy 
+the type requirement because type 
+
+<emphasis id="strong1030" effect="bold">
+int
+
+</emphasis>
+ will be automatically 
+converted to type 
+
+<emphasis id="strong1031" effect="bold">
+double
+
+</emphasis>
+ as it is returned. 
+
+<emphasis id="em1006" effect="italics">
+(Conversion 
+from type 
+
+<emphasis id="strong1032" effect="bold">
+int
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1033" effect="bold">
+double
+
+</emphasis>
+ is a widening 
+conversion.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1058">
+<link id="a1067" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1059">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1034" effect="bold">
+Explanation 13
+
+</emphasis>
+</title>
+
+
+<para id="p1060">
+
+
+
+<emphasis id="strong1035" effect="bold">
+The scope of a local variable
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1061">
+In general, the scope of a local variable extends from the point at which it 
+is declared to the curly brace that signals the end of the block in which it is 
+declared. 
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1036" effect="bold">
+This applies to for loop in an interesting way 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1063">
+While it is allowable to declare a variable within the first clause of a
+
+
+<emphasis id="strong1037" effect="bold">
+for
+
+</emphasis>
+ loop, the scope of that variable is limited to the block of 
+code contained in the loop structure. 
+
+</para>
+
+
+
+
+<para id="p1064">
+The variable cannot be accessed outside the loop. 
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1038" effect="bold">
+Attempts to access variable out of scope 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1066">
+This program attempts to access the value of the variable named 
+
+<emphasis id="strong1039" effect="bold">
+cnt
+
+</emphasis>
+ after the 
+loop terminates. 
+
+</para>
+
+
+
+
+<para id="p1067">
+The program displays the following compiler error under JDK 1.3. This 
+error results from the attempt to display the value of the counter after the 
+loop terminates. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1017" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="td1017">
+
+				
+
+<code id="pre1017" display="block">Ap037.java:15: cannot resolve symbol 
+symbol  : variable cnt 
+location: class Worker 
+    System.out.println(cnt + " ");</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1068">
+<link id="a1068" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1069">
+C. 0 1 2 3 4 5 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1040" effect="bold">
+Explanation 12
+
+</emphasis>
+</title>
+
+
+<para id="p1070">
+
+
+
+<emphasis id="strong1041" effect="bold">
+A simple for loop structure
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1071">
+This program illustrates a simple 
+
+<emphasis id="strong1042" effect="bold">
+for
+
+</emphasis>
+ loop that displays the 
+value of its counter using a call to the 
+
+<emphasis id="strong1043" effect="bold">
+print
+
+</emphasis>
+ method inside 
+the loop. 
+
+</para>
+
+
+
+
+<para id="p1072">
+After the loop terminates, the program displays the value of the counter one 
+last time using a call to 
+
+<emphasis id="strong1044" effect="bold">
+println
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1045" effect="bold">
+Three clauses separated by semicolons 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1074">
+The first line of a 
+
+<emphasis id="strong1046" effect="bold">
+for
+
+</emphasis>
+ loop structure always contains three 
+clauses separated by semicolons. 
+
+</para>
+
+
+
+
+<para id="p1075">
+The first and third clauses may be empty, but the semicolons are required in 
+any case. 
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1047" effect="bold">
+The first clause ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+The first clause is executed once and only once at the beginning of the loop.
+
+
+</para>
+
+
+
+
+<para id="p1078">
+It can contain just about any valid Java expression. 
+
+</para>
+
+
+
+
+<para id="p1079">
+It can even contain more than one expression with the individual expression 
+separated by commas. 
+
+</para>
+
+
+
+
+<para id="p1080">
+When the first clause contains more than one expression separated by commas, 
+the expressions are evaluated in left-to-right order. 
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1048" effect="bold">
+The second clause 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1082">
+The second clause is a conditional clause. It must contain an 
+expression that returns a 
+
+<emphasis id="strong1049" effect="bold">
+boolean
+
+</emphasis>
+ value. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="em1007" effect="italics">
+(Actually, this clause can also be empty, in which case it is apparently 
+assumed to be true. This leads to an infinite loop unless there is some 
+code inside the loop to terminate it, perhaps by executing a return or a break 
+statement.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1050" effect="bold">
+An entry-condition loop 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1085">
+The 
+
+<emphasis id="strong1051" effect="bold">
+for
+
+</emphasis>
+ loop is an entry condition loop, meaning that the 
+conditional expression is evaluated once immediately after the first clause is 
+executed, and once per iteration thereafter. 
+
+</para>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1052" effect="bold">
+Behavior of the for loop 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1087">
+If the conditional expression returns true, the block of code following the 
+closing parenthesis is executed. 
+
+</para>
+
+
+
+
+<para id="p1088">
+If it returns false, the block of code is skipped, and control passes to the 
+first executable statement following the block of code. 
+
+</para>
+
+
+
+
+<para id="p1089">
+<emphasis id="em1008" effect="italics">
+(For the case where the block contains only one statement, the matching curly 
+brackets can be omitted.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1053" effect="bold">
+The third clause 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1091">
+The third clause can contain none, one, or more valid expressions separated 
+by commas. 
+
+</para>
+
+
+
+
+<para id="p1092">
+If there are more than one, they are evaluated in left-to-right order. 
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1054" effect="bold">
+When they are evaluated
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+The expressions in the third clause are evaluated once during each iteration.
+
+
+</para>
+
+
+
+
+<para id="p1095">
+However, it is very important to remember that despite the physical placement 
+of the clause in the first line, the expressions in the third clause are not 
+evaluated until after the code in the block has been evaluated. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1055" effect="bold">
+Typically an update clause 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1097">
+The third clause is typically used to update a counter, but this is not a 
+technical requirement. 
+
+</para>
+
+
+
+
+<para id="p1098">
+This clause can be used for just about any purpose. 
+
+</para>
+
+
+
+
+<para id="p1099">
+However, the counter must be updated somewhere within the block of code or 
+the loop will never terminate.
+
+</para>
+
+
+
+
+<para id="p1100">
+<emphasis id="em1009" effect="italics">
+(Stated differently, something must occur within the block of code to 
+eventually cause the conditional expression to evaluate to false. 
+Otherwise, the loop will never terminate on its own. However, it is 
+possible to execute a 
+
+<emphasis id="strong1056" effect="bold">
+return
+
+</emphasis>
+ or 
+
+<emphasis id="strong1057" effect="bold">
+break
+
+</emphasis>
+ within the block to terminate the loop.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1058" effect="bold">
+Note the first output value for this program 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1102">
+Because the update in the third clause is not executed until after the code 
+in the block has been executed, the 
+
+<link id="a1069" target-id="answer12">
+
+first value displayed
+
+</link>
+
+ by this program is the 
+value zero. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<link id="a1070" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1104">
+E. None of the above 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1059" effect="bold">
+Explanation 11
+
+</emphasis>
+</title>
+
+
+<para id="p1105">
+
+
+
+<emphasis id="strong1060" effect="bold">
+And the answer is ...
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1106">
+The output produced by this program is: 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1061" effect="bold">
+1 3 5
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1062" effect="bold">
+A simple while loop 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1109">
+This program uses a simple 
+
+<emphasis id="strong1063" effect="bold">
+while
+
+</emphasis>
+ loop to display the value of a counter, once 
+during each iteration. 
+
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1064" effect="bold">
+Behavior of a while loop 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1111">
+As long as the relational expression in the conditional clause returns true, 
+the block of code immediately following the conditional clause is executed. 
+
+</para>
+
+
+
+
+<para id="p1112">
+When the relational expression returns false, the block of code following the 
+conditional clause is skipped and control passes to the next executable 
+statement following that block of code. 
+
+</para>
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1065" effect="bold">
+An entry-condition loop 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1114">
+The 
+
+<emphasis id="strong1066" effect="bold">
+while
+
+</emphasis>
+ loop is an entry condition loop, meaning that the test is 
+performed once during each iteration before the block of code is executed. 
+
+</para>
+
+
+
+
+<para id="p1115">
+If the first test returns false, the block of code is skipped entirely. 
+
+</para>
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1067" effect="bold">
+An exit-condition loop
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1117">
+There is another loop, known as a 
+
+<emphasis id="strong1068" effect="bold">
+do-while
+
+</emphasis>
+ loop, that performs the test 
+after the block of code has been executed once. This guarantees that the 
+block of code will always be executed at least once. 
+
+</para>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1069" effect="bold">
+Just to make things interesting ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1119">
+Two statements using the increment operator were placed inside the loop in 
+this program. 
+
+</para>
+
+
+
+
+<para id="p1120">
+Therefore, insofar as the conditional test is concerned, the counter is being 
+incremented by twos. This causes the output to display the sequence 1 3 5.
+
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1070" effect="bold">
+Nested while loops 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1122">
+The 
+
+<emphasis id="strong1071" effect="bold">
+while
+
+</emphasis>
+ loop control structure can contain loops nested inside of loops, 
+which leads to some interesting behavior. 
+
+</para>
+
+
+
+
+<para id="p1123">
+<link id="a1071" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1124">
+F. x != 4,5,6 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1072" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+<para id="p1125">
+
+
+
+<emphasis id="strong1073" effect="bold">
+A multiple-choice structure
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1126">
+This is a form of control structure that is often used to make logical 
+decisions in a 
+
+<emphasis id="em1010" effect="italics">
+multiple-choice
+
+</emphasis>
+ sense. 
+
+</para>
+
+
+
+
+<para id="p1127">
+This is a completely general control structure. It can be used with 
+just about any type of data. 
+
+</para>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1074" effect="bold">
+A switch structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1129">
+There is a somewhat more specialized, control structure named 
+
+<emphasis id="strong1075" effect="bold">
+switch
+
+</emphasis>
+ that can 
+also be used to make decisions in a multiple choice sense under certain fairly 
+restrictive conditions. 
+
+</para>
+
+
+
+
+<para id="p1130">
+However, the structure shown in this program can always be used to replace a 
+switch. Therefore, I find that I rarely use the 
+
+<emphasis id="strong1076" effect="bold">
+switch
+
+</emphasis>
+ 
+structure, opting instead for the more general form of multiple-choice 
+structure.
+
+</para>
+
+
+
+
+<para id="p1131">
+<link id="a1072" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1132">
+D. Goodbye World 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1077" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+<para id="p1133">
+
+
+
+<emphasis id="strong1078" effect="bold">
+An if-else control structure
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1134">
+This program contains a simple 
+
+<emphasis id="strong1079" effect="bold">
+if-else
+
+</emphasis>
+ control structure. 
+
+</para>
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1080" effect="bold">
+Behavior of if-else structure 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1136">
+If the expression in the conditional clause returns true, the block of code 
+following the conditional clause is executed, and the block of code following 
+the word 
+
+<emphasis id="strong1081" effect="bold">
+else
+
+</emphasis>
+ is skipped. 
+
+</para>
+
+
+
+
+<para id="p1137">
+If the expression in the conditional clause returns false, the block of code 
+following the conditional clause is skipped, and the block of code following the 
+word 
+
+<emphasis id="strong1082" effect="bold">
+else
+
+</emphasis>
+ is executed. 
+
+</para>
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1083" effect="bold">
+This program executes the else block 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1139">
+In this program, the expression in the conditional clause returns false. 
+
+</para>
+
+
+
+
+<para id="p1140">
+Therefore, the block of code following the word 
+
+<emphasis id="strong1084" effect="bold">
+else
+
+</emphasis>
+ is executed, producing 
+the words 
+
+<emphasis id="em1011" effect="italics">
+Goodbye World
+
+</emphasis>
+ on the computer screen. 
+
+</para>
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1085" effect="bold">
+Can result in very complex structures 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1142">
+While the structure used in this program is relatively simple, it is possible 
+to create very complex control structures by nesting additional 
+
+<emphasis id="strong1086" effect="bold">
+if-else
+
+</emphasis>
+ 
+structures inside the blocks of code. 
+
+</para>
+
+
+
+
+<para id="p1143">
+<link id="a1073" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21022">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1144">
+D. Hello World 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1087" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+<para id="p1145">
+
+
+
+<emphasis id="strong1088" effect="bold">
+A simple if statement 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1146">
+This program contains a simple 
+
+<emphasis id="strong1089" effect="bold">
+if
+
+</emphasis>
+ statement that 
+
+</para>
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1093">
+uses a relational expression
+
+</item>
+
+
+	
+
+<item id="li1094">
+to return a value of type 
+
+<emphasis id="strong1090" effect="bold">
+boolean
+
+</emphasis>
+ inside its 
+	conditional clause
+
+</item>
+
+
+
+
+</list>
+
+
+<para id="p1147">
+
+
+
+<emphasis id="strong1091" effect="bold">
+Tests for x less than y
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1148">
+The relational expression tests to determine if the value of the variable 
+named 
+
+<emphasis id="strong1092" effect="bold">
+x
+
+</emphasis>
+ is less than the value of the variable named 
+
+<emphasis id="strong1093" effect="bold">
+y
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1149">
+Since the value of 
+
+<emphasis id="strong1094" effect="bold">
+x
+
+</emphasis>
+ is 5 and the value of 
+
+<emphasis id="strong1095" effect="bold">
+y
+
+</emphasis>
+ is 6, this relational expression 
+returns true. 
+
+</para>
+
+
+
+
+<para id="p1150">
+<emphasis id="strong1096" effect="bold">
+Behavior of an if statement
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1151">
+If the expression in the conditional clause returns true, the block of code 
+following the conditional clause is executed 
+
+</para>
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1097" effect="bold">
+What is a block of code?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1153">
+A block of code is one or more statements surrounded by matching curly 
+brackets. 
+
+</para>
+
+
+
+
+<para id="p1154">
+For cases like this one where the block includes only one statement, the 
+curly brackets can be omitted. However, I prefer to put them there anyway. They 
+don't cause any harm and help me avoid programming errors if I come back later 
+and add more statements to the body of the 
+
+<emphasis id="strong1098" effect="bold">
+if
+
+</emphasis>
+ statement.
+
+</para>
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1099" effect="bold">
+Display the word Hello 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1156">
+In this program, execution of the code in the block causes the 
+
+<emphasis id="strong1100" effect="bold">
+print
+
+</emphasis>
+ 
+method to be called and the word 
+
+<emphasis id="em1012" effect="italics">
+Hello
+
+</emphasis>
+ to be displayed followed by a space, but 
+without a newline following the space. 
+
+</para>
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1101" effect="bold">
+What if the conditional clause returns false? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1158">
+If the expression in the conditional clause returns false, the block of code 
+following the conditional clause is bypassed. 
+
+</para>
+
+
+
+
+<para id="p1159">
+<emphasis id="em1013" effect="italics">
+(That is not the case in this program.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1102" effect="bold">
+After the if statement ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+After the 
+
+<emphasis id="strong1103" effect="bold">
+if
+
+</emphasis>
+ statement is executed in this program, the 
+
+<emphasis id="strong1104" effect="bold">
+println
+
+</emphasis>
+ 
+method is called to cause the word 
+
+<emphasis id="em1014" effect="italics">
+World
+
+</emphasis>
+ to be displayed on the same line as the 
+word 
+
+<emphasis id="em1015" effect="italics">
+Hello
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1162">
+<link id="a1074" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21023">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1163">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1105" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+<para id="p1164">
+
+
+
+<emphasis id="strong1106" effect="bold">
+Not the same as C and C++
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1165">
+Unlike C and C++, which can use an integer numeric expression in the 
+conditional clause of an 
+
+<emphasis id="strong1107" effect="bold">
+if
+
+</emphasis>
+ statement, Java requires the conditional clause of 
+an 
+
+<emphasis id="strong1108" effect="bold">
+if
+
+</emphasis>
+ statement to contain an expression that will return a 
+
+<emphasis id="strong1109" effect="bold">
+boolean
+
+</emphasis>
+ 
+result. 
+
+</para>
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1110" effect="bold">
+Bad conditional expression 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1167">
+That is not the case in this program, and the following compiler error occurs 
+under JDK 1.3: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1018" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1018" display="block">Ap031.java:13: incompatible types 
+found   : int 
+required: boolean 
+    if(x - y){ </code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1168">
+<link id="a1075" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1169">
+D. 6 4 9.3 7.300000000000001 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1111" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+<para id="p1170">
+
+
+
+<emphasis id="strong1112" effect="bold">
+Postfix increment and decrement operators
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1171">
+This program illustrates the use of the increment (++) and decrement (--) 
+operators in their postfix form. 
+
+</para>
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1113" effect="bold">
+Behavior of increment operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1173">
+Given a variable 
+
+<emphasis id="strong1114" effect="bold">
+x
+
+</emphasis>
+, the following two statements are equivalent: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1019" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="td1019">
+
+				
+
+<code id="pre1019" display="block">x++;
+x = x + 1;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1174">
+<emphasis id="strong1115" effect="bold">
+Behavior of decrement operator 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1175">
+Also, the following two statements are equivalent: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1020" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1020">
+
+				
+
+<code id="pre1020" display="block">x--;
+x = x - 1;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1176">
+Prefix and postfix forms available 
+
+</para>
+
+
+
+
+<para id="p1177">
+These operators have both a prefix form and a postfix form. 
+
+</para>
+
+
+
+
+<para id="p1178">
+<emphasis id="strong1116" effect="bold">
+Can be fairly complex 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1179">
+It is possible to construct some fairly complex scenarios when using these 
+operators and combining them into expressions. 
+
+</para>
+
+
+
+
+<para id="p1180">
+<emphasis id="strong1117" effect="bold">
+In these modules ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1181">
+In this group of self-assessment modules, the increment and decrement operators will 
+primarily be used to update control variables in loops. 
+
+</para>
+
+
+
+
+<para id="p1182">
+<emphasis id="strong1118" effect="bold">
+Inaccurate results
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1183">
+Regarding the program output, you will note that there is a little arithmetic 
+inaccuracy when this program is executed using JDK 1.3. 
+
+<emphasis id="em1016" effect="italics">
+(The same is still 
+true with JDK version 1.7.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1184">
+Ideally, the output value 7.300000000000001 should simply be 7.3 without the 
+very small additional fractional part, but that sort of thing often happens when 
+using floating types. 
+
+</para>
+
+
+
+
+<para id="p1185">
+<link id="a1076" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1186">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31010">
+<title>
+<emphasis id="strong1119" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+<para id="p1187">
+
+
+
+<emphasis id="strong1120" effect="bold">
+Cannot use &gt; with reference variables
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1188">
+The only relational operator that can be applied to reference variables is 
+the == operator. 
+
+</para>
+
+
+
+
+<para id="p1189">
+As discussed in the previous questions, even then it can only be used to determine 
+if two reference variables refer to the same object. 
+
+</para>
+
+
+
+
+<para id="p1190">
+This program produces the following compiler error under JDK 1.3: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1021" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="td1021">
+
+				
+
+<code id="pre1021" display="block">Ap029.java:14: operator &gt; cannot be applied to Dummy,Dummy
+      System.out.println(x &gt; y);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1191">
+<link id="a1077" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21026">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1192">
+E. true true 
+
+</para>
+
+
+
+
+<section id="h31011">
+<title>
+<emphasis id="strong1121" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+<para id="p1193">
+
+
+
+<emphasis id="strong1122" effect="bold">
+Two references to the same object
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1194">
+In this case, the reference variables named 
+
+<emphasis id="strong1123" effect="bold">
+x
+
+</emphasis>
+ and 
+
+<emphasis id="strong1124" effect="bold">
+y
+
+</emphasis>
+ both refer to the same 
+object. Therefore, when tested for equality, using either the == 
+operator or the default 
+
+<emphasis id="strong1125" effect="bold">
+equals
+
+</emphasis>
+ method, the result is true. 
+
+</para>
+
+
+
+
+<para id="p1195">
+<link id="a1078" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21027">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1196">
+D. false 
+
+</para>
+
+
+
+
+<section id="h31012">
+<title>
+<emphasis id="strong1126" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+<para id="p1197">
+
+
+
+<emphasis id="strong1127" effect="bold">
+Read question 2
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1198">
+In case you skipped it, you need to read the explanation for the answer to
+
+
+<link id="a1079" target-id="question02">
+
+Question 2
+
+</link>
+
+ before reading this explanation. 
+
+</para>
+
+
+
+
+<para id="p1199">
+<emphasis id="strong1128" effect="bold">
+Objects appear to be equal
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1200">
+These two objects are of the same type and contain the same values. Why 
+are they reported as not being equal? 
+
+</para>
+
+
+
+
+<para id="p1201">
+<emphasis id="strong1129" effect="bold">
+Did not override the equals method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1202">
+When I defined the class named 
+
+<emphasis id="strong1130" effect="bold">
+Dummy
+
+</emphasis>
+ used in the programs 
+for 
+
+<link id="a1080" target-id="question02">
+
+Question 2
+
+</link>
+
+ and 
+
+<link id="a1081" target-id="question03">
+
+Question 3
+
+</link>
+
+, I did not override the 
+method named 
+
+<emphasis id="strong1131" effect="bold">
+equals
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1203">
+Therefore, my class named 
+
+<emphasis id="strong1132" effect="bold">
+Dummy
+
+</emphasis>
+ simply inherited the default 
+version of the method named 
+
+<emphasis id="strong1133" effect="bold">
+equals
+
+</emphasis>
+ that is defined in the class 
+named 
+
+<emphasis id="strong1134" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1135" effect="bold">
+Default behavior of equals method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1205">
+The default version of the 
+
+<emphasis id="strong1136" effect="bold">
+equals
+
+</emphasis>
+ method behaves 
+essentially the same as the == operator. 
+
+</para>
+
+
+
+
+<para id="p1206">
+That is to say, the inherited default version of the 
+
+<emphasis id="strong1137" effect="bold">
+equals
+
+</emphasis>
+ 
+method will return true if the two objects being compared are actually the same 
+object, and will return false otherwise. 
+
+</para>
+
+
+
+
+<para id="p1207">
+As a result, this program displays false. 
+
+</para>
+
+
+
+
+<para id="p1208">
+<emphasis id="strong1138" effect="bold">
+Overridden equals is required for valid testing
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1209">
+If you want to be able to determine if two objects instantiated from a class 
+that you define are "equal", you must override the inherited 
+
+<emphasis id="strong1139" effect="bold">
+equals
+
+</emphasis>
+ 
+method for your new class. You cannot depend on the inherited version of 
+the 
+
+<emphasis id="strong1140" effect="bold">
+equals
+
+</emphasis>
+ method to do that job for you. 
+
+</para>
+
+
+
+
+<para id="p1210">
+<emphasis id="strong1141" effect="bold">
+Overriding may not be easy
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1211">
+That is not to say that overriding the 
+
+<emphasis id="strong1142" effect="bold">
+equals
+
+</emphasis>
+ method is 
+easy. In fact, it may be quite difficult in those cases where the class 
+declares instance variables that refer to other objects. In this case, it 
+may be necessary to test an entire tree of objects for equality. 
+
+</para>
+
+
+
+
+<para id="p1212">
+<link id="a1082" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21028">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1213">
+D. false
+
+</para>
+
+
+
+
+<section id="h31013">
+<title>
+<emphasis id="strong1143" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+<para id="p1214">
+
+
+
+<emphasis id="strong1144" effect="bold">
+Use of the == operator with references to objects 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1215">
+This program illustrates an extremely important point about the use of the == operator with objects and reference variables containing references 
+to objects. 
+
+</para>
+
+
+
+
+<para id="p1216">
+<emphasis id="strong1145" effect="bold">
+You cannot determine... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1217">
+You cannot determine if two objects are "equal" by applying the == 
+operator to the reference variables containing references to those objects. 
+
+</para>
+
+
+
+
+<para id="p1218">
+Rather, that test simply determines if two reference variables refer to the 
+same object. 
+
+</para>
+
+
+
+
+<para id="p1219">
+<emphasis id="strong1146" effect="bold">
+Two references to the same object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1220">
+Obviously, if there is only one object, referred to by two different 
+reference variables, then it is "equal" to itself. 
+
+</para>
+
+
+
+
+<para id="p1221">
+<emphasis id="strong1147" effect="bold">
+Objects of same type containing same instance values 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1222">
+On the other hand, two objects of the same type could contain exactly the 
+same data values, but this test would not indicate that they are "equal." 
+
+
+<emphasis id="em1017" effect="italics">
+(In 
+fact, that is the case in this program.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1223">
+<emphasis id="strong1148" effect="bold">
+So, how do you test two objects for equal? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1224">
+In order to determine if two objects are "equal", you must devise a way to 
+compare the types of the two objects and actually compare the contents of one 
+object to the contents of the other object. Fortunately, there is a 
+standard framework for doing this. 
+
+</para>
+
+
+
+
+<para id="p1225">
+<emphasis id="strong1149" effect="bold">
+The equals method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1226">
+In particular, the class named 
+
+<emphasis id="strong1150" effect="bold">
+Object
+
+</emphasis>
+ defines a default version of a method 
+named 
+
+<emphasis id="strong1151" effect="bold">
+equals
+
+</emphasis>
+ that is inherited by all other classes. 
+
+</para>
+
+
+
+
+<para id="p1227">
+<emphasis id="strong1152" effect="bold">
+Class author can override the equals method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1228">
+The intent is that the author of a new class can override the 
+
+<emphasis id="strong1153" effect="bold">
+equals
+
+</emphasis>
+ 
+method so that it can be called to determine if two objects instantiated from 
+that class are "equal." 
+
+</para>
+
+
+
+
+<para id="p1229">
+<emphasis id="strong1154" effect="bold">
+What does "equal" mean for objects?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1230">
+Actually, that is up to the author of the class to decide. 
+
+</para>
+
+
+
+
+<para id="p1231">
+After having made that decision, the author of the class writes that behavior 
+into her overridden version of the method named 
+
+<emphasis id="strong1155" effect="bold">
+equals
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1232">
+<link id="a1083" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21029">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1233">
+The answer is True. 
+
+</para>
+
+
+
+
+<section id="h31014">
+<title>
+<emphasis id="strong1156" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+<para id="p1234">
+
+
+
+<emphasis id="strong1157" effect="bold">
+Not much to explain here
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1235">
+There isn't much in the way of an explanation to provide for this program.
+
+
+</para>
+
+
+
+
+<para id="p1236">
+<emphasis id="strong1158" effect="bold">
+Evaluate seven relational expressions 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1237">
+Each of the seven relational expressions in the argument list for the 
+
+<emphasis id="strong1159" effect="bold">
+
+println
+
+</emphasis>
+ method is evaluated and returns either true or false as a 
+
+
+<emphasis id="strong1160" effect="bold">
+boolean
+
+</emphasis>
+ value. 
+
+</para>
+
+
+
+
+<para id="p1238">
+<emphasis id="strong1161" effect="bold">
+Concatenate the individual results, separated by a space
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1239">
+The seven 
+
+<emphasis id="strong1162" effect="bold">
+boolean
+
+</emphasis>
+ results are concatenated, separated by space characters, 
+and displayed on the computer screen. 
+
+</para>
+
+
+
+
+<para id="p1240">
+<emphasis id="strong1163" effect="bold">
+Brief description of the relational operators 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1241">
+Just in case your aren't familiar with the relational operators, here is a 
+brief description. 
+
+</para>
+
+
+
+
+<para id="p1242">
+Each of these operators returns the 
+
+<emphasis id="strong1164" effect="bold">
+boolean
+
+</emphasis>
+ value true if the specified 
+condition is met. Otherwise, it returns false. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1022" summary="This is a table." pgwide="1000">
+<tgroup cols="1">
+
+
+		
+
+<tbody id="tbody1022">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1022">
+
+				
+
+<code id="pre1022" display="block">== Left operand equals the right operand</code>
+
+
+				
+
+<code id="pre1023" display="block">!= Left operand is not equal to the right operand</code>
+
+
+				
+
+<code id="pre1024" display="block">&lt; Left operand is less than the right operand</code>
+
+
+				
+
+<code id="pre1025" display="block">&lt;= Left operand is less than or equal to the right operand</code>
+
+
+				
+
+<code id="pre1026" display="block">&gt; Left operand is greater than the right operand</code>
+
+
+				
+
+<code id="pre1027" display="block">&gt;= Left operand is greater than or equal to the right operand</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1243">
+<link id="a1084" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1244">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

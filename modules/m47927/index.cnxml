@@ -1,0 +1,6130 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jy0037: Review Event Handling</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47927</md:content-id>
+  <md:title>Jy0037: Review Event Handling</md:title>
+  <md:abstract>This module contains review questions and answers related to event handling in Java.</md:abstract>
+  <md:uuid>7fc5d1b7-5104-46c0-a647-513fcb08d7b0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+, 
+		
+
+<link id="a1012" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question12">
+
+12
+
+</link>
+
+, 
+		
+
+<link id="a1014" target-id="question13">
+
+13
+
+</link>
+
+, 
+		
+
+<link id="a1015" target-id="question14">
+
+14
+
+</link>
+
+, 
+		
+
+<link id="a1016" target-id="question15">
+
+15
+
+</link>
+
+,
+		
+
+<link id="a1017" target-id="question16">
+
+16
+
+</link>
+
+,
+		
+
+<link id="a1018" target-id="question17">
+
+17
+
+</link>
+
+, 
+		
+
+<link id="a1019" target-id="question18">
+
+18
+
+</link>
+
+,
+		
+
+<link id="a1020" target-id="question19">
+
+19
+
+</link>
+
+,
+		
+
+<link id="a1021" target-id="question20">
+
+20
+
+</link>
+
+,
+		
+
+<link id="a1022" target-id="question21">
+
+21
+
+</link>
+
+,
+		
+
+<link id="a1023" target-id="question22">
+
+22
+
+</link>
+
+,
+		
+
+<link id="a1024" target-id="question23">
+
+23
+
+</link>
+
+,
+		
+
+<link id="a1025" target-id="question24">
+
+24
+
+</link>
+
+,
+		
+
+<link id="a1026" target-id="question25">
+
+25
+
+</link>
+
+,
+		
+
+<link id="a1027" target-id="question26">
+
+26
+
+</link>
+
+,
+		
+
+<link id="a1028" target-id="question27">
+
+27
+
+</link>
+
+,
+		
+
+<link id="a1029" target-id="question28">
+
+28
+
+</link>
+
+,
+		
+
+<link id="a1030" target-id="question29">
+
+29
+
+</link>
+
+,
+		
+
+<link id="a1031" target-id="question30">
+
+30
+
+</link>
+
+,
+		
+
+<link id="a1032" target-id="question31">
+
+31
+
+</link>
+
+,
+		
+
+<link id="a1033" target-id="question32">
+
+32
+
+</link>
+
+,
+		
+
+<link id="a1034" target-id="question33">
+
+33
+
+</link>
+
+,
+		
+
+<link id="a1035" target-id="question34">
+
+34
+
+</link>
+
+,
+		
+
+<link id="a1036" target-id="question35">
+
+35
+
+</link>
+
+,
+		
+
+<link id="a1037" target-id="question36">
+
+36
+
+</link>
+
+,
+		
+
+<link id="a1038" target-id="question37">
+
+37
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1039" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1040" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1041" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module contains a non-exhaustive set of review questions and answers 
+keyed to the material in the Event Handling sub-collection. The questions are 
+heavily weighted toward the tutorials listed in 
+
+
+<link id="a1042" url="http://cnx.org/content/m47842/latest/?collection=col11441/latest">
+
+Jy0035: Java OOP: Preface to Event Handling
+
+</link>
+
+ 
+and the seven modules that begin with
+
+
+<link id="a1043" url="http://cnx.org/content/m44331/latest/?collection=col11441/latest">
+
+Java OOP: The AWT and Swing, A Preview
+
+</link>
+
+ in the 
+sub-collection titled 
+
+<emphasis id="strong1000" effect="bold">
+Essence of OOP
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1001">
+The questions and the answers in this module are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+<para id="p1002">
+These questions are similar to many of the questions on the online Blackboard 
+test for Event Handling in ITSE 2317. When you take the test in the testing center, you will only 
+have access to the computer screen, a pencil, and a sheet of scratch paper. You 
+might benefit by limiting yourself to only those tools as you study this 
+material to get used to working under those limitations.
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1001" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1003">
+True or False: AWT is the abbreviation for 
+
+<emphasis id="em1000" effect="italics">
+Abstract Windows Toolkit
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+<link id="a1044" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+True or False: GUI is the abbreviation for the Graphical User Interface.
+
+</para>
+
+
+
+
+<para id="p1006">
+<link id="a1045" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1007">
+True or False: There are two primary packages that are used for 
+
+<emphasis id="strong1002" effect="bold">
+GUI
+
+</emphasis>
+ 
+programming in Java SE 7.
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+java.awt.*
+
+</item>
+
+
+	
+
+<item id="li1007">
+com.sun.java.swing.*
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+<link id="a1046" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+True or False: When it was released, Swing was a replacement for the AWT.
+
+</para>
+
+
+
+
+<para id="p1010">
+<link id="a1047" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+True or False: A 
+
+<emphasis id="em1001" effect="italics">
+callback
+
+</emphasis>
+ mechanism is a mechanism where a method in 
+one object asks a method in another object to 
+
+<emphasis id="em1002" effect="italics">
+"call me back"
+
+</emphasis>
+ or 
+
+<emphasis id="em1003" effect="italics">
+
+"notify me"
+
+</emphasis>
+ when an interesting event happens. 
+
+</para>
+
+
+
+
+<para id="p1012">
+<link id="a1048" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+True or False: Many different objects may ask one object to notify them when 
+the interesting event happens. This is sometimes referred to as 
+
+<emphasis id="em1004" effect="italics">
+unicasting
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1014">
+<link id="a1049" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+True or False: API is an abbreviation for Application Programming Interface.
+
+</para>
+
+
+
+
+<para id="p1016">
+<link id="a1050" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1017">
+Given: The event model that has been in use since Java version 1.1 is 
+sometimes called the Delegation Event Model and is sometimes called the 
+JavaBeans Event Model. 
+
+<emphasis id="em1005" effect="italics">
+(It may be called by other names as well.)
+
+</emphasis>
+ 
+Although there was an earlier model, the Delegation Event Model is the event 
+model to which the questions in this review module apply.
+
+</para>
+
+
+
+
+<para id="p1018">
+True or False: The event model makes use of 
+
+<emphasis id="strong1003" effect="bold">
+event sources
+
+</emphasis>
+ and 
+
+<emphasis id="strong1004" effect="bold">
+event 
+listeners
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<para id="p1019">
+<link id="a1051" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+True or False: An event 
+
+<emphasis id="strong1005" effect="bold">
+listener
+
+</emphasis>
+ is an object that has the 
+ability to determine when an interesting event has occurred, and to notify
+
+
+<emphasis id="strong1006" effect="bold">
+source
+
+</emphasis>
+ objects of the occurrence of the event.
+
+</para>
+
+
+
+
+<para id="p1021">
+<link id="a1052" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or False: A 
+
+<emphasis id="strong1007" effect="bold">
+listener
+
+</emphasis>
+ object is an instance of a class 
+(or instance of a subclass of a class) that implements a specific 
+
+<emphasis id="em1006" effect="italics">
+listener 
+interface
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1023">
+<link id="a1053" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+True or False: A number of listener interfaces are defined where each 
+interface declares the methods appropriate for a specific class of events. Thus, 
+there is natural pairing of classes of events and interface definitions.
+
+</para>
+
+
+
+
+<para id="p1025">
+<link id="a1054" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+True or False: There is a class of mouse events that includes most of the 
+events normally associated with mouse action and there is a matching source 
+definition that is used to define a listener class for those events.
+
+</para>
+
+
+
+
+<para id="p1027">
+<link id="a1055" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+True or False: A listener object can be registered on a source object to be 
+notified of the occurrence of all events of the specific class for which the 
+listener object is designed. 
+
+</para>
+
+
+
+
+<para id="p1029">
+<link id="a1056" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+True or False: Once a listener object is registered to be notified of all 
+events of the specific class for which the listener object is designed, the 
+occurrence of such an event will automatically invoke the matching method in the 
+listener object. The code in the body of the method is designed by the 
+programmer to perform the desired action when the event occurs. 
+
+</para>
+
+
+
+
+<para id="p1031">
+<link id="a1057" target-id="answer14">
+
+Answer 14
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+True or False: In many cases, the same goal can be achieved by either 
+implementing a listener interface or extending a corresponding adapter class. 
+
+</para>
+
+
+
+
+<para id="p1033">
+<link id="a1058" target-id="answer15">
+
+Answer 15
+
+</link>
+
+
+</para>
+
+
+	
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="question16" effect="bold">
+
+Question 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+True or False: The program shown below will compile and run successfully. When 
+it starts running, it displays a small window and also displays the following on 
+the command-line screen:
+
+</para>
+
+
+
+
+<para id="p1035">
+WProc1 windowActivated test msg
+
+</para>
+<para id="p1036">
+
+WProc1 windowOpened test msg
+
+</para>
+
+
+
+
+<para id="p1037">
+Whenever the small window loses the focus, the following is displayed on the 
+command-line screen:
+
+</para>
+
+
+
+
+<para id="p1038">
+WProc1 windowDeactivated test msg
+
+</para>
+
+
+
+
+<para id="p1039">
+Whenever the small window gains the focus, the following is displayed on the 
+command-line screen:
+
+</para>
+
+
+
+
+<para id="p1040">
+WProc1 windowActivated test msg
+
+</para>
+
+
+
+
+<para id="p1041">
+Whenever the user clicks the X-button, the small window disappears and the 
+following is displayed on the command-line screen.
+
+</para>
+
+
+
+
+<para id="p1042">
+WProc1 windowClosing test msg
+
+</para>
+<para id="p1043">
+
+WProc1 windowDeactivated test msg
+
+</para>
+<para id="p1044">
+
+WProc1 
+windowClosed test msg
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1008" effect="bold">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Question 
+				16.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">
+/*File Q16.java
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q16 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class Q16
+//=======================================================//
+
+class GUI{
+  public GUI(){//constructor
+    //Create a new Frame object
+    Frame displayWindow = new Frame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Q16");
+
+    WProc1 winProcCmd1 = new WProc1(displayWindow);
+    displayWindow.addWindowListener(winProcCmd1);
+    displayWindow.setVisible(true);
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+class WProc1 implements WindowListener{
+  Frame displayWindowRef;
+
+  WProc1(Frame windowIn){//constructor
+    this.displayWindowRef = windowIn;
+  }//end constructor
+
+  public void windowClosed(WindowEvent e){
+    System.out.println("WProc1 windowClosed test msg");
+  }//end windowClosed()
+
+  public void windowIconified(WindowEvent e){
+    System.out.println("WProc1 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowOpened(WindowEvent e){
+    System.out.println("WProc1 windowOpened test msg");
+  }//end windowOpened()
+
+  public void windowClosing(WindowEvent e){
+    System.out.println("WProc1 windowClosing test msg");
+    displayWindowRef.dispose();//generate WindowClosed
+  }//end windowClosing()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+                      "WProc1 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+  public void windowActivated(WindowEvent e){
+    System.out.println("WProc1 windowActivated test msg");
+  }//end windowActivated()
+
+  public void windowDeactivated(WindowEvent e){
+    System.out.println(
+                     "WProc1 windowDeactivated test msg");
+  }//end windowDeactivated()
+}//end class WProc1
+//=======================================================//
+</code>
+
+
+
+
+
+
+<para id="p1046">
+<link id="a1059" target-id="answer16">
+
+Answer 16
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="question17" effect="bold">
+
+Question 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+True or False: The program shown below will compile and run successfully. When 
+it starts running, it displays a small window and doesn't display anything on 
+the command-line screen.
+
+</para>
+
+
+
+
+<para id="p1048">
+Whenever the small window is iconified to the system try, the following is 
+displayed on the command-line screen:
+
+</para>
+
+
+
+
+<para id="p1049">
+******** WProc2 windowIconified test msg
+
+</para>
+
+
+
+
+<para id="p1050">
+Whenever the small window is deiconified from the system try, the following 
+is displayed on the command-line screen:
+
+</para>
+
+
+
+
+<para id="p1051">
+******** WProc2 windowDeiconified test msg
+
+</para>
+
+
+
+
+<para id="p1052">
+Nothing happens when the user clicks the X-button. The program does not 
+terminate and does not return control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1009" effect="bold">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Question 
+				17.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">
+/*File Q17.java Copyright 1997, R.G.Baldwin
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q17 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class Q17
+//=======================================================//
+
+class GUI{
+  public GUI(){//constructor
+    //Create a new Frame object
+    Frame displayWindow = new Frame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Q17");
+
+    WProc2 winProcCmd2 = new WProc2();
+    displayWindow.addWindowListener(winProcCmd2);
+    displayWindow.setVisible(true);
+
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+class WProc2 extends WindowAdapter{
+
+  public void windowIconified(WindowEvent e){
+    System.out.println(
+              "******** WProc2 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+            "******** WProc2 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+}//end class WProc2
+</code>
+
+
+
+
+
+
+
+
+<para id="p1054">
+<link id="a1060" target-id="answer17">
+
+Answer 17
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="question18" effect="bold">
+
+Question 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+True or False: The default layout manager for a Frame object is 
+
+<emphasis id="strong1010" effect="bold">
+
+FlowLayout
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1056">
+<link id="a1061" target-id="answer18">
+
+Answer 18
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="question19" effect="bold">
+
+Question 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+True or False: The program shown below displays a small Frame object on the 
+computer screen. When the user clicks the mouse inside the Frame object, the mouse 
+coordinates are displayed near the mouse pointer.
+
+</para>
+
+
+
+
+<para id="p1058">
+When the user clicks the X-button in the upper right corner of the Frame, the 
+program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Question 19.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">
+/*File Q19.java
+*/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q19 {
+  public static void main(String[] args){
+    GUI gui = new GUI();
+  }//end main
+}//end class Q19
+//---------------------------------------------------------
+
+class MyFrame extends Frame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+              "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame
+//---------------------------------------------------------
+
+class GUI {
+  public GUI(){//constructor
+    MyFrame displayWindow = new MyFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Q19");
+    displayWindow.setVisible(true);
+
+    displayWindow.addWindowListener(new WProc1());
+    displayWindow.addMouseListener(
+                                new MProc1(displayWindow));
+  }//end constructor
+}//end class GUI definition
+//---------------------------------------------------------
+
+class MProc1 extends MouseAdapter{
+  MyFrame refToWin; //save a reference to the window here
+
+  MProc1(MyFrame inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  public void mousePressed(MouseEvent e){
+    refToWin.clickX = e.getX();
+    refToWin.clickY = e.getY();
+    refToWin.repaint();
+  }//end mousePressed()
+}//end class MProc1
+//---------------------------------------------------------
+class WProc1 extends WindowAdapter{
+  public void windowClosed(WindowEvent e){
+    System.exit(0);
+  }//end windowClosed()
+}//end class Wproc1
+</code>
+
+
+
+
+
+
+<para id="p1060">
+<link id="a1062" target-id="answer19">
+
+Answer 19
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="question20" effect="bold">
+
+Question 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1061">
+True or False: The program shown below will compile and run successfully. When 
+it starts running, it displays a small JFrame window and doesn't display anything on 
+the command-line screen.
+
+</para>
+
+
+
+
+<para id="p1062">
+Whenever the small window is iconified to the system try, the following is 
+displayed on the command-line screen:
+
+</para>
+
+
+
+
+<para id="p1063">
+******** WProc2 windowIconified test msg
+
+</para>
+
+
+
+
+<para id="p1064">
+Whenever the small window is deiconified from the system try, the following 
+is displayed on the command-line screen:
+
+</para>
+
+
+
+
+<para id="p1065">
+******** WProc2 windowDeiconified test msg
+
+</para>
+
+
+
+
+<para id="p1066">
+When the user clicks the X-button, the program terminates and returns control 
+to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1012" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Question 20.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">
+/*File Q20.java
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Q20 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class Q20
+//=======================================================//
+
+class GUI{
+  public GUI(){//constructor
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Q20");
+    //Following is available in recent Java versions
+    displayWindow.setDefaultCloseOperation(
+                                     JFrame.EXIT_ON_CLOSE);
+    displayWindow.addWindowListener(new WProc2());
+    displayWindow.setVisible(true);
+
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+class WProc2 extends WindowAdapter{
+  public void windowIconified(WindowEvent e){
+    System.out.println(
+              "******** WProc2 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+            "******** WProc2 windowDeiconified test msg");
+  }//end windowDeiconified()
+}//end class WProc2
+//=======================================================//
+</code>
+
+
+
+
+
+
+<para id="p1068">
+<link id="a1063" target-id="answer20">
+
+Answer 20
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="question21" effect="bold">
+
+Question 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1069">
+True or False: The program shown below displays a small JFrame object on the 
+computer screen. When the user clicks the mouse inside the JFrame object, the mouse 
+coordinates are displayed near the mouse pointer. Old coordinates are erased and 
+new coordinates are displayed with each successive mouse click.
+
+</para>
+
+
+
+
+<para id="p1070">
+When the user clicks the X-button in the upper right corner of the Frame, the 
+program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1013" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Question 21.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">
+/*File Q21.java
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Q21 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class Q21
+//=======================================================//
+
+class MyFrame extends JFrame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+             "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame
+//=======================================================//
+
+class GUI {
+  public GUI(){//constructor
+    MyFrame displayWindow = new MyFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Q21");
+    displayWindow.setVisible(true);
+    displayWindow.setDefaultCloseOperation(
+                                     JFrame.EXIT_ON_CLOSE);
+    displayWindow.addMouseListener(
+                             new MouseProc(displayWindow));
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+class MouseProc extends MouseAdapter{
+  MyFrame refToWin; //save a reference to the source here
+
+  MouseProc(MyFrame inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  public void mousePressed(MouseEvent e){
+    refToWin.clickX = e.getX();
+
+    refToWin.clickY = e.getY();
+    refToWin.repaint();
+  }//end mousePressed()
+}//end class MouseProc
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1072">
+<link id="a1064" target-id="answer21">
+
+Answer 21
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="question22" effect="bold">
+
+Question 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+True or False: There must always be a one-to-one correspondence between 
+source objects and listener objects.
+
+</para>
+
+
+
+
+<para id="p1074">
+<link id="a1065" target-id="answer22">
+
+Answer 22
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="question23" effect="bold">
+
+Question 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1075">
+True or False: The program shown below displays two small Frame objects side-by-side on 
+the computer screen. Clicking inside either Frame object causes the mouse coordinates to 
+be displayed in that Frame object relative to the upper-left corner of the Frame 
+object.
+
+</para>
+
+
+
+
+<para id="p1076">
+Clicking the X-button on either Frame object causes that Frame object to 
+disappear from the computer screen. Clicking the X-button on both Frame objects causes 
+both Frame objects to disappear and causes the program to terminate returning 
+control to the operating system. 
+
+</para>
+
+
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1014" effect="bold">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Question 23.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">
+/*File Q23.java
+*/
+//=======================================================//
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q23 {
+  public static void main(String[] args){
+    GUI gui = new GUI();
+  }//end main
+}//end class Q23
+//=======================================================//
+
+class MyFrame extends Frame{
+  int xCoor;
+  int yCoor;
+
+  MyFrame(){//constructor
+    setTitle("Q3");
+    setSize(200,200);
+  }//end constructor
+
+  public void paint(Graphics g){
+    g.drawString("" + xCoor + ", " + yCoor, xCoor, yCoor);
+  }//end paint()
+}//end class MyFrame
+//=======================================================//
+
+class GUI {
+  public GUI(){//constructor
+
+    MyFrame myFrame1 = new MyFrame();
+    myFrame1.setVisible(true);
+
+    MyFrame myFrame2 = new MyFrame();
+    myFrame2.setLocation(201,0);
+    myFrame2.setVisible(true);
+
+    WProc1 winProcCmd1 = new WProc1();
+    myFrame1.addWindowListener(winProcCmd1);
+    myFrame2.addWindowListener(winProcCmd1);
+
+    MouseProc mouseProcCmd = new MouseProc();
+    myFrame1.addMouseListener(mouseProcCmd);
+    myFrame2.addMouseListener(mouseProcCmd);
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+class MouseProc extends MouseAdapter{
+  public void mousePressed(MouseEvent e){
+    ((MyFrame)e.getComponent()).xCoor = e.getX();
+    ((MyFrame)e.getSource()).yCoor = e.getY();
+    e.getComponent().repaint();
+  }//end mousePressed()
+}//end class MouseProc
+//=======================================================//
+
+class WProc1 extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class WProc1
+//=======================================================//
+</code>
+
+
+
+
+
+
+<para id="p1078">
+<link id="a1066" target-id="answer23">
+
+Answer 23
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21023">
+<title>
+<emphasis id="question24" effect="bold">
+
+Question 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1079">
+True or False: The program shown below displays a small JFrame with a red background. 
+Two overlapping buttons appear in front of the red background. One button is 
+green and the other button is yellow. 
+
+</para>
+
+
+
+
+<para id="p1080">
+At startup, the green button is in front 
+of and partially hides the yellow button. If you click the frontmost button, the 
+two buttons swap positions front to back. In other words, clicking the green 
+button when it is in front brings the yellow button to the front. Clicking the 
+yellow button when it is in front brings the green button to the front. Clicking 
+the button in the back does not cause the buttons to swap positions.
+
+</para>
+
+
+
+
+<para id="p1081">
+Clicking the X-button causes the program to terminate and return control to 
+the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1015" effect="bold">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Question 24.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">
+/*File Q24
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class Q24 extends JFrame{//subclass JFrame
+  JLayeredPane theLayeredPane;
+  JButton greenButton;
+  JButton yellowButton;
+
+  public static void main(String[] args){
+    new Q24();
+  }//end main
+  //-----------------------------------------------------//
+
+  Q24(){//constructor
+    theLayeredPane = this.getLayeredPane();
+    int frameWidth = 300;
+    int frameHeight = 100;
+
+    JTextField redTextField = new JTextField("");
+    redTextField.setBackground(Color.red);
+    this.getContentPane().add(redTextField,"Center");
+
+    greenButton = new JButton(
+                            "greenButton on Layered Pane");
+    greenButton.setBackground(Color.green);
+    greenButton.setBounds(10,10,240,40);
+    greenButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(greenButton,new Integer(1));
+
+    yellowButton = new JButton(
+                           "yellowButton on Layered Pane");
+    yellowButton.setBackground(Color.yellow);
+    yellowButton.setBounds(40,20,240,40);
+    yellowButton.addActionListener(new MyActionListener());
+    theLayeredPane.add(yellowButton,new Integer(-29999));
+
+    //Set title, size, and visibility of JFrame object.
+    this.setTitle("Q24");
+    this.setSize(frameWidth,frameHeight);
+    this.setVisible(true);
+
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }//end constructor
+  //=====================================================//
+
+  class MyActionListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if(e.getActionCommand().equals(
+                           "greenButton on Layered Pane")){
+        theLayeredPane.setLayer(greenButton,-29999);
+        theLayeredPane.setLayer(yellowButton,1);
+      }else{
+        theLayeredPane.setLayer(greenButton,1);
+        theLayeredPane.setLayer(yellowButton,-29999);
+      }//end else
+    }//end actionPerformed()
+  }//end class MyActionListener
+  //=====================================================//
+}//end class Q24
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1083">
+<link id="a1067" target-id="answer24">
+
+Answer 24
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="question25" effect="bold">
+
+Question 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+True or False: The 
+
+<emphasis id="strong1016" effect="bold">
+MouseMotionListener
+
+</emphasis>
+ interface declares three methods:
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1008">
+public abstract void mouseDragged(MouseEvent e)
+
+</item>
+
+
+	
+
+<item id="li1009">
+public abstract void mouseMoved(MouseEvent e) 
+
+</item>
+
+
+	
+
+<item id="li1010">
+public abstract void mousePressed(MouseEvent e) 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1085">
+<link id="a1068" target-id="answer25">
+
+Answer 25
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21025">
+<title>
+<emphasis id="question26" effect="bold">
+
+Question 26
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+True or False: The 
+
+<emphasis id="strong1017" effect="bold">
+mouseDragged
+
+</emphasis>
+ method is invoked when a mouse button is pressed on a component and then dragged. 
+
+</para>
+
+
+
+
+<para id="p1087">
+<link id="a1069" target-id="answer26">
+
+Answer 26
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21026">
+<title>
+<emphasis id="question27" effect="bold">
+
+Question 27
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+True or False: The 
+
+<emphasis id="strong1018" effect="bold">
+mouseMoved
+
+</emphasis>
+ method is invoked when the mouse is moved on a component with no buttons down.
+
+</para>
+
+
+
+
+<para id="p1089">
+<link id="a1070" target-id="answer27">
+
+Answer 27
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21027">
+<title>
+<emphasis id="question28" effect="bold">
+
+Question 28
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1090">
+True or False: This program displays a small Frame object on the computer screen. When you 
+hold down a mouse button and move your mouse pointer into the client area of
+the Frame, the coordinates of the mouse pointer appear
+directly above the pointer.  As you move the mouse pointer
+around in the client area while holding the button down, the coordinates of the pointer
+continue to be displayed above the pointer.
+
+
+
+</para>
+
+
+
+
+<para id="p1091">
+If you release the mouse button while moving the
+mouse in the client area, the coordinates of the point
+where you released the button appear and remain there until
+you press the mouse button, at which time the
+coordinates of the mouse pointer resume being displayed.
+
+
+
+</para>
+
+
+
+
+<para id="p1092">
+Clicking the X-button terminates the program and returns
+control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1019" effect="bold">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Question 
+				28.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">
+/*File Q28.java  from lesson 92
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q28 {
+  public static void main(String[] args){
+    GUI gui = new GUI();
+  }//end main
+}//end class Q28
+//=========================================================
+
+class MyFrame extends Frame{
+  int xCoor;
+  int yCoor;
+
+  MyFrame(String name){//constructor
+    this.setTitle("Q28");
+    this.setSize(300,200);
+    this.setName(name);
+  }//end constructor
+
+  public void paint(Graphics g){
+    g.drawString("" + xCoor + ", " + yCoor, xCoor, yCoor);
+  }//end paint()
+}//end class MyFrame
+//==========================================================
+
+class GUI {
+  public GUI(){//constructor
+    MyFrame myFrame1 = new MyFrame("Frame1");
+    myFrame1.setVisible(true);
+
+    myFrame1.addWindowListener(new WProc1());
+
+    MyMouseMotionProcessor mouseMotionProc =
+                    new MyMouseMotionProcessor(myFrame1);
+    myFrame1.addMouseMotionListener(mouseMotionProc);
+
+  }//end constructor
+}//end class GUI definition
+//=========================================================
+
+class MyMouseMotionProcessor extends MouseMotionAdapter{
+  MyFrame refToFrame1; //save references to the Frame
+
+  MyMouseMotionProcessor(MyFrame inFrame1){
+    refToFrame1 = inFrame1;
+  }// end constructor
+
+  public void mouseMoved(MouseEvent e){
+    refToFrame1.xCoor = e.getX();
+    refToFrame1.yCoor = e.getY();
+    refToFrame1.repaint();
+  }//end mouseMoved()
+
+}//end class MyMouseMotionProcessor
+//=========================================================
+
+class WProc1 extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class WProc1
+//=========================================================
+</code>
+
+
+
+
+
+
+<para id="p1094">
+<link id="a1071" target-id="answer28">
+
+Answer 28
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21028">
+<title>
+<emphasis id="question29" effect="bold">
+
+Question 29
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1095">
+True or False: The program shown below displays a Frame object on the computer screen. The Frame 
+object contains a single large Button object labeled Whistle.
+
+</para>
+
+
+
+
+<para id="p1096">
+When the user clicks the Whistle button, the program displays the following 
+text on the command-line screen.
+
+</para>
+
+
+
+
+<para id="p1097">
+I am whistling, Tweet Tweet Tweet
+
+</para>
+
+
+
+
+<para id="p1098">
+When the user clicks the X-button, the program terminates returning control 
+to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1020" effect="bold">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Question 
+				29.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">
+/*File Q29.java Copyright 1997, R.G.Baldwin
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q29 {
+  void whistle() {System.out.println(
+                     "I am whistling, Tweet Tweet Tweet");}
+  //-------------------------------------------------------
+
+  static public void main(String[] args){
+    Q29 app = new Q29();
+    GUI gui = app.new GUI();
+  }//end main()
+  //-------------------------------------------------------
+
+  //The GUI class is defined inside the Q29 class and is
+  // an inner-class of Q29.
+  class GUI extends Frame{
+
+    public GUI(){//constructor for GUI inner-class
+      this.setTitle("Q29");
+      Button whistleButton;
+      this.add(whistleButton =
+                          new Button("Whistle"),"Center");
+      //---------------------------------------------------
+      //Instantiates two anonymous objects of types
+      // ActionListener and WindowAdapter. registers them
+      // for handling
+      // events on the Button object and  the Frame object.
+      //Begin statement -----------------------------------
+      whistleButton.addActionListener(
+          new ActionListener(){//anonymous class definition
+            public void actionPerformed(ActionEvent e){
+              whistle();//call the whistle() method
+            }//end actionPerformed()
+          }//end ActionListener
+        );//end addActionListener()
+      //End statement -------------------------------------
+
+      //Begin statement -----------------------------------
+      this.addWindowListener(
+           new WindowAdapter(){//anonymous class definition
+             public void windowClosing(WindowEvent e){
+               System.exit(0);//terminate the program
+             }//end windowClosing()
+           }//end WindowAdapter
+         );//end addWindowListener
+      //End statement -------------------------------------
+
+      //---------------------------------------------------
+      //Set frame size and make it visible.
+      this.setSize(300,100);
+      this.setVisible(true);
+    }//end GUI constructor
+  }//end class GUI
+}//end class Q29
+//=========================================================
+</code>
+
+
+
+
+
+
+
+<para id="p1100">
+<link id="a1072" target-id="answer29">
+
+Answer 29
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21029">
+<title>
+<emphasis id="question30" effect="bold">
+
+Question 30
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1101">
+True or False: The program shown below displays a small Frame object with a white 
+background. A Button object and a Label object are placed in the Frame. The 
+Label is on the left and the Button is on the right. The two are lined up 
+horizontally and the pair is centered left-to-right in the Frame.
+
+</para>
+
+
+
+
+<para id="p1102">
+The Button is labeled "Button" and the Label is labeled "Initial Text".
+
+</para>
+
+
+
+
+<para id="p1103">
+When you click the Button, the text in the Label changes to "Ouch".
+
+</para>
+
+
+
+
+<para id="p1104">
+When you click the X-button, the program terminates and returns control to 
+the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1021" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Question 
+				30.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1009" display="block">
+/*File Q30.java
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q30 extends Frame {
+  Label myLabel;
+  //-----------------------------------------------------//
+  static public void main(String[] args){
+    Q30 app = new Q30();
+  }//end main()
+  //-----------------------------------------------------//
+
+  public Q30(){//constructor
+    this.setTitle("Q30");
+    this.setLayout(new FlowLayout());
+    Button myButton;
+    this.add(myButton = new Button("Button"));
+    this.add(myLabel = new Label("Initial Text"));
+    //---------------------------------------------------//
+
+    myButton.addActionListener(
+      new //instantiate anonymous object of the class
+        ActionListener(){//anonymous class definition
+          public void actionPerformed(ActionEvent e){
+            myLabel.setText("Ouch");
+          }//end actionPerformed()
+        }//end ActionListener class definition
+      );//end addActionListener() statement
+
+    this.addWindowListener(
+         new WindowAdapter(){//anonymous class definition
+           public void windowClosing(WindowEvent e){
+             System.exit(0);//terminate the program
+           }//end windowClosing()
+         }//end WindowAdapter
+       );//end addWindowListener
+    //---------------------------------------------------
+
+    this.setSize(300,100);
+    this.setVisible(true);
+  }//end Q30 constructor
+}//end class Q30
+//=========================================================
+</code>
+
+
+
+
+
+
+<para id="p1106">
+<link id="a1073" target-id="answer30">
+
+Answer 30
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21030">
+<title>
+<emphasis id="question31" effect="bold">
+
+Question 31
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1107">
+True or False: The program shown below displays a JSlider centered in a JFrame. The 
+JSlider is calibrated to extend from -100 on the left end to 100 on the right 
+end with 0 at the center. There is a tick mark every 10 units and every other 
+tick mark is labeled, including -100, 0, and 100.
+
+</para>
+
+
+
+
+<para id="p1108">
+When you move the thumb on the slider, the value of the current position of 
+the thumb is displayed on the command-line screen. Old values are not erased 
+when a new value is displayed.
+
+</para>
+
+
+
+
+<para id="p1109">
+When you click the X-button, the program terminates and returns control to 
+the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1022" effect="bold">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Question 
+				31.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">
+/*File Q31
+*********************************************************/
+import javax.swing.JFrame;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.BorderLayout;
+public class Q31{
+
+  public static void main(String[] args){
+    new Q31gui();
+  }//end main method
+}//end class Q31
+//======================================================//
+
+class Q31gui extends JFrame{
+
+  private JSlider slider = new JSlider(-100,100);
+
+  public Q31gui(){//constructor
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    slider.setMajorTickSpacing(20);
+    slider.setMinorTickSpacing(10);
+    slider.setPaintTicks(true);
+    slider.setPaintLabels(true);
+
+    getContentPane().add(slider);
+
+    setSize(300,100);
+    setTitle("Q31");
+    setVisible(true);
+    //--------------------------------------------------//
+
+    slider.addChangeListener(
+      new ChangeListener(){
+        public void stateChanged(ChangeEvent e){
+          System.out.print(" " + slider.getValue());
+        }//end stateChanged
+      }//end new ChangeListener
+    );//end addChangeListener
+    //--------------------------------------------------//
+  }//end constructor
+  //----------------------------------------------------//
+
+}//end class Q31gui
+</code>
+
+
+
+
+
+
+<para id="p1111">
+<link id="a1074" target-id="answer31">
+
+Answer 31
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21031">
+<title>
+<emphasis id="question32" effect="bold">
+
+Question 32
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+True or False: The program shown below displays a small JFrame object on the 
+computer screen. Each time the user clicks the mouse inside the JFrame object, the mouse 
+coordinates are displayed near the mouse pointer and the old mouse coordinates 
+from the previous click are erased.
+
+</para>
+
+
+
+
+<para id="p1113">
+When the user clicks the X-button in the upper right corner of the Frame, the 
+program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1023" effect="bold">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Question 
+				32.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1011" display="block">
+/*File Q32.java Copyright 2002 R.G.Baldwin
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Q32 {
+  public static void main(String[] args){
+    new Q32gui();
+  }//end main
+}//end class Q32
+//=======================================================//
+
+class Q32gui {
+  public Q32gui(){//constructor
+    JFrame theFrame = new JFrame();
+    theFrame.setSize(200,200);
+    theFrame.setTitle("Q32");
+    DisplaySpace displayWindow = new DisplaySpace();
+
+    theFrame.getContentPane().add(displayWindow,"Center");
+    theFrame.setDefaultCloseOperation(
+                                     JFrame.EXIT_ON_CLOSE);
+    theFrame.setVisible(true);
+
+    displayWindow.addMouseListener(
+                                new MProc1(displayWindow));
+  }//end constructor
+//=======================================================//
+
+class DisplaySpace extends JPanel{
+
+  int clickX;
+  int clickY;
+
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    g.drawString(
+              "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paintComponent
+}//end class DisplaySpace
+//=======================================================//
+
+class MProc1 extends MouseAdapter{
+  DisplaySpace refToWin;
+
+  MProc1(DisplaySpace inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  public void mousePressed(MouseEvent e){
+    refToWin.clickX = e.getX();
+    refToWin.clickY = e.getY();
+    refToWin.repaint();//display coordinate information
+  }//end mousePressed()
+}//end class MProc1
+}//end GUI class
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1115">
+<link id="a1075" target-id="answer32">
+
+Answer 32
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21032">
+<title>
+<emphasis id="question33" effect="bold">
+
+Question 33
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1116">
+True or False: The program shown below displays a small JFrame object on the 
+computer screen. Each time the user clicks the mouse inside the JFrame object, the mouse 
+coordinates are displayed near the mouse pointer and the old mouse coordinates 
+from the previous click are erased.
+
+</para>
+
+
+
+
+<para id="p1117">
+When the user clicks the X-button in the upper right corner of the Frame, the 
+program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1024" effect="bold">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Question 
+				33.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1012" display="block">
+/*File Q33.java
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Q33 {
+  public static void main(String[] args){
+    new Q33gui();
+  }//end main
+}//end class Q33
+//=======================================================//
+
+class Q33gui extends JFrame{
+  public Q33gui(){//constructor
+    setSize(200,200);
+    setTitle("Q33");
+    getContentPane().add(new DisplaySpace(),"Center");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+  }//end constructor
+}//end Q33gui
+//=======================================================//
+
+class DisplaySpace extends JPanel{
+
+  int clickX;
+  int clickY;
+
+  DisplaySpace(){
+    addMouseListener(
+      new MouseAdapter(){//anonymous class definition
+        public void onMouseEvent(MouseEvent e){
+          clickX = e.getX();
+          clickY = e.getY();
+          repaint();
+        }//end onMouseEvent()
+      }//end MouseAdapter
+    );//end addMouseListener()
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    g.drawString(
+              "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paintComponent
+}//end class DisplaySpace
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1119">
+<link id="a1076" target-id="answer33">
+
+Answer 33
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21033">
+<title>
+<emphasis id="question34" effect="bold">
+
+Question 34
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1120">
+True or False: The program shown below displays a small Frame object on the 
+computer screen. Each time the user clicks the mouse inside the Frame object, the mouse 
+coordinates are displayed near the mouse pointer and the old mouse coordinates 
+from the previous click are erased.
+
+</para>
+
+
+
+
+<para id="p1121">
+When the user clicks the X-button in the upper right corner of the Frame, the 
+program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1025" effect="bold">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+. Question 
+				34.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">
+/*File Q34.java
+*/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Q34 {
+  public static void main(String[] args){
+    GUI gui = new GUI();
+  }//end main
+}//end class Q34
+//-------------------------------------------------------//
+
+class GUI extends Frame{
+  int clickX;
+  int clickY;
+
+  public GUI(){//constructor
+    setSize(150,150);
+    setTitle("Q34");
+    setVisible(true);
+
+    addWindowListener(
+      new WindowAdapter(){//anonymous class definition
+        public void windowClosing(WindowEvent e){
+          System.exit(0);
+        }//end windowClosing
+      }//end WindowAdapter
+    );//end addWindowListener()
+
+    addMouseListener(
+      new MouseAdapter(){//anonymous class definition
+        public void mousePressed(MouseEvent e){
+          clickX = e.getX();
+          clickY = e.getY();
+          repaint();
+        }//end mousePressed()
+      }//end MouseAdapter
+    );//end addMouseListener()
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void paint(Graphics g){
+    g.drawString(
+              "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint
+
+}//end class GUI 
+//-------------------------------------------------------//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1123">
+<link id="a1077" target-id="answer34">
+
+Answer 34
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21034">
+<title>
+<emphasis id="question35" effect="bold">
+
+Question 35
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1124">
+True or False: The program shown below displays a small JFrame object on the computer 
+screen.
+
+</para>
+
+
+
+
+<para id="p1125">
+When you move your mouse pointer around inside the client area of the frame, 
+without pressing either mouse button, the coordinates of the mouse pointer 
+appear directly above the pointer. In this case, the coordinates are displayed 
+using black characters.
+
+</para>
+
+
+
+
+<para id="p1126">
+When you move your mouse pointer around inside the client area of the frame, 
+while pressing either mouse button, the coordinates of the mouse pointer appear 
+directly above the pointer. In this case, the coordinates are displayed using 
+red characters.
+
+</para>
+
+
+
+
+<para id="p1127">
+When you click X-button in the upper right corner of the frame, the program 
+terminates and control is returned to the operating system. 
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1026" effect="bold">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+. Question 
+				35.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1014" display="block">
+/*File Q35.java
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Q35 {
+  public static void main(String[] args){
+    new Q35gui();
+  }//end main
+}//end class Q35
+//=======================================================//
+
+class Q35gui extends JFrame{
+  public Q35gui(){//constructor
+    setSize(200,200);
+    setTitle("Q35");
+    getContentPane().add(new DisplaySpace(),"Center");
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setVisible(true);
+  }//end constructor
+}//end Q35gui
+//=======================================================//
+
+class DisplaySpace extends JPanel{
+
+  int clickX;
+  int clickY;
+
+  DisplaySpace(){
+    addMouseMotionListener(
+      new MouseMotionAdapter(){//anonymous class definition
+        public void mouseMoved(MouseEvent e){
+          setForeground(Color.RED);
+          clickX = e.getX();
+          clickY = e.getY();
+          repaint();
+        }//end mouseMoved
+        public void mouseDragged(MouseEvent e){
+          setForeground(Color.BLACK);
+          clickX = e.getX();
+          clickY = e.getY();
+          repaint();
+        }//end mouseDragged
+      }//end MouseAdapter
+    );//end addMouseMotionListener()
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    g.drawString(
+              "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paintComponent
+}//end class DisplaySpace
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1129">
+<link id="a1078" target-id="answer35">
+
+Answer 35
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21035">
+<title>
+<emphasis id="question36" effect="bold">
+
+Question 36
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1130">
+True or False: The program shown below displays a small JFrame object containing two JButton objects and a JLabel object. The JLabel has a 
+green background and blue letters. The captions on the two JButton objects are 
+Top and Bottom.
+
+</para>
+
+
+
+
+<para id="p1131">
+The three objects are displayed vertically in the JFrame.
+
+The Top JButton appears at the top of the column of objects. The Bottom JButton appears 
+at the bottom of the column. The JLabel appears between the two JButton objects.
+
+</para>
+
+
+
+
+<para id="p1132">
+At startup, the JLabel displays the word Top.
+
+When you click the Bottom button, the word in the JLabel changes to Bottom.
+
+When you click the Top button, the word in the JLabel changes to Top.
+
+When you click X-button on the JFrame, the program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1027" effect="bold">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+. Question 
+				36.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1015" display="block">
+/*File Q36.java
+**********************************************************/
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class Q36{
+  public static void main(String[] args){
+    JFrame aFrame = new Q36gui();
+  }//end main
+}//end class Q36
+//=======================================================//
+
+class Q36gui extends JFrame implements ActionListener{
+  JButton button1 = new JButton("Top");
+  JButton button2 = new JButton("Bottom");
+  JLabel label = new JLabel("Top");
+//-------------------------------------------------------//
+
+  public Q36gui(){//constructor
+    this.setTitle("Q36");
+    this.getContentPane().add(button1,BorderLayout.NORTH);
+    label.setBackground(Color.GREEN);
+    label.setForeground(Color.BLUE);
+    label.setOpaque(true);
+    this.getContentPane().add(label,BorderLayout.CENTER);
+    this.getContentPane().add(button2,BorderLayout.SOUTH);
+    button1.addActionListener(this);
+    button2.addActionListener(this);
+    this.setSize(150,100);
+    this.setVisible(true);
+
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }//end constructor
+//-------------------------------------------------------//
+
+  public void actionPerformed(ActionEvent e){
+    if(e.getActionCommand().indexOf("Top") != -1)
+      label.setText("Top");
+    else
+      label.setText("Bottom");
+  }//end actionPerformed()
+
+}//end class Q36gui
+//=======================================================//
+</code>
+
+
+
+
+
+
+
+
+<para id="p1134">
+<link id="a1079" target-id="answer36">
+
+Answer 36
+
+</link>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21036">
+<title>
+<emphasis id="question37" effect="bold">
+
+Question 37
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1135">
+True or False: The program shown below displays a small Frame object containing two Button objects and a Label object. The Label has a 
+green background and blue letters. The captions on the two Button objects are 
+Top and Bottom.
+
+</para>
+
+
+
+
+<para id="p1136">
+The three objects are displayed vertically in the Frame.
+
+The Top Button appears at the top of the column of objects. The Bottom Button appears 
+at the bottom of the column. The Label appears between the two Button objects.
+
+</para>
+
+
+
+
+<para id="p1137">
+At startup, the Label displays the word Top.
+
+When you click the Bottom button, the word in the Label changes to Bottom.
+
+When you click the Top button, the word in the Label changes to Top.
+
+When you click X-button on the Frame, the program terminates and returns control to the operating system.
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1028" effect="bold">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+. Question 
+				37.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1016" display="block">
+/*File Q37.java Copyright 2002 R.G.Baldwin
+**********************************************************/
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.BorderLayout;
+
+import java.awt.event.ActionListener;
+import java.awt.event.WindowListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.ActionEvent;
+
+public class Q37{
+  public static void main(String[] args){
+    Frame aFrame = new Q37gui();
+  }//end main
+}//end class Q37
+//=======================================================//
+
+class Q37gui extends Frame
+                implements WindowListener, ActionListener{
+  Button button1 = new Button("Top");
+  Button button2 = new Button("Bottom");
+  Label label = new Label("Top");
+//-------------------------------------------------------//
+
+  public Q37gui(){//constructor
+
+    this.setTitle("Q37");
+    add(button1,BorderLayout.NORTH);
+    label.setBackground(Color.GREEN);
+    label.setForeground(Color.BLUE);
+    add(label,BorderLayout.CENTER);
+    add(button2,BorderLayout.SOUTH);
+    button1.addActionListener(this);
+    button2.addActionListener(this);
+    this.setSize(150,100);
+    this.setVisible(true);
+
+    this.addWindowListener(this);
+  }//end constructor
+//-------------------------------------------------------//
+
+  public void windowClosing(WindowEvent e){
+    //terminate the program when the window is closed
+    System.exit(0);
+  }//end windowClosing
+//-------------------------------------------------------//
+
+  public void windowOpened(WindowEvent e){}//dummy
+  public void windowClosed(WindowEvent e){}//dummy
+  public void windowIconified(WindowEvent e){}//dummy
+  public void windowDeiconified(WindowEvent e){}//dummy
+  public void windowActivated(WindowEvent e){}//dummy
+  public void windowDeactivated(WindowEvent e){}//dummy
+//-------------------------------------------------------//
+
+  public void actionPerformed(ActionEvent e){
+    if(e.getActionCommand().indexOf("Top") != -1)
+      label.setText("Top");
+    else
+      label.setText("Bottom");
+  }//end actionPerformed()
+
+}//end class Q37gui
+//=======================================================//
+</code>
+
+
+
+
+
+
+<para id="p1139">
+<link id="a1080" target-id="answer37">
+
+Answer 37
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1081" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 16. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1082" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 17. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1083" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 19. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1084" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 20. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1085" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 21.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1086" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 23.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1087" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Question 24.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1088" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Question 28.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1089" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Question 29.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1090" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Question 30.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1091" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Question 31.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1092" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Question 32.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1093" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Question 33.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1094" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Question 34.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1095" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. Question 35.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1096" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Question 36.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1097" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. Question 37.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1029" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1141">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the computer screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1142">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+<para id="p1143">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21037">
+<title>
+<emphasis id="answer37" effect="bold">
+
+Answer 37
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1144">
+True. Note that the GUI object is both a source of action events and a 
+listener for action events fired by the buttons.
+
+</para>
+
+
+
+
+<para id="p1145">
+<link id="a1098" target-id="question37">
+
+Back to Question 37
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21038">
+<title>
+<emphasis id="answer36" effect="bold">
+
+Answer 36
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1146">
+True. Note that the GUI object is both a source of action events and a 
+listener for action events fired by the buttons.
+
+</para>
+
+
+
+
+<para id="p1147">
+<link id="a1099" target-id="question36">
+
+Back to Question 36
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21039">
+<title>
+<emphasis id="answer35" effect="bold">
+
+Answer 35
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+False. The red and black colors are reversed. Otherwise, the statement would 
+be true.
+
+</para>
+
+
+
+
+<para id="p1149">
+<link id="a1100" target-id="question35">
+
+Back to Question 35
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21040">
+<title>
+<emphasis id="answer34" effect="bold">
+
+Answer 34
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1150">
+True. This program uses anonymous inner classes to define and instantiate a 
+mouse event handler and a window event handler.
+
+</para>
+
+
+
+
+<para id="p1151">
+<link id="a1101" target-id="question34">
+
+Back to Question 34
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21041">
+<title>
+<emphasis id="answer33" effect="bold">
+
+Answer 33
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1152">
+False. The code in the anonymous mouse event handler class calls a method 
+named 
+
+<emphasis id="strong1030" effect="bold">
+onMouseEvent
+
+</emphasis>
+. It should call a method named 
+
+<emphasis id="strong1031" effect="bold">
+
+mousePressed
+
+</emphasis>
+ instead, in which case the program would behave as 
+described.
+
+</para>
+
+
+
+
+<para id="p1153">
+<link id="a1102" target-id="question33">
+
+Back to Question 33
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21042">
+<title>
+<emphasis id="answer32" effect="bold">
+
+Answer 32
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1154">
+True.
+
+</para>
+
+
+
+
+<para id="p1155">
+<link id="a1103" target-id="question32">
+
+Back to Question 32
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21043">
+<title>
+<emphasis id="answer31" effect="bold">
+
+Answer 31
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1156">
+True.
+
+</para>
+
+
+
+
+<para id="p1157">
+<link id="a1104" target-id="question31">
+
+Back to Question 31
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21044">
+<title>
+<emphasis id="answer30" effect="bold">
+
+Answer 30
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1158">
+False. The Button and the Label are lined up horizontally with the Button on 
+the Left and the Label on the right. The FlowLayout manager places components 
+from left to right in the order that they are added to the container. The Button 
+was added before the Label. See Java094.
+
+</para>
+
+
+
+
+<para id="p1159">
+<link id="a1105" target-id="question30">
+
+Back to Question 30
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21045">
+<title>
+<emphasis id="answer29" effect="bold">
+
+Answer 29
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1160">
+True. See Java094.
+
+</para>
+
+
+
+
+<para id="p1161">
+<link id="a1106" target-id="question29">
+
+Back to Question 29
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21046">
+<title>
+<emphasis id="answer28" effect="bold">
+
+Answer 28
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1162">
+False. The description of the mouse button is reversed. When you move your mouse pointer into the client area of
+the Frame without pressing a mouse button, the coordinates of the mouse pointer appear
+directly above the pointer.  As you move the mouse pointer
+around in the client area, the coordinates of the pointer
+continue to be displayed above the pointer.
+
+
+
+</para>
+
+
+
+
+<para id="p1163">
+If you press one of the mouse buttons while moving the
+mouse in the client area, the coordinates of the point
+where you pressed the button appear and remain there until
+you release the mouse button, at which time the
+coordinates of the mouse pointer resume being displayed.
+
+
+
+</para>
+
+
+
+
+<para id="p1164">
+Clicking the X-button terminates the program and returns
+control to the operating system.
+
+</para>
+
+
+
+
+<para id="p1165">
+See Java092.
+
+</para>
+
+
+
+
+<para id="p1166">
+<link id="a1107" target-id="question28">
+
+Back to Question 28
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21047">
+<title>
+<emphasis id="answer27" effect="bold">
+
+Answer 27
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1167">
+True. See Java092.
+
+</para>
+
+
+
+
+<para id="p1168">
+<link id="a1108" target-id="question27">
+
+Back to Question 27
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21048">
+<title>
+<emphasis id="answer26" effect="bold">
+
+Answer 26
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1169">
+True. See Java092.
+
+</para>
+
+
+
+
+<para id="p1170">
+<link id="a1109" target-id="question26">
+
+Back to Question 26
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21049">
+<title>
+<emphasis id="answer25" effect="bold">
+
+Answer 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1171">
+False. The 
+
+<emphasis id="strong1032" effect="bold">
+MouseMotionListener
+
+</emphasis>
+ interface declares only the following two 
+methods. The 
+
+<emphasis id="strong1033" effect="bold">
+mousePressed
+
+</emphasis>
+ method is declared in the 
+
+<emphasis id="strong1034" effect="bold">
+MouseListener
+
+</emphasis>
+ interface. 
+See Java092.
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1028">
+public abstract void mouseDragged(MouseEvent e)
+
+</item>
+
+
+	
+
+<item id="li1029">
+public abstract void mouseMoved(MouseEvent e) 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1172">
+<link id="a1110" target-id="question25">
+
+Back to Question 25
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21050">
+<title>
+<emphasis id="answer24" effect="bold">
+
+Answer 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1173">
+True. See Java087.
+
+</para>
+
+
+
+
+<para id="p1174">
+<link id="a1111" target-id="question24">
+
+Back to Question 24
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21051">
+<title>
+<emphasis id="answer23" effect="bold">
+
+Answer 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1175">
+False. Clicking the X-button on either Frame object causes both Frame objects 
+to disappear, terminating the program, and returning control to the operating 
+system. See Java082.
+
+</para>
+
+
+
+
+<para id="p1176">
+<link id="a1112" target-id="question23">
+
+Back to Question 23
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21052">
+<title>
+<emphasis id="answer22" effect="bold">
+
+Answer 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1177">
+False. Multiple listener objects can be, and often are registered on a single 
+source object. Similarly, a single listener object can be registered on multiple 
+source objects. In many, but not all such cases, the listener object must be 
+able to identify which source fired the event in order to take the appropriate 
+action. However, in some situations, the appropriate action is independent of 
+the identity of the source. See Java082. 
+
+</para>
+
+
+
+
+<para id="p1178">
+<link id="a1113" target-id="question22">
+
+Back to Question 22
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21053">
+<title>
+<emphasis id="answer21" effect="bold">
+
+Answer 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1179">
+False. Although new coordinates are displayed with each mouse click, the old 
+coordinates are not erased. See Java081.
+
+</para>
+
+
+
+
+<para id="p1180">
+<link id="a1114" target-id="question21">
+
+Back to Question 21
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21054">
+<title>
+<emphasis id="answer20" effect="bold">
+
+Answer 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1181">
+True. See Java 081. Note, however that the 
+
+<emphasis id="strong1035" effect="bold">
+setDefaultCloseOperation
+
+</emphasis>
+ method 
+probably did not exist when Java081 was written. When used as shown in the code for this question, that 
+method causes the program to terminate and return control to the operating 
+system when the user clicks the X-button. Four different default actions can be 
+specified for the X-button:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1030">
+DO_NOTHING_ON_CLOSE
+
+</item>
+
+
+	
+
+<item id="li1031">
+HIDE_ON_CLOSE
+
+</item>
+
+
+	
+
+<item id="li1032">
+DISPOSE_ON_CLOSE
+
+</item>
+
+
+	
+
+<item id="li1033">
+EXIT_ON_CLOSE
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1182">
+<link id="a1115" target-id="question20">
+
+Back to Question 20
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21055">
+<title>
+<emphasis id="answer19" effect="bold">
+
+Answer 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1183">
+False. In order for this to be true, it would be necessary to override the 
+WindowClosing method instead of the WindowClosed method. See Java080.
+
+</para>
+
+
+
+
+<para id="p1184">
+<link id="a1116" target-id="question19">
+
+Back to Question 19
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21056">
+<title>
+<emphasis id="answer18" effect="bold">
+
+Answer 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1185">
+False: The default layout manager for a Frame object is 
+
+<emphasis id="strong1036" effect="bold">
+BorderLayout
+
+</emphasis>
+. 
+See Java080.
+
+</para>
+
+
+
+
+<para id="p1186">
+<link id="a1117" target-id="question18">
+
+Back to Question 18
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21057">
+<title>
+<emphasis id="answer17" effect="bold">
+
+Answer 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1187">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1188">
+<link id="a1118" target-id="question17">
+
+Back to Question 17
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21058">
+<title>
+<emphasis id="answer16" effect="bold">
+
+Answer 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1189">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1190">
+<link id="a1119" target-id="question16">
+
+Back to Question 16
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21059">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1191">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1192">
+<link id="a1120" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21060">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1193">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1194">
+<link id="a1121" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21061">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1195">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1196">
+<link id="a1122" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21062">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1197">
+False. There is a class of mouse events that includes most of the events 
+normally associated with mouse action and there is a matching 
+
+<emphasis id="strong1037" effect="bold">
+interface
+
+</emphasis>
+ 
+definition that is used to define a listener class for those events. See 
+Java080.
+
+</para>
+
+
+
+
+<para id="p1198">
+<link id="a1123" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21063">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1199">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1200">
+<link id="a1124" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21064">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1201">
+True. See Java080.
+
+</para>
+
+
+
+
+<para id="p1202">
+<link id="a1125" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21065">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1203">
+False. An event 
+
+<emphasis id="strong1038" effect="bold">
+source
+
+</emphasis>
+ is an object that has the ability to 
+determine when an interesting event has occurred, and to notify 
+
+<emphasis id="strong1039" effect="bold">
+listener
+
+</emphasis>
+ 
+objects of the occurrence of the event. See Java080.
+
+</para>
+
+
+
+
+<para id="p1204">
+<link id="a1126" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21066">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1205">
+True. See Java080.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1206">
+<link id="a1127" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21067">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1207">
+True.
+
+</para>
+
+
+
+
+<para id="p1208">
+<link id="a1128" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21068">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1209">
+False. This is 
+
+<emphasis id="em1007" effect="italics">
+multicasting
+
+</emphasis>
+. The one-to-one case is often referred 
+to as unicasting. See Java077.
+
+</para>
+
+
+
+
+<para id="p1210">
+<link id="a1129" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21069">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1211">
+True. See Java077.
+
+</para>
+
+
+
+
+<para id="p1212">
+<link id="a1130" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21070">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1213">
+False. It is very important to understand that Swing is an extension of, and not a replacement for the AWT. 
+Therefore, as students, we cannot simply skip over an understanding of the AWT 
+and move on to Swing. The AWT is the foundation for Swing. See Java073.
+
+</para>
+
+
+
+
+<para id="p1214">
+<link id="a1131" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21071">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1215">
+False. com.sun.java.swing.* was the package for Swing in JDK 1.1.6. However, 
+sometime between then and the release of Java SE 7, the package containing Swing 
+components was changed to javax.swing.*
+
+</para>
+
+
+
+
+<para id="p1216">
+<link id="a1132" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21072">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1217">
+True. See Java073.
+
+</para>
+
+
+
+
+<para id="p1218">
+<link id="a1133" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21073">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1219">
+True. See Java073.
+
+</para>
+
+
+
+
+<para id="p1220">
+<link id="a1134" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1221">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1040" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1007" list-type="bulleted">
+
+				
+
+<item id="li1034">
+Module name: Jy0037: Review Event Handling
+
+</item>
+
+
+				
+
+<item id="li1035">
+File: Jy0037.htm 
+
+</item>
+
+
+				
+
+<item id="li1036">
+Published: 10/30/13
+
+</item>
+
+
+
+
+<item id="li1037">
+Revised: 02/06/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1041" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1222">
+<emphasis id="strong1042" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1223">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1224">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1225">
+<emphasis id="strong1043" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1226">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

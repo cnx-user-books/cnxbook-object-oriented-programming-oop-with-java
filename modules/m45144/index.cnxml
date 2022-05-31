@@ -1,0 +1,928 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0170: Java OOP: A little more information about classes.</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45144</md:content-id>
+  <md:title>Jb0170: Java OOP: A little more information about classes.</md:title>
+  <md:abstract>Class definitions form the foundation for Java OOP. They are discussed in increasing detail in subsequent modules. This module sheds just a little more light on classes.</md:abstract>
+  <md:uuid>71f54603-9437-4800-8c9d-1b9e22c8f878</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 00:23:43 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Defining_a_class_in_Java">
+
+Defining a class in Java
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+This module is part of a collection of modules designed to help you 
+	learn to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module sheds a little more light on the Java construct called a 
+
+<emphasis id="em1003" effect="italics">
+
+class
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. General syntax for defining a Java class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+New types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+Java makes extensive use of classes. When a class is defined in Java, a new
+
+
+<emphasis id="em1004" effect="italics">
+type
+
+</emphasis>
+ comes into being. The new type definition 
+can then be used to instantiate 
+
+<emphasis id="em1005" effect="italics">
+(create instances of)
+
+</emphasis>
+ one or more 
+objects of that new type. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+A blueprint
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+The class definition provides a 
+
+<emphasis id="em1006" effect="italics">
+blueprint 
+
+</emphasis>
+that describes the 
+
+<emphasis id="em1007" effect="italics">
+
+data 
+
+</emphasis>
+contained within, and the 
+
+<emphasis id="em1008" effect="italics">
+
+behavior 
+
+</emphasis>
+of objects instantiated according to the new type. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1002" effect="bold">
+The data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+The data is contained in variables defined within the class 
+
+<emphasis id="em1009" effect="italics">
+(often called 
+member variables,
+
+</emphasis>
+ 
+
+<emphasis id="em1010" effect="italics">
+data members, attributes, fields, properties, 
+etc.
+
+</emphasis>
+). 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1003" effect="bold">
+The behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+The behavior is controlled by methods defined within the class. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1004" effect="bold">
+State and behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+An object is said to have 
+
+<emphasis id="em1011" effect="italics">
+state
+
+</emphasis>
+ and 
+
+<emphasis id="em1012" effect="italics">
+behavior
+
+</emphasis>
+. At any 
+instant in time, the 
+
+<emphasis id="em1013" effect="italics">
+state
+
+</emphasis>
+ of an object is determined by the values 
+stored in its 
+
+<emphasis id="em1014" effect="italics">
+variables
+
+</emphasis>
+ and its behavior is determined by its 
+
+<emphasis id="em1015" effect="italics">
+
+methods
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+Class vs. instance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+It is possible to define:
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1008">
+instance variables and instance methods 
+
+</item>
+
+
+	
+
+<item id="li1009">
+static or 
+
+<emphasis id="em1016" effect="italics">
+class
+
+</emphasis>
+ variables and static or 
+
+<emphasis id="em1017" effect="italics">
+class
+
+</emphasis>
+  methods.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1016">
+Instance variables and instance methods can only be accessed through an 
+object instantiated from the class. They belong to the individual objects, 
+
+<emphasis id="em1018" effect="italics">
+
+(which is why they are called instance variables and instance methods)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="em1019" effect="italics">
+Class
+
+</emphasis>
+ variables and 
+
+<emphasis id="em1020" effect="italics">
+class
+
+</emphasis>
+ methods can be accessed without 
+first instantiating an object. They are shared among all of the objects 
+instantiated from the class and are even accessible in the total absence of an 
+object of the class.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The class name alone is sufficient for accessing 
+
+<emphasis id="em1021" effect="italics">
+class
+
+</emphasis>
+ variables and
+
+
+<emphasis id="em1022" effect="italics">
+class
+
+</emphasis>
+ methods by joining the name of the class to the name of the 
+variable or method using a period.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Defining_a_class_in_Java" effect="bold">
+
+Defining a class in Java
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+The general syntax for defining a class in Java is shown in
+
+
+<link id="a1008" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. General syntax for 
+				defining a Java class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+class MyClassName{
+  . . .
+} //End of class definition.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1020">
+This syntax defines a class and creates a new type named 
+
+<emphasis id="strong1006" effect="bold">
+
+	MyClassName
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The definitions of variables, methods, constructors, and a variety of other 
+members are inserted between the opening and closing curly brackets.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1022">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1007" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1004" list-type="bulleted">
+
+					
+
+<item id="li1010">
+Module name: Jb0170: Java OOP: A little more information 
+					about classes.
+
+</item>
+
+
+					
+
+<item id="li1011">
+File: Jb0170.htm
+
+
+</item>
+
+
+					
+
+<item id="li1012">
+Originally published: 1997
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1008" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1023">
+<emphasis id="strong1009" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1024">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1025">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1026">
+<emphasis id="strong1010" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1027">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

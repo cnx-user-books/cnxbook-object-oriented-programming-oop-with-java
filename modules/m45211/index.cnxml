@@ -1,0 +1,1072 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0250: Java OOP: Brief Introduction to Exceptions</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45211</md:content-id>
+  <md:title>Jb0250: Java OOP: Brief Introduction to Exceptions</md:title>
+  <md:abstract>This module provides a very brief treatment of exception handling. The topic is discussed in detail in the module titled Java OOP: Exception Handling by Richard Baldwin</md:abstract>
+  <md:uuid>493cb10f-b7d5-483d-a4a9-16cb557d93b0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Mar 29 09:51:41 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Looking_ahead">
+
+Looking ahead
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+This module provides a very brief treatment of exception handling. The 
+	topic is discussed in detail in the module titled
+	
+
+<link id="a1009" url="http://cnx.org/content/m44202">
+
+Java OOP: Exception Handling
+
+</link>
+
+. 
+	The topic is included in this 
+
+<emphasis id="em1003" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ section simply to 
+	introduce you to the concept.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following link to easily find and view the listing while you are reading about 
+	it.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1010" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named simple1. 
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+What is an exception?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+According to
+
+
+<link id="a1011" url="http://docs.oracle.com/javase/tutorial/essential/exceptions/">
+
+The Java 
+Tutorials
+
+</link>
+
+, 
+
+<emphasis id="em1004" effect="italics">
+"An exception is an event that occurs during the execution of 
+a program that disrupts the normal flow of instructions."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+A very common example of an exception given in textbooks is code that 
+attempts to divide by zero 
+
+<emphasis id="em1005" effect="italics">
+(this is easy to demonstrate)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1001" effect="bold">
+Throwing an exception
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+Common terminology states that when this happens, the system 
+
+<emphasis id="em1006" effect="italics">
+throws an 
+exception
+
+</emphasis>
+. If a thrown exception is not 
+
+<emphasis id="em1007" effect="italics">
+caught
+
+</emphasis>
+, a runtime error may occur.
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1002" effect="bold">
+Purpose of exception handling
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+The purpose of exception handling is to make it possible for the program to 
+either attempt to recover from the problem, or at worst shut down the program in 
+a graceful manner, whenever an exception occurs.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1003" effect="bold">
+Java supports exception handling
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Java, C++, and some other programming languages support exception handling in 
+similar ways.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+In Java, the exception 
+can be thrown either by the system or by code created by the programmer. There 
+is a fairly long list of exceptions that will be thrown automatically by the 
+Java runtime system.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1004" effect="bold">
+Checked exceptions cannot be ignored
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+Included in that long list of automatic exceptions is a subset known as "checked" exceptions. 
+Checked exceptions cannot be ignored by the programmer. A method must either 
+specify 
+
+<emphasis id="em1008" effect="italics">
+(declare)
+
+</emphasis>
+ or catch all "checked" exceptions that can be thrown in order for the 
+program to compile. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1005" effect="bold">
+An example of specifying an exception
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+I explain the difference between specifying and catching an exception in 
+	
+
+<link id="a1012" url="http://cnx.org/content/m44202">
+
+Java OOP: Exception Handling
+
+</link>
+
+. For now, suffice it to say that the code that begins with the 
+word "throws" in 
+
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ specifies 
+
+<emphasis id="em1009" effect="italics">
+(declares)
+
+</emphasis>
+ an exception that 
+can be thrown by the code inside the 
+
+<emphasis id="strong1006" effect="bold">
+main
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+If this specification is not made, the program will not compile. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The program named 
+				simple1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File simple1.java Copyright 1997, R.G.Baldwin
+**********************************************************/
+class simple1 { //define the controlling class
+  public static void main(String[] args) 
+                               throws java.io.IOException {
+    int ch1, ch2 = '0';
+
+    System.out.println(
+      "Enter some text, terminate with #");
+
+    //Get and save individual bytes
+    while( (ch1 = System.in.read() ) != '#') ch2 = ch1;
+
+    //Display the character immediately before the #
+    System.out.println("The char before the # was "
+      + (char)ch2);
+  }//end main
+}//End simple1 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1019">
+The program in 
+
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ does not throw any 
+	exceptions directly nor does it attempt to catch any exceptions. However, it can throw exceptions indirectly through its 
+	call to 
+
+<emphasis id="strong1007" effect="bold">
+System.in.read
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Because 
+
+<emphasis id="strong1008" effect="bold">
+IOException
+
+</emphasis>
+ is a checked exception, the 
+
+<emphasis id="strong1009" effect="bold">
+main
+
+</emphasis>
+ 
+method must either specify it or catch it . Otherwise the program won't compile. 
+In this case, the 
+
+<emphasis id="strong1010" effect="bold">
+main
+
+</emphasis>
+ method specifies the exception as 
+opposed to catching it.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1011" effect="bold">
+Very brief treatment
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+As mentioned earlier, this is a very brief treatment of a fairly complex 
+topic that is discussed in much more detail in the module titled
+
+
+<link id="a1015" url="http://cnx.org/content/m44202">
+
+Java OOP: Exception Handling
+
+</link>
+
+. The 
+topic was included at this point simply to introduce you to the concept of 
+exceptions.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+II encourage you to copy the code from 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Looking_ahead" effect="bold">
+
+Looking ahead
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+As you approach the end of this group of 
+
+<emphasis id="em1010" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+modules, you should be preparing yourself for the more challenging ITSE 2321 OOP 
+tracks identified below:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1010">
+<link id="a1017" url="http://cnx.org/content/m44148">
+
+Java OOP: The Guzdial-Ericson 
+	Multimedia Class Library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1018" url="http://cnx.org/content/m44153">
+
+Java OOP: Objects and 
+	Encapsulation
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1025">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1012" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1006" list-type="bulleted">
+
+					
+
+<item id="li1012">
+Module name: Jb0250: Java OOP: Brief Introduction to 
+					Exceptions
+
+</item>
+
+
+					
+
+<item id="li1013">
+File: Jb0250.htm
+
+
+</item>
+
+
+					
+
+<item id="li1014">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1015">
+Published at cnx.org: 11/26/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1013" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1026">
+<emphasis id="strong1014" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1027">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1028">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1029">
+<emphasis id="strong1015" effect="bold">
+Affiliation
+
+</emphasis>
+:: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1030">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,3758 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4040: Purpose of Framework Implementations and Algorithms</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46137</md:content-id>
+  <md:title>Java4040: Purpose of Framework Implementations and Algorithms</md:title>
+  <md:abstract>This module explains how the core collection interfaces in the Java Collections Framework allow collections to be manipulated without regard for how they are implemented. The framework provides nine or more concrete implementations of the interfaces. The framework also provides various algorithms for manipulating the data in the collections.</md:abstract>
+  <md:uuid>7200eb80-ecc2-4f17-a3fd-44f16d9e3e6d</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Apr 05 15:35:41 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Purpose_of_implementations_">
+
+Purpose of implementations
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="Available_for_immediate_use_">
+
+Available for immediate use
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Vector_and_Hashtable_classes_">
+
+Vector and Hashtable classes 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1012">
+<link id="a1012" target-id="Abstract_implementations_">
+
+Abstract implementations 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Purpose_of_algorithms_">
+
+Purpose of algorithms
+
+</link>
+
+
+		
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="The_contains_method_">
+
+The contains method 
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="Different_classes_different_implementations_">
+
+Different classes, different implementations
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="A_sample_program">
+
+A sample program
+
+</link>
+
+
+<list id="ul1007" list-type="bulleted">
+
+			
+
+<item id="li1017">
+<link id="a1017" target-id="Instantiate_and_populate_a_TreeSet_object">
+
+Instantiate 
+			and populate a TreeSet object
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1018">
+<link id="a1018" target-id="Instantiate_and_populate_an_ArrayList_object">
+
+
+			Instantiate and populate an ArrayList object
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="Identify_a_target_element">
+
+Identify a target element
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="Search_for_the_test_value_in_each_collection">
+
+Search 
+			for the test value in each collection
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1021">
+<link id="a1021" target-id="Program_output">
+
+Program output
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1022">
+<link id="a1022" target-id="Time_required_to_search_ArrayList_">
+
+Time required to search 
+			the ArrayList collection 
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1023">
+<link id="a1023" target-id="Time_required_to_search_TreeSet_object_">
+
+Time required to search 
+			the TreeSet collection 
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1024">
+<link id="a1024" target-id="Different_implementations_">
+
+Different implementations
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1025">
+<link id="a1025" target-id="Polymorphic_behavior_applies_">
+
+Polymorphic behavior applies
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Sorting_algorithms_">
+
+Sorting algorithms 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Now_for_a_little_quiz_">
+
+Now for a little quiz 
+		
+
+</link>
+
+ 
+		
+
+<list id="ul1008" list-type="bulleted">
+
+			
+
+<item id="li1028">
+<link id="a1028" target-id="And_the_answer_is">
+
+And the answer is ...
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1029">
+<link id="a1029" target-id="Drive_home_the_point">
+
+Drive home the point
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Benefits_of_using_the_Collections_Framework_">
+
+Benefits of using the Collections Framework
+
+</link>
+
+ 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1031" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1032" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+Framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module explains how the core collection interfaces in the Java Collections Framework allow collections to be manipulated without regard for how they are implemented. The framework provides nine 
+or more concrete implementations of the interfaces. The framework also provides various algorithms for manipulating the data in the collections.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1034" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1035" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1034">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. SpeedTest01.
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the doIt method. 
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Instantiate and populate an ArrayList object.
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Identify a target element.
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Search for the test value in each collection.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+At least three things are included in the Java
+
+<emphasis id="em1003" effect="italics">
+ Collections Framework:
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1039">
+interfaces
+
+</item>
+
+
+	
+
+<item id="li1040">
+implementations
+
+</item>
+
+
+	
+
+<item id="li1041">
+algorithms
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+The previous module discussed the purpose of the interfaces. This module will 
+discuss the purpose of the implementations and the algorithms in the Collections 
+Framework. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1041" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1004" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+We learned in an earlier module that the framework 
+provides at least nine concrete implementations of the interfaces in the framework. These 
+nine implementation classes are available for immediate instantiation to produce 
+objects to satisfy your collection needs. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+We also learned that the framework provides at least three incomplete implementations. 
+These classes are available for you to use as a starting point in defining your 
+own implementations. Default implementations of many of the interface methods 
+are provided in the incomplete implementations. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Purpose_of_implementations_" effect="bold">
+
+Purpose of implementations 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+The 
+
+<emphasis id="em1005" effect="italics">
+implementations
+
+</emphasis>
+ in the Java Collections Framework are the concrete 
+definitions of the classes that implement the 
+
+<emphasis id="em1006" effect="italics">
+core collection interfaces
+
+</emphasis>
+. 
+For example, concrete implementations in the Java Collections 
+Framework are provided by at least the following nine classes.
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1042">
+HashSet
+
+</item>
+
+
+	
+
+<item id="li1043">
+TreeSet
+
+</item>
+
+
+	
+
+<item id="li1044">
+LinkedList
+
+</item>
+
+
+	
+
+<item id="li1045">
+ArrayList
+
+</item>
+
+
+	
+
+<item id="li1046">
+Vector
+
+</item>
+
+
+	
+
+<item id="li1047">
+HashMap
+
+</item>
+
+
+	
+
+<item id="li1048">
+WeakHashMap
+
+</item>
+
+
+	
+
+<item id="li1049">
+TreeMap
+
+</item>
+
+
+	
+
+<item id="li1050">
+Hashtable
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="Available_for_immediate_use_" effect="bold">
+
+Available for immediate use 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+These classes are available for immediate use to instantiate collection 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+As you can see, there are two classes that obviously fall into the 
+
+<emphasis id="em1007" effect="italics">
+Set
+
+</emphasis>
+ 
+category, two that obviously fall into the 
+
+<emphasis id="em1008" effect="italics">
+List
+
+</emphasis>
+ category, and three that 
+obviously fall into the 
+
+<emphasis id="em1009" effect="italics">
+Map
+
+</emphasis>
+ category. You can learn more about the 
+detailed characteristics of those classes in the standard Java documentation and 
+in
+
+
+<link id="a1042" url="http://docs.oracle.com/javase/tutorial/collections/interfaces/index.html">
+
+
+The Java Tutorials
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+This leaves two additional classes whose names don't readily divulge the 
+category to which they belong. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Vector_and_Hashtable_classes_" effect="bold">
+
+Vector and Hashtable classes 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1016">
+The classes 
+
+<emphasis id="strong1000" effect="bold">
+Vector
+
+</emphasis>
+ and 
+
+<emphasis id="strong1001" effect="bold">
+Hashtable
+
+</emphasis>
+ were part of Java even before 
+the Java Collections Framework became available. The 
+
+<emphasis id="strong1002" effect="bold">
+Vector
+
+</emphasis>
+ class can be 
+used to instantiate objects that fall in the general 
+
+<emphasis id="em1010" effect="italics">
+List
+
+</emphasis>
+ category. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+The 
+
+<emphasis id="strong1003" effect="bold">
+Hashtable
+
+</emphasis>
+ class can be used to instantiate objects that fall in 
+the 
+
+<emphasis id="em1011" effect="italics">
+Map
+
+</emphasis>
+ category. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+These two classes have been upgraded to make them compatible with the 
+Collections Framework. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Abstract_implementations_" effect="bold">
+
+Abstract implementations 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+In addition to the concrete implementations listed above, the following three 
+classes partially implement the interfaces, but are not intended for 
+instantiation. Rather, they are intended to be extended into new concrete 
+classes that you define.
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1051">
+AbstractSet
+
+</item>
+
+
+	
+
+<item id="li1052">
+AbstractList
+
+</item>
+
+
+	
+
+<item id="li1053">
+AbstractMap
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+Therefore, by either using one of the three classes listed above as a 
+starting point, or by starting from scratch and fully implementing one or more 
+of the interfaces, you can provide new concrete implementations to augment the 
+framework to include collections that meet your special needs. If you do that, 
+be sure to satisfy the contract requirements of the Collections Framework in 
+addition to the technical requirements imposed by implementing interfaces.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Purpose_of_algorithms_" effect="bold">
+
+Purpose of algorithms 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+Algorithms are methods 
+
+<emphasis id="em1012" effect="italics">
+(not necessarily exposed)
+
+</emphasis>
+ that provide useful 
+capabilities, such as searching and sorting. For example, the 
+
+<emphasis id="strong1004" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface declares an exposed method named 
+
+<emphasis id="strong1005" effect="bold">
+contains
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="The_contains_method" effect="bold">
+
+The contains method
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+The contract for the 
+
+<emphasis id="strong1006" effect="bold">
+contains
+
+</emphasis>
+ method requires that the 
+method:
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1054">
+receives an incoming reference of type 
+
+<emphasis id="strong1007" effect="bold">
+Object
+
+</emphasis>
+ as a parameter
+
+</item>
+
+
+	
+
+<item id="li1055">
+searches the collection looking for an element that matches the incoming 
+	reference
+
+</item>
+
+
+	
+
+<item id="li1056">
+returns true if the collection on which the method is called contains 
+	the specified element and returns false otherwise.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Different_classes_different_implementations_" effect="bold">
+
+Different classes, 
+different implementations 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+You can safely call the 
+
+<emphasis id="strong1008" effect="bold">
+contains
+
+</emphasis>
+ method on any object instantiated from 
+a class that properly implements the 
+
+<emphasis id="strong1009" effect="bold">
+Collection
+
+</emphasis>
+ interface, even if you 
+don't know the actual type of the collection object. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+The manner in which the search will be performed will probably differ from 
+one concrete implementation of the interface to the next. For example, a 
+
+<emphasis id="strong1010" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object will perform the search very rapidly with a time cost of only 
+log(n) where n is the number of elements. On the other hand, for the same number 
+of elements, because of a different underlying data structure, a search on an 
+
+<emphasis id="strong1011" effect="bold">
+
+ArrayList
+
+</emphasis>
+ object will probably require more time than a search on a 
+
+<emphasis id="strong1012" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object. As the number of elements increases, the difference in time 
+cost between the two will also increase. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="A_sample_program" effect="bold">
+
+A sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+Consider the sample program shown in 
+
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. This program compares the 
+search speed of the 
+
+<emphasis id="strong1013" effect="bold">
+ArrayList
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1014" effect="bold">
+TreeSet
+
+</emphasis>
+ class. A 
+detailed discussion of the program follows 
+
+<link id="a1044" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1015" effect="bold">
+SpeedTest01.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">/*File SpeedTest01
+Copyright 2001 R.G.Baldwin
+**************************************/
+
+import java.util.*;
+
+public class SpeedTest01{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class SpeedTest01
+
+class Worker{
+  public void doIt(){
+    int size = 2000000;
+    //Create a TreeSet object
+    Collection aTree = new TreeSet();
+
+    //Populate the TreeSet object with
+    // random values.  The add() method
+    // for a set rejects duplicates.
+    Random rnGen = new Random();
+    for(int ct = 0; ct &lt; size; ct++){
+      aTree.add(new Double(rnGen.nextDouble()));
+    }//end for loop
+
+    //Create and populate an ArrayList
+    // object with the same random
+    // values
+    Collection aList = new ArrayList(aTree);
+
+    //Extract a value near the center
+    // of the ArrayList object to use
+    // as a test case.
+    Object testVal = ((List)aList).get(size/2);
+
+    //Search for the test value in each
+    // of the collection objects.
+    // Measure and display the time
+    // required to perform the search
+    // in each case.
+    long start = new Date().getTime();
+    boolean found = aList.contains(testVal);
+    long stop = new Date().getTime();
+    System.out.println(found + " " + (stop - start));
+
+    start = new Date().getTime();
+    for(int x = 0; x &lt; 100000; x++){
+      found = aTree.contains(testVal);
+    }//end for loop
+    stop = new Date().getTime();
+    System.out.println(found + " " + (stop - start)/100000.0);
+
+  }//end doIt()
+}// end class Worker
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+	
+
+<section id="h31006">
+<title>
+<emphasis id="Instantiate_and_populate_a_TreeSet_object" effect="bold">
+
+Instantiate and 
+	populate a TreeSet object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1026">
+The program begins by instantiating a 
+
+<emphasis id="strong1016" effect="bold">
+TreeSet
+
+</emphasis>
+ object and populating it 
+with approximately 2,000,000 elements as shown in 
+
+<link id="a1045" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The values 
+encapsulated in the objects referred to by the elements in the collection are 
+produced by a random number generator. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Recall that the 
+
+<emphasis id="strong1017" effect="bold">
+add
+
+</emphasis>
+ method of a 
+
+<emphasis id="strong1018" effect="bold">
+Set
+
+</emphasis>
+ object rejects duplicate 
+elements, so there may be fewer than 2,000,000 elements in the object after it is 
+populated, depending on how many of the random values are duplicates. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of 
+				the doIt method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  public void doIt(){
+    int size = 2000000;
+
+    Collection aTree = new TreeSet();
+
+    Random rnGen = new Random();
+    for(int ct = 0; ct &lt; size; ct++){
+      aTree.add(new Double(rnGen.nextDouble()));
+    }//end for loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Instantiate_and_populate_an_ArrayList_object" effect="bold">
+
+Instantiate and 
+populate an ArrayList object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+One of the capabilities of the Collection Framework is to create a new 
+
+<emphasis id="strong1019" effect="bold">
+
+Collection
+
+</emphasis>
+ object and populate it with the contents of an existing 
+
+<emphasis id="strong1020" effect="bold">
+
+Collection
+
+</emphasis>
+ object of a different 
+
+<emphasis id="em1013" effect="italics">
+(or the same)
+
+</emphasis>
+ actual type. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+The code in 
+
+<link id="a1046" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ instantiates an 
+
+<emphasis id="strong1021" effect="bold">
+ArrayList
+
+</emphasis>
+ object and populates 
+it with the contents of the existing 
+
+<emphasis id="strong1022" effect="bold">
+TreeSet
+
+</emphasis>
+ object. As a result, we then 
+have two different 
+
+<emphasis id="strong1023" effect="bold">
+Collection
+
+</emphasis>
+ objects of different actual types 
+containing the same elements. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Instantiate and populate an ArrayList object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">
+    Collection aList = new ArrayList(aTree);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Identify_a_target_element" effect="bold">
+
+Identify a target element
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+The objective of this program is to compare the times required to search for 
+and to find an element in each of the collections. Thus, we need a target element 
+to search for. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+The code in 
+
+<link id="a1047" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ extracts a value near the center of the 
+
+<emphasis id="strong1024" effect="bold">
+
+ArrayList
+
+</emphasis>
+ object using an index to find and extract the value. This is a 
+very fast operation on a 
+
+<emphasis id="strong1025" effect="bold">
+List
+
+</emphasis>
+ object. This value is saved in 
+
+<emphasis id="strong1026" effect="bold">
+testVal
+
+</emphasis>
+ 
+to be used later for test purposes. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Note that the reference to the 
+
+<emphasis id="strong1027" effect="bold">
+ArrayList
+
+</emphasis>
+ object was saved as type 
+
+<emphasis id="strong1028" effect="bold">
+
+Collection
+
+</emphasis>
+ 
+
+<emphasis id="em1014" effect="italics">
+(and not as type 
+
+<emphasis id="strong1029" effect="bold">
+ArrayList
+
+</emphasis>
+)
+
+</emphasis>
+ in 
+
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ above. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Note also that it was necessary to cast that reference to type 
+
+<emphasis id="strong1030" effect="bold">
+List
+
+</emphasis>
+ in 
+
+
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ in order to call the 
+
+<emphasis id="strong1031" effect="bold">
+get
+
+</emphasis>
+ method on the reference. This is 
+because the 
+
+<emphasis id="strong1032" effect="bold">
+Collection
+
+</emphasis>
+ interface does not declare a method named 
+
+<emphasis id="strong1033" effect="bold">
+get
+
+</emphasis>
+. 
+Rather, the 
+
+<emphasis id="strong1034" effect="bold">
+get
+
+</emphasis>
+ method is added to the 
+
+<emphasis id="strong1035" effect="bold">
+List
+
+</emphasis>
+ interface to define a 
+more specialized form of collection. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1015" effect="italics">
+(Author's note: This program was originally written before the 
+introduction of Generics. The above requirement may not be true if the program 
+were to be rewritten making proper use of Generics.)
+
+</emphasis>
+</quote>
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Identify a target element.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">
+    Object testVal = ((List)aList).get(size/2);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Search_for_the_test_value_in_each_collection" effect="bold">
+
+Search for the test 
+value in each collection
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+The code in 
+
+<link id="a1050" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1036" effect="bold">
+contains
+
+</emphasis>
+ method to search for 
+the test value in each of the collections. It uses the system clock to measure 
+the time required to find the element in each case. 
+
+<emphasis id="em1016" effect="italics">
+(I will assume that you 
+understand how to use the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1037" effect="bold">
+<emphasis id="em1017" effect="italics">
+Date
+
+</emphasis>
+</emphasis>
+<emphasis id="em1018" effect="italics">
+ class for this purpose, and won't provide 
+a detailed explanation.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Search for the test value in each collection.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    long start = new Date().getTime();
+    boolean found = aList.contains(testVal);
+    long stop = new Date().getTime();
+    System.out.println(found + " " + (stop - start));
+
+    start = new Date().getTime();
+    for(int x = 0; x &lt; 100000; x++){
+      found = aTree.contains(testVal);
+    }//end for loop
+    stop = new Date().getTime();
+    System.out.println(found + " " + (stop - start)/100000.0);
+
+  }//end doIt()
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Program_output" effect="bold">
+
+Program output
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+Running the program several times produced the following range of output 
+values:
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1057">
+First output value ranged from "true 93" to "true 109"
+
+</item>
+
+
+	
+
+<item id="li1058">
+Second output value ranged from "true 0.00031" to "true 0.00046" 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+The first output value applies to the 
+
+<emphasis id="strong1038" effect="bold">
+ArrayList
+
+</emphasis>
+ object, and the 
+second output value applies to the 
+
+<emphasis id="strong1039" effect="bold">
+TreeSet
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+As we would expect, the test value was successfully found in both cases; 
+hence the display of true in both cases. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Time_required_to_search_ArrayList_" effect="bold">
+
+Time required to search the 
+ArrayList collection 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+The output indicates that approximately 100 milliseconds were required to 
+find the test value in the 
+
+<emphasis id="strong1040" effect="bold">
+ArrayList
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="Time_required_to_search_TreeSet_object_" effect="bold">
+
+Time required to search 
+the 
+TreeSet collection 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+The time required to find the test value in the 
+
+<emphasis id="strong1041" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object was so small that it wasn't even measurable within the granularity of the 
+system clock 
+
+<emphasis id="em1019" effect="italics">
+(other experiments have caused me to believe that the 
+granularity of the system clock on this machine is at least sixteen milliseconds)
+
+</emphasis>
+. 
+Hence, the original reported time required to find the test value in the 
+
+<emphasis id="strong1042" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object was zero. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+In order to get a measurable time value to search the 
+
+<emphasis id="strong1043" effect="bold">
+TreeSet
+
+</emphasis>
+ object, 
+I had to wrap the invocation of the 
+
+<emphasis id="strong1044" effect="bold">
+contains
+
+</emphasis>
+ method in a for-loop and 
+search for the same value 100,000 times in succession. Thus, the time required to 
+find the test value in the 
+
+<emphasis id="strong1045" effect="bold">
+TreeSet
+
+</emphasis>
+ object was approximately 0.00030 
+milliseconds as compared to 100 milliseconds for the 
+
+<emphasis id="strong1046" effect="bold">
+ArrayList
+
+</emphasis>
+ object.
+
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1020" effect="italics">
+(I'll let you do the arithmetic to see if this makes sense in terms of the 
+expected time cost to search the two different types of collections. Don't forget 
+the extra overhead of the for-loop.)
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="Different_implementations_" effect="bold">
+
+Different implementations 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+This is a graphic demonstration that even though both objects can be treated 
+as type 
+
+<emphasis id="strong1047" effect="bold">
+Collection
+
+</emphasis>
+, and the 
+
+<emphasis id="strong1048" effect="bold">
+contains
+
+</emphasis>
+ method can be called on 
+either object in a polymorphic manner, the actual implementations of the two 
+objects and the implementations of the 
+
+<emphasis id="strong1049" effect="bold">
+contains
+
+</emphasis>
+ methods in those two 
+objects are different. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+Each type of collection has advantages and disadvantages, depending on your 
+needs. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="Polymorphic_behavior_applies_" effect="bold">
+
+Polymorphic behavior applies 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1043">
+The important point is that if you receive a reference to the collection 
+object as type 
+
+<emphasis id="strong1050" effect="bold">
+Collection
+
+</emphasis>
+, you can call the 
+
+<emphasis id="strong1051" effect="bold">
+contains
+
+</emphasis>
+ method on that 
+reference without regard to the underlying structure of the collection object. 
+This is because 
+
+<emphasis id="em1021" effect="italics">
+polymorphic
+
+</emphasis>
+ behavior applies. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+Very briefly, polymorphic behavior means that the actual method that is 
+executed is the appropriate method for that type of object regardless of the 
+actual type 
+
+<emphasis id="em1022" effect="italics">
+(class)
+
+</emphasis>
+ of the reference to the object. This is one of the great advantages of 
+using the Java Collections Framework and passing collection objects among 
+methods as interface types. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Sorting_algorithms_" effect="bold">
+
+Sorting algorithms 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+Some of the implementations of the Java Collection Framework maintain their 
+elements in a random order, and other implementations maintain their elements in 
+a sorted order. Thus, the framework also provides sorting algorithms. However, 
+the sorting algorithms used to maintain the order of the collections are not 
+exposed in the way that the search algorithm is exposed 
+
+<emphasis id="em1023" effect="italics">
+(via the 
+
+<emphasis id="strong1052" effect="bold">
+contains
+
+</emphasis>
+ method). 
+
+</emphasis>
+Rather, the sorting algorithms are implicit in those 
+implementations that need them, and are absent from those implementations that 
+don't need them. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Now_for_a_little_quiz_" effect="bold">
+
+Now for a little quiz 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+Let's see if you are still awake. Select the words in one pair of parentheses 
+in the following statement that causes the statement to be true. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1024" effect="italics">
+The interfaces in the Collections Framework make it possible to manipulate 
+the contents of collections in a manner that is (dependent on)
+(independent of) the underlying implementation of each collection.
+
+</emphasis>
+ 
+
+
+</quote>
+
+
+
+
+<section id="h31015">
+<title>
+<emphasis id="And_the_answer_is" effect="bold">
+
+And the answer is ... 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+The interfaces in the Collections Framework make it possible to manipulate 
+the contents of collections in a manner that is 
+
+<emphasis id="em1025" effect="italics">
+<emphasis id="strong1053" effect="bold">
+independent of
+
+</emphasis>
+</emphasis>
+ the underlying 
+implementation of each collection. That is the beauty of basing the framework on 
+interfaces that declare polymorphic methods. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Drive_home_the_point" effect="bold">
+
+Drive home the point
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+I placed this question here to drive home the point that the methods declared 
+in the 
+
+<emphasis id="strong1054" effect="bold">
+Collection
+
+</emphasis>
+ interface can be called on collection objects in a 
+
+<emphasis id="em1026" effect="italics">
+
+polymorphic
+
+</emphasis>
+ manner. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+That is to say, as a user of an object instantiated from a class that 
+properly implements the 
+
+<emphasis id="strong1055" effect="bold">
+Collection
+
+</emphasis>
+ interface 
+
+<emphasis id="em1027" effect="italics">
+(according to the 
+contracts of the Collections Framework)
+
+</emphasis>
+, you can call the methods 
+declared in that interface on a reference to the object and be confident that 
+the actual method that is called will be the version that is appropriate for 
+the class from which the object was instantiated. This is polymorphic behavior.
+
+
+</para>
+
+
+
+
+
+<para id="p1050">
+In the event that you need to call a method that is not declared in the 
+
+<emphasis id="strong1056" effect="bold">
+
+Collection
+
+</emphasis>
+ interface 
+
+<emphasis id="em1028" effect="italics">
+(such as the get() method in 
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ above),
+
+</emphasis>
+ 
+you can pass the reference as one of the more specialized sub-interfaces of 
+
+<emphasis id="strong1057" effect="bold">
+
+Collection
+
+</emphasis>
+, such as 
+
+<emphasis id="strong1058" effect="bold">
+Set
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+<emphasis id="em1029" effect="italics">
+(Author's note: Once again, this document was originally 
+written before the release of Generics. The use of the more specialized 
+sub-interfaces described above may not be required if the program is re-written making proper use of Generics.)
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Benefits_of_using_the_Collections_Framework_" effect="bold">
+
+Benefits of using the 
+Collections Framework 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+
+
+
+<link id="a1052" url="http://docs.oracle.com/javase/tutorial/collections/interfaces/index.html">
+
+The Java 
+Tutorial
+
+</link>
+
+ from Oracle lists and explains the benefits of using the 
+Java Collections Framework, including the following. 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1059">
+It reduces programming effort
+
+</item>
+
+
+	
+
+<item id="li1060">
+It increases program speed and quality
+
+</item>
+
+
+	
+
+<item id="li1061">
+It allows interoperability among unrelated APIs
+
+</item>
+
+
+	
+
+<item id="li1062">
+It reduces the effort to learn and use new APIs
+
+</item>
+
+
+	
+
+<item id="li1063">
+It reduces effort to design new APIs
+
+</item>
+
+
+	
+
+<item id="li1064">
+It fosters software reuse
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1052">
+For a detailed explanation of these benefits, I am simply going to refer you 
+directly to
+
+
+<link id="a1053" url="http://docs.oracle.com/javase/tutorial/collections/interfaces/index.html">
+
+The Java 
+Tutorial
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+I encourage you to copy the code from 
+
+<link id="a1054" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and paste it into 
+a Java source code file. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+Let's recap some of what we have learned in this and the previous 
+modules. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The core collection interfaces in the Collections Framework are shown below. 
+
+</para>
+
+
+
+		
+
+<list id="ul1016" list-type="bulleted">
+
+			
+
+<item id="li1065">
+Collection
+
+<list id="ul1017" list-type="bulleted">
+
+				
+
+<item id="li1066">
+Set
+
+<list id="ul1018" list-type="bulleted">
+
+					
+
+<item id="li1067">
+SortedSet
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</item>
+
+
+				
+
+<item id="li1068">
+List
+
+</item>
+
+
+				
+
+<item id="li1069">
+Queue
+
+</item>
+
+
+				
+
+<item id="li1070">
+Deque
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+			
+
+<item id="li1071">
+Map
+
+<list id="ul1019" list-type="bulleted">
+
+				
+
+<item id="li1072">
+SortedMap
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+
+
+<para id="p1057">
+The basic purpose of the core collection interfaces in the Java Collections 
+Framework is to allow collections to be manipulated without regard for how the 
+collections are implemented, provided of course that the implementations comply 
+with the contracts. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+The framework provides at least the following nine concrete implementations 
+
+<emphasis id="em1030" effect="italics">
+
+(classes)
+
+</emphasis>
+  of the interfaces shown above:
+
+</para>
+
+
+
+
+
+<list id="ul1020" list-type="bulleted">
+
+	
+
+<item id="li1073">
+HashSet
+
+</item>
+
+
+	
+
+<item id="li1074">
+TreeSet
+
+</item>
+
+
+	
+
+<item id="li1075">
+LinkedList
+
+</item>
+
+
+	
+
+<item id="li1076">
+ArrayList
+
+</item>
+
+
+	
+
+<item id="li1077">
+Vector
+
+</item>
+
+
+	
+
+<item id="li1078">
+HashMap
+
+</item>
+
+
+	
+
+<item id="li1079">
+WeakHashMap
+
+</item>
+
+
+	
+
+<item id="li1080">
+TreeMap
+
+</item>
+
+
+	
+
+<item id="li1081">
+Hashtable
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1059">
+For example, the classes 
+
+<emphasis id="strong1059" effect="bold">
+TreeSet
+
+</emphasis>
+ and 
+
+<emphasis id="strong1060" effect="bold">
+ArrayList
+
+</emphasis>
+ are concrete 
+implementations of the 
+
+<emphasis id="strong1061" effect="bold">
+Collection
+
+</emphasis>
+ interface as shown in the above list.
+
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1031" effect="italics">
+(Actually, they are concrete implementations of sub-interfaces of Collection. 
+The Collections Framework doesn't provide any direct implementations of the Collection 
+interface.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1060">
+A collection object instantiated from the class 
+
+<emphasis id="strong1062" effect="bold">
+TreeSet
+
+</emphasis>
+ and a 
+collection object instantiated from the class 
+
+<emphasis id="strong1063" effect="bold">
+ArrayList
+
+</emphasis>
+ can each be 
+viewed as being of the interface type 
+
+<emphasis id="strong1064" effect="bold">
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+Methods having the same signatures can be used to manipulate either 
+collection with confidence that the behavior of the method will be appropriate 
+for the actual type of collection involved. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+The framework also provides the following incomplete implementations of the 
+core interfaces: 
+
+</para>
+
+
+
+
+
+<list id="ul1021" list-type="bulleted">
+
+	
+
+<item id="li1082">
+AbstractSet
+
+</item>
+
+
+	
+
+<item id="li1083">
+AbstractList
+
+</item>
+
+
+	
+
+<item id="li1084">
+AbstractMap
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1063">
+The purpose of these implementations is to provide you with a starting point 
+for defining your own concrete implementations for more specialized collections.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1065" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+				
+
+<list id="ul1022" list-type="bulleted">
+
+					
+
+<item id="li1085">
+Module name: Java4040: Purpose of Framework 
+					Implementations and Algorithms
+
+</item>
+
+
+					
+
+<item id="li1086">
+File: Java0440.htm
+
+
+</item>
+
+
+					
+
+<item id="li1087">
+Published: 04/18/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1066" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1065">
+<emphasis id="strong1067" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1066">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1067">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1068">
+<emphasis id="strong1068" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1069">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

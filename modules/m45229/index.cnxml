@@ -1,0 +1,3067 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0270: Java OOP: Packages</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45229</md:content-id>
+  <md:title>Jb0270: Java OOP: Packages</md:title>
+  <md:abstract>This module explains the concept of packages and provides a sample program that illustrates the concept.</md:abstract>
+  <md:uuid>f7885b76-b734-44de-a297-c4e15cea70fe</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Mar 29 10:38:11 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="classpath_environment_variable">
+
+Classpath environment variable
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="developing_your_own_packages">
+
+Developing your own packages
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="the_package_directive">
+
+The package directive
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="the_import_directive">
+
+The import directive
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="compilingprograms">
+
+Compiling programs with the package 
+		directive
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="sample_program">
+
+Sample program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Looking_ahead">
+
+Looking ahead
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+This module explains the concept of packages and provides a sample 
+	program that illustrates the concept. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. File: Package00.java.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. File Package01.java.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. File Package02.java.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. File: CompileAndRun.bat. 
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="introduction" effect="bold">
+
+
+</emphasis>
+
+Introduction
+
+</title>
+
+
+
+
+<para id="p1004">
+Before you can understand much about packages, you will need to 
+understand the 
+
+<emphasis id="em1003" effect="italics">
+classpath environment variable
+
+</emphasis>
+, so that is where I will 
+begin the discussion. 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+After learning about the classpath environment variable, you will learn 
+how to create your own packages. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="classpath_environment_variable" effect="bold">
+
+
+</emphasis>
+
+
+Classpath environment variable
+
+</title>
+
+
+
+
+<para id="p1006">
+The purpose of the 
+
+<emphasis id="em1004" effect="italics">
+classpath environment variable
+
+</emphasis>
+ is to tell 
+the JVM and other Java applications 
+
+<emphasis id="em1005" effect="italics">
+(such as the javac compiler)
+
+</emphasis>
+ where to find class files and class libraries. This 
+includes those class files that are part of the JDK and class files that you 
+may create yourself. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+I am assuming that you already have some familiarity with the use of 
+environment variables in your operating system. All of the 
+discussion in this module will be based on the use of a generic form of Windows.
+
+
+<emphasis id="em1006" effect="italics">
+(By generic, I mean not tied to any particular version of Windows.)
+
+</emphasis>
+ Hopefully you 
+will be able to translate the information to your operating system if you are 
+using a different operating system. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1000" effect="bold">
+In a nutshell
+
+</emphasis>
+
+				
+
+<para id="p1008">
+Environment variables provide information that the operating system uses to do its job. 
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1009">
+There are usually a fairly large number of environment variables 
+installed on a machine at any give time. If you would like to see what kind of 
+environment variables are currently installed on your machine, bring up a 
+command-line prompt and enter the command 
+
+<emphasis id="strong1001" effect="bold">
+set
+
+</emphasis>
+. This should cause the 
+names of several environment variables, along with their settings to be 
+displayed on your screen. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+While you are at it, see if any of those items begin with 
+
+<emphasis id="strong1002" effect="bold">
+CLASSPATH=
+
+</emphasis>
+. 
+If so, you already have a classpath environment variable set on your 
+machine, but it may not contain everything that you need. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+I am currently using a Windows 7 operating system and no classpath 
+environment variable is set on it. I tend to use the 
+
+<emphasis id="strong1003" effect="bold">
+-cp
+
+</emphasis>
+ switch 
+option 
+
+<emphasis id="em1007" effect="italics">
+(see 
+
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+)
+
+</emphasis>
+ in the JDK to set the 
+classpath on a temporary basis when I need it to be set.
+
+</para>
+
+
+
+
+
+
+<para id="p1012">
+Rather than trying to explain all of the ramifications regarding the classpath, I 
+will simply refer you to an Oracle document on the topic titled 
+
+
+<link id="a1020" url="http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html">
+
+Setting the class path
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+I will also refer you to 
+
+<link id="a1021" url="http://cnx.org/content/m44148">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+ where I discuss the use of the classpath 
+environment variable with a Java multimedia class library.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1004" effect="bold">
+Some rules
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+There are some rules that you must follow when working with the classpath variable, and if you fail to do so, things simply won't work. 
+
+</para>
+
+
+
+
+
+
+<para id="p1016">
+For example, if your class files are in a jar 
+file, the classpath must end with the name of that jar file. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+On the other hand, if the class files are not in a jar 
+file, the classpath must end with the name of the folder that contains 
+the class files. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+Your classpath must contain a fully-qualified path name for every 
+folder that contains class files of interest, or for every jar 
+file of interest. The paths should begin with the letter specifying the drive 
+and end either with the name of the jar file or the name of 
+the folder that contains the class files. . 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+If you followed the default JDK installation procedure and are simply 
+compiling and executing Java programs in the current directory you 
+probably won't need to set the classpath. By default, the system already 
+knows 
+
+<emphasis id="em1008" effect="italics">
+(or can figure out)
+
+</emphasis>
+ how to allow you to compile and execute programs in 
+the current directory and how to use the JDK classes that come as part of 
+the JDK.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+However, if you are using class libraries other than the standard Java 
+library, are saving your class files in one or more different folders, 
+or are ready to start creating your own packages, you will need to set 
+the classpath so that the system can find the class files in your 
+packages. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="developing_your_own_packages" effect="bold">
+
+
+</emphasis>
+
+
+Developing your own packages
+
+</title>
+
+
+
+
+<para id="p1021">
+One of the problems with storing all of your class files in one or two 
+folders is that you will likely experience name conflicts between class files. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Every Java program can consist of a large number of separate classes. A class 
+file is created for each class that is defined in your program, even if they are 
+all combined into a single source file. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+It doesn't take very many programs to create a lot of class files, and it 
+isn't long before you find yourself using the same class names over again. If 
+you do, you will end up overwriting class files that were previously stored in 
+the folder. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+For me, it only takes two GUI programs to get in trouble because I tend to 
+use the same class names in every program for certain standard operations such 
+as closing a 
+
+<emphasis id="strong1005" effect="bold">
+Frame
+
+</emphasis>
+ or processing an 
+
+<emphasis id="strong1006" effect="bold">
+ActionEvent
+
+</emphasis>
+. For the case of 
+the 
+
+<emphasis id="strong1007" effect="bold">
+ActionEvent
+
+</emphasis>
+, the body of the class varies from one application to the 
+next so it doesn't make sense to turn it into a library class. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+So we need a better way to organize our class files, and the Java package 
+provides that better way. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+The Java package approach allows us to store our class files in a hierarchy 
+of folders 
+
+<emphasis id="em1009" effect="italics">
+(or a jar file that represents that hierarchy)
+
+</emphasis>
+ while 
+only requiring that the classpath variable point to the top of the 
+hierarchy. The remaining hierarchy structure is encoded into our programs using 
+package directives and import directives. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+Now here is a little jewel of information that cost me about seven hours of 
+effort to discover when I needed it badly. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+When I first started developing my own packages, I spent about seven 
+hours trying to determine why the compiler wouldn't recognize the top-level 
+folder in my hierarchy of package folders. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+I consulted numerous books by respected authors and none of them was any help 
+at all. I finally found the following statement in the Java documentation 
+
+
+<emphasis id="em1010" effect="italics">
+(when all else fails, read the documentation)
+
+</emphasis>
+. By the way, a good portion of 
+that wasted seven hours was spent trying to find this information in the 
+documentation which is voluminous. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1008" effect="bold">
+<emphasis id="The_following_text_was_extracted_" effect="bold">
+
+The following text was extracted 
+				
+
+</emphasis>
+
+directly from the JDK 1.1 
+documentation
+
+</emphasis>
+<para id="p1030">
+If you want the CLASSPATH to point to class files that belong to a 
+package, you should specify a path name that includes the path to the 
+directory one level above the directory having the name of 
+your package. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+For example, suppose you want the Java interpreter to be able to find classes 
+in the package mypackage. If the path to the mypackage
+directory is C:\java\MyClasses\mypackage, you would set the 
+CLASSPATH variable as follows: 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+set CLASSPATH=C:\java\MyClasses
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1033">
+If you didn't catch the significance of this, read it again. When you are 
+creating a classpath variable to point to a folder containing classes, it 
+must point to the folder. However, when you are creating a classpath 
+variable to point to your package, it must point to the folder that is 
+one level above the directory that is the top-level folder in your 
+package. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+Once I learned that I had to cause the classpath to point to the 
+folder immediately above the first folder in the hierarchy that I was including 
+in my package directives, everything started working. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="the_package_directive" effect="bold">
+
+
+</emphasis>
+
+The 
+package directive
+
+</title>
+
+
+
+
+<para id="p1035">
+So, what is the purpose of a package directive, and what does it look like?
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1009" effect="bold">
+Purpose of a package directive
+
+</emphasis>
+
+				
+
+<para id="p1036">
+The purpose of the package directive is to identify a 
+particular class 
+
+<emphasis id="em1011" effect="italics">
+(or group of classes contained in a single source file 
+(compilation unit))
+
+</emphasis>
+ as belonging to a specific package.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1037">
+This is very important information for a variety of reasons, 
+not the least of which is the fact that the entire access control system 
+is wrapped around the concept of a class belonging to a specific package. 
+For example, code in one package can only access public classes in 
+a different package. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+Stated in the simplest possible terms, a package is a group of class 
+files contained in a single folder on your hard drive.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+At compile time, a class can be identified as being part of a particular 
+package by providing a package directive at the beginning of the 
+source code.. 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+A package directive, if it exists, must occur at the beginning of the 
+source code 
+
+<emphasis id="em1012" effect="italics">
+(ignoring comments and white space)
+
+</emphasis>
+. No text other than comments and 
+whitespace is allowed ahead of the package directive. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+If your source code file does not contain a package directive, the 
+classes in the source code file become part of the 
+
+<emphasis id="em1013" effect="italics">
+default package
+
+</emphasis>
+. 
+With the exception of the default package, all packages 
+have names, and those names are the same as the names of the folders that 
+contain the packages. There is a one-to-one correspondence between folder 
+names and package names. The default package doesn't have a name. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+Some examples of package directives that you will see in upcoming 
+sample programs follow: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1010" effect="bold">
+Example package directives
+
+</emphasis>
+
+				
+
+<code id="pre1000" display="block">
+package Combined.Java.p1; 
+package Combined.Java.p2;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1043">
+Given the following as the classpath on my hypothetical machine, 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+CLASSPATH=.;c:\Baldwin\JavaProg
+
+</para>
+
+
+
+
+
+<para id="p1045">
+these two package directives indicate that the class files 
+being governed by the package directives are contained in the following 
+folders: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1001" display="block">
+c:\Baldwin\JavaProg\Combined\Java\p1 
+c:\Baldwin\JavaProg\Combined\Java\p2</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1046">
+Notice how I concatenated the package directive to the classpath 
+setting and substituted the backslash character for the period when converting 
+from the package directive to the fully-qualified path name. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Code in one package can refer to a class in another package 
+
+<emphasis id="em1014" effect="italics">
+(if 
+it is otherwise accessible) 
+
+</emphasis>
+by qualifying the class name with its 
+
+
+<emphasis id="package_name_as_follows" effect="bold">
+
+package name as 
+follows
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1002" display="block">
+Combined.Java.p2.Access02 obj02 = 
+       new Combined.Java.p2.Access02();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1048">
+Obviously, if we had to do very much of that, it would become very 
+burdensome due to the large amount of typing required. As you already know, the 
+
+
+<emphasis id="em1015" effect="italics">
+import directive
+
+</emphasis>
+ is available to 
+allow us to specify the package containing the class just once at the 
+beginning of the source file and then refer only to the class name for the 
+remainder of that source file. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="the_import_directive" effect="bold">
+
+
+</emphasis>
+
+The 
+import directive
+
+</title>
+
+
+
+
+<para id="p1049">
+This discussion will be very brief because you have been using 
+import directives since the very first module. Therefore, you already know 
+what they look like and how to use them.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+If you are interested in the nitty-gritty details 
+
+<emphasis id="em1016" effect="italics">
+(such as what happens when 
+you provide two import directives that point to two different packages 
+containing the same class file name)
+
+</emphasis>
+, you can consult the Java Language 
+Reference by Mark Grand, or you can download the Java language specification 
+from Oracle's Java website. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+The purpose of the import directive is to help us avoid the 
+
+
+<link id="a1022" target-id="package_name_as_follows">
+
+burdensome 
+typing requirement
+
+</link>
+
+ described in the previous section when referring to classes 
+in a different package. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+An import directive makes the definitions of classes from other 
+packages available on the basis of their file names alone. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+You can have any number of import directives in a source file. 
+However, they must occur after the package directive 
+
+<emphasis id="em1017" effect="italics">
+(if there is one)
+
+</emphasis>
+ 
+and before any class or interface declarations. 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+There are essentially two different forms of the import directive, one 
+with and the other without a wild card character 
+
+<emphasis id="em1018" effect="italics">
+(*)
+
+</emphasis>
+. These two forms are 
+illustrated in the following box.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1011" effect="bold">
+Two forms of import directives
+
+</emphasis>
+
+				
+
+<code id="pre1003" display="block">
+import java.awt.* 
+import java.awt.event.ActionEvent </code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1055">
+The first import directive makes all of the class files in the 
+
+
+<emphasis id="strong1012" effect="bold">
+java.awt
+
+</emphasis>
+ package available for use in the code in a different 
+package by referring only to their file names. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The second import directive makes only the class file named 
+
+
+<emphasis id="strong1013" effect="bold">
+ActionEvent
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1014" effect="bold">
+java.awt.event
+
+</emphasis>
+ package 
+available by referring only to the file name. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="compilingprograms" effect="bold">
+
+
+</emphasis>
+
+
+Compiling programs with package directives
+
+</title>
+
+
+
+
+<para id="p1057">
+So, how do you compile programs containing package 
+directives? There are probably several ways. I am going to describe one way 
+that I have found to be successful. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+First, you must create your folder hierarchy to match the package 
+directive that you intend to use. Remember to construct this hierarchy 
+downward relative to the folder specified at the end of your classpath 
+setting. If you have forgotten the 
+
+<link id="a1023" target-id="The_following_text_was_extracted_">
+
+critical rule
+
+</link>
+
+ in this respect, go back and 
+review it. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+Next, place source code files in each of the folders where you intend for the 
+class files associated with those source code files to reside. 
+
+<emphasis id="em1019" effect="italics">
+(After you have 
+compiled and tested the program, you can remove the source code files if you 
+wish.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+You can compile the source code files individually if you want to, but that 
+isn't necessary. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+One of the source code files will contain the 
+
+<emphasis id="em1020" effect="italics">
+controlling class
+
+</emphasis>
+. The controlling class is 
+the class that contains the 
+
+<emphasis id="strong1015" effect="bold">
+main
+
+</emphasis>
+ 
+method that will be executed when you run the program from the command line 
+using the JVM.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Make the directory containing that source code file be the current 
+directory. 
+
+<emphasis id="em1021" effect="italics">
+(If you don't know what the current directory is, go out 
+and get yourself a 
+
+<emphasis id="strong1016" effect="bold">
+DOS For Dummies
+
+</emphasis>
+ book and read it.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+Each of the source code files must contain a package directive 
+that specifies the package that will contain the compiled versions of all 
+the class definitions in that source code file. Using the instructions that I am 
+giving you, that package directive will also describe the folder that 
+contains the source code file. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+Any of the source code files containing code that refers to classes in a 
+different package must also contain the appropriate import directives, 
+or you must use fully-qualified package names to refer to those classes. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Then use the 
+
+<emphasis id="strong1017" effect="bold">
+javac
+
+</emphasis>
+ program with your favorite options to compile the 
+source code file containing the controlling class. This will cause all of 
+the other source code files containing classes that are linked to the code in 
+the controlling class, either directly or indirectly, to be compiled 
+also. At least an attempt will be made to compile them all. You may experience a 
+few compiler errors if your first attempt at compilation is anything like mine. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Once you eliminate all of the compiler errors, you can test the application 
+by using the 
+
+<emphasis id="strong1018" effect="bold">
+java
+
+</emphasis>
+ program with your favorite options to execute the 
+controlling class. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+Once you are satisfied that everything works properly, you can copy the 
+source code files over to an archive folder and remove them from the package 
+folders if you want to do so. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Finally, you can also convert the entire hierarchy of package folders 
+to a jar file if you want to, and distribute it to your client. If you 
+don't remember how to install it relative to the classpath variable, go 
+back and review that part of the module. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+Once you have reached this point, how do you execute the program. I will show 
+you how to execute the program from the command line in the sample program in 
+the next section. 
+
+<emphasis id="em1022" effect="italics">
+(Actually I will encapsulate command-line commands in a 
+batch file and execute the batch file. That is a good way to guard against 
+typing errors.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="sample_program" effect="bold">
+
+
+</emphasis>
+
+Sample 
+program
+
+</title>
+
+
+
+
+<para id="p1070">
+The concept of packages can get very tedious in a hurry. Let's take a look at a 
+sample program that is designed to pull all of 
+this together.
+
+</para>
+
+
+
+
+
+
+<para id="p1071">
+This application consists of three separate source files located in 
+three different packages. Together they illustrates the use of 
+package and import directives, along with 
+
+<emphasis id="strong1019" effect="bold">
+javac
+
+</emphasis>
+ to build a 
+standalone Java application consisting of classes in three separate 
+packages. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="em1023" effect="italics">
+(If you want to confirm that they are really in different packages, 
+just make one of the classes referred to by the controlling class 
+non-public and try to compile the program.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+In other words, in this sample program, we create our own package 
+structure and populate it with a set of cooperating class files. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+A folder named 
+
+<emphasis id="strong1020" effect="bold">
+jnk
+
+</emphasis>
+ is a child of the root folder on 
+the M-drive.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+A folder named 
+
+<emphasis id="strong1021" effect="bold">
+SampleCode
+
+</emphasis>
+ is a child of the folder named
+
+
+<emphasis id="strong1022" effect="bold">
+jnk
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+A folder named 
+
+<emphasis id="strong1023" effect="bold">
+Combined
+
+</emphasis>
+ is a child of the folder named
+
+
+<emphasis id="strong1024" effect="bold">
+SampleCode
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+A folder named 
+
+<emphasis id="strong1025" effect="bold">
+Java
+
+</emphasis>
+ is a child of the folder named 
+
+<emphasis id="strong1026" effect="bold">
+
+Combined
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+Folders named 
+
+<emphasis id="strong1027" effect="bold">
+p1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1028" effect="bold">
+p2
+
+</emphasis>
+ are children of the 
+folder named 
+
+<emphasis id="strong1029" effect="bold">
+Java
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+The file named 
+
+<emphasis id="strong1030" effect="bold">
+Package00.java
+
+</emphasis>
+, shown in 
+
+<link id="a1024" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ is stored in the folder named 
+
+<emphasis id="strong1031" effect="bold">
+Java
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. File: Package00.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1004" display="block">
+/*File Package00.java Copyright 1997, R.G.Baldwin
+Illustrates use  of package and import directives to 
+build an application consisting of classes in three
+separate packages.
+
+The output from running the program follows:
+  
+Starting Package00
+Instantiate obj of public classes in different packages
+Constructing Package01 object in folder p1
+Constructing Package02 object in folder p2
+Back in main of Package00  
+**********************************************************/
+package Combined.Java; //package directive
+
+//Two import directives
+import Combined.Java.p1.Package01;//specific form
+import Combined.Java.p2.*; //wildcard form
+
+class Package00{
+  public static void main(String[] args){ //main method
+    System.out.println("Starting Package00");
+    
+    System.out.println("Instantiate obj of public " +
+                         "classes in different packages");
+    new Package01();//Instantiate objects of two classes
+    new Package02();// in different packages.
+
+    System.out.println("Back in main of Package00");
+    
+  }//end main method
+}//End Package00 class definition.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1080">
+The file named 
+
+<emphasis id="strong1032" effect="bold">
+Package01.java
+
+</emphasis>
+, shown in
+	
+
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is stored in the folder named 
+
+<emphasis id="strong1033" effect="bold">
+p1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. File Package01.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1005" display="block">
+/*File Package01.java Copyright 1997, R.G.Baldwin
+See discussion in file Package00.java
+**********************************************************/
+package Combined.Java.p1;
+public class Package01 {
+  public Package01(){//constructor
+    System.out.println(
+             "Constructing Package01 object in folder p1");
+  }//end constructor
+}//End Package01 class definition.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1081">
+The file named 
+
+<emphasis id="strong1034" effect="bold">
+Package02.java
+
+</emphasis>
+, shown in
+	
+
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is stored in the folder named 
+
+<emphasis id="strong1035" effect="bold">
+p2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. File Package02.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1006" display="block">
+/*File Package02.java Copyright 1997, R.G.Baldwin
+See discussion in file Package00.java
+**********************************************************/
+package Combined.Java.p2;
+public class Package02 {
+  public Package02(){//constructor
+    System.out.println(
+             "Constructing Package02 object in folder p2");
+  }//end constructor
+}//End Package02 class definition.</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1082">
+The file named 
+
+<emphasis id="strong1036" effect="bold">
+CompileAndRun
+
+</emphasis>
+.bat, shown in
+	
+
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is stored in the folder named 
+
+<emphasis id="strong1037" effect="bold">
+
+	SampleCode
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. File: CompileAndRun.bat.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1007" display="block">
+echo off
+rem This file is located in folder named M:\SampleCode,
+rem which is Parent of folder Combined.
+
+del Combined\Java\*.class
+del Combined\Java\p1\*.class
+del Combined\Java\p2\*.class
+
+javac -cp M:\jnk\SampleCode Combined\Java\Package00.java
+
+java -cp M:\jnk\SampleCode Combined.Java.Package00
+
+pause
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1083">
+The controlling class named 
+
+<emphasis id="strong1038" effect="bold">
+Package00
+
+</emphasis>
+ is stored in the 
+package named 
+
+<emphasis id="strong1039" effect="bold">
+Combined.Java
+
+</emphasis>
+, as declared in
+
+
+<link id="a1028" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The class named 
+
+<emphasis id="strong1040" effect="bold">
+Package01
+
+</emphasis>
+ is stored in the package named 
+
+
+<emphasis id="strong1041" effect="bold">
+Combined.Java.p1
+
+</emphasis>
+, as declared in 
+
+<link id="a1029" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The class named 
+
+<emphasis id="strong1042" effect="bold">
+Package02
+
+</emphasis>
+ is stored in the package named 
+
+
+<emphasis id="strong1043" effect="bold">
+Combined.Java.p2
+
+</emphasis>
+, as declared in 
+
+<link id="a1030" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1086">
+The controlling class named 
+
+<emphasis id="strong1044" effect="bold">
+Package00
+
+</emphasis>
+ imports 
+
+<emphasis id="strong1045" effect="bold">
+Combined.Java.p1.Package01
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1046" effect="bold">
+Combined.Java.p2.*
+
+</emphasis>
+, as declared in 
+
+<link id="a1031" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+Code in the 
+
+<emphasis id="strong1047" effect="bold">
+main
+
+</emphasis>
+ method of the controlling class in
+
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates 
+objects of the other two classes in different packages. The 
+constructors for those two classes announce that they are being constructed. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+The two classes being instantiated are 
+
+<emphasis id="strong1048" effect="bold">
+public
+
+</emphasis>
+. Otherwise, it would 
+not be possible to instantiate them from outside their respective 
+packages. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+This program was tested using JDK 7 under Windows by executing the batch file 
+named 
+
+<emphasis id="strong1049" effect="bold">
+CompileAndRun.bat
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1090">
+The classpath is set to the parent folder of the folder named 
+
+<emphasis id="strong1050" effect="bold">
+
+Combined
+
+</emphasis>
+ 
+
+<emphasis id="em1024" effect="italics">
+(M:\jnk\SampleCode)
+
+</emphasis>
+ by the 
+
+<emphasis id="strong1051" effect="bold">
+-cp
+
+</emphasis>
+ switch in the file named 
+
+<emphasis id="strong1052" effect="bold">
+
+CompileAndRun.bat
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+The output from running the program is shown in the comments at the 
+beginning of 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1092">
+I encourage you to copy the code from 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing1
+
+</link>
+
+ 
+through 
+
+<link id="a1035" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ into a properly constructed tree of 
+folders. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Looking_ahead" effect="bold">
+
+Looking ahead
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1093">
+As you approach the end of this group of 
+
+<emphasis id="em1025" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+modules, you should be preparing yourself for the more challenging ITSE 2321 OOP 
+tracks identified below:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1019">
+<link id="a1036" url="http://cnx.org/content/m44148">
+
+Java OOP: The Guzdial-Ericson 
+	Multimedia Class Library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1037" url="http://cnx.org/content/m44153">
+
+Java OOP: Objects and 
+	Encapsulation
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1094">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1053" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1021">
+Module name: Jb0270: Java OOP: Packages
+
+</item>
+
+
+					
+
+<item id="li1022">
+File: Jb0270.htm
+
+
+</item>
+
+
+					
+
+<item id="li1023">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1024">
+Published at cnx.org: 11/25/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1054" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1095">
+<emphasis id="strong1055" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1096">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1097">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1098">
+<emphasis id="strong1056" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1099">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

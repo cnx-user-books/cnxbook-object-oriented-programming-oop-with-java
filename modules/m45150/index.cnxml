@@ -1,0 +1,4743 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0200: Java OOP: Variables</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45150</md:content-id>
+  <md:title>Jb0200: Java OOP: Variables</md:title>
+  <md:abstract>Earlier modules have touched briefly on the topic of variables. This module discusses Java variables in depth.</md:abstract>
+  <md:uuid>ee678881-4219-46de-b3ba-b1203d8af1eb</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 12:30:19 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="samplejavaprogram">
+
+Sample program named simple1
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="discussionofsampleprograms">
+
+Discussion of the simple1 
+		program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="variables">
+
+Variables
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Primitive_Types">
+
+Primitive types
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="objectorientedwrappersforprimitivetypes">
+
+Object-oriented wrappers for primitive types
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="referencetypes">
+
+Reference types
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="variablenames">
+
+Variable names
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="scope">
+
+Scope
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="initializationofvariables">
+
+Initialization of 
+	variables
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+Earlier modules have touched briefly on the topic of variables. This 
+	module discusses Java variables in depth. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Screen output from the program named simple1. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Information about the primitive types in Java. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Rules for naming variables. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Rules for legal identifiers. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Scope categories. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Source code for the program named simple1. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Declaring and initializing two variables named ch1 and ch2. 
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Display the character. 
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of a while loop. 
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the main method.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The program named wrapper1.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Aspects of using a wrapper class.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The program named member1.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1031" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Initialization of variables.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="introduction" effect="bold">
+
+
+</emphasis>
+
+Introduction
+
+</title>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+The first step
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+The first step in learning to use a new programming language 
+is usually to learn the foundation concepts such as 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1032">
+variables
+
+</item>
+
+
+	
+
+<item id="li1033">
+types
+
+</item>
+
+
+	
+
+<item id="li1034">
+expressions
+
+</item>
+
+
+	
+
+<item id="li1035">
+flow-of-control, etc. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1006">
+This and several future modules 
+concentrate on that foundation.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1001" effect="bold">
+A sample program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+The module begins with a sample Java program named 
+
+<emphasis id="strong1002" effect="bold">
+simple1
+
+</emphasis>
+. The user is 
+asked to enter some text and to terminate with the # character.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="em1003" effect="italics">
+(This program contains a lot of code that you are not yet prepared to 
+understand. For the time being, just concentrate on the use of variables in the 
+program. You will learn about the other aspects of the program in future 
+modules.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+The program 
+loops, saving individual characters until encountering the # character. When it 
+encounters the # character, it terminates and displays the character entered 
+immediately prior to the # character.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="samplejavaprogram" effect="bold">
+
+
+</emphasis>
+
+Sample 
+program named simple1
+
+</title>
+
+
+
+
+<para id="p1011">
+A complete listing of the program named 
+
+<emphasis id="strong1003" effect="bold">
+simple1
+
+</emphasis>
+ is provided in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+Discussions of selected portions of the 
+program are presented later in the module.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Source code for the 
+				program named simple1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File simple1.java Copyright 1997, R.G.Baldwin
+This Java application reads bytes from the keyboard until
+encountering the integer representation of '#'.  At 
+the end of each iteration, it saves the byte received and 
+goes back to get the next byte.
+
+When the '#' is entered, the program terminates input and
+displays the character which was entered before the #.
+**********************************************************/
+
+class simple1 { //define the controlling class
+
+  //It is necessary to declare that this method 
+  // can throw the exception shown below (or catch it).
+  public static void main(String[] args) //define main 
+                        throws java.io.IOException {
+
+    //It is necessary to initialize ch2 to avoid a compiler
+    // error (possibly uninitialized variable) at the 
+    // statement which displays ch2.
+    int ch1, ch2 = '0';
+
+    System.out.println(
+                      "Enter some text, terminate with #");
+
+    //Get and save individual bytes
+    while( (ch1 = System.in.read() ) != '#') 
+      ch2 = ch1;
+
+    //Display the character immediately before the #
+    System.out.println(
+          "The char before the # was " + (char)ch2);
+  }//end main
+}//End simple1 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1012">
+<emphasis id="strong1004" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+The output produced by compiling and running this program is shown in 
+
+
+<link id="a1033" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The second line of text in 
+
+<link id="a1034" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ 
+ending with the # character 
+was typed by the user.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Screen output from the 
+				program named simple1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+Enter some text, terminate with #
+abcde#
+The char before the # was e
+</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="discussionofsampleprograms" effect="bold">
+
+
+</emphasis>
+
+Discussion of the simple1 program
+
+</title>
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+Purpose
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+I will use the program shown in 
+
+<link id="a1035" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+ to 
+discuss several important aspects of the structure of a Java program. I will also provide 
+two additional sample programs that illustrate specific points not illustrated in 
+the above program later in this module. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="variables" effect="bold">
+
+
+</emphasis>
+
+Variables
+
+</title>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1006" effect="bold">
+What is a variable?
+
+</emphasis>
+
+				
+
+<para id="p1016">
+Variables are used in a Java program to contain data that changes during the execution of the program.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1017">
+<emphasis id="strong1007" effect="bold">
+Declaring a variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+To use a variable, you must first notify the compiler of the 
+
+<emphasis id="em1004" effect="italics">
+name
+
+</emphasis>
+ and the
+
+
+<emphasis id="em1005" effect="italics">
+type
+
+</emphasis>
+ of the variable. This is known as 
+
+<emphasis id="em1006" effect="italics">
+declaring a variable
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The syntax for declaring a variable is to precede the 
+
+<emphasis id="em1007" effect="italics">
+name
+
+</emphasis>
+ of the variable 
+with the 
+
+<emphasis id="em1008" effect="italics">
+name of the type
+
+</emphasis>
+ of the variable as shown in
+
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. It is also possible 
+
+<emphasis id="em1009" effect="italics">
+(but not always required)
+
+</emphasis>
+ to initialize a variable 
+in Java when it is declared as shown in
+
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Declaring and 
+				initializing two variables named ch1 and ch2.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+int ch1, ch2 = '0';
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1020">
+The statement in 
+
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ declares two variables of type 
+
+
+<emphasis id="strong1008" effect="bold">
+int
+
+</emphasis>
+, initializing the second variable 
+
+<emphasis id="em1010" effect="italics">
+(ch2)
+
+</emphasis>
+ to the value of the zero character (0).
+
+
+<emphasis id="em1011" effect="italics">
+(Note that I didn't say initialized to the value zero.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1009" effect="bold">
+Difference between zero and '0' - Unicode characters
+
+</emphasis>
+
+				
+
+<para id="p1021">
+The value of the zero character is not the same as the numeric value of zero, but hopefully you already knew that. 
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1022">
+As an aside, characters in Java are 16-bit entities called Unicode characters instead of 8-bit entities as is the case with many programming languages. The purpose is to provide many more possible characters including characters used in alphabets other than the one used in the United States.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1023">
+<emphasis id="strong1010" effect="bold">
+Initialization of the variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+Initialization of the variable named 
+
+<emphasis id="strong1011" effect="bold">
+ch2
+
+</emphasis>
+ in this case was 
+necessary to prevent a compiler error. Without initialization of this variable, 
+the compiler would recognize and balk at the possibility that an attempt might be 
+made to execute the statement shown in 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ with a 
+variable named 
+
+<emphasis id="strong1012" effect="bold">
+ch2
+
+</emphasis>
+ 
+that had not been initialized
+
+</para>
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Display the character.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">
+System.out.println("The char before the # was " 
+                                       + (char)ch2);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1025">
+<emphasis id="strong1013" effect="bold">
+Error checking by the compiler
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+The strong error-checking capability of the Java compiler would refuse to 
+compile this program until that possibility was eliminated by initializing the 
+variable. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1014" effect="bold">
+Using the cast operator
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+You should also note that the contents of the variable 
+
+<emphasis id="strong1015" effect="bold">
+ch2
+
+</emphasis>
+ 
+is being 
+
+<emphasis id="em1012" effect="italics">
+cast
+
+</emphasis>
+ as type 
+
+<emphasis id="strong1016" effect="bold">
+char
+
+</emphasis>
+ in 
+
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="em1013" effect="italics">
+(A cast is used to change the type of something to a different type.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+Recall that 
+
+<emphasis id="strong1017" effect="bold">
+ch2
+
+</emphasis>
+ is a variable of type 
+
+<emphasis id="strong1018" effect="bold">
+int
+
+</emphasis>
+, 
+containing the numeric value that represents a character.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+We want to display the character that the numeric value represents and not 
+the numeric value itself. Therefore, we must cast it 
+
+<emphasis id="em1014" effect="italics">
+(purposely change its 
+type for the evaluation of the expression)
+
+</emphasis>
+. Otherwise, we would not see the 
+character on the screen. Rather, we would see the numeric value that represents 
+that character.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1019" effect="bold">
+Initialization of instance variables and local variables:
+
+</emphasis>
+
+				
+
+<para id="p1032">
+As another aside, 
+
+<emphasis id="em1015" effect="italics">
+member variables
+
+</emphasis>
+ in Java are automatically initialized to zero or the equivalent of zero. However, 
+				
+
+<emphasis id="em1016" effect="italics">
+local variables
+
+</emphasis>
+, of which ch2 is an example, are not automatically initialized.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1033">
+<emphasis id="strong1020" effect="bold">
+Why declare the variables as type int?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+It was necessary to declare these variables as type 
+
+<emphasis id="strong1021" effect="bold">
+int
+
+</emphasis>
+ 
+because the statement in 
+
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+
+<emphasis id="em1017" effect="italics">
+(more 
+specifically, the call to the System.in.read method)
+
+</emphasis>
+ returns a value of 
+type 
+
+<emphasis id="strong1022" effect="bold">
+int
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Beginning of a while 
+				loop.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">
+while( (ch1 = System.in.read() ) != '#') ch2 = ch1;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1035">
+Java provides very strict type checking and generally refuses to compile 
+	statements with type mismatches. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="em1018" effect="italics">
+(There is a lot of complicated code in 
+
+</emphasis>
+<link id="a1042" target-id="Listing_4">
+
+
+<emphasis id="em1019" effect="italics">
+
+
+
+<link id="a1043" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1020" effect="italics">
+ that I haven't previously explained. I will explain 
+that 
+code later in this and future modules.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1023" effect="bold">
+Another variable declaration
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+The program in 
+
+<link id="a1044" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ also makes another variable 
+declaration shown by the statement in 
+
+<link id="a1045" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Beginning of the main 
+				method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">
+public static void main(String[] args) //define main method
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1024" effect="bold">
+An array of String references
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+In 
+
+<link id="a1046" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, the formal argument list of the
+
+
+<emphasis id="strong1025" effect="bold">
+main
+
+</emphasis>
+ method declares an argument named 
+
+<emphasis id="strong1026" effect="bold">
+args
+
+</emphasis>
+ 
+
+<emphasis id="em1021" effect="italics">
+(first cousin to a 
+variable)
+
+</emphasis>
+ as a reference to an array object of type 
+
+<emphasis id="strong1027" effect="bold">
+String
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1028" effect="bold">
+Capturing command-line arguments in Java
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+As you learned in an earlier module, this is the feature of Java that is used 
+to capture arguments entered on the command line, and is required whether 
+arguments are entered or not. In this case, no command-line arguments were 
+entered, and the variable named 
+
+<emphasis id="strong1029" effect="bold">
+args
+
+</emphasis>
+ is simply ignored by the 
+remainder of the program. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1030" effect="bold">
+The purpose of the type of a variable
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1031" effect="bold">
+All variables must have a declared type
+
+</emphasis>
+
+				
+
+<para id="p1044">
+The type determines the set of values that can be stored in the variable and the operations that can be performed on the variable.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1045">
+For example, the 
+
+<emphasis id="strong1032" effect="bold">
+int
+
+</emphasis>
+ type can only contain whole numbers
+	
+
+<emphasis id="em1022" effect="italics">
+(integers)
+
+</emphasis>
+. A whole host of operations are possible with an 
+
+<emphasis id="strong1033" effect="bold">
+
+	int
+
+</emphasis>
+ variable including add, subtract, divide, etc.
+
+</para>
+
+
+
+	
+	
+	
+	
+
+<para id="p1046">
+<emphasis id="strong1034" effect="bold">
+Signed vs. unsigned variables
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+Unlike C++, all variables of type 
+
+
+<emphasis id="strong1035" effect="bold">
+int
+
+</emphasis>
+ in Java contain signed values. In fact, with the exception 
+of type 
+
+<emphasis id="strong1036" effect="bold">
+char
+
+</emphasis>
+, all primitive numeric types in Java contain 
+signed values.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1037" effect="bold">
+Platform independence
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+At this point in the history of Java, a variable of a specified type is 
+represented exactly the same way regardless of the platform on which the 
+application or applet is being executed. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+This is one of the features that causes compiled Java programs to be 
+platform-independent. 
+
+</para>
+
+
+
+
+
+<section id="h21002">
+<title>
+<emphasis id="Primitive_Types" effect="bold">
+
+Primitive 
+types
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+In Java, there are two major categories of data types: 
+
+</para>
+
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1036">
+primitive types 
+
+</item>
+
+
+	
+
+<item id="li1037">
+reference 
+
+<emphasis id="em1023" effect="italics">
+(or object)
+
+</emphasis>
+ types. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1052">
+Primitive variables contain a single value of one of the eight primitive 
+types shown in 
+
+<link id="a1047" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+Reference variables contain references to objects 
+
+<emphasis id="em1024" effect="italics">
+(or null, meaning that 
+they don't refer to anything)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1038" effect="bold">
+The eight primitive types 
+in Java?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+The table in 
+
+<link id="a1048" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ lists all of the primitive types in Java along with their size and format, and a brief description of 
+each.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Information about the 
+				primitive types in Java.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">
+Type       Size/Format                 Description
+byte      8-bit two's complement     Byte-length integer
+short    16-bit two's complement     Short integer
+int      32-bit two's complement     Integer               
+long     64-bit two's complement     Long Integer
+float    32-bit IEEE 754 format      Single-precision 
+                                     floating point
+double   64-bit IEEE 754 format      Double-precision 
+                                     floating point
+char     16-bit Unicode character    Single character
+boolean  true or false               True or False
+</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1056">
+<emphasis id="strong1039" effect="bold">
+The char type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+The 
+
+<emphasis id="strong1040" effect="bold">
+char
+
+</emphasis>
+ type is a 16-bit Unicode character value that has 
+the possibility of representing more than 65,000 different characters. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1041" effect="bold">
+Evaluating a primitive variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+A reference to the name of a primitive variable in program code evaluates to 
+the value stored in the variable. In other words, when you call out the name of 
+a primitive variable in your code, what you get back is the value stored in the 
+variable.
+
+</para>
+
+
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="objectorientedwrappersforprimitivetypes" effect="bold">
+
+
+</emphasis>
+
+
+Object-oriented wrappers for primitive types
+
+</title>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1042" effect="bold">
+Primitive types are not objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+Primitive data types in Java 
+
+<emphasis id="em1025" effect="italics">
+(int, double, etc.)
+
+</emphasis>
+ 
+are not objects. This has some ramifications as to how they can be used 
+
+<emphasis id="em1026" effect="italics">
+(passing 
+to methods, returning from methods, etc.)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1043" effect="bold">
+The generic Object type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+Later on in this course of study, you will learn that much of 
+the power of Java derives from the ability to deal with objects of any type as 
+the generic type 
+
+<emphasis id="strong1044" effect="bold">
+Object
+
+</emphasis>
+. For example, several of the standard classes in 
+the API 
+
+<emphasis id="em1027" effect="italics">
+(such as the powerful 
+
+<emphasis id="strong1045" effect="bold">
+Vector
+
+</emphasis>
+ class)
+
+</emphasis>
+ are designed to work only 
+with objects of type 
+
+<emphasis id="strong1046" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="em1028" effect="italics">
+(Note that this document was originally published prior to the 
+introduction of generics in Java. The introduction of generics makes it 
+possible to cause the 
+
+<emphasis id="strong1047" effect="bold">
+Vector
+
+</emphasis>
+ class to deal with objects of 
+types other than 
+
+<emphasis id="strong1048" effect="bold">
+Object
+
+</emphasis>
+. However, that doesn't eliminate the 
+need for wrapper classes.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1049" effect="bold">
+Converting primitives to objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+Because it is sometimes necessary to deal with a primitive 
+value as though it were an object, Java provides 
+
+<emphasis id="em1029" effect="italics">
+wrapper
+
+</emphasis>
+ classes that 
+support object-oriented functionality for Java's primitive data types. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1050" effect="bold">
+The Double wrapper class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+This is illustrated in the program shown in 
+
+<link id="a1049" target-id="Listing_6">
+
+Listing 6
+
+
+</link>
+
+that deals with a 
+
+<emphasis id="strong1051" effect="bold">
+double
+
+</emphasis>
+ 
+type as an object of the class 
+
+<emphasis id="strong1052" effect="bold">
+Double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="em1030" effect="italics">
+(Remember, Java is a case-sensitive language. Note the difference between 
+the primitive 
+
+<emphasis id="strong1053" effect="bold">
+double
+
+</emphasis>
+ type and the class named 
+
+<emphasis id="strong1054" effect="bold">
+Double
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+	
+	
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. The program named 
+				wrapper1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">
+/*File wrapper1.java Copyright 1997, R.G.Baldwin
+This Java application illustrates the use of wrappers 
+for the primitive types.
+
+This program produces the following output:
+
+My wrapped double is 5.5
+My primitive double is 10.5
+
+**********************************************************/
+class wrapper1 { //define the controlling class
+  public static void main(String[] args){//define main
+
+    //The following is the declaration and instantiation of 
+    // a Double object, or a double value wrapped in an 
+    // object. Note the use of the upper-case D.
+    Double myWrappedData = new Double(5.5);
+
+    //The following is the declaration and initialization 
+    // of a primitive double variable. Note the use of the
+    // lower-case d.
+    double myPrimitiveData = 10.5;
+
+    //Note the call to the doubleValue() method to obtain 
+    // the value of the double wrapped in the Double 
+    // object.
+    System.out.println(
+      "My wrapped double is " + myWrappedData.doubleValue());
+    System.out.println(
+             "My primitive double is " + myPrimitiveData );
+  }//end main
+}//End wrapper1 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1070">
+The operation of this 
+program is explained in the comments, and the output from the program is shown 
+in the comments at the beginning.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="referencetypes" effect="bold">
+
+
+</emphasis>
+
+Reference types
+
+</title>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1055" effect="bold">
+Once again, what is a primitive 
+type?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+Primitive types are types where the name of the variable 
+evaluates to the value stored in the variable. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1056" effect="bold">
+What is a reference type?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+Reference types in Java are types where the name of the 
+variable evaluates to the address of the location in memory where the 
+object referenced by the variable is stored. 
+
+</para>
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1057" effect="bold">
+The above statement may not really be true?
+
+</emphasis>
+
+				
+
+<para id="p1075">
+However, we can think of it that way. Depending on the particular JVM in use, the reference variable may 
+				refer to a table in memory where the address of the object is stored. In that case the second level of indirection is handled behind the scenes and we don't have to worry about it. 
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1076">
+Why would a JVM elect to implement another level of indirection? Wouldn't that make programs run more slowly?
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1077">
+One reason has to do with the need to compact memory when it becomes highly fragmented. If the reference variables all refer directly to 
+				memory locations containing the objects, there may be many reference variables that refer to the same object. If that object is moved for compaction purposes, then the values stored in every one of those reference variables would have to be modified. 
+
+</para>
+
+
+
+				
+
+<para id="p1078">
+However, if those reference variables all refer to a table that has one entry that specifies where the object is stored, then when the object is moved, only the value of that one entry in the table must be modified.
+
+</para>
+
+
+
+				
+
+<para id="p1079">
+Fortunately, that all takes place behind the scenes and we 
+				as programmers don't need to worry about it.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1080">
+<emphasis id="strong1058" effect="bold">
+Primitive vs. reference variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+We will discuss this in more detail in a future module. For now, suffice it 
+to say that in Java, a variable is either a primitive type or a reference type, 
+and cannot be both.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1059" effect="bold">
+Declaring, instantiating, initializing, and manipulating a reference 
+variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+The fragment of code shown in 
+
+<link id="a1050" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, 
+
+<emphasis id="em1031" effect="italics">
+(which was 
+taken from the program shown in 
+
+</emphasis>
+ 
+
+<link id="a1051" target-id="Listing_6">
+
+
+<emphasis id="em1032" effect="italics">
+<link id="a1052" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+
+
+
+</emphasis>
+
+
+
+</link>
+
+
+<emphasis id="em1033" effect="italics">
+that deals with wrappers)
+
+</emphasis>
+ does the following. It
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1038">
+declares, 
+
+</item>
+
+
+	
+
+<item id="li1039">
+instantiates, 
+
+</item>
+
+
+	
+
+<item id="li1040">
+initializes, and 
+
+</item>
+
+
+	
+
+<item id="li1041">
+manipulates a variable of a reference type named 
+
+<emphasis id="strong1060" effect="bold">
+myWrappedData
+
+</emphasis>
+.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1084">
+In 
+
+<link id="a1053" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, the variable named 
+
+<emphasis id="strong1061" effect="bold">
+myWrappedData
+
+</emphasis>
+ contains a reference to an 
+object of type 
+
+<emphasis id="strong1062" effect="bold">
+Double
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Aspects of using a 
+				wrapper class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">
+Double myWrappedData = new Double(5.5);
+
+//Code deleted for brevity
+
+//Note the use of the doubleValue() method to obtain the
+// value of the double wrapped in the Double object.
+System.out.println
+  ("My wrapped double is " + myWrappedData.doubleValue() );
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="variablenames" effect="bold">
+
+
+</emphasis>
+
+Variable 
+names
+
+</title>
+
+
+
+
+<para id="p1085">
+The rules for naming variables are shown in 
+
+<link id="a1054" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+	
+	
+
+	
+	
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Rules for naming variables.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1042">
+Must be a legal Java identifier 
+
+<emphasis id="em1034" effect="italics">
+(see below) 
+
+</emphasis>
+consisting of a series of 
+	Unicode characters. Unicode characters are stored in sixteen bits, allowing 
+	for a very large number of different characters. A subset of the possible 
+	character values matches the 127 possible characters in the ASCII character 
+	set, and the extended 8-bit character set, ISO-Latin-1 
+
+<emphasis id="em1035" effect="italics">
+(The Java 
+	Handbook, page 60, by Patrick Naughton).
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1043">
+Must not be the same as a Java keyword and must not be true or false. 	
+
+</item>
+
+
+	
+
+<item id="li1044">
+Must not be the same as another variable whose declaration appears in 
+	the same scope.
+
+</item>
+
+
+
+
+</list>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1086">
+The rules for legal identifiers are shown in 
+
+<link id="a1055" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+	
+	
+
+	
+	
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+. Rules for legal 
+				identifiers.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1045">
+In Java, a legal identifier is a sequence of Unicode letters and digits 
+	of unlimited length. 
+
+</item>
+
+
+	
+
+<item id="li1046">
+The first character must be a letter. 
+
+</item>
+
+
+	
+
+<item id="li1047">
+All subsequent characters must be letters or numerals from any alphabet 
+	that Unicode supports. 
+
+</item>
+
+
+	
+
+<item id="li1048">
+In addition, the underscore character (_) and the dollar sign ($) are 
+	considered letters and may be used as any character including the first 
+	one.
+
+</item>
+
+
+
+
+</list>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="scope" effect="bold">
+
+
+</emphasis>
+
+Scope
+
+</title>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1063" effect="bold">
+What is the scope of a Java 
+variable?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+The scope of a Java variable is defined by the 
+
+<emphasis id="em1036" effect="italics">
+block of 
+code
+
+</emphasis>
+ within which the variable is accessible. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="em1037" effect="italics">
+(Briefly, a block of code consists of none, one, or more statements 
+enclosed by a pair of matching curly brackets.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+The scope also determines when the variable is created 
+
+<emphasis id="em1038" effect="italics">
+(memory 
+set aside to contain the data stored in the variable)
+
+</emphasis>
+ and when it 
+possibly becomes a candidate for destruction 
+
+<emphasis id="em1039" effect="italics">
+(memory returned to the operating 
+system for recycling and re-use)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1064" effect="bold">
+Scope categories
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+The scope of a variable places it in one of the 
+four categories shown in 
+
+<link id="a1056" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+	
+	
+
+	
+
+	
+
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+. Scope categories.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1049">
+member variable 
+
+</item>
+
+
+	
+
+<item id="li1050">
+local variable 
+
+</item>
+
+
+	
+
+<item id="li1051">
+method parameter 
+
+</item>
+
+
+	
+
+<item id="li1052">
+exception handler parameter
+
+</item>
+
+
+
+
+</list>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1093">
+<emphasis id="strong1065" effect="bold">
+Member variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+A member variable is a member of a class 
+
+<emphasis id="em1040" effect="italics">
+(class variable)
+
+</emphasis>
+ or a 
+member of an object instantiated from that class 
+
+<emphasis id="em1041" effect="italics">
+(instance variable)
+
+</emphasis>
+. It must be 
+declared within a class, but not within the body of a method or constructor of 
+the class.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1066" effect="bold">
+Local variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+A local variable is a variable declared within the body of a method or 
+constructor or within a block of code contained within the body of a method or 
+constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1067" effect="bold">
+Method parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+Method parameters are the formal arguments of a method. Method parameters are 
+used to pass values into and out of methods. The scope of a method parameter is 
+the entire method for which it is a parameter.
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1068" effect="bold">
+Exception handler parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+Exception handler parameters are arguments to exception handlers. 
+Exception handlers will be discussed in a future module. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1069" effect="bold">
+Illustrating different types of variables in Java
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1102">
+The Java program shown in 
+
+<link id="a1057" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ illustrates 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1053">
+member variables 
+
+<emphasis id="em1042" effect="italics">
+(class and instance)
+
+</emphasis>
+, 
+
+</item>
+
+
+	
+
+<item id="li1054">
+local variables, and 
+
+</item>
+
+
+	
+
+<item id="li1055">
+method parameters. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1103">
+An illustration of exception handler parameters will be deferred until 
+exception handlers are discussed in a future module. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. The program named 
+				member1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1009" display="block">
+/*File member1.java Copyright 1997, R.G.Baldwin
+Illustrates class variables, instance
+variables, local variables, and method parameters.
+
+Output from this program is:
+
+Class variable is 5
+Instance variable is 6
+Method parameter is 7
+Local variable is 8
+
+**********************************************************/
+class member1 { //define the controlling class
+  //declare and initialize class variable
+  static int classVariable = 5;
+  //declare and initialize instance variable
+  int instanceVariable = 6;
+
+  public static void main(String[] args){ //main method
+    System.out.println("Class variable is "
+                                          + classVariable);
+
+    //Instantiate an object of the class to allow for
+    // access to instance variable and method.
+    member1 obj = new member1();
+    System.out.println("Instance variable is "
+                                   + obj.instanceVariable);
+    obj.myMethod(7); //call the method
+
+    //declare and intitialize a local variable
+    int localVariable = 8;
+    System.out.println("Local variable is "
+                                          + localVariable);
+
+  }//end main
+
+  void myMethod(int methodParameter){
+    System.out.println("Method parameter is "
+                                        + methodParameter);
+  }//end myMethod
+}//End member1 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1104">
+<emphasis id="strong1070" effect="bold">
+Declaration of local variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1105">
+In Java, local variables are declared within the body of a method or within a 
+block of code contained within the body of a method. 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1071" effect="bold">
+Scope of local variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+The scope of a local variable extends from the point at which it is declared 
+to the end of the block of code in which it is declared. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1072" effect="bold">
+What is a "block" of code?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+A block of code is defined by enclosing it within curly brackets as in { ... 
+}. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+
+Therefore, the scope of a local variable can be the entire method, or can reduced by 
+declaring it within a block of code within the method.  
+
+</para>
+
+
+
+	
+	
+	
+	
+
+	
+	
+
+	
+
+	
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1073" effect="bold">
+Special case, scope within a for loop
+
+</emphasis>
+
+				
+
+<para id="p1111">
+Java treats the scope of a variable declared within the initialization clause of a 
+				
+
+<emphasis id="strong1074" effect="bold">
+for
+
+</emphasis>
+ statement to be limited to the total extent of the 
+				
+
+<emphasis id="strong1075" effect="bold">
+for
+
+</emphasis>
+ statement. 
+
+</para>
+
+
+
+				
+
+<para id="p1112">
+A future module will explain what is meant by a 
+
+<emphasis id="strong1076" effect="bold">
+for
+
+</emphasis>
+ 
+				statement or a 
+
+<emphasis id="strong1077" effect="bold">
+for
+
+</emphasis>
+ loop.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="initializationofvariables" effect="bold">
+
+
+</emphasis>
+
+Initialization of 
+variables
+
+</title>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1078" effect="bold">
+Initializing primitive local 
+variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Local variables of primitive types can be initialized when they are declared 
+using statements such the one shown in 
+
+<link id="a1058" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+	
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Initialization of 
+				variables.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1010" display="block">
+int MyVar, UrVar = 6, HisVar;</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1115">
+<emphasis id="strong1079" effect="bold">
+Initializing member variables
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+Member variables can also be initialized when they are declared. 
+
+</para>
+
+
+
+
+
+<para id="p1117">
+In both cases, the type of the value used to initialize the variable must 
+match the type of the variable. 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1080" effect="bold">
+Initializing method parameters and exception handler parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+Method parameters and exception handler parameters are initialized by the 
+values passed to the method or exception handler by the calling program. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1120">
+I encourage you to copy the code from 
+
+<link id="a1059" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+,
+
+
+<link id="a1060" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, and 
+
+<link id="a1061" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1121">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1081" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1016" list-type="bulleted">
+
+					
+
+<item id="li1056">
+Module name: Jb0200: Java OOP: Variables
+
+</item>
+
+
+					
+
+<item id="li1057">
+File: Jb0200.htm
+
+
+</item>
+
+
+					
+
+<item id="li1058">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1059">
+Published at cnx.org: 11/18/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1082" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1122">
+<emphasis id="strong1083" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1123">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1124">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1125">
+<emphasis id="strong1084" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1126">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

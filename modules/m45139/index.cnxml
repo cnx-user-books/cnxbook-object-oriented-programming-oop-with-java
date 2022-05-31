@@ -1,0 +1,2836 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0130: Java OOP: A Gentle Introduction to Methods in Java</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45139</md:content-id>
+  <md:title>Jb0130: Java OOP: A Gentle Introduction to Methods in Java</md:title>
+  <md:abstract>This module provides a gentle introduction to Java methods.</md:abstract>
+  <md:uuid>a4b21aef-a466-4221-811d-9bfe3de4dacc</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Sun Mar 27 20:13:16 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Prerequisites">
+
+Prerequisites
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Standard_methods">
+
+Standard methods
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Passing_parameters">
+
+Passing parameters
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Returning_values">
+
+Returning values
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Writing_your_own_methods">
+
+Writing your own methods
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="Complete_program_listings">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1002">
+This module is part of a collection of modules designed to help you learn 
+to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+It provides a gentle introduction to Java programming methods.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Prerequisites" effect="bold">
+
+Prerequisites
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+In addition to an Internet connection and a browser, you will need the 
+following tools 
+
+<emphasis id="em1003" effect="italics">
+(as a minimum) 
+
+</emphasis>
+to work through the exercises in these 
+modules:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+The Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1004" effect="italics">
+(See
+	
+
+<link id="a1018" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1019">
+Documentation for the Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1005" effect="italics">
+(See
+	
+
+<link id="a1019" url="http://download.oracle.com/javase/7/docs/api/">
+
+
+	http://download.oracle.com/javase/7/docs/api/
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1020">
+A simple IDE or text editor for use in writing Java code.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+The minimum prerequisites for understanding the material in these modules 
+include:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1021">
+An understanding of algebra.
+
+</item>
+
+
+	
+
+<item id="li1022">
+An understanding of all of the material covered in the earlier modules 
+	in this collection.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The price of beans. 
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Compute the square root of the price of beans.
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Display the square root value. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Calling the same methods again. 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The program named SqRt01. 
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. A batch file for compiling and running the program named SqRt01. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="Discussion" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+Methods have been used in computer programming since the early days of programming.  Methods are often called functions, procedures, subroutines, and various other names.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1000" effect="bold">
+Calculate the square root
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+Suppose that your program needs to calculate the square root of a number.  Referring 
+back to your high-school algebra book, you could refresh your memory on how to calculate a square root.  Then you could construct the algorithm describing that process.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Having the algorithm available, you could write the code to calculate the square root and insert it into your program code.  Then you could compile, and run your program.  If you did it all correctly, your program should calculate the square root.  
+
+
+<emphasis id="em1006" effect="italics">
+(For reasons that will become apparent later, I will refer to the code that you inserted as in-line code.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1001" effect="bold">
+Oops, need to do it all over again
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Suppose that further on in your program you discover that you need to calculate the square root of another number.  And later, you discover that you need to calculate the square root of still another number.  Obviously, with a few changes, you could copy your original code and insert it as 
+
+
+<emphasis id="em1007" effect="italics">
+in-line code
+
+</emphasis>
+ at each location in your program where you need to calculate the square root of a number. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1002" effect="bold">
+Is there a better way?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+However, after doing this a few times, you might start asking if there is a better way.  The answer is 
+
+
+<emphasis id="em1008" effect="italics">
+"yes, there is a better way." 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1003" effect="bold">
+A method provides a better way
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+The better way is to create a separate program module that has the ability to calculate the square root and make that module available for use as a helper to your main program each time your main program needs to calculate a square root.  In Java, this separate program module is called a 
+
+
+<emphasis id="strong1004" effect="bold">
+method
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Standard_methods" effect="bold">
+
+Standard methods
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+The Java programming language contains a large number of methods 
+
+<emphasis id="em1009" effect="italics">
+(in the class libraries)
+
+</emphasis>
+ that are already available for your use.  
+
+
+<emphasis id="em1010" effect="italics">
+(Later, I will illustrate the use of a standard method for calculating the square root of a number.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+In addition to the standard methods that are already available, if you need a method to perform some function and there is no standard method already available to perform that function, you can write your own method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Passing_parameters" effect="bold">
+
+Passing parameters
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1005" effect="bold">
+Make the method general
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Normally, when designing and writing a method such as one that can calculate the square root of a number, it is desirable to write it in such a way that it can calculate the square root of any number 
+
+
+<emphasis id="em1011" effect="italics">
+(as opposed to only one specific number)
+
+</emphasis>
+.  This is accomplished through the use of something called 
+
+
+<emphasis id="em1012" effect="italics">
+parameters
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The process of causing a method to be executed is commonly referred to as 
+
+<emphasis id="em1013" effect="italics">
+calling the method
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1006" effect="bold">
+Pass me the number please
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+When your program calls the square-root method, it will need to tell the method the value for which the square root is needed.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+In general, many methods will require that you provide certain kinds of information when you 
+
+
+<emphasis id="em1014" effect="italics">
+call
+
+</emphasis>
+ them.  The code in the method needs this information to be able to accomplish its purpose. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1007" effect="bold">
+Passing parameters
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+This process of  providing information to a method when you call it is commonly referred to as 
+
+
+<emphasis id="em1015" effect="italics">
+passing parameters
+
+</emphasis>
+ to the method.  For the square-root method, you need to pass a parameter whose value is the value of the number for which you need the square root. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Returning_values" effect="bold">
+
+Returning values
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+A method will usually
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1029">
+perform an action
+
+</item>
+
+
+	
+
+<item id="li1030">
+send back an answer. or
+
+</item>
+
+
+	
+
+<item id="li1031">
+some combination of the two 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1008" effect="bold">
+Performing an action
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+An example of a method that performs an action is the standard method named 
+
+<emphasis id="strong1009" effect="bold">
+println
+
+</emphasis>
+.  We used the 
+
+
+<emphasis id="strong1010" effect="bold">
+println
+
+</emphasis>
+ method in an earlier module to cause information to be displayed on the computer screen.  This method does not need to send back an answer, because that is not the objective of the method.  The objective is simply to display some information. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1011" effect="bold">
+Sending back an answer
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+On the other hand, a method that is designed to calculate the square root of a number needs to be able to send the square-root value back to the program that called the method.  After all, it wouldn't be very useful if the method calculated the square root and then kept it a secret.  The process of sending back an answer is commonly referred to as 
+
+
+<emphasis id="em1016" effect="italics">
+returning a value
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1012" effect="bold">
+Returned values can be ignored
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Methods can be designed in such a way that they either will or will not return a value.
+
+When a method does return a value, the program that called the method can either pay attention to that value and use it for some purpose, or ignore it entirely.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+For example, in some cases where a method performs an action and also returns a value, the calling program may elect to ignore the returned value.
+
+On the other hand, if the sole purpose of a method is to return a value, it wouldn't make much sense for a program to call that method and then ignore the value that is returned 
+
+
+<emphasis id="em1017" effect="italics">
+(although that would be technically possible)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Writing_your_own_methods" effect="bold">
+
+Writing your own methods
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1035">
+As mentioned earlier, you can write your own methods in Java.  I mention this here so you will know that it is 
+possible. I will have more to say about writing your own methods in future 
+modules.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+A complete listing of a sample program named 
+
+<emphasis id="strong1013" effect="bold">
+SqRt01.java
+
+</emphasis>
+ is 
+provided in 
+
+<link id="a1026" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near the end of the lesson. A 
+batch file that you can use to compile and run the program is provided in
+
+
+<link id="a1027" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+When you compile and run the program, the following output should appear on your computer screen:
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">5.049752469181039 
+6.0 </code>
+
+
+
+
+<para id="p1038">
+As you will see shortly, these are the square root values respectively for 25.5 and 36.
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+I will explain portions of this program in fragments.  I will explain only those portions of the program that are germane to this 
+module.  Don't worry about the other details of the program.  You will learn about those details in 
+future modules.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+You may find it useful to open this lesson in another browser window so that you can easily scroll back and forth among the fragments while reading the discussion.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+The first code fragment that I will explain is shown in 
+
+<link id="a1028" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1000">
+<row id="tr1000">
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The price of beans.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1000">
+<row id="tr1001">
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">
+    double beans;
+    beans = 25.5;
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1014" effect="bold">
+What is the price of beans?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The code fragment shown in 
+
+<link id="a1029" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ declares a 
+
+<emphasis id="em1018" effect="italics">
+variable
+
+</emphasis>
+ named 
+
+<emphasis id="strong1015" effect="bold">
+beans
+
+</emphasis>
+ and assigns a value of 25.5 to the variable.  
+
+
+<emphasis id="em1019" effect="italics">
+(I briefly discussed the declaration of variables in a previous module.  I will discuss them in more detail in a 
+future module.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1016" effect="bold">
+What is that double thing?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+In an earlier module, I declared a variable with a type named 
+
+<emphasis id="strong1017" effect="bold">
+int
+
+</emphasis>
+. At 
+that time, I explained that only integer values could be stored in that variable.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The variable named 
+
+<emphasis id="strong1018" effect="bold">
+beans
+
+</emphasis>
+ in 
+
+<link id="a1030" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ is declared to be of the type 
+
+<emphasis id="strong1019" effect="bold">
+double
+
+</emphasis>
+.  I will 
+explain the concept of data types in detail in a future module. Briefly, 
+
+<emphasis id="strong1020" effect="bold">
+
+double
+
+</emphasis>
+ 
+means that you can store any numeric value in this variable, with or without a 
+decimal part. In other words, you can store a value of 3 or a value of 3.33 in 
+this variable, whereas a variable with a declared type of 
+
+<emphasis id="strong1021" effect="bold">
+int
+
+</emphasis>
+ 
+won't accept a value of 3.33.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1022" effect="bold">
+Every method has a name
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1048">
+Every method, every variable, and some other things as well have names. The 
+names in Java are 
+
+<emphasis id="em1020" effect="italics">
+case sensitive
+
+</emphasis>
+.  
+By case sensitive, I mean that the method named 
+
+<emphasis id="strong1023" effect="bold">
+amethod
+
+</emphasis>
+ is not the same as the method named 
+
+
+<emphasis id="strong1024" effect="bold">
+aMethod
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1025" effect="bold">
+A few words about names in Java
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+There are several rules that define the format of allowable names in Java. 
+You can dig into this in more detail on the web if you like, but if you follow 
+these two rules, you will be okay:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Use only letters and numbers in Java names.
+
+</item>
+
+
+	
+
+<item id="li1033">
+Always make the first character a letter.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1026" effect="bold">
+A standard method named sqrt
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+Java provides a 
+
+<emphasis id="strong1027" effect="bold">
+Math
+
+</emphasis>
+ library that contains many standard methods.  Included in those methods is 
+a method named 
+
+<emphasis id="strong1028" effect="bold">
+sqrt
+
+</emphasis>
+ that will calculate and return the square root of a number that is passed as a parameter when 
+the method is 
+called.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+The 
+
+<emphasis id="strong1029" effect="bold">
+sqrt
+
+</emphasis>
+ method is called on the right-hand side of the equal sign 
+(=) in the code fragment in 
+
+<link id="a1031" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+<row id="tr1002">
+<entry id="th1001">
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Compute the square root of the price of 
+beans.
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+<row id="tr1003">
+<entry id="td1001">
+
+
+
+<code id="pre1002" display="block">
+    double sqRtBns = Math.sqrt(beans);
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1030" effect="bold">
+Calling the sqrt method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+I'm not sure why you would want to do this, but the code fragment in 
+
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1034">
+calls the 
+
+<emphasis id="strong1031" effect="bold">
+sqrt
+
+</emphasis>
+ method and 
+
+</item>
+
+
+	
+
+<item id="li1035">
+passes a copy of the value stored in the 
+
+<emphasis id="strong1032" effect="bold">
+beans
+
+</emphasis>
+ variable as a parameter.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1033" effect="bold">
+sqrt
+
+</emphasis>
+ method calculates and returns the square root of the number that it receives as its incoming parameter. 
+In this case, it returns the square root of the price of a can of beans.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1034" effect="bold">
+A place to save the square root
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+I needed some place to save the square root value until I could display it on the computer screen 
+later in the program. I declared another variable named 
+
+<emphasis id="strong1035" effect="bold">
+sqRtBns
+
+</emphasis>
+ in the code fragment in 
+
+<link id="a1033" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.  I also caused the value returned from the 
+
+
+<emphasis id="strong1036" effect="bold">
+sqrt
+
+</emphasis>
+ method to be stored in, or assigned to, this new variable named
+
+
+<emphasis id="strong1037" effect="bold">
+sqRtBns
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1038" effect="bold">
+How should we interpret this code fragment?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+You can think of the process implemented by the code fragment in 
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ as follows.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+First note that there is an equal sign (=) near the center of the line of 
+code.  
+
+<emphasis id="em1021" effect="italics">
+(Later we will learn that this is called the assignment operator.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+The code on the left-hand side of the assignment operator causes a new chunk of memory to be set aside and named
+
+
+<emphasis id="strong1039" effect="bold">
+sqRtBns
+
+</emphasis>
+.  
+
+<emphasis id="em1022" effect="italics">
+(We call this chunk of code a variable.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+The code on the right-hand side of the assignment operator calls the 
+
+<emphasis id="strong1040" effect="bold">
+sqrt
+
+</emphasis>
+ method, passing a copy of the value stored in the 
+
+
+<emphasis id="strong1041" effect="bold">
+beans
+
+</emphasis>
+ variable to the method.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+When the 
+
+<emphasis id="strong1042" effect="bold">
+sqrt
+
+</emphasis>
+ method returns the value that is the square root of its incoming parameter, the assignment operator causes that value to be stored and saved in 
+
+
+<emphasis id="em1023" effect="italics">
+(assigned to)
+
+</emphasis>
+ the variable named
+
+
+<emphasis id="strong1043" effect="bold">
+sqRtBns
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1044" effect="bold">
+Now display the square root value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+The code in the fragment in 
+
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ causes the value now stored in 
+
+
+<emphasis id="strong1045" effect="bold">
+sqRtBns
+
+</emphasis>
+ to be displayed on the computer screen. 
+
+</para>
+
+
+
+
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1002">
+<row id="tr1004">
+<entry id="th1002">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Display the square root value.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1002">
+<row id="tr1005">
+<entry id="td1002">
+
+
+
+<code id="pre1003" display="block">
+    System.out.println(sqRtBns);
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1046" effect="bold">
+Another method is called here
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+The display of the square root value is accomplished by 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1036">
+calling another standard method named 
+
+<emphasis id="strong1047" effect="bold">
+println
+
+</emphasis>
+ and 
+
+</item>
+
+
+	
+
+<item id="li1037">
+passing a copy of the value stored in 
+
+<emphasis id="strong1048" effect="bold">
+sqRtBns
+
+</emphasis>
+ as a parameter to the method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1069">
+The 
+
+<emphasis id="strong1049" effect="bold">
+println
+
+</emphasis>
+ method performs an action 
+
+<emphasis id="em1024" effect="italics">
+(displaying something on the computer screen)
+
+</emphasis>
+ and doesn't return a value. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1050" effect="bold">
+A method exhibits behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+We say that a method exhibits behavior. The behavior of the 
+
+<emphasis id="strong1051" effect="bold">
+sqrt
+
+</emphasis>
+ method is to calculate and return the square root of the value passed 
+to it as a parameter.  
+
+</para>
+
+
+
+
+
+<para id="p1072">
+The behavior of the 
+
+<emphasis id="strong1052" effect="bold">
+println
+
+</emphasis>
+ method is to cause its incoming parameter to be displayed on the computer screen. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1053" effect="bold">
+What do we mean by syntax?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+Syntax is a word that is often used in computer programming. The 
+thesaurus in the editor that I am using to type this document says that a 
+synonym for syntax is grammar.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+I also like to think of syntax as meaning something very similar to format.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1054" effect="bold">
+Syntax for passing parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+Note the syntax in 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ and
+
+
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ for passing a parameter to the method.  The syntax consists of following the name of the method with a pair of matching parentheses that contain the parameter.  If 
+more than one parameter is being passed, they are all included within the parentheses and separated by commas. 
+Usually, the order of the parameters is important if more than one parameter is 
+being passed.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1055" effect="bold">
+Reusing the methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+The purpose of the code fragment in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is to 
+illustrate the reusable nature of methods. 
+
+</para>
+
+
+
+
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1003">
+<row id="tr1006">
+<entry id="th1003">
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Calling the same methods again.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1003">
+<row id="tr1007">
+<entry id="td1003">
+
+
+
+<code id="pre1004" display="block">
+    double peas;
+    peas = 36.;
+    double sqRtPeas = Math.sqrt(peas);
+    System.out.println(sqRtPeas); 
+</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1080">
+The code in this fragment calls the same 
+
+<emphasis id="strong1056" effect="bold">
+sqrt
+
+</emphasis>
+ method 
+that was called before. In this case, the method is called to calculate the 
+square root of the value stored in the variable named 
+
+<emphasis id="strong1057" effect="bold">
+peas 
+
+</emphasis>
+
+instead of the value stored in the variable named 
+
+<emphasis id="strong1058" effect="bold">
+beans
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+This fragment saves the value returned from the 
+
+<emphasis id="strong1059" effect="bold">
+sqrt
+
+</emphasis>
+ method 
+in a new variable named 
+
+<emphasis id="strong1060" effect="bold">
+sqRtPeas
+
+</emphasis>
+.  Then 
+the fragment calls the same 
+
+<emphasis id="strong1061" effect="bold">
+println
+
+</emphasis>
+ method as before to display the value now stored in the variable named
+
+
+<emphasis id="strong1062" effect="bold">
+sqRtPeas
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1063" effect="bold">
+Write once and use over and over
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+Methods make it possible to write some code once and then use that code many times in the same program.  This is the opposite of 
+
+
+<emphasis id="em1025" effect="italics">
+in-line code
+
+</emphasis>
+, which requires you to write essentially the same code multiple times in order to accomplish the same purpose more than once in 
+a program. 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<para id="p1084">
+I encourage you to run the program that I presented in this lesson 
+	to confirm that you get the same results. Experiment with 
+the code, making changes, and observing the results of your changes. Make 
+certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Complete_program_listings" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+<link id="a1039" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is a complete listing of the program 
+named 
+
+<emphasis id="strong1064" effect="bold">
+SqRt01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1004">
+<row id="tr1008">
+<entry id="th1004">
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The program named SqRt01.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1004">
+<row id="tr1009">
+<entry id="td1004">
+
+
+
+<code id="pre1005" display="block">
+//File SqRt01.java
+class SqRt01 { 
+  public static void main(String[] args){
+    double beans;
+    beans = 25.5;
+    double sqRtBns = Math.sqrt(beans);
+    System.out.println(sqRtBns);
+    double peas;
+    peas = 36.;
+    double sqRtPeas = Math.sqrt(peas);
+    System.out.println(sqRtPeas); 
+  }//end main 
+}//End SqRt01 class</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1086">
+<link id="a1040" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ contains the commands for a batch file that can be used to 
+compile and run the program named 
+
+<emphasis id="strong1065" effect="bold">
+SqRt01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1005">
+<row id="tr1010">
+<entry id="th1005">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. A batch file for compiling and running the 
+program named SqRt01.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1005">
+<row id="tr1011">
+<entry id="td1005">
+
+
+
+<code id="pre1006" display="block">
+echo off
+cls
+
+del *.class
+
+javac -cp .; SqRt01.java
+java -cp .; SqRt01
+
+pause</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1087">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+
+
+<emphasis id="strong1066" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+
+
+<item id="li1038">
+Module name: Jb0130: Java OOP: A Gentle Introduction to Methods in Java
+
+</item>
+
+
+
+
+<item id="li1039">
+File: Jb0130.htm 
+
+</item>
+
+
+
+
+<item id="li1040">
+Published: 12/16/12
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+<emphasis id="strong1067" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1088">
+<emphasis id="strong1068" effect="bold">
+Financial
+
+</emphasis>
+: 
+	Although the Connexions site makes it possible for you to download a PDF 
+	file for this module at no charge, and also makes it possible for you to 
+	purchase a pre-printed version of the PDF file, you should be aware that 
+	some of the HTML elements in this module may not translate well into PDF.
+
+</para>
+
+
+
+	
+
+<para id="p1089">
+I also want you to know that, I receive no financial compensation from 
+	the Connexions website even if you purchase the PDF version of the module.
+
+</para>
+
+
+
+	
+
+<para id="p1090">
+In the past, unknown individuals have copied my modules from cnx.org, 
+	converted them to Kindle books, and placed them for sale on Amazon.com 
+	showing me as the author. I neither receive compensation for those sales nor 
+	do I know who does receive compensation. If you purchase such a book, please 
+	be aware that it is a copy of a module that is freely available on cnx.org 
+	and that it was made and published without my prior knowledge.
+
+</para>
+
+
+
+		
+
+<para id="p1091">
+<emphasis id="strong1069" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+		Information Technology at Austin Community College in Austin, TX.
+		
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1092">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

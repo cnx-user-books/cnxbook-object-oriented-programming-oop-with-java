@@ -1,0 +1,1163 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3001: An Alternative Graphics Library</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m63525</md:content-id>
+  <md:title>Java3001: An Alternative Graphics Library</md:title>
+  <md:abstract>The Guzdial-Ericson Multimedia Class Library is an excellent library. However, it contains many classes, ranging from video to sound, that are not used in this course. This lesson provides a stripped-down alternative version of the Guzdial-Ericson library that eliminates classes that are not required for this course. This, in turn, results in a smaller documentation package that is much easier to navigate. In addition, the alternative library adds some features that are needed for assignments in more advanced courses.</md:abstract>
+  <md:uuid>261edb42-3b5a-41c3-980c-1a4249ab8826</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Nov 27 12:40:34 CST 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="An_alternative_graphics_library">
+
+An alternative graphics library
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Modifications_to_the_classes">
+
+Modifications to the classes
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="The_class_named_Picture">
+
+The class named Picture
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="The_class_named_PictureExplorer">
+
+The class named PictureExplorer
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="The_class_named_PictureFrame">
+
+The class named PictureFrame
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="The_class_named_Pixel">
+
+The class named Pixel
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="The_class_named_Turtle">
+
+The class named Turtle
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="The_class_named_World">
+
+The class named World
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="An_alternative_graphics_library" effect="bold">
+
+An alternative graphics library
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+Hopefully by now you have studied the lesson titled 
+
+
+<link id="a1012" url="http://cnx.org/contents/dzOvxPFw:0xo_9JXz">
+
+Java3000: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+ 
+and are completely familiar with the use of that library.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The Guzdial-Ericson Multimedia Class Library is an excellent library. However, it contains many classes, ranging from video to sound, that are not used in this course. This lesson provides a stripped-down alternative version of the Guzdial-Ericson library that eliminates classes that are not required for 
+the course. This, in turn, results in a smaller documentation package that is much easier to navigate. In addition, the alternative library adds some features that are needed for assignments in more advanced courses.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+Classes in this alternative graphics library were derived from classes 
+ in the multimedia library published by Barb Ericson at 
+ 
+
+<link id="a1013" url="http://home.cc.gatech.edu/TeaParty/47">
+
+http://home.cc.gatech.edu/TeaParty/47
+
+</link>
+
+ in a downloadable file named 
+
+
+<emphasis id="strong1000" effect="bold">
+bookClasses-3-9-10-with-doc.zip
+
+</emphasis>
+. A statement on that page reads as follows: 
+ 
+
+<emphasis id="em1003" effect="italics">
+"The source code in bookClasses is licensed under a
+ Creative Commons Attribution 3.0 United 
+ States License."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+You can download a copy of the 
+alternative library by clicking 
+
+
+<link id="a1014" url="altBookClasses.zip">
+
+here
+
+</link>
+
+. As with the Guzdial-Ericson library, 
+simply extract the folder named 
+
+<emphasis id="strong1001" effect="bold">
+_altBookClasses
+
+</emphasis>
+ from the zip 
+file, store it somewhere on your disk, and point to it with a classpath. Once 
+you have done that, I recommend that you go back to 
+
+
+<link id="a1015" url="http://cnx.org/contents/dzOvxPFw:0xo_9JXz">
+
+Java3000: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+ 
+and recreate the graphic version of Hello World. Then compile and run it using 
+the alternative library in place of the original Guzdial-Ericson library.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Once you have stored the folder named 
+
+<emphasis id="strong1002" effect="bold">
+_altBookClasses
+
+</emphasis>
+ on 
+your disk, open it to find a folder named 
+
+<emphasis id="strong1003" effect="bold">
+docs
+
+</emphasis>
+. Open that 
+folder and locate a file named 
+
+<emphasis id="strong1004" effect="bold">
+index.html
+
+</emphasis>
+. Open that file in 
+your browser and you will find the documentation for about a dozen classes as 
+compared to about five dozen classes in the original Guzdial-Ericson library. 
+The classes in the alternative library are a subset of the classes in the 
+original Guzdial-Ericson library, some with modifications as described below.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Modifications_to_the_classes" effect="bold">
+
+Modifications to the classes
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+As mentioned above, without changing the original functionality, 
+modifications were made to some of the classes in the alternative library to add features that are useful 
+in more advanced courses. Most of those modifications are described below.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="The_class_named_Picture" effect="bold">
+
+The class named Picture
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+The use of the 
+
+<emphasis id="strong1005" effect="bold">
+DigitalPicture
+
+</emphasis>
+ interface was eliminated. It was only used by the 
+
+
+<emphasis id="strong1006" effect="bold">
+Picture
+
+</emphasis>
+ class among the subset of classes selected for this 
+library and was therefore considered to be superfluous and confusing to students.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+The 
+
+<emphasis id="strong1007" effect="bold">
+Picture
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1008" effect="bold">
+SimplePicture
+
+</emphasis>
+ class were collapsed into a single class named 
+
+
+<emphasis id="strong1009" effect="bold">
+Picture
+
+</emphasis>
+. While possibly useful in some teaching situations, the use of inheritance
+ in this case was considered to be superfluous and confusing to students.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+The use of the media path was eliminated. While useful in some situations, the confusions and problems that it created
+ among students developing on one machine and testing on a
+ different machine outweighed the benefits.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+The 
+
+<emphasis id="strong1010" effect="bold">
+addMessage
+
+</emphasis>
+ method was modified to cause it to use a
+ color variable to set the color of the message to something other than the default white. This also required
+ that a method named 
+
+<emphasis id="strong1011" effect="bold">
+setMessageColor
+
+</emphasis>
+ be defined to set the
+ color and that a variable named 
+
+<emphasis id="strong1012" effect="bold">
+messageColor
+
+</emphasis>
+ be defined to
+ contain the color.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="The_class_named_PictureExplorer" effect="bold">
+
+The class named PictureExplorer
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+References to the 
+
+<emphasis id="strong1013" effect="bold">
+SoundExplorer
+
+</emphasis>
+ class were 
+eliminated. This eliminated the requirement to include the 
+
+<emphasis id="strong1014" effect="bold">
+SoundExplorer
+
+</emphasis>
+ class 
+in the alternative library.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+As with the 
+
+<emphasis id="strong1015" effect="bold">
+Picture
+
+</emphasis>
+ class, the use of the 
+
+<emphasis id="strong1016" effect="bold">
+DigitalPicture
+
+</emphasis>
+ 
+interface was eliminated and for the same reasons.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+As with the 
+
+<emphasis id="strong1017" effect="bold">
+Picture
+
+</emphasis>
+ class, the use of the media path was 
+eliminated and for the same reasons.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Accessor methods were added to cause the following values to be accessible from outside the object:
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1012">
+int xIndex 
+
+</item>
+
+
+	
+
+<item id="li1013">
+int yIndex 
+
+</item>
+
+
+	
+
+<item id="li1014">
+String rValue text
+ 
+
+</item>
+
+
+	
+
+<item id="li1015">
+String gValue text
+ 
+
+</item>
+
+
+	
+
+<item id="li1016">
+String bValue text
+ 
+
+</item>
+
+
+	
+
+<item id="li1017">
+double zoomFactor 
+
+</item>
+
+
+	
+
+<item id="li1018">
+JFrame pictureFrame
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_class_named_PictureFrame" effect="bold">
+
+The class named PictureFrame
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+As with the 
+
+<emphasis id="strong1018" effect="bold">
+Picture
+
+</emphasis>
+ class, the use of the 
+
+<emphasis id="strong1019" effect="bold">
+DigitalPicture
+
+</emphasis>
+ 
+interface was eliminated and for the same reasons
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_class_named_Pixel" effect="bold">
+
+The class named Pixel
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+As with the 
+
+<emphasis id="strong1020" effect="bold">
+Picture
+
+</emphasis>
+ class, the use of the 
+
+<emphasis id="strong1021" effect="bold">
+DigitalPicture
+
+</emphasis>
+ 
+interface was eliminated and for the same reasons.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_class_named_Turtle" effect="bold">
+
+The class named Turtle
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+The use of the 
+
+<emphasis id="strong1022" effect="bold">
+ModelDisplay
+
+</emphasis>
+ interface was eliminated 
+ by replacing 
+
+<emphasis id="strong1023" effect="bold">
+ModelDisplay
+
+</emphasis>
+ with 
+
+<emphasis id="strong1024" effect="bold">
+World
+
+</emphasis>
+. The interface was only used by the 
+
+
+<emphasis id="strong1025" effect="bold">
+World
+
+</emphasis>
+ and 
+
+<emphasis id="strong1026" effect="bold">
+Turtle
+
+</emphasis>
+ classes among the subset of classes selected for this library and was therefore
+ considered to be superfluous and confusing to students.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The 
+
+<emphasis id="strong1027" effect="bold">
+Turtle
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1028" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class were collapsed into a single class named 
+
+
+<emphasis id="strong1029" effect="bold">
+Turtle
+
+</emphasis>
+. While possibly useful in some teaching situations, the use of inheritance
+ in this case was considered to be superfluous and confusing to students.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_class_named_World" effect="bold">
+
+The class named World
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+The implementation of the 
+
+<emphasis id="strong1030" effect="bold">
+ModelDisplay
+
+</emphasis>
+ interface by the
+
+
+<emphasis id="strong1031" effect="bold">
+World
+
+</emphasis>
+ class was eliminated. The interface was only used by the 
+
+
+<emphasis id="strong1032" effect="bold">
+World
+
+</emphasis>
+ and 
+
+<emphasis id="strong1033" effect="bold">
+Turtle
+
+</emphasis>
+ classes among the subset of classes selected for this library and was therefore considered to be superfluous
+ and confusing to students.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+An accessor method named 
+
+<emphasis id="strong1034" effect="bold">
+getFrame
+
+</emphasis>
+ was added. The new method returns a reference to the 
+
+
+<emphasis id="strong1035" effect="bold">
+JFrame
+
+</emphasis>
+ object from which the 
+
+<emphasis id="strong1036" effect="bold">
+World
+
+</emphasis>
+ object is constructed. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+The modified version of the 
+
+<emphasis id="strong1037" effect="bold">
+World
+
+</emphasis>
+ class makes it possible to specify the name of an image file when
+ the 
+
+<emphasis id="strong1038" effect="bold">
+World
+
+</emphasis>
+ object is instantiated. The image is used as the background for the world in place of the default blank
+ white background.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+A call to the 
+
+<emphasis id="strong1039" effect="bold">
+setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) 
+
+</emphasis>
+method 
+was added to the method that initializes the frame to cause the program to terminate when the user clicks the X-button
+ in the upper-right corner of the frame.
+
+</para>
+
+
+
+
+
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1024">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1040" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1004" list-type="bulleted">
+
+					
+
+<item id="li1019">
+Module name: Java3001: An Alternative Graphics Library
+
+</item>
+
+
+					
+
+<item id="li1020">
+File: Java3001.htm
+
+</item>
+
+
+					
+
+<item id="li1021">
+Published: 11/26/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1041" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1025">
+<emphasis id="strong1042" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1026">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1027">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1028">
+<emphasis id="strong1043" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1029">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

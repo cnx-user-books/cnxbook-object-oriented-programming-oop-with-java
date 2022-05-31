@@ -1,0 +1,4529 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4660: Sockets</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49539</md:content-id>
+  <md:title>Java4660: Sockets</md:title>
+  <md:abstract>The purpose of this module is to introduce the student to the Socket class.</md:abstract>
+  <md:uuid>990f4d38-8283-4b76-818f-7ede31e87deb</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Simple_TCPIP_services">
+
+Simple TCP/IP services
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Echo_program">
+
+Echo program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Datetime_program">
+
+Date/time program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Simple_browser_program">
+
+Simple browser program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. More specifically, it is one in a 
+	sub-collection of modules designed for teaching network programming in that 
+	course. The purpose of this module is to introduce the student to the
+	
+
+<emphasis id="strong1001" effect="bold">
+Socket
+
+</emphasis>
+ class.  
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Successful daytime query.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output for a successful echo test.
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Daytime program output.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Output from the simple browser program.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the program named Java4660a.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Instantiate a Socket object. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get I/O stream objects. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Send a line of text to the server and display the echo. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the program named Java4660b.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Get an input stream.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Read and display incoming data.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Beginning of the program named Java4660c.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Create input and output streams.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Send a GET command.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Read and display text from the server.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The program named Java4660a.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. The program named Java4660b.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. The program named Java4660c.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+Sockets in Java come in at least three varieties that are implemented by the 
+following Java classes
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1031">
+<emphasis id="strong1002" effect="bold">
+Socket
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1032">
+<emphasis id="strong1003" effect="bold">
+DatagramSocket
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1033">
+<emphasis id="strong1004" effect="bold">
+ServerSocket
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1003">
+The first two socket classes represent 
+
+<emphasis id="strong1005" effect="bold">
+TCP
+
+</emphasis>
+ and 
+
+<emphasis id="strong1006" effect="bold">
+UDP
+
+</emphasis>
+ 
+communications respectively. 
+
+</para>
+
+
+
+
+<para id="p1004">
+Generally, these two socket classes are used to implement both clients and 
+servers, while the 
+
+<emphasis id="strong1007" effect="bold">
+ServerSocket
+
+</emphasis>
+ class is only used to implement 
+servers. 
+
+</para>
+
+
+
+
+<para id="p1005">
+This module will concentrate on the use of the 
+
+<emphasis id="strong1008" effect="bold">
+Socket
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1009" effect="bold">
+DatagramSocket
+
+</emphasis>
+ class will be covered 
+a future module. In the meantime, you can read about the 
+
+<emphasis id="strong1010" effect="bold">
+DatagramSocket
+
+</emphasis>
+ 
+class and other interesting topics in my earlier publications at:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1034">
+<link id="a1031" url="http://cnx.org/content/m45602/latest/Java562.htm">
+
+Network Programming 
+	- Server Sockets
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1032" url="http://cnx.org/content/m45602/latest/Java564.htm">
+
+Network Programming 
+	- Datagram Clients
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1033" url="http://cnx.org/content/m45602/latest/Java566.htm">
+
+Network Programming 
+	- Datagram Servers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1034" url="http://cnx.org/content/m45602/latest/Java568.htm">
+
+Network Programming 
+	- Stubs, Skeletons, and Remote Objects
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1035" url="http://cnx.org/content/m45605/latest/Java734.htm#Sockets15">
+
+Wireless Home Security and Java
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1006">
+In addition, you may find a great deal of useful information in my older 
+publications that are accessible at 
+
+
+<link id="a1036" url="http://cnx.org/content/col11478/latest/">
+
+Programming Oldies But Goodies
+
+</link>
+
+ .
+
+</para>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1011" effect="bold">
+A low-level mechanism
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+Socket programming provides a low-level mechanism by which you can connect 
+two computers for the exchange of data. One of those is generally considered to 
+be the 
+
+<emphasis id="em1000" effect="italics">
+client 
+
+</emphasis>
+while the other is considered to be the 
+
+<emphasis id="em1001" effect="italics">
+server
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1009">
+The 
+
+<emphasis id="em1002" effect="italics">
+client 
+
+</emphasis>
+initiates a connection with a 
+
+<emphasis id="em1003" effect="italics">
+server.
+
+</emphasis>
+ 
+
+<emphasis id="em1004" effect="italics">
+Servers
+
+</emphasis>
+ 
+wait for a 
+
+<emphasis id="em1005" effect="italics">
+clients
+
+</emphasis>
+ to initiate connections. 
+
+</para>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1012" effect="bold">
+A mutually acceptable application protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+The governing protocol will determine what happens after the connection is 
+made. In order for two computers to communicate effectively, they must each 
+implement some mutually acceptable application protocol.
+
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1013" effect="bold">
+Data flow
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+Socket programming makes it possible for you to cause data to flow in a 
+full-duplex mode between a 
+
+<emphasis id="em1006" effect="italics">
+client 
+
+</emphasis>
+and a 
+
+<emphasis id="em1007" effect="italics">
+server
+
+</emphasis>
+. This data flow can 
+be viewed in almost exactly the same way that we view data flow to and from a 
+disk: as a stream of bytes. 
+
+</para>
+
+
+
+
+<para id="p1014">
+As with most stream data processing, the system is responsible for moving the 
+bytes from the source to the destination. It is the responsibility of the 
+programmer to assign meaning to those bytes. 
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1014" effect="bold">
+An application protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+Assigning meaning takes on a special significance for socket programming. In 
+particular, as mentioned above, it is the responsibility of the programmer to 
+implement a mutually acceptable communication protocol, at the application 
+level, to cause the data to flow in an orderly manner. Some of the bytes are 
+used to implement the protocol, and some of the bytes are used to transfer data.
+
+
+</para>
+
+
+
+
+<para id="p1017">
+An application protocol is a set of rules by which the programs in the two 
+computers can carry on a conversation and transfer data in the process. 
+
+</para>
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1015" effect="bold">
+The HTTP protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+For example, we will write a very abbreviated form of the HTTP protocol to 
+download a web page from a server and to display it as raw text.
+
+</para>
+
+
+
+
+<para id="p1020">
+This program will involve adherence to a fairly simple protocol. 
+
+<emphasis id="em1008" effect="italics">
+(At 
+least the part that we implement will be simple.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1016" effect="bold">
+The daytime protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+We will also write a program that obtains the date and time from the same or 
+another computer. In this case, the protocol is about as simple as it can 
+possibly be. The client will simply make the connection and listen for a string 
+containing the date and time. In this case, the client isn't even required to 
+make a request. 
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1017" effect="bold">
+The echo protocol
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+We will write another program that sends a line of text to a computer and 
+receives an echo of that text. This protocol is only slightly more complicated 
+than the daytime protocol in that it is necessary to sent text to the other 
+computer in order to elicit a response.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1018" effect="bold">
+The application protocol is the hard part
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+It is easy to use sockets to write code that will cause a stream of bytes to 
+flow in both directions between a 
+
+<emphasis id="em1009" effect="italics">
+client 
+
+</emphasis>
+and a 
+
+<emphasis id="em1010" effect="italics">
+server
+
+</emphasis>
+. This is no 
+more difficult than causing a stream of bytes to flow in both directions between 
+memory and a file on a disk.
+
+</para>
+
+
+
+
+<para id="p1027">
+Getting the bytes to flow is the easy part. Beyond that, you must do all of 
+the programming to implement an application protocol that is understood by both 
+the 
+
+<emphasis id="em1011" effect="italics">
+client 
+
+</emphasis>
+and the 
+
+<emphasis id="em1012" effect="italics">
+server
+
+</emphasis>
+. Often that is the more difficult part.
+
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<section id="h21001">
+<title>
+<emphasis id="Simple_TCPIP_services" effect="bold">
+
+Simple TCP/IP services
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+This discussion applies to the Windows operating system only. If you are using a 
+different operating system you will need to do the necessary research to 
+translate this information for use with your operating system.
+
+</para>
+
+
+
+
+<para id="p1029">
+See 
+
+
+<link id="a1037" url="http://www.windowsnetworking.com/articles-tutorials/windows-7/Windows-7-Simple-TCPIP-Services-What-How.html">
+
+Windows 7 Simple TCP/IP Services - What and How?
+
+</link>
+
+ 
+for more detailed information on this topic.
+
+</para>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1019" effect="bold">
+A simple server
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+Windows and some other operating systems make it possible to cause a 
+computer to act as a simple server to deliver the following services:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1039">
+<emphasis id="Echo_on_port_7" effect="bold">
+
+Echo on port 7
+
+</emphasis>
+
+
+</item>
+
+
+	
+
+<item id="li1040">
+Daytime on port 13
+
+</item>
+
+
+	
+
+<item id="li1041">
+Quote of the Day on port 17
+
+</item>
+
+
+	
+
+<item id="li1042">
+Character generator on port 19
+
+</item>
+
+
+	
+
+<item id="li1043">
+Discard on port 9
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1032">
+This module will be concerned with only the first two. However, to use any of 
+them, you must configure your computer to support all of them.
+
+</para>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1020" effect="bold">
+Configuring your computer
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+Do the following to configure your computer to 
+support these services.
+
+</para>
+
+
+
+
+<para id="p1035">
+In Windows 7, Vista, and possibly older versions of the Windows operating 
+system, do the following:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1044">
+<emphasis id="Open_the_Control_Panel" effect="bold">
+
+Open the Control Panel
+
+</emphasis>
+
+
+</item>
+
+
+	
+
+<item id="li1045">
+Select Programs and Features
+
+</item>
+
+
+	
+
+<item id="li1046">
+Select Turn Windows features on or off
+
+</item>
+
+
+	
+
+<item id="li1047">
+Scroll down to Simple TCPIP services and check the box
+
+</item>
+
+
+	
+
+<item id="li1048">
+Also check the box for Telnet Client
+
+</item>
+
+
+	
+
+<item id="li1049">
+Click OK and follow the directions
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+On some computers, this may take a long time to complete. 
+
+<emphasis id="em1013" effect="italics">
+(It took more 
+than 15 minutes on an older laptop computer that I own.)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1021" effect="bold">
+Test using telnet
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+When the process is complete, open a command line window and enter the following:
+
+</para>
+
+
+
+
+<para id="p1039">
+telnet localhost 13
+
+</para>
+
+
+
+
+<para id="p1040">
+You should see something like the contents of 
+
+<link id="a1038" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ if your computer is 
+supporting simple TCP/IP services.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Successful daytime query.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+5:27:30 PM 1/10/2014
+
+
+Connection to host lost.
+</code>
+
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1041">
+You can use localhost to do a query on the same machine or you can do a 
+	query on the name of some other 
+
+<emphasis id="em1014" effect="italics">
+properly configured
+
+</emphasis>
+ computer on a local area 
+	network.
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+(You can also use the name of the same computer in place of 
+localhost to do a query on the same computer.)
+
+</quote>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1022" effect="bold">
+Opening ports on the firewall
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+In the case of accessing another computer on the network, in addition to the procedure 
+described 
+
+<link id="a1039" target-id="Open_the_Control_Panel">
+
+above
+
+</link>
+
+, you may also need to open the 
+required ports in the Windows firewall or perhaps a firewall that is being 
+managed by other software running on that computer. 
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+(The ports of interest are shown in the above 
+
+<link id="a1040" target-id="Echo_on_port_7">
+
+list
+
+</link>
+
+.)
+
+</quote>
+
+
+
+
+<para id="p1044">
+I won't attempt to explain how to open and close ports in the firewall. The 
+Windows 
+
+<emphasis id="em1015" effect="italics">
+Help and Support
+
+</emphasis>
+ 
+ 
+feature explains how to open and close ports in the Windows firewall. If the 
+firewall is being managed by another program, the documentation for that program 
+should explain how to open and close ports.
+
+</para>
+
+
+	
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Echo_program" effect="bold">
+
+Echo program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+This program implements a client that performs a simple echo test by sending a line of text to the echo port
+
+
+<emphasis id="em1016" effect="italics">
+(port 7)
+
+</emphasis>
+ on a server 
+
+<emphasis id="em1017" effect="italics">
+(or on the same computer)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1023" effect="bold">
+Overview
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+The program begins by instantiating a 
+
+<emphasis id="strong1024" effect="bold">
+String
+
+</emphasis>
+ object containing the name of an echo server that is being used to test the program
+
+
+<emphasis id="em1018" effect="italics">
+(localhost as the program is shown in 
+
+<link id="a1041" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+)
+
+</emphasis>
+.
+
+This is followed by the declaration and initialization of an 
+
+<emphasis id="strong1025" effect="bold">
+int
+
+</emphasis>
+ variable containing the standard echo port number
+
+
+<emphasis id="em1019" effect="italics">
+(7)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1048">
+Than the program gets a socket connection to port 7 on the server as shown in
+
+
+<link id="a1042" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+..
+
+
+
+</para>
+
+
+
+
+<para id="p1049">
+Following this, the program gets input and output streams from the socket and wraps them in the 
+
+
+<emphasis id="strong1026" effect="bold">
+Reader
+
+</emphasis>
+ and 
+
+<emphasis id="strong1027" effect="bold">
+Writer
+
+</emphasis>
+ classes as shown in
+
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1050">
+Once the connection is made and the input and output streams are ready to use, the program sends a line of text to the echo port on the specified server 
+as shown in 
+
+<link id="a1044" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+This causes the server to send the same line of text back to the client.
+
+
+
+</para>
+
+
+
+
+<para id="p1051">
+The program reads the line of text that is received and displays it in the 
+command-line window.
+
+
+
+</para>
+
+
+
+
+<para id="p1052">
+Finally, the program closes the socket and terminates.
+
+
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1028" effect="bold">
+The program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+Assuming that you select a computer that supports echo processing on port 7, the output from this program should be 
+as shown in 
+
+<link id="a1045" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Output for a 
+				successful echo test.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+echo: This is an echo test
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1055">
+<emphasis id="strong1029" effect="bold">
+Beginning of the program named Java4660a
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+I will discuss this program in fragments. 
+
+<emphasis id="em1020" effect="italics">
+(I will ignore exception 
+	handling code.)
+
+</emphasis>
+ A complete listing of the program is provided 
+	in 
+
+<link id="a1046" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The beginning of the program is shown in 
+
+<link id="a1047" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the program 
+				named Java4660a.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+				
+
+<code id="pre1002" display="block">import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Java4660a{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 7; //echo port
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1057">
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ declares and initializes two local variables to specify the 
+	server and the port. We will use these variables later.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1030" effect="bold">
+Instantiate a Socket object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+<link id="a1049" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the key statement in this program insofar as learning new 
+material is concerned. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Instantiate a Socket 
+				object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">      Socket socket = new Socket(server,port);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1060">
+The statement in 
+
+<link id="a1050" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ establishes a connection with the specified 
+	port on the specified server by instantiating a new object of type 
+
+<emphasis id="strong1031" effect="bold">
+
+	Socket
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1061">
+Once this object exists, it is possible to use it to communicate with the 
+server on the specified port using the protocol prescribed for the service being 
+delivered on that port. 
+
+</para>
+
+
+
+
+<para id="p1062">
+The constructor for this class throws two different types of exceptions so 
+you will need to wrap this statement in a try/catch block. The two types of 
+exceptions are:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1050">
+<emphasis id="strong1032" effect="bold">
+UnknownHostException
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1051">
+<emphasis id="strong1033" effect="bold">
+IOException
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1034" effect="bold">
+Get I/O stream objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+Once you have a 
+
+<emphasis id="strong1035" effect="bold">
+Socket
+
+</emphasis>
+ object, you can use that object to 
+open input and output streams that allow you to transfer data between the client 
+and the server using the code shown in 
+
+<link id="a1051" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get I/O stream objects.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+
+      PrintWriter outputStream = 
+                   new PrintWriter(new OutputStreamWriter(
+                           socket.getOutputStream()),true);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1065">
+Note that the 
+
+<emphasis id="strong1036" effect="bold">
+true
+
+</emphasis>
+ parameter in the last line of 
+
+<link id="a1052" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+causes the output stream to flush automatically. Proper flushing is an important 
+aspect of socket programming. 
+
+</para>
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1037" effect="bold">
+Send a line of text to the server and display the echo
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1067">
+The code in 
+
+<link id="a1053" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses the 
+
+<emphasis id="strong1038" effect="bold">
+outputStream
+
+</emphasis>
+ created above to 
+send a line of text to the server, and then uses the 
+
+<emphasis id="strong1039" effect="bold">
+inputStream
+
+</emphasis>
+ 
+created above to capture and display the echo that is returned from the server.
+
+
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Send a line of text to 
+				the server and display the echo.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+				
+
+<code id="pre1005" display="block">      //Send line of text to the server
+      outputStream.println("This is an echo test");
+      //Get echoed line back from server and display it
+      System.out.println("echo: "+inputStream.readLine());
+        
+      //Close the socket
+      socket.close();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1068">
+Then 
+
+<link id="a1054" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ closes the socket.
+
+</para>
+
+
+
+
+<para id="p1069">
+You can view the remainder of the program in 
+
+<link id="a1055" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1040" effect="bold">
+The essence of socket programming
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+That's really about all there is to socket programming from the 
+
+<emphasis id="em1021" effect="italics">
+client
+
+</emphasis>
+ 
+viewpoint. 
+
+</para>
+
+
+
+
+<para id="p1072">
+Beyond this, the programming complexity associated with socket programming 
+results from the requirement to implement an application protocol that will 
+successfully communicate with the server. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Datetime_program" effect="bold">
+
+Date/time program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+This program implements a 
+
+<emphasis id="em1022" effect="italics">
+client
+
+</emphasis>
+ that gets the date and time from 
+the 
+
+<emphasis id="em1023" effect="italics">
+daytime
+
+</emphasis>
+ port 
+
+<emphasis id="em1024" effect="italics">
+(13)
+
+</emphasis>
+ on a server that supports that port. 
+
+</para>
+
+
+
+
+<para id="p1074">
+This program is even simpler than the previous one, because it isn't 
+necessary to send anything to the server to get the desired result. All that is 
+necessary to cause the server to send the information is to make the 
+connection. 
+
+</para>
+
+
+
+
+<para id="p1075">
+This program gets and displays the date and time on the server at "
+
+<emphasis id="strong1041" effect="bold">
+localhost
+
+</emphasis>
+". 
+However, you can modify the program to access another computer in your network 
+if you choose to do so. It is not likely that you will find a server on the 
+Internet at large that still supports the 
+
+<emphasis id="em1025" effect="italics">
+daytime
+
+</emphasis>
+ port, but you can 
+try.
+
+</para>
+
+
+
+
+<para id="p1076">
+The program also displays the current date and time in Austin, TX 
+
+<emphasis id="em1026" effect="italics">
+(or 
+wherever the program happens to be run)
+
+</emphasis>
+ for comparison.
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1042" effect="bold">
+Beginning of the program named Java4660b
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+As usual, I will explain this program in fragments. A complete listing is 
+provided in 
+
+<link id="a1056" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1079">
+As shown in 
+
+<link id="a1057" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, program begins by instantiating a 
+
+<emphasis id="strong1043" effect="bold">
+String 
+
+</emphasis>
+object 
+containing the name of the server being used to test the program. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Beginning of the program 
+				named Java4660b.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Sockets04{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 13; //daytime port
+</code>
+
+
+				
+
+<code id="pre1007" display="block">    try{
+      //Get a socket, connected to the specified server
+      // on the specified port.
+      Socket socket = new Socket(server,port);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1080">
+This is followed by the declaration and initialization of an 
+
+<emphasis id="strong1044" effect="bold">
+int 
+
+</emphasis>
+variable identifying the standard 
+
+<emphasis id="em1027" effect="italics">
+daytime 
+
+</emphasis>
+port: port 13. 
+
+</para>
+
+
+
+
+<para id="p1081">
+Than the program gets a socket connection to port 13 on the specified server. 
+
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1045" effect="bold">
+Get an input stream
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+Following this, the program gets an input stream from the socket and wraps it 
+in the reader classes as shown in 
+
+<link id="a1058" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Get an input stream.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1008" display="block">      //Get an input stream from the socket
+      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1084">
+This program doesn't need an output stream because the client doesn't send 
+anything to the server. As mentioned earlier, simply connecting is sufficient to trigger the server to 
+send the date and time. 
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1046" effect="bold">
+Read and display incoming data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1086">
+After the connection is made via the socket and the input stream is ready to 
+use, the client reads a line of incoming text as shown in 
+
+<link id="a1059" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. This line of text contains the 
+date and time sent by the server. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Read and display incoming 
+				data.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1009" display="block">      System.out.println("Current time at " + server);
+      System.out.println(inputStream.readLine());
+      System.out.println("Current time in Austin, TX:");
+      System.out.println(new Date());
+        
+      //Close the socket
+      socket.close();
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1047" effect="bold">
+Daytime program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+The program displays this line of text, and also gets and displays the date 
+and time on the local system using the 
+
+<emphasis id="strong1048" effect="bold">
+Date 
+
+</emphasis>
+class for 
+comparison. 
+
+</para>
+
+
+	
+
+<para id="p1089">
+<link id="a1060" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ shows the output for one run of the program.
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Daytime program 
+				output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1010" display="block">
+Current time at localhost
+8:29:56 AM 1/12/2014
+Current time in Austin, TX:
+Sun Jan 12 08:29:56 CST 2014
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1090">
+Then the program closes the socket and terminates. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Simple_browser_program" effect="bold">
+
+Simple browser program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1091">
+The next program is an extremely simple web browser program. More correctly, 
+the next program is a simple HTTP client implemented using sockets. A complete 
+listing of the program is provided in 
+
+<link id="a1061" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1092">
+The program implements just enough of the HTTP protocol to make it capable of 
+getting a file from 
+an HTTP server. Considerably more programming effort would be required to turn 
+it into a useful browser. 
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1049" effect="bold">
+Beginning of the program named Java4660c
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+As shown in 
+
+<link id="a1062" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+, the program begins by defining the name of a server 
+and the number of the HTTP port on that server. Although the standard port 
+number for HTTP servers is port 80, this program is written to access a Tomcat 
+server as localhost using port 8080.
+
+</para>
+
+
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Beginning of the program 
+				named Java4660c.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1011" display="block">import java.net.*;
+import java.io.*;
+
+class Java4660c{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 8080; //http port on localhost
+    try{
+      //Get a socket, connected to the specified server
+      // on the specified port.
+      Socket socket = new Socket(server,port);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1095">
+Then the program opens a socket to the specified server on the specified 
+	port. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1050" effect="bold">
+Create input and output streams
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+As shown in 
+
+<link id="a1063" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+, the program creates input and output stream objects 
+for transferring data between the 
+
+<emphasis id="em1028" effect="italics">
+client
+
+</emphasis>
+ and the 
+
+<emphasis id="em1029" effect="italics">
+server
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Create input and output streams.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1012" display="block">      //Get an input stream from the socket
+      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+
+      //Get  an output stream to the socket.  Note
+      // that this stream will autoflush.
+      PrintWriter outputStream = 
+                   new PrintWriter(new OutputStreamWriter(
+                           socket.getOutputStream()),true);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1098">
+The output stream will 
+
+<emphasis id="em1030" effect="italics">
+autoflush
+
+</emphasis>
+, which is 
+critical. If the output stream isn't flushed, the server will not respond 
+properly. 
+
+<emphasis id="em1031" effect="italics">
+(Presumably it may not receive all of the data until the stream is 
+flushed.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1051" effect="bold">
+Send a GET command
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1100">
+The HTTP protocol provides several different commands or requests that the 
+client can send to the server. This program implements only the 
+
+<emphasis id="strong1052" effect="bold">
+GET
+
+</emphasis>
+ 
+command. This is a request by the client to find and download a specified file.
+
+</para>
+
+
+
+
+<para id="p1101">
+Then, as shown in 
+
+<link id="a1064" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+, acting as an HTTP client, the program sends a 
+
+<emphasis id="strong1053" effect="bold">
+GET 
+
+</emphasis>
+
+command to the server specifying a particular path and file name. The 
+
+<emphasis id="strong1054" effect="bold">
+
+GET
+
+</emphasis>
+ command is part of the HTTP application protocol. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Send a GET command.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1013" display="block">      outputStream.println("GET /Java4570b.jsp");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+
+<para id="p1102">
+<emphasis id="strong1055" effect="bold">
+Fetch and send
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1103">
+This causes the server to attempt to fetch the specified file and send it to 
+the client. If the server is being properly supported on the specific port, it 
+will send something, although that something could be an error message. 
+
+</para>
+
+
+
+
+<para id="p1104">
+Note that the request includes not only the file name, but also the path to 
+that file relative to the directory that the HTTP server software considers to 
+be the 
+
+<emphasis id="em1032" effect="italics">
+pseudo-root
+
+</emphasis>
+. This is probably not the actual root directory on 
+the server computer, but rather is a logical root. 
+
+</para>
+
+
+
+
+<para id="p1105">
+The server software is willing to access and deliver files from directories 
+relative to this 
+
+<emphasis id="em1033" effect="italics">
+pseudo-root
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1106">
+Note that the request is actually made by printing a line of text on the 
+stream that is connected to the server. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1056" effect="bold">
+Read and display text from the server
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+Finally as shown in 
+
+<link id="a1065" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+, the program reads lines of text from the 
+input stream and displays them on the standard output device. 
+
+</para>
+
+
+
+
+	
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - Read and display text from the server.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1014" display="block">      //Declare a String to read lines into.
+      String line = null;
+      
+      //Loop reading and displaying lines until null 
+      // is received.
+      while((line = inputStream.readLine()) != null) 
+        System.out.println(line);
+        
+      //Close the socket
+      socket.close();
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1109">
+<emphasis id="strong1057" effect="bold">
+Output from the simple browser program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1110">
+In this particular case, the output was as shown in 
+
+<link id="a1066" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Output from the 
+				simple browser program.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+							
+
+<code id="pre1015" display="block">&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4570b&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+
+
+
+&lt;form method='get'
+ action='http://localhost:8080/Java4570b.jsp'&gt;
+  &lt;p&gt;Enter a name and press the button&lt;/p&gt;
+  &lt;p&gt;Name: &lt;input type='text' name='firstName'/&gt;&lt;/p&gt;
+  &lt;input type='submit' value='Submit Name'/&gt;
+
+&lt;br/&gt;&lt;br/&gt;Your session ID and list of names is:&lt;br/&gt;
+
+Empty&lt;br/&gt;
+
+&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1111">
+<emphasis id="strong1058" effect="bold">
+A curious result
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1112">
+The requested file was a JSP file consisting of JSP tags embedded in HTML 
+	code. Curiously, only the HTML code was returned by the server. 
+
+<emphasis id="em1034" effect="italics">
+(I 
+	suppose it is also possible that the JSP tags were returned but were not 
+	displayed by the program for some reason.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+In any event, I will leave 
+	it as an exercise for those students who may be interested to research the 
+	matter. As I mentioned earlier:
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+"Getting the bytes to flow is the easy part. Beyond that, you must 
+do all of the programming to implement an application protocol that is 
+understood by both the 
+
+<emphasis id="em1035" effect="italics">
+client 
+
+</emphasis>
+and the 
+
+<emphasis id="em1036" effect="italics">
+server
+
+</emphasis>
+. Often that is 
+the more difficult part."
+
+</quote>
+
+
+
+
+<para id="p1114">
+When there are no more lines to be read, a null is received. This causes the 
+client to exit the input loop and to close the socket. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1115">
+I encourage you to copy the code from 
+
+<link id="a1067" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+, 
+
+<link id="a1068" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+, and 
+
+
+<link id="a1069" target-id="Listing_14">
+
+Listing 
+14
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1116">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1059" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1052">
+Module name: Java4660: Sockets
+
+</item>
+
+
+					
+
+<item id="li1053">
+File: Java4660.htm
+
+
+</item>
+
+
+					
+
+<item id="li1054">
+Published: 03/02/14
+
+</item>
+
+
+
+
+<item id="li1055">
+Revised: 02/07/16
+
+</item>
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1060" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1117">
+<emphasis id="strong1061" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1118">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1119">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1120">
+<emphasis id="strong1062" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1063" effect="bold">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - The program named Java4660a.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1016" display="block">
+/*File Java4660a.java Copyright 1998, R.G.Baldwin
+Revised 01/10/14
+
+This program performs a simple echo test with localhost
+by sending a line of text to the echo port, port 7.
+
+The computer must have been previously configured to 
+support the echo port.
+
+The output from this program is:
+  
+echo: This is an echo test
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Java4660a{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 7; //echo port
+    
+    try{
+      //Get a socket, connected to the specified server
+      // on the specified port.
+      Socket socket = new Socket(server,port);
+
+      //Get an input stream from the socket
+      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+
+      //Get  an output stream to the socket.  Note
+      // that this stream will autoflush.
+      PrintWriter outputStream = 
+                   new PrintWriter(new OutputStreamWriter(
+                           socket.getOutputStream()),true);
+
+      //Send line of text to the server
+      outputStream.println("This is an echo test");
+      //Get echoed line back from server and display it
+      System.out.println("echo: "+inputStream.readLine());
+        
+      //Close the socket
+      socket.close();
+    }//end try
+    catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end main
+}//end class Java4660a
+</code>
+
+
+
+
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1064" effect="bold">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - The program named 
+				Java4660b.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1017" display="block">
+/*File Sockets04.java Copyright 1998, R.G.Baldwin
+Revised 01/10/14
+
+This program gets and displays the date and time on the
+server at "localhost".
+
+It also displays the current date and time in Austin,
+TX, or wherever the program happens to be run.
+
+The computer must have been previously configured to 
+support the daytime port.
+
+One output from this program was:
+
+Current time at localhost
+2:39:55 PM 1/10/2014
+Current time in Austin, TX:
+Fri Jan 10 14:39:55 CST 2014  
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+import java.util.*;
+
+class Sockets04{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 13; //daytime port
+    
+    try{
+      //Get a socket, connected to the specified server
+      // on the specified port.
+      Socket socket = new Socket(server,port);
+      
+      //Get an input stream from the socket
+      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+      
+      System.out.println("Current time at " + server);
+      System.out.println(inputStream.readLine());
+      System.out.println("Current time in Austin, TX:");
+      System.out.println(new Date());
+        
+      //Close the socket
+      socket.close();
+    }//end try
+    catch(Exception e){
+      e.printStackTrace();
+    }//end catch UnknownHostException
+  }//end main
+}//end class Sockets04
+</code>
+
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1065" effect="bold">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+ - The program named 
+				Java4660c.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1018" display="block">
+/*File Java4660c.java Copyright 1998, R.G.Baldwin
+Revised 01/10/14
+
+This program is a simple http client (web browser)
+implemented using sockets.
+
+The program implements just enough of the http protocol
+to make it capable of getting an html page from an
+http server.
+
+The program, acting as an http client, sends a GET
+command to the server specifying a particular path and 
+file name.
+
+The server is a Tomcat server operating as localhost
+on port 8080.
+
+As of 01/10/14, the output from this program was as 
+follows.
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4570b&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+
+
+
+&lt;form method='get'
+ action='http://localhost:8080/Java4570b.jsp'&gt;
+  &lt;p&gt;Enter a name and press the button&lt;/p&gt;
+  &lt;p&gt;Name: &lt;input type='text' name='firstName'/&gt;&lt;/p&gt;
+  &lt;input type='submit' value='Submit Name'/&gt;
+
+&lt;br/&gt;&lt;br/&gt;Your session ID and list of names is:&lt;br/&gt;
+
+Empty&lt;br/&gt;
+
+&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+
+class Java4660c{
+  public static void main(String[] args){
+    String server = "localhost";
+    int port = 8080; //http port on localhost
+    try{
+      //Get a socket, connected to the specified server
+      // on the specified port.
+      Socket socket = new Socket(server,port);
+      //Get an input stream from the socket
+      BufferedReader inputStream = 
+                 new BufferedReader(new InputStreamReader(
+                                 socket.getInputStream()));
+
+      //Get  an output stream to the socket.  Note
+      // that this stream will autoflush.
+      PrintWriter outputStream = 
+                   new PrintWriter(new OutputStreamWriter(
+                           socket.getOutputStream()),true);
+      
+      //Send a GET command to the server
+      outputStream.println("GET /Java4570b.jsp");
+
+      //Declare a String to read lines into.
+      String line = null;
+      
+      //Loop reading and displaying lines until null 
+      // is received.
+      while((line = inputStream.readLine()) != null) 
+        System.out.println(line);
+        
+      //Close the socket
+      socket.close();
+    }//end try
+    catch(Exception e){
+      e.printStackTrace();
+    }//end catch 
+  }//end main
+}//end class Java4660c
+//=======================================================//
+</code>
+
+
+
+
+
+<para id="p1124">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

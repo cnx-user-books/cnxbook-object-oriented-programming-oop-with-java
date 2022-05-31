@@ -1,0 +1,2503 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3116 Java OOP Controlling an Edge Detector with a Slider</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44913</md:content-id>
+  <md:title>Java3116 Java OOP Controlling an Edge Detector with a Slider</md:title>
+  <md:abstract>Learn how to use a slider to continuously change the threshold detection level of an edge detector and to draw the edge-detected image on the screen.</md:abstract>
+  <md:uuid>30bc39ea-bc8d-4515-9fa8-5fbc6bd34160</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1011" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Contents of the file named Prob08.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output images. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Prob08Runner. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the constructor. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the edgeDetector method. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Detect using adjacent pixels in each column. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Register a ChangeEvent listener on the slider. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+An earlier module 
+
+<emphasis id="em1000" effect="italics">
+(see
+	
+
+<link id="a1020" url="http://www.developer.com/java/other/article.php/3798646/3D-Displays-Color-Distance-and-Edge-Detection.htm">
+
+
+	3D Displays, Color Distance, and Edge Detection
+
+</link>
+
+)
+
+</emphasis>
+ explained how to 
+	implement an edge detection algorithm for a fixed detection threshold.
+
+</para>
+
+
+
+
+<para id="p1004">
+The primary objective of this module is to illustrate how to use a slider to 
+continuously change the detection threshold of an edge detector and to draw the 
+edge-detected image on the screen.
+
+</para>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1000" effect="bold">
+Brief program specifications
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1006">
+Write a program named 
+
+<emphasis id="strong1001" effect="bold">
+Prob08
+
+</emphasis>
+ that uses the class definition 
+for the class named 
+
+<emphasis id="strong1002" effect="bold">
+Prob08
+
+</emphasis>
+ shown in
+
+
+<link id="a1021" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and Ericson's media library 
+along with the image file named 
+
+<link id="a1022" url="Prob08.jpg">
+
+Prob08.jpg
+
+</link>
+
+ 
+
+<emphasis id="em1001" effect="italics">
+(shown 
+in 
+
+<link id="a1023" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+ to produce the two graphic 
+output images shown in 
+
+<link id="a1024" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Contents of the file named Prob08.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/image-a-75de.jpg" width="211" height="249"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+<para id="p1009">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Output images.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/image-b-eac7.jpg" width="223" height="373"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1011">
+Note that 
+
+<link id="a1025" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ consists of two 
+separate output images. The image containing the slider is positioned 
+directly below the image of the butterfly.
+
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1005" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named
+
+
+<emphasis id="strong1006" effect="bold">
+Prob08
+
+</emphasis>
+ given in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1007" effect="bold">
+The output images
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1015">
+The top image shown in 
+
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is an 
+image of a butterfly to which an edge detection algorithm has been applied.
+
+</para>
+
+
+
+
+<para id="p1016">
+The bottom image in 
+
+<link id="a1028" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is a slider 
+that is used to control the edge-detection threshold.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1008" effect="bold">
+Detect by rows and by columns
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+The edge-detection algorithm performs edge detection on a 
+
+<emphasis id="strong1009" effect="bold">
+Picture
+
+</emphasis>
+ 
+object by rows and also by columns.
+
+</para>
+
+
+
+
+<para id="p1019">
+All edges that are detected by processing adjacent pixels on a row are marked 
+in red. All edges that are detected by processing adjacent pixels on a 
+column are marked in black.
+
+</para>
+
+
+
+
+<para id="p1020">
+If a pixel is determined to be on an edge using both approaches, it ends up 
+being black. If an edge is not detected, the corresponding pixel is marked 
+in white.
+
+</para>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1010" effect="bold">
+Program behavior
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+At startup, the thumb on the slider is positioned at the 50-percent mark and 
+the image has been edge-detected using a threshold value of 50.
+
+</para>
+
+
+
+
+<para id="p1023">
+As you move the slider to the right, the threshold value increases up to a 
+value of 100, which in turn causes the amount of white area in the image to 
+increase.
+
+</para>
+
+
+
+
+<para id="p1024">
+As you move the slider to the left, the threshold value decreases down to a 
+value of zero, which in turn causes the amount of white area in the image to 
+decrease.
+
+</para>
+
+
+
+
+<para id="p1025">
+The program must terminate and return control to the operating system when 
+you click the large X in the upper-right corner of the GUI containing the 
+slider.
+
+</para>
+
+
+
+
+<para id="p1026">
+In addition to the output images described above, your program must display 
+your name on the command-line screen.
+
+</para>
+
+
+	
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="The_class_named_Prob08" effect="bold">
+
+The class named Prob08
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+You can view the driver class named 
+
+<emphasis id="strong1011" effect="bold">
+Prob08
+
+</emphasis>
+ at the beginning 
+of the source code in 
+
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. You 
+are already familiar with the code in the 
+
+<emphasis id="strong1012" effect="bold">
+main
+
+</emphasis>
+ method of that 
+class from earlier modules so I won't spend any time explaining it.
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1013" effect="bold">
+Brief description
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+Briefly, the 
+
+<emphasis id="strong1014" effect="bold">
+main
+
+</emphasis>
+ method instantiates a new object of the 
+class named 
+
+<emphasis id="strong1015" effect="bold">
+Prob08Runner
+
+</emphasis>
+ and calls the 
+
+<emphasis id="strong1016" effect="bold">
+run
+
+</emphasis>
+ 
+method on that object. When the 
+
+<emphasis id="strong1017" effect="bold">
+run
+
+</emphasis>
+ method returns, the 
+GUI shown in 
+
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ has been displayed on 
+the screen.
+
+</para>
+
+
+
+
+<para id="p1030">
+At that point, the program simply goes into an idle state and waits for the 
+user to take some action that causes an event to be fired. When an event 
+is fired, it is handled and the program goes idle again waiting for another 
+event.
+
+</para>
+
+
+
+	
+
+<para id="p1031">
+<emphasis id="em1002" effect="italics">
+(Because there are images on the screen, the program does not 
+	terminate until the user forces it to terminate.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_class_named_Prob08Runner" effect="bold">
+
+The class named Prob08Runner
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1018" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+I will explain this program in fragments. A complete listing of the 
+program is provided in 
+
+<link id="a1031" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the 
+end of the module.
+
+</para>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1019" effect="bold">
+Beginning of the class named Prob08Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The class named
+
+
+<emphasis id="strong1020" effect="bold">
+Prob08Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1032" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the class named Prob08Runner. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class Prob08Runner extends JFrame{
+
+  private JPanel mainPanel = new JPanel();
+  private JPanel titlePanel = new JPanel();
+  private JSlider slider = new JSlider();
+
+  private Picture butterfly = 
+                         new Picture("Prob08.jpg");
+
+  private int butterflyWidth = 
+                              butterfly.getWidth();
+  private int butterflyHeight = 
+                             butterfly.getHeight();
+
+  private Picture display =
+       new Picture(butterflyWidth,butterflyHeight);
+
+  private Pixel pix1;
+  private Pixel pix2;
+  private Pixel displayPixel;
+
+  private double distance = 0;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1036">
+There is nothing in 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ that 
+	I haven't explained in earlier modules, so I won't repeat those explanations 
+	here.
+
+</para>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1021" effect="bold">
+Beginning of the constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+The constructor begins in 
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the constructor. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  public Prob08Runner(){//constructor
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    slider.setMajorTickSpacing(10);
+    slider.setMinorTickSpacing(5);
+    slider.setPaintTicks(true);
+    slider.setPaintLabels(true);
+
+    mainPanel.setLayout(new BorderLayout());
+    titlePanel.add(new JLabel(
+                      "Edge Detection Threshold"));
+    mainPanel.add(titlePanel,BorderLayout.NORTH);
+    mainPanel.add(slider,BorderLayout.CENTER);
+
+    getContentPane().add(mainPanel);
+    
+    setSize(butterflyWidth + 7,97);
+    setLocation(0,butterflyHeight + 25);
+    setVisible(true);
+
+    //Produce the initial display with a threshold
+    // value of 50, which matches the initial
+    // position of the pointer on the slider.
+    display = edgeDetector(butterfly,50);
+
+    display.show();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1022" effect="bold">
+Put the constructor on hold
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+The only thing that is new in 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+is the call to the method named 
+
+<emphasis id="strong1023" effect="bold">
+edgeDetector
+
+</emphasis>
+. I will put 
+the explanation of the constructor on hold while I explain the method named
+
+
+<emphasis id="strong1024" effect="bold">
+edgeDetector
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1025" effect="bold">
+Beginning of the edgeDetector method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+The 
+
+<emphasis id="strong1026" effect="bold">
+edgeDetector
+
+</emphasis>
+ method begins in
+
+
+<link id="a1036" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1043">
+This method performs edge detection on a 
+
+<emphasis id="strong1027" effect="bold">
+Picture
+
+</emphasis>
+ object by 
+rows and also by columns.
+
+</para>
+
+
+
+
+<para id="p1044">
+As mentioned earlier, all edges that are detected by processing adjacent 
+pixels on a row are marked in red.
+
+</para>
+
+
+
+
+<para id="p1045">
+All edges that are detected by processing adjacent pixels on a column are 
+marked in black.
+
+</para>
+
+
+
+
+<para id="p1046">
+If a pixel is determined to be on an edge using both approaches, it ends up 
+being black.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the edgeDetector method. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">  private Picture edgeDetector(
+                      Picture picture,int threshold){
+    for(int row = 0;row &lt; butterflyHeight - 1;row++){
+      for(int col = 0;col &lt; butterflyWidth - 1;col++){
+        pix1 = picture.getPixel(col,row);
+        displayPixel = display.getPixel(col,row);
+
+        //First process two adjacent pixels on the
+        // same row.
+        pix2 = picture.getPixel(col + 1,row);
+
+        //Get and save the color distance between the
+        // two pixels.
+        distance = pix1.colorDistance(pix2.getColor());
+
+        //Compare the color distance to the threshold
+        // and set the color of the pixel in the
+        // display picture accordingly.
+        if(distance &gt; threshold){
+          displayPixel.setColor(Color.RED);
+        }else{
+          displayPixel.setColor(Color.WHITE);
+        }//end else
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1047">
+<emphasis id="strong1028" effect="bold">
+A pair of nested for loops
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the beginning of a pair 
+of nested 
+
+<emphasis id="strong1029" effect="bold">
+for
+
+</emphasis>
+ loops that I used to detect the edges in the 
+image of the butterfly. The code in 
+
+<link id="a1038" target-id="Listing_3">
+
+
+Listing 3
+
+</link>
+
+ detects edges using adjacent pixels on each row and sets the color 
+of the corresponding pixel in the output picture to red if an edge is detected.
+
+</para>
+
+
+
+	
+
+<para id="p1049">
+<emphasis id="em1003" effect="italics">
+(Note that the output picture referred to by 
+
+<emphasis id="strong1030" effect="bold">
+display
+
+</emphasis>
+ 
+	was instantiated as an instance variable in
+	
+
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1050">
+I explained an edge-detection algorithm in great detail in an earlier module 
+titled
+
+
+<link id="a1040" url="http://www.developer.com/java/other/article.php/3798646/3D-Displays-Color-Distance-and-Edge-Detection.htm">
+
+
+3D Displays, Color Distance, and Edge Detection
+
+</link>
+
+. The code in
+
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is essentially an implementation 
+of that algorithm where the detection threshold is an input parameter to the 
+method.
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1031" effect="bold">
+Detect using adjacent pixels in each column
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ detects edges using adjacent 
+pixels on the columns.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Detect using adjacent pixels in each column. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">        //Now process two adjacent pixels in the same
+        // column using the same approach.
+        pix2 = picture.getPixel(col,row + 1);
+        distance = pix1.colorDistance(pix2.getColor());
+        //Compare the color distance to the threshold
+        // and change pixel color accordingly.
+        if(distance &gt; threshold){
+          displayPixel.setColor(Color.BLACK);
+        }//end if
+
+      }//end inner loop
+    }//end outer loop
+
+    return display;
+  }//end edgeDetector
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1053">
+If an edge is detected in 
+
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, 
+	the color of the corresponding pixel in the output picture is set to black.
+
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1032" effect="bold">
+Return the output picture and terminate
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+The 
+
+<emphasis id="strong1033" effect="bold">
+edgeDetector
+
+</emphasis>
+ method returns a reference to the output 
+picture and terminates in 
+
+<link id="a1044" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1056">
+<emphasis id="em1004" effect="italics">
+(While writing this, I realized that because the variable named
+	
+
+<emphasis id="strong1034" effect="bold">
+display
+
+</emphasis>
+ is an instance variable, the program would also 
+	work properly if the 
+
+<emphasis id="strong1035" effect="bold">
+edgeDetector
+
+</emphasis>
+ method were to return 
+	void.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1036" effect="bold">
+Returning to the constructor...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+Returning to where we left off in 
+
+<link id="a1045" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, 
+the 
+
+<emphasis id="strong1037" effect="bold">
+show
+
+</emphasis>
+ method is called on the output picture referred to by
+
+
+<emphasis id="strong1038" effect="bold">
+display
+
+</emphasis>
+ causing an image similar to that shown in
+
+
+<link id="a1046" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ to be displayed.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1039" effect="bold">
+Register a ChangeEvent listener on the slider
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ registers an anonymous 
+listener object on the slider. Each time the slider fires a 
+
+<emphasis id="strong1040" effect="bold">
+
+ChangeEvent
+
+</emphasis>
+, the method named 
+
+<emphasis id="strong1041" effect="bold">
+stateChanged
+
+</emphasis>
+ is 
+executed.
+
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Register a ChangeEvent listener on the slider. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    slider.addChangeListener(
+      new ChangeListener(){
+        public void stateChanged(ChangeEvent e){
+
+          display = edgeDetector(
+                      butterfly,slider.getValue());
+          display.repaint();
+
+        }//end stateChanged
+      }//end new ChangeListener
+    );//end addChangeListener
+    //----------------------------------------------//
+  }//end constructor
+  //------------------------------------------------//
+}//end class Prob08Runner
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+<emphasis id="strong1042" effect="bold">
+Call the edgeDetector method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+The 
+
+<emphasis id="strong1043" effect="bold">
+stateChanged
+
+</emphasis>
+ method calls the 
+
+<emphasis id="strong1044" effect="bold">
+edgeDetector
+
+</emphasis>
+ 
+method to get a new edge-detected image for which the threshold is the current 
+value of the slider.
+
+</para>
+
+
+
+
+<para id="p1063">
+Then the display is repainted showing the new image on the screen.
+
+</para>
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1045" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+<link id="a1048" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ also signals the end of the 
+constructor, the end of the class, and the end of the program.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1066">
+I encourage you to copy the code from 
+
+<link id="a1049" target-id="Listing_6">
+
+
+Listing 6
+
+</link>
+
+. Compile the code and execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that 
+you can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1067">
+In this module, you learned how to use a slider to continuously change the 
+threshold detection level of an edge detector and to draw the edge-detected 
+image on the screen.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+In the next module, you will learn how to use a slider to continuously change the size of an image and to draw the scaled image onto a background image.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1069">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1046" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1005" list-type="bulleted">
+
+					
+
+<item id="li1019">
+Module name: Java OOP: Controlling an Edge Detector with a Slider
+
+</item>
+
+
+					
+
+<item id="li1020">
+File: Java3116.htm
+
+
+</item>
+
+
+					
+
+<item id="li1021">
+Published: 05/13/12
+
+</item>
+
+
+
+
+<item id="li1022">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1047" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1070">
+<emphasis id="strong1048" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1071">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1072">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1073">
+<emphasis id="strong1049" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1050" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1050" effect="bold">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Complete program listing.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1005" display="block">/*File Prob08 Copyright 2008 R.G.Baldwin
+ *Revised 12/31/08
+
+*********************************************************/
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JLabel;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+public class Prob08{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob08Runner();
+  }//end main method
+}//end class Prob08
+//======================================================//
+
+class Prob08Runner extends JFrame{
+
+  private JPanel mainPanel = new JPanel();
+  private JPanel titlePanel = new JPanel();
+  private JSlider slider = new JSlider();
+
+  private Picture butterfly = new Picture("Prob08.jpg");
+
+  private int butterflyWidth = butterfly.getWidth();
+  private int butterflyHeight = butterfly.getHeight();
+
+  private Picture display =
+              new Picture(butterflyWidth,butterflyHeight);
+
+  private Pixel pix1;
+  private Pixel pix2;
+  private Pixel displayPixel;
+
+  private double distance = 0;
+
+  public Prob08Runner(){//constructor
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    slider.setMajorTickSpacing(10);
+    slider.setMinorTickSpacing(5);
+    slider.setPaintTicks(true);
+    slider.setPaintLabels(true);
+
+    mainPanel.setLayout(new BorderLayout());
+    titlePanel.add(new JLabel(
+                             "Edge Detection Threshold"));
+    mainPanel.add(titlePanel,BorderLayout.NORTH);
+    mainPanel.add(slider,BorderLayout.CENTER);
+
+    getContentPane().add(mainPanel);
+    
+    setSize(butterflyWidth + 7,97);
+    setLocation(0,butterflyHeight + 25);
+    setVisible(true);
+
+    //Produce the initial display with a threshold value
+    // of 50, which matches the initial position of the
+    // pointer on the slider.
+    display = edgeDetector(butterfly,50);
+
+    display.show();
+    //--------------------------------------------------//
+    //Register an anonymous listener object on the slider.
+    //Each time the slider fires a ChangeEvent, this event
+    // handler calls the edgeDetector method to get a new
+    // edge-detected image for which the threshold is the
+    // current value of the slider. Then the display is
+    // repainted showing the new image.
+    slider.addChangeListener(
+      new ChangeListener(){
+        public void stateChanged(ChangeEvent e){
+
+          display = edgeDetector(
+                             butterfly,slider.getValue());
+          display.repaint();
+
+        }//end stateChanged
+      }//end new ChangeListener
+    );//end addChangeListener
+    //--------------------------------------------------//
+  }//end constructor
+  //----------------------------------------------------//
+  /*This method performs edge detection on a Picture
+   *object by rows and also by columns.
+   *All edges that are detected by processing adjacent
+   *pixels on a row are marked in red.
+   *All edges that are detected by processing adjacent
+   *pixels on a column are marked in black.
+   *If a pixel is determined to be on an edge using both
+   *approaches, it ends up being black.
+  */
+
+  private Picture edgeDetector(
+                           Picture picture,int threshold){
+    for(int row = 0;row &lt; butterflyHeight - 1;row++){
+      for(int col = 0;col &lt; butterflyWidth - 1;col++){
+        pix1 = picture.getPixel(col,row);
+        displayPixel = display.getPixel(col,row);
+
+        //First process two adjacent pixels on the same
+        // row.
+        pix2 = picture.getPixel(col + 1,row);
+
+        //Get and save the color distance between the two
+        // pixels.
+        distance = pix1.colorDistance(pix2.getColor());
+
+        //Compare the color distance to the threshold and
+        // set the color of the pixel in the display
+        // picture accordingly.
+        if(distance &gt; threshold){
+          displayPixel.setColor(Color.RED);
+        }else{
+          displayPixel.setColor(Color.WHITE);
+        }//end else
+
+        //Now process two adjacent pixels in the same
+        // column using the same approach.
+        pix2 = picture.getPixel(col,row + 1);
+        distance = pix1.colorDistance(pix2.getColor());
+        //Compare the color distance to the threshold and
+        // change pixel color accordingly.
+        if(distance &gt; threshold){
+          displayPixel.setColor(Color.BLACK);
+        }//end if
+
+      }//end inner loop
+    }//end outer loop
+
+    return display;
+  }//end edgeDetector
+}//end class Prob08Runner
+</code>
+
+
+
+	
+
+<para id="p1076">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

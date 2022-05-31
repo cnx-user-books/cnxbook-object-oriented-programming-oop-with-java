@@ -1,0 +1,4727 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4210r: Review of Getting Started</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47555</md:content-id>
+  <md:title>Java4210r: Review of Getting Started</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java4210: Getting Started with Generics</md:abstract>
+  <md:uuid>e4a844b1-b453-4b5a-914e-561d979543c5</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 17:31:29 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="question07">
+
+Question 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="question08">
+
+Question 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="question09">
+
+Question 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="question10">
+
+Question 10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="question11">
+
+Question 11
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="question12">
+
+Question 12
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="question13">
+
+Question 13
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1021">
+<link id="a1021" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1022">
+<link id="a1022" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1023">
+<link id="a1023" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1024">
+<link id="a1024" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1025">
+<link id="a1025" target-id="answer09">
+
+Answer 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1026">
+<link id="a1026" target-id="answer08">
+
+Answer 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1027">
+<link id="a1027" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1028">
+<link id="a1028" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1029">
+<link id="a1029" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1030">
+<link id="a1030" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1031">
+<link id="a1031" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1032">
+<link id="a1032" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1033">
+<link id="a1033" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1034">
+<link id="a1034" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled
+
+
+<link id="a1035" url="http://cnx.org/contents/Rl23r3Lw:Ss0r2-1m">
+
+Java4210: Getting Started with Generics
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+True or False: When Java version 1.5 was released, it contained many new 
+language features, including:
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1035">
+Generics
+
+</item>
+
+
+	
+
+<item id="li1036">
+Enhanced for Loop
+
+</item>
+
+
+	
+
+<item id="li1037">
+Autoboxing/Unboxing
+
+</item>
+
+
+	
+
+<item id="li1038">
+Collections
+
+</item>
+
+
+	
+
+<item id="li1039">
+Typesafe Enums
+
+</item>
+
+
+	
+
+<item id="li1040">
+Varargs
+
+</item>
+
+
+	
+
+<item id="li1041">
+Static Import
+
+</item>
+
+
+	
+
+<item id="li1042">
+Metadata
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1005">
+<link id="a1036" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+True or False: Using Java version1.7, the code shown in 
+
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+will compile without warnings, errors, or other messages being generated by the 
+compiler.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Question 2
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File Q02.java 
+************************************************/
+
+import java.util.*;
+
+public class Q02{
+  
+  ArrayList var1 = new ArrayList();
+
+  void runIt(){
+    var1.add(new Date());
+    //Note the required cast in the following
+    // statement.
+    System.out.println(
+                  ((Date)var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new Q02().runIt();
+  }//end main
+  
+}//end class Q02
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1007">
+<link id="a1038" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+Generics was introduced in Java v1.5 to provide which of the 
+following:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1043">
+A. Code simplicity
+
+</item>
+
+
+	
+
+<item id="li1044">
+B. Compile-time type safety
+
+</item>
+
+
+	
+
+<item id="li1045">
+C. A clear and straightforward code syntax.
+
+</item>
+
+
+	
+
+<item id="li1046">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+<link id="a1039" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False: The use of generics is limited to the Java Collections 
+framework.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1040" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False: The Java v1.7 compiler produces an error message when 
+an attempt is made to compile the code shown in 
+
+<link id="a1041" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1042" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+True or False: When the code in 
+
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is 
+compiled using the 
+
+<emphasis id="strong1001" effect="bold">
+-Xlint:unchecked
+
+</emphasis>
+ switch with Java v1.7, the compiler 
+produces:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1047">
+A. An error message
+
+</item>
+
+
+	
+
+<item id="li1048">
+B. A warning
+
+</item>
+
+
+	
+
+<item id="li1049">
+C. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1015">
+<link id="a1044" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+True or False: The program code shown in 
+
+<link id="a1045" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+will compile and execute successfully to produce an output similar to that shown 
+in 
+
+<link id="a1046" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Question 7.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">/*File Q07.java 
+************************************************/
+
+import java.util.*;
+
+public class Q07{
+  
+  ArrayList var1 = new ArrayList();
+
+  void runIt(){
+    var1.add(new Date());
+    System.out.println(
+                  (var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new Q07().runIt();
+  }//end main
+  
+}//end class Q07
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Question 7.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+1378054267172
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1017">
+<link id="a1047" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+What modification must be made to the code shown in 
+
+<link id="a1048" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+ to cause it to compile and execute successfully?
+
+</para>
+
+
+
+
+
+
+
+<para id="p1019">
+<link id="a1049" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+True or False: The program code shown in 
+
+<link id="a1050" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+will compile and execute successfully to produce an output similar to that shown 
+in 
+
+<link id="a1051" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">
+/*File Q09.java 
+************************************************/
+
+import java.util.*;
+
+public class Q09{
+  
+  ArrayList var1 = new ArrayList();
+  
+  void runIt(){
+    var1.add(new Date());
+    var1.add("abcd");
+    System.out.println(
+                  ((Date)var1.get(1)).getTime());
+    System.out.println(
+                 ((String)var1.get(1)).length());
+  }//end runIt
+
+  public static void main(String[] args){
+    new Q09().runIt();
+  }//end main
+  
+}//end class Q09
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">
+1378056276557
+4
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1021">
+<link id="a1052" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+The code shown in 
+
+<link id="a1053" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ will not compile and run 
+successfully. Without using a cast operator, what changes can you make to the 
+class named Q10 to cause the program to compile and run successfully and to 
+produce the current time in milliseconds?
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Question 10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">
+/*File Q10.java 
+************************************************/
+
+import java.util.*;
+
+public class Q10{
+  
+  ArrayList var1 = new ArrayList();
+
+  void runIt(){
+    var1.add(new Date());
+    //Note the required cast in the following
+    // statement.
+    System.out.println(
+                  (var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new Q10().runIt();
+  }//end main
+  
+}//end class Q10
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1023">
+<link id="a1054" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+True or False: Using Java v1.7, even with the empty angle brackets shown in 
+the instantiation of the ArrayList object in 
+
+<link id="a1055" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, the program in 
+
+
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+will compile and run successfully with no notes, warnings, errors, or other 
+complaints from the compiler. The program will produce an output similar to that 
+shown in 
+
+<link id="a1057" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Question 11.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">
+/*File Q11.java 
+************************************************/
+
+import java.util.*;
+
+public class Q11{
+  
+  ArrayList &lt;Date&gt; var1 = new ArrayList&lt;&gt;();
+
+  void runIt(){
+    var1.add(new Date());
+    //Note the required cast in the following
+    // statement.
+    System.out.println(
+                  (var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new Q11().runIt();
+  }//end main
+  
+}//end class Q11
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Question 11.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">
+1378059224125
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1025">
+<link id="a1058" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+True or False: The program shown in 
+
+<link id="a1059" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ will 
+compile and run successfully producing an output similar to that shown in
+
+
+<link id="a1060" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Question 12.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">
+/*File Q12.java 
+************************************************/
+
+import java.util.*;
+
+public class Q12{
+  
+  ArrayList &lt;Date&gt; var1 = new ArrayList&lt;Date&gt;();
+  
+  void runIt(){
+    var1.add("abcd");
+
+    System.out.println(var1.get(0).getTime());
+  }//end runIt
+
+  public static void main(String[] args){
+    new Q12().runIt();
+  }//end main
+
+}//end class Q12
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Question 12.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">
+1378060513651
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+<link id="a1061" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+True or False: The code shown in 
+
+<link id="a1062" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ will 
+compile and run successfully and produce the output shown in 
+
+<link id="a1063" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Question 13.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">
+/*File Q13.java
+************************************************/
+
+import java.util.*;
+
+public class Q13{
+  ArrayList &lt;Integer&gt; var1 = new ArrayList&lt;Integer&gt;();
+  
+  void runIt(){
+  
+    var1.add(new Integer(1));
+    var1.add(new Integer(2));
+    var1.add(new Integer(3));
+    
+    //Get an iterator
+    Iterator iter = var1.iterator();
+    
+    //Perform the iteration
+    while(iter.hasNext()){
+      System.out.println(iter.next().intValue());
+    }//end while loop
+    
+  }//end runIt
+  
+  public static void main(String[] args){
+    new Q13().runIt();
+  }//end main
+  
+}//end class Q13
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Question 13.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+
+
+<code id="pre1011" display="block">
+1
+2
+3
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1029">
+<link id="a1064" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+
+
+	
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1050">
+<link id="a1065" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Question 7
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1066" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Question 9. 
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1067" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Question 11.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1068" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Question 12.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1069" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Question 13.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1070" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Answer 13.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1071" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Answer 12.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1072" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Answer 10.
+
+</item>
+
+
+		
+
+<item id="li1058">
+<link id="a1073" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Answer 9.
+
+</item>
+
+
+		
+
+<item id="li1059">
+<link id="a1074" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+. Answer 7.
+
+</item>
+
+
+		
+
+<item id="li1060">
+<link id="a1075" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. Answer 6.
+
+</item>
+
+
+		
+
+<item id="li1061">
+<link id="a1076" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+. Answer 2.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1062">
+<link id="a1077" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 2.
+
+</item>
+
+
+		
+
+<item id="li1063">
+<link id="a1078" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 7. 
+
+</item>
+
+
+		
+
+<item id="li1064">
+<link id="a1079" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 9.
+
+</item>
+
+
+		
+
+<item id="li1065">
+<link id="a1080" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 10.
+
+</item>
+
+
+		
+
+<item id="li1066">
+<link id="a1081" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 11.
+
+</item>
+
+
+		
+
+<item id="li1067">
+<link id="a1082" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 12.
+
+</item>
+
+
+		
+
+<item id="li1068">
+<link id="a1083" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Question 13.
+
+</item>
+
+
+		
+
+<item id="li1069">
+<link id="a1084" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Answer 13.
+
+</item>
+
+
+		
+
+<item id="li1070">
+<link id="a1085" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Answer 10.
+
+</item>
+
+
+		
+
+<item id="li1071">
+<link id="a1086" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Answer 8.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1002" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1032">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<section id="h21013">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+False. This program produces the error shown in 
+
+<link id="a1087" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ below. You must 
+qualify the iterator as shown in 
+
+<link id="a1088" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ to correct 
+the error. If you don't qualify the iterator, the reference is retrieved from 
+the list as type Object. The Object class neither defines nor inherits a 
+method named intValue.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Answer 13.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1012" display="block">
+/*File A13.java 
+************************************************/
+
+import java.util.*;
+
+public class A13{
+  ArrayList &lt;Integer&gt; var1 = new ArrayList&lt;Integer&gt;();
+	
+  void runIt(){
+  
+    var1.add(new Integer(1));
+    var1.add(new Integer(2));
+    var1.add(new Integer(3));
+    
+    //Get an iterator
+    Iterator &lt;Integer&gt; iter = var1.iterator();
+    
+    //Perform the iteration
+    while(iter.hasNext()){
+      System.out.println(iter.next().intValue());
+    }//end while loop
+    
+  }//end runIt
+  
+  public static void main(String[] args){
+    new Q13().runIt();
+  }//end main
+
+}//end class A13
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Answer 13.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1013" display="block">
+Q13.java:22: error: cannot find symbol
+                        System.out.println(iter.next().intValue());
+                                                      ^
+  symbol:   method intValue()
+  location: class Object
+1 error
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1035">
+<link id="a1089" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+False. This program produces the compiler error shown in 
+
+<link id="a1090" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ below. This 
+is the result of attempting to store an object's reference of type String in a 
+collection reserved exclusively for references to objects of type Date.
+
+</para>
+
+
+
+
+	
+
+<table id="table1014" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Answer 12.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+
+
+<code id="pre1014" display="block">
+Q12.java:13: error: no suitable method found for add(String)
+    var1.add("abcd");
+        ^
+    method ArrayList.add(int,Date) is not applicable
+      (actual and formal argument lists differ in length)
+    method ArrayList.add(Date) is not applicable
+      (actual argument String cannot be converted to Date by method invocation
+      conversion)
+1 error
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1037">
+<link id="a1091" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+True. Updates made in Java v1.7 eliminated the requirement to insert the name 
+of a type in those angle brackets in order to make the compiler happy.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<link id="a1092" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+One solution is to add the generic syntax shown in the class named A10 in 
+
+
+<link id="a1093" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ below. This will cause the program to compile and execute 
+successfully producing an output similar to that shown in 
+
+<link id="a1094" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1015" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Answer 10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+
+
+<code id="pre1015" display="block">
+/*File A10.java 
+************************************************/
+
+import java.util.*;
+
+public class A10{
+  
+  ArrayList &lt;Date&gt; var1 = new ArrayList&lt;Date&gt;();
+
+  void runIt(){
+    var1.add(new Date());
+    //Note the required cast in the following
+    // statement.
+    System.out.println(
+                  (var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new A10().runIt();
+  }//end main
+  
+}//end class A10
+//=============================================//
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1016" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Answer 10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+
+
+<code id="pre1016" display="block">
+1378058466149
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1041">
+<link id="a1095" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1042">
+False: The program produces the runtime error shown in 
+
+<link id="a1096" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ below. The 
+(Date) cast is applied to the contents of the element at index 1. However, that 
+element contains a reference to an object of type String. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1017" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Answer 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+
+
+<code id="pre1017" display="block">
+Exception in thread "main" java.lang.ClassCastException: java.lang.String cannot
+ be cast to java.util.Date
+        at Q09.runIt(Q09.java:15)
+        at Q09.main(Q09.java:22)
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1043">
+<link id="a1097" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1044">
+The program must be updated to include the cast operator (Date) shown in 
+
+
+<link id="a1098" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1018" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1018">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="th1018">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Answer 8.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1018">
+
+
+
+<code id="pre1018" display="block">/*File Q08.java 
+************************************************/
+
+import java.util.*;
+
+public class Q08{
+  
+  ArrayList var1 = new ArrayList();
+
+  void runIt(){
+    var1.add(new Date());
+    //Note the required cast in the following
+    // statement.
+    System.out.println(
+                  ((Date)var1.get(0)).getTime());
+
+  }//runIt
+
+  public static void main(String[] args){
+    new Q08().runIt();
+  }//end main
+  
+}//end class Q08
+//=============================================//
+
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1045">
+<link id="a1099" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+False: This program produces the compiler error shown in 
+
+<link id="a1100" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+	
+
+<table id="table1019" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1019">
+
+			
+
+<row id="tr1038">
+
+				
+
+<entry id="th1019">
+<emphasis id="Figure_10" effect="bold">
+
+Figure 10
+
+</emphasis>
+
+ - Answer 7.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1039">
+
+				
+
+<entry id="td1019">
+
+
+
+<code id="pre1019" display="block">
+Q07.java:17: error: cannot find symbol
+                  (var1.get(0)).getTime());
+                               ^
+  symbol:   method getTime()
+  location: class Object
+Note: Q07.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 error
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1047">
+<link id="a1101" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+B. A warning
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The compiler output is shown in 
+
+<link id="a1102" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+ below:
+
+</para>
+
+
+
+
+	
+
+<table id="table1020" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1020">
+
+			
+
+<row id="tr1040">
+
+				
+
+<entry id="th1020">
+<emphasis id="Figure_11" effect="bold">
+
+Figure 11
+
+</emphasis>
+
+ - Answer 6.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1041">
+
+				
+
+<entry id="td1020">
+
+
+
+<code id="pre1020" display="block">
+Q02.java:13: warning: [unchecked] unchecked call to add(E) as a member of the raw
+type ArrayList
+    var1.add(new Date());
+            ^
+  where E is a type-variable:
+    E extends Object declared in class ArrayList
+1 warning
+</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1050">
+<link id="a1103" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+False. Two notes are displayed. However, the messages produced by the Java v1.7 compiler in this cases are neither 
+error messages nor warnings. Instead they are simply notes. The notes provide 
+instructions on how to recompile and get more information regarding a potential 
+problem.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<link id="a1104" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+False. The tentacles of generics reach into many different areas of Java in 
+very complex ways including:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1072">
+Generic methods
+
+</item>
+
+
+	
+
+<item id="li1073">
+Generic classes
+
+</item>
+
+
+	
+
+<item id="li1074">
+Raw types
+
+</item>
+
+
+	
+
+<item id="li1075">
+Wildcards
+
+</item>
+
+
+	
+
+<item id="li1076">
+Generics and inheritance
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1054">
+<link id="a1105" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21023">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1055">
+B. Compile-time type safety
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<link id="a1106" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+False: An attempt to compile the program using the Java v1.7 compiler 
+produces an output similar to that shown in 
+
+<link id="a1107" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1021" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1021">
+
+			
+
+<row id="tr1042">
+
+				
+
+<entry id="th1021">
+<emphasis id="Figure_12" effect="bold">
+
+Figure 12
+
+</emphasis>
+
+ - Answer 2.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1043">
+
+				
+
+<entry id="td1021">
+
+
+
+<code id="pre1021" display="block">
+Note: Q02.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+</code>
+
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1058">
+<link id="a1108" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21025">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1059">
+False. The Collections framework was not new in Java v1.5. It was 
+available long before version 1.5 was released. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<link id="a1109" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1061">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1003" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1010" list-type="bulleted">
+
+				
+
+<item id="li1077">
+Module name: Java4210r Review
+
+</item>
+
+
+				
+
+<item id="li1078">
+File: Java4210r.htm 
+
+</item>
+
+
+				
+
+<item id="li1079">
+Published: 09/01/13
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1004" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1062">
+<emphasis id="strong1005" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1063">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1064">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1065">
+<emphasis id="strong1006" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1066">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

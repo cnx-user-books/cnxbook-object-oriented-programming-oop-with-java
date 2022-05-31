@@ -1,0 +1,4371 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4070: The Comparable Interface, Part 1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46142</md:content-id>
+  <md:title>Java4070: The Comparable Interface, Part 1</md:title>
+  <md:abstract>This is the first module in a sub-collection on the Comparable interface. The purpose of the modules in the sub-collection is to teach you about the interactions between the Comparable interface and the Collections Framework, particularly with respect to the Set, SortedSet, and SortedMap interfaces of the Collections Framework. This module explains the (lack of) interaction between the Comparable interface and the Java Collections Framework with respect to collections of type List.</md:abstract>
+  <md:uuid>2f7aa066-65a6-43ce-9b7e-ef85ef99c8df</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed Apr 06 13:05:35 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Specialization">
+
+Specialization
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="To_cast_or_not_to_cast_">
+
+To cast, or not to cast
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Comparable_not_required_for_a_List_">
+
+Comparable interface not required for a List
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="We_will_begin_with_a_quiz">
+
+We will begin with a quiz
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1012">
+<link id="a1012" target-id="What_caused_the_compiler_error">
+
+What caused the compiler error?
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1013">
+<link id="a1013" target-id="Implements_Collection_and_List_">
+
+Implements Collection and 
+		List 
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="Specialization_">
+
+Specialization
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Modified_program">
+
+Modified program
+
+</link>
+
+
+<list id="ul1007" list-type="bulleted">
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="The_corrected_code">
+
+The corrected code
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1017">
+<link id="a1017" target-id="Casting_to_type_List">
+
+Casting to type List
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="The_List_contract_for_the_add_method_">
+
+The List contract for the add method
+
+</link>
+
+
+<list id="ul1008" list-type="bulleted">
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="Controlling_the_locations_of_the_elements">
+
+Controlling the locations of the elements
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="Add_method_actually_does_an_insert">
+
+Add method actually does an insert
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="An_aside_regarding_the_Vector_class">
+
+The Vector class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="More_on_the_List_contract_">
+
+More on the List contract 
+		
+
+</link>
+
+ 
+		
+
+<list id="ul1009" list-type="bulleted">
+
+			
+
+<item id="li1023">
+<link id="a1023" target-id="Duplicates_are_allowed_in_a_List_">
+
+Duplicates are allowed in a List
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="One_more_sample_program">
+
+One more sample program
+
+</link>
+
+
+<list id="ul1010" list-type="bulleted">
+
+			
+
+<item id="li1025">
+<link id="a1025" target-id="No_need_to_cast_to_type_List">
+
+No need to cast to type List
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="What_happened_to_the_Comparable_interface">
+
+What happened to the Comparable interface?
+
+</link>
+
+
+<list id="ul1011" list-type="bulleted">
+
+			
+
+<item id="li1027">
+<link id="a1027" target-id="Comparable_interface_is_not_required_for_a_List">
+
+Comparable interface is not required for a List
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1028">
+<link id="a1028" target-id="No_requirement_to_compare">
+
+No requirement to compare 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1029">
+<link id="a1029" target-id="Comparison_is_required">
+
+Comparison is required for a SortedSet 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1031" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1032" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java 
+
+<emphasis id="em1003" effect="italics">
+Collections Framework
+
+</emphasis>
+ in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This is also the first module in a sub-collection on the 
+
+<emphasis id="strong1000" effect="bold">
+Comparable
+
+</emphasis>
+ interface. The purpose of the modules in 
+this sub-collection is to teach you about the interactions between the 
+
+
+<emphasis id="strong1001" effect="bold">
+Comparable
+
+</emphasis>
+ interface and the Collections Framework, particularly with respect to the 
+
+
+<emphasis id="strong1002" effect="bold">
+Set
+
+</emphasis>
+, 
+
+<emphasis id="strong1003" effect="bold">
+SortedSet
+
+</emphasis>
+, and 
+
+<emphasis id="strong1004" effect="bold">
+SortedMap
+
+</emphasis>
+ interfaces of the Collections Framework.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+This module also explains the 
+
+<emphasis id="em1004" effect="italics">
+(lack of)
+
+</emphasis>
+ interaction between the 
+
+<emphasis id="strong1005" effect="bold">
+Comparable
+
+</emphasis>
+ interface and the Java Collections Framework with respect to collections of type 
+
+
+<emphasis id="strong1006" effect="bold">
+List
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1034" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1035" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1034">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named Comparable01. 
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The code with the problem. 
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The program named Comparable02. 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The corrected code. 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Display using an iterator. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The program named Comparable03.
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. No need to cast to type List. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+In this module, I will begin discussing the interaction between the 
+
+<emphasis id="strong1007" effect="bold">
+
+Comparable
+
+</emphasis>
+  interface and the Collections Framework. 
+
+</para>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+The code in this module is written with no thought given to 
+
+
+<link id="a1043" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+Generics
+
+</link>
+
+. As a 
+result, if you copy and compile this code, you will probably get a warning about 
+
+<emphasis id="em1005" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this course. Therefore, for 
+purposes of this course, you can simply ignore those warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Specialization" effect="bold">
+
+Specialization
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1010">
+I will provide a concrete example of the specialization that occurs while 
+moving down the interface hierarchy from 
+
+<emphasis id="strong1008" effect="bold">
+Collection
+
+</emphasis>
+ to 
+
+<emphasis id="strong1009" effect="bold">
+List
+
+</emphasis>
+. I 
+will show an example of using two different overloaded versions of the 
+
+<emphasis id="strong1010" effect="bold">
+add
+
+</emphasis>
+ 
+method to add new elements to an 
+
+<emphasis id="strong1011" effect="bold">
+ArrayList
+
+</emphasis>
+ object. One version is 
+declared in the 
+
+<emphasis id="strong1012" effect="bold">
+Collection
+
+</emphasis>
+ interface and both versions are declared in 
+the 
+
+<emphasis id="strong1013" effect="bold">
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="To_cast_or_not_to_cast_" effect="bold">
+
+To cast, or not to cast 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1011">
+I will illustrate the use of a 
+
+<emphasis id="em1006" effect="italics">
+cast
+
+</emphasis>
+ to change the type of a reference 
+from 
+
+<emphasis id="strong1014" effect="bold">
+Collection
+
+</emphasis>
+ to 
+
+<emphasis id="strong1015" effect="bold">
+List
+
+</emphasis>
+, in order to call a version of the 
+
+<emphasis id="strong1016" effect="bold">
+add
+
+</emphasis>
+ 
+method that is declared only in the 
+
+<emphasis id="strong1017" effect="bold">
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+This version of the program, 
+
+<emphasis id="em1007" effect="italics">
+
+(in which the 
+
+<emphasis id="strong1018" effect="bold">
+add
+
+</emphasis>
+ method actually does an insert)
+
+</emphasis>
+ makes it possible for the user to control 
+the location of each individual element added to a 
+
+<emphasis id="strong1019" effect="bold">
+List
+
+</emphasis>
+. The fact that 
+the location of each element can be controlled in a 
+
+<emphasis id="strong1020" effect="bold">
+List
+
+</emphasis>
+ is what causes a
+
+
+<emphasis id="strong1021" effect="bold">
+List
+
+</emphasis>
+ to be an 
+
+<emphasis id="em1008" effect="italics">
+ordered
+
+</emphasis>
+ collection. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+I will illustrate that a cast is not required on a reference being treated as 
+type 
+
+<emphasis id="strong1022" effect="bold">
+Collection
+
+</emphasis>
+ in order to call the version of the 
+
+<emphasis id="strong1023" effect="bold">
+add
+
+</emphasis>
+ method 
+that is declared in the 
+
+<emphasis id="strong1024" effect="bold">
+Collection
+
+</emphasis>
+ interface. This version of the 
+
+<emphasis id="strong1025" effect="bold">
+add
+
+</emphasis>
+ 
+method supports the addition of new elements only at the end of the 
+
+<emphasis id="strong1026" effect="bold">
+List
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Comparable_not_required_for_a_List_" effect="bold">
+
+Comparable interface not required for a List
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1014">
+Finally, I will show that it is not necessary for objects to implement the 
+
+<emphasis id="strong1027" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface to make them eligible for inclusion in a 
+
+<emphasis id="strong1028" effect="bold">
+List
+
+</emphasis>
+. I 
+will tell you that it is necessary for objects to implement the 
+
+<emphasis id="strong1029" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface to make them eligible for inclusion in a 
+
+<emphasis id="strong1030" effect="bold">
+SortedSet
+
+</emphasis>
+, although I 
+won't demonstrate that in this module. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21005">
+<title>
+<emphasis id="We_will_begin_with_a_quiz" effect="bold">
+
+We will begin with a quiz
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1015">
+Let's begin with a quiz to test your prior knowledge of the 
+Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1044" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1041">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1042">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+C. 44321
+
+</item>
+
+
+	
+
+<item id="li1044">
+D. 4321
+
+</item>
+
+
+	
+
+<item id="li1045">
+E. 1234
+
+</item>
+
+
+	
+
+<item id="li1046">
+F. 12344
+
+</item>
+
+
+	
+
+<item id="li1047">
+G. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1031" effect="bold">
+The program named Comparable01.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">//File Comparable01.java
+
+import java.util.*;
+
+public class Comparable01{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparable01
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+
+    ref = new ArrayList();
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(0,new MyClass(4));
+    ref.add(1,new MyClass(4));
+    ref.add(2,new MyClass(3));
+    ref.add(3,new MyClass(2));
+    ref.add(4,new MyClass(1));
+  }//end fillIt()
+}//end class Populator
+
+class MyClass{
+  int data;
+
+  MyClass(){
+    data = 0;
+  }//end noarg constructor
+
+  MyClass(int data){
+    this.data = data;
+  }//end parameterized constructor
+
+  public String toString(){
+    return "" + data;
+  }//end overridden toString()
+
+}//end MyClass
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1017">
+If your answer was 
+
+<emphasis id="strong1032" effect="bold">
+A. Compiler Error
+
+</emphasis>
+, you were correct. 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="What_caused_the_compiler_error" effect="bold">
+
+What caused the compiler error?
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1018">
+The compiler error was caused by the code shown in 
+
+<link id="a1045" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The code with the problem.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">  public static void fillIt(Collection ref){
+    ref.add(0,new MyClass(4));
+</code>
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1019">
+The problem here is that the method named 
+
+<emphasis id="strong1033" effect="bold">
+fillIt
+
+</emphasis>
+ receives a 
+reference to an object of the 
+
+<emphasis id="strong1034" effect="bold">
+ArrayList
+
+</emphasis>
+ class as the interface type 
+
+<emphasis id="strong1035" effect="bold">
+
+Collection
+
+</emphasis>
+, and attempts to call the following overloaded method on that 
+reference: 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1036" effect="bold">
+add(int index, Object element)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+However, the 
+
+<emphasis id="strong1037" effect="bold">
+Collection
+
+</emphasis>
+ interface knows nothing about a method having 
+that signature.
+
+</para>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Implements_Collection_and_List_" effect="bold">
+
+Implements Collection and List 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1022">
+The 
+
+<emphasis id="strong1038" effect="bold">
+ArrayList
+
+</emphasis>
+ class implements both the 
+
+<emphasis id="strong1039" effect="bold">
+Collection
+
+</emphasis>
+ interface 
+and the 
+
+<emphasis id="strong1040" effect="bold">
+List
+
+</emphasis>
+ interface. As you may recall from earlier modules 
+in this series, 
+
+<emphasis id="strong1041" effect="bold">
+List
+
+</emphasis>
+ is a sub-interface of 
+
+<emphasis id="strong1042" effect="bold">
+Collection
+
+</emphasis>
+. The 
+
+<emphasis id="strong1043" effect="bold">
+List
+
+</emphasis>
+ 
+interface declares the following overloaded versions of the 
+
+<emphasis id="strong1044" effect="bold">
+add
+
+</emphasis>
+ method:
+
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1048">
+<emphasis id="strong1045" effect="bold">
+add(Object o)
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1049">
+<emphasis id="strong1046" effect="bold">
+add(int index, Object element)
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1023">
+The second of these two methods, which is called in 
+
+<link id="a1046" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+, is unknown to the 
+
+<emphasis id="strong1047" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. The 
+
+<emphasis id="strong1048" effect="bold">
+Collection
+
+</emphasis>
+ interface declares only the first version of 
+the 
+
+<emphasis id="strong1049" effect="bold">
+add
+
+</emphasis>
+ method shown above. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Specialization_" effect="bold">
+
+Specialization 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+This is the result of specialization. A 
+
+<emphasis id="strong1050" effect="bold">
+List
+
+</emphasis>
+ object is a 
+more-specialized collection than a 
+
+<emphasis id="strong1051" effect="bold">
+Collection
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Therefore, the version of the 
+
+<emphasis id="strong1052" effect="bold">
+add
+
+</emphasis>
+ method that requires two parameter 
+cannot be called on a reference to an 
+
+<emphasis id="strong1053" effect="bold">
+ArrayList
+
+</emphasis>
+ object when that object 
+is treated as the generic type 
+
+<emphasis id="strong1054" effect="bold">
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Modified_program" effect="bold">
+
+Modified program
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+Now, take a look at the modified version of the program as shown in 
+
+
+<link id="a1047" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+What output is produced by the program shown in 
+
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1050">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1051">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1052">
+C. 44321
+
+</item>
+
+
+	
+
+<item id="li1053">
+D. 4321
+
+</item>
+
+
+	
+
+<item id="li1054">
+E. 1234
+
+</item>
+
+
+	
+
+<item id="li1055">
+F. 12344
+
+</item>
+
+
+	
+
+<item id="li1056">
+G. 443521
+
+</item>
+
+
+	
+
+<item id="li1057">
+H. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1002">
+
+
+
+<row id="tr1004">
+
+
+
+<entry id="th1002">
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1055" effect="bold">
+The program named Comparable02.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1002">
+
+
+
+<row id="tr1005">
+
+
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">//File Comparable02.java
+
+import java.util.*;
+
+public class Comparable02{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparable02
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+
+    ref = new ArrayList();
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ((List)ref).add(0,new MyClass(4));
+    ((List)ref).add(1,new MyClass(4));
+    ((List)ref).add(2,new MyClass(3));
+    ((List)ref).add(3,new MyClass(2));
+    ((List)ref).add(4,new MyClass(1));
+    ((List)ref).add(3,new MyClass(5));
+  }//end fillIt()
+}//end class populator
+
+class MyClass{
+  int data;
+
+  MyClass(){
+    data = 0;
+  }//end noarg constructor
+
+  MyClass(int data){
+    this.data = data;
+  }//end parameterized constructor
+
+  public String toString(){
+    return "" + data;
+  }//end overridden toString()
+
+}//end MyClass</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1028">
+If your answer was 
+
+<emphasis id="strong1056" effect="bold">
+G. 443521
+
+</emphasis>
+, you are correct. 
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="The_corrected_code" effect="bold">
+
+The corrected code
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1029">
+This version of the program illustrates a mechanism for correcting 
+the problem in the earlier program shown in 
+
+<link id="a1049" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The updated code that 
+corrected the problem is shown in 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The corrected 
+				code.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">class Populator{
+  public static void fillIt(Collection ref){
+    ((List)ref).add(0,new MyClass(4));
+    ((List)ref).add(1,new MyClass(4));
+    ((List)ref).add(2,new MyClass(3));
+    ((List)ref).add(3,new MyClass(2));
+    ((List)ref).add(4,new MyClass(1));
+    ((List)ref).add(3,new MyClass(5));
+  }//end fillIt()
+}//end class populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1030">
+The incoming parameter to the 
+
+<emphasis id="strong1057" effect="bold">
+fillIt 
+
+</emphasis>
+method in 
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is a 
+reference to an object instantiated from the 
+
+<emphasis id="strong1058" effect="bold">
+ArrayList
+
+</emphasis>
+ class. That 
+reference is passed to the 
+
+<emphasis id="strong1059" effect="bold">
+fillIt
+
+</emphasis>
+ method as type 
+
+<emphasis id="strong1060" effect="bold">
+Collection
+
+</emphasis>
+, which is legal because the 
+
+<emphasis id="strong1061" effect="bold">
+
+ArrayList
+
+</emphasis>
+ class implements both the 
+
+<emphasis id="strong1062" effect="bold">
+Collection
+
+</emphasis>
+ interface and the 
+
+<emphasis id="strong1063" effect="bold">
+
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Casting_to_type_List" effect="bold">
+
+Casting to type List
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1031">
+The code in 
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses a cast to temporarily convert the incoming reference from type
+
+
+<emphasis id="strong1064" effect="bold">
+Collection
+
+</emphasis>
+ to type 
+
+<emphasis id="strong1065" effect="bold">
+List
+
+</emphasis>
+. Because the version of the 
+
+<emphasis id="strong1066" effect="bold">
+add
+
+</emphasis>
+ 
+method that is used in 
+
+<link id="a1053" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is declared in the 
+
+<emphasis id="strong1067" effect="bold">
+List
+
+</emphasis>
+ interface, and 
+because the 
+
+<emphasis id="strong1068" effect="bold">
+ArrayList
+
+</emphasis>
+ class correctly implements the 
+
+<emphasis id="strong1069" effect="bold">
+List
+
+</emphasis>
+ 
+interface, that version of the 
+
+<emphasis id="strong1070" effect="bold">
+add
+
+</emphasis>
+ method can be called on the reference 
+to the 
+
+<emphasis id="strong1071" effect="bold">
+ArrayList
+
+</emphasis>
+ object when it is treated as the interface type 
+
+<emphasis id="strong1072" effect="bold">
+List
+
+</emphasis>
+. 
+Hopefully this is review material for you at this point. If not, you may need to 
+go back and study some of my earlier modules. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21007">
+<title>
+<emphasis id="The_List_contract_for_the_add_method_" effect="bold">
+
+The List contract for the add method
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1032">
+<link id="a1054" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also illustrates part of the contract for this version of the 
+
+<emphasis id="strong1073" effect="bold">
+
+add
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1074" effect="bold">
+List
+
+</emphasis>
+ interface. This version of the 
+
+<emphasis id="strong1075" effect="bold">
+add
+
+</emphasis>
+ 
+method makes it possible to specify the position of each element added to the 
+
+<emphasis id="strong1076" effect="bold">
+
+ArrayList
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1009" effect="italics">
+(A List is an ordered collection because the user has 
+control over the location of each element in the collection relative to the 
+other elements in the collection.)
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="Controlling_the_locations_of_the_elements" effect="bold">
+
+Controlling the locations of the elements
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1033">
+In 
+
+<link id="a1055" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, the elements are added to the 
+
+<emphasis id="strong1077" effect="bold">
+ArrayList
+
+</emphasis>
+ object in 
+increasing element order during the first five invocations of the 
+
+<emphasis id="strong1078" effect="bold">
+add
+
+</emphasis>
+ 
+method. However, the sixth invocation of the 
+
+<emphasis id="strong1079" effect="bold">
+add
+
+</emphasis>
+ method adds a new 
+element at index position 3. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Add_method_actually_does_an_insert" effect="bold">
+
+Add method actually does an insert
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1034">
+A portion of the contract for this version of the 
+
+<emphasis id="strong1080" effect="bold">
+add
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1081" effect="bold">
+
+List
+
+</emphasis>
+ interface is as follows:
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1010" effect="italics">
+"Inserts the specified element at the specified position in this list 
+	(optional operation). Shifts the element currently at that position (if any) 
+	and any subsequent elements to the right (adds one to their indices)."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1035">
+Thus, the new element is inserted at that position, and the other elements 
+are pushed up, as required, toward higher index values to make room for the new 
+element. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21008">
+<title>
+<emphasis id="An_aside_regarding_the_Vector_class" effect="bold">
+
+The Vector class
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1036">
+Here is an interesting side note. The Java 
+
+<emphasis id="strong1082" effect="bold">
+Vector
+
+</emphasis>
+ class has been around 
+longer than the Collections Framework. Somewhere along the way, the 
+
+<emphasis id="strong1083" effect="bold">
+Vector
+
+</emphasis>
+ 
+class was upgraded to cause it to become a concrete implementation of the 
+
+<emphasis id="strong1084" effect="bold">
+
+Collection
+
+</emphasis>
+ interface and the 
+
+<emphasis id="strong1085" effect="bold">
+List
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+As a result of the upgrade, the 
+
+<emphasis id="strong1086" effect="bold">
+Vector
+
+</emphasis>
+ class now provides an 
+implementation of the 
+
+<emphasis id="strong1087" effect="bold">
+add
+
+</emphasis>
+ method described above. Except for the order of 
+the parameters, that 
+
+<emphasis id="strong1088" effect="bold">
+add 
+
+</emphasis>
+method appears to have the same behavior as the 
+older method named: 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1089" effect="bold">
+insertElementAt(Object elem, int index)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+You can insert elements into a 
+
+<emphasis id="strong1090" effect="bold">
+Vector
+
+</emphasis>
+ object by calling the 
+
+<emphasis id="strong1091" effect="bold">
+add
+
+</emphasis>
+ 
+method on that object while treating it as type 
+
+<emphasis id="strong1092" effect="bold">
+List
+
+</emphasis>
+. However, since the 
+older 
+
+<emphasis id="strong1093" effect="bold">
+insertElementAt
+
+</emphasis>
+ method is not declared in the 
+
+<emphasis id="strong1094" effect="bold">
+List
+
+</emphasis>
+ 
+interface, you cannot insert an element into the 
+
+<emphasis id="strong1095" effect="bold">
+Vector
+
+</emphasis>
+ object by 
+calling the 
+
+<emphasis id="strong1096" effect="bold">
+insertElementAt
+
+</emphasis>
+ method while treating it as a 
+
+<emphasis id="strong1097" effect="bold">
+List
+
+</emphasis>
+. 
+In order to call that method, you must treat it as type 
+
+<emphasis id="strong1098" effect="bold">
+Vector
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="More_on_the_List_contract_" effect="bold">
+
+More on the List contract 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1040">
+Another portion of the contract for a 
+
+<emphasis id="strong1099" effect="bold">
+List
+
+</emphasis>
+ object is that the 
+
+<emphasis id="strong1100" effect="bold">
+
+iterator
+
+</emphasis>
+ method
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<emphasis id="em1011" effect="italics">
+"Returns an iterator over the elements in this list in proper sequence."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1041">
+As a result, the code shown in 
+
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, along with the overridden 
+
+<emphasis id="strong1101" effect="bold">
+
+toString
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1102" effect="bold">
+MyClass
+
+</emphasis>
+ class causes the program to display 
+the elements in the following order: 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1103" effect="bold">
+443521
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Display using 
+				an iterator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="Duplicates_are_allowed_in_a_List_" effect="bold">
+
+Duplicates are allowed in a List
+
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1043">
+One final thing that is worthy of note in this program is that a 
+
+<emphasis id="strong1104" effect="bold">
+List
+
+</emphasis>
+ 
+objects allows duplicates. Hence, the populated collection contains references 
+to two separate 
+objects that are equal to one another in the sense that they both contain the 
+same values in their instance variables. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="One_more_sample_program" effect="bold">
+
+One more sample program
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1044">
+Let's take a look at one more sample program. What output is produced by the 
+program shown in 
+
+<link id="a1057" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1058">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1059">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1060">
+C. 44321
+
+</item>
+
+
+	
+
+<item id="li1061">
+D. 4321
+
+</item>
+
+
+	
+
+<item id="li1062">
+E. 1234
+
+</item>
+
+
+	
+
+<item id="li1063">
+F. 12344
+
+</item>
+
+
+	
+
+<item id="li1064">
+G. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1005">
+
+
+
+<row id="tr1010">
+
+
+
+<entry id="th1005">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1105" effect="bold">
+The program named Comparable03.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1005">
+
+
+
+<row id="tr1011">
+
+
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">//File Comparable03.java
+
+import java.util.*;
+
+public class Comparable03{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparable03
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+
+    ref = new ArrayList();
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(3));
+    ref.add(new MyClass(2));
+    ref.add(new MyClass(1));
+  }//end fillIt()
+}//end class populator
+
+class MyClass{
+  int data;
+
+  MyClass(){
+    data = 0;
+  }//end noarg constructor
+
+  MyClass(int data){
+    this.data = data;
+  }//end parameterized constructor
+
+  public String toString(){
+    return "" + data;
+  }//end overridden toString()
+
+}//end MyClass
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1045">
+If you selected 
+
+<emphasis id="strong1106" effect="bold">
+C. 44321
+
+</emphasis>
+, you are correct. 
+
+</para>
+
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="No_need_to_cast_to_type_List" effect="bold">
+
+No need to cast to type List
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1046">
+As shown in 
+
+<link id="a1058" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, this program takes a different approach to solving the 
+problem originally exposed in the program shown in 
+
+<link id="a1059" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. No need to 
+				cast to type List.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">class Populator{
+  public static void fillIt(
+                       Collection ref){
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(3));
+    ref.add(new MyClass(2));
+    ref.add(new MyClass(1));
+  }//end fillIt()
+}//end class populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1047">
+This program does not change the type of the incoming reference to the 
+
+<emphasis id="strong1107" effect="bold">
+
+ArrayList
+
+</emphasis>
+ object in the 
+
+<emphasis id="strong1108" effect="bold">
+fillIt
+
+</emphasis>
+ method. Rather, it continues to treat 
+the incoming reference as type 
+
+<emphasis id="strong1109" effect="bold">
+Collection
+
+</emphasis>
+, and calls the version of the
+
+
+<emphasis id="strong1110" effect="bold">
+add
+
+</emphasis>
+ method that is declared in the 
+
+<emphasis id="strong1111" effect="bold">
+Collection
+
+</emphasis>
+ interface. This 
+avoids the requirement to cast the incoming reference to type 
+
+<emphasis id="strong1112" effect="bold">
+List
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The contract for this version of the 
+
+<emphasis id="strong1113" effect="bold">
+add
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1114" effect="bold">
+List
+
+</emphasis>
+ 
+interface is
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1012" effect="italics">
+"Appends the specified element to the end of this list (optional 
+	operation)."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1049">
+As a result, the new elements are added to the collection in increasing index 
+order. Since an iterator on a 
+
+<emphasis id="strong1115" effect="bold">
+List
+
+</emphasis>
+ returns the elements in increasing 
+index order, this program displays the elements in the same order that they are 
+added. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="What_happened_to_the_Comparable_interface" effect="bold">
+
+What happened to the Comparable interface?
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1050">
+By now, you are probably wondering what all of this has to do with the 
+
+<emphasis id="strong1116" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface, because I haven't mentioned that interface since the 
+introductory comments at the beginning of the module. 
+
+</para>
+
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="Comparable_interface_is_not_required_for_a_List" effect="bold">
+
+Comparable interface is not required for a List
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1051">
+Actually, the purpose of this module is to illustrate 
+
+<emphasis id="strong1117" effect="bold">
+<emphasis id="em1013" effect="italics">
+the lack of
+
+</emphasis>
+</emphasis>
+ any 
+requirement to make use of the 
+
+<emphasis id="strong1118" effect="bold">
+Comparable
+
+</emphasis>
+ interface with 
+
+<emphasis id="strong1119" effect="bold">
+List
+
+</emphasis>
+ 
+objects. In particular, the purpose is to illustrate that this is one of the 
+features that differentiates between a 
+
+<emphasis id="strong1120" effect="bold">
+List
+
+</emphasis>
+ object and a 
+
+<emphasis id="strong1121" effect="bold">
+Set
+
+</emphasis>
+ or 
+
+<emphasis id="strong1122" effect="bold">
+
+SortedSet
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+A 
+
+<emphasis id="strong1123" effect="bold">
+List
+
+</emphasis>
+ can be used as a container for other objects regardless of 
+whether or not those objects implement the 
+
+<emphasis id="strong1124" effect="bold">
+Comparable
+
+</emphasis>
+ interface. However, 
+in the next module, we will see that objects must implement the 
+
+<emphasis id="strong1125" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface in order to be eligible for inclusion in collections that implement 
+the 
+
+<emphasis id="strong1126" effect="bold">
+SortedSet
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+This and the next several modules are intended to provide you with an 
+understanding of the interaction between the 
+
+<emphasis id="strong1127" effect="bold">
+Comparable
+
+</emphasis>
+ interface, the 
+
+<emphasis id="strong1128" effect="bold">
+Comparator
+
+</emphasis>
+ 
+interface, and the Collections Framework. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="No_requirement_to_compare" effect="bold">
+
+No requirement to compare
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1054">
+Because a 
+
+<emphasis id="strong1129" effect="bold">
+List
+
+</emphasis>
+ makes no attempt to eliminate duplicate elements, or to 
+sort the elements on the basis of their values, there is no requirement to 
+
+<emphasis id="em1014" effect="italics">
+
+compare
+
+</emphasis>
+ objects when placing them in a 
+
+<emphasis id="strong1130" effect="bold">
+List
+
+</emphasis>
+. Therefore, objects whose 
+references are stored in a 
+
+<emphasis id="strong1131" effect="bold">
+List
+
+</emphasis>
+ are not required to implement the 
+
+<emphasis id="strong1132" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface 
+
+<emphasis id="em1015" effect="italics">
+(but they may implement the Comparable interface 
+without causing any harm)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Comparison_is_required" effect="bold">
+
+Comparison is required
+
+</emphasis>
+
+ for a SortedSet 
+
+
+</title>
+
+
+
+
+<para id="p1055">
+Because a 
+
+<emphasis id="strong1133" effect="bold">
+SortedSet
+
+</emphasis>
+ does eliminate duplicates and does sort the 
+elements on the basis of their values, there is a requirement to 
+
+<emphasis id="em1016" effect="italics">
+compare
+
+</emphasis>
+ 
+each new element with the existing elements in a 
+
+<emphasis id="strong1134" effect="bold">
+SortedSet
+
+</emphasis>
+ whenever a new 
+element is added to the collection. Therefore, objects whose references are 
+stored in a 
+
+<emphasis id="strong1135" effect="bold">
+SortedSet
+
+</emphasis>
+ are required to implement the 
+
+<emphasis id="strong1136" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1056">
+I encourage you to copy the code from 
+
+<link id="a1060" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+
+<link id="a1061" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, and 
+
+<link id="a1062" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+Paste the code into your Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+In this module, I began discussing the interaction between the 
+
+<emphasis id="strong1137" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface and the Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+I provided a concrete example of the specialization that occurs when moving 
+down the interface hierarchy from 
+
+<emphasis id="strong1138" effect="bold">
+Collection
+
+</emphasis>
+ to 
+
+<emphasis id="strong1139" effect="bold">
+List
+
+</emphasis>
+. I showed an 
+example of using two different overloaded versions of the 
+
+<emphasis id="strong1140" effect="bold">
+add
+
+</emphasis>
+ method to 
+add new elements to an 
+
+<emphasis id="strong1141" effect="bold">
+ArrayList
+
+</emphasis>
+ object. One version is declared in the
+
+
+<emphasis id="strong1142" effect="bold">
+Collection
+
+</emphasis>
+ interface and both versions are declared in the 
+
+<emphasis id="strong1143" effect="bold">
+List
+
+</emphasis>
+ 
+interface. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+I illustrated the use of a 
+
+<emphasis id="em1017" effect="italics">
+cast
+
+</emphasis>
+ to change the type of a reference from
+
+
+<emphasis id="strong1144" effect="bold">
+Collection
+
+</emphasis>
+ to 
+
+<emphasis id="strong1145" effect="bold">
+List
+
+</emphasis>
+, in order to call a version of the 
+
+<emphasis id="strong1146" effect="bold">
+add
+
+</emphasis>
+ 
+method that is declared only in the 
+
+<emphasis id="strong1147" effect="bold">
+List
+
+</emphasis>
+ interface. This version makes it 
+possible for the user to control the location of each individual element added 
+to a 
+
+<emphasis id="strong1148" effect="bold">
+List
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+I illustrated that a cast is not required on a reference being treated as 
+type 
+
+<emphasis id="strong1149" effect="bold">
+Collection
+
+</emphasis>
+ in order to call the version of the 
+
+<emphasis id="strong1150" effect="bold">
+add
+
+</emphasis>
+ method 
+that is declared in the 
+
+<emphasis id="strong1151" effect="bold">
+Collection
+
+</emphasis>
+ interface. This version of the 
+
+<emphasis id="strong1152" effect="bold">
+add
+
+</emphasis>
+ 
+method supports the addition of new elements only at the end of the 
+
+<emphasis id="strong1153" effect="bold">
+List
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Finally, I explained that it is not necessary for objects to implement the 
+
+<emphasis id="strong1154" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface to make them eligible for inclusion in a 
+
+<emphasis id="strong1155" effect="bold">
+List
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1063">
+Although I didn't demonstrate it, I told you that it is necessary for objects 
+to implement the 
+
+<emphasis id="strong1156" effect="bold">
+Comparable
+
+</emphasis>
+ interface to make them eligible for inclusion 
+in a 
+
+<emphasis id="strong1157" effect="bold">
+SortedSet
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+The next module will begin exploring the interaction 
+between the 
+
+<emphasis id="strong1158" effect="bold">
+Comparable
+
+</emphasis>
+ interface and the 
+
+<emphasis id="strong1159" effect="bold">
+SortedSet
+
+</emphasis>
+ interface of 
+the 
+
+<emphasis id="em1018" effect="italics">
+Collections Framework.
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1160" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1017" list-type="bulleted">
+
+					
+
+<item id="li1065">
+Module name: Java4070: The Comparable Interface, Part 1
+
+</item>
+
+
+					
+
+<item id="li1066">
+File: Java4070.htm
+
+
+</item>
+
+
+					
+
+<item id="li1067">
+Published: 04/19/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1161" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1066">
+<emphasis id="strong1162" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1067">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1068">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1069">
+<emphasis id="strong1163" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1070">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

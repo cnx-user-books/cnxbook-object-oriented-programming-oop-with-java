@@ -1,0 +1,2533 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0160: Java OOP: Hello World</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45143</md:content-id>
+  <md:title>Jb0160: Java OOP: Hello World</md:title>
+  <md:abstract>A traditional Hello World in Java provides interesting insights into the structure of a Java application.</md:abstract>
+  <md:uuid>c130688d-b8fc-4501-8992-929dbd35df2b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Sep 03 18:11:42 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="The_Java_version_of_Hello_World">
+
+The Java version of Hello World
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="General_information">
+
+General information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1002">
+It is traditional in introductory programming courses to write and explain a 
+simple program that prints the text 
+
+<emphasis id="strong1000" effect="bold">
+<emphasis id="em1003" effect="italics">
+"Hello World"
+
+</emphasis>
+</emphasis>
+ on the computer screen. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module continues that tradition.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. How to compile and run a Java 
+	application. 
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named hello1. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the main method. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Display the string Hello World. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. End of the class named hello1. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+This module introduces you to Java programming by presenting and discussing a 
+traditional 
+
+<emphasis id="em1004" effect="italics">
+Hello World
+
+</emphasis>
+ program.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Two approaches
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Java programs can be written and executed in several different ways, 
+including the following:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1019">
+Stand-alone application from the command line. 
+
+</item>
+
+
+	
+
+<item id="li1020">
+Applet that runs under control of a Java-capable browser.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+It is also possible in many cases to write applets, which can be 
+run in a stand-alone mode from the command line, or can be run under control of a 
+Java-capable browser. An example of such an applet will be presented in a 
+future module.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1002" effect="bold">
+Applets vs. applications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Programming an 
+
+<emphasis id="em1005" effect="italics">
+"application"
+
+</emphasis>
+ in Java is significantly different from 
+programming an 
+
+<emphasis id="em1006" effect="italics">
+"applet."
+
+</emphasis>
+ Applets are designed to be downloaded and executed 
+on-line under control of a browser. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1003" effect="bold">
+Restrictions on applets
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Their functionality of an applet is usually restricted in an attempt to prevent downloaded 
+applets from damaging your computer or your data. No such restrictions apply to 
+the functionality of a Java application.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1004" effect="bold">
+Class definitions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+All Java programs consist of one or more 
+
+<emphasis id="strong1005" effect="bold">
+class
+
+</emphasis>
+ definitions. 
+In this course, I will often refer to the 
+
+<emphasis id="em1007" effect="italics">
+primary
+
+</emphasis>
+ class definition for a 
+Java 
+
+<emphasis id="em1008" effect="italics">
+application
+
+</emphasis>
+ as the 
+
+<emphasis id="em1009" effect="italics">
+controlling class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1006" effect="bold">
+The main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+A stand-alone Java application requires a method named 
+
+<emphasis id="strong1007" effect="bold">
+main
+
+</emphasis>
+ 
+in its 
+
+<emphasis id="em1010" effect="italics">
+controlling class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+An 
+
+<emphasis id="strong1008" effect="bold">
+Applet
+
+</emphasis>
+ does not require a 
+
+<emphasis id="strong1009" effect="bold">
+main
+
+</emphasis>
+ method. 
+The reason that a Java 
+
+<emphasis id="strong1010" effect="bold">
+Applet
+
+</emphasis>
+ does not require a 
+
+<emphasis id="strong1011" effect="bold">
+main
+
+</emphasis>
+ 
+method will be explained in a future module.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1012" effect="bold">
+Getting started
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+<link id="a1019" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the steps for compiling and running a 
+Java application.
+
+</para>
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ 
+
+<emphasis id="strong1013" effect="bold">
+How to compile and run a Java 
+application.
+
+</emphasis>
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<para id="p1020">
+Here are the steps for compiling and running a Java application, based on the 
+assumption that you are running under Windows. If you are running under some 
+other operating system, you will need to translate these instructions to that 
+OS. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+1. Download and install the JDK from Oracle. Also consider downloading and 
+installing the documentation, which is a separate download.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+2. Using any editor that can produce a plain text file 
+
+<emphasis id="em1011" effect="italics">
+(such as Notepad),
+
+</emphasis>
+ 
+create a source code file with the extension on the file name being .java This 
+file contains your actual Java instructions. 
+
+<emphasis id="em1012" effect="italics">
+(You can copy some sample 
+programs from the early lessons in this collection to get started.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+3. Open a command-line window and change directory to the directory 
+containing the source file. It doesn't really matter which directory the source 
+file is in, but I normally put my Java files in a directory all their own. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+4. Assume that the name of the file is 
+
+<emphasis id="em1013" effect="italics">
+<emphasis id="strong1014" effect="bold">
+joe.java
+
+</emphasis>
+</emphasis>
+, 
+just to have something definitive to refer to. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+5. To compile the file, enter the following command at the prompt: 
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">javac joe.java</code>
+
+
+
+
+<para id="p1026">
+6. Correct any compiler errors that show up. Once you have corrected all 
+compiler errors, the 
+
+<emphasis id="strong1015" effect="bold">
+javac
+
+</emphasis>
+ program will execute and return 
+immediately to the prompt with no output. At that point, the directory should 
+also contain a file named 
+
+<emphasis id="em1014" effect="italics">
+<emphasis id="strong1016" effect="bold">
+joe.class
+
+</emphasis>
+</emphasis>
+ and possibly some 
+other files with a .class extension as well. These are the compiled Java files.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+7. To run the program, enter the following command: 
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">java joe</code>
+
+
+
+
+<para id="p1028">
+8. If your program produces the correct output, congratulations. You have 
+written, compiled, and executed a Java application. If not, you will need to 
+determine why not.
+
+</para>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="The_Java_version_of_Hello_World" effect="bold">
+
+The Java version of Hello World
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1017" effect="bold">
+The class file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+Compiled Java programs are stored in 
+
+<emphasis id="em1015" effect="italics">
+"bytecode"
+
+</emphasis>
+ form in a file with an 
+extension of 
+
+<emphasis id="strong1018" effect="bold">
+.class
+
+</emphasis>
+ where the name of the file is the same as 
+the name of the 
+
+<emphasis id="em1016" effect="italics">
+controlling class
+
+</emphasis>
+ 
+
+<emphasis id="em1017" effect="italics">
+(or other class)
+
+</emphasis>
+ in the 
+program. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1019" effect="bold">
+The main method is static
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The 
+
+<emphasis id="strong1020" effect="bold">
+main
+
+</emphasis>
+ method in the controlling class of an application 
+must be 
+
+<emphasis id="em1018" effect="italics">
+static
+
+</emphasis>
+, which results in 
+
+<emphasis id="strong1021" effect="bold">
+main 
+
+</emphasis>
+being a 
+
+<emphasis id="em1019" effect="italics">
+
+class
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="em1020" effect="italics">
+Class
+
+</emphasis>
+ methods can be called without a requirement to instantiate 
+an object of the class. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+When a Java application is started, the 
+
+<emphasis id="em1021" effect="italics">
+Java Virtual Machine
+
+</emphasis>
+ 
+
+<emphasis id="em1022" effect="italics">
+or 
+JVM (an executable file named java.exe)
+
+</emphasis>
+ finds and calls the
+
+
+<emphasis id="strong1022" effect="bold">
+main
+
+</emphasis>
+ method in the class whose name matches the name of the 
+class file specified on the command line. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1023" effect="bold">
+Running an application
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+For example, to start the JVM and run a Java application named
+
+
+<emphasis id="strong1024" effect="bold">
+hello1
+
+</emphasis>
+, a command such as the following must be executed at the operating system prompt: 
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">java hello1</code>
+
+
+
+
+<para id="p1037">
+This command instructs the operating system to start the
+
+<emphasis id="em1023" effect="italics">
+
+
+
+</emphasis>
+JVM, and then instructs the 
+JVM to find and execute the java application stored in the file named
+
+<emphasis id="strong1025" effect="bold">
+ 
+hello1.class
+
+</emphasis>
+. 
+
+<emphasis id="em1024" effect="italics">
+(Note that the .class extension is not included in 
+the command.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+This sample program is a Java application named 
+
+<emphasis id="strong1026" effect="bold">
+hello1.java
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+When compiled, it produces a class file named 
+
+<emphasis id="strong1027" effect="bold">
+hello1.class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+When the program is run, the JVM calls the 
+
+<emphasis id="strong1028" effect="bold">
+main
+
+</emphasis>
+ method defined in the
+
+
+<emphasis id="em1025" effect="italics">
+controlling class
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+The 
+
+<emphasis id="strong1029" effect="bold">
+main
+
+</emphasis>
+ method is a 
+
+<emphasis id="em1026" effect="italics">
+class
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="em1027" effect="italics">
+Class
+
+</emphasis>
+ methods can be called without a requirement to instantiate 
+an object of the class.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+The program displays the following words on the screen:
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">Hello World</code>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+I will explain this program code in fragments. A complete listing of the 
+program is provided in 
+
+<link id="a1020" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1045">
+The code fragment in 
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the first line 
+	of the class definition for the controlling class named 
+
+<emphasis id="strong1030" effect="bold">
+hello1
+
+</emphasis>
+. 
+	
+
+<emphasis id="em1028" effect="italics">
+(I will discuss class 
+	definitions in detail in a future module.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the class 
+				named hello1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1004" display="block">
+class hello1 { //define the controlling class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1046">
+The code fragment in 
+
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ begins the definition 
+	of the 
+
+<emphasis id="strong1031" effect="bold">
+main
+
+</emphasis>
+ method. I will also discuss method definitions in 
+	detail in a future module.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of the main 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1005" display="block">
+public static void main(String[] args){
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1047">
+The fragment in 
+
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ causes the string
+	
+
+<emphasis id="strong1032" effect="bold">
+Hello World
+
+</emphasis>
+ to be 
+	displayed on the command-line screen. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The statement in 
+
+<link id="a1024" target-id="Listing_3">
+
+
+	Listing 3
+
+</link>
+
+ is an extremely powerful statement from an object-oriented 
+programming viewpoint. When you understand how it 
+	works, you will be well on your way to understanding the Java version of 
+	Object-Oriented Programming (OOP).
+
+</para>
+
+
+
+
+
+<para id="p1049">
+I will discuss this statement in more detail later in a future module.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Display the string Hello 
+				World.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1006" display="block">
+    System.out.println("Hello World");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1050">
+<link id="a1025" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ ends the 
+
+<emphasis id="strong1033" effect="bold">
+main
+
+</emphasis>
+ method 
+	and also ends the class definition for the class named 
+
+<emphasis id="strong1034" effect="bold">
+hello1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. End of the class named 
+				hello1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1007" display="block">
+  }//end main
+}//End hello1 class
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1051">
+<emphasis id="strong1035" effect="bold">
+The complete program listing
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+As mentioned earlier, a complete listing of the program is provided in 
+
+
+<link id="a1026" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="General_information" effect="bold">
+
+General information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+This program illustrates several general aspects of Java programming.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1036" effect="bold">
+Overall skeleton of java program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+The overall skeleton of any Java program consists of one or more class 
+definitions.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+All methods and variables must be defined inside a 
+
+<emphasis id="strong1037" effect="bold">
+class
+
+</emphasis>
+ 
+definition. There can be no freestanding methods or global variables. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1038" effect="bold">
+File names and extensions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+The name of the 
+
+<emphasis id="em1029" effect="italics">
+controlling class
+
+</emphasis>
+ should be the same as the name of 
+the source file that contains it. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+Files containing source code in Java have an extension of 
+
+<emphasis id="em1030" effect="italics">
+java
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1039" effect="bold">
+The main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1061">
+The controlling class definition for an application must 
+contain the 
+
+<emphasis id="strong1040" effect="bold">
+main
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1041" effect="bold">
+The primary class file
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1063">
+The file produced by compiling the file containing the controlling class has the 
+same name as the controlling class, and has an extension of 
+
+<emphasis id="strong1042" effect="bold">
+class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1043" effect="bold">
+Many class files may be produced
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The java compiler produces a separate file for every class
+definition contained in an application or applet, even if two or more 
+class
+
+<emphasis id="strong1044" effect="bold">
+
+
+
+</emphasis>
+definitions are contained in the same source file. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Thus, the compilation of a large application can produce many different 
+
+<emphasis id="em1031" effect="italics">
+
+class
+
+</emphasis>
+ files. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1045" effect="bold">
+What are jar files?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+A feature known as a 
+
+<emphasis id="em1032" effect="italics">
+jar
+
+</emphasis>
+ file can be used to consolidate those 
+class files into a single file for more compact storage, distribution, and 
+transmission. Such a file has an extension of 
+
+<emphasis id="strong1046" effect="bold">
+.jar
+
+</emphasis>
+. 
+
+<emphasis id="em1033" effect="italics">
+(A jar 
+file is similar to a zip file except that it is specialized for use with Java 
+programs.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1047" effect="bold">
+The main method is static
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+The controlling class for a Java application must contain a 
+
+<emphasis id="em1034" effect="italics">
+<emphasis id="strong1048" effect="bold">
+static
+
+</emphasis>
+</emphasis>
+ 
+method named 
+
+<emphasis id="strong1049" effect="bold">
+main
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+When you run the application using the JVM, you specify the name 
+of the 
+
+<emphasis id="em1035" effect="italics">
+class 
+
+</emphasis>
+file that you want to run. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+The JVM then calls the 
+
+<emphasis id="strong1050" effect="bold">
+main
+
+</emphasis>
+ method defined in the
+
+
+<emphasis id="em1036" effect="italics">
+class 
+
+</emphasis>
+file having that name. This is possible because a 
+
+<emphasis id="em1037" effect="italics">
+class 
+method
+
+</emphasis>
+ can be called without a requirement to instantiate an object of the 
+class. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+The 
+
+<emphasis id="strong1051" effect="bold">
+main
+
+</emphasis>
+ method defined in that class
+definition controls the flow of the program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+I encourage you to copy the code from 
+
+<link id="a1027" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1075">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1052" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1006" list-type="bulleted">
+
+					
+
+<item id="li1021">
+Module name: Jb0160: Java OOP: Hello World
+
+</item>
+
+
+					
+
+<item id="li1022">
+File: Jb0160.htm
+
+
+</item>
+
+
+					
+
+<item id="li1023">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1024">
+Published at cnx.org: 11/17/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1053" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1076">
+<emphasis id="strong1054" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1077">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1078">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1079">
+<emphasis id="strong1055" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+A complete listing of the program discussed in this module is provided in 
+
+
+<link id="a1028" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Complete program 
+				listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1008" display="block">
+/*File hello1.java Copyright 1997, R.G.Baldwin
+This is a Java application program .
+
+When compiled, this program produces the class named:
+
+hello1.class
+
+When the Java interpreter is called upon the application's
+controlling class using the following statement at the
+command line:
+
+java hello1
+
+the interpreter starts the program by calling the main
+method defined in the controlling class. The main method is
+a class method which can be called without the requirement
+to instantiate an object of the class.
+
+The program displays the following words on the screen:
+
+Hello World
+
+*********************************************************/
+class hello1 { //define the controlling class
+  //define main method
+  public static void main(String[] args){
+    //display text string
+    System.out.println("Hello World");
+  }//end main
+}//End hello1 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1081">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

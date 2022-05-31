@@ -1,0 +1,4576 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3108 Java OOP Background Color, Text Color, Mouse Clicks, etc</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44351</md:content-id>
+  <md:title>Java3108 Java OOP Background Color, Text Color, Mouse Clicks, etc</md:title>
+  <md:abstract>Learn how to modify the SimplePicture class to control the color of the text that is placed on the image in a Picture object. Place a turtle object in a world and cause it to draw a square spiral.</md:abstract>
+  <md:uuid>e8876e31-f903-4186-ab97-baae5999e554</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+
+<para id="p1001">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1011" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output image at startup. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output image after ten mouse clicks. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Output image after eleven mouse clicks. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The new setMessageColor method. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The modified addMessage method. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the Prob04Runner class. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the anonymous listener class. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Add a turtle to the world. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Not the first click. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Process odd or even clicks. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Cause the program to terminate properly. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Source code for the program named Prob04. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Modified World class. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Modified SimplePicture class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+The program that I will explain in this module requires you to modify 
+	both the 
+
+<emphasis id="strong1000" effect="bold">
+World
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1001" effect="bold">
+SimplePicture
+
+</emphasis>
+ class from 
+	Ericson's media library. 
+
+</para>
+
+
+
+
+<para id="p1004">
+Just as you did in an earlier module, you will modify the 
+
+<emphasis id="strong1002" effect="bold">
+World
+
+</emphasis>
+ class 
+to make it possible to get access to the 
+
+<emphasis id="strong1003" effect="bold">
+JFrame
+
+</emphasis>
+ object that is 
+encapsulated in a 
+
+<emphasis id="strong1004" effect="bold">
+World
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1005">
+You will modify the 
+
+<emphasis id="strong1005" effect="bold">
+SimplePicture
+
+</emphasis>
+ class to make it possible to control 
+the color of the text that is placed on the image in a 
+
+<emphasis id="strong1006" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1007" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1008" effect="bold">
+Prob04
+
+</emphasis>
+ that uses the class definition for the 
+
+<emphasis id="strong1009" effect="bold">
+
+Prob04
+
+</emphasis>
+ class shown in 
+
+<link id="a1026" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ along with 
+Ericson's media library to produce the graphic output images shown in
+
+
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, 
+
+<link id="a1028" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, and
+
+
+<link id="a1029" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1010" effect="bold">
+Output image at startup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+<link id="a1030" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the output image when you first start 
+the program.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1011" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Output image at startup.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/intmdjavaexam1-04a.jpg" width="209" height="261"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1012" effect="bold">
+Output image after ten mouse clicks
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+This program adds a 
+
+<emphasis id="strong1013" effect="bold">
+JButton
+
+</emphasis>
+ object to the SOUTH location of the 
+
+<emphasis id="strong1014" effect="bold">
+
+World
+
+</emphasis>
+ object as shown in 
+
+<link id="a1031" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+
+<link id="a1032" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the output image after you click button 
+ten times.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1015" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Output image after ten mouse clicks.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1015">
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/intmdjavaexam1-04b.jpg" width="209" height="264"/>
+</media>
+
+
+</para>
+
+
+	
+
+
+
+<para id="p1016">
+<emphasis id="strong1016" effect="bold">
+Output image after eleven mouse clicks
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1017">
+<link id="a1033" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ shows the output image after you click 
+button eleven times.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1017" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Output image after eleven mouse clicks.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1019">
+<media id="media1002" alt="Missing image." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/intmdjavaexam1-04c.jpg" width="209" height="264"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1018" effect="bold">
+Operational description
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+The program initially displays an empty white world with a button at the 
+bottom as shown in 
+
+<link id="a1034" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1022">
+When the user clicks the button:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1025">
+The world's background color changes to green.
+
+</item>
+
+
+	
+
+<item id="li1026">
+A turtle appears near the bottom right corner of the World.
+
+</item>
+
+
+	
+
+<item id="li1027">
+The student's name appears near the top left corner of the world in red.
+
+</item>
+
+
+	
+
+<item id="li1028">
+The turtle has a blue body and a red shell.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1019" effect="bold">
+Click the button again
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+When you click the button the second time:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1029">
+The background color changes to yellow.
+
+</item>
+
+
+	
+
+<item id="li1030">
+The student's name changes to blue.
+
+</item>
+
+
+	
+
+<item id="li1031">
+The turtle changes to a red body with a blue shell.
+
+</item>
+
+
+	
+
+<item id="li1032">
+The turtle turns 90 degrees left and moves forward 100 pixels plus the 
+	value of a click counter.
+
+</item>
+
+
+	
+
+<item id="li1033">
+The turtle leaves a blue trail.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1020" effect="bold">
+Click the button another time
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+On the next click:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1034">
+The colors revert to the color scheme with the yellow background.
+
+</item>
+
+
+	
+
+<item id="li1035">
+The turtle turns 90 degrees left and moves forward 100 pixels plus the 
+	value of the click counter leaving a red trail.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1021" effect="bold">
+Click the button repeatedly
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1028">
+This cycle repeats on each click with the turtle's trail drawing a square 
+spiral of increasing size with red lines on the top and bottom of the spiral and 
+blue lines on the right and left of the spiral.
+
+</para>
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1022" effect="bold">
+Output text
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1030">
+In addition to the output images described above, your program must produce 
+some output text on the command- line screen
+
+</para>
+
+
+	
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1031">
+<emphasis id="strong1023" effect="bold">
+The driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+The driver class named 
+
+<emphasis id="strong1024" effect="bold">
+Prob04
+
+</emphasis>
+ is shown at the beginning of
+
+
+<link id="a1035" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module. The 
+
+<emphasis id="strong1025" effect="bold">
+main
+
+</emphasis>
+ method simply instantiates a new 
+object of the class named 
+
+<emphasis id="strong1026" effect="bold">
+Prob04Runner
+
+</emphasis>
+, which I will explain later. The 
+event driven behavior of the program is controlled by a listener object that is 
+registered on the button in the constructor of the 
+
+<emphasis id="strong1027" effect="bold">
+Prob04Runner
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1028" effect="bold">
+Modification of the World class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+This program adds a method named 
+
+<emphasis id="strong1029" effect="bold">
+getFrame
+
+</emphasis>
+ to the 
+
+<emphasis id="strong1030" effect="bold">
+World
+
+</emphasis>
+ class. 
+The method returns a reference to the 
+
+<emphasis id="strong1031" effect="bold">
+JFrame
+
+</emphasis>
+ object that is used to 
+display the world.
+
+</para>
+
+
+
+
+<para id="p1035">
+The program uses that reference to add a 
+
+<emphasis id="strong1032" effect="bold">
+JButton
+
+</emphasis>
+ object to the SOUTH 
+location of the 
+
+<emphasis id="strong1033" effect="bold">
+World
+
+</emphasis>
+. I explained a modification very similar to this in 
+an earlier module, so I won't repeat that explanation here.
+
+</para>
+
+
+
+
+<para id="p1036">
+A complete listing of the modified 
+
+<emphasis id="strong1034" effect="bold">
+World
+
+</emphasis>
+ class is provided in
+
+
+<link id="a1036" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1035" effect="bold">
+Modification of the SimplePicture class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+This program modifies the 
+
+<emphasis id="strong1036" effect="bold">
+addMessage
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1037" effect="bold">
+SimplePicture
+
+</emphasis>
+ 
+class to cause it to use a color variable named 
+
+<emphasis id="strong1038" effect="bold">
+messageColor
+
+</emphasis>
+ to set the 
+color of the text. The modification also declares and initializes the private 
+instance variable named 
+
+<emphasis id="strong1039" effect="bold">
+messageColor
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1039">
+The 
+
+<emphasis id="strong1040" effect="bold">
+SimplePicture
+
+</emphasis>
+ class was also modified to include a 
+
+<emphasis id="strong1041" effect="bold">
+
+setMessageColor
+
+</emphasis>
+ method that can be used to set the color value stored in the 
+variable named 
+
+<emphasis id="strong1042" effect="bold">
+messageColor
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1043" effect="bold">
+The new setMessageColor method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+The new method named 
+
+<emphasis id="strong1044" effect="bold">
+setMessageColor
+
+</emphasis>
+ that was added to the 
+
+<emphasis id="strong1045" effect="bold">
+
+SimplePicture
+
+</emphasis>
+ class is shown in 
+
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The new setMessageColor method. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">  public void setMessageColor(Color color){
+    System.out.println("Dick Baldwin");
+    messageColor = color;
+  }//end setMessageColor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1042">
+<emphasis id="strong1046" effect="bold">
+Save the color value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+The 
+
+<emphasis id="strong1047" effect="bold">
+setMessageColor
+
+</emphasis>
+ method saves the incoming color parameter in a 
+private instance variable named 
+
+<emphasis id="strong1048" effect="bold">
+messageColor
+
+</emphasis>
+ that was added to the class.
+
+
+</para>
+
+
+
+
+<para id="p1044">
+The default value of the variable is 
+
+<emphasis id="strong1049" effect="bold">
+Color.WHITE
+
+</emphasis>
+, thereby preserving 
+the default behavior of the 
+
+<emphasis id="strong1050" effect="bold">
+addMessage
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1045">
+You can view the new variable named 
+
+<emphasis id="strong1051" effect="bold">
+messageColor
+
+</emphasis>
+ in
+
+
+<link id="a1038" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1052" effect="bold">
+Display the student's name
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1047">
+The new 
+
+<emphasis id="strong1053" effect="bold">
+setMessageColor 
+
+</emphasis>
+method also causes my name to be displayed 
+each time the method is called. This is of no operational value, but is useful 
+during the testing stage of the modified class. This is part of the code that 
+produces text output on the command line screen.
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1054" effect="bold">
+The modified addMessage method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+The modified version of the 
+
+<emphasis id="strong1055" effect="bold">
+addMessage
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - The modified addMessage method. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block"> public void addMessage(
+                      String message, int xPos, int yPos){
+   // get a graphics context to use to draw on the
+   // buffered image
+   Graphics2D graphics2d = bufferedImage.createGraphics();
+
+   // set the color to white
+   //graphics2d.setPaint(Color.white);
+   
+   //modified by Baldwin on 12/23/08
+   graphics2d.setPaint(messageColor);
+
+   // set the font to Helvetica bold style and size 16
+   graphics2d.setFont(new Font("Helvetica",Font.BOLD,16));
+
+   // draw the message
+   graphics2d.drawString(message,xPos,yPos);
+
+ }//end addMessage</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1050">
+The original statement shown in
+
+
+<link id="a1040" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ was disabled and replaced by the statement 
+	shown following the modification comment. This causes the text to be 
+	displayed on the image using the color stored in the new private instance 
+	variable named 
+
+<emphasis id="strong1056" effect="bold">
+messageColor
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1057" effect="bold">
+The Prob04Runner class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+I will explain this program in fragments. A complete listing is shown in
+
+
+<link id="a1041" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1058" effect="bold">
+The driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+The driver class for this program is named 
+
+<emphasis id="strong1059" effect="bold">
+Prob04
+
+</emphasis>
+. As I mentioned 
+earlier, you can view the class definition in its entirety near the beginning of
+
+
+<link id="a1042" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1060" effect="bold">
+Beginning of the Prob04Runner class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1061" effect="bold">
+Prob04Runner
+
+</emphasis>
+ class begins in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the Prob04Runner class. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob04Runner{
+  Turtle turtle = null;
+  Picture picture = null;
+  int counter = 0;
+  World world = new World(200,200);
+  JButton button = new JButton("Click Me.");
+
+  public Prob04Runner(){
+    System.out.println("Dick Baldwin");
+    System.out.println(world.getPicture());
+
+    //Get a reference to the JFrame object that is used
+    // to display the World.
+    JFrame frame = world.getFrame();
+
+    //Add the JButton object to the
+    // SOUTH location in the JFrame object.
+    frame.getContentPane().add(button,BorderLayout.SOUTH);
+
+    frame.pack();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1062" effect="bold">
+Very familiar code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+You should already be familiar with all of the code in 
+
+<link id="a1044" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+When the code in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ has finished executing, the 
+image shown in 
+
+<link id="a1046" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ should have appeared on the 
+screen.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1063" effect="bold">
+Waiting for an event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+At this point, the program is essentially idle waiting for the user to either 
+click the button at the bottom of 
+
+<link id="a1047" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, or click the 
+red X-button in the upper-right corner of 
+
+<link id="a1048" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+<emphasis id="em1000" effect="italics">
+
+(More on the red X-button later.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1064" effect="bold">
+Beginning of the anonymous listener class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+This program uses an anonymous inner class to register an action listener on 
+the button. The anonymous class begins in 
+
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Beginning of the anonymous listener class. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    button.addActionListener(new ActionListener()
+      {//Begin the anonymous class definition
+      
+        public void actionPerformed(ActionEvent e){
+          picture = world.getPicture();
+
+          //Set picture background to green.
+          picture.setAllPixelsToAColor(Color.GREEN);
+          picture.setMessageColor(Color.RED);
+
+          
+          //Display the student's name on the picture.
+          picture.addMessage("Dick Baldwin",10,20);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1065" effect="bold">
+The event handler method named actionPerformed
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+Once the listener object is instantiated from the anonymous class and 
+registered on the button, the method named 
+
+<emphasis id="strong1066" effect="bold">
+actionPerformed
+
+</emphasis>
+, which begins 
+in 
+
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, will be executed each time the button is 
+clicked.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1067" effect="bold">
+Get a reference to the background picture
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+The 
+
+<emphasis id="strong1068" effect="bold">
+actionPerformed
+
+</emphasis>
+ method begins by getting and saving a reference to 
+the 
+
+<emphasis id="strong1069" effect="bold">
+Picture
+
+</emphasis>
+ object that provides the background image for the 
+
+<emphasis id="strong1070" effect="bold">
+World
+
+</emphasis>
+ 
+object. By default, all of the pixels in this image are white, as shown in
+
+
+<link id="a1051" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1071" effect="bold">
+Set the background color to green
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+Then the method calls Ericson's standard method named 
+
+<emphasis id="strong1072" effect="bold">
+setAllPixelsToAColor
+
+</emphasis>
+ 
+method to set the color of all of the background pixels to green.
+
+</para>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1073" effect="bold">
+Display student's name in red
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+Following that, the method calls the new 
+
+<emphasis id="strong1074" effect="bold">
+setMessageColor
+
+</emphasis>
+ method to set 
+the text color to red, and calls the modified 
+
+<emphasis id="strong1075" effect="bold">
+addMessage
+
+</emphasis>
+ method to 
+display my name in red near the upper-left corner of the image.
+
+
+<link id="a1052" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ shows an example of a green background and red 
+text.
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1076" effect="bold">
+Add a turtle to the world
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+<link id="a1053" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ tests to determine if the variable named
+
+
+<emphasis id="strong1077" effect="bold">
+turtle
+
+</emphasis>
+ that was 
+declared in 
+
+<link id="a1054" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ still contains null. If so, that 
+means that this is the first time that the button has been clicked and the 
+
+<emphasis id="strong1078" effect="bold">
+
+Turtle
+
+</emphasis>
+ object has not 
+yet been added to the world.
+
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Add a turtle to the world. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">          if(turtle == null){
+            turtle = new Turtle(150,150,world);
+            turtle.setHeading(90);
+            turtle.setShellColor(Color.RED);
+            turtle.setBodyColor(Color.BLUE);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1073">
+<emphasis id="strong1079" effect="bold">
+Add a Turtle object and set its colors
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+<link id="a1055" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ instantiates a new 
+
+<emphasis id="strong1080" effect="bold">
+Turtle
+
+</emphasis>
+ object and adds it to the world 
+near the lower-right corner facing due east 
+
+<emphasis id="em1001" effect="italics">
+(90 degrees)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1075">
+The shell color is set to red and the body color 
+
+<emphasis id="em1002" effect="italics">
+(feet and head)
+
+</emphasis>
+ is 
+set to blue. An example of the turtle with this color scheme is shown in
+
+
+<link id="a1056" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1081" effect="bold">
+Not the first click
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+If the conditional clause in 
+
+<link id="a1057" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ returns 
+false, that means that this is not the first time the button has been clicked 
+and the else clause, which begins in 
+
+<link id="a1058" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ will be 
+executed.
+
+</para>
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Not the first click. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">          }else{
+            turtle.turnLeft();
+            turtle.forward(100+counter);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1078">
+<emphasis id="strong1082" effect="bold">
+Rotate and move
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1079">
+The 
+
+<emphasis id="strong1083" effect="bold">
+else
+
+</emphasis>
+ clause begins by causing the turtle to rotate to 
+the left by a default angle of 90 degrees. Then the turtle moves forward by a 
+distance equal to 100 plus the value of a counter that is incremented by one 
+each time the button is clicked. 
+
+</para>
+
+
+
+
+<para id="p1080">
+For example, on the second click of the button, the turtle moves toward the 
+north drawing a blue line along the way. The default width of the line is one 
+pixel and the default color of the line is the same as the shell color.
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1084" effect="bold">
+Process odd or even clicks
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+The behavior of the 
+
+<emphasis id="strong1085" effect="bold">
+actionPerformed
+
+</emphasis>
+ method at this point depends on 
+whether the incremented value of the 
+
+<emphasis id="strong1086" effect="bold">
+counter
+
+</emphasis>
+ variable is even or odd. The 
+code to accomplish this is shown in 
+
+<link id="a1059" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Process odd or even clicks. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">            if(counter++ %2 != 0){
+              picture.setAllPixelsToAColor(Color.GREEN);
+              picture.setMessageColor(Color.RED);
+
+              picture.addMessage(
+                         "Dick Baldwin",10,20);
+              turtle.setShellColor(Color.RED);
+              turtle.setBodyColor(Color.BLUE);
+            }else{
+              picture.setAllPixelsToAColor(Color.YELLOW);
+              picture.setMessageColor(Color.BLUE);
+
+
+              picture.addMessage(
+                         "Dick Baldwin",10,20);
+              turtle.setShellColor(Color.BLUE);
+              turtle.setBodyColor(Color.RED);
+            }//end else
+            
+            picture.addMessage(
+                         "Dick Baldwin",10,20);
+          }//end else
+
+        }//end actionPerformed
+      }//end class definition
+    );//end addActionListener
+
+  }//end constructor
+  //----------------------------------------------------//
+
+}//end class Prob04Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1083">
+<emphasis id="strong1087" effect="bold">
+If the counter value is odd...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1084">
+If the value of the counter (
+
+<emphasis id="em1003" effect="italics">
+before it is incremented -- note the 
+post-increment operator)
+
+</emphasis>
+ is odd, the color scheme for the background, the 
+message, and the turtle is set to that shown in 
+
+<link id="a1060" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ 
+with the green background.
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1088" effect="bold">
+If the counter value is even...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1086">
+Otherwise, if the counter value is even, the color scheme is set to that 
+shown in 
+
+<link id="a1061" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ with the yellow background.
+
+</para>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1089" effect="bold">
+The end of several sections of code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+<link id="a1062" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ also completes the 
+
+<emphasis id="strong1090" effect="bold">
+else
+
+</emphasis>
+ clause that 
+began in 
+
+<link id="a1063" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1089">
+In addition, 
+
+<link id="a1064" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ signals the end of the 
+
+<emphasis id="strong1091" effect="bold">
+
+actionPerformed
+
+</emphasis>
+ method, 
+the end of the anonymous class definition, the end of the constructor, and the 
+end of the class named 
+
+<emphasis id="strong1092" effect="bold">
+Prob04Runner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1093" effect="bold">
+Waiting for an event
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1091">
+As mentioned earlier, once the constructor finishes execution, the program 
+becomes idle waiting for the user to either click the button at the bottom of
+
+
+<link id="a1065" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, or click the red X-button in the upper-right 
+corner of 
+
+<link id="a1066" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1094" effect="bold">
+Does not terminate as expected
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1093">
+Normally a user would expect the program to terminate and return control to 
+the operating system when the user clicks the red X-button in the upper-right 
+corner of the last remaining window. However, this program does not do that. 
+Instead, clicking this button simply hides the window and control is not 
+returned to the operating system.
+
+</para>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1095" effect="bold">
+A programming oversight
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1095">
+This was a programming oversight on my part, which can be corrected by adding 
+the second statement in 
+
+<link id="a1067" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ to the definition of 
+the 
+
+<emphasis id="strong1096" effect="bold">
+Prob04Runner
+
+</emphasis>
+ 
+class immediately following the first statement shown in 
+
+<link id="a1068" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. 
+
+</para>
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Cause the program to terminate properly. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">    JFrame frame = world.getFrame();
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1096">
+To understand why this is necessary to cause the program to terminate, I 
+	recommend that you visit the standard Sun javadocs and examine the 
+	description of the method named 
+
+<emphasis id="strong1097" effect="bold">
+setDefaultCloseOperation
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1098" effect="bold">
+
+	JFrame
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1097">
+I encourage you to copy the code from 
+
+<link id="a1069" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+,
+
+
+<link id="a1070" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+, and 
+
+<link id="a1071" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1098">
+Just as you did in an earlier module, you modified the 
+
+<emphasis id="strong1099" effect="bold">
+World
+
+</emphasis>
+ class to 
+make it possible to get access to the 
+
+<emphasis id="strong1100" effect="bold">
+JFrame
+
+</emphasis>
+ object that is encapsulated 
+in a 
+
+<emphasis id="strong1101" effect="bold">
+World
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+<para id="p1099">
+You learned how to modify the 
+
+<emphasis id="strong1102" effect="bold">
+SimplePicture
+
+</emphasis>
+ class to make it possible 
+to control the color of the text that is placed on the image in a 
+
+<emphasis id="strong1103" effect="bold">
+Picture
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+<para id="p1100">
+Then you placed a turtle object in a world and performed a series of 
+maneuvers causing the turtle to draw a square spiral.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1101">
+In the next module, you will learn how to create and service a graphical user interface containing panels, labels, text fields, and buttons.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1102">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1104" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1008" list-type="bulleted">
+
+					
+
+<item id="li1036">
+Module name: Java OOP: Background Color, Text Color, Mouse Clicks, etc.
+
+</item>
+
+
+					
+
+<item id="li1037">
+File: Java3108.htm
+
+</item>
+
+
+
+
+<item id="li1038">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1105" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1103">
+<emphasis id="strong1106" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1104">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1105">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1106">
+<emphasis id="strong1107" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1107">
+Complete listings of the programs discussed in this module are shown below.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1108" effect="bold">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Source code for the program named Prob04.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1008" display="block">/*File Prob04 Copyright 2008 R.G.Baldwin
+*********************************************************/
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Toolkit;
+
+public class Prob04{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob04Runner();
+  }//end main method
+}//end class Prob04
+//======================================================//
+
+class Prob04Runner{
+  Turtle turtle = null;
+  Picture picture = null;
+  int counter = 0;
+  World world = new World(200,200);
+  JButton button = new JButton("Click Me.");
+
+  public Prob04Runner(){
+    System.out.println("Dick Baldwin");
+    System.out.println(world.getPicture());
+
+    //Get a reference to the JFrame object that is used
+    // to display the World.
+    JFrame frame = world.getFrame();
+
+    //Add the JButton object to the
+    // SOUTH location in the JFrame object.
+    frame.getContentPane().add(button,BorderLayout.SOUTH);
+
+    frame.pack();
+
+    //Use an anonymous class to register an action
+    // listener on the button. Note that the student is
+    // not required to use an anonymous class.
+    button.addActionListener(new ActionListener()
+      {//Begin the class definition
+        public void actionPerformed(ActionEvent e){
+          picture = world.getPicture();
+
+          //Set picture background to green.
+          picture.setAllPixelsToAColor(Color.GREEN);
+          picture.setMessageColor(Color.RED);
+
+          //Display the student's name on the picture.
+          picture.addMessage(
+                         "Dick Baldwin",10,20);
+          //Add a turtle to the world. This causes the
+          // world to be repainted.
+          if(turtle == null){
+            turtle = new Turtle(150,150,world);
+            turtle.setHeading(90);
+            turtle.setShellColor(Color.RED);
+            turtle.setBodyColor(Color.BLUE);
+          }else{
+            turtle.turnLeft();
+            turtle.forward(100+counter);
+            if(counter++ %2 != 0){
+              picture.setAllPixelsToAColor(Color.GREEN);
+              picture.setMessageColor(Color.RED);
+
+              picture.addMessage(
+                         "Dick Baldwin",10,20);
+              turtle.setShellColor(Color.RED);
+              turtle.setBodyColor(Color.BLUE);
+            }else{
+              picture.setAllPixelsToAColor(Color.YELLOW);
+              picture.setMessageColor(Color.BLUE);
+
+
+              picture.addMessage(
+                         "Dick Baldwin",10,20);
+              turtle.setShellColor(Color.BLUE);
+              turtle.setBodyColor(Color.RED);
+            }//end else
+            picture.addMessage(
+                         "Dick Baldwin",10,20);
+          }//end else
+        }//end actionPerformed
+      }//end class definition
+    );//end addActionListener
+
+  }//end constructor
+  //----------------------------------------------------//
+
+}//end class Prob04Runner</code>
+
+
+	
+
+
+<para id="p1109">
+<emphasis id="strong1109" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Modified World class.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1009" display="block">import javax.swing.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Observer;
+import java.awt.*;
+
+/*12/23/08 Modified the World class. Added a method named
+ *getFrame that returns a reference to the JFrame object
+ *in which the turtles are displayed.
+ */
+
+/**
+ * Class to represent a 2d world that can hold turtles and
+ * display them
+ *
+ * Copyright Georgia Institute of Technology 2004
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class World extends JComponent implements ModelDisplay
+{
+  ////////////////// fields ///////////////////////
+
+  /** should automatically repaint when model changed */
+  private boolean autoRepaint = true;
+
+  /** the background color for the world */
+  private Color background = Color.white;
+
+  /** the width of the world */
+  private int width = 640;
+
+  /** the height of the world */
+  private int height = 480;
+
+  /** the list of turtles in the world */
+  private List&lt;Turtle&gt; turtleList = new ArrayList&lt;Turtle&gt;();
+
+  /** the JFrame to show this world in */
+  private JFrame frame = new JFrame("World");
+
+  /** background picture */
+  private Picture picture = null;
+
+  ////////////////// the constructors ///////////////
+
+  /**
+   * Constructor that takes no arguments
+   */
+  public World()
+  {
+    // set up the world and make it visible
+    initWorld(true);
+  }
+
+  /**
+   * Constructor that takes a boolean to
+   * say if this world should be visible
+   * or not
+   * @param visibleFlag if true will be visible
+   * else if false will not be visible
+   */
+  public World(boolean visibleFlag)
+  {
+    initWorld(visibleFlag);
+  }
+
+  /**
+   * Constructor that takes a width and height for this
+   * world
+   * @param w the width for the world
+   * @param h the height for the world
+   */
+  public World(int w, int h)
+  {
+    width = w;
+    height = h;
+
+    // set up the world and make it visible
+    initWorld(true);
+  }
+
+  ///////////////// methods ///////////////////////////
+  /**
+   *Method to return a reference to the JFrame.
+   */
+  public JFrame getFrame(){
+    System.out.println("Dick Baldwin");
+    return frame;
+  }//end getFrame
+
+  /**
+   * Method to initialize the world
+   * @param visibleFlag the flag to make the world
+   * visible or not
+   */
+  private void initWorld(boolean visibleFlag)
+  {
+    // set the preferred size
+    this.setPreferredSize(new Dimension(width,height));
+
+    // create the background picture
+    picture = new Picture(width,height);
+
+    // add this panel to the frame
+    frame.getContentPane().add(this);
+
+    // pack the frame
+    frame.pack();
+
+    // show this world
+    frame.setVisible(visibleFlag);
+  }
+
+  /**
+   * Method to get the graphics context for drawing on
+   * @return the graphics context of the background picture
+   */
+  public Graphics getGraphics() { return picture.getGraphics(); }
+
+  /**
+   * Method to clear the background picture
+   */
+  public void clearBackground() { picture = new Picture(width,height); }
+
+  /**
+   * Method to get the background picture
+   * @return the background picture
+   */
+  public Picture getPicture() { return picture; }
+
+  /**
+   * Method to set the background picture
+   * @param pict the background picture to use
+   */
+  public void setPicture(Picture pict) { picture = pict; }
+
+  /**
+   * Method to paint this component
+   * @param g the graphics context
+   */
+  public synchronized void paintComponent(Graphics g)
+  {
+    Turtle turtle = null;
+
+    // draw the background image
+    g.drawImage(picture.getImage(),0,0,null);
+
+    // loop drawing each turtle on the background image
+    Iterator iterator = turtleList.iterator();
+    while (iterator.hasNext())
+    {
+      turtle = (Turtle) iterator.next();
+      turtle.paintComponent(g);
+    }
+  }
+
+  /**
+   * Metod to get the last turtle in this world
+   * @return the last turtle added to this world
+   */
+  public Turtle getLastTurtle()
+  {
+    return (Turtle) turtleList.get(turtleList.size() - 1);
+  }
+
+
+  /**
+   * Method to add a model to this model displayer
+   * @param model the model object to add
+   */
+  public void addModel(Object model)
+  {
+    turtleList.add((Turtle) model);
+    if (autoRepaint)
+       repaint();
+  }
+
+  /**
+   * Method to check if this world contains the passed
+   * turtle
+   * @return true if there else false
+   */
+  public boolean containsTurtle(Turtle turtle)
+  {
+    return (turtleList.contains(turtle));
+  }
+
+  /**
+   * Method to remove the passed object from the world
+   * @param model the model object to remove
+   */
+  public void remove(Object model)
+  {
+    turtleList.remove(model);
+  }
+
+  /**
+   * Method to get the width in pixels
+   * @return the width in pixels
+   */
+  public int getWidth() { return width; }
+
+  /**
+   * Method to get the height in pixels
+   * @return the height in pixels
+   */
+  public int getHeight() { return height; }
+
+  /**
+   * Method that allows the model to notify the display
+   */
+  public void modelChanged()
+  {
+    if (autoRepaint)
+       repaint();
+  }
+
+  /**
+   * Method to set the automatically repaint flag
+   * @param value if true will auto repaint
+   */
+  public void setAutoRepaint(boolean value) { autoRepaint = value; }
+
+  /**
+   * Method to hide the frame
+   */
+//  public void hide()
+//  {
+//    frame.setVisible(false);
+//  }
+
+  /**
+   * Method to show the frame
+   */
+//  public void show()
+//  {
+//    frame.setVisible(true);
+//  }
+
+  /**
+   * Method to set the visibility of the world
+   * @param value a boolean value to say if should show or hide
+   */
+  public void setVisible(boolean value)
+  {
+    frame.setVisible(value);
+  }
+
+  /**
+   * Method to get the list of turtles in the world
+   * @return a list of turtles in the world
+   */
+  public List getTurtleList()
+  { return turtleList;}
+
+  /**
+   * Method to get an iterator on the list of turtles
+   * @return an iterator for the list of turtles
+   */
+  public Iterator getTurtleIterator()
+  { return turtleList.iterator();}
+
+  /**
+   * Method that returns information about this world
+   * in the form of a string
+   * @return a string of information about this world
+   */
+  public String toString()
+  {
+    return "A " + getWidth() + " by " + getHeight() +
+      " world with " + turtleList.size() + " turtles in it.";
+  }
+
+} // end of World class</code>
+
+
+
+	
+
+
+<para id="p1110">
+<emphasis id="strong1110" effect="bold">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ -  Modified SimplePicture class.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1010" display="block">import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
+import java.awt.*;
+import java.io.*;
+import java.awt.geom.*;
+
+/*
+12/23/08 Modified the addMessage method to cause it to
+use a color variable to set the color of the message.
+Also provided a setMessageColor method to set the color
+and a variable named messageColor to contain the color.
+/*
+
+
+/**
+ * A class that represents a simple picture.  A simple picture may have
+ * an associated file name and a title.  A simple picture has pixels,
+ * width, and height.  A simple picture uses a BufferedImage to
+ * hold the pixels.  You can show a simple picture in a
+ * PictureFrame (a JFrame).
+ *
+ * Copyright Georgia Institute of Technology 2004
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class SimplePicture implements DigitalPicture
+{
+
+  /////////////////////// Fields /////////////////////////
+  /**
+   * the color of the message
+   */
+   private Color messageColor = Color.WHITE;
+
+
+  /**
+   * the file name associated with the simple picture
+   */
+  private String fileName;
+
+  /**
+   * the title of the simple picture
+   */
+  private String title;
+
+  /**
+   * buffered image to hold pixels for the simple picture
+   */
+  private BufferedImage bufferedImage;
+
+  /**
+   * frame used to display the simple picture
+   */
+  private PictureFrame pictureFrame;
+
+  /**
+   * extension for this file (jpg or bmp)
+   */
+  private String extension;
+
+
+ /////////////////////// Constructors /////////////////////////
+
+ /**
+  * A Constructor that takes no arguments.  All fields will be null.
+  * A no-argument constructor must be given in order for a class to
+  * be able to be subclassed.  By default all subclasses will implicitly
+  * call this in their parent's no argument constructor unless a
+  * different call to super() is explicitly made as the first line
+  * of code in a constructor.
+  */
+ public SimplePicture()
+ {this(200,100);}
+
+ /**
+  * A Constructor that takes a file name and uses the file to create
+  * a picture
+  * @param fileName the file name to use in creating the picture
+  */
+ public SimplePicture(String fileName)
+ {
+
+   // load the picture into the buffered image
+   load(fileName);
+
+ }
+
+ /**
+  * A constructor that takes the width and height desired for a picture and
+  * creates a buffered image of that size.  This constructor doesn't
+  * show the picture.
+  * @param width the desired width
+  * @param height the desired height
+  */
+ public  SimplePicture(int width, int height)
+ {
+   bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+   title = "None";
+   fileName = "None";
+   extension = "jpg";
+   setAllPixelsToAColor(Color.white);
+ }
+
+ /**
+  * A constructor that takes the width and height desired for a picture and
+  * creates a buffered image of that size.  It also takes the
+  * color to use for the background of the picture.
+  * @param width the desired width
+  * @param height the desired height
+  * @param theColor the background color for the picture
+  */
+ public  SimplePicture(int width, int height, Color theColor)
+ {
+   this(width,height);
+   setAllPixelsToAColor(theColor);
+ }
+
+ /**
+  * A Constructor that takes a picture to copy information from
+  * @param copyPicture the picture to copy from
+  */
+ public SimplePicture(SimplePicture copyPicture)
+ {
+   if (copyPicture.fileName != null)
+   {
+      this.fileName = new String(copyPicture.fileName);
+      this.extension = copyPicture.extension;
+   }
+   if (copyPicture.title != null)
+      this.title = new String(copyPicture.title);
+   if (copyPicture.bufferedImage != null)
+   {
+     this.bufferedImage = new BufferedImage(copyPicture.getWidth(),
+                                            copyPicture.getHeight(), BufferedImage.TYPE_INT_RGB);
+     this.copyPicture(copyPicture);
+   }
+ }
+
+ /**
+  * A constructor that takes a buffered image
+  * @param image the buffered image
+  */
+ public SimplePicture(BufferedImage image)
+ {
+   this.bufferedImage = image;
+   title = "None";
+   fileName = "None";
+   extension = "jpg";
+ }
+
+ ////////////////////////// Methods //////////////////////////////////
+ /**
+  * Method to set the color used for a message.
+  */
+  public void setMessageColor(Color color){
+    System.out.println("Dick Baldwin");
+    messageColor = color;
+  }//end setMessageColor
+
+
+ /**
+  * Method to get the extension for this picture
+  * @return the extendsion (jpg or bmp)
+  */
+ public String getExtension() { return extension; }
+
+
+ /**
+  * Method that will copy all of the passed source picture into
+  * the current picture object
+  * @param sourcePicture  the picture object to copy
+  */
+ public void copyPicture(SimplePicture sourcePicture)
+ {
+   Pixel sourcePixel = null;
+   Pixel targetPixel = null;
+
+   // loop through the columns
+   for (int sourceX = 0, targetX = 0;
+        sourceX &lt; sourcePicture.getWidth() &amp;&amp;
+        targetX &lt; this.getWidth();
+        sourceX++, targetX++)
+   {
+     // loop through the rows
+     for (int sourceY = 0, targetY = 0;
+          sourceY &lt; sourcePicture.getHeight() &amp;&amp;
+          targetY &lt; this.getHeight();
+          sourceY++, targetY++)
+     {
+       sourcePixel = sourcePicture.getPixel(sourceX,sourceY);
+       targetPixel = this.getPixel(targetX,targetY);
+       targetPixel.setColor(sourcePixel.getColor());
+     }
+   }
+
+ }
+
+ /**
+  * Method to set the color in the picture to the passed color
+  * @param color the color to set to
+  */
+ public void setAllPixelsToAColor(Color color)
+ {
+   // loop through all x
+   for (int x = 0; x &lt; this.getWidth(); x++)
+   {
+     // loop through all y
+     for (int y = 0; y &lt; this.getHeight(); y++)
+     {
+       getPixel(x,y).setColor(color);
+     }
+   }
+ }
+
+ /**
+  * Method to get the buffered image
+  * @return the buffered image
+  */
+ public BufferedImage getBufferedImage()
+ {
+    return bufferedImage;
+ }
+
+ /**
+  * Method to get a graphics object for this picture to use to draw on
+  * @return a graphics object to use for drawing
+  */
+ public Graphics getGraphics()
+ {
+   return bufferedImage.getGraphics();
+ }
+
+ /**
+  * Method to get a Graphics2D object for this picture which can
+  * be used to do 2D drawing on the picture
+  */
+ public Graphics2D createGraphics()
+ {
+   return bufferedImage.createGraphics();
+ }
+
+ /**
+  * Method to get the file name associated with the picture
+  * @return  the file name associated with the picture
+  */
+ public String getFileName() { return fileName; }
+
+ /**
+  * Method to set the file name
+  * @param name the full pathname of the file
+  */
+ public void setFileName(String name)
+ {
+   fileName = name;
+ }
+
+ /**
+  * Method to get the title of the picture
+  * @return the title of the picture
+  */
+ public String getTitle()
+ { return title; }
+
+ /**
+  * Method to set the title for the picture
+  * @param title the title to use for the picture
+  */
+ public void setTitle(String title)
+ {
+   this.title = title;
+   if (pictureFrame != null)
+       pictureFrame.setTitle(title);
+ }
+
+ /**
+  * Method to get the width of the picture in pixels
+  * @return the width of the picture in pixels
+  */
+ public int getWidth() { return bufferedImage.getWidth(); }
+
+ /**
+  * Method to get the height of the picture in pixels
+  * @return  the height of the picture in pixels
+  */
+ public int getHeight() { return bufferedImage.getHeight(); }
+
+ /**
+  * Method to get the picture frame for the picture
+  * @return the picture frame associated with this picture
+  * (it may be null)
+  */
+ public PictureFrame getPictureFrame() { return pictureFrame; }
+
+ /**
+  * Method to set the picture frame for this picture
+  * @param pictureFrame the picture frame to use
+  */
+ public void setPictureFrame(PictureFrame pictureFrame)
+ {
+   // set this picture objects' picture frame to the passed one
+   this.pictureFrame = pictureFrame;
+ }
+
+ /**
+  * Method to get an image from the picture
+  * @return  the buffered image since it is an image
+  */
+ public Image getImage()
+ {
+   return bufferedImage;
+ }
+
+ /**
+  * Method to return the pixel value as an int for the given x and y location
+  * @param x the x coordinate of the pixel
+  * @param y the y coordinate of the pixel
+  * @return the pixel value as an integer (alpha, red, green, blue)
+  */
+ public int getBasicPixel(int x, int y)
+ {
+    return bufferedImage.getRGB(x,y);
+ }
+
+ /**
+  * Method to set the value of a pixel in the picture from an int
+  * @param x the x coordinate of the pixel
+  * @param y the y coordinate of the pixel
+  * @param rgb the new rgb value of the pixel (alpha, red, green, blue)
+  */
+ public void setBasicPixel(int x, int y, int rgb)
+ {
+   bufferedImage.setRGB(x,y,rgb);
+ }
+
+ /**
+  * Method to get a pixel object for the given x and y location
+  * @param x  the x location of the pixel in the picture
+  * @param y  the y location of the pixel in the picture
+  * @return a Pixel object for this location
+  */
+ public Pixel getPixel(int x, int y)
+ {
+   // create the pixel object for this picture and the given x and y location
+   Pixel pixel = new Pixel(this,x,y);
+   return pixel;
+ }
+
+ /**
+  * Method to get a one-dimensional array of Pixels for this simple picture
+  * @return a one-dimensional array of Pixel objects starting with y=0
+  * to y=height-1 and x=0 to x=width-1.
+  */
+ public Pixel[] getPixels()
+ {
+   int width = getWidth();
+   int height = getHeight();
+   Pixel[] pixelArray = new Pixel[width * height];
+
+   // loop through height rows from top to bottom
+   for (int row = 0; row &lt; height; row++)
+     for (int col = 0; col &lt; width; col++)
+       pixelArray[row * width + col] = new Pixel(this,col,row);
+
+   return pixelArray;
+ }
+
+
+
+ /**
+  * Method to load the buffered image with the passed image
+  * @param image  the image to use
+  */
+ public void load(Image image)
+ {
+   // get a graphics context to use to draw on the buffered image
+   Graphics2D graphics2d = bufferedImage.createGraphics();
+
+   // draw the image on the buffered image starting at 0,0
+   graphics2d.drawImage(image,0,0,null);
+
+   // show the new image
+   show();
+ }
+
+ /**
+  * Method to show the picture in a picture frame
+  */
+ public void show()
+ {
+    // if there is a current picture frame then use it
+   if (pictureFrame != null)
+     pictureFrame.updateImageAndShowIt();
+
+   // else create a new picture frame with this picture
+   else
+     pictureFrame = new PictureFrame(this);
+ }
+
+ /**
+  * Method to hide the picture
+  */
+ public void hide()
+ {
+   if (pictureFrame != null)
+     pictureFrame.setVisible(false);
+ }
+
+ /**
+  * Method to make this picture visible or not
+  * @param flag true if you want it visible else false
+  */
+ public void setVisible(boolean flag)
+ {
+   if (flag)
+     this.show();
+   else
+     this.hide();
+ }
+
+ /**
+  * Method to open a picture explorer on a copy of this simple picture
+  */
+ public void explore()
+ {
+   // create a copy of the current picture and explore it
+   new PictureExplorer(new SimplePicture(this));
+ }
+
+ /**
+  * Method to force the picture to redraw itself.  This is very
+  * useful after you have changed the pixels in a picture.
+  */
+ public void repaint()
+ {
+   // if there is a picture frame tell it to repaint
+   if (pictureFrame != null)
+     pictureFrame.repaint();
+
+   // else create a new picture frame
+   else
+     pictureFrame = new PictureFrame(this);
+ }
+
+ /**
+  * Method to load the picture from the passed file name
+  * @param fileName the file name to use to load the picture from
+  */
+ public void loadOrFail(String fileName) throws IOException
+ {
+    // set the current picture's file name
+   this.fileName = fileName;
+
+   // set the extension
+   int posDot = fileName.indexOf('.');
+   if (posDot &gt;= 0)
+     this.extension = fileName.substring(posDot + 1);
+
+   // if the current title is null use the file name
+   if (title == null)
+     title = fileName;
+
+   File file = new File(this.fileName);
+
+   if (!file.canRead())
+   {
+     // try adding the media path
+     file = new File(FileChooser.getMediaPath(this.fileName));
+     if (!file.canRead())
+     {
+       throw new IOException(this.fileName +
+                             " could not be opened. Check that you specified the path");
+     }
+   }
+
+   bufferedImage = ImageIO.read(file);
+ }
+
+
+ /**
+  * Method to write the contents of the picture to a file with
+  * the passed name without throwing errors
+  * @param fileName the name of the file to write the picture to
+  * @return true if success else false
+  */
+ public boolean load(String fileName)
+ {
+     try {
+         this.loadOrFail(fileName);
+         return true;
+
+     } catch (Exception ex) {
+         System.out.println("There was an error trying to open " + fileName);
+         bufferedImage = new BufferedImage(600,200,
+                                           BufferedImage.TYPE_INT_RGB);
+         addMessage("Couldn't load " + fileName,5,100);
+         return false;
+     }
+
+ }
+
+
+ /**
+  * Method to load the picture from the passed file name
+  * this just calls load(fileName) and is for name compatibility
+  * @param fileName the file name to use to load the picture from
+  * @return true if success else false
+  */
+ public boolean loadImage(String fileName)
+ {
+     return load(fileName);
+}
+
+ /**
+  * Method to draw a message as a string on the buffered image
+  * @param message the message to draw on the buffered image
+  * @param xPos  the leftmost point of the string in x
+  * @param yPos  the bottom of the string in y
+  */
+ public void addMessage(String message, int xPos, int yPos)
+ {
+   // get a graphics context to use to draw on the buffered image
+   Graphics2D graphics2d = bufferedImage.createGraphics();
+
+   // set the color to white
+//   graphics2d.setPaint(Color.white);
+   //modified by baldwin on 12/23/08
+   graphics2d.setPaint(messageColor);
+
+   // set the font to Helvetica bold style and size 16
+   graphics2d.setFont(new Font("Helvetica",Font.BOLD,16));
+
+   // draw the message
+   graphics2d.drawString(message,xPos,yPos);
+
+ }
+
+ /**
+  * Method to draw a string at the given location on the picture
+  * @param text the text to draw
+  * @param xPos the left x for the text
+  * @param yPos the top y for the text
+  */
+ public void drawString(String text, int xPos, int yPos)
+ {
+   addMessage(text,xPos,yPos);
+ }
+
+ /**
+   * Method to create a new picture by scaling the current
+   * picture by the given x and y factors
+   * @param xFactor the amount to scale in x
+   * @param yFactor the amount to scale in y
+   * @return the resulting picture
+   */
+  public Picture scale(double xFactor, double yFactor)
+  {
+    // set up the scale tranform
+    AffineTransform scaleTransform = new AffineTransform();
+    scaleTransform.scale(xFactor,yFactor);
+
+    // create a new picture object that is the right size
+    Picture result = new Picture((int) (getWidth() * xFactor),
+                                 (int) (getHeight() * yFactor));
+
+    // get the graphics 2d object to draw on the result
+    Graphics graphics = result.getGraphics();
+    Graphics2D g2 = (Graphics2D) graphics;
+
+    // draw the current image onto the result image scaled
+    g2.drawImage(this.getImage(),scaleTransform,null);
+
+    return result;
+  }
+
+  /**
+   * Method to create a new picture of the passed width.
+   * The aspect ratio of the width and height will stay
+   * the same.
+   * @param width the desired width
+   * @return the resulting picture
+   */
+  public Picture getPictureWithWidth(int width)
+  {
+    // set up the scale tranform
+    double xFactor = (double) width / this.getWidth();
+    Picture result = scale(xFactor,xFactor);
+    return result;
+  }
+
+  /**
+   * Method to create a new picture of the passed height.
+   * The aspect ratio of the width and height will stay
+   * the same.
+   * @param height the desired height
+   * @return the resulting picture
+   */
+  public Picture getPictureWithHeight(int height)
+  {
+    // set up the scale tranform
+    double yFactor = (double) height / this.getHeight();
+    Picture result = scale(yFactor,yFactor);
+    return result;
+  }
+
+ /**
+  * Method to load a picture from a file name and show it in a picture frame
+  * @param fileName the file name to load the picture from
+  * @return true if success else false
+  */
+ public boolean loadPictureAndShowIt(String fileName)
+ {
+   boolean result = true;  // the default is that it worked
+
+   // try to load the picture into the buffered image from the file name
+   result = load(fileName);
+
+   // show the picture in a picture frame
+   show();
+
+   return result;
+ }
+
+ /**
+  * Method to write the contents of the picture to a file with
+  * the passed name
+  * @param fileName the name of the file to write the picture to
+  */
+ public void writeOrFail(String fileName) throws IOException
+ {
+   String extension = this.extension; // the default is current
+
+   // create the file object
+   File file = new File(fileName);
+   File fileLoc = file.getParentFile();
+
+   // canWrite is true only when the file exists already! (alexr)
+   if (!fileLoc.canWrite()) {
+       // System.err.println("can't write the file but trying anyway? ...");
+        throw new IOException(fileName +
+        " could not be opened. Check to see if you can write to the directory.");
+   }
+
+   // get the extension
+   int posDot = fileName.indexOf('.');
+   if (posDot &gt;= 0)
+       extension = fileName.substring(posDot + 1);
+
+   // write the contents of the buffered image to the file as jpeg
+   ImageIO.write(bufferedImage, extension, file);
+
+ }
+
+ /**
+  * Method to write the contents of the picture to a file with
+  * the passed name without throwing errors
+  * @param fileName the name of the file to write the picture to
+  * @return true if success else false
+  */
+ public boolean write(String fileName)
+ {
+     try {
+         this.writeOrFail(fileName);
+         return true;
+     } catch (Exception ex) {
+         System.out.println("There was an error trying to write " + fileName);
+         return false;
+     }
+
+ }
+
+ /**
+  * Method to set the media path by setting the directory to use
+  * @param directory the directory to use for the media path
+  */
+ public static void setMediaPath(String directory) {
+   FileChooser.setMediaPath(directory);
+ }
+
+ /**
+  * Method to get the directory for the media
+  * @param fileName the base file name to use
+  * @return the full path name by appending
+  * the file name to the media directory
+  */
+ public static String getMediaPath(String fileName) {
+   return FileChooser.getMediaPath(fileName);
+ }
+
+  /**
+   * Method to get the coordinates of the enclosing rectangle after this
+   * transformation is applied to the current picture
+   * @return the enclosing rectangle
+   */
+  public Rectangle2D getTransformEnclosingRect(AffineTransform trans)
+  {
+    int width = getWidth();
+    int height = getHeight();
+    double maxX = width - 1;
+    double maxY = height - 1;
+    double minX, minY;
+    Point2D.Double p1 = new Point2D.Double(0,0);
+    Point2D.Double p2 = new Point2D.Double(maxX,0);
+    Point2D.Double p3 = new Point2D.Double(maxX,maxY);
+    Point2D.Double p4 = new Point2D.Double(0,maxY);
+    Point2D.Double result = new Point2D.Double(0,0);
+    Rectangle2D.Double rect = null;
+
+    // get the new points and min x and y and max x and y
+    trans.deltaTransform(p1,result);
+    minX = result.getX();
+    maxX = result.getX();
+    minY = result.getY();
+    maxY = result.getY();
+    trans.deltaTransform(p2,result);
+    minX = Math.min(minX,result.getX());
+    maxX = Math.max(maxX,result.getX());
+    minY = Math.min(minY,result.getY());
+    maxY = Math.max(maxY,result.getY());
+    trans.deltaTransform(p3,result);
+    minX = Math.min(minX,result.getX());
+    maxX = Math.max(maxX,result.getX());
+    minY = Math.min(minY,result.getY());
+    maxY = Math.max(maxY,result.getY());
+    trans.deltaTransform(p4,result);
+    minX = Math.min(minX,result.getX());
+    maxX = Math.max(maxX,result.getX());
+    minY = Math.min(minY,result.getY());
+    maxY = Math.max(maxY,result.getY());
+
+    // create the bounding rectangle to return
+    rect = new Rectangle2D.Double(minX,minY,maxX - minX + 1, maxY - minY + 1);
+    return rect;
+  }
+
+ /**
+  * Method to return a string with information about this picture
+  * @return a string with information about the picture
+  */
+ public String toString()
+ {
+   String output = "Simple Picture, filename " + fileName +
+     " height " + getHeight() + " width " + getWidth();
+   return output;
+ }
+
+} // end of SimplePicture class</code>
+
+
+	
+
+<para id="p1111">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

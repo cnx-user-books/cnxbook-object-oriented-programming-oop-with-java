@@ -1,0 +1,3568 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java OOP: ITSE 2321 Practice Group 1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44252</md:content-id>
+  <md:title>Java OOP: ITSE 2321 Practice Group 1</md:title>
+  <md:abstract>Practice programs with solutions for ITSE 2321</md:abstract>
+  <md:uuid>9decce10-3490-48c0-804c-88bf6eed3625</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 08 17:47:15 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="strong1000" effect="bold">
+ITSE 2321 Object-Oriented Programming - Practice Group 
+
+</emphasis>
+1
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Java_and_Media_Library_Version_Requirements">
+
+Java and Media Library Version Requirements
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Image_Files">
+
+Input Image Files
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Solution_source_code_files">
+
+Solution source code files
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Output_Images">
+
+Output Images
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="New_Classes">
+
+New Classes
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Important_Hints">
+
+Hints
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Testing_Your_Program">
+
+Testing Your Programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Program_Specifications">
+
+Program Specifications
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Program_1">
+
+Program 1
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Program_2">
+
+Program 2
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Program_3">
+
+Program 3
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Program_4">
+
+Program 4
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Program_5">
+
+Program 5
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous Information
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Java_and_Media_Library_Version_Requirements" effect="bold">
+
+Java and Media Library Version Requirements
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+Your programs must be compatible with Oracle's Standard Edition JDK 
+Version 1.7 or later. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+Some of the programs in this group require you to use the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1016" url="http://cnx.org/content/m44148/latest/">
+
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Image_Files" effect="bold">
+
+Input Image Files
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+Links are provided within the individual program specifications for 
+downloading any image files that may be required to write, compile, and test 
+your programs. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Solution_source_code_files" effect="bold">
+
+Solution source code files
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+Links are provided within the individual program specifications for 
+downloading source code files that contain the programming solutions. You can compile and 
+execute those programs using procedures described in 
+
+<link id="a1017" url="http://cnx.org/content/m44148/latest/">
+
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Output_Images" effect="bold">
+
+Output Images
+
+</emphasis>
+
+
+</title>
+
+
+							
+
+<para id="p1006">
+Your output image(s) must match my output image(s) in every 
+							respect including color, size, position, 
+							etc. Don't forget to display your name in the output 
+							image(s) as shown. 
+
+</para>
+
+
+
+							
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="New_Classes" effect="bold">
+
+New Classes
+
+</emphasis>
+
+
+</title>
+
+
+							
+
+<para id="p1007">
+You may define new classes and add import 
+							directives as needed to cause 
+							your programs to behave as required, but you may not 
+							modify the class definitions for the given classes named ProbXX.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Important_Hints" effect="bold">
+
+Hints
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+For some of the programs, you may first need to 
+deduce the algorithm used to transform the input image into the output image, 
+and then write a working program that implements that algorithm. In some cases, 
+you may need to compare numeric color values for corresponding pixels in the 
+input and output images in order to deduce the algorithm. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+You can obtain those color values using the following procedure:
+
+</para>
+
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1016">
+Click on the 
+input image file link(s) and use the capabilities of your browser to download 
+	and save the image file(s).
+
+</item>
+
+
+	
+
+<item id="li1017">
+Click on the Java solution source code link(s) and use the capabilities 
+	of your browser to download and save the source code file(s).
+
+</item>
+
+
+	
+
+<item id="li1018">
+If necessary, replace calls to the 
+
+<emphasis id="strong1001" effect="bold">
+show
+
+</emphasis>
+ method in my 
+	source code with calls to the 
+
+<emphasis id="strong1002" effect="bold">
+explore
+
+</emphasis>
+ method to force the 
+	program to display the output images in a 
+
+<emphasis id="strong1003" effect="bold">
+PictureExplorer
+
+</emphasis>
+ 
+	window.
+
+</item>
+
+
+	
+
+<item id="li1019">
+Write, compile, and execute a simple Java program that will display each 
+	input image file in a 
+
+<emphasis id="strong1004" effect="bold">
+PictureExplorer
+
+</emphasis>
+ window.
+
+</item>
+
+
+	
+
+<item id="li1020">
+Use the input and output 
+
+<emphasis id="strong1005" effect="bold">
+PictureExplorer
+
+</emphasis>
+ windows to 
+	compare the input and output color values on a pixel by pixel basis.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+In addition to the hints listed above, I will precede the detailed specifications for each program 
+	with a discussion that contains hints about the concepts and skills that you 
+	will probably need to successfully write the program.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+In order to write this or any other Java program of substance, you will need to 
+
+<link id="a1018" url="http://cnx.org/content/m45117/latest/">
+
+know 
+how to use
+
+</link>
+
+ the 
+
+<link id="a1019" url="http://docs.oracle.com/javase/7/docs/api/index.html">
+
+Java Platform, Standard Edition API Specification
+
+</link>
+
+ 
+as well as the documentation for the
+
+
+<link id="a1020" url="http://cnx.org/content/m44148/latest/#Discussion_and_sample_code">
+
+
+Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+You may find other useful hints in my online tutorials and slides for this 
+course as well as in the YouTube video lectures for this course.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Testing_Your_Program" effect="bold">
+
+Testing Your Programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+You can compile and execute your program by following the instructions given 
+at 
+
+<link id="a1021" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson 
+Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Program_Specifications" effect="bold">
+
+Program Specifications
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Program_1" effect="bold">
+
+Program 1
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1006" effect="bold">
+Discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+The following is a non-exhaustive list of concepts that you need to 
+understand along with knowledge and skills that you  
+need to possess in order to successfully write this program and/or understand 
+the given solution in 
+
+<link id="a1022" url="Prob01.java">
+
+Prob01.java
+
+</link>
+
+. Some of these items 
+are general in nature and some are specific to the use of Ericson's multimedia 
+library.
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1021">
+How to design and implement an algorithm that will transform
+							
+
+<link id="a1023" url="Prob01.jpg">
+
+Prob01.jpg
+
+</link>
+
+ into the image 
+	shown in 
+
+<link id="a1024" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1022">
+How to incorporate and use an
+	
+
+<link id="a1025" url="http://cnx.org/content/m44148/latest/">
+
+external class library
+
+</link>
+
+ 
+	in addition to the standard Java class library.
+
+</item>
+
+
+	
+
+<item id="li1023">
+The 
+
+<link id="a1026" url="http://cnx.org/content/m44150/latest/#Listing_9">
+
+general syntax
+
+</link>
+
+ for a Java application 
+	
+
+<emphasis id="em1003" effect="italics">
+(not a 
+Java applet).
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1024">
+How to 
+
+<link id="a1027" url="http://cnx.org/content/m44148/latest/#Listing_2">
+
+write
+
+</link>
+
+,
+	
+
+<link id="a1028" url="http://cnx.org/content/m44148/latest/#Figure_4">
+
+compile, and execute
+
+</link>
+
+ a 
+Java application that uses the Guzdial-Ericson Multimedia Class Library.
+
+</item>
+
+
+	
+
+<item id="li1025">
+How to use the standard
+	
+
+<link id="a1029" url="http://cnx.org/content/m44150/latest/#Listing_5">
+
+print and 
+println
+
+</link>
+
+ methods of the 
+
+<emphasis id="strong1007" effect="bold">
+System
+
+</emphasis>
+ class to display text on 
+the command-line screen.
+
+</item>
+
+
+	
+
+<item id="li1026">
+The effect of 
+
+<link id="a1030" url="http://cnx.org/content/m44190/latest/">
+
+overridden
+
+</link>
+
+ 
+	versions of the 
+
+<link id="a1031" url="http://cnx.org/content/m44149/latest/">
+
+toString
+
+</link>
+
+ 
+	method on the 
+
+<emphasis id="strong1008" effect="bold">
+print
+
+</emphasis>
+ and 
+
+<emphasis id="strong1009" effect="bold">
+println
+
+</emphasis>
+ methods
+
+</item>
+
+
+	
+
+<item id="li1027">
+Knowledge of the need for and use of
+	
+
+<link id="a1032" url="http://cnx.org/content/m44149/latest/#Listing_1">
+
+import directives
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1028">
+How to 
+
+<link id="a1033" url="http://cnx.org/content/m44149/latest/#Listing_2">
+
+define
+
+</link>
+
+ and
+	
+
+<link id="a1034" url="http://cnx.org/content/m44149/latest/#Listing_1">
+
+instantiate an object
+
+</link>
+
+ of a new class 
+named 
+
+<emphasis id="strong1010" effect="bold">
+Prob01Runner
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Knowledge of the difference between
+	
+
+<link id="a1035" url="http://cnx.org/content/m44204/latest/">
+
+local variables
+
+</link>
+
+ and
+	
+
+<link id="a1036" url="http://cnx.org/content/m44150/latest/">
+
+instance variables
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1030">
+How to declare local 
+
+<link id="a1037" url="http://cnx.org/content/m44153/latest/">
+
+reference variables
+
+</link>
+
+ of a given type.
+
+</item>
+
+
+	
+
+<item id="li1031">
+How to save the 
+
+<emphasis id="strong1011" effect="bold">
+Prob01Runner
+
+</emphasis>
+ object's reference in a
+	
+
+<link id="a1038" url="http://cnx.org/content/m44150/latest/#Listing_2">
+
+reference variable
+
+</link>
+
+ 
+	of type 
+
+<emphasis id="strong1012" effect="bold">
+Prob01Runner
+
+</emphasis>
+ named 
+
+<emphasis id="strong1013" effect="bold">
+obj
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1039" url="http://cnx.org/content/m44149/latest/#Listing_1">
+
+How to call
+
+</link>
+
+ the 
+	
+
+<emphasis id="strong1014" effect="bold">
+run
+
+</emphasis>
+ method, 
+
+<emphasis id="em1004" effect="italics">
+(which 
+controls the major behavior of the program)
+
+</emphasis>
+, on the 
+
+<emphasis id="strong1015" effect="bold">
+Prob01Runner
+
+</emphasis>
+ object's reference.
+	
+
+</item>
+
+
+	
+
+<item id="li1033">
+How to use 
+
+<link id="a1040" url="http://cnx.org/content/m44149/">
+
+private
+
+</link>
+
+,
+	
+
+<link id="a1041" url="http://cnx.org/content/m44153/latest/">
+
+public
+
+</link>
+
+,
+	
+
+<link id="a1042" url="http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">
+
+protected
+
+</link>
+
+, and 
+	
+
+<link id="a1043" url="http://cnx.org/content/m44149/">
+
+package-private
+
+</link>
+
+ 
+	access modifiers.
+
+</item>
+
+
+	
+
+<item id="li1034">
+How to declare and use 
+
+<link id="a1044" url="http://cnx.org/content/m44149/latest/">
+
+reference variables
+
+</link>
+
+ versus
+	
+
+<link id="a1045" url="http://cnx.org/content/m44149/latest/">
+
+primitive variables
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1035">
+How to select the appropriate
+	
+
+<link id="a1046" url="http://cnx.org/content/m44149/latest/#Figure_4">
+
+overloaded 
+constructors
+
+</link>
+
+ in order to i
+
+<link id="a1047" url="http://cnx.org/content/m44149/latest/#Listing_2">
+
+nstantiate objects
+
+</link>
+
+ of Ericson's 
+	
+
+<emphasis id="strong1016" effect="bold">
+World
+
+</emphasis>
+,
+
+
+<emphasis id="strong1017" effect="bold">
+Turtle
+
+</emphasis>
+, and 
+
+<emphasis id="strong1018" effect="bold">
+Picture
+
+</emphasis>
+ classes.
+
+</item>
+
+
+	
+
+<item id="li1036">
+How to define a 
+
+<link id="a1048" url="http://cnx.org/content/m44193/latest/">
+
+constructor
+
+</link>
+
+ for a class.
+
+</item>
+
+
+	
+
+<item id="li1037">
+How to write 
+
+<link id="a1049" url="http://cnx.org/content/m44149/latest/#Listing_4">
+
+accessor methods
+
+</link>
+
+ in your new class 
+definition that return references to 
+
+<emphasis id="strong1019" effect="bold">
+Turtle
+
+</emphasis>
+ and 
+
+<emphasis id="strong1020" effect="bold">
+World
+
+</emphasis>
+ objects.
+
+</item>
+
+
+	
+
+<item id="li1038">
+How and why to call 
+
+<link id="a1050" url="http://cnx.org/content/m44149/latest/">
+
+accessor methods
+
+</link>
+
+ on objects.
+
+</item>
+
+
+	
+
+<item id="li1039">
+How to instantiate 
+
+<link id="a1051" url="http://cnx.org/content/m44206/latest/">
+
+anonymous objects
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1040">
+How to 
+
+<link id="a1052" url="http://cnx.org/content/m44149/latest/#Listing_5">
+
+replace
+
+</link>
+
+ the default white 
+	
+
+<emphasis id="strong1021" effect="bold">
+Picture
+
+</emphasis>
+ 
+object encapsulated in a 
+
+<emphasis id="strong1022" effect="bold">
+World
+
+</emphasis>
+ object with a new and different
+	
+
+<emphasis id="strong1023" effect="bold">
+Picture
+
+</emphasis>
+ object encapsulating the contents of a local image file.
+
+</item>
+
+
+	
+
+<item id="li1041">
+How to call a method on a 
+
+<emphasis id="strong1024" effect="bold">
+Picture
+
+</emphasis>
+ object to 
+	
+
+<link id="a1053" url="http://cnx.org/content/m44149/latest/#Listing_6">
+
+write 
+text
+
+</link>
+
+ onto the 
+
+<emphasis id="strong1025" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1042">
+How to 
+
+<link id="a1054" url="http://cnx.org/content/m44149/latest/#Listing_7">
+
+call a variety of methods
+
+</link>
+
+ on objects of 
+the 
+
+<emphasis id="strong1026" effect="bold">
+Turtle
+
+</emphasis>
+ class to cause the 
+
+<emphasis id="strong1027" effect="bold">
+Turtle
+
+</emphasis>
+ objects in 
+your world to do things, such as move forward, change their colors, etc.
+
+</item>
+
+
+	
+
+<item id="li1043">
+How pictures are composed of images.
+
+</item>
+
+
+	
+
+<item id="li1044">
+How images are composed of pixels.
+
+</item>
+
+
+	
+
+<item id="li1045">
+How pixels are composed of red, green, and blue color values.
+
+</item>
+
+
+	
+
+<item id="li1046">
+How objects can be used to represent pictures, images, and pixels.
+
+</item>
+
+
+	
+
+<item id="li1047">
+How methods can be called on those objects to manipulate the red, green, 
+	and blue color values.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Write the Java 
+				application described below.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<para id="p1016">
+/*File Prob01 Copyright 2012 R.G.Baldwin 
+
+</para>
+
+
+
+							
+
+<para id="p1017">
+Write a program named Prob01 that uses the class 
+							definition shown below and Ericson's media library 
+							along with the image file named
+							
+
+<link id="a1055" url="Prob01.jpg">
+
+Prob01.jpg
+
+</link>
+
+ to produce the 
+							graphic output image shown in 
+
+<link id="a1056" target-id="Figure_1">
+
+
+							Figure 1
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+							
+
+<para id="p1018">
+Click 
+
+<link id="a1057" url="Prob01.java">
+
+Prob01.java
+
+</link>
+
+ to 
+							download a Java source file containing the solution 
+							to this program.
+
+</para>
+
+
+
+							
+
+<para id="p1019">
+In addition to the output image, 
+							your program must display your name and the other 
+							three lines of text shown below on the command-line 
+							screen:
+
+</para>
+
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+A 300 by 274 world with 2 turtles in it.
+joe turtle at 256, 131 heading 45.0.
+sue turtle at 50, 37 heading 0.0.
+*********************************************************/
+public class Prob01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Prob01Runner obj = new Prob01Runner();
+    obj.run();
+
+    System.out.println(obj.getMars());
+    System.out.println(obj.getJoe());
+    System.out.println(obj.getSue());
+  }//end main
+}//end class Prob01nd program specifications.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1028" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Required output image for Prob01.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/test01prob01a.jpg" width="309" height="308"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Program_2" effect="bold">
+
+Program 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1029" effect="bold">
+Discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+The following is a non-exhaustive list of concepts that you need to 
+understand along with knowledge and skills that you  
+need to possess in order to successfully write this program and/or understand 
+the given solution in 
+
+<link id="a1058" url="Prob02.java">
+
+Prob02.java
+
+</link>
+
+. Some of these items 
+are general in nature and some are specific to the use of Ericson's multimedia 
+library. I won't repeat the items listed under
+
+
+<link id="a1059" target-id="Program_1">
+
+Program 1
+
+</link>
+
+ above. Instead, I will concentrate on new 
+concepts, knowledge, and skills not included in the above list.
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1048">
+How to design and implement an algorithm that will transform
+
+
+<link id="a1060" url="Prob02.jpg">
+
+Prob02.jpg
+
+</link>
+
+ into the image shown in 
+
+<link id="a1061" target-id="Figure_2">
+
+
+	Figure 2
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1049">
+How to 
+
+<link id="a1062" url="http://cnx.org/content/m44203/latest/#Listing_2">
+
+declare 
+	and initialize
+
+</link>
+
+ instance variables in a single statement.
+
+</item>
+
+
+	
+
+<item id="li1050">
+How to 
+
+<link id="a1063" url="http://cnx.org/content/m44203/latest/#Listing_2">
+
+instantiate a new object
+
+</link>
+
+ of Ericson's 
+	
+
+<emphasis id="strong1030" effect="bold">
+Picture
+
+</emphasis>
+ 
+class encapsulating the contents of a local image file.
+
+</item>
+
+
+	
+
+<item id="li1051">
+<link id="a1064" url="http://cnx.org/content/m44203/latest/#Listing_3">
+
+How 
+to call methods
+
+</link>
+
+ on the new 
+
+<emphasis id="strong1031" effect="bold">
+Picture
+
+</emphasis>
+ object for a variety of 
+purposes.
+
+</item>
+
+
+	
+
+<item id="li1052">
+How to 
+
+<link id="a1065" url="http://cnx.org/content/m44203/latest/#Listing_4">
+
+declare 
+	a reference variable
+
+</link>
+
+ capable of storing a reference to a one-dimensional 
+	array object.
+
+</item>
+
+
+	
+
+<item id="li1053">
+How to 
+
+<link id="a1066" url="http://cnx.org/content/m44203/latest/#Listing_4">
+
+
+	populate a one-dimensional array object
+
+</link>
+
+ of type 
+
+<emphasis id="strong1032" effect="bold">
+Pixel[]
+
+</emphasis>
+ 
+	with references to all of the 
+
+<emphasis id="strong1033" effect="bold">
+Pixel
+
+</emphasis>
+ objects encapsulated in a 
+
+<emphasis id="strong1034" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1054">
+How to use a l
+
+<link id="a1067" url="http://cnx.org/content/m44203/latest/#Listing_4">
+
+oop structure
+
+</link>
+
+ to individually access the 
+reference to each 
+
+<emphasis id="strong1035" effect="bold">
+Pixel
+
+</emphasis>
+ object in the array object.
+
+</item>
+
+
+	
+
+<item id="li1055">
+How to 
+use a reference to a 
+
+<emphasis id="strong1036" effect="bold">
+Pixel
+
+</emphasis>
+ object to
+	
+
+<link id="a1068" url="http://cnx.org/content/m44203/latest/#Listing_4">
+
+modify
+
+</link>
+
+ the red, green, and blue color values 
+	belonging to the pixel that is represented by the 
+
+<emphasis id="strong1037" effect="bold">
+Pixel
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1056">
+How use a pair of 
+
+<emphasis id="strong1038" effect="bold">
+PictureExplorer
+
+</emphasis>
+ objects to design and 
+	implement an algorithm that will transform the 
+
+<link id="a1069" url="Prob02.jpg">
+
+original image
+
+</link>
+
+ into the required output image shown in 
+
+<link id="a1070" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1057">
+<link id="a1071" url="http://cnx.org/content/m44203/latest/#Listing_5">
+
+How to display
+
+</link>
+
+ your modified 
+	
+
+<emphasis id="strong1039" effect="bold">
+Picture
+
+</emphasis>
+ 
+object in an object of Ericson's 
+
+<emphasis id="strong1040" effect="bold">
+PictureExplorer
+
+</emphasis>
+ class.
+
+</item>
+
+
+	
+
+<item id="li1058">
+How to confirm the validity of your algorithm by numerically comparing the color values in your output with the 
+color values produced by compiling and running the 
+
+<link id="a1072" url="Prob02.java">
+
+program solution
+
+</link>
+
+ given below.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Write the Java application described below. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<para id="p1024">
+/*File Prob02 Copyright 2012 R.G.Baldwin
+
+</para>
+
+
+
+				
+
+<para id="p1025">
+Write a program named Prob02 that uses the class
+definition shown below and Ericson's media library
+along with the image file named
+
+
+<link id="a1073" url="Prob02.jpg">
+
+Prob02.jpg
+
+</link>
+
+ to produce the graphic output image shown
+				in 
+
+<link id="a1074" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+				
+
+<para id="p1026">
+Click 
+
+<link id="a1075" url="Prob02.java">
+
+Prob02.java
+
+</link>
+
+ to download a 
+				Java source file containing the solution to this program. 
+
+</para>
+
+
+
+				
+
+<para id="p1027">
+In addition to the output image, your
+program must display your name and the other text shown 
+below on the command-line screen:
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">
+Display your name here.
+Picture, filename Prob02.jpg height 274 width 365
+*********************************************************/
+public class Prob02{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Prob02Runner obj = new Prob02Runner();
+    obj.run();
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob02
+//End program specifications.</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1028">
+<emphasis id="strong1041" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Required output image for Prob02.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/test01prob02a.jpg" width="377" height="408"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Program_3" effect="bold">
+
+Program 3
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1042" effect="bold">
+Discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The following is a non-exhaustive list of concepts that you need to 
+understand along with knowledge and skills that you need to possess in order to 
+successfully write this programand/or understand the given solution in 
+
+<link id="a1076" url="Prob03.java">
+
+Prob03.java
+
+</link>
+
+. Some of these items are general in nature and 
+some are specific to the use of Ericson's multimedia library. I won't repeat the items listed above. 
+Instead, I will concentrate on new concepts, knowledge, and skills not included in the above 
+lists.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+There are at least two alternative ways to write a program that will satisfy 
+these requirements.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1043" effect="bold">
+Both alternatives
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1059">
+How to design and implement an algorithm that will transform 
+
+<link id="a1077" url="Prob03.jpg">
+
+Prob03.jpg
+
+</link>
+
+ 
+	into the required output image 
+shown in 
+
+<link id="a1078" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1044" effect="bold">
+Alternative 1
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1060">
+How to create a 
+	
+
+<link id="a1079" url="http://cnx.org/content/m44204/latest/#Listing_3">
+
+new one-dimensional array object
+
+</link>
+
+ of type 
+	
+
+<emphasis id="strong1045" effect="bold">
+Pixel[]
+
+</emphasis>
+ and populate it with references to all of the 
+	
+
+<emphasis id="strong1046" effect="bold">
+Pixel
+
+</emphasis>
+ objects encapsulated in a 
+
+<emphasis id="strong1047" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1061">
+How to use some
+	
+
+<link id="a1080" url="http://cnx.org/content/m44204/latest/#Listing_5">
+
+complicated 
+	indexing arithmetic
+
+</link>
+
+ in conjunction with the one-dimensional array 
+	mentioned above to apply the required algorithm.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1048" effect="bold">
+Alternative 2
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1062">
+How to use a 
+
+<link id="a1081" url="http://cnx.org/content/m44207/latest/#Listing_5">
+
+nested loop structure
+
+</link>
+
+ to achieve the same result.
+
+</item>
+
+
+	
+
+<item id="li1063">
+How to use a 
+
+<link id="a1082" url="http://cnx.org/content/m44168/">
+
+cast operator
+
+</link>
+
+.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Write the Java application described below.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<para id="p1036">
+/*File Prob03 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1037">
+Write a program named Prob03 that uses the class
+definition shown below and Ericson's media library
+along with the image file named 
+
+<link id="a1083" url="Prob03.jpg">
+
+Prob03.jpg
+
+</link>
+
+ 
+to produce the graphic output image shown
+				in 
+
+<link id="a1084" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ below.
+
+</para>
+
+
+
+				
+
+<para id="p1038">
+Click 
+
+<link id="a1085" url="Prob03.java">
+
+Prob03.java
+
+</link>
+
+ to download a 
+				Java source file containing the solution to this program.
+
+</para>
+
+
+
+				
+
+<para id="p1039">
+In addition to the output, your
+program must display your name and the other text shown 
+below on the command-line screen:
+
+</para>
+
+
+
+
+
+<code id="pre1002" display="block">
+Display your name here.
+Picture, filename Prob03.jpg height 274 width 365
+
+*********************************************************/
+public class Prob03{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Prob03Runner obj = new Prob03Runner();
+    obj.run();
+    System.out.println(obj.getPicture());
+  }//end main
+}//end class Prob03
+//End program specifications.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1040">
+<emphasis id="strong1049" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Required output image for Prob03.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+<media id="media1002" alt="Missing image" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/test01prob03a.jpg" width="377" height="408"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Program_4" effect="bold">
+
+Program 4
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1042">
+<emphasis id="strong1050" effect="bold">
+Discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The following is a non-exhaustive list of concepts that you need to 
+understand along with knowledge and skills that you need to possess in order to 
+successfully write this programand/or understand the given solution in 
+
+<link id="a1086" url="Prob04.java">
+
+Prob04.java
+
+</link>
+
+. Some of these items are general in nature and 
+some are specific to the use of Ericson's multimedia library. I won't repeat the items listed above. 
+Instead, I will concentrate on new concepts, knowledge, and skills not included in the above 
+lists.
+
+</para>
+
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1064">
+How to design and implement an algorithm that will transform 
+
+<link id="a1087" url="Prob04.jpg">
+
+Prob04.jpg
+
+</link>
+
+ 
+		into the image shown in 
+
+<link id="a1088" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1065">
+Similarities and differences between
+		
+
+<link id="a1089" url="http://cnx.org/content/m44195/latest/">
+
+classes and interfaces
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1066">
+The different types under which you can store an object's reference 
+		when the class from which the object was instantiated extends a class 
+		and implements one or more interfaces.
+
+</item>
+
+
+		
+
+<item id="li1067">
+The kinds of new relationships that are created when a class 
+		implements one or more interfaces.
+
+</item>
+
+
+		
+
+<item id="li1068">
+The implications of inheriting one or more abstract methods.
+
+</item>
+
+
+		
+
+<item id="li1069">
+The significance of all interface methods being implicitly abstract.
+
+</item>
+
+
+		
+
+<item id="li1070">
+That 
+
+<emphasis id="strong1051" effect="bold">
+DigitalPicture
+
+</emphasis>
+ is an
+		
+
+<link id="a1090" url="http://cnx.org/content/m44195/latest/?collection=col11441/latest">
+
+interface
+
+</link>
+
+ and is not a class in Ericson's library.
+
+</item>
+
+
+		
+
+<item id="li1071">
+The relationship that exists between the 
+
+<emphasis id="strong1052" effect="bold">
+DigitalPicture
+
+</emphasis>
+ interface and the 
+		
+
+<emphasis id="strong1053" effect="bold">
+Picture
+
+</emphasis>
+ class.
+
+</item>
+
+
+		
+
+<item id="li1072">
+The circumstances under which an accessor method 
+can return a reference to an object as type 
+
+<emphasis id="strong1054" effect="bold">
+DigitalPicture
+
+</emphasis>
+.
+
+</item>
+
+
+		
+
+<item id="li1073">
+The difference between displaying a 
+
+<emphasis id="strong1055" effect="bold">
+Picture
+
+</emphasis>
+ 
+object with the 
+
+<emphasis id="strong1056" effect="bold">
+show
+
+</emphasis>
+ and 
+
+<emphasis id="strong1057" effect="bold">
+explore
+
+</emphasis>
+ methods.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Write the Java application described below.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<para id="p1044">
+/*File Prob04 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1045">
+Write a program named Prob04 that uses the class
+definition shown below and Ericson's media library
+along with the image file named 
+
+<link id="a1091" url="Prob04.jpg">
+
+Prob04.jpg
+
+</link>
+
+ to produce the graphic output image shown
+				in 
+
+<link id="a1092" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ below.
+
+</para>
+
+
+
+				
+
+<para id="p1046">
+Click 
+
+<link id="a1093" url="Prob04.java">
+
+Prob04.java
+
+</link>
+
+ to download a 
+				Java source file containing the solution to this program.
+
+</para>
+
+
+
+				
+
+<para id="p1047">
+In addition to the output image, your
+program must display your name and the other text shown 
+below on the command-line screen:
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">
+Display your name here.
+Picture, filename Prob04.jpg height 274 width 365
+*********************************************************/
+public class Prob04{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Prob04Runner obj = new Prob04Runner();
+    DigitalPicture digitalPicture = 
+                                  obj.getDigitalPicture();
+    System.out.println(digitalPicture);
+    digitalPicture.show();
+  }//end main
+}//end class Prob04
+//End program specifications.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1048">
+<emphasis id="strong1058" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Required output image for Prob04.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/test01prob04a.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="Program_5" effect="bold">
+
+Program 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1059" effect="bold">
+Discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The following is a non-exhaustive list of concepts that you need to 
+understand along with knowledge and skills that you need to possess in order to 
+successfully write this program and/or understand the given solution in 
+
+
+
+
+
+<link id="a1094" url="Prob05.java">
+
+Prob05.java
+
+</link>
+
+. Some of these items are general in nature and 
+some are specific to the use of Ericson's multimedia library. I won't repeat the items listed above. 
+Instead, I will concentrate on new concepts, knowledge, and skills not included in the above 
+lists.
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1074">
+How to design and implement an algorithm that will transform 
+
+<link id="a1095" url="Prob05a.jpg">
+
+Prob05a.jpg
+
+</link>
+
+ and 
+				
+
+<link id="a1096" url="Prob05b.jpg">
+
+Prob05b.jpg
+
+</link>
+
+ into the images shown in 
+
+<link id="a1097" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ and
+				
+
+<link id="a1098" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1075">
+What it means for the method named 
+
+<emphasis id="strong1060" effect="bold">
+getDigitalPictures
+
+</emphasis>
+ to return a reference to an object as type 
+	
+
+<link id="a1099" url="http://cnx.org/content/m44198/latest/#Listing_1">
+
+DigitalPicture[]
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1076">
+What you can do with a reference of type 
+
+<emphasis id="strong1061" effect="bold">
+DigitalPicture[]
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1077">
+The implications of the fact that calling the 
+
+<emphasis id="strong1062" effect="bold">
+show
+
+</emphasis>
+ 
+	method each of the elements of the array of type 
+
+<emphasis id="strong1063" effect="bold">
+DigitalPicture[]
+	
+
+</emphasis>
+produces a different output image.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Write the Java application described below.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<para id="p1052">
+/*File Prob05 Copyright 2012 R.G.Baldwin
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1053">
+Write a program named Prob05 that uses the class
+definition shown below and Ericson's media library
+along with the image files named 
+
+<link id="a1100" url="Prob05a.jpg">
+
+Prob05a.jpg
+
+</link>
+
+ and 
+				
+
+<link id="a1101" url="Prob05b.jpg">
+
+Prob05b.jpg
+
+</link>
+
+ to produce the pair 
+of graphic output images shown in 
+
+<link id="a1102" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ and
+				
+
+<link id="a1103" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ below.
+
+</para>
+
+
+
+				
+
+<para id="p1054">
+Note that unless you know how to position the output
+images on the screen, they will both end up in the 
+upper-left corner of the screen with one image partially
+or completely covering the other image. Use your mouse
+to drag and separate the images.
+
+</para>
+
+
+
+				
+
+<para id="p1055">
+Click 
+
+
+
+
+
+<link id="a1104" url="Prob05.java">
+
+Prob05.java
+
+</link>
+
+
+
+
+
+ to download a 
+				Java source file containing the solution to this program.
+
+
+
+</para>
+
+
+
+				
+
+<para id="p1056">
+In addition to the output images mentioned above, your
+program must display your name and the other text shown 
+below on the command-line screen:
+
+
+</para>
+
+
+
+
+<code id="pre1004" display="block">
+Display your name here.
+Picture, filename Prob05b.jpg height 309 width 412
+Picture, filename Prob05a.jpg height 274 width 365	 
+*********************************************************/
+public class Prob05{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    Prob05Runner obj = new Prob05Runner();
+    DigitalPicture[] digitalPictures = 
+                                 obj.getDigitalPictures();
+
+    System.out.println(digitalPictures[0]);
+    digitalPictures[0].show();
+
+    System.out.println(digitalPictures[1]);
+    digitalPictures[1].show();
+  }//end main
+}//end class Prob05
+//End program specifications.</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1064" effect="bold">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - First required output image for Prob05.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+<media id="media1004" alt="Missing image" display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/test01prob05a.jpg" width="421" height="343"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1065" effect="bold">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Second required output image for Prob05.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+<media id="media1005" alt="Missing image" display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/test01prob05b.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+	
+	
+	
+
+</section>
+</section>
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous Information
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1061">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1066" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1078">
+Module name: Java OOP: ITSE 2321 Practice Group 1
+
+</item>
+
+
+					
+
+<item id="li1079">
+File: PracticeGroup01.htm
+
+
+</item>
+
+
+					
+
+<item id="li1080">
+Published: 08/03/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1067" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1062">
+<emphasis id="strong1068" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1063">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1064">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1065">
+<emphasis id="strong1069" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1066">
+-end-
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

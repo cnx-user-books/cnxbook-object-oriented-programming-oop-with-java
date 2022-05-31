@@ -1,0 +1,3461 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3106 Java OOP Incorporating GUI Components into a World Object</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44350</md:content-id>
+  <md:title>Java3106 Java OOP Incorporating GUI Components into a World Object</md:title>
+  <md:abstract>Learn how to incorporate GUI components into a World object. In particular, learn how to add a JButton object to a World object and register an action listener on the button to control the behavior of the program.</md:abstract>
+  <md:uuid>62334c2a-5f57-46b6-8a27-e8cf4b3ec9a6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1011" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Initial screen output. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output after clicking the button. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Required text output. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The new getFrame method. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Prob03 class definition. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the Prob03Runner class. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the run method. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Register an action listener on the button. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Set the picture background to blue. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display the student's name on the picture.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Add a turtle to the world. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Source code for the program named Prob03.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. The modified World class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+In this module, you will learn how to incorporate GUI components into a
+	
+
+<emphasis id="strong1000" effect="bold">
+World
+
+</emphasis>
+ object. In particular, you will learn how to add a 
+
+<emphasis id="strong1001" effect="bold">
+JButton
+
+</emphasis>
+ 
+	object to a 
+
+<emphasis id="strong1002" effect="bold">
+World
+
+</emphasis>
+ object and register an action listener on the 
+	button to control the behavior of the program. 
+
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1003" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+Write a program named 
+
+<emphasis id="strong1004" effect="bold">
+Prob03
+
+</emphasis>
+ that uses the 
+
+<emphasis id="strong1005" effect="bold">
+Prob03
+
+</emphasis>
+ class 
+definition shown in 
+
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ and Ericson's media 
+library to produce the graphic output images shown in 
+
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1006">
+The image shown in 
+
+<link id="a1028" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ is the image that appears on the screen when the 
+program starts running. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Initial screen output.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+<media id="media1000" alt="Missing image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/intmdjavaexam1-03a.jpg" width="209" height="361"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1007" effect="bold">
+Click the button
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+The image shown in 
+
+<link id="a1029" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is what you should see 
+when you click the button at the bottom of the world. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1008" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Screen output after clicking the button.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/intmdjavaexam1-03b.jpg" width="209" height="361"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1009" effect="bold">
+Modify Ericson's World class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+You must copy and modify 
+
+<emphasis id="em1000" effect="italics">
+(as necessary)
+
+</emphasis>
+ the media class named 
+
+<emphasis id="strong1010" effect="bold">
+World
+
+</emphasis>
+ 
+to cause your program to produce the required output with the required behavior.
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1011" effect="bold">
+Add a JButton to the World
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+This program adds a 
+
+<emphasis id="strong1012" effect="bold">
+JButton
+
+</emphasis>
+ object to the SOUTH location of the 
+
+<emphasis id="strong1013" effect="bold">
+
+World
+
+</emphasis>
+ object as shown in 
+
+<link id="a1030" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and
+
+
+<link id="a1031" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and registers an action listener on the button 
+to control the behavior of the program.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1014" effect="bold">
+Program behavior
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+The program initially displays an empty white world as shown in
+
+
+<link id="a1032" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. When the user clicks the button, the world's 
+background color changes to blue, a turtle appears in the center of the 
+
+<emphasis id="strong1015" effect="bold">
+World
+
+</emphasis>
+, and the student's name appears 
+near the top of the world.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1016" effect="bold">
+Output text
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+In addition to the output images described above, your program must produce 
+the text output shown in 
+
+<link id="a1033" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ on the command- line 
+screen
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Required text output. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<code id="pre1000" display="block">Dick Baldwin
+Dick Baldwin
+Picture, filename None height 300 width 200</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1021">
+<emphasis id="strong1017" effect="bold">
+Analysis
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+A 
+
+<emphasis id="strong1018" effect="bold">
+World
+
+</emphasis>
+ object is actually a specialized use of a standard Java 
+
+<emphasis id="strong1019" effect="bold">
+
+JFrame
+
+</emphasis>
+ object. However, by default, the frame is not available to users of 
+the 
+
+<emphasis id="strong1020" effect="bold">
+World
+
+</emphasis>
+ class. Therefore, in order to satisfy the requirements of this 
+program, the 
+
+<emphasis id="strong1021" effect="bold">
+World
+
+</emphasis>
+ class must be modified to provide access to the frame.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1022" effect="bold">
+Add a getFrame method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+This program adds a method named 
+
+<emphasis id="strong1023" effect="bold">
+getFrame
+
+</emphasis>
+ to the 
+
+<emphasis id="strong1024" effect="bold">
+World 
+
+</emphasis>
+class. 
+The 
+
+<emphasis id="strong1025" effect="bold">
+getFrame
+
+</emphasis>
+ method returns a reference to the 
+
+<emphasis id="strong1026" effect="bold">
+JFrame
+
+</emphasis>
+ object that 
+is used to display the world. This makes it possible to treat 
+
+<emphasis id="strong1027" effect="bold">
+World
+
+</emphasis>
+ 
+objects in much the same way that other 
+
+<emphasis id="strong1028" effect="bold">
+JFrame
+
+</emphasis>
+ objects are treated.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1029" effect="bold">
+Add a button and pack the frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+The program uses the 
+
+<emphasis id="strong1030" effect="bold">
+JFrame
+
+</emphasis>
+ object's reference to add a 
+
+<emphasis id="strong1031" effect="bold">
+JButton
+
+</emphasis>
+ 
+object to the SOUTH location of the 
+
+<emphasis id="strong1032" effect="bold">
+JFrame
+
+</emphasis>
+ . After adding the button, the 
+program calls the 
+
+<emphasis id="strong1033" effect="bold">
+pack
+
+</emphasis>
+ method on the frame to cause the size of the frame 
+to be automatically adjusted to accommodate both the 
+
+<emphasis id="strong1034" effect="bold">
+Picture
+
+</emphasis>
+ object that 
+constitutes the background and the 
+
+<emphasis id="strong1035" effect="bold">
+JButton
+
+</emphasis>
+ object.
+
+</para>
+
+
+	
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Modification_to_the_World_class" effect="bold">
+
+Modification to the World 
+	class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+A complete listing of the modified 
+
+<emphasis id="strong1036" effect="bold">
+World
+
+</emphasis>
+ class is provided in
+
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the end of the module
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1037" effect="bold">
+Getting access to the frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+An object of the 
+
+<emphasis id="strong1038" effect="bold">
+World
+
+</emphasis>
+ class contains a private instance variable 
+named 
+
+<emphasis id="strong1039" effect="bold">
+frame
+
+</emphasis>
+ that contains a reference to the 
+
+<emphasis id="strong1040" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+Because it is private, however, it is not available to users of the 
+
+<emphasis id="strong1041" effect="bold">
+World
+
+</emphasis>
+ 
+class. The 
+
+<emphasis id="em1001" effect="italics">
+getter
+
+</emphasis>
+ method shown in 
+
+<link id="a1035" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ was 
+added to the 
+
+<emphasis id="strong1042" effect="bold">
+World
+
+</emphasis>
+ 
+class to provide access to the 
+
+<emphasis id="strong1043" effect="bold">
+JFrame
+
+</emphasis>
+.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The new getFrame method. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  public JFrame getFrame(){
+    System.out.println("Dick Baldwin");
+    return frame;
+  }//end getFrame</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1030">
+The new method also displays the student's name when the method is 
+	called, producing part of the text output in 
+
+<link id="a1036" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1044" effect="bold">
+No other change to is required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+This is the only change to Ericson's library that is required to write this 
+program. Everything else in the program makes use of existing library classes 
+with no modifications.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_Prob03Runner_class" effect="bold">
+
+The Prob03Runner class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1045" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+I will explain this program in fragments. A complete listing is shown in
+
+
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1046" effect="bold">
+The driver class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+The driver class for this program is named 
+
+<emphasis id="strong1047" effect="bold">
+Prob03
+
+</emphasis>
+. The definition of 
+the driver class is shown in its entirety in 
+
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Prob03 class definition. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+
+public class Prob03{
+  public static void main(String[] args){
+    new Prob03Runner().run();
+  }//end main method
+}//end class Prob03</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1037">
+The driver class simply instantiates a new object of a class named 
+
+<emphasis id="strong1048" effect="bold">
+
+	Prob03Runner
+
+</emphasis>
+ and calls a method named 
+
+<emphasis id="strong1049" effect="bold">
+run
+
+</emphasis>
+ on that object.
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1050" effect="bold">
+Beginning of the Prob03Runner class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1039">
+The beginning of the 
+
+<emphasis id="strong1051" effect="bold">
+Prob03Runner
+
+</emphasis>
+ class and the constructor for the 
+class is shown in 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the Prob03Runner class. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">class Prob03Runner{
+  public Prob03Runner(){
+    System.out.println("Dick Baldwin");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1040">
+As you can see, the constructor simply displays the student's name, 
+	providing some of the text output shown in 
+
+<link id="a1040" target-id="Listing_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1052" effect="bold">
+Beginning of the run method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1042">
+The beginning of the 
+
+<emphasis id="strong1053" effect="bold">
+run
+
+</emphasis>
+ method is shown in 
+
+<link id="a1041" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+. This is where things start to get interesting.
+
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Beginning of the run method. 
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  public void run(){
+    //This reference must be final because it is
+    // referenced from within an anonymous class
+    // definition.
+    final World world = new World(200,300);
+
+    //Get a reference to the JFrame object that is used
+    // to display the World.
+    JFrame frame = world.getFrame();
+
+    //Instantiate a new JButton object and add it to the
+    // SOUTH location in the JFrame object.
+    JButton button = new JButton(
+                               "Click to make a turtle.");
+    frame.getContentPane().add(button,BorderLayout.SOUTH);
+
+
+    frame.pack();//VERY IMPORTANT</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1043">
+<emphasis id="strong1054" effect="bold">
+A new World object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+ 
+
+<link id="a1042" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+ begins by instantiating a new object of the 
+
+<emphasis id="strong1055" effect="bold">
+World
+
+</emphasis>
+ class with 
+a size of 200x300 pixels. The reference to the object is saved in a 
+
+<emphasis id="strong1056" effect="bold">
+final
+
+</emphasis>
+ 
+variable named 
+
+<emphasis id="strong1057" effect="bold">
+world
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1058" effect="bold">
+A final reference variable
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+As the comment indicates, the variable must be 
+
+<emphasis id="strong1059" effect="bold">
+final
+
+</emphasis>
+ because it is 
+referenced from within an anonymous class definition. I won't take the time to 
+explain that here. I will simply refer you to my website where I have published 
+several tutorial modules on anonymous classes.
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1060" effect="bold">
+The size of the world...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+The purpose of specifying the size of the world when it is instantiated is to 
+implicitly specify the size of the 
+
+<emphasis id="strong1061" effect="bold">
+Picture
+
+</emphasis>
+ object that forms the 
+background for the world.
+
+</para>
+
+
+
+
+<para id="p1049">
+The size of the picture actually matches the specified dimensions. Therefore 
+the actual size of the world is a little larger than the specified dimensions 
+due to the borders that surround the picture.
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1062" effect="bold">
+Get a reference to the frame
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+After the 
+
+<emphasis id="strong1063" effect="bold">
+World
+
+</emphasis>
+ object is instantiated, the new 
+
+<emphasis id="strong1064" effect="bold">
+getFrame
+
+</emphasis>
+ method 
+is called on the world's reference in order to get and save a reference to the 
+frame.
+
+</para>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1065" effect="bold">
+A new JButton object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+Then a new 
+
+<emphasis id="strong1066" effect="bold">
+JButton
+
+</emphasis>
+ object is instantiated. The reference to the 
+
+<emphasis id="strong1067" effect="bold">
+
+JButton
+
+</emphasis>
+ object is saved in the variable named 
+
+<emphasis id="strong1068" effect="bold">
+button
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1069" effect="bold">
+Add the button to the frame and pack it
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+Then the button is added to the SOUTH location in the frame and the 
+
+<emphasis id="strong1070" effect="bold">
+pack
+
+</emphasis>
+ 
+method is called on the frame. Calling the 
+
+<emphasis id="strong1071" effect="bold">
+pack
+
+</emphasis>
+ method causes the size of 
+the frame, 
+
+<emphasis id="em1002" effect="italics">
+(and hence the size of the world)
+
+</emphasis>
+ to be adjusted so as to 
+accommodate the picture in the CENTER of the frame and the button at the bottom
+
+
+<emphasis id="em1003" effect="italics">
+(SOUTH)
+
+</emphasis>
+ of the frame.
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1072" effect="bold">
+The final size of the world
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+After the button is added and the world is packed, the overall height of the 
+world is quite a bit larger than the original dimensions. I measured it and 
+found it to be about 209x361 pixels including borders. 
+
+</para>
+
+
+
+
+<para id="p1058">
+The expansion in height is necessary to make room for the button. However, as 
+you can see in 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, the size of the picture remains 
+at 200x300 pixels.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1073" effect="bold">
+Register an action listener on the button
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+I elected to use an 
+
+<emphasis id="em1004" effect="italics">
+anonymous class
+
+</emphasis>
+ to register an action listener on 
+the button. The purpose of the listener is to produce the desired behavior when 
+the button is clicked.
+
+</para>
+
+
+
+
+<para id="p1061">
+Note, however, that there are other ways to register an action listener on 
+the button and the student is not required to use an anonymous class for that 
+purpose.
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1074" effect="bold">
+Beginning of the anonymous class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+The definition of the anonymous listener class and the instantiation of the 
+listener object begins in 
+
+<link id="a1044" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Register an action listener on the button. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">    button.addActionListener(new ActionListener()
+      {//Begin the class definition
+        
+        public void actionPerformed(ActionEvent e){
+          Picture picture = world.getPicture();
+          System.out.println(picture);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1064">
+<emphasis id="strong1075" effect="bold">
+Unfamiliar with anonymous classes?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+If you are unfamiliar with anonymous classes and action listeners, I will 
+simply refer you to my website where I have published several tutorial modules 
+on the topic. I have also published modules on the topic in this collection.
+
+</para>
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1076" effect="bold">
+In a nutshell...
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1067">
+In a nutshell, however, the method named 
+
+<emphasis id="strong1077" effect="bold">
+actionPerformed
+
+</emphasis>
+, which begins 
+in 
+
+<link id="a1045" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, will be executed each time the user 
+clicks the button in 
+
+<link id="a1046" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1078" effect="bold">
+Behavior of the actionPerformed method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+The code in 
+
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ gets and saves a reference to 
+the 
+
+<emphasis id="strong1079" effect="bold">
+Picture
+
+</emphasis>
+ object 
+that forms the background in the world object. Then it passes a copy of that 
+reference to the 
+
+<emphasis id="strong1080" effect="bold">
+println
+
+</emphasis>
+ method, producing the third line of output text 
+shown in 
+
+<link id="a1048" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1081" effect="bold">
+Set the background picture to blue
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+<link id="a1049" target-id="Listing_6">
+
+Listing 6 
+
+</link>
+
+calls the method named 
+
+<emphasis id="strong1082" effect="bold">
+
+setAllPixelsToAColor
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1083" effect="bold">
+Picture
+
+</emphasis>
+ object passing the color BLUE as 
+a parameter.
+
+</para>
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Set the picture background to blue. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">          picture.setAllPixelsToAColor(Color.BLUE);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1072">
+As you might expect, this causes the background of the world to turn from 
+	white to blue as shown in 
+
+<link id="a1050" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1084" effect="bold">
+Display the student's name on the picture
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+<link id="a1051" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1085" effect="bold">
+addMessage
+
+</emphasis>
+ method on the 
+picture to add the student's name near the upper-left corner of the world. 
+
+<emphasis id="em1005" effect="italics">
+
+(See 
+
+<link id="a1052" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Display the student's name on the picture.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">          picture.addMessage("Dick Baldwin",10,20);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1075">
+Finally, 
+
+<link id="a1053" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ instantiates a new 
+
+<emphasis id="strong1086" effect="bold">
+Turtle
+
+</emphasis>
+ object in the default 
+	color, with the default heading 
+
+<emphasis id="em1006" effect="italics">
+(north)
+
+</emphasis>
+, located in the default 
+	position, which is the center of the picture that constitutes the background 
+	image for the world.
+
+</para>
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Add a turtle to the world. 
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">          Turtle turtle = new Turtle(world);
+        }//end actionPerformed
+        
+      }//end class definition
+    );//end addActionListener
+
+  }//end run
+  //----------------------------------------------------//
+}//end class Prob03Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1076">
+<emphasis id="strong1087" effect="bold">
+Multiple clicks
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+If you click the button more than once, you will instantiate a new 
+
+<emphasis id="strong1088" effect="bold">
+Turtle
+
+</emphasis>
+ 
+object and produce a line of output text on the command line screen with each 
+click. The turtles will all be in the same location but they will cycle through 
+four different color schemes.
+
+</para>
+
+
+
+
+<para id="p1078">
+Note that adding the turtle to the world causes the world to be repainted, 
+eliminating the requirement to purposely repaint the world.
+
+</para>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1089" effect="bold">
+End the run method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+Finally, 
+
+<link id="a1054" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ signals the end of the 
+
+<emphasis id="strong1090" effect="bold">
+run
+
+</emphasis>
+ method, causing the 
+
+<emphasis id="strong1091" effect="bold">
+
+run
+
+</emphasis>
+ method to terminate and return control to the 
+
+<emphasis id="strong1092" effect="bold">
+main
+
+</emphasis>
+ method in
+
+
+<link id="a1055" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The 
+
+<emphasis id="strong1093" effect="bold">
+main
+
+</emphasis>
+ method terminates causing the program to terminate.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1081">
+I encourage you to copy the code from 
+
+<link id="a1056" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ and
+
+
+<link id="a1057" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Compile the code and execute it. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+In this module, you learned how to incorporate GUI components into a 
+
+<emphasis id="strong1094" effect="bold">
+World
+
+</emphasis>
+ 
+object. In particular, you learned how to add a 
+
+<emphasis id="strong1095" effect="bold">
+JButton
+
+</emphasis>
+ object to a 
+
+<emphasis id="strong1096" effect="bold">
+
+World
+
+</emphasis>
+ object and register an action listener on the button to control the 
+behavior of the program.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1083">
+In the next module, you will learn how to modify the 
+
+<emphasis id="strong1097" effect="bold">
+SimplePicture
+
+</emphasis>
+ class to make it possible to control the color of the text that is placed on the image in a 
+
+
+<emphasis id="strong1098" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+Then you will place a turtle object in a world and perform a series of maneuvers causing the turtle to draw a square spiral.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1084">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1099" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1005" list-type="bulleted">
+
+					
+
+<item id="li1024">
+Module name: Java OOP: Incorporating GUI Components into a World Object
+
+</item>
+
+
+					
+
+<item id="li1025">
+File: Java3106.htm
+
+
+</item>
+
+
+
+
+<item id="li1026">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1100" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1085">
+<emphasis id="strong1101" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1086">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1087">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1088">
+<emphasis id="strong1102" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+Complete listings of the programs discussed in this module are provided 
+below.
+
+</para>
+
+
+	
+
+
+<para id="p1090">
+<emphasis id="strong1103" effect="bold">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Source code for the program named Prob03.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1009" display="block">import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+
+public class Prob03{
+  public static void main(String[] args){
+    new Prob03Runner().run();
+  }//end main method
+}//end class Prob03
+
+
+//======================================================//
+class Prob03Runner{
+  public Prob03Runner(){
+    System.out.println("Dick Baldwin");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    //This reference must be final because it is
+    // referenced from within an anonymous class
+    // definition.
+    final World world = new World(200,300);
+
+    //Get a reference to the JFrame object that is used
+    // to display the World.
+    JFrame frame = world.getFrame();
+
+    //Instantiate a new JButton object and add it to the
+    // SOUTH location in the JFrame object.
+    JButton button = new JButton(
+                               "Click to make a turtle.");
+    frame.getContentPane().add(button,BorderLayout.SOUTH);
+
+
+    frame.pack();//VERY IMPORTANT
+
+
+    //Use an anonymous class to register an action
+    // listener on the button. Note that the student is
+    // not required to use an anonymous class.
+    button.addActionListener(new ActionListener()
+      {//Begin the class definition
+        public void actionPerformed(ActionEvent e){
+          Picture picture = world.getPicture();
+          System.out.println(picture);
+          //Set picture background to blue.
+          picture.setAllPixelsToAColor(Color.BLUE);
+          //Display the student's name on the picture.
+          picture.addMessage(
+                         "Dick Baldwin",10,20);
+          //Add a turtle to the world. This causes the
+          // world to be repainted.
+          Turtle turtle = new Turtle(world);
+        }//end actionPerformed
+      }//end class definition
+    );//end addActionListener
+
+  }//end run
+  //----------------------------------------------------//
+}//end class Prob03Runner</code>
+
+
+	
+
+
+<para id="p1091">
+<emphasis id="strong1104" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - The modified World class.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1010" display="block">import javax.swing.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Observer;
+import java.awt.*;
+
+/*12/23/08 Modified the World class. Added a method named
+ *getFrame that returns a reference to the JFrame object
+ *in which the turtles are displayed.
+ */
+
+/**
+ * Class to represent a 2d world that can hold turtles and
+ * display them
+ *
+ * Copyright Georgia Institute of Technology 2004
+ * @author Barb Ericson ericson@cc.gatech.edu
+ */
+public class World extends JComponent implements ModelDisplay
+{
+  ////////////////// fields ///////////////////////
+
+  /** should automatically repaint when model changed */
+  private boolean autoRepaint = true;
+
+  /** the background color for the world */
+  private Color background = Color.white;
+
+  /** the width of the world */
+  private int width = 640;
+
+  /** the height of the world */
+  private int height = 480;
+
+  /** the list of turtles in the world */
+  private List&lt;Turtle&gt; turtleList = new ArrayList&lt;Turtle&gt;();
+
+  /** the JFrame to show this world in */
+  private JFrame frame = new JFrame("World");
+
+  /** background picture */
+  private Picture picture = null;
+
+  ////////////////// the constructors ///////////////
+
+  /**
+   * Constructor that takes no arguments
+   */
+  public World()
+  {
+    // set up the world and make it visible
+    initWorld(true);
+  }
+
+  /**
+   * Constructor that takes a boolean to
+   * say if this world should be visible
+   * or not
+   * @param visibleFlag if true will be visible
+   * else if false will not be visible
+   */
+  public World(boolean visibleFlag)
+  {
+    initWorld(visibleFlag);
+  }
+
+  /**
+   * Constructor that takes a width and height for this
+   * world
+   * @param w the width for the world
+   * @param h the height for the world
+   */
+  public World(int w, int h)
+  {
+    width = w;
+    height = h;
+
+    // set up the world and make it visible
+    initWorld(true);
+  }
+
+  ///////////////// methods ///////////////////////////
+  /**
+   *Method to return a reference to the JFrame.
+   */
+  public JFrame getFrame(){
+    System.out.println("Dick Baldwin");
+    return frame;
+  }//end getFrame
+
+  /**
+   * Method to initialize the world
+   * @param visibleFlag the flag to make the world
+   * visible or not
+   */
+  private void initWorld(boolean visibleFlag)
+  {
+    // set the preferred size
+    this.setPreferredSize(new Dimension(width,height));
+
+    // create the background picture
+    picture = new Picture(width,height);
+
+    // add this panel to the frame
+    frame.getContentPane().add(this);
+
+    // pack the frame
+    frame.pack();
+
+    // show this world
+    frame.setVisible(visibleFlag);
+  }
+
+  /**
+   * Method to get the graphics context for drawing on
+   * @return the graphics context of the background picture
+   */
+  public Graphics getGraphics() { return picture.getGraphics(); }
+
+  /**
+   * Method to clear the background picture
+   */
+  public void clearBackground() { picture = new Picture(width,height); }
+
+  /**
+   * Method to get the background picture
+   * @return the background picture
+   */
+  public Picture getPicture() { return picture; }
+
+  /**
+   * Method to set the background picture
+   * @param pict the background picture to use
+   */
+  public void setPicture(Picture pict) { picture = pict; }
+
+  /**
+   * Method to paint this component
+   * @param g the graphics context
+   */
+  public synchronized void paintComponent(Graphics g)
+  {
+    Turtle turtle = null;
+
+    // draw the background image
+    g.drawImage(picture.getImage(),0,0,null);
+
+    // loop drawing each turtle on the background image
+    Iterator iterator = turtleList.iterator();
+    while (iterator.hasNext())
+    {
+      turtle = (Turtle) iterator.next();
+      turtle.paintComponent(g);
+    }
+  }
+
+  /**
+   * Metod to get the last turtle in this world
+   * @return the last turtle added to this world
+   */
+  public Turtle getLastTurtle()
+  {
+    return (Turtle) turtleList.get(turtleList.size() - 1);
+  }
+
+
+  /**
+   * Method to add a model to this model displayer
+   * @param model the model object to add
+   */
+  public void addModel(Object model)
+  {
+    turtleList.add((Turtle) model);
+    if (autoRepaint)
+       repaint();
+  }
+
+  /**
+   * Method to check if this world contains the passed
+   * turtle
+   * @return true if there else false
+   */
+  public boolean containsTurtle(Turtle turtle)
+  {
+    return (turtleList.contains(turtle));
+  }
+
+  /**
+   * Method to remove the passed object from the world
+   * @param model the model object to remove
+   */
+  public void remove(Object model)
+  {
+    turtleList.remove(model);
+  }
+
+  /**
+   * Method to get the width in pixels
+   * @return the width in pixels
+   */
+  public int getWidth() { return width; }
+
+  /**
+   * Method to get the height in pixels
+   * @return the height in pixels
+   */
+  public int getHeight() { return height; }
+
+  /**
+   * Method that allows the model to notify the display
+   */
+  public void modelChanged()
+  {
+    if (autoRepaint)
+       repaint();
+  }
+
+  /**
+   * Method to set the automatically repaint flag
+   * @param value if true will auto repaint
+   */
+  public void setAutoRepaint(boolean value) { autoRepaint = value; }
+
+  /**
+   * Method to hide the frame
+   */
+//  public void hide()
+//  {
+//    frame.setVisible(false);
+//  }
+
+  /**
+   * Method to show the frame
+   */
+//  public void show()
+//  {
+//    frame.setVisible(true);
+//  }
+
+  /**
+   * Method to set the visibility of the world
+   * @param value a boolean value to say if should show or hide
+   */
+  public void setVisible(boolean value)
+  {
+    frame.setVisible(value);
+  }
+
+  /**
+   * Method to get the list of turtles in the world
+   * @return a list of turtles in the world
+   */
+  public List getTurtleList()
+  { return turtleList;}
+
+  /**
+   * Method to get an iterator on the list of turtles
+   * @return an iterator for the list of turtles
+   */
+  public Iterator getTurtleIterator()
+  { return turtleList.iterator();}
+
+  /**
+   * Method that returns information about this world
+   * in the form of a string
+   * @return a string of information about this world
+   */
+  public String toString()
+  {
+    return "A " + getWidth() + " by " + getHeight() +
+      " world with " + turtleList.size() + " turtles in it.";
+  }
+
+} // end of World class</code>
+
+
+	
+
+<para id="p1092">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

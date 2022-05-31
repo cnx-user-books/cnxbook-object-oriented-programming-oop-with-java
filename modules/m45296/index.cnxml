@@ -1,0 +1,7137 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0100: Self-assessment, The this keyword, static final variables, and initialization of instance variables</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45296</md:content-id>
+  <md:title>Ap0100: Self-assessment, The this keyword, static final variables, and initialization of instance variables</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about the this keyword, static final Variables, and initialization of instance iariables in Java.</md:abstract>
+  <md:uuid>26ea43c9-3556-45cd-b3c4-0dbbdb0d92dd</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers.
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 
+1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. 33
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. None of the above
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap110{
+  public static void main(
+                        String args[]){
+                new Worker().doThis();
+  }//end main()
+}//end class Ap110
+
+class Worker{
+  private int data = 33;
+  
+  public void doThis(){
+    new Helper().helpMe(this);
+  }//end area()
+    
+  public String getData(){
+    return data;
+  }//end getData()
+}// end class Worker
+
+class Helper{
+  public void helpMe(Worker param){
+    System.out.println(
+                      param.getData());
+  }//end helpMe()
+}//end class Helper
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. 33
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Ap111{
+  public static void main(
+                        String args[]){
+        new Worker().doThis();
+  }//end main()
+}//end class Ap111
+
+class Worker{
+  private int data = 33;
+  
+  public void doThis(){
+    new Helper().helpMe(this);
+  }//end area()
+    
+  public String getData(){
+    return "" + data;
+  }//end getData()
+}// end class Worker
+
+class Helper{
+  public void helpMe(Worker param){
+    System.out.println(
+                      param.getData());
+  }//end helpMe()
+}//end class Helper
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. 11
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. 22
+
+</item>
+
+
+	
+
+<item id="li1018">
+E. 33
+
+</item>
+
+
+	
+
+<item id="li1019">
+F. 44
+
+</item>
+
+
+	
+
+<item id="li1020">
+G. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">public class Ap112{
+  public static void main(
+                        String args[]){
+    Worker obj1 = new Worker(11);
+    Worker obj2 = new Worker(22);
+    Worker obj3 = new Worker(33);
+    Worker obj4 = new Worker(44);
+    obj2.doThis();
+  }//end main()
+}//end class Ap112
+
+class Worker{
+  private int data;
+  
+  public Worker(int data){
+    this.data = data;
+  }//end constructor
+  
+  public void doThis(){
+    System.out.println(this);
+  }//end area()
+    
+  public String toString(){
+    return "" + data;
+  }//end toString()
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<para id="p1011">
+Note that 6.283185307179586 is a correct numeric value. 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1021">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1022">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+C. 6.283185307179586
+
+</item>
+
+
+	
+
+<item id="li1024">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">public class Ap113{
+  public static void main(
+                        String args[]){
+    System.out.println(
+                   new Worker().twoPI);
+  }//end main()
+}//end class Ap113
+
+class Worker{
+  public static final double twoPI;
+  
+  public Worker(){
+    twoPI = 2 * Math.PI;
+  }//end constructor
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1012">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<para id="p1014">
+Note that 6.283185307179586 is a correct numeric value. 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1025">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1026">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+C. 6.283185307179586
+
+</item>
+
+
+	
+
+<item id="li1028">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">public class Ap114{
+  public static void main(
+                        String args[]){
+    System.out.println(
+                   new Worker().twoPI);
+  }//end main()
+}//end class Ap114
+
+class Worker{
+  public static final double twoPI 
+                         = 2 * Math.PI;
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1015">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<para id="p1017">
+Note that 6.283185307179586 is a correct numeric value. 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1029">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1030">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1031">
+C. 6.283185307179586
+
+</item>
+
+
+	
+
+<item id="li1032">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">public class Ap115{
+  public static void main(
+                        String args[]){
+    System.out.println(Worker.twoPI);
+  }//end main()
+}//end class Ap115
+
+class Worker{
+  public static final double twoPI 
+                         = 2 * Math.PI;
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1018">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<para id="p1020">
+Note that 6.283185307179586 is a correct numeric value. 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1033">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1034">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1035">
+C. C. 6.283185307179586
+
+</item>
+
+
+	
+
+<item id="li1036">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">public class Ap116{
+  public static void main(
+                        String args[]){
+    System.out.println(Worker.twoPI);
+  }//end main()
+}//end class Ap116
+
+class Worker{
+  public static final double twoPI 
+                            = 2 * myPI;
+  public static final double myPI
+                             = Math.PI;
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1037">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1038">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1039">
+C. 0 0.0 false
+
+</item>
+
+
+	
+
+<item id="li1040">
+D. null null null
+
+</item>
+
+
+	
+
+<item id="li1041">
+E. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">public class Ap117{
+  public static void main(
+                        String args[]){
+    new Worker().display();
+  }//end main()
+}//end class Ap117
+
+class Worker{
+  private int myInt;
+  private double myDouble;
+  private boolean myBoolean;
+  
+  public void display(){
+    System.out.print(myInt);
+    System.out.print("  " + myDouble);
+    System.out.println(
+                     "  " + myBoolean);
+  }//end display()
+  
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1023">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1042">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+C. 0 false 5 true
+
+</item>
+
+
+	
+
+<item id="li1045">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">public class Ap118{
+  public static void main(
+                        String args[]){
+    new Worker().display();
+    new Worker(5,true).display();
+    System.out.println();
+  }//end main()
+}//end class Ap118
+
+class Worker{
+  private int myInt;
+  private boolean myBoolean;
+
+  public Worker(int x, boolean y){
+    myInt = x;
+    myBoolean = y;
+  }//end parameterized constructor
+  
+  public void display(){
+    System.out.print(myInt);
+    System.out.print(
+                " " + myBoolean + " ");
+  }//end display()
+  
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1025">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1046">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1047">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1048">
+C. 20 222.0 false --- 5 222.0 true
+
+</item>
+
+
+	
+
+<item id="li1049">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">public class Ap119{
+  public static void main(
+                        String args[]){
+    new Worker().display();
+    System.out.print("--- ");
+    new Worker(5,true).display();
+    System.out.println();
+  }//end main()
+}//end class Ap119
+
+class Worker{
+  private int myInt = 100;
+  private double myDouble = 222.0;
+  private boolean myBoolean;
+  
+  public Worker(){
+    myInt = 20;
+  }//end noarg constructor
+  
+  public Worker(int x, boolean y){
+    myInt = x;
+    myBoolean = y;
+  }//end parameterized constructor
+  
+  public void display(){
+    System.out.print(myInt + " ");
+    System.out.print(myDouble + " ");
+    System.out.print(myBoolean + " ");
+  }//end display()
+  
+}// end class Worker
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+
+<para id="p1027">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1050">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1058">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1059">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10.
+
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1001" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1060">
+Module name: Ap0100: Self-assessment, The this keyword, 
+				static final variables, and initialization of instance variables
+
+</item>
+
+
+				
+
+<item id="li1061">
+File: Ap0100.htm 
+
+</item>
+
+
+				
+
+<item id="li1062">
+Originally published: 2004
+
+</item>
+
+
+				
+
+<item id="li1063">
+Published at cnx.org: 12/08/12
+
+</item>
+
+
+
+
+<item id="li1064">
+Revised: 12/03/14
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1030">
+<emphasis id="strong1003" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1031">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1032">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1033">
+<emphasis id="strong1004" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+C. 20 222.0 false --- 5 222.0 true 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1005" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1006" effect="bold">
+Four ways to initialize instance variables 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+There are at least four ways to establish initial values for instance 
+variables 
+
+<emphasis id="em1000" effect="italics">
+(you may be able to think of others)
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1065">
+Allow them to take on their default values.
+
+</item>
+
+
+	
+
+<item id="li1066">
+Establish their values using initialization expressions.
+
+</item>
+
+
+	
+
+<item id="li1067">
+Establish their values using hard-coded values within a constructor.
+
+</item>
+
+
+	
+
+<item id="li1068">
+Establish their values using parameter values passed to parameterized 
+	constructors.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1007" effect="bold">
+Using the first two ways 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1038">
+The following fragment illustrates the first two of those four ways.
+
+</para>
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">class Worker{
+  private int myInt = 100;
+  private double myDouble = 222.0;
+  private boolean myBoolean;
+
+  //...</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1039">
+In the above fragment, the instance variables named 
+
+<emphasis id="strong1008" effect="bold">
+myInt
+
+</emphasis>
+ and 
+
+<emphasis id="strong1009" effect="bold">
+myDouble
+
+</emphasis>
+ 
+receive their initial values from initialization expressions. In these two 
+cases, the initialization expressions are very simple. They are simply literal 
+expressions. However, they could be much more complex if needed. 
+
+</para>
+
+
+
+
+<para id="p1040">
+The variable named 
+
+<emphasis id="strong1010" effect="bold">
+myBoolean
+
+</emphasis>
+ in the above fragment is allowed to take on its 
+default value of false. 
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1011" effect="bold">
+Replacing the default 
+
+</emphasis>
+ 
+
+<emphasis id="em1001" effect="italics">
+<emphasis id="strong1012" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1013" effect="bold">
+ constructor 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1042">
+The next fragment shows one of the two overloaded constructors in the class 
+named 
+
+<emphasis id="strong1014" effect="bold">
+Worker
+
+</emphasis>
+. This constructor is a replacement for the default
+
+
+<emphasis id="em1002" effect="italics">
+noarg
+
+</emphasis>
+ constructor.
+
+</para>
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">class Worker{
+  private int myInt = 100;
+  private double myDouble = 222.0;
+  private boolean myBoolean;
+  
+  public Worker(){
+    myInt = 20;
+  }//end noarg constructor
+  
+  //...</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1043">
+<emphasis id="strong1015" effect="bold">
+Using hard-coded values for initialization 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1044">
+This fragment illustrates the third of the four ways listed earlier to 
+establish the initial value of the instance variables of an object of the class 
+named 
+
+<emphasis id="strong1016" effect="bold">
+Worker
+
+</emphasis>
+. In particular, this fragment assigns the 
+hard-coded value 20 to the instance variable named 
+
+<emphasis id="strong1017" effect="bold">
+myInt
+
+</emphasis>
+, thus overwriting the 
+value of 100 previously established for that variable by an initialization 
+expression. 
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="em1003" effect="italics">
+(All objects instantiated from the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1018" effect="bold">
+<emphasis id="em1004" effect="italics">
+Worker
+
+</emphasis>
+</emphasis>
+<emphasis id="em1005" effect="italics">
+ class using this
+noarg constructor would have the same initial value for the variable 
+named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1019" effect="bold">
+<emphasis id="em1006" effect="italics">
+myInt
+
+</emphasis>
+</emphasis>
+<emphasis id="em1007" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+Note, that this constructor does not disturb the initial values of the other two 
+instance variables that were earlier established by an initialization 
+expression, or by taking on the default value. Thus, the initial values of these 
+two instance variables remain as they were immediately following the declaration 
+of the variables.
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1020" effect="bold">
+Initial values using this 
+
+</emphasis>
+ 
+
+<emphasis id="em1008" effect="italics">
+<emphasis id="strong1021" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1022" effect="bold">
+ constructor 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1048">
+When an object of the 
+
+<emphasis id="strong1023" effect="bold">
+Worker
+
+</emphasis>
+ class is instantiated using 
+this constructor and the values of the three instance variables are displayed, 
+the results are as shown below: 
+
+</para>
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1024" effect="bold">
+20 222.0 false 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1050">
+The value of 
+
+<emphasis id="strong1025" effect="bold">
+myInt
+
+</emphasis>
+ is 20 as established by the constructor. The value of 
+
+
+<emphasis id="strong1026" effect="bold">
+myDouble
+
+</emphasis>
+ is 222.0 as established by the initialization expression, and the value 
+of 
+
+<emphasis id="strong1027" effect="bold">
+myBoolean
+
+</emphasis>
+ is false as established by default. 
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1028" effect="bold">
+Using constructor parameters for initialization
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1052">
+The next fragment shows the last of the four ways listed earlier for 
+establishing the initial value of an instance variable.
+
+</para>
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">public class Ap119{
+  public static void main(
+                        String args[]){
+    //...
+    new Worker(5,true).display();
+    //...
+  }//end main()
+}//end class Ap119
+
+class Worker{
+  private int myInt = 100;
+  private double myDouble = 222.0;
+  private boolean myBoolean;
+  //...
+  
+  public Worker(int x, boolean y){
+    myInt = x;
+    myBoolean = y;
+  }//end parameterized constructor
+  
+  //...</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1029" effect="bold">
+A parameterized constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1054">
+The above fragment shows the second of two overloaded constructors for the 
+class named 
+
+<emphasis id="strong1030" effect="bold">
+Worker
+
+</emphasis>
+. This constructor uses two incoming 
+parameter values to establish the values of two of the instance variables, 
+overwriting whatever values may earlier have been established for those 
+variables. 
+
+</para>
+
+
+
+
+<para id="p1055">
+The above fragment uses this constructor to instantiate an object of the
+
+
+<emphasis id="strong1031" effect="bold">
+Worker
+
+</emphasis>
+ class, assigning incoming parameter values of 5 and 
+
+<emphasis id="em1009" effect="italics">
+true
+
+</emphasis>
+ 
+to the instance variables named 
+
+<emphasis id="strong1032" effect="bold">
+myInt
+
+</emphasis>
+ and 
+
+<emphasis id="strong1033" effect="bold">
+myBoolean
+
+</emphasis>
+ respectively. This 
+overwrites the value previously placed in the variable named 
+
+<emphasis id="strong1034" effect="bold">
+myInt
+
+</emphasis>
+ by the 
+initialization expression. It also overwrites the default value previously 
+placed in the instance variable named 
+
+<emphasis id="strong1035" effect="bold">
+myBoolean
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1056">
+<emphasis id="em1010" effect="italics">
+(Note that this constructor doesn't disturb the value for the instance 
+variable named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1036" effect="bold">
+<emphasis id="em1011" effect="italics">
+myDouble
+
+</emphasis>
+</emphasis>
+<emphasis id="em1012" effect="italics">
+ that was previously established through the use of an 
+initialization expression.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1037" effect="bold">
+Initial values using parameterized constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1058">
+After instantiating the new object, this fragment causes the values of all 
+three instance variables to be displayed. The result is: 
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1038" effect="bold">
+5 222.0 true 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1060">
+As you can see, the values contained in the instance variables named 
+
+<emphasis id="strong1039" effect="bold">
+myInt
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1040" effect="bold">
+myBoolean
+
+</emphasis>
+ are the values of 5 and true placed there by the constructor, 
+based on incoming parameter values. The value in the instance variable named 
+
+
+<emphasis id="strong1041" effect="bold">
+myDouble
+
+</emphasis>
+ is the value placed there by the initialization expression when the 
+variable was declared. 
+
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1042" effect="bold">
+Default initialization 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1062">
+If you don't take any steps to initialize instance variables, they will be 
+automatically initialized. Numeric instance variables will be initialized with 
+zero value for the type of variable involved. Instance variables of type 
+
+<emphasis id="strong1043" effect="bold">
+boolean
+
+</emphasis>
+ 
+will be initialized to false. Instance variables of type 
+
+<emphasis id="strong1044" effect="bold">
+char
+
+</emphasis>
+ will be 
+initialized to a Unicode value with all 16 bits set to zero. Reference variables 
+will be initialized to null. 
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1045" effect="bold">
+Initialization expression 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1064">
+If you provide an initialization expression for an instance variable, the 
+value of the expression will overwrite the default value, and the value of the 
+initialization expression will become the initial value for the instance 
+variable. 
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1046" effect="bold">
+Assignment in constructor code 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1066">
+If you use an assignment statement in a constructor to assign a value to an 
+instance variable, that value will overwrite the value previously placed in the 
+instance variable either by default, or by use of an initialization expression.
+The constructor has the "last word" on the matter of initialization of instance 
+variables.
+
+</para>
+
+
+
+
+<para id="p1067">
+<link id="a1046" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1068">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1047" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1048" effect="bold">
+The default constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1070">
+When you define a class, you are not required to define a constructor for the 
+class. If you do not define a constructor for the class, a default constructor 
+that takes no arguments will be provided on your behalf. You can instantiate new 
+objects of the class by applying the new operator to the default constructor as 
+shown in the following code fragment from 
+
+<link id="a1047" target-id="question08">
+
+Question 8
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">   new Worker().display();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1049" effect="bold">
+Behavior of the default constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1072">
+As illustrated in 
+
+<link id="a1048" target-id="question08">
+
+Question 8
+
+</link>
+
+, when you don't provide a constructor that 
+purposely initializes the values of instance variables, or initialize them in 
+some other manner, they will automatically 
+be initialized to the default values described in 
+
+<link id="a1049" target-id="question08">
+
+Question 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1050" effect="bold">
+Defining overloaded constructors 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1074">
+You can also define one or more overloaded constructors having different 
+formal argument lists. The typical intended purpose of such constructors is to 
+use incoming parameter values to initialize the values of instance variables in 
+the new object. 
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1051" effect="bold">
+A parameterized constructor 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1076">
+This is illustrated in the following code fragment. This fragment receives 
+two incoming parameters and uses the values of those two parameters to 
+initialize the values of two instance variables belonging to the new object.
+
+</para>
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1014" display="block">class Worker{
+  private int myInt;
+  private boolean myBoolean;
+
+  public Worker(int x, boolean y){
+    myInt = x;
+    myBoolean = y;
+  }//end parameterized constructor
+  
+  //display() omitted for brevity
+  
+}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1052" effect="bold">
+If you define any constructors ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1078">
+However, there is a pitfall that you must never forget. 
+
+</para>
+
+
+
+
+<para id="p1079">
+If you define any constructors in your new class, you must define all 
+constructors that will ever be required for your new class.
+
+</para>
+
+
+
+
+<para id="p1080">
+If you define any constructors, the default constructor will no longer be 
+provided automatically. Therefore, if a constructor that takes no arguments will 
+ever be needed for your new class, and you define one or more parameterized 
+constructors, you must define the 
+
+<emphasis id="em1013" effect="italics">
+noarg
+
+</emphasis>
+ constructor when you define 
+your class. 
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1053" effect="bold">
+A parameterized constructor for Worker
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1082">
+The class named 
+
+<emphasis id="strong1054" effect="bold">
+Worker
+
+</emphasis>
+ in this program defines a constructor 
+that receives two incoming parameters, one of type 
+
+<emphasis id="strong1055" effect="bold">
+int
+
+</emphasis>
+ and the other of 
+type 
+
+<emphasis id="strong1056" effect="bold">
+boolean
+
+</emphasis>
+. It uses those two incoming parameters to initialize two instance 
+variables of the new object. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1057" effect="bold">
+Oops! 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1084">
+However, it does not define a constructor with no arguments in the formal 
+argument list 
+
+<emphasis id="em1014" effect="italics">
+(commonly called a noarg constructor)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1058" effect="bold">
+Calling the missing 
+
+</emphasis>
+ 
+
+<emphasis id="em1015" effect="italics">
+<emphasis id="strong1059" effect="bold">
+noarg
+
+</emphasis>
+</emphasis>
+<emphasis id="strong1060" effect="bold">
+ constructor 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1086">
+The following code in the 
+
+<emphasis id="strong1061" effect="bold">
+main
+
+</emphasis>
+ method of the controlling class attempts to 
+instantiate two objects of the 
+
+<emphasis id="strong1062" effect="bold">
+Worker
+
+</emphasis>
+ class. The first call of 
+the constructor passes no parameters to the constructor. Thus, it requires a 
+
+<emphasis id="em1016" effect="italics">
+
+noarg
+
+</emphasis>
+ constructor in order to instantiate the object.
+
+</para>
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">public class Ap118{
+  public static void main(
+                        String args[]){
+    new Worker().display();
+    new Worker(5,true).display();
+    System.out.println();
+  }//end main()
+}//end class Ap118</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1063" effect="bold">
+A compiler error 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1088">
+Since there is no constructor defined in the 
+
+<emphasis id="strong1064" effect="bold">
+Worker
+
+</emphasis>
+ class 
+with an empty formal argument list 
+
+<emphasis id="em1017" effect="italics">
+(and the default version is not provided)
+
+</emphasis>
+, 
+the program produces the following compiler error.
+
+</para>
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">Ap118.java:11: cannot resolve symbol
+symbol  : constructor Worker 
+()
+location: class Worker
+    new Worker().display();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1089">
+<link id="a1050" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1090">
+C. 0 0.0 false 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1065" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1066" effect="bold">
+All instance variables are initialized to default values 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1092">
+All instance variables are automatically initialized to default values if the 
+author of the class doesn't take explicit steps to cause them to initialized to 
+other values.
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1067" effect="bold">
+The default values 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+Numeric variables are automatically initialized to zero, while 
+
+<emphasis id="strong1068" effect="bold">
+
+boolean
+
+</emphasis>
+ variables are automatically initialized to false. Instance 
+variables of type 
+
+<emphasis id="strong1069" effect="bold">
+char
+
+</emphasis>
+ are initialized to a Unicode value with 
+all 16 bits set to zero. Reference variables are initialized to null. 
+
+</para>
+
+
+
+
+<para id="p1095">
+<link id="a1051" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1096">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1070" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1071" effect="bold">
+Pushing the compiler beyond its limits 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1098">
+Compared to many programming environments, the Java compiler is very 
+forgiving. However, there is a limit to how far even the Java compiler is 
+willing to go to keep us out of trouble. 
+
+</para>
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1072" effect="bold">
+Initializing the value of a static variable 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1100">
+We can initialize the value of a 
+
+<emphasis id="strong1073" effect="bold">
+static
+
+</emphasis>
+ variable using an 
+initialization expression as follows:
+
+</para>
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">public static final MY_CONSTANT
+       = initialization expression;
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1074" effect="bold">
+Important point 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1102">
+It is necessary for the compiler to be able to evaluate the initialization 
+expression when it is encountered. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1075" effect="bold">
+Illegal forward reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1104">
+This program attempts to use an initialization expression that makes use of 
+the value of another 
+
+<emphasis id="strong1076" effect="bold">
+static
+
+</emphasis>
+ variable 
+
+<emphasis id="em1018" effect="italics">
+(myPI)
+
+</emphasis>
+ that has not yet been established at 
+that point in the compilation process. As a result, the program produces the 
+following compiler error under JDK 1.3.
+
+</para>
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">Ap116.java:18: illegal forward reference
+     = 2 * myPI;
+           ^
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1077" effect="bold">
+Reverse the order of the variable declarations 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1106">
+The problem can be resolved by reversing the order of the two 
+
+<emphasis id="strong1078" effect="bold">
+static
+
+</emphasis>
+ 
+variable declarations in the following revised 
+version of the program.
+
+</para>
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">public class Ap116{
+  public static void main(
+                        String args[]){
+    System.out.println(Worker.twoPI);
+  }//end main()
+}//end class Ap116
+
+class Worker{
+  public static final double myPI
+                             = Math.PI;
+  public static final double twoPI 
+                            = 2 * myPI;
+
+}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1107">
+This revised version of the program compiles and executes successfully. 
+
+</para>
+
+
+
+
+<para id="p1108">
+<link id="a1052" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1109">
+C. 6.283185307179586 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1079" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1080" effect="bold">
+Access via an object 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1111">
+<link id="a1053" target-id="question05">
+
+Question 5
+
+</link>
+
+ illustrated the fact that a 
+
+<emphasis id="strong1081" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1082" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1083" effect="bold">
+final
+
+</emphasis>
+ 
+member variable of a class can be accessed via a reference to an object 
+instantiated from the class. 
+
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1084" effect="bold">
+Not the only way to access a 
+
+<emphasis id="em1019" effect="italics">
+static
+
+</emphasis>
+ variable 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+However, that is not the only way in which 
+
+<emphasis id="strong1085" effect="bold">
+static
+
+</emphasis>
+ member variables can 
+be accessed. More importantly, 
+
+<emphasis id="strong1086" effect="bold">
+public static
+
+</emphasis>
+ member variables 
+of a class can be accessed simply by referring to the name of the class and the 
+name of the member variable joined by a period. 
+
+</para>
+
+
+
+
+<para id="p1114">
+<emphasis id="em1020" effect="italics">
+(Depending on other factors, it may not be necessary for the 
+
+</emphasis>
+<emphasis id="strong1087" effect="bold">
+<emphasis id="em1021" effect="italics">
+
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1022" effect="italics">
+ variable to also be declared 
+
+</emphasis>
+<emphasis id="strong1088" effect="bold">
+<emphasis id="em1023" effect="italics">
+public
+
+</emphasis>
+</emphasis>
+<emphasis id="em1024" effect="italics">
+, 
+but that is the most general approach.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1089" effect="bold">
+A 
+
+<emphasis id="em1025" effect="italics">
+public
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="strong1090" effect="bold">
+<emphasis id="em1026" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="strong1091" effect="bold">
+<emphasis id="em1027" effect="italics">
+final
+
+</emphasis>
+ member 
+variable 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1116">
+In this program, the 
+
+<emphasis id="strong1092" effect="bold">
+Worker
+
+</emphasis>
+ class declares and initializes a
+
+
+<emphasis id="strong1093" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1094" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1095" effect="bold">
+final
+
+</emphasis>
+ member variable named 
+
+<emphasis id="strong1096" effect="bold">
+twoPI
+
+</emphasis>
+ 
+as shown in the following fragment.
+
+</para>
+
+
+	
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">class Worker{
+  public static final double twoPI 
+                         = 2 * Math.PI;
+}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1097" effect="bold">
+Accessing the 
+
+<emphasis id="em1028" effect="italics">
+static
+
+</emphasis>
+ variable 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1118">
+The single statement in the 
+
+<emphasis id="strong1098" effect="bold">
+main
+
+</emphasis>
+ method of the controlling 
+class accesses and displays the value of the 
+
+<emphasis id="strong1099" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1100" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1101" effect="bold">
+
+final
+
+</emphasis>
+ member variable named 
+
+<emphasis id="strong1102" effect="bold">
+twoPI
+
+</emphasis>
+ as shown in the following 
+fragment.
+
+</para>
+
+
+	
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">public class Ap115{
+  public static void main(
+                        String args[]){
+    System.out.println(Worker.twoPI);
+  }//end main()
+}//end class Ap115</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1103" effect="bold">
+Objects share one copy of 
+
+<emphasis id="em1029" effect="italics">
+static
+
+</emphasis>
+ variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1120">
+Basically, when a member variable is declared 
+
+<emphasis id="strong1104" effect="bold">
+static
+
+</emphasis>
+, no matter how 
+many objects are instantiated from a class 
+
+<emphasis id="em1030" effect="italics">
+(including no objects at all)
+
+</emphasis>
+, 
+they all share a single copy of the variable. 
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1105" effect="bold">
+Sharing can be dangerous 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+This sharing of a common variable leads to the same kind of problems that 
+have plagued programs that use 
+
+<emphasis id="strong1106" effect="bold">
+<emphasis id="em1031" effect="italics">
+global
+
+</emphasis>
+</emphasis>
+ variables for 
+years. If the code in any object changes the value of the 
+
+<emphasis id="strong1107" effect="bold">
+static
+
+</emphasis>
+ variable, it is changed insofar as 
+all objects are concerned. 
+
+</para>
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1108" effect="bold">
+Should you use non-final
+
+</emphasis>
+ 
+
+<emphasis id="strong1109" effect="bold">
+<emphasis id="em1032" effect="italics">
+static
+
+</emphasis>
+ variables? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1124">
+Most authors will probably agree that in most cases, you probably should not 
+use 
+
+<emphasis id="strong1110" effect="bold">
+static
+
+</emphasis>
+ variables unless you also make them 
+
+<emphasis id="strong1111" effect="bold">
+final
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1125">
+<emphasis id="em1033" effect="italics">
+(There are some cases, such as counting the number of objects 
+instantiated from a class, where a non-final 
+
+</emphasis>
+<emphasis id="strong1112" effect="bold">
+<emphasis id="em1034" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1035" effect="italics">
+ 
+variable may be appropriate. However, the appropriate uses of non-final 
+
+</emphasis>
+<emphasis id="strong1113" effect="bold">
+
+
+
+<emphasis id="em1036" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1037" effect="italics">
+ variables are few and far between.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1114" effect="bold">
+Should you also make 
+
+<emphasis id="em1038" effect="italics">
+static
+
+</emphasis>
+ variables 
+
+<emphasis id="em1039" effect="italics">
+public
+
+</emphasis>
+? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1127">
+If you make your variables 
+
+<emphasis id="strong1115" effect="bold">
+static
+
+</emphasis>
+ and 
+
+<emphasis id="strong1116" effect="bold">
+final
+
+</emphasis>
+, you will often 
+also want to make them 
+
+<emphasis id="strong1117" effect="bold">
+public
+
+</emphasis>
+ so that they are easy to access. There are 
+numerous examples in the standard Java class libraries where variables are 
+declared as 
+
+<emphasis id="strong1118" effect="bold">
+public
+
+</emphasis>
+, 
+
+<emphasis id="strong1119" effect="bold">
+static
+
+</emphasis>
+, and 
+
+<emphasis id="strong1120" effect="bold">
+final
+
+</emphasis>
+. This is the 
+mechanism by which the class libraries create constants and make them available 
+for easy access on a widespread basis. 
+
+</para>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1121" effect="bold">
+The Color class 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1129">
+For example, the 
+
+<emphasis id="strong1122" effect="bold">
+Color
+
+</emphasis>
+ class defines a number of 
+
+<emphasis id="strong1123" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1124" effect="bold">
+static
+
+</emphasis>
+
+
+
+<emphasis id="strong1125" effect="bold">
+final
+
+</emphasis>
+ variables containing the information that represents generic colors 
+such as ORANGE, PINK, and MAGENTA. 
+
+<emphasis id="em1040" effect="italics">
+(By convention, constants in Java are 
+written with all upper-case characters, but that is not a technical 
+requirement.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1130">
+If you need generic colors and not custom colors, you can easily access and 
+use these color values without the requirement to mix red, green, and blue to 
+produce the desired color values. 
+
+</para>
+
+
+
+
+<para id="p1131">
+<link id="a1054" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1132">
+C. 6.283185307179586 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1126" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1127" effect="bold">
+A 
+
+<emphasis id="em1041" effect="italics">
+public
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="strong1128" effect="bold">
+<emphasis id="em1042" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+ 
+
+<emphasis id="strong1129" effect="bold">
+<emphasis id="em1043" effect="italics">
+final
+
+</emphasis>
+ variable
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1134">
+This program declares a 
+
+<emphasis id="strong1130" effect="bold">
+public
+
+</emphasis>
+ 
+
+<emphasis id="strong1131" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1132" effect="bold">
+final
+
+</emphasis>
+ member 
+variable named 
+
+<emphasis id="strong1133" effect="bold">
+twoPI
+
+</emphasis>
+ in the class named 
+
+<emphasis id="strong1134" effect="bold">
+Worker
+
+</emphasis>
+, and properly 
+initializes it when it is declared as shown in the following code fragment.
+
+
+</para>
+
+
+
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">class Worker{  public static final double twoPI 
+                         = 2 * Math.PI;
+}/}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1135">
+From that point forward in the program, this 
+member variable named 
+
+<emphasis id="strong1135" effect="bold">
+twoPI
+
+</emphasis>
+ behaves like a constant, meaning that any code that attempts to 
+change its value will cause a compiler error 
+
+<emphasis id="em1044" effect="italics">
+(as in the program in 
+
+<link id="a1055" target-id="question04">
+
+Question 4
+
+</link>
+
+)
+
+</emphasis>
+.. 
+
+</para>
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1136" effect="bold">
+Accessing the static variable 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1137">
+The following single statement that appears in the 
+
+<emphasis id="strong1137" effect="bold">
+main
+
+</emphasis>
+ method of the 
+controlling class instantiates a new object of the 
+
+<emphasis id="strong1138" effect="bold">
+Worker
+
+</emphasis>
+ class, accesses, and 
+displays the 
+
+<emphasis id="strong1139" effect="bold">
+public static final
+
+</emphasis>
+ member variable named 
+
+
+<emphasis id="strong1140" effect="bold">
+twoPI
+
+</emphasis>
+. 
+
+</para>
+
+
+	
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block"> public static void main(
+                        String args[]){
+    System.out.println(
+                   new Worker().twoPI);
+  }  }//end main()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1138">
+<emphasis id="em1045" effect="italics">
+(Note for future discussion that the variable named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1141" effect="bold">
+<emphasis id="em1046" effect="italics">
+twoPI
+
+</emphasis>
+</emphasis>
+<emphasis id="em1047" effect="italics">
+ is accessed via a 
+reference to an object instantiated from the class named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1142" effect="bold">
+<emphasis id="em1048" effect="italics">
+Worker
+
+</emphasis>
+</emphasis>
+<emphasis id="em1049" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1139">
+This causes the 
+
+<emphasis id="strong1143" effect="bold">
+double
+
+</emphasis>
+ value 6.283185307179586 to be displayed on the 
+standard output device.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<link id="a1056" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1141">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1144" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1142">
+A 
+
+<emphasis id="strong1145" effect="bold">
+final
+
+</emphasis>
+ variable 
+
+</para>
+
+
+
+
+<para id="p1143">
+When a member variable of a class 
+
+<emphasis id="em1050" effect="italics">
+(not a local variable)
+
+</emphasis>
+ is declared 
+
+<emphasis id="strong1146" effect="bold">
+final
+
+</emphasis>
+, 
+its value must be established when the variable is declared. This program 
+attempts to assign a value to a 
+
+<emphasis id="strong1147" effect="bold">
+final
+
+</emphasis>
+ member variable after it has been 
+declared, producing the following compiler error under JDK 1.3.
+
+</para>
+
+
+	
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">Ap113.java:20: cannot assign a value to
+final variable twoPI
+    twoPI = 2 * Math.PI;
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1144">
+<link id="a1057" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1145">
+D. 22 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1148" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1149" effect="bold">
+Two uses of the 
+
+<emphasis id="em1051" effect="italics">
+this
+
+</emphasis>
+ keyword 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1147">
+This program illustrates two different uses of the 
+
+<emphasis id="strong1150" effect="bold">
+this
+
+</emphasis>
+ keyword. 
+
+</para>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1151" effect="bold">
+Disambiguating a reference to a variable 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1149">
+Consider first the use of 
+
+<emphasis id="strong1152" effect="bold">
+this
+
+</emphasis>
+ that is shown in the following code 
+fragment.
+
+</para>
+
+
+	
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1025" display="block">class Worker{
+  private int data;
+  
+  public Worker(int data){
+    this.data = data;
+  }//end constructor</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1150">
+<emphasis id="strong1153" effect="bold">
+Very common usage 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1151">
+The code in the above fragment is commonly used by many Java programmers.
+All aspiring Java programmers need to know how to read such 
+code, even if they elect not to use it. In addition, understanding this code 
+should enhance your overall understanding of the use and nature of the 
+
+<emphasis id="strong1154" effect="bold">
+this
+
+</emphasis>
+ 
+keyword. 
+
+</para>
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1155" effect="bold">
+A parameterized constructor 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1153">
+The above fragment shows a parameterized constructor for the class named
+
+
+<emphasis id="strong1156" effect="bold">
+Worker
+
+</emphasis>
+. This constructor illustrates a situation where there is 
+a local parameter named 
+
+<emphasis id="strong1157" effect="bold">
+data
+
+</emphasis>
+ that has the same name as an instance variable 
+belonging to the object. 
+
+</para>
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1158" effect="bold">
+Casting a shadow 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1155">
+The existence of the local parameter named 
+
+<emphasis id="strong1159" effect="bold">
+data
+
+</emphasis>
+ casts a shadow on the 
+instance variable having the same name, making it inaccessible by using its name 
+alone. 
+
+</para>
+
+
+
+
+<para id="p1156">
+<emphasis id="em1052" effect="italics">
+(A local variable having the same name as an instance variable casts a 
+similar shadow on the instance variable.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1157">
+In this shadowing circumstance, when the code in the constructor refers 
+simply to the name 
+
+<emphasis id="strong1160" effect="bold">
+data
+
+</emphasis>
+, it is referring to the local parameter having that 
+name. In order for the code in the constructor to refer to the instance variable 
+having the name data, it must refer to it as 
+
+<emphasis id="strong1161" effect="bold">
+this.data
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1162" effect="bold">
+In other words ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1159">
+In other words, 
+
+<emphasis id="strong1163" effect="bold">
+this.data
+
+</emphasis>
+ is a reference to an instance variable named 
+
+
+<emphasis id="strong1164" effect="bold">
+data
+
+</emphasis>
+ belonging to the object being constructed by the constructor
+
+
+<emphasis id="em1053" effect="italics">
+(this object)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1165" effect="bold">
+Not always necessary 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+You could always use this syntax to refer to an instance variable of the 
+object being constructed if you wanted to. However, the use of this syntax is 
+necessary only when a local parameter or variable has the same name as the 
+instance variable and casts a shadow on the instance variable. When this is not 
+the case, you can refer to the instance variable simply by referring to its name 
+without the keyword 
+
+<emphasis id="strong1166" effect="bold">
+this
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1167" effect="bold">
+Finally, the main point ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1163">
+Now consider the main point of this program. The following fragment shows the
+
+
+<emphasis id="strong1168" effect="bold">
+main
+
+</emphasis>
+ method of the controlling class for the application.
+
+</para>
+
+
+	
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1026" display="block">public class Ap112{
+  public static void main(
+                        String args[]){
+    Worker obj1 = new Worker(11);
+    Worker obj2 = new Worker(22);
+    Worker obj3 = new Worker(33);
+    Worker obj4 = new Worker(44);
+    obj2.doThis();
+  }//end main()
+}//end class Ap112</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1169" effect="bold">
+Four different objects of type Worker
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1165">
+The code in the above fragment instantiates four different objects from the 
+class named 
+
+<emphasis id="strong1170" effect="bold">
+Worker
+
+</emphasis>
+, passing a different value to the constructor for each 
+object. Thus, individual instance variable in each of the four objects contain 
+the 
+
+<emphasis id="strong1171" effect="bold">
+int
+
+</emphasis>
+ values 11, 22, 33, and 44 respectively. 
+
+</para>
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1172" effect="bold">
+Call an instance method on one object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1167">
+Then the code in the 
+
+<emphasis id="strong1173" effect="bold">
+main
+
+</emphasis>
+ method calls the instance method named
+
+
+<emphasis id="strong1174" effect="bold">
+doThis
+
+</emphasis>
+ on only one of the objects, which is the one referred to 
+by the reference variable named 
+
+<emphasis id="strong1175" effect="bold">
+obj2
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1168">
+An overridden 
+
+<emphasis id="strong1176" effect="bold">
+toString
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1177" effect="bold">
+Worker
+
+</emphasis>
+ class is 
+eventually called to return a 
+
+<emphasis id="strong1178" effect="bold">
+String
+
+</emphasis>
+ representation of the value stored in the 
+instance variable named 
+
+<emphasis id="strong1179" effect="bold">
+data
+
+</emphasis>
+ for the purpose of displaying that value on the 
+standard output device. 
+
+</para>
+
+
+
+
+<para id="p1169">
+<emphasis id="strong1180" effect="bold">
+Overridden toString method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1170">
+The next fragment shows the overridden 
+
+<emphasis id="strong1181" effect="bold">
+toString
+
+</emphasis>
+ method for 
+the 
+
+<emphasis id="strong1182" effect="bold">
+Worker
+
+</emphasis>
+ class. As you can see, this overridden method constructs and returns 
+a reference to a 
+
+<emphasis id="strong1183" effect="bold">
+String
+
+</emphasis>
+ representation of the 
+
+<emphasis id="strong1184" effect="bold">
+int
+
+</emphasis>
+ value stored in the 
+instance variable named 
+
+<emphasis id="strong1185" effect="bold">
+data
+
+</emphasis>
+. Thus, depending on which object the 
+
+<emphasis id="strong1186" effect="bold">
+
+toString
+
+</emphasis>
+ method is called on, different string values will be returned 
+by the overridden method.
+
+</para>
+
+
+	
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block"> public String toString(){
+    return "" + data;
+  }//end toString()
+}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1187" effect="bold">
+Passing reference to this object to println method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1172">
+The next fragment shows the 
+
+<emphasis id="strong1188" effect="bold">
+doThis
+
+</emphasis>
+ instance method belonging 
+to each object instantiated from the 
+
+<emphasis id="strong1189" effect="bold">
+Worker
+
+</emphasis>
+ class. When this method is called on 
+a specific object instantiated from the 
+
+<emphasis id="strong1190" effect="bold">
+Worker
+
+</emphasis>
+ class, it uses the 
+
+<emphasis id="strong1191" effect="bold">
+this
+
+</emphasis>
+ 
+keyword to pass that specific object's reference to the 
+
+<emphasis id="strong1192" effect="bold">
+println
+
+</emphasis>
+ 
+method. The 
+
+<emphasis id="strong1193" effect="bold">
+println
+
+</emphasis>
+ method uses that reference to call the 
+
+<emphasis id="strong1194" effect="bold">
+
+toString
+
+</emphasis>
+ method on that specific object. This, in turn causes a 
+
+<emphasis id="strong1195" effect="bold">
+
+String
+
+</emphasis>
+ representation of the value of the instance variable named 
+
+
+<emphasis id="strong1196" effect="bold">
+data
+
+</emphasis>
+ belonging to 
+that specific object to be displayed.
+
+</para>
+
+
+	
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block"> public void doThis(){
+    System.out.println(this);
+  }//end area()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1173">
+<emphasis id="strong1197" effect="bold">
+The bottom line 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1174">
+In this program, the instance variable in the object referred to by 
+
+<emphasis id="strong1198" effect="bold">
+obj2
+
+</emphasis>
+ 
+contains the value 22. The instance variables in the other three objects 
+instantiated from the same class contain different values. 
+
+</para>
+
+
+
+
+<para id="p1175">
+The bottom line is that the following statement in the 
+
+<emphasis id="strong1199" effect="bold">
+main
+
+</emphasis>
+ method 
+causes the value 22 to be displayed on the standard output device. Along the 
+way, the 
+
+<emphasis id="strong1200" effect="bold">
+this
+
+</emphasis>
+ keyword is used to cause the 
+
+<emphasis id="strong1201" effect="bold">
+println
+
+</emphasis>
+ method to get 
+and display the value stored in a specific object, and to ignore three other 
+objects that were instantiated from the same class.
+
+</para>
+
+
+	
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">   obj2.doThis();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1176">
+<link id="a1058" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1177">
+C. 33 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1202" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1178">
+The 
+
+<emphasis id="strong1203" effect="bold">
+this
+
+</emphasis>
+ keyword 
+
+</para>
+
+
+
+
+<para id="p1179">
+The key to an understanding of this program lies in an understanding of the 
+single statement that appears in the method named 
+
+<emphasis id="strong1204" effect="bold">
+doThis
+
+</emphasis>
+, as 
+shown in the following fragment.
+
+</para>
+
+
+	
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">  public void doThis(){
+    new Helper().helpMe(this);
+  }//end area()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1180">
+The keyword named 
+
+<emphasis id="strong1205" effect="bold">
+this
+
+</emphasis>
+ has several uses in Java, some of which are 
+explicit, and some of which take place behind the scenes. 
+
+</para>
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1206" effect="bold">
+What do you need to know about the this keyword? 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1182">
+One of the uses of the keyword 
+
+<emphasis id="strong1207" effect="bold">
+this
+
+</emphasis>
+  is passing the implicit 
+parameter in its entirety to another method.
+
+</para>
+
+
+
+
+<para id="p1183">
+That is exactly what this program does. But what is the implicit parameter 
+named 
+
+<emphasis id="strong1208" effect="bold">
+this
+
+</emphasis>
+  anyway? 
+
+</para>
+
+
+
+
+<para id="p1184">
+<emphasis id="strong1209" effect="bold">
+Every object holds a reference to itself 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1185">
+This implicit reference can be accessed using the keyword 
+
+<emphasis id="strong1210" effect="bold">
+this
+
+</emphasis>
+  in a 
+non-static 
+
+<emphasis id="em1054" effect="italics">
+(instance) 
+
+</emphasis>
+method belonging to the object. 
+
+<emphasis id="em1055" effect="italics">
+(The implicit 
+reference named 
+
+</emphasis>
+<emphasis id="strong1211" effect="bold">
+<emphasis id="em1056" effect="italics">
+this
+
+</emphasis>
+</emphasis>
+<emphasis id="em1057" effect="italics">
+ cannot be accessed from within a
+
+
+</emphasis>
+<emphasis id="strong1212" effect="bold">
+<emphasis id="em1058" effect="italics">
+static
+
+</emphasis>
+</emphasis>
+<emphasis id="em1059" effect="italics">
+ method for reasons that won't be discussed 
+here.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1213" effect="bold">
+Calling an instance method 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1187">
+An instance method can only be called by referring to a specific object and 
+joining that object's reference to the name of the instance method using a 
+period as the joining operator. This is illustrated in the following statement, 
+which calls the method named 
+
+<emphasis id="strong1214" effect="bold">
+doThis
+
+</emphasis>
+ on a reference to an object 
+of the class named 
+
+<emphasis id="strong1215" effect="bold">
+Worker
+
+</emphasis>
+.
+
+</para>
+
+
+	
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1031" display="block">   new Worker().doThis();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1216" effect="bold">
+An anonymous object 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1189">
+The above statement creates an anonymous object of the class named 
+
+<emphasis id="strong1217" effect="bold">
+
+Worker
+
+</emphasis>
+. 
+
+<emphasis id="em1060" effect="italics">
+(An anonymous object is an object whose reference is not 
+assigned to a named reference variable.) 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1190">
+The code to the left of the period returns a reference to the new object. 
+Then the code calls the instance method named 
+
+<emphasis id="strong1218" effect="bold">
+doThis
+
+</emphasis>
+ on the 
+reference to the object. 
+
+</para>
+
+
+
+
+<para id="p1191">
+<emphasis id="strong1219" effect="bold">
+Which object is 
+
+<emphasis id="em1061" effect="italics">
+this
+
+</emphasis>
+ object?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1192">
+When the code in the instance method named 
+
+<emphasis id="strong1220" effect="bold">
+doThis
+
+</emphasis>
+ refers to 
+the keyword 
+
+<emphasis id="strong1221" effect="bold">
+this
+
+</emphasis>
+, it is a reference to the specific object on which the 
+
+
+<emphasis id="strong1222" effect="bold">
+doThis
+
+</emphasis>
+ method was called. The statement in the following fragment passes a reference to 
+that specific instance of the 
+
+<emphasis id="strong1223" effect="bold">
+Worker
+
+</emphasis>
+ class to a method named 
+
+<emphasis id="strong1224" effect="bold">
+helpMe
+
+</emphasis>
+ 
+in a new object of the 
+
+<emphasis id="strong1225" effect="bold">
+Helper
+
+</emphasis>
+ class.
+
+</para>
+
+
+	
+
+<note id="note1024" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1032" display="block"> public void doThis(){
+    new Helper().helpMe(this);
+  }//end area()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1226" effect="bold">
+A little help here please 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1194">
+The 
+
+<emphasis id="strong1227" effect="bold">
+helpMe
+
+</emphasis>
+ method is shown in the following fragment.
+
+</para>
+
+
+	
+
+<note id="note1025" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1033" display="block">class Helper{
+  public void helpMe(Worker param){
+    System.out.println(
+                      param.getData());
+  }//end helpMe()
+}//end class Helper</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1195">
+<emphasis id="strong1228" effect="bold">
+Using the incoming reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1196">
+The code in the 
+
+<emphasis id="strong1229" effect="bold">
+helpMe
+
+</emphasis>
+ method uses the incoming reference to 
+the object of the 
+
+<emphasis id="strong1230" effect="bold">
+Worker
+
+</emphasis>
+ class to call the 
+
+<emphasis id="strong1231" effect="bold">
+getData
+
+</emphasis>
+ method on 
+that object. 
+
+</para>
+
+
+
+
+<para id="p1197">
+Thus code in the 
+
+<emphasis id="strong1232" effect="bold">
+helpMe
+
+</emphasis>
+ method is able to call a method in 
+the object containing the method that called the 
+
+<emphasis id="strong1233" effect="bold">
+helpMe
+
+</emphasis>
+ method 
+in the first place. 
+
+</para>
+
+
+
+
+<para id="p1198">
+<emphasis id="strong1234" effect="bold">
+A callback scenario 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1199">
+When a method in one object calls a method in another object, passing 
+
+<emphasis id="strong1235" effect="bold">
+this
+
+</emphasis>
+ 
+as a parameter, that makes it possible for the method receiving the parameter to 
+make a callback to the object containing the method that passed 
+
+<emphasis id="strong1236" effect="bold">
+this
+
+</emphasis>
+ as a 
+parameter. 
+
+</para>
+
+
+
+
+<para id="p1200">
+The 
+
+<emphasis id="strong1237" effect="bold">
+getData
+
+</emphasis>
+ method returns a 
+
+<emphasis id="strong1238" effect="bold">
+String
+
+</emphasis>
+ representation of 
+the 
+
+<emphasis id="strong1239" effect="bold">
+int
+
+</emphasis>
+ instance variable named 
+
+<emphasis id="strong1240" effect="bold">
+data 
+
+</emphasis>
+with a value of 33 
+that is contained in the object of 
+the 
+
+<emphasis id="strong1241" effect="bold">
+Worker
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+<para id="p1201">
+<emphasis id="strong1242" effect="bold">
+Display the value 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1202">
+The code in the 
+
+<emphasis id="strong1243" effect="bold">
+helpMe
+
+</emphasis>
+ method causes that string to be 
+displayed on the computer screen. 
+
+</para>
+
+
+
+
+<para id="p1203">
+<emphasis id="strong1244" effect="bold">
+And the main point is ... 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1204">
+Any number of objects can be instantiated from a given class. A given 
+instance method can be called on any of those objects. When the code in such an 
+instance method refers to 
+
+<emphasis id="strong1245" effect="bold">
+this
+
+</emphasis>
+, it is referring to the specific object on 
+which it was called, and is not referring to any of the many other objects that 
+may have been instantiated from the same class. 
+
+</para>
+
+
+
+
+<para id="p1205">
+<link id="a1059" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1206">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1246" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1207">
+<emphasis id="strong1247" effect="bold">
+A wakeup call 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1208">
+The purpose of this question is simply to give you a wakeup call. The 
+declaration for the method named 
+
+<emphasis id="strong1248" effect="bold">
+getData
+
+</emphasis>
+ indicates that the 
+method returns a reference to an object of the class 
+
+<emphasis id="strong1249" effect="bold">
+String
+
+</emphasis>
+. However, the 
+code in the method attempts to return an 
+
+<emphasis id="strong1250" effect="bold">
+int
+
+</emphasis>
+. The program produces the 
+following compiler error under JDK 1.3. 
+
+</para>
+
+
+
+
+
+<note id="note1026" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1034" display="block">found   : int
+required: java.lang.String
+    return data;
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1209">
+<link id="a1060" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1210">
+-end- 
+
+</para>
+
+
+ 
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

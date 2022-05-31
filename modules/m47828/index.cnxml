@@ -1,0 +1,3035 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4260r: Review of Type Inference</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47828</md:content-id>
+  <md:title>Java4260r: Review of Type Inference</md:title>
+  <md:abstract>This module contains review questions and answers related to generic type inference in Java.</md:abstract>
+  <md:uuid>ac3b2aa1-fac9-41eb-a7e6-0517625e986b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 18:23:25 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1014">
+<link id="a1014" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one in a collection of modules on Java Generics designed for 
+teaching 
+
+<emphasis id="em1003" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin Community 
+College in Austin, TX.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This and future modules in this series will be based on the
+
+
+<link id="a1021" url="http://docs.oracle.com/javase/tutorial/java/generics/">
+
+Generics 
+(Updated)
+
+</link>
+
+ section of
+
+
+<link id="a1022" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+The Java Tutorials
+
+</link>
+
+ 
+from Oracle. 
+
+<emphasis id="em1004" effect="italics">
+(In the event that these links become broken, you should have 
+no difficulty finding the Oracle material with an online search.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+You will find the learning resources for this module on the Oracle site at 
+
+
+<link id="a1023" url="http://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html">
+
+Type Inference
+
+</link>
+
+. 
+This module contains review questions and answers keyed to the material in that 
+document.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+Once you study that material, you should be able to answer the review 
+questions in this module.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Once you complete your study of all the 
+
+
+<link id="a1024" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+material on generics
+
+</link>
+
+, you should be 
+able to answer the review questions at
+
+
+<link id="a1025" url="http://docs.oracle.com/javase/tutorial/java/generics/QandE/generics-questions.html">
+
+
+Questions and Exercises
+
+</link>
+
+ on the Oracle site.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+The questions and the answers in this module are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Note that much of the type inference material discussed in this module requires the 
+use of Java SE 7 or a later version.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1009">
+True or False: The code shown in 
+
+<link id="a1026" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Question 
+				1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File Q01.java
+************************************************/
+import java.awt.*;
+/*Note the following inheritance hierarchy
+java.lang.Object
+  java.awt.Component
+    java.awt.Container
+      java.awt.Window
+        java.awt.Frame
+*/
+public class Q01{
+
+  public static void main(String[] args){
+    Foo &lt;Window&gt; var = new Foo &lt;Window&gt;();
+    var.runIt();
+  }//end main
+}//end class Q01
+//=============================================//
+
+class Foo&lt;T extends Component&gt;{
+  public void runIt(){
+    System.out.println("Object instantiated.");
+  }//end runIt
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Question  
+				1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+Object instantiated.
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1010">
+<link id="a1028" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+True or False: The code shown in 
+
+<link id="a1029" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1030" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Question 
+				2.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+/*File Q02.java
+************************************************/
+import java.awt.*;
+/*Note the following inheritance hierarchy
+java.lang.Object
+  java.awt.Component
+    java.awt.Container
+      java.awt.Window
+        java.awt.Frame
+*/
+public class Q02{
+
+  public static void main(String[] args){
+    Foo &lt;Window&gt; var = new Foo &lt;&gt;();
+    var.runIt();
+  }//end main
+}//end class Q02
+//=============================================//
+
+class Foo&lt;T extends Component&gt;{
+  public void runIt(){
+    System.out.println("Object instantiated.");
+  }//end runIt
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Question  
+				2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">
+Object instantiated.
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1012">
+<link id="a1031" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1013">
+True or False: The code shown in 
+
+<link id="a1032" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ will 
+compile and run successfully producing the output shown in 
+
+<link id="a1033" target-id="Figure_3">
+
+Figure 
+3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Question 
+				3.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">
+/*File Q03.java
+************************************************/
+import java.awt.*;
+/*Note the following inheritance hierarchy
+java.lang.Object
+  java.awt.Component
+    java.awt.Container
+      java.awt.Window
+        java.awt.Frame
+*/
+public class Q03{
+
+  public static void main(String[] args){
+    Foo &lt;&gt; var = new Foo &lt;Window&gt;();
+    var.runIt();
+  }//end main
+}//end class Q03
+//=============================================//
+
+class Foo&lt;T extends Component&gt;{
+  public void runIt(){
+    System.out.println("Object instantiated.");
+  }//end runIt
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Question  
+				3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">
+Object instantiated.
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1014">
+<link id="a1034" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+True or False: The code shown in 
+
+<link id="a1035" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1036" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Question 
+				4.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">
+/*File Q04.java
+************************************************/
+public class Q04{
+
+  public static void main(String[] args){
+    Foo &lt;String,Integer&gt; varA =
+           new Foo &lt;String,Integer&gt;("abcde",500);
+    System.out.print(varA.get1());
+    System.out.println("," + varA.get2());
+
+    Foo &lt;Integer,String&gt; varB =
+         new Foo &lt;Integer,String&gt;(900,"fghijkl");
+    System.out.print(varB.get1());
+    System.out.println("," + varB.get2());
+
+  }//end main
+}//end class Q04
+//=============================================//
+class Foo&lt;T1,T2&gt;{
+  private T1 t1;
+  private T2 t2;
+
+  public Foo(T1 t1,T2 t2){
+    this.t1 = t1;
+    this.t2 = t2;
+  }//end constructor
+
+  public T1 get1(){
+    return t1;
+  }//end get1
+
+  public T2 get2(){
+    return t2;
+  }//end get2
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Question  
+				4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">
+abcde,500
+900,fghijkl
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1016">
+<link id="a1037" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+True or False: The code shown in 
+
+<link id="a1038" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in I
+
+<link id="a1039" target-id="Figure_5">
+
+mage 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Question 
+				5.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">
+/*File Q05.java
+************************************************/
+public class Q05{
+
+  public static void main(String[] args){
+    Foo &lt;String,Integer&gt; varA =
+                         new Foo &lt;&gt;("abcde",500);
+    System.out.print(varA.get1());
+    System.out.println("," + varA.get2());
+
+    Foo &lt;Integer,String&gt; varB =
+                       new Foo &lt;&gt;(900,"fghijkl");
+    System.out.print(varB.get1());
+    System.out.println("," + varB.get2());
+
+  }//end main
+}//end class Q05
+//=============================================//
+class Foo&lt;T1,T2&gt;{
+  private T1 t1;
+  private T2 t2;
+
+  public Foo(T1 t1,T2 t2){
+    this.t1 = t1;
+    this.t2 = t2;
+  }//end constructor
+
+  public T1 get1(){
+    return t1;
+  }//end get1
+
+  public T2 get2(){
+    return t2;
+  }//end get2
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Question  
+				5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<code id="pre1009" display="block">
+abcde,500
+900,fghijkl
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1018">
+<link id="a1040" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+True or False: The code shown in 
+
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1042" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Question 
+				6.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">
+/*File Q06.java
+************************************************/
+public class Q06{
+
+  public static void main(String[] args){
+    Foo &lt;&gt; varA =
+           new Foo &lt;String,Integer&gt;("abcde",500);
+    System.out.print(varA.get1());
+    System.out.println("," + varA.get2());
+
+    Foo &lt;&gt; varB =
+         new Foo &lt;Integer,String&gt;(900,"fghijkl");
+    System.out.print(varB.get1());
+    System.out.println("," + varB.get2());
+
+  }//end main
+}//end class Q06
+//=============================================//
+class Foo&lt;T1,T2&gt;{
+  private T1 t1;
+  private T2 t2;
+
+  public Foo(T1 t1,T2 t2){
+    this.t1 = t1;
+    this.t2 = t2;
+  }//end constructor
+
+  public T1 get1(){
+    return t1;
+  }//end get1
+
+  public T2 get2(){
+    return t2;
+  }//end get2
+}//end Foo
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Question  
+				6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+
+
+<code id="pre1011" display="block">
+abcde,500
+900,fghijkl
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1020">
+<link id="a1043" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1021">
+<link id="a1044" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Question 1. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1045" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Question 2.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1046" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Question 3.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1047" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Question 4.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1048" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Question 5.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1049" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Question 6.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1050" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Answer 6. 
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1051" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Answer 3.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1029">
+<link id="a1052" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1053" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 2.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1054" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 3.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1055" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 4.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 5.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1057" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 6.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1001" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1023">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+False. This program illustrates incorrect use of the
+diamond for type inference and will not compile.
+In Java SE 7 and later, you can replace the type
+arguments required to invoke the constructor of a
+generic class with an empty set of matching angle
+brackets as long as the compiler can determine,
+or infer, the type arguments from the context.
+This pair of angle brackets, is informally called
+the diamond. However, in this case, the diamond
+is in the wrong location.
+This results in the errors shown in 
+
+<link id="a1058" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Answer  6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+
+
+<code id="pre1012" display="block">
+Q06.java:18: error: illegal start of type
+    Foo &lt;&gt; varA =
+         ^
+Q06.java:23: error: illegal start of type
+    Foo &lt;&gt; varB =
+         ^
+2 errors
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1026">
+<link id="a1059" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+True. This program illustrates type inference. In Java
+SE 7 and later, you can replace the type
+arguments required to invoke the constructor of a
+generic class with an empty set of matching angle
+brackets as long as the compiler can determine,
+or infer, the type arguments from the context.
+This pair of angle brackets, is informally called
+the diamond.
+
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Note that the Foo constructor requires two
+parameters and the types of those parameters are
+specified inside the angle brackets. 
+
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Also note
+that the order of the types of the two parameters
+is swapped between the instantiation of the first
+and second objects. The program also illustrates
+autoboxing.
+
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<link id="a1060" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1031">
+True. This program illustrates generics without any
+obvious type inference. This is the style of
+programming that would have been used prior to
+the release of Java SE 7. 
+
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Note that the
+Foo constructor requires two parameters and the
+types of those parameters are specified inside
+the angle brackets. 
+
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Also note that the order of
+the types of the two parameters is swapped
+between the instantiation of the first and second
+objects. The program also illustrates autoboxing.
+
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<link id="a1061" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+False. This program illustrates incorrect use of the
+diamond for type inference and will not compile.
+In Java SE 7 and later, you can replace the type
+arguments required to invoke the constructor of a
+generic class with an empty set of matching angle
+brackets as long as the compiler can determine,
+or infer, the type arguments from the context.
+This pair of angle brackets, is informally called
+the diamond. However, in this case, the diamond
+is in the wrong location.
+Therefore, the program produces the error shown in 
+
+<link id="a1062" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Answer  3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+
+<code id="pre1013" display="block">Q03.java:26: error: illegal start of type
+    Foo &lt;&gt; var = new Foo &lt;Window&gt;();
+         ^
+1 error
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1036">
+<link id="a1063" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+True. This program illustrates bounded parameters along
+with type inference. In Java SE 7 and later, you
+can replace the type arguments required to invoke
+the constructor of a generic class with an empty
+set of matching angle brackets as long as the
+compiler can determine, or infer, the type
+arguments from the context. This pair of angle
+brackets, is informally called the diamond.
+
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<link id="a1064" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+True. This program illustrates generics with bounded
+parameters but without any obvious type
+inference. This is the style of programming that
+would have been used prior to the release of
+Java SE 7.
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<link id="a1065" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1002" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1006" list-type="bulleted">
+
+				
+
+<item id="li1035">
+Module name: Java4260r: Review of Type Inference
+
+</item>
+
+
+				
+
+<item id="li1036">
+File: Java4260r.htm 
+
+</item>
+
+
+				
+
+<item id="li1037">
+Published: 10/22/13
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1003" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1042">
+<emphasis id="strong1004" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1043">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1044">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1045">
+<emphasis id="strong1005" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1046">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

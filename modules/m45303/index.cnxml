@@ -1,0 +1,7819 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Ap0120: Self-assessment, Interfaces and polymorphic behavior</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45303</md:content-id>
+  <md:title>Ap0120: Self-assessment, Interfaces and polymorphic behavior</md:title>
+  <md:abstract>Part of a self-assessment test designed to help you determine how much you know about interfaces and polymorphic behavior in Java.</md:abstract>
+  <md:uuid>faba77c6-55ce-434f-a44b-dbf0a3e65d4e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1003" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1004" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question10">
+
+10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1014" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is part of a self-assessment test designed to help 
+you determine how much you know about object-oriented 
+programming using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+The test consists of a series of questions with answers and explanations of 
+the answers. 
+
+</para>
+
+
+
+
+<para id="p1002">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back.
+
+</para>
+
+
+
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate browser 
+window and use the links to under 
+
+<link id="a1015" target-id="Listings">
+
+Listings
+
+</link>
+
+ to easily 
+find and view the listings while you are reading about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+What output is produced by the program shown in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+
+	
+
+<item id="li1006">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1007">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1008">
+C. Base A-intfcMethod
+
+</item>
+
+
+	
+
+<item id="li1009">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Listing for Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">public class Ap131{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap131
+
+class Worker{
+  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();
+    X myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1005">
+<link id="a1017" target-id="answer01">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+What output is produced by the program shown in 
+
+<link id="a1018" target-id="Listing_2">
+
+Listing 
+2
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1010">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1011">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1012">
+C. A-inherMethod A-intfcMethod
+
+</item>
+
+
+	
+
+<item id="li1013">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Listing for Question 2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">public class Ap132{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap132
+
+class Worker{
+  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();
+    Base myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1007">
+<link id="a1019" target-id="answer02">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+What output is produced by the program shown in 
+
+<link id="a1020" target-id="Listing_3">
+
+Listing 
+3
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1015">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1016">
+C. Base A-intfcMethod
+
+</item>
+
+
+	
+
+<item id="li1017">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Listing for Question 3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">public class Ap133{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap133
+
+class Worker{
+  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();
+    A myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+<link id="a1021" target-id="answer03">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1022" target-id="Listing_4">
+
+Listing 
+4
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1019">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1020">
+C. Base A-intfcMethod
+
+</item>
+
+
+	
+
+<item id="li1021">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Listing for Question 4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">public class Ap134{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap134
+
+class Worker{
+  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();
+    X myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1011">
+<link id="a1023" target-id="answer04">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+What output is produced by the program shown in 
+
+<link id="a1024" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1022">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1023">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1024">
+C. A-intfcMethodX B-intfcMethodX
+
+</item>
+
+
+	
+
+<item id="li1025">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1001" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Listing for Question 5.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">public class Ap135{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap135
+
+class Worker{
+  void doIt(){
+    X myVar1 = new A();
+    myVar1.intfcMethodX();
+    X myVar2 = new B();
+    myVar2.intfcMethodX();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A
+
+class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B
+
+interface X{
+  public void intfcMethodX();
+}//end X
+</code>
+
+
+
+	
+
+<para id="p1014">
+<link id="a1025" target-id="answer05">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+What output is produced by the program shown in 
+
+<link id="a1026" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1026">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1027">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1028">
+C. A-intfcMethodX B-intfcMethodX
+
+</item>
+
+
+	
+
+<item id="li1029">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Listing for Question 6.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">public class Ap136{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap136
+
+class Worker{
+  void doIt(){
+    Object[] myArray = new Object[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      myArray[i].intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A
+
+class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B
+
+interface X{
+  public void intfcMethodX();
+}//end X
+</code>
+
+
+
+	
+
+<para id="p1017">
+<link id="a1027" target-id="answer06">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+What output is produced by the program shown in 
+
+<link id="a1028" target-id="Listing_7">
+
+Listing 
+7
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1030">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1031">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1032">
+C. A-intfcMethodX B-intfcMethodX
+
+</item>
+
+
+	
+
+<item id="li1033">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Listing for Question 7.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">public class Ap137{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap137
+
+class Worker{
+  void doIt(){
+    Object[] myArray = new Object[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      ((X)myArray[i]).intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A
+
+class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B
+
+interface X{
+  public void intfcMethodX();
+}//end X
+</code>
+
+
+
+	
+
+<para id="p1020">
+<link id="a1029" target-id="answer07">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+What output is produced by the program shown in 
+
+<link id="a1030" target-id="Listing_8">
+
+Listing 
+8
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1034">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1035">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1036">
+C. A-intfcMethodX B-intfcMethodX
+
+</item>
+
+
+	
+
+<item id="li1037">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Listing for Question 8.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">public class Ap138{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap138
+
+class Worker{
+  void doIt(){
+    X[] myArray = new X[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      myArray[i].intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A
+
+class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B
+
+interface X{
+  public void intfcMethodX();
+}//end X
+</code>
+
+
+
+	
+
+<para id="p1023">
+<link id="a1031" target-id="answer08">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+What output is produced by the program shown in 
+
+<link id="a1032" target-id="Listing_9">
+
+Listing 
+9
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1038">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1039">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1040">
+C. Base A B
+
+</item>
+
+
+	
+
+<item id="li1041">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Listing for Question 9.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1008" display="block">public class Ap139{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Ap139
+
+class Worker{
+  void doIt(){
+    Base myVar = new Base();
+    myVar.test();
+    myVar = new A();
+    myVar.test();
+    myVar = new B();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");
+  }//end test()
+}//end class Base
+
+class A extends Base implements X,Y{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+
+class B extends Base implements X,Y{
+  public void test(){
+    System.out.print("B ");
+  }//end test()
+}//end class B
+
+interface X{
+  public void test();
+}//end X
+
+interface Y{
+  public void test();
+}//end Y
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1025">
+<link id="a1033" target-id="answer09">
+
+Answer and Explanation
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+What output is produced by the program shown in 
+
+<link id="a1034" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1042">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1043">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1044">
+C. Base A B B
+
+</item>
+
+
+	
+
+<item id="li1045">
+D. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Listing for Question 
+				10.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1009" display="block">public class Ap140{
+  public static void main(
+                        String args[]){
+        new Worker().doIt();
+  }//end main()
+}//end class Ap140
+
+class Worker{
+  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.test();
+    myVar1 = new A();
+    myVar1.test();
+    myVar1 = new B();
+    myVar1.test();
+
+    X myVar2 = (X)myVar1;
+    myVar2.test();
+
+    System.out.println("");
+  }//end doIt()
+}// end class Worker
+
+class Base{
+  public void test(){
+    System.out.print("Base ");
+  }//end test()
+}//end class Base
+
+class A extends Base implements X,Y{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+
+class B extends Base implements X,Y{
+  public void test(){
+    System.out.print("B ");
+  }//end test()
+}//end class B
+
+interface X{
+  public void test();
+}//end X
+
+interface Y{
+  public void test();
+}//end Y
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+	
+	
+
+
+
+<para id="p1027">
+<link id="a1035" target-id="answer10">
+
+Answer and Explanation
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+I recommend that you open another copy of this document in a separate browser 
+window and use the following links to easily 
+find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+
+		
+
+<item id="li1046">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Listing for Question 1.
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Listing for Question 2.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Listing for Question 3.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Listing for Question 4.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Listing for Question 5.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Listing for Question 6.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1042" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Listing for Question 7.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Listing for Question 8.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1044" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Listing for Question 9.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1045" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Listing for Question 10. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1005" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1013" list-type="bulleted">
+
+				
+
+<item id="li1056">
+Module name: Ap0120: Self-assessment, Interfaces and 
+				polymorphic behavior
+
+</item>
+
+
+				
+
+<item id="li1057">
+File: Ap0120.htm 
+
+</item>
+
+
+				
+
+<item id="li1058">
+Originally published: 2004
+
+</item>
+
+
+				
+
+<item id="li1059">
+Published at cnx.org: 12/08/12
+
+</item>
+
+
+
+
+<item id="li1060">
+Revised: 02/07/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1006" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1030">
+<emphasis id="strong1007" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+			
+
+<para id="p1031">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+			
+
+<para id="p1032">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+			
+
+<para id="p1033">
+<emphasis id="strong1008" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+C. Base A B B 
+
+</para>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="strong1009" effect="bold">
+Explanation 10
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1010" effect="bold">
+Expansion of the program from 
+
+</emphasis>
+ 
+
+<link id="a1046" target-id="question09">
+
+
+<emphasis id="strong1011" effect="bold">
+Question 9
+
+</emphasis>
+</link>
+
+
+</para>
+
+
+
+
+<para id="p1036">
+The class and interface definitions for the classes and interfaces named
+
+
+<emphasis id="strong1012" effect="bold">
+Base
+
+</emphasis>
+, 
+
+<emphasis id="strong1013" effect="bold">
+A
+
+</emphasis>
+, 
+
+<emphasis id="strong1014" effect="bold">
+B
+
+</emphasis>
+, 
+
+<emphasis id="strong1015" effect="bold">
+X
+
+</emphasis>
+, 
+and 
+
+<emphasis id="strong1016" effect="bold">
+Y
+
+</emphasis>
+ are the same as in 
+
+<link id="a1047" target-id="question09">
+
+Question 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1017" effect="bold">
+Call the test method differently 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1038">
+However, the call of the method named 
+
+<emphasis id="strong1018" effect="bold">
+test
+
+</emphasis>
+ in the 
+object instantiated from the class named 
+
+<emphasis id="strong1019" effect="bold">
+B
+
+</emphasis>
+ is somewhat 
+different. The difference is identified by the code in the following 
+fragment. 
+
+</para>
+
+
+
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1010" display="block">  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.test();
+    myVar1 = new A();
+    myVar1.test();
+    myVar1 = new B();
+    myVar1.test();
+
+    X myVar2 = (X)myVar1;
+    myVar2.test();
+
+    System.out.println("");
+  }//end doIt()
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+	
+
+<para id="p1039">
+<emphasis id="strong1020" effect="bold">
+Calling test method on Base-type reference
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1040">
+In 
+
+<link id="a1048" target-id="question09">
+
+Question 9
+
+</link>
+
+, and in the above code fragment as well, the 
+method named 
+
+<emphasis id="strong1021" effect="bold">
+test
+
+</emphasis>
+ was called on each of the objects using a 
+reference stored in a reference variable of type 
+
+<emphasis id="strong1022" effect="bold">
+Base
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1023" effect="bold">
+Calling the overridden version of test method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1042">
+This might be thought of as calling the overridden version of the method, 
+through polymorphism, without regard for anything having to do with the 
+interfaces. 
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1024" effect="bold">
+Calling test method on interface-type reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1044">
+Then the code shown above calls the same method named 
+
+<emphasis id="strong1025" effect="bold">
+
+test
+
+</emphasis>
+ on one of the same objects using a reference variable of the 
+interface type 
+
+<emphasis id="strong1026" effect="bold">
+X
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1027" effect="bold">
+Only one test method in each object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1046">
+Keep in mind that each object defines only one method named 
+
+<emphasis id="strong1028" effect="bold">
+test
+
+</emphasis>
+. 
+This single method serves the dual purpose of overriding the method having the 
+same signature from the superclass, and implementing a method with the same 
+signature declared in each of the interfaces. 
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1029" effect="bold">
+Implementing the interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1048">
+Perhaps when the same method is called using a reference variable of the 
+interface type, it might be thought of as implementing the interface method 
+rather than overriding the method defined in the superclass. You can be the 
+judge of that.
+
+</para>
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1030" effect="bold">
+The same method is called regardless of reference type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1050">
+In any event, in this program, the same method is called whether it is called 
+using a reference variable of the superclass type, or using a reference variable 
+of the interface type. 
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1031" effect="bold">
+Illustrates the behavior of signature collisions 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1052">
+The purpose of this and 
+
+<link id="a1049" target-id="question09">
+
+Question 9
+
+</link>
+
+ is not necessarily to 
+illustrate a useful inheritance and implementation construct. Rather, these two 
+questions are intended to illustrate the behavior of Java for the case of 
+duplicated superclass and interface method signatures. 
+
+</para>
+
+
+
+
+<para id="p1053">
+<link id="a1050" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1054">
+C. Base A B
+
+</para>
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="strong1032" effect="bold">
+Explanation 9
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1033" effect="bold">
+A question regarding signature collisions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1056">
+The question often arises in my classroom as to what will happen if a class 
+inherits a method with a given signature and also implements one or more 
+interfaces that declare a method with an identical signature. 
+
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1034" effect="bold">
+The answer
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1058">
+The answer is that nothing bad happens, as long as the class provides a 
+concrete definition for a method having that signature. 
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1035" effect="bold">
+Only one method definition is allowed
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1060">
+Of course, only one definition can be provided for any given method 
+signature, so that definition must satisfy the needs of overriding the inherited 
+method as well as the needs of implementing the interfaces. 
+
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1036" effect="bold">
+An example of signature collisions 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1062">
+The following fragment defines a class named 
+
+<emphasis id="strong1037" effect="bold">
+Base
+
+</emphasis>
+ that 
+defines a method named 
+
+<emphasis id="strong1038" effect="bold">
+test
+
+</emphasis>
+. The code also defines two 
+interfaces named 
+
+<emphasis id="strong1039" effect="bold">
+X
+
+</emphasis>
+ and 
+
+<emphasis id="strong1040" effect="bold">
+Y
+
+</emphasis>
+, each of which 
+declares a method named 
+
+<emphasis id="strong1041" effect="bold">
+test
+
+</emphasis>
+ with an identical signature. 
+
+</para>
+
+
+
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1011" display="block">class Base{
+  public void test(){
+    System.out.print("Base ");
+  }//end test()
+}//end class Base
+
+interface X{
+  public void test();
+}//end X
+
+interface Y{
+  public void test();
+}//end Y
+
+class A extends Base implements X,Y{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1042" effect="bold">
+Classes A and B extend Base 
+and implement X and Y
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1064">
+The code in the following fragment defines two classes, named 
+
+<emphasis id="strong1043" effect="bold">
+A
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1044" effect="bold">
+B
+
+</emphasis>
+, each of which extends 
+
+<emphasis id="strong1045" effect="bold">
+Base
+
+</emphasis>
+, and 
+each of which implements both interfaces 
+
+<emphasis id="strong1046" effect="bold">
+X
+
+</emphasis>
+ and 
+
+<emphasis id="strong1047" effect="bold">
+Y
+
+</emphasis>
+. Each class 
+provides a concrete definition for the method named 
+
+<emphasis id="strong1048" effect="bold">
+test
+
+</emphasis>
+, with 
+each class providing a different definition. 
+
+</para>
+
+
+
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1012" display="block">class A extends Base implements X,Y{
+  public void test(){
+    System.out.print("A ");
+  }//end test()
+}//end class A
+
+class B extends Base implements X,Y{
+  public void test(){
+    System.out.print("B ");
+  }//end test()
+}//end class B</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1049" effect="bold">
+Override inherited method and define interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1066">
+Each of the methods named 
+
+<emphasis id="strong1050" effect="bold">
+test
+
+</emphasis>
+ in the above fragment serves 
+not only to override the method inherited from the class named 
+
+<emphasis id="strong1051" effect="bold">
+Base
+
+</emphasis>
+, 
+but also to satisfy the requirement to define the methods declared in the 
+implemented interfaces named 
+
+<emphasis id="strong1052" effect="bold">
+X
+
+</emphasis>
+ and 
+
+<emphasis id="strong1053" effect="bold">
+Y
+
+</emphasis>
+. 
+
+<emphasis id="em1000" effect="italics">
+
+(This can also be thought of as overriding an inherited abstract method from an 
+interface.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1054" effect="bold">
+Store object's references as type Base and call test 
+method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1068">
+Finally, the code in the following fragment declares a reference variable of 
+the type 
+
+<emphasis id="strong1055" effect="bold">
+Base
+
+</emphasis>
+. Objects respectively of the classes 
+
+<emphasis id="strong1056" effect="bold">
+Base
+
+</emphasis>
+,
+
+
+<emphasis id="strong1057" effect="bold">
+A
+
+</emphasis>
+, and 
+
+<emphasis id="strong1058" effect="bold">
+B
+
+</emphasis>
+ are instantiated and stored in the 
+reference variable. Then the method named 
+
+<emphasis id="strong1059" effect="bold">
+test
+
+</emphasis>
+ is called on 
+each of the references in turn. 
+
+</para>
+
+
+
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1013" display="block">  void doIt(){
+    Base myVar = new Base();
+    myVar.test();
+    myVar = new A();
+    myVar.test();
+    myVar = new B();
+    myVar.test();
+    System.out.println("");
+  }//end doIt()
+}// end class Worker</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1069">
+As you probably expected, this causes the following text to appear on the 
+screen: 
+
+</para>
+
+
+
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+	
+	
+
+<code id="pre1014" display="block">Base A B</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1070">
+<link id="a1051" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1071">
+C. A-intfcMethodX B-intfcMethodX 
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="strong1060" effect="bold">
+Explanation 8
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1061" effect="bold">
+Similar to previous two programs
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+This program is very similar to the programs in 
+
+<link id="a1052" target-id="question06">
+
+Question 6
+
+</link>
+
+ and 
+
+
+<link id="a1053" target-id="question07">
+
+Question 7
+
+</link>
+
+. 
+The program is 
+
+<link id="a1054" target-id="question06">
+
+Question 6
+
+</link>
+
+ exposed a specific type mismatch problem. The program 
+in 
+
+<link id="a1055" target-id="question07">
+
+Question 7
+
+</link>
+
+ provided one solution to the problem. 
+
+</para>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1062" effect="bold">
+A different solution
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1075">
+The following fragment illustrates a different solution 
+to the problem. 
+
+</para>
+
+
+
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1015" display="block">  void doIt(){
+    X[] myArray = new X[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      myArray[i].intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1076">
+<emphasis id="strong1063" effect="bold">
+An array object of the interface type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1077">
+In this case, rather than to declare the array object to be of type 
+
+<emphasis id="strong1064" effect="bold">
+Object
+
+</emphasis>
+, 
+the array is declared to be of the interface type 
+
+<emphasis id="strong1065" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1078">
+This is a less generic container than the one declared to be of type 
+
+<emphasis id="strong1066" effect="bold">
+Object
+
+</emphasis>
+. 
+Only references to objects instantiated from classes that implement the 
+
+<emphasis id="strong1067" effect="bold">
+
+X
+
+</emphasis>
+ interface, or objects instantiated from subclasses of those classes 
+can be stored in the container. However, this is often adequate. 
+
+</para>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1068" effect="bold">
+What methods can be called?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1080">
+Since the references are stored as the interface type, any method declared in 
+or inherited into the interface can be called on the references stored in the container. 
+Of course, the objects referred to by those references must provide concrete 
+definitions of those methods or the program won't compile.
+
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="em1001" effect="italics">
+(Although it isn't implicitly obvious, it is also possible to call any of the 
+eleven methods defined in the 
+
+</emphasis>
+<emphasis id="strong1069" effect="bold">
+<emphasis id="em1002" effect="italics">
+Object
+
+</emphasis>
+</emphasis>
+<emphasis id="em1003" effect="italics">
+ class on an object's reference being stored 
+as an interface type. Those eleven methods can be called on any object, 
+including array objects, regardless of how the references are stored.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1070" effect="bold">
+Not the standard approach
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+If you are defining your own container, this is a satisfactory approach to 
+implementation of the observer design pattern. However, you cannot use this 
+approach when using containers from the standard collections framework, because 
+those containers are designed to always store references as the generic type 
+
+
+<emphasis id="strong1071" effect="bold">
+Object
+
+</emphasis>
+. In those cases, the casting solution of 
+
+
+<link id="a1056" target-id="question07">
+
+Question 7
+
+</link>
+
+ 
+
+<emphasis id="em1004" effect="italics">
+(or the use of generics)
+
+</emphasis>
+ is required. 
+
+</para>
+
+
+
+
+<para id="p1084">
+<link id="a1057" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1085">
+C. A-intfcMethodX B-intfcMethodX 
+
+</para>
+
+
+
+
+<section id="h31003">
+<title>
+<emphasis id="strong1072" effect="bold">
+Explanation 7
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1073" effect="bold">
+The correct use of an interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1087">
+This program illustrates the correct use of an interface. It uses a cast of 
+the interface type in the following fragment to 
+resolve the problem that was discussed at length in 
+
+<link id="a1058" target-id="question06">
+
+Question 6
+
+</link>
+
+ earlier. 
+
+</para>
+
+
+
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1016" display="block">  void doIt(){
+    Object[] myArray = new Object[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      ((X)myArray[i]).intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1088">
+<link id="a1059" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="strong1074" effect="bold">
+Explanation 6
+
+</emphasis>
+</title>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1075" effect="bold">
+What is a container?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1091">
+The word container is often used in Java, with at least two different 
+meaning. One meaning is to refer to the type of an object that is instantiated 
+from a subclass of the class named 
+
+<emphasis id="strong1076" effect="bold">
+Container
+
+</emphasis>
+. In that case, the object can be 
+considered to be of type 
+
+<emphasis id="strong1077" effect="bold">
+Container
+
+</emphasis>
+, and typically appears in a graphical user 
+interface 
+
+<emphasis id="em1005" effect="italics">
+(GUI)
+
+</emphasis>
+. That is not the usage of the word in the explanation of this 
+program. 
+
+</para>
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1078" effect="bold">
+A more generic meaning 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1093">
+In this explanation, the word container has a more generic meaning. It is 
+common to store a collection of object references in some sort of Java 
+container, such as an array object or a 
+
+<emphasis id="strong1079" effect="bold">
+Vector
+
+</emphasis>
+ object. In fact, there is a 
+complete collections framework provided to facilitate that sort of thing 
+
+<emphasis id="em1006" effect="italics">
+(
+
+<emphasis id="strong1080" effect="bold">
+Vector
+
+</emphasis>
+ 
+is one of the concrete classes in the Java Collections Framework)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1081" effect="bold">
+Storing references as type Object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1095">
+It is also common to declare the type of references stored in the container 
+to be of the class 
+
+<emphasis id="strong1082" effect="bold">
+Object
+
+</emphasis>
+. Because 
+
+<emphasis id="strong1083" effect="bold">
+Object
+
+</emphasis>
+ is a completely generic type, this 
+means that a reference to any object instantiated from any class 
+
+<emphasis id="em1007" effect="italics">
+(or any 
+array object)
+
+</emphasis>
+ can be stored 
+in the container. The standard containers such as 
+
+<emphasis id="strong1084" effect="bold">
+Vector
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1085" effect="bold">
+Hashtable
+
+</emphasis>
+ take this 
+approach. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="em1008" effect="italics">
+(Note that this topic became a little more complicated with the release 
+of generics in jdk version 1.5.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1086" effect="bold">
+A class named Base and an interface named X
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1098">
+In a manner similar to several previous programs, this program defines a 
+class named 
+
+<emphasis id="strong1087" effect="bold">
+Base
+
+</emphasis>
+ and an interface named 
+
+<emphasis id="strong1088" effect="bold">
+X
+
+</emphasis>
+ as 
+shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1017" display="block">class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+interface X{
+  public void intfcMethodX();
+}//end X</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1099">
+<emphasis id="strong1089" effect="bold">
+Classes A and B extend Base 
+and implement X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1100">
+Also similar to previous programs, this program defines two classes named
+
+
+<emphasis id="strong1090" effect="bold">
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1091" effect="bold">
+B
+
+</emphasis>
+. Each of these classes extends the 
+class named 
+
+<emphasis id="strong1092" effect="bold">
+Base
+
+</emphasis>
+ and implements the interface named 
+
+<emphasis id="strong1093" effect="bold">
+X
+
+</emphasis>
+, 
+as shown in the next fragment. 
+
+</para>
+
+
+
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1018" display="block">class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A
+
+class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1101">
+<emphasis id="strong1094" effect="bold">
+Concrete definitions of the interface method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1102">
+As before, these methods provide concrete definitions of the method named
+
+
+<emphasis id="strong1095" effect="bold">
+intfcMethodX
+
+</emphasis>
+, which is declared in the interface named 
+
+<emphasis id="strong1096" effect="bold">
+
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1097" effect="bold">
+An array of references of type 
+
+<emphasis id="em1009" effect="italics">
+Object
+
+</emphasis>
+ 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1104">
+The interesting portion of this program begins in the following fragment, 
+which instantiates and populates a two-element array object 
+
+<emphasis id="em1010" effect="italics">
+(container)
+
+</emphasis>
+ of type 
+
+
+<emphasis id="strong1098" effect="bold">
+Object
+
+</emphasis>
+. 
+
+<emphasis id="em1011" effect="italics">
+(In the sense of this discussion, an array object is a container, albeit 
+a very simple one.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1019" display="block">  void doIt(){
+    Object[] myArray = new Object[2];
+    myArray[0] = new A();
+    myArray[1] = new B();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1105">
+<emphasis id="strong1099" effect="bold">
+Store object references of type 
+
+<emphasis id="em1012" effect="italics">
+A
+
+</emphasis>
+ and 
+
+</emphasis>
+B
+
+<emphasis id="strong1100" effect="bold">
+ as 
+type 
+
+<emphasis id="em1013" effect="italics">
+Object
+
+</emphasis>
+ 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1106">
+Because the container is declared to be of type 
+
+<emphasis id="strong1101" effect="bold">
+Object
+
+</emphasis>
+, references to objects 
+instantiated from any class can be stored in the container. The code in the 
+above fragment instantiates two objects, 
+
+<emphasis id="em1014" effect="italics">
+(one of class 
+
+</emphasis>
+ 
+
+<emphasis id="strong1102" effect="bold">
+<emphasis id="em1015" effect="italics">
+A
+
+</emphasis>
+</emphasis>
+<emphasis id="em1016" effect="italics">
+ and 
+the other of class 
+
+</emphasis>
+ 
+
+<emphasis id="strong1103" effect="bold">
+<emphasis id="em1017" effect="italics">
+B
+
+</emphasis>
+</emphasis>
+), and stores the two object's references 
+in the container. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1104" effect="bold">
+Cannot call interface method as type Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1108">
+The code in the 
+
+<emphasis id="strong1105" effect="bold">
+for
+
+</emphasis>
+ loop in the next fragment attempts to 
+call the method named 
+
+<emphasis id="strong1106" effect="bold">
+intfcMethodX
+
+</emphasis>
+ on each of the two objects 
+whose references are stored in the elements of the array.
+
+</para>
+
+
+
+
+<note id="note1012" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1020" display="block">    for(int i=0;i&lt;myArray.length;i++){
+      myArray[i].intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+	
+
+<para id="p1109">
+This produces the following compiler 
+error under JDK 1.3: 
+
+</para>
+
+
+
+
+<note id="note1013" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1021" display="block">Ap136.java:24: cannot resolve symbol
+symbol  : method intfcMethodX  ()
+location: class java.lang.Object
+      
+myArray[i].intfcMethodX();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1110">
+<emphasis id="strong1107" effect="bold">
+What methods can you call as type Object? 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1111">
+It is allowable to store the reference to an object instantiated from any 
+class in a container of the type 
+
+<emphasis id="strong1108" effect="bold">
+Object
+
+</emphasis>
+. However, the only methods that can be 
+directly called 
+
+<emphasis id="em1018" effect="italics">
+(without a cast and not using generics)
+
+</emphasis>
+ on that reference are the following eleven 
+methods. These methods are defined in the class named 
+
+<emphasis id="strong1109" effect="bold">
+Object
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1061">
+<emphasis id="clone" effect="bold">
+
+clone
+
+</emphasis>
+
+()
+
+</item>
+
+
+	
+
+<item id="li1062">
+equals(Object obj)
+
+</item>
+
+
+	
+
+<item id="li1063">
+finalize()
+
+</item>
+
+
+	
+
+<item id="li1064">
+getClass()
+
+</item>
+
+
+	
+
+<item id="li1065">
+hashCode()
+
+</item>
+
+
+	
+
+<item id="li1066">
+notify()
+
+</item>
+
+
+	
+
+<item id="li1067">
+notifyAll()
+
+</item>
+
+
+	
+
+<item id="li1068">
+toString()
+
+</item>
+
+
+	
+
+<item id="li1069">
+wait()
+
+</item>
+
+
+	
+
+<item id="li1070">
+wait(long timeout)
+
+</item>
+
+
+	
+
+<item id="li1071">
+wait(long timeout,int nanos)
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1110" effect="bold">
+Overridden methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1113">
+Some, 
+
+<emphasis id="em1019" effect="italics">
+(but not all)
+
+</emphasis>
+, of the methods in the above list are defined with 
+default behavior in the 
+
+<emphasis id="strong1111" effect="bold">
+Object
+
+</emphasis>
+ class, and are meant to be overridden in new 
+classes that you define. This includes the methods named 
+
+<emphasis id="strong1112" effect="bold">
+equals
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1113" effect="bold">
+toString
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1114">
+Some of the methods in the above list, such as 
+
+<emphasis id="strong1114" effect="bold">
+getClass
+
+</emphasis>
+, are simply utility 
+methods, which are not meant to be overridden. 
+
+</para>
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1115" effect="bold">
+Polymorphic behavior applies
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1116">
+If you call one of these methods on an object's reference 
+
+<emphasis id="em1020" effect="italics">
+(being stored as 
+type Object)
+
+</emphasis>
+, polymorphic behavior will apply. The version of the method 
+overridden in, or inherited into, the class from which the object was 
+instantiated will be identified and executed. 
+
+</para>
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1116" effect="bold">
+Otherwise, a cast is required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1118">
+In order to call any method other than one of the eleven methods in the above 
+
+
+<link id="a1060" target-id="clone">
+
+list
+
+</link>
+
+, 
+
+<emphasis id="em1021" effect="italics">
+(on an object's reference being stored as type 
+
+
+<emphasis id="strong1117" effect="bold">
+Object
+
+</emphasis>
+ without using generics)
+
+</emphasis>
+, you must cast the 
+reference to some other type. 
+
+</para>
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1118" effect="bold">
+Casting to an interface type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1120">
+The exact manner in which you write the cast will differ from one situation 
+to the next. In this case, the problem can be resolved by rewriting the program 
+using the interface cast shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1014" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1022" display="block">  void doIt(){
+    Object[] myArray = new Object[2];
+    myArray[0] = new A();
+    myArray[1] = new B();
+    
+    for(int i=0;i&lt;myArray.length;i++){
+      ((X)myArray[i]).intfcMethodX();
+    }//end for loop
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1121">
+<emphasis id="strong1119" effect="bold">
+The observer design pattern
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1122">
+By implementing an interface, and using a cast such as this, you can store 
+references to many different objects, of many different actual types, each of 
+which implements the same interface, but which have no required 
+superclass-subclass relationship, in the same container. Then, when needed, you 
+can call the interface methods on any of the objects whose references are stored 
+in the container. 
+
+</para>
+
+
+
+
+<para id="p1123">
+This is a commonly used design pattern in Java, often referred to as the 
+observer design pattern. 
+
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1120" effect="bold">
+Registration of observers
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1125">
+With this design pattern, none, one, or more observer objects, 
+
+<emphasis id="em1022" effect="italics">
+(which 
+implement a common observer interface)
+
+</emphasis>
+ are registered on an observable object. 
+This means references to the observer objects are stored in a container by the 
+observable object. 
+
+</para>
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1121" effect="bold">
+Making a callback
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1127">
+When the observable object determines that some interesting event has 
+occurred, the observable object calls a specific interface method on each of the 
+observer objects whose references are stored in the container. 
+
+</para>
+
+
+
+
+<para id="p1128">
+The observer objects execute whatever behavior they were designed to execute 
+as a result of having been notified of the event. 
+
+</para>
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1122" effect="bold">
+The model-view-control (MVC) paradigm
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1130">
+In fact, there is a class named 
+
+<emphasis id="strong1123" effect="bold">
+Observable
+
+</emphasis>
+ and an interface named 
+
+
+<emphasis id="strong1124" effect="bold">
+Observer
+
+</emphasis>
+ in 
+the standard Java library. The purpose of these class and interface definitions 
+is to make it easy to implement the observer design pattern. 
+
+</para>
+
+
+
+
+<para id="p1131">
+<emphasis id="em1023" effect="italics">
+(The Observer interface and the Observable class are often used to implement 
+a programming style commonly referred to as the MVC paradigm.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1125" effect="bold">
+Delegation event model, bound properties of Beans, etc.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1133">
+Java also provides other tools for implementing the observer design pattern 
+under more specific circumstances, such as the Delegation Event Model, and in 
+conjunction with bound and constrained properties in JavaBeans Components. 
+
+</para>
+
+
+
+
+<para id="p1134">
+<link id="a1061" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1135">
+C. A-intfcMethodX B-intfcMethodX 
+
+</para>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="strong1126" effect="bold">
+Explanation 5
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1127" effect="bold">
+More substantive use of an interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+This program illustrates a more substantive use of the interface than was the 
+case in the previous programs. 
+
+</para>
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1128" effect="bold">
+The class named Base
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1139">
+The program defines a class named 
+
+<emphasis id="strong1129" effect="bold">
+Base
+
+</emphasis>
+ as shown in the 
+following fragment. 
+
+</para>
+
+
+
+
+<note id="note1015" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1023" display="block">class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+<para id="p1140">
+<emphasis id="strong1130" effect="bold">
+The interface named X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1141">
+The program also defines an interface named 
+
+<emphasis id="strong1131" effect="bold">
+X
+
+</emphasis>
+ as shown in 
+the next fragment. Note that this interface declares a method named 
+
+<emphasis id="strong1132" effect="bold">
+
+intfcMethodX
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1016" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1024" display="block">interface X{
+  public void intfcMethodX();
+}//end X</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1133" effect="bold">
+Class A extends Base and implements 
+X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1143">
+The next fragment shows the definition of a class named 
+
+<emphasis id="strong1134" effect="bold">
+A
+
+</emphasis>
+ 
+that extends 
+
+<emphasis id="strong1135" effect="bold">
+Base
+
+</emphasis>
+ and implements 
+
+<emphasis id="strong1136" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1017" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1025" display="block">class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "A-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class A</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1137" effect="bold">
+Defining interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1145">
+Because the class named 
+
+<emphasis id="strong1138" effect="bold">
+A
+
+</emphasis>
+ implements the interface named
+
+
+<emphasis id="strong1139" effect="bold">
+X
+
+</emphasis>
+, it must provide a concrete definition of all the methods 
+declared in 
+
+<emphasis id="strong1140" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1146">
+In this case, there is only one such method. That method is named 
+
+<emphasis id="strong1141" effect="bold">
+
+intfcMethodX
+
+</emphasis>
+. A concrete definition for the method is provided in the 
+class named 
+
+<emphasis id="strong1142" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1143" effect="bold">
+Class B also extends Base and implements
+X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1148">
+The next fragment shows the definition of another class 
+
+<emphasis id="em1024" effect="italics">
+(named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1144" effect="bold">
+
+
+
+<emphasis id="em1025" effect="italics">
+B
+
+</emphasis>
+</emphasis>
+), 
+which also extends 
+
+<emphasis id="strong1145" effect="bold">
+Base
+
+</emphasis>
+ and implements 
+
+<emphasis id="strong1146" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1026" display="block">class B extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " B-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethodX(){
+    System.out.print(
+                    "B-intfcMethodX ");
+  }//end intfcMethodX()
+}//end class B</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1147" effect="bold">
+Defining the interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1150">
+Because this class also implements 
+
+<emphasis id="strong1148" effect="bold">
+X
+
+</emphasis>
+, it must also provide a 
+concrete definition of the method named 
+
+<emphasis id="strong1149" effect="bold">
+intfcMethodX
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1150" effect="bold">
+Different behavior for interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1152">
+However 
+
+<emphasis id="em1026" effect="italics">
+(and this is extremely important)
+
+</emphasis>
+, there is no requirement for this 
+definition of the method to match the definition in the class named 
+
+<emphasis id="strong1151" effect="bold">
+A
+
+</emphasis>
+, 
+or to match the definition in any other class that implements 
+
+<emphasis id="strong1152" effect="bold">
+X
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1153">
+Only the method signature for the method named 
+
+<emphasis id="strong1153" effect="bold">
+intfcMethodX 
+
+</emphasis>
+is necessarily common among all the classes that 
+implement the interface. 
+
+</para>
+
+
+
+
+<para id="p1154">
+The definition of the method named 
+
+<emphasis id="strong1154" effect="bold">
+intfcMethodX
+
+</emphasis>
+ in 
+the class named 
+
+<emphasis id="strong1155" effect="bold">
+A
+
+</emphasis>
+ is different from the definition of the 
+method having the same name in the class named 
+
+<emphasis id="strong1156" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1157" effect="bold">
+The interesting behavior 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1156">
+The interesting behavior of this program is illustrated by the code 
+in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1027" display="block">  void doIt(){
+    X myVar1 = new A();
+    myVar1.intfcMethodX();
+    X myVar2 = new B();
+    myVar2.intfcMethodX();
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1158" effect="bold">
+Store object's references as interface type X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1158">
+The code in the above fragment causes one object to be instantiated from the 
+class named 
+
+<emphasis id="strong1159" effect="bold">
+A
+
+</emphasis>
+, and another object to be instantiated from the 
+class named 
+
+<emphasis id="strong1160" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1159">
+The two object's references are stored in two different reference 
+variables, each declared to be of the type of the interface 
+
+<emphasis id="strong1161" effect="bold">
+X
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1160">
+<emphasis id="strong1162" effect="bold">
+Call the interface method on each reference 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1161">
+A method named 
+
+<emphasis id="strong1163" effect="bold">
+intfcMethodX
+
+</emphasis>
+ is called on each of the 
+reference variables. Despite the fact that both object's references are stored 
+as type 
+
+<emphasis id="strong1164" effect="bold">
+X
+
+</emphasis>
+, the system selects and calls the appropriate method, 
+
+
+<emphasis id="em1027" effect="italics">
+(as defined by the class from which each object was instantiated)
+
+</emphasis>
+, on each of 
+the objects. This causes the following text to appear on the screen: 
+
+</para>
+
+
+
+
+<note id="note1020" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1028" display="block">A-intfcMethodX B-intfcMethodX</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1162">
+<emphasis id="strong1165" effect="bold">
+No subclass-superclass relationship exists
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1163">
+Thus, the use of an interface makes it possible to call methods having the 
+same signatures on objects instantiated from different classes, without any 
+requirement for a subclass-superclass relationship to exist among the classes 
+involved. 
+
+</para>
+
+
+
+
+<para id="p1164">
+In this case, the only subclass-superclass relationship between the classes 
+named 
+
+<emphasis id="strong1166" effect="bold">
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1167" effect="bold">
+B
+
+</emphasis>
+ was that they were both 
+subclasses of the same superclass. Even that relationship was established for 
+convenience, and was not a requirement. 
+
+</para>
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1168" effect="bold">
+Different behavior of interface methods 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1166">
+The methods having the same signature, 
+
+<emphasis id="em1028" effect="italics">
+(declared in the common interface, and 
+defined in the classes)
+
+</emphasis>
+, need not have any similarity in terms of behavior. 
+
+</para>
+
+
+
+
+<para id="p1167">
+<emphasis id="strong1169" effect="bold">
+A new interface relationship
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1168">
+The fact that both classes implemented the interface named 
+
+<emphasis id="strong1170" effect="bold">
+X
+
+</emphasis>
+ 
+created a new relationship among the classes, which is not based on 
+class inheritance. 
+
+</para>
+
+
+
+
+<para id="p1169">
+<link id="a1062" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1170">
+C. Base A-intfcMethod 
+
+</para>
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="strong1171" effect="bold">
+Explanation 4
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1172" effect="bold">
+Illustrates the use of an interface as a type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1172">
+The program defines a class named 
+
+<emphasis id="strong1173" effect="bold">
+Base
+
+</emphasis>
+, and a class named
+
+
+<emphasis id="strong1174" effect="bold">
+A
+
+</emphasis>
+, which extends 
+
+<emphasis id="strong1175" effect="bold">
+Base
+
+</emphasis>
+, and implements an 
+interface named 
+
+<emphasis id="strong1176" effect="bold">
+X
+
+</emphasis>
+, as shown below. 
+
+</para>
+
+
+
+
+<note id="note1021" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1029" display="block">class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1173">
+<emphasis id="strong1177" effect="bold">
+Implementing interfaces
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1174">
+A class may implement none, one, or more interfaces. 
+
+</para>
+
+
+
+
+<para id="p1175">
+The cardinal rule on interfaces 
+
+</para>
+
+
+
+
+<para id="p1176">
+<emphasis id="em1029" effect="italics">
+If a class implements one or more interfaces, that class must either be 
+declared abstract, or it must provide concrete definitions of all methods 
+declared in and inherited into all of the interfaces that it implements. If the 
+class is declared abstract, its subclasses must provide concrete definitions of 
+the interface methods.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1178" effect="bold">
+A concrete definition of an interface method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1178">
+The interface named 
+
+<emphasis id="strong1179" effect="bold">
+X
+
+</emphasis>
+ in this program declares a method 
+named 
+
+<emphasis id="strong1180" effect="bold">
+intfcMethod
+
+</emphasis>
+. The class named 
+
+<emphasis id="strong1181" effect="bold">
+A
+
+</emphasis>
+ provides 
+a concrete definition of that method. 
+
+</para>
+
+
+
+
+<para id="p1179">
+
+	
+
+<emphasis id="em1030" effect="italics">
+(The minimum requirement for a concrete definition is a method that matches 
+	the method signature and has an empty body.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1180">
+<emphasis id="strong1182" effect="bold">
+Storing object's reference as an interface type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1181">
+The interesting part of the program is shown in the following 
+code fragment. 
+
+</para>
+
+
+
+
+<note id="note1022" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1030" display="block">  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();
+    X myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1182">
+The above fragment instantiates a new object of the 
+class named 
+
+<emphasis id="strong1183" effect="bold">
+A
+
+</emphasis>
+, and saves a reference to that object in a 
+reference variable of the declared type 
+
+<emphasis id="strong1184" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1183">
+<emphasis id="strong1185" effect="bold">
+How many ways can you save an object's reference?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1184">
+Recall that a reference to an object can be held by a reference variable 
+whose type matches any of the following: 
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1072">
+The class from which the object was instantiated.
+
+</item>
+
+
+	
+
+<item id="li1073">
+Any superclass of the class from which the object was instantiated.
+
+</item>
+
+
+	
+
+<item id="li1074">
+Any interface implemented by the class from which the object was 
+	instantiated.
+
+</item>
+
+
+	
+
+<item id="li1075">
+Any interface implemented by any superclass of the class from which the 
+	object was instantiated.
+
+</item>
+
+
+	
+
+<item id="li1076">
+Any superinterface of the interfaces mentioned above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1186" effect="bold">
+Save object's reference as implemented interface type 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1186">
+In this program, the type of the reference variable matches the interface 
+named 
+
+<emphasis id="strong1187" effect="bold">
+X
+
+</emphasis>
+, which is implemented by the class named 
+
+<emphasis id="strong1188" effect="bold">
+A
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1187">
+<emphasis id="strong1189" effect="bold">
+What does this allow you to do?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1188">
+When a reference to an object is held by a reference variable whose type 
+matches an interface implemented by the class from which the object was 
+instantiated, that reference can be used to call any method declared in or 
+inherited into that interface. 
+
+</para>
+
+
+
+
+<para id="p1189">
+
+	
+
+<emphasis id="em1031" effect="italics">
+(That reference cannot be used to call methods not declared in or not 
+	inherited into that interface.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1190">
+<emphasis id="strong1190" effect="bold">
+In this simple case ...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1191">
+The method named 
+
+<emphasis id="strong1191" effect="bold">
+intfcMethod
+
+</emphasis>
+ is declared in the interface 
+named 
+
+<emphasis id="strong1192" effect="bold">
+X
+
+</emphasis>
+ and implemented in the class named 
+
+<emphasis id="strong1193" effect="bold">
+A
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1192">
+Therefore, the method named 
+
+<emphasis id="strong1194" effect="bold">
+intfcMethod
+
+</emphasis>
+ can be called on an 
+object instantiated from the class named 
+
+<emphasis id="strong1195" effect="bold">
+A
+
+</emphasis>
+ when the reference 
+to the object is held in a reference variable of the interface type. 
+
+</para>
+
+
+
+
+<para id="p1193">
+
+	
+
+<emphasis id="em1032" effect="italics">
+(The method could also be called if the reference is being held in a 
+	reference variable of declared type 
+
+</emphasis>
+ 
+
+<emphasis id="strong1196" effect="bold">
+<emphasis id="em1033" effect="italics">
+A
+
+</emphasis>
+</emphasis>
+<emphasis id="em1034" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1194">
+The call to the method named 
+
+<emphasis id="strong1197" effect="bold">
+intfcMethod
+
+</emphasis>
+ causes the text 
+
+
+<emphasis id="strong1198" effect="bold">
+A-intfcMethod
+
+</emphasis>
+ to appear on the 
+screen.
+
+</para>
+
+
+
+
+
+
+<para id="p1195">
+<link id="a1063" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1196">
+C. Base A-intfcMethod 
+
+</para>
+
+
+
+
+<section id="h31007">
+<title>
+<emphasis id="strong1199" effect="bold">
+Explanation 3
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1197">
+<emphasis id="strong1200" effect="bold">
+What is runtime polymorphic behavior?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1198">
+One way to describe runtime polymorphic behavior is: 
+
+</para>
+
+
+
+	
+
+<para id="p1199">
+<emphasis id="em1035" effect="italics">
+The runtime system selects among two or more methods having the same signature, 
+	not on the basis of the type of the reference variable in which an object's 
+	reference is stored, but rather on the basis of the class from which the 
+	object was originally instantiated.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1201" effect="bold">
+Illustrates simple class and interface inheritance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1201">
+The program defines a class named 
+
+<emphasis id="strong1202" effect="bold">
+Base
+
+</emphasis>
+, and a class named
+
+
+<emphasis id="strong1203" effect="bold">
+A
+
+</emphasis>
+, which extends 
+
+<emphasis id="strong1204" effect="bold">
+Base
+
+</emphasis>
+, and implements the 
+interface named 
+
+<emphasis id="strong1205" effect="bold">
+X
+
+</emphasis>
+, as shown in the following fragment. 
+
+</para>
+
+
+
+
+<note id="note1023" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1031" display="block">class Base{
+  public void inherMethod(){
+    System.out.print("Base ");
+  }//end inherMethod()
+}//end class Base
+
+class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1202">
+<emphasis id="strong1206" effect="bold">
+Define an interface method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1203">
+The interface named 
+
+<emphasis id="strong1207" effect="bold">
+X
+
+</emphasis>
+ declares a method named 
+
+<emphasis id="strong1208" effect="bold">
+intfcMethod
+
+</emphasis>
+. 
+A concrete definition of that method is defined in the class named 
+
+<emphasis id="strong1209" effect="bold">
+A
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1210" effect="bold">
+A new object of type Base
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1205">
+The code in the following fragment instantiates a new object of the class
+
+
+<emphasis id="strong1211" effect="bold">
+Base
+
+</emphasis>
+ and calls its 
+
+<emphasis id="strong1212" effect="bold">
+inherMethod
+
+</emphasis>
+. This causes the word 
+
+<emphasis id="strong1213" effect="bold">
+
+Base
+
+</emphasis>
+ to appear on the output screen. There is nothing special about this. This 
+is a simple example of the use of an object's reference to call one of its 
+instance methods. 
+
+</para>
+
+
+
+
+<note id="note1024" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1032" display="block">  void doIt(){
+    Base myVar1 = new Base();
+    myVar1.inherMethod();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1206">
+<emphasis id="strong1214" effect="bold">
+A new object of type A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1207">
+The following fragment instantiates a new object of the 
+class 
+
+<emphasis id="strong1215" effect="bold">
+A
+
+</emphasis>
+ and calls its 
+
+<emphasis id="strong1216" effect="bold">
+intfcMethod
+
+</emphasis>
+. This causes the
+text 
+
+<emphasis id="strong1217" effect="bold">
+A-intfcMethod
+
+</emphasis>
+ to appear on the output screen. There is also 
+nothing special about this. This is also a simple example of the use of an 
+object's reference to call one of its instance methods. 
+
+</para>
+
+
+
+
+<note id="note1025" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1033" display="block">    A myVar2 = new A();
+    myVar2.intfcMethod();
+
+    System.out.println("");
+  }//end doIt()</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+<para id="p1208">
+<emphasis id="strong1218" effect="bold">
+Not polymorphic behavior 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1209">
+The fact that the class named 
+
+<emphasis id="strong1219" effect="bold">
+A
+
+</emphasis>
+ implements the interface 
+named 
+
+<emphasis id="strong1220" effect="bold">
+X
+
+</emphasis>
+ does not indicate polymorphic behavior in this case. 
+Rather, this program is an example of simple class and interface inheritance.
+
+
+</para>
+
+
+
+
+<para id="p1210">
+<emphasis id="strong1221" effect="bold">
+Interface type is not used 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1211">
+The program makes no use of the interface as a type, and exhibits no 
+polymorphic behavior 
+
+<emphasis id="em1036" effect="italics">
+(no decision among methods having the same signature is 
+required)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1212">
+The class named 
+
+<emphasis id="strong1222" effect="bold">
+A
+
+</emphasis>
+ inherits an abstract method named 
+
+
+<emphasis id="strong1223" effect="bold">
+intfcMethod
+
+</emphasis>
+ from the interface and must define it. 
+
+<emphasis id="em1037" effect="italics">
+(Otherwise, it would be 
+necessary to declare the class named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1224" effect="bold">
+<emphasis id="em1038" effect="italics">
+A
+
+</emphasis>
+</emphasis>
+<emphasis id="em1039" effect="italics">
+ abstract.) 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1213">
+The interface is not a particularly important player in this program. 
+
+</para>
+
+
+
+
+<para id="p1214">
+<link id="a1064" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1215">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="strong1225" effect="bold">
+Explanation 2
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1216">
+<emphasis id="strong1226" effect="bold">
+Simple hierarchical polymorphic behavior 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1217">
+This program is designed to test your knowledge of simple hierarchical 
+polymorphic behavior. 
+
+</para>
+
+
+
+
+<para id="p1218">
+<emphasis id="strong1227" effect="bold">
+Implement the interface named X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1219">
+This program defines a class named 
+
+<emphasis id="strong1228" effect="bold">
+A
+
+</emphasis>
+ that extends a class 
+named 
+
+<emphasis id="strong1229" effect="bold">
+Base
+
+</emphasis>
+, and implements an interface named 
+
+<emphasis id="strong1230" effect="bold">
+X
+
+</emphasis>
+, 
+as shown in the following code fragment. 
+
+</para>
+
+
+
+
+<note id="note1026" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1034" display="block">class A extends Base implements X{
+  public void inherMethod(){
+    System.out.print(
+                    " A-inherMethod ");
+  }//end inherMethod()
+    
+  public void intfcMethod(){
+    System.out.print("A-intfcMethod ");
+  }//end intfcMethod()
+}//end class A
+
+interface X{
+  public void intfcMethod();
+}//end X</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1220">
+<emphasis id="strong1231" effect="bold">
+Override and define some methods 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1221">
+The class named 
+
+<emphasis id="strong1232" effect="bold">
+A
+
+</emphasis>
+ overrides the method named 
+
+<emphasis id="strong1233" effect="bold">
+inherMethod
+
+</emphasis>
+, which it inherits from the class named 
+
+<emphasis id="strong1234" effect="bold">
+Base
+
+</emphasis>
+. It also provides a 
+concrete definition of the method named 
+
+<emphasis id="strong1235" effect="bold">
+intfcMethod
+
+</emphasis>
+, which is declared in the 
+interface named 
+
+<emphasis id="strong1236" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1222">
+<emphasis id="strong1237" effect="bold">
+Store object's reference as superclass type 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1223">
+The program instantiates an object of the class named 
+
+<emphasis id="strong1238" effect="bold">
+A
+
+</emphasis>
+ and 
+assigns that object's reference to a reference variable of type 
+
+<emphasis id="strong1239" effect="bold">
+Base
+
+</emphasis>
+, 
+as shown in the following code fragment. 
+
+</para>
+
+
+
+
+<note id="note1027" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1035" display="block">    Base myVar2 = new A();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1224">
+<emphasis id="strong1240" effect="bold">
+Oops! Cannot call this method 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1225">
+So far, so good. However, the next fragment shows where the program turns 
+sour. It attempts to call the method named 
+
+<emphasis id="strong1241" effect="bold">
+intfcMethod
+
+</emphasis>
+ on the object's 
+reference, which was stored as type 
+
+<emphasis id="strong1242" effect="bold">
+Base
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1028" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1036" display="block">    myVar2.intfcMethod();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1226">
+<emphasis id="strong1243" effect="bold">
+Polymorphic behavior doesn't apply here
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1227">
+Because the class named 
+
+<emphasis id="strong1244" effect="bold">
+Base
+
+</emphasis>
+ does not define the method 
+named 
+
+<emphasis id="strong1245" effect="bold">
+intfcMethod
+
+</emphasis>
+, hierarchical polymorphic behavior does not apply. Therefore 
+a reference to the object being stored as type 
+
+<emphasis id="strong1246" effect="bold">
+Base
+
+</emphasis>
+ cannot be 
+used to directly call the method named 
+
+<emphasis id="strong1247" effect="bold">
+intfcMethod
+
+</emphasis>
+, and the program produces a 
+compiler error. 
+
+</para>
+
+
+
+
+<para id="p1228">
+<emphasis id="strong1248" effect="bold">
+What is the solution?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1229">
+Hierarchical polymorphic behavior is possible only when the class defining 
+the type of the reference 
+
+<emphasis id="em1040" effect="italics">
+(or some superclass of that class) 
+
+</emphasis>
+contains a 
+definition for the method that is called on the reference. 
+
+</para>
+
+
+
+
+<para id="p1230">
+There are a couple of ways that downcasting could be used to solve the 
+problem in this case. 
+
+</para>
+
+
+
+
+<para id="p1231">
+<link id="a1065" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1232">
+A. Compiler Error 
+
+</para>
+
+
+
+
+<section id="h31009">
+<title>
+<emphasis id="strong1249" effect="bold">
+Explanation 1
+
+</emphasis>
+</title>
+
+
+
+
+<para id="p1233">
+I put this question in here just to see if you are still awake.
+
+</para>
+
+
+
+
+
+<para id="p1234">
+<emphasis id="strong1250" effect="bold">
+Can store reference as interface type 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1235">
+A reference to an object instantiated from a class can be assigned to any 
+reference variable whose declared type is the name of an interface implemented 
+by the class from which the object was instantiated, or implemented by any 
+superclass of that class. 
+
+</para>
+
+
+
+
+<para id="p1236">
+<emphasis id="strong1251" effect="bold">
+Define two classes and an interface 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1237">
+This program defines a class named 
+
+<emphasis id="strong1252" effect="bold">
+A
+
+</emphasis>
+ that extends a class 
+named 
+
+<emphasis id="strong1253" effect="bold">
+Base
+
+</emphasis>
+. The class named 
+
+<emphasis id="strong1254" effect="bold">
+Base
+
+</emphasis>
+ extends
+
+
+<emphasis id="strong1255" effect="bold">
+Object
+
+</emphasis>
+ by default. 
+
+</para>
+
+
+
+
+<para id="p1238">
+The program also defines an interface named 
+
+<emphasis id="strong1256" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1239">
+<emphasis id="strong1257" effect="bold">
+Instantiate an object 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1240">
+The following statement instantiates an object of the class named 
+
+<emphasis id="strong1258" effect="bold">
+A
+
+</emphasis>
+, 
+and attempts to assign that object's reference to a reference variable whose 
+type is the interface type named 
+
+<emphasis id="strong1259" effect="bold">
+X
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<note id="note1029" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1037" display="block">    X myVar2 = new A();</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1241">
+Interface 
+
+<emphasis id="strong1260" effect="bold">
+X
+
+</emphasis>
+ is defined but not implemented 
+
+</para>
+
+
+
+
+<para id="p1242">
+None of the classes named 
+
+<emphasis id="strong1261" effect="bold">
+A
+
+</emphasis>
+, 
+
+<emphasis id="strong1262" effect="bold">
+Base
+
+</emphasis>
+, and
+
+
+<emphasis id="strong1263" effect="bold">
+Object
+
+</emphasis>
+ implement the interface named
+
+
+<emphasis id="strong1264" effect="bold">
+X
+
+</emphasis>
+. 
+Therefore, it is not allowable to assign a reference to an object of the class 
+named 
+
+<emphasis id="strong1265" effect="bold">
+A
+
+</emphasis>
+ to a reference variable whose declared type is 
+
+<emphasis id="strong1266" effect="bold">
+
+X
+
+</emphasis>
+. Therefore, the program produces the following compiler error under JDK 
+1.3: 
+
+</para>
+
+
+
+
+<note id="note1030" type="">
+
+
+		
+
+
+			
+
+
+				
+
+
+				
+
+<code id="pre1038" display="block">Ap131.java:20: incompatible types
+found   : A
+required: X
+    X myVar2 = new A();
+</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1243">
+<link id="a1066" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1244">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+</content>
+
+
+
+
+</document>

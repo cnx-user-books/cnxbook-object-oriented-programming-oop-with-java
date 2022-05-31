@@ -1,0 +1,3033 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1608: Polymorphism Based on Overloaded Methods</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44182</md:content-id>
+  <md:title>Java1608: Polymorphism Based on Overloaded Methods</md:title>
+  <md:abstract>Baldwin explains the use of overloaded methods for the purpose of achieving compile-time polymorphism.</md:abstract>
+  <md:uuid>703a3bfd-479c-4aca-8624-783d962e79b5</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Mar 31 11:22:34 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Definition of the class named A. 
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Definition of the class named B. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Definition of the driver class named Poly01. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Complete program listing. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+Previous modules introduced 
+
+<emphasis id="em1003" effect="italics">
+overloading
+
+</emphasis>
+ and 
+
+<emphasis id="em1004" effect="italics">
+overriding
+
+</emphasis>
+ methods. This module concentrates on the use of method overloading to achieve 
+	
+
+<emphasis id="em1005" effect="italics">
+compile-time polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+Every class in Java is a direct or indirect subclass of the class named 
+
+
+<emphasis id="strong1000" effect="bold">
+Object
+
+</emphasis>
+. Methods defined in the class named 
+
+<emphasis id="strong1001" effect="bold">
+Object
+
+</emphasis>
+ are inherited into all other classes. 
+Inherited methods that are not declared 
+
+<emphasis id="strong1002" effect="bold">
+final
+
+</emphasis>
+ may be overridden to make their behavior more appropriate 
+for objects instantiated from the new class.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Overloaded methods have the same name and different formal argument lists. They may or may not have the same return type.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name. This module concentrates on method overloading, sometimes referred to as 
+
+
+<emphasis id="em1006" effect="italics">
+compile-time polymorphism
+
+</emphasis>
+. Subsequent modules concentrate on method overriding, sometimes referred to as 
+
+
+<emphasis id="em1007" effect="italics">
+runtime polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Overloaded methods may all be defined in the same class, or may be defined in different classes as long as those classes have a superclass-subclass relationship. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1009">
+<emphasis id="strong1003" effect="bold">
+Three concepts
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+In an earlier module, I explained that most books on OOP will tell you that in order to understand OOP, you must understand the following three concepts:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1015">
+Encapsulation
+
+</item>
+
+
+	
+
+<item id="li1016">
+Inheritance
+
+</item>
+
+
+	
+
+<item id="li1017">
+Polymorphism
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1011">
+I agree with that assessment.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1004" effect="bold">
+Encapsulation and inheritance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+Previous modules in this series have explained Encapsulation and Inheritance. This module will tackle the somewhat more complex topic of Polymorphism.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+Overloading and overriding methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+In the modules on inheritance, you learned a little about overloading and overriding methods 
+
+
+<emphasis id="em1008" effect="italics">
+(you will learn more about these concepts as you progress through these modules)
+
+</emphasis>
+. This module concentrates on the use of overloaded methods to achieve 
+
+
+<emphasis id="em1009" effect="italics">
+compile-time polymorphism.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<para id="p1016">
+<emphasis id="strong1006" effect="bold">
+Real-world scenarios
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+The sample programs that I used in the previous modules in this series dealt with two kinds of car radios:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1018">
+Plain car radios
+
+</item>
+
+
+	
+
+<item id="li1019">
+Car radios having built-in tape players
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1018">
+I couched those programs in a real-world scenario in an attempt to convince you that encapsulation and inheritance really do have a place in the real world.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1007" effect="bold">
+Programs were fairly long
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+However, even though those programs were simple in concept, they were relatively long. That made them somewhat difficult to explain due simply to the amount of code involved. 
+
+</para>
+
+
+
+	
+
+<para id="p1021">
+<emphasis id="strong1008" effect="bold">
+Keep it short and simple
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+Beginning with this module, I am going to back away from real-world scenarios and begin using sample programs that are as short and as simple as I know how to make them, while still illustrating the important points under discussion.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+My objective in this and future modules is to make the polymorphic concepts as clear as possible without having those concepts clouded by other programming issues.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+I will simply ask you to trust me when I tell you that polymorphism has enormous applicability in the real world.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1009" effect="bold">
+A little more on inheritance
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+There is another aspect of inheritance that I didn't explain in the previous modules.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1010" effect="bold">
+Every class extends some other class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+Every class in Java extends some other class. If you don't explicitly specify the class that your new class extends, it will automatically extend the class named 
+
+
+<emphasis id="strong1011" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1029">
+<emphasis id="strong1012" effect="bold">
+A class hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+Thus, all classes in Java exist in a class hierarchy where the class named 
+
+
+<emphasis id="strong1013" effect="bold">
+Object
+
+</emphasis>
+ forms the root of the hierarchy.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+Some classes extend 
+
+<emphasis id="strong1014" effect="bold">
+Object
+
+</emphasis>
+ directly, while other classes are subclasses of 
+
+
+<emphasis id="strong1015" effect="bold">
+Object
+
+</emphasis>
+ further down the hierarchy. 
+
+</para>
+
+
+
+	
+
+<para id="p1032">
+<emphasis id="strong1016" effect="bold">
+Methods in the Object class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+The class named 
+
+<emphasis id="strong1017" effect="bold">
+Object
+
+</emphasis>
+ defines default versions of the following methods:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1020">
+clone()
+
+</item>
+
+
+	
+
+<item id="li1021">
+equals(Object obj)
+
+</item>
+
+
+	
+
+<item id="li1022">
+finalize()
+
+</item>
+
+
+	
+
+<item id="li1023">
+getClass()
+
+</item>
+
+
+	
+
+<item id="li1024">
+hashCode()
+
+</item>
+
+
+	
+
+<item id="li1025">
+notify()
+
+</item>
+
+
+	
+
+<item id="li1026">
+notifyAll()
+
+</item>
+
+
+	
+
+<item id="li1027">
+toString()
+
+</item>
+
+
+	
+
+<item id="li1028">
+<emphasis id="strong1018" effect="bold">
+wait()
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1029">
+<emphasis id="strong1019" effect="bold">
+wait(long timeout)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1030">
+<emphasis id="strong1020" effect="bold">
+wait(long timeout, int 
+
+</emphasis>
+<emphasis id="strong1021" effect="bold">
+nanos)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1034">
+As you can see, this list includes three overloaded versions of the method named 
+
+
+<emphasis id="strong1022" effect="bold">
+wait
+
+</emphasis>
+.
+
+<emphasis id="strong1023" effect="bold">
+ 
+
+</emphasis>
+The three versions have the same name but different formal argument lists. 
+Thus, these three methods are 
+
+<emphasis id="em1010" effect="italics">
+overloaded
+
+</emphasis>
+ versions of the method name 
+
+<emphasis id="strong1024" effect="bold">
+
+wait
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<para id="p1035">
+<emphasis id="strong1025" effect="bold">
+Every class inherits these eleven methods
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1036">
+Because every class is either a direct or indirect subclass of 
+
+<emphasis id="strong1026" effect="bold">
+Object
+
+</emphasis>
+, every class in Java, 
+	
+
+<emphasis id="em1011" effect="italics">
+(including new classes that you define)
+
+</emphasis>
+, inherit these eleven methods. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1027" effect="bold">
+To be overridden ...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+Some of these eleven methods are intended to be overridden for various purposes. However, some of them, such as
+
+
+<emphasis id="strong1028" effect="bold">
+getClass
+
+</emphasis>
+, 
+
+<emphasis id="strong1029" effect="bold">
+notify
+
+</emphasis>
+, and the three versions of
+
+
+<emphasis id="strong1030" effect="bold">
+wait
+
+</emphasis>
+, are intended to be used directly without overriding.
+
+
+<emphasis id="em1012" effect="italics">
+(Although not shown here, these five methods are declared to be 
+
+<emphasis id="strong1031" effect="bold">
+
+final
+
+</emphasis>
+, meaning that they may not be overridden.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1032" effect="bold">
+What is polymorphism?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+The meaning of the word polymorphism is something like 
+
+<emphasis id="em1013" effect="italics">
+one name, many forms.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1033" effect="bold">
+How does Java implement polymorphism?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+In some cases, multiple methods have the same name, but different formal argument lists 
+
+
+<emphasis id="em1014" effect="italics">
+(overloaded methods)
+
+</emphasis>
+.
+
+In other cases, multiple methods have the same name, same return type, and same formal argument list 
+
+
+<emphasis id="em1015" effect="italics">
+(overridden methods)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1044">
+<emphasis id="strong1034" effect="bold">
+Three distinct forms of polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+From a practical programming viewpoint, polymorphism manifests itself in three distinct forms in Java:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1032">
+Method overriding through inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1033">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1035" effect="bold">
+Method overloading
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+I will begin the discussion of polymorphism with method overloading, which is the simplest of the three. I will cover method overloading in this module and will cover polymorphism based on overridden methods and interfaces in subsequent modules. 
+
+</para>
+
+
+
+	
+
+<para id="p1048">
+<emphasis id="strong1036" effect="bold">
+Method overloading versus method overriding
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+Don't confuse method 
+
+<emphasis id="em1016" effect="italics">
+overloading
+
+</emphasis>
+ with method 
+
+<emphasis id="em1017" effect="italics">
+overriding
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+Java allows you to have two or more method definitions in the same scope with the same name, provided that they have different formal argument lists.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+More specifically, here is what Roberts, Heller, and Ernest have to say about overloading methods in their excellent book 
+titled 
+
+<emphasis id="strong1037" effect="bold">
+The Complete Java 2 Certification Study Guide
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="em1018" effect="italics">
+"A valid overload differs in the number or type of its arguments. Differences in argument names are not significant. A different return type is permitted, but is not sufficient by itself to distinguish an overloading method."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+Similarly, as a preview of things to come, here is what they have to say about method overriding:
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="em1019" effect="italics">
+"A valid override has identical argument types and order, identical return type, and is not less accessible than the original method. The overriding method must not throw any checked exceptions that were not declared for the original method."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+You should read these two descriptions carefully and make certain that you recognize the differences.
+
+</para>
+
+
+
+	
+
+<para id="p1056">
+<emphasis id="strong1038" effect="bold">
+Compile-time polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+Some authors refer to method overloading as a form of 
+
+<emphasis id="em1020" effect="italics">
+compile-time polymorphism
+
+</emphasis>
+, as distinguished from 
+
+
+<emphasis id="em1021" effect="italics">
+run-time polymorphism
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+This distinction comes from the fact that, with overloaded methods, for each method call, the compiler determines which method 
+
+
+<emphasis id="em1022" effect="italics">
+(from a group of overloaded methods)
+
+</emphasis>
+ will be executed, and this decision is made when the program is compiled. 
+
+
+<emphasis id="em1023" effect="italics">
+(In contrast, I will tell you later that the determination of which overridden method to execute isn't made until runtime.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1039" effect="bold">
+Selection based on the argument list
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+In practice, the compiler simply examines the types, number, and order of the parameters being passed in an 
+overloaded method call, and selects the overloaded method having a matching formal argument list.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1040" effect="bold">
+A sample program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+I will discuss a sample program named 
+
+<emphasis id="strong1041" effect="bold">
+Poly01
+
+</emphasis>
+ to illustrate method overloading. A complete listing of the program can be viewed in 
+
+
+<link id="a1015" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ near the end of the module. 
+
+</para>
+
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1042" effect="bold">
+Within the class and the hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+Method overloading can occur both within a class definition, and vertically within the class inheritance hierarchy. 
+
+
+<emphasis id="em1024" effect="italics">
+(In other words, an overloaded method can be inherited into a class that defines other overloaded versions of the method.)
+
+</emphasis>
+ The program named 
+
+
+<emphasis id="strong1043" effect="bold">
+Poly01
+
+</emphasis>
+ illustrates both aspects of method overloading.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1044" effect="bold">
+Class B extends class A, which extends Object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+Upon examination of the program, you will see that the class named 
+
+<emphasis id="strong1045" effect="bold">
+A
+
+</emphasis>
+ extends the class named
+
+
+<emphasis id="strong1046" effect="bold">
+Object
+
+</emphasis>
+. You will also see that the class named 
+
+<emphasis id="strong1047" effect="bold">
+B
+
+</emphasis>
+ extends the class named 
+
+
+<emphasis id="strong1048" effect="bold">
+A
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The class named 
+
+<emphasis id="strong1049" effect="bold">
+Poly01
+
+</emphasis>
+ is a driver class whose 
+
+<emphasis id="strong1050" effect="bold">
+main
+
+</emphasis>
+ method exercises the methods defined in the classes named 
+
+
+<emphasis id="strong1051" effect="bold">
+A
+
+</emphasis>
+ and 
+
+<emphasis id="strong1052" effect="bold">
+B
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Once again, this program is not intended to correspond to any particular real-world scenario. Rather, it is a very simple program designed specifically to illustrate method overloading.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1053" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+As is my usual approach, I will discuss this program in fragments.
+
+The code in 
+
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ defines the class named 
+
+<emphasis id="strong1054" effect="bold">
+A
+
+</emphasis>
+, which explicitly extends 
+
+
+<emphasis id="strong1055" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Definition of the class 
+				named A.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class A extends Object{
+  public void m(){
+    System.out.println("m()");
+  }//end method m()
+}//end class A</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1071">
+<emphasis id="strong1056" effect="bold">
+Redundant code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+Explicitly extending 
+
+<emphasis id="strong1057" effect="bold">
+Object
+
+</emphasis>
+ is not required 
+
+<emphasis id="em1025" effect="italics">
+(but it also doesn't hurt anything to do it)
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1073">
+By default, the class named 
+
+<emphasis id="strong1058" effect="bold">
+A
+
+</emphasis>
+ would extend the class named 
+
+
+<emphasis id="strong1059" effect="bold">
+Object
+
+</emphasis>
+ automatically, unless the class named 
+
+<emphasis id="strong1060" effect="bold">
+A
+
+</emphasis>
+ explicitly extends some other class.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1061" effect="bold">
+The method named m()
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+The code in 
+
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ defines a method named 
+
+<emphasis id="strong1062" effect="bold">
+m()
+
+</emphasis>
+. Note that this version of the method has an empty argument list 
+
+
+<emphasis id="em1026" effect="italics">
+(it doesn't receive any parameters when it is executed)
+
+</emphasis>
+. The behavior of the method is simply to display a message indicating that it has been called.
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1063" effect="bold">
+The class named B
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+<link id="a1018" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ contains the definition for the class named 
+
+
+<emphasis id="strong1064" effect="bold">
+B
+
+</emphasis>
+. The class named 
+
+<emphasis id="strong1065" effect="bold">
+B
+
+</emphasis>
+ extends the class named 
+
+
+<emphasis id="strong1066" effect="bold">
+A
+
+</emphasis>
+, and inherits the method named 
+
+<emphasis id="strong1067" effect="bold">
+m
+
+</emphasis>
+ defined in the class named 
+
+
+<emphasis id="strong1068" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Definition of the class 
+				named B.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">class B extends A{
+  public void m(int x){
+    System.out.println("m(int x)");
+  }//end method m(int x)
+  //---------------------------------//
+  
+  public void m(String y){
+    System.out.println("m(String y)");
+  }//end method m(String y)
+}//end class B</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1078">
+<emphasis id="strong1069" effect="bold">
+Overloaded methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+In addition to the inherited method named 
+
+<emphasis id="strong1070" effect="bold">
+m
+
+</emphasis>
+, the class named 
+
+
+<emphasis id="strong1071" effect="bold">
+B
+
+</emphasis>
+ defines two overloaded versions of the method named 
+
+<emphasis id="strong1072" effect="bold">
+m
+
+</emphasis>
+:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1034">
+m(int x)
+    
+
+</item>
+
+
+	
+
+<item id="li1035">
+m(String y) 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1080">
+<emphasis id="em1027" effect="italics">
+(Note that each of these two versions of the method receives a single parameter, and the type of the parameter is different in each case.)
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+As with the version of the method having the same name defined in the class named 
+
+
+<emphasis id="strong1073" effect="bold">
+A
+
+</emphasis>
+, the behavior of each of these two methods is to display a message indicating that it has been called. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1074" effect="bold">
+The driver class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<link id="a1019" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ contains the definition of the driver class named 
+
+
+<emphasis id="strong1075" effect="bold">
+Poly01
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Definition of the driver 
+				class named Poly01.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">public class Poly01{
+  public static void main(String[] args){
+    B var = new B();
+    var.m();
+    var.m(3);
+    var.m("String");
+  }//end main
+}//end class Poly01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1084">
+<emphasis id="strong1076" effect="bold">
+Call all three overloaded methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The code in the 
+
+<emphasis id="strong1077" effect="bold">
+main
+
+</emphasis>
+ method
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1036">
+Instantiates a new object of the class named 
+
+<emphasis id="strong1078" effect="bold">
+B
+
+</emphasis>
+, and
+
+</item>
+
+
+	
+
+<item id="li1037">
+Successively calls each of the three overloaded versions of the method named 
+	
+
+<emphasis id="strong1079" effect="bold">
+m
+
+</emphasis>
+ on the reference to that object. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1080" effect="bold">
+One version is inherited
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+The overloaded version of the method named 
+
+<emphasis id="strong1081" effect="bold">
+m
+
+</emphasis>
+, defined in the class named 
+
+
+<emphasis id="strong1082" effect="bold">
+A
+
+</emphasis>
+, is inherited into the class named 
+
+<emphasis id="strong1083" effect="bold">
+B
+
+</emphasis>
+. 
+Therefore, it can be called on a reference to an object instantiated from the class named 
+
+
+<emphasis id="strong1084" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="strong1085" effect="bold">
+Two versions defined in class B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+The other two versions of the method named 
+
+<emphasis id="strong1086" effect="bold">
+m
+
+</emphasis>
+ are defined in the class named 
+
+
+<emphasis id="strong1087" effect="bold">
+B
+
+</emphasis>
+. Thus, they also can be called on a reference to an object instantiated from the class named 
+
+
+<emphasis id="strong1088" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1090">
+<emphasis id="strong1089" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+As you would expect, the output produced by sending messages to the object asking it to execute each of the three overloaded versions of the method named 
+
+
+<emphasis id="strong1090" effect="bold">
+m
+
+</emphasis>
+ is:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">m() 
+m(int x) 
+m(String y) </code>
+
+
+
+
+<para id="p1092">
+Note that the values of the parameters passed to the methods do not appear in the output. Rather, 
+in this simple example, the parameters are used solely to make it possible for the compiler to select the correct version of the overloaded method to execute.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1093">
+This output confirms that each overloaded version of the method is properly selected for execution based on the matching of method parameters to the formal argument list of each method. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+Previous modules introduced 
+
+<emphasis id="em1028" effect="italics">
+overloading
+
+</emphasis>
+ and 
+
+<emphasis id="em1029" effect="italics">
+overriding
+
+</emphasis>
+ methods. This module concentrates on the use of method 
+
+
+<emphasis id="em1030" effect="italics">
+overloading
+
+</emphasis>
+ to achieve 
+
+<emphasis id="em1031" effect="italics">
+compile-time polymorphism
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+All classes in Java form a hierarchy with a class named 
+
+<emphasis id="strong1091" effect="bold">
+Object
+
+</emphasis>
+ at the root of the hierarchy. Thus, every class in Java is a direct or indirect subclass of the class named 
+
+
+<emphasis id="strong1092" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+If a new class doesn't explicitly extend some other class, it will, by default, automatically extend the class named 
+
+
+<emphasis id="strong1093" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+The 
+
+<emphasis id="strong1094" effect="bold">
+Object
+
+</emphasis>
+ class defines default versions of eleven different methods. These methods are inherited into all other classes, and some
+
+
+<emphasis id="em1032" effect="italics">
+(those not declared 
+
+<emphasis id="strong1095" effect="bold">
+final
+
+</emphasis>
+)
+
+</emphasis>
+ may be overridden to make their behavior more appropriate for objects instantiated from the new class. 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Overloaded methods have the same name and different formal argument lists. They may or may not have the same return type.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1099">
+Three of the eleven methods defined in the class named 
+
+<emphasis id="strong1096" effect="bold">
+Object
+
+</emphasis>
+ are overloaded 
+versions of the method name 
+
+<emphasis id="strong1097" effect="bold">
+wait
+
+</emphasis>
+. One version takes no parameters. A second version takes a single parameter of type 
+
+
+<emphasis id="strong1098" effect="bold">
+long
+
+</emphasis>
+. The third version takes two parameters, one of type 
+
+
+<emphasis id="strong1099" effect="bold">
+long
+
+</emphasis>
+, and one of type 
+
+<emphasis id="strong1100" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+The word 
+
+<emphasis id="em1033" effect="italics">
+polymorphism
+
+</emphasis>
+ means something like 
+
+<emphasis id="em1034" effect="italics">
+one name, many forms
+
+</emphasis>
+. Polymorphism manifests itself in Java in the form of multiple methods having the same name. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+Polymorphism manifests itself in three distinct forms in Java:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1038">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1039">
+Method overriding through inheritance
+    
+
+</item>
+
+
+	
+
+<item id="li1040">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1102">
+This module concentrates on method 
+
+<emphasis id="em1035" effect="italics">
+overloading
+
+</emphasis>
+, sometimes referred to as 
+
+
+<emphasis id="em1036" effect="italics">
+compile-time polymorphism
+
+</emphasis>
+. This form of polymorphism is distinguished by the fact that the compiler selects 
+a specific method from two or more overloaded methods on the basis of the types and the number of parameters passed to the method when it is called. The selection is made when the program is compiled 
+
+
+<emphasis id="em1037" effect="italics">
+(rather than being made later when the program is run)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+Overloaded methods may all be defined in the same class, or may be defined in different classes as long as those classes have a superclass-subclass relationship in the class hierarchy.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1104">
+The sample program in this module illustrates three overloaded versions of the same method name with two of the versions being defined in a single class, and the other version being defined in the superclass of that class. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1105">
+The next module in this collection teaches you about assignment compatibility, type conversion, and casting for both primitive and reference types.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+It also teaches you about the relationship between reference types, method calls, and the location in the class hierarchy where a method is defined. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1107">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1101" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1041">
+Module name: Java OOP: Polymorphism Based on Overloaded 
+					Methods
+					
+
+</item>
+
+
+					
+
+<item id="li1042">
+File: Java1608.htm
+
+
+</item>
+
+
+					
+
+<item id="li1043">
+Published: 02/11/02
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1102" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1108">
+<emphasis id="strong1103" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1109">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1110">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1111">
+<emphasis id="strong1104" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+A complete listing of the program is shown in 
+
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ below.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Complete program listing.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1004" display="block">/*File Poly01.java
+Copyright 2002, R.G.Baldwin
+
+Program output is:
+m()
+m(int x)
+m(String y)
+**************************************/
+
+class A extends Object{
+  public void m(){
+    System.out.println("m()");
+  }//end method m()
+}//end class A
+//===================================//
+
+class B extends A{
+  public void m(int x){
+    System.out.println("m(int x)");
+  }//end method m(int x)
+  //---------------------------------//
+  
+  public void m(String y){
+    System.out.println("m(String y)");
+  }//end method m(String y)
+}//end class B
+//===================================//
+
+public class Poly01{
+  public static void main(String[] args){
+    B var = new B();
+    var.m();
+    var.m(3);
+    var.m("String");
+  }//end main
+}//end class Poly01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1113">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,3601 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4100: The Comparator Interface, Part 2</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46190</md:content-id>
+  <md:title>Java4100: The Comparator Interface, Part 2</md:title>
+  <md:abstract>This module shows you how to use a Comparator object to achieve natural (ascending) order on a set of names added as String objects to a TreeSet collection while ignoring the case used to write the names.</md:abstract>
+  <md:uuid>597763da-fc55-49b6-83d5-4771ee8f1909</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Apr 07 10:44:22 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Beginning_with_a_quiz">
+
+Beginning with a quiz
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1009">
+<link id="a1009" target-id="The_program_output">
+
+The program output
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="From_the_previous_module_">
+
+From the previous module
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Doing_more_with_a_Comparator_">
+
+Doing more with a Comparator
+
+</link>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Two_steps_in_the_program">
+
+Two steps in the program
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1013">
+<link id="a1013" target-id="The_first_step">
+
+The first step
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="The_second_step_">
+
+The second step
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="Duplicate_names_eliminated_from_the_set_">
+
+Duplicate names eliminated from the set
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="Does_Joe_equal_JOE">
+
+Does Joe equal JOE?
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Lets_see_some_code_">
+
+Let's see some code
+
+</link>
+
+
+<list id="ul1007" list-type="bulleted">
+
+			
+
+<item id="li1018">
+<link id="a1018" target-id="The_actual_Populator_code_">
+
+The Populator code
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="Populating_the_collection_with_String_objects">
+
+Populating the collection with String objects
+
+</link>
+
+
+			
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="Populating_the_TreeSet_collection_">
+
+Populating the TreeSet collection
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1021">
+<link id="a1021" target-id="Beginning_of_the_Comparator_class">
+
+Beginning of the Comparator class
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1022">
+<link id="a1022" target-id="The_interesting_code_">
+
+The interesting code
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1023">
+<link id="a1023" target-id="Convert_to_upper_case_">
+
+Convert to upper-case
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1024">
+<link id="a1024" target-id="Making_the_comparison">
+
+Making the comparison
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1025">
+<link id="a1025" target-id="Just_what_I_was_looking_for_">
+
+Just what I was looking for
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1026">
+<link id="a1026" target-id="The_results_">
+
+The results
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1029" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module shows you how to use a 
+
+<emphasis id="strong1000" effect="bold">
+Comparator
+
+</emphasis>
+ object to achieve 
+natural 
+
+<emphasis id="em1003" effect="italics">
+(ascending)
+
+</emphasis>
+ order on a set of names added as 
+
+<emphasis id="strong1001" effect="bold">
+String
+
+</emphasis>
+ 
+objects to a 
+
+<emphasis id="strong1002" effect="bold">
+TreeSet
+
+</emphasis>
+ collection while ignoring the case used to write the names.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1031" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1032" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1031">
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named Comparator03
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Create, populate, and display a TreeSet collection.
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The class named Populator. 
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. A TreeSet with a Comparator. 
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1037" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Populating the TreeSet collection.
+
+</item>
+
+
+	
+
+<item id="li1036">
+<link id="a1038" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the Comparator class. 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The interesting code in the compare method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+In this module, I will show you how to use a 
+
+<emphasis id="strong1003" effect="bold">
+Comparator
+
+</emphasis>
+ object to 
+achieve a 
+
+<emphasis id="em1004" effect="italics">
+natural ordering
+
+</emphasis>
+ of a set of names 
+
+<emphasis id="em1005" effect="italics">
+(
+
+<emphasis id="strong1004" effect="bold">
+String
+
+</emphasis>
+ 
+objects)
+
+</emphasis>
+ added to a 
+
+<emphasis id="strong1005" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+collection while ignoring the case used to write the names. 
+
+<emphasis id="em1006" effect="italics">
+(The natural 
+ordering for 
+
+<emphasis id="strong1006" effect="bold">
+String
+
+</emphasis>
+ objects is ascending.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+The code in this module is written with no thought given to
+
+
+<link id="a1040" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile this code, you will probably 
+get a warning about 
+
+<emphasis id="em1007" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Beginning_with_a_quiz" effect="bold">
+
+Beginning with a quiz
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1009">
+Let's begin with a quiz to test your prior knowledge of the 
+Java Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+What output is produced by the program shown in 
+
+<link id="a1041" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1038">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1039">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1040">
+C. Joe Bill Tom JOE BILL TOM
+
+</item>
+
+
+	
+
+<item id="li1041">
+D. Tom TOM Joe JOE Bill BILL
+
+</item>
+
+
+	
+
+<item id="li1042">
+E. Joe Bill Tom
+
+</item>
+
+
+	
+
+<item id="li1043">
+F. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1007" effect="bold">
+The program named Comparator03.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">//File Comparator03.java
+//Copyright 2001 R.G.Baldwin
+import java.util.*;
+import java.io.Serializable;
+
+public class Comparator03{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparator03
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+    System.out.println("Natural ordering");
+    ref = new TreeSet();
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+    System.out.println();
+
+    System.out.println("Comparator in use");
+    ref = new TreeSet(new TheComparator());
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+
+class TheComparator
+        implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+
+    //Do an upper-case comparison
+    int result =
+            ((String)o1).toUpperCase().
+                compareTo(((String)o2).
+                        toUpperCase());
+    return result;
+  }//end compare()
+
+  public boolean equals(Object o){
+    if(!(o instanceof TheComparator))
+        return false;
+    else return true;
+  }//end overridden equals()
+}//end class TheComparator
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1011">
+If your answer was 
+
+<emphasis id="strong1008" effect="bold">
+None of the above
+
+</emphasis>
+, you are correct. 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="The_program_output" effect="bold">
+
+The program output
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1012">
+The output produced by the program shown in 
+
+<link id="a1042" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is four lines long as 
+shown below. 
+
+<emphasis id="em1008" effect="italics">
+(Note that the bullets shown below do not appear in the actual 
+program output.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1044">
+<emphasis id="strong1009" effect="bold">
+Natural ordering
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1045">
+<emphasis id="strong1010" effect="bold">
+BILL Bill JOE Joe TOM Tom
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1046">
+<emphasis id="strong1011" effect="bold">
+Comparator in use
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1047">
+<emphasis id="strong1012" effect="bold">
+Bill Joe Tom
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="From_the_previous_module_" effect="bold">
+
+
+<emphasis id="strong1013" effect="bold">
+From the previous module
+
+</emphasis>
+ 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1013">
+In the previous module, I introduced you to the essentials of defining and 
+using a 
+
+<emphasis id="strong1014" effect="bold">
+Comparator
+
+</emphasis>
+ for controlling the sort order of the elements 
+contained in a 
+
+<emphasis id="strong1015" effect="bold">
+TreeSet
+
+</emphasis>
+ collection. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+In that module, I explained the difference between 
+
+<emphasis id="em1009" effect="italics">
+natural ordering
+
+</emphasis>
+ 
+and the 
+
+<emphasis id="em1010" effect="italics">
+sort ordering
+
+</emphasis>
+ produced through the use of a 
+
+<emphasis id="strong1016" effect="bold">
+Comparator
+
+</emphasis>
+ object.
+
+
+</para>
+
+
+
+
+
+<para id="p1015">
+However, what I showed you generally replicated the 
+
+<emphasis id="em1011" effect="italics">
+natural ordering
+
+</emphasis>
+, 
+and therefore, wasn't too exciting. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Doing_more_with_a_Comparator_" effect="bold">
+
+Doing more with a Comparator 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1016">
+In this and several subsequent modules, I am going to show you some of the 
+things that you can do with a 
+
+<emphasis id="strong1017" effect="bold">
+Comparator
+
+</emphasis>
+ object. By using a 
+
+<emphasis id="strong1018" effect="bold">
+Comparator
+
+</emphasis>
+ 
+object, you can achieve comparisons and sort orders that are different from the
+
+
+<emphasis id="em1012" effect="italics">
+natural ordering
+
+</emphasis>
+ for a given element type. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Two_steps_in_the_program" effect="bold">
+
+Two steps in the program
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1017">
+The program shown in 
+
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ goes through two major steps. 
+
+</para>
+
+
+
+
+
+<section id="h31004">
+<title>
+<emphasis id="The_first_step" effect="bold">
+
+The first step
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+First it 
+populates a 
+
+<emphasis id="strong1019" effect="bold">
+TreeSet
+
+</emphasis>
+ collection with the names of six people without using 
+a 
+
+<emphasis id="strong1020" effect="bold">
+Comparator
+
+</emphasis>
+. Then it displays the contents of that collection using an 
+iterator. That produces the following output 
+
+<emphasis id="em1013" effect="italics">
+(without the bullets)
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1048">
+<emphasis id="strong1021" effect="bold">
+Natural ordering
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1049">
+<emphasis id="strong1022" effect="bold">
+BILL Bill JOE Joe TOM Tom
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1019">
+As you will see later, the names were added to the collection in a different 
+order than the output order shown above. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+In this step, each of the six names that were added to the collection were 
+displayed after they were arranged into their 
+
+<emphasis id="em1014" effect="italics">
+natural ordering
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+In case you are unfamiliar with this aspect of character encoding, upper-case characters appear 
+before lower-case characters in the 
+
+<emphasis id="em1015" effect="italics">
+natural ordering
+
+</emphasis>
+ of characters in the 
+Unicode character set. Therefore, the names consisting of all upper-case 
+characters appear in the output ahead of the same names consisting of a mixture 
+of upper-case and lower-case characters. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="The_second_step_" effect="bold">
+
+The second step 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+Then the program shown in 
+
+<link id="a1044" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a new 
+
+<emphasis id="strong1023" effect="bold">
+TreeSet
+
+</emphasis>
+ object, 
+providing a 
+
+<emphasis id="strong1024" effect="bold">
+Comparator
+
+</emphasis>
+ for use in comparing and managing the sort order 
+of the elements. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+The program populates the new 
+
+<emphasis id="strong1025" effect="bold">
+TreeSet
+
+</emphasis>
+ collection with the same set of 
+six names in the same order as before. After the collection is populated, its 
+contents are displayed producing the following output 
+
+<emphasis id="em1016" effect="italics">
+(without the bullets)
+
+</emphasis>
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1050">
+<emphasis id="strong1026" effect="bold">
+Comparator in use
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1051">
+<emphasis id="strong1027" effect="bold">
+Bill Joe Tom
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Duplicate_names_eliminated_from_the_set_" effect="bold">
+
+Duplicate names eliminated from the set
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+Three of the names appear in the output in the same order as the 
+
+<emphasis id="em1017" effect="italics">
+natural 
+ordering
+
+</emphasis>
+ shown earlier. However, the duplicate names were eliminated and only 
+three names appear. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+This is because a 
+
+<emphasis id="strong1028" effect="bold">
+Comparator
+
+</emphasis>
+ was used by the 
+
+<emphasis id="strong1029" effect="bold">
+TreeSet
+
+</emphasis>
+ object to 
+compare the elements as they were added. The 
+
+<emphasis id="strong1030" effect="bold">
+Comparator
+
+</emphasis>
+ was designed to 
+eliminate the distinction between upper-case and lower-case characters. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Does_Joe_equal_JOE" effect="bold">
+
+Does Joe equal JOE?
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+For the earlier case that didn't use a 
+
+<emphasis id="strong1031" effect="bold">
+Comparator
+
+</emphasis>
+, the names 
+
+<emphasis id="strong1032" effect="bold">
+Joe
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1033" effect="bold">
+JOE
+
+</emphasis>
+ were considered to be different elements. Therefore, after 
+population, both names appeared in the collection. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+When the 
+
+<emphasis id="strong1034" effect="bold">
+Comparator
+
+</emphasis>
+ was used to eliminate the distinction between 
+upper-case and lower-case characters, the names 
+
+<emphasis id="strong1035" effect="bold">
+Joe
+
+</emphasis>
+ and 
+
+<emphasis id="strong1036" effect="bold">
+JOE
+
+</emphasis>
+ were 
+considered to be duplicates. As a result, only the first of the two was allowed 
+into the collection and the second of the two was rejected. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Lets_see_some_code_" effect="bold">
+
+Let's see some code 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1028">
+The code shown in 
+
+<link id="a1045" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is the code that was used 
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1052">
+To instantiate a 
+
+<emphasis id="strong1037" effect="bold">
+TreeSet
+
+</emphasis>
+ object without a 
+
+<emphasis id="strong1038" effect="bold">
+Comparator
+
+</emphasis>
+,
+
+</item>
+
+
+	
+
+<item id="li1053">
+To populate the collection, and
+
+</item>
+
+
+	
+
+<item id="li1054">
+To display the contents of the collection after it was populated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Create, 
+				populate, and display a TreeSet collection.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    ref = new TreeSet();
+    Populator.fillIt(ref);
+
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="The_actual_Populator_code_" effect="bold">
+
+The Populator code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+The code in 
+
+<link id="a1046" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ was used to populate the collection in both 
+cases, both with, and without a 
+
+<emphasis id="strong1039" effect="bold">
+Comparator
+
+</emphasis>
+ 
+
+<emphasis id="em1018" effect="italics">
+(to be discussed later).
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The class 
+				named Populator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Populator{
+  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+}//end class Populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Populating_the_collection_with_String_objects" effect="bold">
+
+Populating the collection with String objects
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1030">
+Note that in 
+
+<link id="a1047" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, unlike earlier modules, I did not use a class of my own design from which to 
+instantiate the objects used to populate the collection. Rather, I used the 
+
+<emphasis id="strong1040" effect="bold">
+
+String
+
+</emphasis>
+ class from the standard library. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+The 
+
+<emphasis id="strong1041" effect="bold">
+String
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1042" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+Therefore, objects instantiated from the 
+
+<emphasis id="strong1043" effect="bold">
+String
+
+</emphasis>
+ class have a 
+
+<emphasis id="em1019" effect="italics">
+natural 
+ordering
+
+</emphasis>
+ when placed in a collection. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Because the 
+
+<emphasis id="strong1044" effect="bold">
+compareTo
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1045" effect="bold">
+String
+
+</emphasis>
+ class, 
+
+<emphasis id="em1020" effect="italics">
+(which 
+implements the Comparable interface)
+
+</emphasis>
+ considers upper-case and lower-case 
+characters to be different, there were no duplicate elements added to the 
+collection when only the 
+
+<emphasis id="strong1046" effect="bold">
+compareTo
+
+</emphasis>
+ method was used to compare elements. The 
+six 
+
+<emphasis id="strong1047" effect="bold">
+String
+
+</emphasis>
+ objects were simply arranged so that the iterator would return 
+references to those objects in sorted order. This produced the output shown 
+below: 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1048" effect="bold">
+BILL Bill JOE Joe TOM Tom
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="strong1049" effect="bold">
+A TreeSet with a Comparator
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1034">
+The code shown in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ was used to instantiate a new 
+
+<emphasis id="strong1050" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object. A 
+
+<emphasis id="strong1051" effect="bold">
+Comparator
+
+</emphasis>
+ object's reference was passed to the 
+
+<emphasis id="strong1052" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+constructor. The 
+
+<emphasis id="strong1053" effect="bold">
+Comparator
+
+</emphasis>
+ object 
+
+<emphasis id="em1021" effect="italics">
+(instead of the 
+
+<emphasis id="strong1054" effect="bold">
+compareTo
+
+</emphasis>
+ 
+method)
+
+</emphasis>
+ was subsequently used for comparing 
+and controlling the sorting order of the elements in the 
+
+<emphasis id="strong1055" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+collection. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. A TreeSet with a Comparator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    ref = new TreeSet(new TheComparator());
+    
+    Populator.fillIt(ref);
+    
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next() + " ");
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1035">
+The code in 
+
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ was also used to populate the collection, and to 
+display the contents of the collection after it was populated. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Populating_the_TreeSet_collection_" effect="bold">
+
+Populating the TreeSet collection
+
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+As before, the 
+
+<emphasis id="strong1056" effect="bold">
+fillIt
+
+</emphasis>
+ method shown in 
+
+<link id="a1050" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ was used to 
+populate the collection. The same six names as before were added to the 
+
+<emphasis id="strong1057" effect="bold">
+
+TreeSet
+
+</emphasis>
+ collection. However, the result of adding those six names was 
+determined by the behavior of the 
+
+<emphasis id="strong1058" effect="bold">
+compare
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1059" effect="bold">
+Comparator
+
+</emphasis>
+ 
+object used by the 
+
+<emphasis id="strong1060" effect="bold">
+TreeSet
+
+</emphasis>
+ object for managing the collection. 
+
+<emphasis id="em1022" effect="italics">
+(Three 
+of the names were rejected as duplicates.)
+
+</emphasis>
+</para>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Populating the TreeSet collection.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  public static void fillIt(Collection ref){
+    ref.add("Joe");
+    ref.add("Bill");
+    ref.add("Tom");
+    ref.add("JOE");
+    ref.add("BILL");
+    ref.add("TOM");
+  }//end fillIt()
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="Beginning_of_the_Comparator_class" effect="bold">
+
+Beginning of the Comparator 
+class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+The code in 
+
+<link id="a1051" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ shows the beginning of the class from which the 
+
+<emphasis id="strong1061" effect="bold">
+
+Comparator
+
+</emphasis>
+ object was instantiated. Note that this class implements the 
+
+<emphasis id="strong1062" effect="bold">
+
+Comparator
+
+</emphasis>
+ interface, and therefore defines a concrete version of the method 
+named 
+
+<emphasis id="strong1063" effect="bold">
+compare
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Beginning of 
+				the Comparator class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">class TheComparator
+           implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof String))
+        throw new ClassCastException();
+    if(!(o2 instanceof String))
+        throw new ClassCastException();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1038">
+<link id="a1052" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ doesn't contain the interesting part of this class. The code in 
+
+
+<link id="a1053" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ simply throws an exception if the 
+
+<emphasis id="strong1064" effect="bold">
+compare
+
+</emphasis>
+ method receives any 
+incoming parameters of types other than 
+
+<emphasis id="strong1065" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="The_interesting_code_" effect="bold">
+
+The interesting code 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+The interesting code in the method named 
+
+<emphasis id="strong1066" effect="bold">
+compare
+
+</emphasis>
+ is shown in 
+
+<link id="a1054" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. The 
+				interesting code in the compare method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">  int result =
+    ((String)o1).toUpperCase().
+          compareTo(((String)o2).
+                        toUpperCase());
+    return result;
+}//end compare()
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1040">
+The code in 
+
+<link id="a1055" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ makes use of two methods of the 
+
+<emphasis id="strong1067" effect="bold">
+String
+
+</emphasis>
+ class to 
+compare the two incoming objects. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="Convert_to_upper_case_" effect="bold">
+
+Convert to upper-case 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1041">
+The method named 
+
+<emphasis id="strong1068" effect="bold">
+toUpperCase
+
+</emphasis>
+ is used to produce a version of each of 
+the incoming strings that consists of upper-case characters only. In other 
+words, lower-case characters in each of the two strings are replaced by the 
+corresponding upper-case characters. This conversion occurs before the strings 
+are compared. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+For example, the string 
+
+<emphasis id="strong1069" effect="bold">
+Joe
+
+</emphasis>
+ is temporarily converted to 
+
+<emphasis id="strong1070" effect="bold">
+JOE
+
+</emphasis>
+ inside the 
+
+<emphasis id="strong1071" effect="bold">
+
+compare
+
+</emphasis>
+ method, before the actual comparison is made. This results in the 
+two strings containing 
+
+<emphasis id="strong1072" effect="bold">
+Joe
+
+</emphasis>
+ and 
+
+<emphasis id="strong1073" effect="bold">
+JOE
+
+</emphasis>
+ being considered to be 
+duplicates. If one of them is already in the collection when an attempt is made 
+to add the other, the second will be rejected as a duplicate. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="Making_the_comparison" effect="bold">
+
+Making the comparison
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1043">
+Then the 
+
+<emphasis id="strong1074" effect="bold">
+compareTo
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1075" effect="bold">
+String
+
+</emphasis>
+ class is used to make the 
+actual comparison. 
+
+<emphasis id="em1023" effect="italics">
+(Note that this is the same method that is used to make 
+the comparison in the absence of a 
+
+<emphasis id="strong1076" effect="bold">
+Comparator
+
+</emphasis>
+ object. However, in the case of 
+the 
+
+<emphasis id="strong1077" effect="bold">
+Comparator
+
+</emphasis>
+ object, the case of the strings is modified before they are 
+passed to the 
+
+<emphasis id="strong1078" effect="bold">
+compareTo
+
+</emphasis>
+ method.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+This code calls the 
+
+<emphasis id="strong1079" effect="bold">
+compareTo
+
+</emphasis>
+ method on the upper-case version of the 
+string represented by 
+
+<emphasis id="strong1080" effect="bold">
+o1
+
+</emphasis>
+, passing the upper-case version of the string 
+represented by 
+
+<emphasis id="strong1081" effect="bold">
+o2
+
+</emphasis>
+ as a parameter. Here is part of what Oracle has to say 
+about the behavior of the 
+
+<emphasis id="strong1082" effect="bold">
+compareTo
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1024" effect="italics">
+"Returns: the value 0 if the argument is a string lexicographically equal 
+	to this string; a value less than 0 if the argument is a string 
+	lexicographically greater than this string; and a value greater than 0 if 
+	the argument is a string lexicographically less than this string."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Just_what_I_was_looking_for_" effect="bold">
+
+Just what I was looking for 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1045">
+That is exactly the behavior that I was looking for, so all that I needed to 
+do after calling the 
+
+<emphasis id="strong1083" effect="bold">
+compareTo
+
+</emphasis>
+ method on the upper-case versions of the 
+two strings was to return the value that was returned by the 
+
+<emphasis id="strong1084" effect="bold">
+compareTo
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="em1025" effect="italics">
+(Note, while writing this module and explaining the behavior of this 
+program, I discovered that I could have used a method of the 
+
+<emphasis id="strong1085" effect="bold">
+String
+
+</emphasis>
+ class named
+
+
+<emphasis id="strong1086" effect="bold">
+compareToIgnoreCase
+
+</emphasis>
+ to accomplish the same thing with a little less work.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31017">
+<title>
+<emphasis id="The_results_" effect="bold">
+
+The results 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1047">
+When the 
+
+<emphasis id="strong1087" effect="bold">
+TreeSet
+
+</emphasis>
+ object used the 
+
+<emphasis id="strong1088" effect="bold">
+Comparator
+
+</emphasis>
+ object to compare 
+and arrange the elements in the collection, the three 
+
+<emphasis id="em1026" effect="italics">
+duplicate
+
+</emphasis>
+ names 
+were eliminated and the iterator delivered references to the remaining three 
+names in the following order: 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1089" effect="bold">
+Bill Joe Tom
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+I encourage you to copy the code from 
+
+<link id="a1056" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and paste it into your 
+Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+In this module, I showed you how to use a 
+
+<emphasis id="strong1090" effect="bold">
+Comparator
+
+</emphasis>
+ object to achieve 
+a 
+
+<emphasis id="em1027" effect="italics">
+natural ordering
+
+</emphasis>
+ of a set of names 
+
+<emphasis id="em1028" effect="italics">
+(
+
+<emphasis id="strong1091" effect="bold">
+String
+
+</emphasis>
+ 
+objects)
+
+</emphasis>
+ added to a 
+
+<emphasis id="strong1092" effect="bold">
+TreeSet
+
+</emphasis>
+ collection 
+while ignoring the case used to write the names. 
+
+<emphasis id="em1029" effect="italics">
+(Natural ordering for
+
+
+<emphasis id="strong1093" effect="bold">
+String
+
+</emphasis>
+ objects is ascending.)
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+In the next module, I will show you how to use a 
+
+<emphasis id="strong1094" effect="bold">
+Comparator
+
+</emphasis>
+ to cause a
+
+
+<emphasis id="strong1095" effect="bold">
+TreeSet
+
+</emphasis>
+ collection containing references to 
+
+<emphasis id="strong1096" effect="bold">
+String
+
+</emphasis>
+ 
+objects to be sorted in descending order while preserving 
+differences in case. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1097" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1014" list-type="bulleted">
+
+					
+
+<item id="li1055">
+Module name: Java4100: The Comparator Interface, Part 2
+
+</item>
+
+
+					
+
+<item id="li1056">
+File: Java4100.htm
+
+
+</item>
+
+
+					
+
+<item id="li1057">
+Published: 05/07/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1098" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1054">
+<emphasis id="strong1099" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1055">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1056">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1057">
+<emphasis id="strong1100" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1058">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

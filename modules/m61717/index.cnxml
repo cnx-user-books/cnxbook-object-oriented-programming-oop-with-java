@@ -1,0 +1,1812 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0200: The What and Why of JSON</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61717</md:content-id>
+  <md:title>Json0200: The What and Why of JSON</md:title>
+  <md:abstract>Learn what JSON is and why, as a Java programmer, you should care about JSON.</md:abstract>
+  <md:uuid>03e2e1cc-a4ff-493c-a19c-1262b2ad70f2</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Jul 03 10:16:32 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="What_is_JSON">
+
+What is JSON?
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Why_should_you_care">
+
+Why should you care about JSON?
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Not_a_book_about_JSON">
+
+Not a book about JSON
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="General_background_information">
+
+Background information
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1010">
+<link id="a1010" target-id="A_lightweight_textBased_data_interchange_format">
+
+A lightweight 
+text-based data interchange format
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Typical_operation">
+
+Typical operation
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="A_realWorld_analogy">
+
+A real-world analogy
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1013">
+<link id="a1013" target-id="A_playscape_object">
+
+A playscape object
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="No_longer_an_object">
+
+No longer an object
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="Reassemble_the_parts">
+
+Reassemble the parts
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Streamlined_procedures">
+
+Streamlined procedures
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="Online_references">
+
+Online references
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="What_is_JSON" effect="bold">
+
+What is JSON?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+The online document titled 
+
+<link id="a1019" url="http://www.json.org/">
+
+Introducing JSON
+
+</link>
+
+ 
+begins as follows: 
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1003">
+
+"JSON (JavaScript Object Notation) is a lightweight data-interchange format. It is easy for humans to read and write. It is easy for machines to parse and generate. It is based on a subset of the JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language." 
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1004">
+Similarly, the online document titled 
+
+<link id="a1020" url="http://www.oracle.com/technetwork/articles/java/json-1973242.html">
+
+Java API for JSON Processing: An Introduction to JSON
+
+</link>
+
+ 
+begins as follows:
+
+</para>
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<para id="p1005">
+
+JSON (JavaScript Object Notation) is a lightweight, text-based, language-independent data exchange format that is easy for humans and machines to read and write. JSON can represent two structured types: objects and arrays. An object is an unordered collection of zero or more name/value pairs. An array is an ordered sequence of zero or more values. The values can be strings, numbers, booleans, null, and these two structured types.
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1006">
+It is important to note that even though JSON is based on JavaScript syntax, 
+JASON is not JavaScript nor is it any other programming language. In fact, it is 
+not a programming language at all. As stated above, 
+JSON is simply 
+
+<emphasis id="em1004" effect="italics">
+"a lightweight, text-based, language-independent data 
+exchange format"
+
+</emphasis>
+ -- nothing more and nothing less.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<link id="a1021" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ shows a JSON text string containing name/value pairs as well as 
+nested arrays.
+
+</para>
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Example JSON text.
+
+
+<code id="pre1000" display="block">
+{
+  "game":
+    [
+      {"cards":
+        [
+          "2-club","3-heart","4-diamond","5-spade"
+        ],
+        "name":"Tom"
+      },
+      {"cards":
+        [
+          "4-heart","5-heart","6-club","7-diamond"
+        ],
+        "name":"Joe"
+      }
+    ]
+}</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1008">
+<emphasis id="em1005" effect="italics">
+(This JSON text will be used in a Java program in a future module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Why_should_you_care" effect="bold">
+
+Why should you care about JSON?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1009">
+This book is being written and published under the following assumptions:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1019">
+You are interested in Java programming.
+
+</item>
+
+
+	
+
+<item id="li1020">
+You are interested in web development involving Java programming.
+
+</item>
+
+
+	
+
+<item id="li1021">
+At some point in the future, you may become interested in
+	
+
+<link id="a1022" url="https://en.wikipedia.org/wiki/Big_data">
+
+Big Data
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1022">
+At some point in the future, you may become interested in
+	
+
+<link id="a1023" url="https://en.wikipedia.org/wiki/NoSQL">
+
+NoSQL
+
+</link>
+
+ databases such as 
+
+
+<link id="a1024" url="https://www.mongodb.com/">
+
+MongoDB
+
+</link>
+
+ and 
+
+
+<link id="a1025" url="http://www.couchbase.com/">
+
+Couchbase
+
+</link>
+
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+As stated in the 
+
+
+<link id="a1026" url="http://www.infoworld.com/article/2608805/database/big-databases-jump-on-the-json-bandwagon.html">
+
+InfoWorld
+
+</link>
+
+ article of August 25, 2014:
+
+</para>
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1011">
+
+"Web developers love JSON (JavaScript Object Notation). Like XML, it's a human-readable format for transmitting data, except it's a whole lot easier to work with than XML. 
+...
+
+Several NoSQL databases -- including the wildly successful 
+
+
+<link id="a1027" url="https://www.mongodb.com/">
+
+MongoDB
+
+</link>
+
+ and 
+
+
+<link id="a1028" url="http://www.couchbase.com/">
+
+Couchbase
+
+</link>
+
+ -- store data in JSON documents natively."
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1012">
+According to 
+
+<link id="a1029" url="http://news.sys-con.com/node/2881856">
+
+How JSON and Big Data Will Shape the Internet of Things
+
+</link>
+
+, 
+the author writes:
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1013">
+
+"To answer the question of why JSON would be the most widely used format for the Internet of Things, one only need look at the rapid development of Raspberry Pi, which started a little over two-and-a-half years ago, and has gained massive traction worldwide. This credit-card sized microcomputer is extensible, and a recent project called RaZberry 
+has turned it into a device capable of controlling your home automation through 
+- you guessed it - a JSON interface. With future development of the Internet of 
+Things, the proliferation of JSON as the preferred data delivery mechanism will 
+only increase.
+
+</para>
+
+
+
+	
+
+<para id="p1014">
+
+	Even more interesting is how this data can be fed into a Big Data cluster to perform predictive modeling and analytics. Just over a year ago, Google 
+	
+
+<link id="a1030" url="https://cloud.google.com/bigquery/">
+
+BigQuery
+
+</link>
+
+ added 
+	
+
+<link id="a1031" url="https://developers.googleblog.com/2012/10/got-big-json-bigquery-expands-data.html">
+
+support for JSON
+
+</link>
+
+ and explicitly mentions how sensor data and its attributes can be measured as a consequence. With time, it is only inevitable that developers in other Big Data ecosystems will use JSON when setting up their clusters to perform analytics from the various source data from the Internet of Things."
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1015">
+According to the aforementioned Google
+
+
+<link id="a1032" url="https://cloud.google.com/bigquery/">
+
+BigQuery
+
+</link>
+
+
+
+
+<link id="a1033" url="https://developers.googleblog.com/2012/10/got-big-json-bigquery-expands-data.html">
+
+support for JSON
+
+</link>
+
+ article:
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<para id="p1016">
+
+"JSON is the data format of the web. JSON is used to power most modern websites, is a native format for many NoSQL databases hosting top web applications, and provides the primary data format in many REST APIs. Google BigQuery, our cloud service for ad-hoc analytics on big data, has now added support for JSON and the nested/repeated structure inherent in the data format." 
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1017">
+I could go on providing similar quotations, but the bottom line is that if you anticipate your Java 
+programming career taking you into the world of
+
+
+<link id="a1034" url="https://en.wikipedia.org/wiki/Big_data">
+
+Big Data
+
+</link>
+
+ or into
+
+
+<link id="a1035" url="https://en.wikipedia.org/wiki/Internet_of_Things">
+
+The Internet of 
+Things
+
+</link>
+
+ at some point in 
+the future, you probably need to learn how to write Java programs that parse, generate, transform, and query JSON.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Not_a_book_about_JSON" effect="bold">
+
+Not a book about JSON
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+This book is not intended to teach you about JSON. There are numerous 
+tutorials on the web that you can access for that purpose 
+
+<emphasis id="em1006" effect="italics">
+(see
+
+
+<link id="a1036" target-id="Online_references">
+
+Online references
+
+</link>
+
+)
+
+</emphasis>
+. This book is intended 
+to teach you how to use the
+
+
+<link id="a1037" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ Java 
+library, 
+
+<emphasis id="em1007" effect="italics">
+(which is one of several available libraries),
+
+</emphasis>
+ to parse, generate, transform, and query JSON.
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The page at 
+
+<link id="a1038" url="http://www.json.org/">
+
+http://www.json.org/
+
+</link>
+
+ lists 
+more than two dozen Java libraries that have been created for processing JSON data. 
+After conducting an informal review of web pages that discuss 
+the various libraries, I decided to concentrate on the
+
+
+<link id="a1039" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ library 
+in this book. For example, here is the conclusion from the article titled
+
+
+<link id="a1040" url="http://www.rojotek.com/blog/2009/05/07/a-review-of-5-java-json-libraries/">
+
+
+A Review of 5 Java JSON Libraries
+
+</link>
+
+:
+
+</para>
+
+
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+
+
+<para id="p1020">
+
+"If you are looking for a simple lightweight Java library that reads and writes JSON, and supports Streams, JSON.simple is probably a good match. It does what it says on the box in 12 classes, and works on legacy (1.4) JREs. "
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1021">
+This conclusion is similar to conclusions that I found on 
+several other 
+websites. However, you should not take my selection of
+
+
+<link id="a1041" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ for 
+this book as a recommendation for the 
+
+<link id="a1042" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ library 
+as compared to other libraries that are available. Once you have a basic 
+understanding of how to process JSON using Java and the
+
+
+<link id="a1043" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ library, you should conduct your own 
+review to identify the library that best suits your needs.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1022">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view 
+
+<link id="a1044" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ while you are reading about 
+	it. 
+
+</para>
+
+
+
+	
+
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+Background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1000" effect="bold">
+JSON
+
+</emphasis>
+ is an acronym for 
+
+<emphasis id="strong1001" effect="bold">
+JavaScript Object Notation
+
+</emphasis>
+. 
+Don't be fooled by the name however. Although JSON is based on JavaScript object 
+syntax, it is not JavaScript nor is it any programming language. As stated 
+earlier, JSON is simply a 
+
+<emphasis id="em1008" effect="italics">
+lightweight, text-based, language-independent data 
+interchange format
+
+</emphasis>
+ -- nothing more and nothing less.
+
+</para>
+
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="A_lightweight_textBased_data_interchange_format" effect="bold">
+
+A lightweight 
+text-based data interchange format
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+Similar to XML, JSON is a general purpose data interchange format 
+that is supported by Java, PHP, JavaScript, and other programming languages. 
+JSON is a standard that describes how ordered lists and unordered maps, strings, 
+boolean values, and numbers can be represented as text in a string.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+Similar to but less complex than XML, JSON provides a way to pass structured information between different computing environments using the same 
+or different languages.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Typical_operation" effect="bold">
+
+Typical operation
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+Typically a data construct, 
+
+<emphasis id="em1009" effect="italics">
+(such as an object for example)
+
+</emphasis>
+, in one 
+programming environment will be transformed into a JSON string. That string will 
+be transported to another programming environment where it will be transformed 
+into a data construct, 
+
+<emphasis id="em1010" effect="italics">
+(such as a hash table for example)
+
+</emphasis>
+, that is 
+suitable for use in that programming environment
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="A_realWorld_analogy" effect="bold">
+
+A real-world analogy
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+Consider the following analogous situation. A young family has a large 
+playscape for their children in their back yard. They need to move to another 
+house across town. In order to save money, they rent a small truck and do the 
+entire move themselves.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="A_playscape_object" effect="bold">
+
+A playscape object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+The playscape can be thought of as an object with certain properties such as
+
+
+<emphasis id="strong1002" effect="bold">
+swing
+
+</emphasis>
+ and 
+
+<emphasis id="strong1003" effect="bold">
+slide
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+It is too large to fit into the truck so the adults disassemble it into a 
+well-organized package of boards, chains, bolts, nuts, etc. They are very 
+careful to label each part and to create some drawings showing the organization 
+of the parts for use later.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="No_longer_an_object" effect="bold">
+
+No longer an object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+In that disassembled state, it can no longer be thought of as an object with 
+properties of 
+
+<emphasis id="strong1004" effect="bold">
+swing
+
+</emphasis>
+ and 
+
+<emphasis id="strong1005" effect="bold">
+slide
+
+</emphasis>
+. Instead, it is 
+simply a well-organized and documented package of parts. The package of parts is 
+analogous to a JSON string. The playscape object has been transformed into a 
+well-organized package of parts.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Reassemble_the_parts" effect="bold">
+
+Reassemble the parts
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+After the parts are transported to the new location, they are reassembled 
+into an object with properties of 
+
+<emphasis id="strong1006" effect="bold">
+swing
+
+</emphasis>
+ and 
+
+<emphasis id="strong1007" effect="bold">
+slide
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+This is what we do with JSON. We disassemble an object 
+
+<emphasis id="em1011" effect="italics">
+(or other data 
+construct)
+
+</emphasis>
+ into a JSON string: a well-organized package of parts. Later on, 
+and possibly in an entirely different programming environment, we reassemble the 
+parts into a data construct suitable for use in the new programming environment.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Streamlined_procedures" effect="bold">
+
+Streamlined procedures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+Java, JavaScript, PHP, and other programming languages provide streamlined 
+procedures for transforming a data construct into a JSON string and for 
+transforming a JSON string into a suitable data construct. As an example, the
+
+
+<emphasis id="strong1008" effect="bold">
+toJASONString
+
+</emphasis>
+ method can be used to transform a Java 
+object of type 
+
+<emphasis id="strong1009" effect="bold">
+JSONObject
+
+</emphasis>
+ into a JSON string. The 
+
+<emphasis id="strong1010" effect="bold">
+parse
+
+</emphasis>
+ method 
+of the Java 
+
+<emphasis id="strong1011" effect="bold">
+JSONValue
+
+</emphasis>
+ class can be used to 
+transform a JSON string into a 
+
+<emphasis id="strong1012" effect="bold">
+JSONObject
+
+</emphasis>
+ object. Other methods 
+or functions are available to accomplish the same purposes in other languages 
+such as 
+
+<link id="a1045" url="http://cnx.org/contents/05TSs4zg:NDKm3u1b">
+
+JavaScript
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Online_references" effect="bold">
+
+Online references
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+There are many good online JSON references. Here are a few:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1046" url="http://www.json.org/">
+
+Introducing JSON
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1047" url="https://code.google.com/archive/p/json-simple/">
+
+The json-simple library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1048" url="http://www.json.org/xml.html">
+
+JSON: The Fat-Free Alternative to 
+	XML
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1026">
+
+	
+
+<link id="a1049" url="http://www.oracle.com/technetwork/articles/java/json-1973242.html">
+
+Java API for JSON Processing: An Introduction to JSON
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1050" url="http://www.tutorialspoint.com/json/json_php_example.htm">
+
+JSON 
+	with PHP
+
+</link>
+
+
+</item>
+
+
+
+	
+
+<item id="li1028">
+<link id="a1051" url="http://www.youtube.com/watch?v=wbB3lVyUvAM">
+
+JSON tutorial for 
+	beginners learn how to program part 1 JavaScript (video)
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1052" url="http://www.json.org/js.html">
+
+JSON in JavaScript
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1030">
+
+	
+
+<link id="a1053" url="http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/">
+
+JSON: What It Is, How It Works, How to Use It
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1035">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1013" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1031">
+Module name: Json0200: The What and Why of JSON
+
+</item>
+
+
+					
+
+<item id="li1032">
+File: Json0200.htm
+
+</item>
+
+
+					
+
+<item id="li1033">
+Published: 05/29/16
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1014" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1036">
+<emphasis id="strong1015" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1037">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1038">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1039">
+<emphasis id="strong1016" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1040">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

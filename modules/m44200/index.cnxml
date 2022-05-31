@@ -1,0 +1,5710 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1626: Array Objects, Part 3</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44200</md:content-id>
+  <md:title>Java1626: Array Objects, Part 3</md:title>
+  <md:abstract>Baldwin discusses various details regarding array objects in Java, including: members of an array object, interfaces implemented by array objects, Class objects and array objects, and the classes named Array and Arrays.</md:abstract>
+  <md:uuid>e6f376a5-80d0-485d-a6e5-8640b1a0bd08</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 01 17:06:27 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Using the newInstance method.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Populate the array object. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Display the data. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. An array object of type int. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The two-dimensional array object tree.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Populate the leaf elements.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display the data.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Create, populate, and display an array object.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Sort and display the data.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Search for an existing string.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Search for a non-existing string.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module discusses various details regarding the use of array objects 
+	in Java, including:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1023">
+The members of an array object
+
+</item>
+
+
+	
+
+<item id="li1024">
+The interfaces implemented by array objects
+
+</item>
+
+
+	
+
+<item id="li1025">
+<emphasis id="strong1000" effect="bold">
+Class
+
+</emphasis>
+ objects and array objects
+
+</item>
+
+
+	
+
+<item id="li1026">
+The classes named 
+
+<emphasis id="strong1001" effect="bold">
+Array
+
+</emphasis>
+ and 
+
+<emphasis id="strong1002" effect="bold">
+Arrays
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1005">
+<emphasis id="strong1003" effect="bold">
+Members of an array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+An array object has the following members 
+
+<emphasis id="em1003" effect="italics">
+(in addition to the data stored 
+in the object):
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1027">
+A public 
+
+<emphasis id="strong1004" effect="bold">
+final
+
+</emphasis>
+ variable named 
+
+<emphasis id="strong1005" effect="bold">
+length
+
+</emphasis>
+, which contains the number 
+	of components of the array 
+
+<emphasis id="em1004" effect="italics">
+(length may be positive or zero)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+A public method named 
+
+<emphasis id="strong1006" effect="bold">
+clone
+
+</emphasis>
+. This method overrides the method of 
+	the same name in 
+
+<emphasis id="strong1007" effect="bold">
+Object
+
+</emphasis>
+ class.
+
+</item>
+
+
+	
+
+<item id="li1029">
+Default versions of all the methods inherited from the class named 
+
+<emphasis id="strong1008" effect="bold">
+
+	Object
+
+</emphasis>
+, 
+
+<emphasis id="em1005" effect="italics">
+(other than 
+
+<emphasis id="strong1009" effect="bold">
+clone
+
+</emphasis>
+, which is overridden as described 
+	above).
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1010" effect="bold">
+Implements Cloneable and Serializable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Also, every array object implements the 
+
+<emphasis id="strong1011" effect="bold">
+Cloneable
+
+</emphasis>
+ and 
+
+<emphasis id="strong1012" effect="bold">
+Serializable
+
+</emphasis>
+ 
+interfaces. 
+
+<emphasis id="em1006" effect="italics">
+(Note that neither of these interfaces declares any methods.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1013" effect="bold">
+What is the Cloneable interface?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Here is what Sun has to say about the 
+
+<emphasis id="strong1014" effect="bold">
+Cloneable
+
+</emphasis>
+ interface: 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="em1007" effect="italics">
+"A class implements the 
+
+<emphasis id="strong1015" effect="bold">
+Cloneable
+
+</emphasis>
+ interface to indicate to the 
+
+<emphasis id="strong1016" effect="bold">
+
+Object.clone()
+
+</emphasis>
+ method that it is legal for that method to make a 
+field-for-field copy of instances of that class. Attempts to clone instances 
+that do not implement the 
+
+<emphasis id="strong1017" effect="bold">
+Cloneable
+
+</emphasis>
+ interface result in the exception 
+
+<emphasis id="strong1018" effect="bold">
+
+CloneNotSupportedException
+
+</emphasis>
+ being thrown."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+Thus, the fact than an array object implements the 
+
+<emphasis id="strong1019" effect="bold">
+Cloneable
+
+</emphasis>
+ interface 
+makes it possible to clone array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1020" effect="bold">
+A cloned array is shallow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+While it is possible to clone arrays, care must be exercised when cloning 
+multidimensional arrays. That is because a clone of a multidimensional array is 
+shallow. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1021" effect="bold">
+What does shallow mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+Shallow means that the cloning process creates only a single new array. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Subarrays are shared between the original array and the clone. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="em1008" effect="italics">
+(Although I'm not certain, I suspect that this may also be the case for 
+cloning array objects containing references to ordinary objects. I will leave 
+that determination as an exercise for the student. In any event, be careful if 
+you clone array objects.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1022" effect="bold">
+Serialization
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+Serialization of an object is the process of decomposing the object into a 
+stream of bytes, which can later be recomposed into a copy of the object. Here 
+is what Sun has to say about the 
+
+<emphasis id="strong1023" effect="bold">
+Serializable
+
+</emphasis>
+ interface: 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="em1009" effect="italics">
+"Serializability of a class is enabled by the class implementing the 
+
+<emphasis id="strong1024" effect="bold">
+
+java.io.Serializable
+
+</emphasis>
+ interface. Classes that do not implement this interface 
+will not have any of their state serialized or deserialized.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="em1010" effect="italics">
+All subtypes of a serializable class are themselves serializable.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="em1011" effect="italics">
+The serialization interface has no methods or fields and serves only to 
+identify the semantics of being serializable."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Even though this quotation from Sun doesn't address array objects, because 
+array objects implement the 
+
+<emphasis id="strong1025" effect="bold">
+Serializable
+
+</emphasis>
+ interface, they can be 
+serialized and later reconstructed. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1026" effect="bold">
+Class objects representing array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+An object of the class named 
+
+<emphasis id="strong1027" effect="bold">
+Class
+
+</emphasis>
+ can be obtained 
+
+<emphasis id="em1012" effect="italics">
+(by calling the
+
+
+<emphasis id="strong1028" effect="bold">
+getClass
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1029" effect="bold">
+Object
+
+</emphasis>
+ class)
+
+</emphasis>
+ to represent the class 
+from which an ordinary object was instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+The 
+
+<emphasis id="strong1030" effect="bold">
+Class
+
+</emphasis>
+ object is able to answer certain questions about the class 
+that it represents 
+
+<emphasis id="em1013" effect="italics">
+(such as the name of the superclass),
+
+</emphasis>
+ and has other 
+uses as well. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="em1014" effect="italics">
+(One of the other uses is to specify the type as a parameter to the 
+methods of the 
+
+<emphasis id="strong1031" effect="bold">
+Array
+
+</emphasis>
+ class, which I will illustrate later in this 
+module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Every array also has an associated 
+
+<emphasis id="strong1032" effect="bold">
+Class
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+That 
+
+<emphasis id="strong1033" effect="bold">
+Class 
+
+</emphasis>
+object is shared with all other arrays with the same 
+component type. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+The superclass of an array type is 
+
+<emphasis id="strong1034" effect="bold">
+Object
+
+</emphasis>
+. 
+
+<emphasis id="em1015" effect="italics">
+(Think about this!)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1035" effect="bold">
+An array of characters is not a string
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+For the benefit of the C/C++ programmers in the audience, an array of 
+
+<emphasis id="strong1036" effect="bold">
+char
+
+</emphasis>
+ 
+is not a 
+
+<emphasis id="strong1037" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="em1016" effect="italics">
+(In Java, a string is an object of the 
+
+<emphasis id="strong1038" effect="bold">
+String
+
+</emphasis>
+ class or the 
+
+<emphasis id="strong1039" effect="bold">
+
+StringBuffer 
+
+</emphasis>
+class).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1040" effect="bold">
+Not terminated by null
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Also, neither a 
+
+<emphasis id="strong1041" effect="bold">
+String
+
+</emphasis>
+ object nor an array of type 
+
+<emphasis id="strong1042" effect="bold">
+char
+
+</emphasis>
+ is 
+terminated by '\u0000' 
+
+<emphasis id="em1017" effect="italics">
+(the NUL character)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="em1018" effect="italics">
+(This information is provided for the benefit of C programmers who are 
+accustomed to working with so-called null-terminated strings. If you're not a C 
+programmer, don't worry about this.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1043" effect="bold">
+A String object in Java is immutable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+Once initialized, the contents of a Java 
+
+<emphasis id="strong1044" effect="bold">
+String
+
+</emphasis>
+ object never change.
+
+
+</para>
+
+
+
+
+
+<para id="p1040">
+On the other hand, an array of type 
+
+<emphasis id="strong1045" effect="bold">
+char
+
+</emphasis>
+ has mutable elements. The 
+
+<emphasis id="strong1046" effect="bold">
+
+String
+
+</emphasis>
+ class provides a method named 
+
+<emphasis id="strong1047" effect="bold">
+toCharArray
+
+</emphasis>
+, which returns an 
+array of characters containing the same character sequence as a 
+
+<emphasis id="strong1048" effect="bold">
+String
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1049" effect="bold">
+StringBuffer objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The class named 
+
+<emphasis id="strong1050" effect="bold">
+StringBuffer
+
+</emphasis>
+ also provides a variety of methods that 
+work with arrays of characters. The contents of a 
+
+<emphasis id="strong1051" effect="bold">
+StringBuffer
+
+</emphasis>
+ object are 
+mutable. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1052" effect="bold">
+The Array and Arrays classes
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The classes named 
+
+<emphasis id="strong1053" effect="bold">
+Array
+
+</emphasis>
+ and 
+
+<emphasis id="strong1054" effect="bold">
+Arrays
+
+</emphasis>
+ provide methods that you can 
+use to work with array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+The 
+
+<emphasis id="strong1055" effect="bold">
+Array
+
+</emphasis>
+ class provides static methods to dynamically create and 
+access Java arrays. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The 
+
+<emphasis id="strong1056" effect="bold">
+Arrays
+
+</emphasis>
+ class contains various methods for manipulating arrays 
+
+<emphasis id="em1019" effect="italics">
+
+(such as sorting and searching).
+
+</emphasis>
+ It also contains a static factory method 
+that allows arrays to be viewed as lists. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1057" effect="bold">
+A sample program named Array08
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The sample program named 
+
+<emphasis id="strong1058" effect="bold">
+Array08
+
+</emphasis>
+ 
+
+<emphasis id="em1020" effect="italics">
+(shown in 
+
+<link id="a1023" target-id="Listing_12">
+
+
+Listing 12
+
+</link>
+
+ near the end of the module)
+
+</emphasis>
+ illustrates the use of some of 
+these methods. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1059" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+As usual, I will discuss this program in fragments. Essentially all of the 
+interesting code is in the method named 
+
+<emphasis id="strong1060" effect="bold">
+main
+
+</emphasis>
+, so I will begin my 
+discussion there. The first few fragments will illustrate the creation, 
+population, and display of a one-dimensional array object whose elements contain 
+references to objects of type 
+
+<emphasis id="strong1061" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1062" effect="bold">
+The newInstance method of the Array class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+The code in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1063" effect="bold">
+static
+
+</emphasis>
+ method 
+of the 
+
+<emphasis id="strong1064" effect="bold">
+Array
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1065" effect="bold">
+newInstance
+
+</emphasis>
+ to create the array object 
+and to store the object's reference in a reference variable of type 
+
+<emphasis id="strong1066" effect="bold">
+Object
+
+</emphasis>
+ 
+named 
+
+<emphasis id="strong1067" effect="bold">
+v1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="em1021" effect="italics">
+(Note that there are two overloaded versions of the 
+
+<emphasis id="strong1068" effect="bold">
+newInstance
+
+</emphasis>
+ 
+method in the 
+
+<emphasis id="strong1069" effect="bold">
+Array
+
+</emphasis>
+ class. I will discuss the other one later.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Using the newInstance 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+ Object v1 = Array.newInstance(
+                            Class.forName("java.lang.String"),3);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1054">
+<emphasis id="strong1070" effect="bold">
+Two parameters required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+This version of the 
+
+<emphasis id="strong1071" effect="bold">
+newInstance
+
+</emphasis>
+ method requires two parameters. The 
+first parameter specifies the component type. This must be a reference to a 
+
+<emphasis id="strong1072" effect="bold">
+
+Class
+
+</emphasis>
+ object representing the component type of the new array object. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The second parameter, of type 
+
+<emphasis id="strong1073" effect="bold">
+int
+
+</emphasis>
+, specifies the length of the new 
+array object. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1074" effect="bold">
+The Class object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+The second parameter that specifies the array length is fairly obvious. 
+However, you may need some help with the first parameter. Here is part of what 
+Sun has to say about a 
+
+<emphasis id="strong1075" effect="bold">
+Class
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="em1022" effect="italics">
+"Instances of the class 
+
+<emphasis id="strong1076" effect="bold">
+Class
+
+</emphasis>
+ 
+represent classes and interfaces in a running Java application. Every array also 
+belongs to a class that is reflected as a 
+
+<emphasis id="strong1077" effect="bold">
+Class
+
+</emphasis>
+ object that is shared by 
+all arrays with the same element type and number of dimensions. The primitive 
+Java types (boolean, byte, char, short, int, long, float, and double), and the 
+keyword void are also represented as 
+
+<emphasis id="strong1078" effect="bold">
+Class
+
+</emphasis>
+ objects."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1079" effect="bold">
+Getting a 
+reference to a Class object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+I know of three ways to get 
+
+<emphasis id="em1023" effect="italics">
+(or refer to)
+
+</emphasis>
+ a 
+
+<emphasis id="strong1080" effect="bold">
+Class
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1030">
+<emphasis id="strong1081" effect="bold">
+Class
+
+</emphasis>
+ objects for primitive types
+
+</item>
+
+
+	
+
+<item id="li1031">
+The 
+
+<emphasis id="strong1082" effect="bold">
+getClass
+
+</emphasis>
+ method
+
+</item>
+
+
+	
+
+<item id="li1032">
+The 
+
+<emphasis id="strong1083" effect="bold">
+forName
+
+</emphasis>
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1084" effect="bold">
+Class objects for primitive types
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+There are nine predefined 
+
+<emphasis id="strong1085" effect="bold">
+Class
+
+</emphasis>
+ objects that represent the eight 
+primitive types and void. These are created by the Java Virtual Machine, and 
+have the same names as the primitive types that they represent: 
+
+<emphasis id="strong1086" effect="bold">
+boolean
+
+</emphasis>
+,
+
+
+<emphasis id="strong1087" effect="bold">
+byte
+
+</emphasis>
+, 
+
+<emphasis id="strong1088" effect="bold">
+char
+
+</emphasis>
+, 
+
+<emphasis id="strong1089" effect="bold">
+short
+
+</emphasis>
+, 
+
+<emphasis id="strong1090" effect="bold">
+int
+
+</emphasis>
+, 
+
+<emphasis id="strong1091" effect="bold">
+long
+
+</emphasis>
+, 
+
+<emphasis id="strong1092" effect="bold">
+float
+
+</emphasis>
+, 
+and 
+
+<emphasis id="strong1093" effect="bold">
+double
+
+</emphasis>
+. You can refer to these class objects using the following 
+syntax: 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1033">
+boolean.class, 
+
+</item>
+
+
+	
+
+<item id="li1034">
+int.class, 
+
+</item>
+
+
+	
+
+<item id="li1035">
+float.class, etc. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1064">
+I will 
+illustrate this later in this module. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1094" effect="bold">
+The getClass method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+If you have a reference to a target object 
+
+<emphasis id="em1024" effect="italics">
+(ordinary object or array 
+object),
+
+<emphasis id="strong1095" effect="bold">
+ 
+
+</emphasis>
+</emphasis>
+you can gain access to a 
+
+<emphasis id="strong1096" effect="bold">
+Class
+
+</emphasis>
+ object representing 
+the class from which that object was instantiated by calling the 
+
+<emphasis id="strong1097" effect="bold">
+getClass
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1098" effect="bold">
+Object
+
+</emphasis>
+ class, on that object. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The 
+
+<emphasis id="strong1099" effect="bold">
+getClass
+
+</emphasis>
+ method 
+returns a reference of type 
+
+<emphasis id="strong1100" effect="bold">
+Class
+
+</emphasis>
+ that refers to a 
+
+<emphasis id="strong1101" effect="bold">
+Class
+
+</emphasis>
+ object 
+representing the class from which the target object was instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1102" effect="bold">
+The forName method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+The static 
+
+<emphasis id="strong1103" effect="bold">
+forName
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1104" effect="bold">
+Class
+
+</emphasis>
+ class accepts the name 
+of a class or interface as an incoming 
+
+<emphasis id="strong1105" effect="bold">
+String
+
+</emphasis>
+ parameter, and returns the
+
+
+<emphasis id="strong1106" effect="bold">
+Class
+
+</emphasis>
+ object associated with the class or interface having the given 
+string name. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="em1025" effect="italics">
+(The 
+
+<emphasis id="strong1107" effect="bold">
+forName
+
+</emphasis>
+ method cannot be used with primitive types 
+as a parameter.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1108" effect="bold">
+Class object for the String class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+Referring back to 
+
+<link id="a1025" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, you will see that the first parameter passed to 
+the 
+
+<emphasis id="strong1109" effect="bold">
+newInstance
+
+</emphasis>
+ method was a reference to a 
+
+<emphasis id="strong1110" effect="bold">
+Class
+
+</emphasis>
+ object 
+representing the 
+
+<emphasis id="strong1111" effect="bold">
+String
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+Thus, the statement in 
+
+<link id="a1026" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ creates a 
+one-dimensional array object, of component type 
+
+<emphasis id="strong1112" effect="bold">
+String
+
+</emphasis>
+, three elements in 
+length. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+The reference to the array object is saved in the generic reference 
+variable of type 
+
+<emphasis id="strong1113" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="em1026" effect="italics">
+(In case you haven't recognized it already, 
+this is an alternative to syntax such as 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="em1027" effect="italics">
+<emphasis id="strong1114" effect="bold">
+new String[3]
+
+</emphasis>
+. 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="em1028" effect="italics">
+Note that there 
+are no square brackets in this alternative approach. Thus, it might be said that 
+this approach is more mainstream OOP than the approach that requires the use of 
+square brackets.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1115" effect="bold">
+Populate the array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+The code in 
+
+<link id="a1027" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ uses two 
+
+<emphasis id="strong1116" effect="bold">
+static
+
+</emphasis>
+ methods of the 
+
+<emphasis id="strong1117" effect="bold">
+Array
+
+</emphasis>
+ 
+class to populate the three elements of the array object with references to 
+objects of type 
+
+<emphasis id="strong1118" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Populate the array object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block"> for(int i = 0; i &lt; Array.getLength(v1);i++){
+   Array.set(v1, i, "a"+i);
+ }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1080">
+<emphasis id="strong1119" effect="bold">
+The getLength method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+The 
+
+<emphasis id="strong1120" effect="bold">
+getLength
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1121" effect="bold">
+Array
+
+</emphasis>
+ class is used in 
+
+<link id="a1028" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ to 
+get the 
+
+<emphasis id="strong1122" effect="bold">
+length
+
+</emphasis>
+ of the array for use in the conditional expression of a 
+
+<emphasis id="strong1123" effect="bold">
+
+for
+
+</emphasis>
+ loop. 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+Note that unlike the sample programs in the previous module 
+
+<emphasis id="em1029" effect="italics">
+(that stored 
+the array object's reference as type 
+
+<emphasis id="strong1124" effect="bold">
+Object
+
+</emphasis>
+), 
+
+</emphasis>
+it was not necessary to 
+cast the reference to type 
+
+<emphasis id="strong1125" effect="bold">
+String[]
+
+</emphasis>
+ in order to get the 
+
+<emphasis id="strong1126" effect="bold">
+length
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1127" effect="bold">
+The set method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The 
+
+<emphasis id="strong1128" effect="bold">
+set
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1129" effect="bold">
+Array
+
+</emphasis>
+ class is used in 
+
+<link id="a1029" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+to store references to 
+
+<emphasis id="strong1130" effect="bold">
+String
+
+</emphasis>
+ objects in the elements of the array 
+object. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+Again, unlike the programs in the previous module, it was not necessary to 
+cast the array reference to type 
+
+<emphasis id="strong1131" effect="bold">
+String[]
+
+</emphasis>
+ to access the elements. In 
+fact, there are no square brackets anywhere in 
+
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1132" effect="bold">
+Display the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ uses a similar 
+
+<emphasis id="strong1133" effect="bold">
+for
+
+</emphasis>
+ loop to display the contents of the 
+
+<emphasis id="strong1134" effect="bold">
+
+String
+
+</emphasis>
+ objects whose references are stored in the elements of the array 
+object. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Display the data.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block"> for(int i = 0; i &lt; Array.getLength(v1); i++){
+   System.out.print(Array.get(v1, i)  + " ");
+ }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1088">
+<emphasis id="strong1135" effect="bold">
+No square brackets
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+Once again, note that no casts, and no square brackets were required in
+
+
+<link id="a1032" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. In fact, this approach makes it possible to 
+deal with one-dimensional array objects using a syntax that is completely devoid 
+of square brackets. 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+Rather than using square brackets to access array elements, this is a 
+
+<emphasis id="em1030" effect="italics">
+
+method-oriented
+
+</emphasis>
+ approach to the use of array objects. This makes it possible 
+to treat array objects much the same as we treat ordinary objects in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1136" effect="bold">
+A two-dimensional rectangular array object tree
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+Next, I will use the methods of the 
+
+<emphasis id="strong1137" effect="bold">
+Array
+
+</emphasis>
+ class to create, populate, 
+and display a rectangular two-dimensional array object tree, whose elements 
+contain references to objects of the class 
+
+<emphasis id="strong1138" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1139" effect="bold">
+Another overloaded version of newInstance
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+To accomplish this, I will use the other overloaded version of the 
+
+<emphasis id="strong1140" effect="bold">
+
+newInstance
+
+</emphasis>
+ method. This version requires a reference to an array object of 
+type 
+
+<emphasis id="strong1141" effect="bold">
+int
+
+</emphasis>
+ as the second parameter. 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="em1031" effect="italics">
+(Note that the Sun documentation describes two different behaviors for 
+this method, depending on whether the first parameter represents a non-array 
+class or interface, or represents an array type. This sample program illustrates 
+the first possibility.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1142" effect="bold">
+The second parameter
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+As mentioned above, the version of the 
+
+<emphasis id="strong1143" effect="bold">
+newInstance
+
+</emphasis>
+ method that I am 
+going to use requires a reference to an array object of type 
+
+<emphasis id="strong1144" effect="bold">
+int
+
+</emphasis>
+ as the 
+second parameter. 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="em1032" effect="italics">
+(The length of the array object of type 
+
+<emphasis id="strong1145" effect="bold">
+int
+
+</emphasis>
+ specifies the number of 
+dimensions of the multi-dimensional array object. The contents of the elements 
+of the array object of type 
+
+<emphasis id="strong1146" effect="bold">
+int
+
+</emphasis>
+ specify the sizes of those dimensions.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1099">
+Thus, my first task is to create and populate an array object of type 
+
+<emphasis id="strong1147" effect="bold">
+int
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1148" effect="bold">
+An array object of type int
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<link id="a1033" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the code required to create and populate the array object of 
+type 
+
+<emphasis id="strong1149" effect="bold">
+int
+
+</emphasis>
+. This is a one-dimensional array object having two elements 
+
+<emphasis id="em1033" effect="italics">
+
+(length equals 2).
+
+</emphasis>
+ The first element is populated with the 
+
+<emphasis id="strong1150" effect="bold">
+int
+
+</emphasis>
+ value 
+2 and the second element is populated with the 
+
+<emphasis id="strong1151" effect="bold">
+int
+
+</emphasis>
+ value 3. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. An array object of type int.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block"> Object v2 = Array.newInstance(int.class,2);
+ Array.setInt(v2, 0, 2);
+ Array.setInt(v2, 1, 3);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1102">
+<emphasis id="strong1152" effect="bold">
+Why do we need this array object?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+When this array object is used later, in conjunction with the version of the
+
+
+<emphasis id="strong1153" effect="bold">
+newInstance
+
+</emphasis>
+ method that requires a reference to an array object of type
+
+
+<emphasis id="strong1154" effect="bold">
+int
+
+</emphasis>
+ as the second parameter, this array object will specify an array 
+object having two dimensions 
+
+<emphasis id="em1034" effect="italics">
+(a rectangular array). 
+
+</emphasis>
+The rectangular array 
+will have two rows and three columns. 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<emphasis id="strong1155" effect="bold">
+Same newInstance method as before
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+Note that 
+
+<link id="a1034" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses the same version of the 
+
+<emphasis id="strong1156" effect="bold">
+
+newInstance
+
+</emphasis>
+ method that was used to create the one-dimensional array object 
+in 
+
+<link id="a1035" target-id="Listing_1">
+
+Listing l
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1157" effect="bold">
+Class object representing int
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+Note the syntax of the first parameter passed to the 
+
+<emphasis id="strong1158" effect="bold">
+newInstance
+
+</emphasis>
+ 
+method in 
+
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. As mentioned earlier, this is a 
+reference to the predefined 
+
+<emphasis id="strong1159" effect="bold">
+Class
+
+</emphasis>
+ object that represents the primitive type 
+
+<emphasis id="strong1160" effect="bold">
+int
+
+</emphasis>
+. This causes 
+the component type of the array object to be type 
+
+<emphasis id="strong1161" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1162" effect="bold">
+The setInt method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+You should also note the use of the 
+
+<emphasis id="strong1163" effect="bold">
+setInt
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1164" effect="bold">
+Array
+
+</emphasis>
+ 
+class to populate each of the two elements in the array in 
+
+<link id="a1037" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+
+
+
+<emphasis id="em1035" effect="italics">
+(with 
+
+<emphasis id="strong1165" effect="bold">
+
+int
+
+</emphasis>
+ values of 2 and 3 respectively).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1166" effect="bold">
+The two-dimensional array object tree
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<link id="a1038" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ uses the other overloaded version of the 
+
+<emphasis id="strong1167" effect="bold">
+newInstance
+
+</emphasis>
+ method 
+to create a two-dimensional array object tree, having two rows and three 
+columns. 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The two-dimensional array object tree.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block"> Object v3 = Array.newInstance(Class.forName("java.lang.String"),
+                               (int[])v2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1112">
+A reference to the array object at the root of the tree is stored in the 
+	reference variable of type 
+
+<emphasis id="strong1168" effect="bold">
+Object
+
+</emphasis>
+ named 
+
+<emphasis id="strong1169" effect="bold">
+v3
+
+</emphasis>
+. Note that the tree 
+	is designed to store references to objects of type 
+
+<emphasis id="strong1170" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="em1036" effect="italics">
+(The number of dimensions and the size of each dimension are specified by 
+the reference to the array object of type 
+
+<emphasis id="strong1171" effect="bold">
+int
+
+</emphasis>
+ passed as the second 
+parameter.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1172" effect="bold">
+Square-bracket cast is required here
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+The required type of the second parameter for this version of the 
+
+<emphasis id="strong1173" effect="bold">
+
+newInstance
+
+</emphasis>
+ method is 
+
+<emphasis id="strong1174" effect="bold">
+int[]
+
+</emphasis>
+. Therefore, there was no way for me to 
+avoid the use of square brackets. I could either store the reference to the 
+array object as type 
+
+<emphasis id="strong1175" effect="bold">
+Object
+
+</emphasis>
+ and cast it before passing it to the method,
+
+
+<emphasis id="em1037" effect="italics">
+(which I did),
+
+</emphasis>
+ or save it originally as type 
+
+<emphasis id="strong1176" effect="bold">
+int[]
+
+</emphasis>
+, 
+
+<emphasis id="em1038" effect="italics">
+(which I 
+didn't). 
+
+</emphasis>
+Either way, I would have to know about the type 
+
+<emphasis id="strong1177" effect="bold">
+int[]
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1178" effect="bold">
+Populate the leaf elements
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1117">
+The nested 
+
+<emphasis id="strong1179" effect="bold">
+for
+
+</emphasis>
+ loop in 
+
+<link id="a1039" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ uses the various methods of the 
+
+<emphasis id="strong1180" effect="bold">
+
+Array
+
+</emphasis>
+ class to populate the elements in the leaf array objects with 
+references to objects of the class 
+
+<emphasis id="strong1181" effect="bold">
+String
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Populate the leaf elements.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block"> for(int i=0;i &lt; Array.getLength(v3);i++){
+   for(int j=0;j &lt; Array.getLength(Array.get(v3,i));j++){
+     Array.set(Array.get(v3,i),j,"b" + (i+1)*(j+1));
+   }//end inner loop
+ }//end outer loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1118">
+Admittedly, the code in 
+
+<link id="a1040" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ is a little 
+	complex. However, there is really nothing new there, so I won't discuss it 
+	further. 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1182" effect="bold">
+Display the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+Similarly, the code in 
+
+<link id="a1041" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ uses the methods of 
+the 
+
+<emphasis id="strong1183" effect="bold">
+Array
+
+</emphasis>
+ class 
+in a nested 
+
+<emphasis id="strong1184" effect="bold">
+for
+
+</emphasis>
+ loop to get and display the contents of the 
+
+<emphasis id="strong1185" effect="bold">
+String
+
+</emphasis>
+ 
+objects whose references are stored in the elements of the leaf array objects. 
+Again, there is nothing new here, so I won't discuss this code further. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Display the data.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block"> for(int i=0;i &lt; Array.getLength(v3);i++){
+   for(int j=0;j &lt; Array.getLength(Array.get(v3,i));j++){
+     System.out.print(Array.get(Array.get(v3,i),j) + " ");
+   }//end inner loop
+   System.out.println();
+ }//end outer loop
+ System.out.println();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1121">
+<emphasis id="strong1186" effect="bold">
+Very few square brackets
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+I will point out that with the exception of the requirement to create and 
+pass an array object as type 
+
+<emphasis id="strong1187" effect="bold">
+int[]
+
+</emphasis>
+, it was possible to write this entire 
+example without the use of square brackets. This further illustrates the fact 
+that the 
+
+<emphasis id="strong1188" effect="bold">
+Array
+
+</emphasis>
+ class makes it possible to create and work with array 
+objects in a 
+
+<emphasis id="em1039" effect="italics">
+method-oriented
+
+</emphasis>
+ manner, almost devoid of the use of 
+square-bracket notation. 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1189" effect="bold">
+Sorting and Searching
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+Many college professors require their students to spend large amounts of time 
+reinventing algorithms for sorting and searching 
+
+<emphasis id="em1040" effect="italics">
+(and for various collections 
+and data structures as well).
+
+</emphasis>
+ There was probably a time in history when that 
+was an appropriate use of a student's time. However, in my opinion, that time 
+has passed. 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1190" effect="bold">
+Reuse, don't reinvent
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1126">
+Through a combination of the 
+
+<emphasis id="strong1191" effect="bold">
+Arrays
+
+</emphasis>
+ class, and the 
+
+<emphasis id="strong1192" effect="bold">
+Java Collections 
+Framework
+
+</emphasis>
+, most of the sorting, searching, data structures, and collection 
+needs that you might have are readily available without a requirement for you to 
+reinvent them. 
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="em1041" effect="italics">
+(One of the most important concepts in OOP is 
+
+<emphasis id="strong1193" effect="bold">
+reuse, don't reinvent
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1128">
+I will now illustrate sorting and searching using 
+
+<emphasis id="strong1194" effect="bold">
+static
+
+</emphasis>
+ methods of 
+the 
+
+<emphasis id="strong1195" effect="bold">
+Arrays
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="em1042" effect="italics">
+(Note that the 
+
+<emphasis id="strong1196" effect="bold">
+Arrays
+
+</emphasis>
+ class is different from the 
+
+<emphasis id="strong1197" effect="bold">
+Array
+
+</emphasis>
+ 
+class discussed earlier.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1198" effect="bold">
+Create, populate, and display an array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1131">
+To give us something to work with, 
+
+<link id="a1042" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+creates, populates, and displays the contents of an array object. Note that the 
+array object is populated with references to 
+
+<emphasis id="strong1199" effect="bold">
+String
+
+</emphasis>
+ objects. There is 
+nothing new here, so I won't discuss the code in 
+
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+in detail. 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Create, populate, and display an array object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block"> Object v4 = Array.newInstance(Class.forName("java.lang.String"),
+                               8);
+ //Populate the array object.
+ // Create a gap in the data.
+ for(int i = 0; i &lt; Array.getLength(v4); i++){
+   if(i &lt; 4){
+     Array.set(v4,i,"c"+(8-i));}
+   else{
+     Array.set(v4,i,"c"+(18-i));}
+ }//end for loop
+
+ //Display the raw data
+ for(int i = 0; i &lt; Array.getLength(v4); i++){
+   System.out.print(Array.get(v4,i)+ " ");
+ }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1132">
+<emphasis id="strong1200" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+The code in 
+
+<link id="a1044" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+produces the following output on the screen: 
+
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">c8 c7 c6 c5 c14 c13 c12 c11</code>
+
+
+
+
+<para id="p1134">
+Note that the order of this data is generally descending, and there is no 
+string encapsulating the characters 
+
+<emphasis id="strong1201" effect="bold">
+c4
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1202" effect="bold">
+Sort and display the data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+The code in 
+
+<link id="a1045" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ uses the 
+
+<emphasis id="strong1203" effect="bold">
+sort
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1204" effect="bold">
+Arrays
+
+</emphasis>
+ class 
+to sort the array data into ascending order. 
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Sort and display the data.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1009" display="block"> Arrays.sort((Object[])v4);
+
+ //Display the sorted data
+ for(int i = 0; i &lt; Array.getLength(v4); i++){
+   System.out.print(Array.get(v4, i) + " ");
+ }//end for loop</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1137">
+<emphasis id="strong1205" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+The code in 
+
+<link id="a1046" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ displays the sorted contents 
+of the array object, producing the following 
+
+
+<emphasis id="output_on_the_computer_screen" effect="bold">
+
+output on the computer screen
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">c11 c12 c13 c14 c5 c6 c7 c8</code>
+
+
+
+
+<para id="p1139">
+Note that the order of the data in the array object has been modified, and 
+the array data is now in ascending order. 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="em1043" effect="italics">
+(This order is based on the natural ordering of the 
+
+<emphasis id="strong1206" effect="bold">
+String
+
+</emphasis>
+ data. I 
+discuss other ways to order sorted data in conjunction with the 
+
+<emphasis id="strong1207" effect="bold">
+Comparable
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1208" effect="bold">
+Comparator
+
+</emphasis>
+ interfaces in my modules on the 
+
+
+<link id="a1047" url="http://cnx.org/contents/dzOvxPFw:BaPSYll8">
+
+Java Collections 
+Framework
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1209" effect="bold">
+Binary search
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1142">
+A binary search is a search algorithm that can very quickly find an item 
+stored in a sorted collection of items. In this case, the collection of items is 
+stored in an array object, and the data is sorted in ascending order. 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1210" effect="bold">
+Search for an existing string
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+<link id="a1048" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ uses the 
+
+<emphasis id="strong1211" effect="bold">
+binarySearch
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1212" effect="bold">
+Arrays
+
+</emphasis>
+ class to 
+perform a search for an existing 
+
+<emphasis id="strong1213" effect="bold">
+String
+
+</emphasis>
+ object whose reference is stored 
+in the sorted array. The code searches for the reference to the 
+
+<emphasis id="strong1214" effect="bold">
+String
+
+</emphasis>
+ 
+object encapsulating the characters 
+
+<emphasis id="strong1215" effect="bold">
+c5
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Search for an existing string.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1011" display="block"> System.out.println(Arrays.binarySearch((Object[])v4,"c5"));</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1145">
+<emphasis id="strong1216" effect="bold">
+The result of the search
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+The code in 
+
+<link id="a1049" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ displays the numeral 4 on 
+the screen. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+When the 
+
+<emphasis id="strong1217" effect="bold">
+binarySearch
+
+</emphasis>
+ method finds a match, it returns the index value 
+of the matching element. If you go back and look at the
+
+
+<link id="a1050" target-id="output_on_the_computer_screen">
+
+sorted contents
+
+</link>
+
+ of the array shown 
+earlier, you will see that this is the index of the element containing a 
+reference to a 
+
+<emphasis id="strong1218" effect="bold">
+String
+
+</emphasis>
+ object that encapsulates the 
+characters 
+
+<emphasis id="strong1219" effect="bold">
+c5
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1220" effect="bold">
+Search for a non-existing string
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+The code in 
+
+<link id="a1051" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ uses the 
+
+<emphasis id="strong1221" effect="bold">
+binarySearch
+
+</emphasis>
+ method to search for a 
+reference to a 
+
+<emphasis id="strong1222" effect="bold">
+String
+
+</emphasis>
+ object that encapsulates the characters 
+
+<emphasis id="strong1223" effect="bold">
+c4
+
+</emphasis>
+. 
+As I indicated earlier, a 
+
+<emphasis id="strong1224" effect="bold">
+String
+
+</emphasis>
+ object that encapsulates these 
+characters is not represented in the sorted array object. 
+
+</para>
+
+
+
+
+	
+	
+
+	
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Search for a non-existing string.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1012" display="block"> System.out.println(Arrays.binarySearch((Object[])v4,"c4"));</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1150">
+<emphasis id="strong1225" effect="bold">
+The result of the search
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1151">
+The code in 
+
+<link id="a1052" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ produces the following 
+negative numeral on the screen: 
+
+<emphasis id="strong1226" effect="bold">
+-5
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+Here is Sun's explanation for the value returned by the 
+
+<emphasis id="strong1227" effect="bold">
+binarySearch
+
+</emphasis>
+ 
+method: 
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="em1044" effect="italics">
+"Returns: index of the search key, if it is contained in the list; 
+otherwise, (-(insertion point) - 1). The insertion point is defined as the point 
+at which the key would be inserted into the list: the index of the first element 
+greater than the key, or list.size(), if all elements in the list are less than 
+the specified key. Note that this guarantees that the return value will be &gt;= 0 
+if and only if the key is found."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1154">
+Thus, the negative return value indicates that the method didn't find a 
+match. The absolute value of the return value can be used to determine the index 
+of the reference to the target object if it did exist in the sorted list. I will 
+leave it as an exercise for the student to interpret Sun's explanation beyond 
+this simple explanation. 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1228" effect="bold">
+Other capabilities
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+In addition to sorting and searching, the 
+
+<emphasis id="strong1229" effect="bold">
+Arrays
+
+</emphasis>
+ class provides 
+several other methods that can be used to manipulate the contents of array 
+objects in Java. 
+
+</para>
+
+
+
+
+	
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1157">
+An array object has the following members 
+
+<emphasis id="em1045" effect="italics">
+(in addition to the data stored 
+in the object):
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+A public final variable named 
+
+<emphasis id="strong1230" effect="bold">
+length
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1037">
+An overridden version of the public method named 
+
+<emphasis id="strong1231" effect="bold">
+clone
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1038">
+Default versions of all the other methods inherited from the class named
+	
+
+<emphasis id="strong1232" effect="bold">
+Object
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1158">
+Every array object implements the 
+
+<emphasis id="strong1233" effect="bold">
+Cloneable
+
+</emphasis>
+ and 
+
+<emphasis id="strong1234" effect="bold">
+Serializable
+
+</emphasis>
+ 
+interfaces.
+
+</para>
+
+
+
+
+
+<para id="p1159">
+A clone of a multidimensional array is shallow. Therefore, you should 
+exercise caution when cloning array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+Because array objects implement the 
+
+<emphasis id="strong1235" effect="bold">
+Serializable
+
+</emphasis>
+ interface, they can 
+be serialized and later reconstructed. 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+Every array also has an associated 
+
+<emphasis id="strong1236" effect="bold">
+Class
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+The classes named 
+
+<emphasis id="strong1237" effect="bold">
+Array
+
+</emphasis>
+ and 
+
+<emphasis id="strong1238" effect="bold">
+Arrays
+
+</emphasis>
+ provide methods that you can 
+use to work with array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1163">
+The 
+
+<emphasis id="strong1239" effect="bold">
+Array
+
+</emphasis>
+ class provides static methods to dynamically create and 
+access Java array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+The 
+
+<emphasis id="strong1240" effect="bold">
+Arrays
+
+</emphasis>
+ class contains various methods for manipulating arrays 
+
+<emphasis id="em1046" effect="italics">
+
+(such as sorting and searching).
+
+</emphasis>
+ It also contains a static factory method 
+that allows arrays to be viewed as lists. 
+
+</para>
+
+
+
+
+
+<para id="p1165">
+Class objects are required when using the methods of the 
+
+<emphasis id="strong1241" effect="bold">
+Array
+
+</emphasis>
+ class 
+to dynamically create Java array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+There are nine predefined 
+
+<emphasis id="strong1242" effect="bold">
+Class
+
+</emphasis>
+ objects that represent the eight 
+primitive types and void. They are accessed using the following syntax: 
+boolean.class, int.class, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+Three ways to get a 
+
+<emphasis id="strong1243" effect="bold">
+Class
+
+</emphasis>
+ object are:
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1039">
+Class objects for primitive types: 
+
+<emphasis id="strong1244" effect="bold">
+int.class
+
+</emphasis>
+, etc.
+
+</item>
+
+
+	
+
+<item id="li1040">
+The 
+
+<emphasis id="strong1245" effect="bold">
+getClass
+
+</emphasis>
+ method
+
+</item>
+
+
+	
+
+<item id="li1041">
+The 
+
+<emphasis id="strong1246" effect="bold">
+forName
+
+</emphasis>
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1168">
+The methods of the 
+
+<emphasis id="strong1247" effect="bold">
+Array
+
+</emphasis>
+ class make it possible to deal with 
+one-dimensional array objects using a syntax that is completely devoid of square 
+brackets. This is a 
+
+<emphasis id="em1047" effect="italics">
+method-oriented
+
+</emphasis>
+ approach to the use of array objects. 
+This makes it possible to treat array objects much the same as we treat ordinary 
+objects in Java. The required syntax for multi-dimensional array objects is 
+mostly devoid of square brackets.
+
+</para>
+
+
+
+
+
+<para id="p1169">
+The 
+
+<emphasis id="strong1248" effect="bold">
+Arrays
+
+</emphasis>
+ class provides methods for sorting and searching array 
+objects as well as performing other operations on array objects as well. 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+Through a combination of the 
+
+<emphasis id="strong1249" effect="bold">
+Arrays
+
+</emphasis>
+ class and the Java Collections 
+Framework, most of the sorting, searching, data structures, and collection needs 
+that you might have are readily available without a requirement for you to 
+reinvent them. 
+
+</para>
+
+
+
+
+
+<para id="p1171">
+One of the most important concepts in OOP is 
+
+<emphasis id="em1048" effect="italics">
+reuse, don't reinvent.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1172">
+The next module will explain the use of the 
+
+<emphasis id="strong1250" effect="bold">
+<emphasis id="em1049" effect="italics">
+this
+
+</emphasis>
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1251" effect="bold">
+<emphasis id="em1050" effect="italics">
+super
+
+</emphasis>
+</emphasis>
+ keywords.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1173">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1252" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1042">
+Module name: Java OOP: Array Objects, Part 3
+
+</item>
+
+
+					
+
+<item id="li1043">
+File: Java1626.htm
+
+
+</item>
+
+
+					
+
+<item id="li1044">
+Published: 08/08/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1253" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1174">
+<emphasis id="strong1254" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1175">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1176">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1177">
+<emphasis id="strong1255" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1178">
+A complete listing of the program is shown in 
+
+<link id="a1053" target-id="Listing_12">
+
+Listing 
+12
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1011">
+
+
+
+<row id="tr1022">
+
+
+
+<entry id="th1011">
+
+
+
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1256" effect="bold">
+Complete program listing
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1011">
+
+
+
+<row id="tr1023">
+
+
+
+<entry id="td1011">
+
+
+
+<code id="pre1013" display="block">/*File Array08.java
+Copyright 2002, R.G.Baldwin
+Rev 2/10/02
+
+This program illustrates the use of
+static methods of the Array class to
+dynamically create and access Java
+arrays.
+
+It also illustrates the use of static
+methods of the Arrays class to sort
+and search array objects.
+
+Tested using JDK 1.3 under Win 2000.
+**************************************/
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Array08{
+  public static void main(
+                        String[] args){
+
+  try{
+    //Create, populate, and display a
+    // one-dimensional array object
+    // whose elements contain
+    // references to objects of type
+    // String.
+
+    //Create the array object
+    Object v1 = Array.newInstance(
+              Class.forName(
+               "java.lang.String"), 3);
+    //Populate the array object
+    for(int i = 0; i &lt;
+             Array.getLength(v1); i++){
+      Array.set(v1, i, "a"+i);
+    }//end for loop
+    //Display the data
+    for(int i = 0; i &lt;
+             Array.getLength(v1); i++){
+      System.out.print(
+               Array.get(v1, i) + " ");
+    }//end for loop
+    System.out.println();
+    System.out.println();
+
+    //Create, populate, and display a
+    // rectangular two-dimensional
+    // array object tree whose
+    // elements contain references
+    // to objects of type String.
+
+    //First create an array object of
+    // type int required as a
+    // parameter to the newInstance
+    // method.  Populate it to later
+    // specify a rectangular array
+    // object tree with two rows and
+    // three columns.
+    Object v2 = Array.newInstance(
+                         int.class, 2);
+    Array.setInt(v2, 0, 2);
+    Array.setInt(v2, 1, 3);
+    //Now create the actual two-
+    // dimensional array object tree.
+    Object v3 = Array.newInstance(
+       Class.forName(
+       "java.lang.String"), (int[])v2);
+
+    //Populate the leaf elements with
+    // references to objects of type
+    // String.
+    for(int i=0;i&lt;
+
+              Array.getLength(v3);i++){
+      for(int j=0;j&lt;
+               Array.getLength(
+                 Array.get(v3,i));j++){
+        Array.set(Array.get(v3,i), j,
+                    "b" + (i+1)*(j+1));
+      }//end inner loop
+    }//end outer loop
+
+    //Display the data encapsulated
+    // in the String objects.
+    for(int i=0;i&lt;Array.getLength(v3);
+                                  i++){
+      for(int j=0;j&lt;Array.getLength(
+                 Array.get(v3,i));j++){
+        System.out.print(Array.get(
+            Array.get(v3,i), j) + " ");
+      }//end inner loop
+      System.out.println();
+    }//end outer loop
+    System.out.println();
+
+    //Now illustrate sorting and
+    // searching using methods of
+    // the arrays class.
+
+    //Create the array object
+    Object v4 = Array.newInstance(
+              Class.forName(
+               "java.lang.String"), 8);
+    //Populate the array object.
+    // Create a gap in the data.
+    for(int i = 0; i &lt;
+             Array.getLength(v4); i++){
+      if(i&lt;4){Array.set(v4, i,
+                           "c"+(8-i));}
+      else{Array.set(v4, i,
+                          "c"+(18-i));}
+    }//end for loop
+
+    //Display the raw data
+    for(int i = 0; i &lt;
+             Array.getLength(v4); i++){
+      System.out.print(Array.get(v4, i)
+                                + " ");
+    }//end for loop
+    System.out.println();
+
+    //Sort array data into
+    // ascending order.
+    Arrays.sort((Object[])v4);
+
+    //Display the sorted data
+    for(int i = 0; i &lt;
+             Array.getLength(v4); i++){
+      System.out.print(
+               Array.get(v4, i) + " ");
+    }//end for loop
+    System.out.println();
+
+    //Search for an existing String
+    System.out.println(
+      Arrays.binarySearch((Object[])v4,
+                                "c5"));
+    //Search for a non-existing String
+    System.out.println(
+      Arrays.binarySearch((Object[])v4,
+                                "c4"));
+
+  }catch(ClassNotFoundException e){
+                System.out.println(e);}
+  }//end main
+}//end class Array08</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1179">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,1112 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0260: Java OOP: Command-Line Arguments</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45246</md:content-id>
+  <md:title>Jb0260: Java OOP: Command-Line Arguments</md:title>
+  <md:abstract>Although the use of command-line arguments is rare is this time of Graphical User Interfaces (GUI), they are still useful for testing and debugging code. This module explains the use of command-line arguments in Java.</md:abstract>
+  <md:uuid>05fca126-509e-4c57-b53d-d3ae40491bd8</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Mar 29 10:02:05 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Looking_ahead">
+
+Looking ahead
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+Although the use of command-line arguments is rare is this time of 
+	Graphical User Interfaces 
+
+<emphasis id="em1003" effect="italics">
+(GUI)
+
+</emphasis>
+, they are still useful for testing 
+	and debugging code. This module explains the use of command-line arguments 
+	in Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following link to easily find and view the listing while you are reading about 
+	it.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Illustration of command-line arguments. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+Familiar example from DOS
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+Java programs can be written to accept command-line-arguments. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+DOS users will be familiar with commands such as the following: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1001" effect="bold">
+Familiar DOS command
+
+</emphasis>
+
+				
+
+<code id="pre1000" display="block">
+copy fileA fileB</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1007">
+In this case, 
+
+<emphasis id="strong1002" effect="bold">
+copy
+
+</emphasis>
+ is the name of the program to be 
+executed, while 
+
+<emphasis id="strong1003" effect="bold">
+fileA
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1004" effect="bold">
+fileB
+
+</emphasis>
+ are command-line arguments. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1005" effect="bold">
+Java syntax for command-line arguments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+The Java syntax for supporting command-line arguments is shown below 
+
+<emphasis id="em1004" effect="italics">
+(note 
+the formal argument list for the 
+
+<emphasis id="strong1006" effect="bold">
+main
+
+</emphasis>
+ method)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1007" effect="bold">
+Java syntax for command-line arguments
+
+</emphasis>
+
+				
+
+<code id="pre1001" display="block">
+public static void main(String[] args){
+. . . 
+}//end main method</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1010">
+In Java, 
+the formal argument list for the 
+
+<emphasis id="strong1008" effect="bold">
+main
+
+</emphasis>
+ method must appear in the method signature whether or not the 
+program is written to support the use of command-line arguments. If the argument 
+	isn't used, it is simply ignored.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1009" effect="bold">
+Where the arguments are stored
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+The parameter 
+
+<emphasis id="strong1010" effect="bold">
+args
+
+</emphasis>
+ contains a reference to a one-dimensional 
+array object of type 
+
+<emphasis id="strong1011" effect="bold">
+String
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+Each of the elements in the array 
+
+<emphasis id="em1005" effect="italics">
+(including the 
+element at index zero)
+
+</emphasis>
+ contains a reference to an object of type 
+
+<emphasis id="strong1012" effect="bold">
+
+String
+
+</emphasis>
+. Each object of type String encapsulates one command-line 
+argument.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1013" effect="bold">
+The number of arguments entered by the user
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+Recall from an earlier module on arrays that the number of elements in a Java 
+array can be obtained from the 
+
+<emphasis id="strong1014" effect="bold">
+length
+
+</emphasis>
+ property of the array. 
+Therefore, the number of arguments entered by the user is equal to the value of 
+the 
+
+<emphasis id="strong1015" effect="bold">
+length
+
+</emphasis>
+ property. If the user didn't enter any arguments, 
+the value will be zero.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+Command-line arguments are separated by the space character. If you need to 
+enter an argument that contains a space, surround the entire argument with 
+quotation mark characters as in 
+
+<emphasis id="em1006" effect="italics">
+"My command line argument"
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+The first command-line argument is encapsulated in the 
+
+<emphasis id="strong1016" effect="bold">
+String
+
+</emphasis>
+ 
+object referred to by the contents of the array element at index 0, the second 
+argument is referred to by the element at index 1, etc.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1017" effect="bold">
+Sample Java program
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+The sample program in 
+
+<link id="a1010" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ illustrates the use 
+of command-line arguments.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Illustration of 
+				command-line arguments.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1002" display="block">
+/*File cmdlin01.java Copyright 1997, R.G.Baldwin
+This Java application illustrates the use of Java 
+command-line arguments.
+
+When this program is run from the command line as follows:
+
+java cmdlin01 My command line arguments
+
+the program produces the following output:
+
+My
+command
+line
+arguments
+********************************************************/
+class cmdlin01 { //define the controlling class
+  public static void main(String[] args){ //main method
+    for(int i=0; i &lt; args.length; i++)
+    System.out.println( args[i] );
+  }//end main
+}//End cmdlin01 class.
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1020">
+The output from running this program for a specific input is shown 
+in the comments at the beginning of the program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+I encourage you to copy the code 
+
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Compile the code and execute 
+it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Looking_ahead" effect="bold">
+
+Looking ahead
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+As you approach the end of this group of 
+
+<emphasis id="em1007" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+modules, you should be preparing yourself for the more challenging ITSE 2321 OOP 
+tracks identified below:
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1010">
+<link id="a1012" url="http://cnx.org/content/m44148">
+
+Java OOP: The Guzdial-Ericson 
+	Multimedia Class Library
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1013" url="http://cnx.org/content/m44153">
+
+Java OOP: Objects and 
+	Encapsulation
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1023">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1018" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1006" list-type="bulleted">
+
+					
+
+<item id="li1012">
+Module name: Jb0260: Java OOP: Command-Line Arguments
+
+</item>
+
+
+					
+
+<item id="li1013">
+File: Jb0260.htm
+
+
+</item>
+
+
+					
+
+<item id="li1014">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1015">
+Published at cnx.org: 11/27/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1019" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1024">
+<emphasis id="strong1020" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1025">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1026">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1027">
+<emphasis id="strong1021" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1028">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

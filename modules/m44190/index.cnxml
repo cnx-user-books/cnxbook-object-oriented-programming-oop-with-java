@@ -1,0 +1,3655 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1614: Polymorphism and the Object Class</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44190</md:content-id>
+  <md:title>Java1614: Polymorphism and the Object Class</md:title>
+  <md:abstract>Baldwin discusses the use of the Object class as a completely generic type for storing references to objects of subclass types, and explains how that results in a very useful form of runtime polymorphism.</md:abstract>
+  <md:uuid>721f6200-6109-4788-982e-f3dbe9666c2e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Aug 11 20:51:34 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about the essence of Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Definition of the class named A.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Definition of the class named B. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Definition of the class named C. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the class named Poly04. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. A new object of the class named B.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. A new object of the class named C.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+What is polymorphism?
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1005">
+If you have studied the earlier modules in this collection, you should 
+	already know what polymorphism is, how it is implemented in Java, the three 
+	distinct forms of polymorphism in Java, etc.
+
+</para>
+
+
+
+	
+
+<para id="p1006">
+I discussed runtime polymorphism implemented through method overriding and class inheritance in a previous module.  However, before leaving that topic, I need to discuss an important special case.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1007">
+In this module, I will discuss the use of the 
+
+<emphasis id="strong1001" effect="bold">
+Object
+
+</emphasis>
+ class as a completely generic type for storing references to objects of subclass types, and will explain how that results in a very useful form of runtime polymorphism.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+I will briefly discuss the default versions of eleven methods defined in the 
+
+
+<emphasis id="strong1002" effect="bold">
+Object
+
+</emphasis>
+ class, and will explain that in many cases, those default versions are meant to be overridden.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1009">
+<emphasis id="strong1003" effect="bold">
+The Java Collections Framework
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Java supports a framework, known as the Java Collections Framework, which you 
+can read about 
+
+<link id="a1018" url="http://cnx.org/contents/dzOvxPFw:BaPSYll8">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+Without getting into a lot of detail, the framework provides several concrete implementations of interfaces with names like 
+
+
+<emphasis id="strong1004" effect="bold">
+list
+
+</emphasis>
+, 
+
+<emphasis id="strong1005" effect="bold">
+set
+
+</emphasis>
+, and 
+
+<emphasis id="strong1006" effect="bold">
+map
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+The classes that provide the implementations have names like 
+
+<emphasis id="strong1007" effect="bold">
+LinkedList
+
+</emphasis>
+, 
+
+
+<emphasis id="strong1008" effect="bold">
+TreeSet
+
+</emphasis>
+, 
+
+<emphasis id="strong1009" effect="bold">
+ArrayList
+
+</emphasis>
+, 
+
+<emphasis id="strong1010" effect="bold">
+Vector
+
+</emphasis>
+, and
+
+
+<emphasis id="strong1011" effect="bold">
+Hashtable
+
+</emphasis>
+.  As you might recognize, the framework satisfies the requirements for what we might refer to as classical data structures.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1012" effect="bold">
+Not the purpose ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+However, it is not the purpose of this module to discuss either the Java Collections Framework, or classical data structures.  Rather, they are mentioned here simply because the framework provides a good example of the use of the 
+
+
+<emphasis id="strong1013" effect="bold">
+Object
+
+</emphasis>
+ class as a generic type for runtime polymorphic behavior.
+
+    
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="em1003" effect="italics">
+(Also beyond the scope of this module is the fact that the framework provides an outstanding example of the implementation of polymorphic behavior through the use of the Java interface.  The use of the Java interface is a topic for a future module)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1014" effect="bold">
+References of type Object
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+The classes mentioned above store references to objects created according to interfaces, contracts, and stipulations provided by the framework.
+
+More importantly for the purposes of this module, those references are stored as type 
+
+
+<emphasis id="strong1015" effect="bold">
+Object
+
+</emphasis>
+. 
+
+<emphasis id="em1004" effect="italics">
+(See 
+
+<link id="a1019" url="http://cnx.org/contents/-2RmHFs_:Ss0r2-1m">
+
+Java4210: Getting Started with Generics
+
+</link>
+
+ for additional information on this topic.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The 
+
+<emphasis id="strong1016" effect="bold">
+Object
+
+</emphasis>
+ type is a completely generic type, which can be used to store a reference to any object that can be instantiated in Java.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1017" effect="bold">
+Methods defined in the Object class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+In an earlier module, I told you that the class named 
+
+<emphasis id="strong1018" effect="bold">
+Object
+
+</emphasis>
+ defines default versions of the following methods:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1018">
+clone()
+    
+
+</item>
+
+
+	
+
+<item id="li1019">
+equals(Object obj)
+    
+
+</item>
+
+
+	
+
+<item id="li1020">
+finalize()
+    
+
+</item>
+
+
+	
+
+<item id="li1021">
+getClass()
+    
+
+</item>
+
+
+	
+
+<item id="li1022">
+hashCode()
+    
+
+</item>
+
+
+	
+
+<item id="li1023">
+notify()
+    
+
+</item>
+
+
+	
+
+<item id="li1024">
+notifyAll()
+    
+
+</item>
+
+
+	
+
+<item id="li1025">
+toString()
+    
+
+</item>
+
+
+	
+
+<item id="li1026">
+wait()
+    
+
+</item>
+
+
+	
+
+<item id="li1027">
+wait(long timeout)
+    
+
+</item>
+
+
+	
+
+<item id="li1028">
+wait(long timeout, int nanos)
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1019" effect="bold">
+Every class inherits these methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Because every class is either a direct or indirect subclass of 
+
+<emphasis id="strong1020" effect="bold">
+Object
+
+</emphasis>
+, every class in Java, 
+
+
+<emphasis id="em1005" effect="italics">
+(including new classes that you define)
+
+</emphasis>
+, inherits these eleven methods.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1021" effect="bold">
+To be overridden ...
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Some of these eleven methods are intended to be overridden for various purposes.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1022" effect="bold">
+Calling methods of the Object class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+You can store a reference to any object in a reference variable of type 
+
+
+<emphasis id="strong1023" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+If you have studied the previous modules in this collection, you also know how runtime polymorphism based on class inheritance works. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Given the above, you should know that you can call any of the methods defined in the 
+
+
+<emphasis id="strong1024" effect="bold">
+Object
+
+</emphasis>
+ class on any reference to any object stored in a reference variable of type 
+
+
+<emphasis id="strong1025" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1006" effect="italics">
+(including the references stored in the concrete 
+implementations of the Java Collections Framework)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1026" effect="bold">
+And the behavior will be ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+If the class from which that object is instantiated inherits or defines an overridden version of one of the methods in the above list, calling that method on the reference will cause the overridden version to be executed.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1031">
+Otherwise, calling that method on the reference will cause the default version defined in the 
+
+
+<emphasis id="strong1027" effect="bold">
+Object
+
+</emphasis>
+ class to be executed.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1028" effect="bold">
+A sample program
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+This is illustrated in the program named 
+
+<emphasis id="strong1029" effect="bold">
+Poly04
+
+</emphasis>
+, which you can view in its entirety in 
+
+
+<link id="a1020" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ near the end of this module. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+For purposes of illustration, this program deals specifically with the method named 
+
+
+<emphasis id="strong1030" effect="bold">
+toString
+
+</emphasis>
+ from the above list, but it could deal just as well with other 
+non-final methods in the list. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1031" effect="bold">
+The class named A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ defines a class named 
+
+<emphasis id="strong1032" effect="bold">
+A
+
+</emphasis>
+, which extends the class named 
+
+
+<emphasis id="strong1033" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1007" effect="italics">
+(recall that it is not necessary to explicitly show that a class extends 
+
+
+</emphasis>
+<emphasis id="strong1034" effect="bold">
+<emphasis id="em1008" effect="italics">
+Object
+
+</emphasis>
+</emphasis>
+). 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Definition of the class 
+				named A.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class A extends Object{
+  //This class is empty
+}//end class A</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1037">
+<emphasis id="strong1035" effect="bold">
+Does not override the toString method
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The most important thing to note about the class named 
+
+<emphasis id="strong1036" effect="bold">
+A
+
+</emphasis>
+ is that it does not override any of the methods that it inherits from the class named 
+
+
+<emphasis id="strong1037" effect="bold">
+Object
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1039">
+For purposes of this illustration, we will say that it inherits the default version of the method named 
+
+
+<emphasis id="strong1038" effect="bold">
+toString
+
+</emphasis>
+, from the class named 
+
+<emphasis id="strong1039" effect="bold">
+Object
+
+</emphasis>
+. 
+
+<emphasis id="em1009" effect="italics">
+(We will see an example of the behavior of the default version of 
+the 
+
+</emphasis>
+ 
+
+
+<emphasis id="strong1040" effect="bold">
+<emphasis id="em1010" effect="italics">
+toString
+
+</emphasis>
+</emphasis>
+<emphasis id="em1011" effect="italics">
+ method shortly.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1041" effect="bold">
+The class named B
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ contains the definition of a class named 
+
+
+<emphasis id="strong1042" effect="bold">
+B
+
+</emphasis>
+.  This class extends the class named 
+
+<emphasis id="strong1043" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Definition of the class 
+				named B.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">class B extends A{
+  public String toString(){
+    return "toString in class B";
+  }//end overridden toString()
+}//end class B</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1042">
+<emphasis id="strong1044" effect="bold">
+Overrides the toString method
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+Of particular interest, for purposes of this module, is the fact that the class named 
+
+
+<emphasis id="strong1045" effect="bold">
+B
+
+</emphasis>
+ does override the inherited t
+
+<emphasis id="strong1046" effect="bold">
+oString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="em1012" effect="italics">
+(The class named 
+
+<emphasis id="strong1047" effect="bold">
+B
+
+</emphasis>
+ inherits the default version of the method, because its superclass named
+
+
+<emphasis id="strong1048" effect="bold">
+A
+
+</emphasis>
+, which extends 
+
+<emphasis id="strong1049" effect="bold">
+Object
+
+</emphasis>
+, does not override the 
+
+
+<emphasis id="strong1050" effect="bold">
+toString
+
+</emphasis>
+ method.) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1051" effect="bold">
+Purpose of the toString method
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The purpose of the 
+
+<emphasis id="strong1052" effect="bold">
+toString
+
+</emphasis>
+ method is to return a reference to an object of the class 
+
+
+<emphasis id="strong1053" effect="bold">
+String
+
+</emphasis>
+ that represents an object instantiated from a class that overrides the method. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Here is part of what Sun has to say about the 
+
+<emphasis id="strong1054" effect="bold">
+toString
+
+</emphasis>
+ method: 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="em1013" effect="italics">
+"Returns a string representation of the object. In general, the 
+
+<emphasis id="strong1055" effect="bold">
+toString
+
+</emphasis>
+ method returns a string that "textually represents" this object. The result should be a concise but informative representation that is easy for a person to read. It is recommended that all subclasses override this method."
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1056" effect="bold">
+Behavior of the overridden version
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+As you can see, I didn't follow Sun's advice very closely in this program.  To begin with, I didn't override the 
+
+
+<emphasis id="strong1057" effect="bold">
+toString
+
+</emphasis>
+ method in the class named 
+
+<emphasis id="strong1058" effect="bold">
+A
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Further, the behavior of my overridden version of the 
+
+<emphasis id="strong1059" effect="bold">
+toString
+
+</emphasis>
+ method in the class named 
+
+
+<emphasis id="strong1060" effect="bold">
+B
+
+</emphasis>
+ doesn't provide much in the way of a textual representation of an object instantiated from class 
+
+
+<emphasis id="strong1061" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+My overridden version simply returns a reference to a 
+
+<emphasis id="strong1062" effect="bold">
+String
+
+</emphasis>
+ object, containing text that indicates that the overridden version of the method 
+defined in the class named 
+
+
+<emphasis id="strong1063" effect="bold">
+B
+
+</emphasis>
+ has been executed.  
+
+<emphasis id="em1014" effect="italics">
+(Of course, there wasn't much about an object instantiated from 
+the class named 
+
+<emphasis id="strong1064" effect="bold">
+B
+
+</emphasis>
+ that could be represented in a textual way.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1065" effect="bold">
+Will be useful later
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+The reference to the 
+
+<emphasis id="strong1066" effect="bold">
+String
+
+</emphasis>
+ object returned by the overridden version of the 
+
+
+<emphasis id="strong1067" effect="bold">
+toString
+
+</emphasis>
+ method will prove useful later when we need to determine which version of the method is actually executed. 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1068" effect="bold">
+The class named C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<link id="a1023" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the definition of a class named 
+
+
+<emphasis id="strong1069" effect="bold">
+C
+
+</emphasis>
+, which extends the class named 
+
+<emphasis id="strong1070" effect="bold">
+B
+
+</emphasis>
+, and overrides the method named 
+
+
+<emphasis id="strong1071" effect="bold">
+toString
+
+</emphasis>
+ again.  
+
+<emphasis id="em1015" effect="italics">
+(A non-final method can be overridden by every class that inherits it, resulting in potentially many different overridden versions of a method in a class hierarchy.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Definition of the class 
+				named C.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class C extends B{
+  public String toString(){
+    return "toString in class C";
+  }//end overridden toString()
+}//end class C</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1072" effect="bold">
+Behavior of overridden version
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+The behavior of this overridden version of the method is similar to, but different from the overridden version in the class 
+
+
+<emphasis id="strong1073" effect="bold">
+B
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+In this case, the method returns a reference to a 
+
+<emphasis id="strong1074" effect="bold">
+String
+
+</emphasis>
+ object that can be used to confirm that this overridden version of the method has been executed. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1075" effect="bold">
+The driver class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+Finally, 
+
+<link id="a1024" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the beginning of the driver class named 
+
+
+<emphasis id="strong1076" effect="bold">
+Poly04
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Beginning of the class 
+				named Poly04.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">public class Poly04{
+  public static void main(String[] args){
+    Object varA = new A();
+    String v1 = varA.toString();
+    System.out.println(v1);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1062">
+<emphasis id="strong1077" effect="bold">
+A new object of the class A
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+The 
+
+<emphasis id="strong1078" effect="bold">
+main
+
+</emphasis>
+ method of the driver class begins by instantiating a new object of the class 
+
+
+<emphasis id="strong1079" effect="bold">
+A
+
+</emphasis>
+, and saving the object's reference in a reference variable of type 
+
+
+<emphasis id="strong1080" effect="bold">
+Object
+
+</emphasis>
+, named 
+
+<emphasis id="strong1081" effect="bold">
+varA
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1082" effect="bold">
+Call toString method on the reference
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Then the code in 
+
+<link id="a1025" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1083" effect="bold">
+toString
+
+</emphasis>
+ method on the reference variable named
+
+
+<emphasis id="strong1084" effect="bold">
+varA
+
+</emphasis>
+, saving the returned reference to the 
+
+<emphasis id="strong1085" effect="bold">
+String
+
+</emphasis>
+ in a reference variable of type 
+
+
+<emphasis id="strong1086" effect="bold">
+String
+
+</emphasis>
+ named 
+
+<emphasis id="strong1087" effect="bold">
+v1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1088" effect="bold">
+Display the returned String 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+Finally, that reference is passed to the 
+
+<emphasis id="strong1089" effect="bold">
+println
+
+</emphasis>
+ method, causing the 
+
+
+<emphasis id="strong1090" effect="bold">
+String
+
+</emphasis>
+ returned by the 
+
+<emphasis id="strong1091" effect="bold">
+toString
+
+</emphasis>
+ method to be displayed on the computer screen.  
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="em1016" effect="italics">
+(In a future module, you will learn that some of the code in 
+
+</emphasis>
+ 
+
+<link id="a1026" target-id="Listing_4">
+
+
+
+
+<emphasis id="em1017" effect="italics">
+<link id="a1027" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1018" effect="italics">
+ is redundant.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="This_causes_the_following_text" effect="bold">
+
+This causes the following text
+
+</emphasis>
+
+ 
+to be displayed on the computer screen:
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">A@111f71 </code>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1092" effect="bold">
+Pretty ugly, huh?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+Nowhere does our program explicitly show the creation of any text that looks anything like this.  Where did it come from?
+
+
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1093" effect="bold">
+Default toString behavior
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+What you are seeing here is the 
+
+<emphasis id="strong1094" effect="bold">
+String
+
+</emphasis>
+ produced by the default version of the 
+
+
+<emphasis id="strong1095" effect="bold">
+toString
+
+</emphasis>
+ method, as defined by the class named 
+
+<emphasis id="strong1096" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1097" effect="bold">
+Class A does not override toString
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+Recall that our new class named 
+
+<emphasis id="strong1098" effect="bold">
+A
+
+</emphasis>
+ does not override the 
+
+
+<emphasis id="strong1099" effect="bold">
+toString
+
+</emphasis>
+ method.  Therefore, when the 
+
+<emphasis id="strong1100" effect="bold">
+toString
+
+</emphasis>
+ method is called on a reference to an object of the class 
+
+
+<emphasis id="strong1101" effect="bold">
+A
+
+</emphasis>
+, the default version of the method is executed, producing output similar to that shown 
+
+
+<link id="a1028" target-id="This_causes_the_following_text">
+
+above
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1102" effect="bold">
+What does Sun have to say?
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+Here is more of what Sun has to say about the default version of the 
+
+<emphasis id="strong1103" effect="bold">
+toString
+
+</emphasis>
+ method 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="em1019" effect="italics">
+"The 
+
+<emphasis id="strong1104" effect="bold">
+toString
+
+</emphasis>
+ method for class 
+
+<emphasis id="strong1105" effect="bold">
+Object
+
+</emphasis>
+ returns a string consisting of the name of the class of which the object is an instance, the at-sign character `@', and the unsigned hexadecimal representation of the hash code of the object."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+You should recognize this as a description of the output produced by calling the 
+
+
+<emphasis id="strong1106" effect="bold">
+toString
+
+</emphasis>
+ method on the reference to the object of the class 
+
+
+<emphasis id="strong1107" effect="bold">
+A
+
+</emphasis>
+. That explains the ugliness of the screen output shown
+
+
+<link id="a1029" target-id="This_causes_the_following_text">
+
+above
+
+</link>
+
+ 
+
+<emphasis id="em1020" effect="italics">
+(hexadecimal representations of hashcodes are usually pretty ugly)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1108" effect="bold">
+A new object of the class B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+Now consider the code shown in 
+
+<link id="a1030" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, which instantiates a new object of the class named 
+
+
+<emphasis id="strong1109" effect="bold">
+B
+
+</emphasis>
+, and stores the object's reference in a reference variable of type 
+
+
+<emphasis id="strong1110" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. A new object of the class 
+				named B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">Object varB = new B();
+    String v2 = varB.toString();
+    System.out.println(v2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1082">
+<emphasis id="strong1111" effect="bold">
+Call toString and display the result
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1083">
+The code in 
+
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1112" effect="bold">
+toString
+
+</emphasis>
+ method on the reference of type 
+
+
+<emphasis id="strong1113" effect="bold">
+Object
+
+</emphasis>
+, saving the returned reference in the reference variable named 
+
+
+<emphasis id="strong1114" effect="bold">
+v2
+
+</emphasis>
+.  
+
+<emphasis id="em1021" effect="italics">
+(Recall that the 
+
+<emphasis id="strong1115" effect="bold">
+toString
+
+</emphasis>
+ method is overridden in the class named B.)
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1084">
+As before, the reference is passed to the 
+
+<emphasis id="strong1116" effect="bold">
+println
+
+</emphasis>
+ method, which causes the following text to be displayed on the computer screen.
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">toString in class B </code>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1117" effect="bold">
+Do you recognize this?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+You should recognize this as the text that was encapsulated in the 
+
+<emphasis id="strong1118" effect="bold">
+String
+
+</emphasis>
+ object by the overridden version of the 
+
+
+<emphasis id="strong1119" effect="bold">
+toString
+
+</emphasis>
+ method defined in the class named 
+
+<emphasis id="strong1120" effect="bold">
+B
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1121" effect="bold">
+Overridden version of toString was executed
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+This verifies that even though the reference to the object of the class 
+
+
+<emphasis id="strong1122" effect="bold">
+B
+
+</emphasis>
+ was stored in a reference variable of type 
+
+<emphasis id="strong1123" effect="bold">
+Object
+
+</emphasis>
+, the overridden version of the 
+
+
+<emphasis id="strong1124" effect="bold">
+toString
+
+</emphasis>
+ method defined in the class named 
+
+<emphasis id="strong1125" effect="bold">
+B
+
+</emphasis>
+ was executed 
+
+
+<emphasis id="em1022" effect="italics">
+(instead of the default version defined in the class named 
+
+<emphasis id="strong1126" effect="bold">
+Object
+
+</emphasis>
+)
+
+</emphasis>
+.  This is 
+a good example of 
+
+<emphasis id="em1023" effect="italics">
+runtime polymorphic behavior
+
+</emphasis>
+, as described in a previous module. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+As you learned in the previous module, the selection of a method for execution is based on the 
+
+
+<emphasis id="em1024" effect="italics">
+actual type of object
+
+</emphasis>
+ whose reference is stored in a reference variable, and 
+
+
+<emphasis id="strong1127" effect="bold">
+not
+
+</emphasis>
+ on the 
+
+<emphasis id="em1025" effect="italics">
+type of the reference variable
+
+</emphasis>
+ on which the method is called.
+
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1128" effect="bold">
+An object of the class C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+Finally, the code in 
+
+<link id="a1032" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Instantiates a new object of the class 
+
+<emphasis id="strong1129" effect="bold">
+C
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1030">
+Stores the object's reference in a reference variable of type 
+
+<emphasis id="strong1130" effect="bold">
+Object
+
+</emphasis>
+.
+    
+
+</item>
+
+
+	
+
+<item id="li1031">
+Calls the 
+
+<emphasis id="strong1131" effect="bold">
+toString
+
+</emphasis>
+ method on the reference.
+    
+
+</item>
+
+
+	
+
+<item id="li1032">
+Displays the returned string on the computer screen. 
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. A new object of the class 
+				named C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1007" display="block">Object varC = new C();
+    String v3 = varC.toString();
+    System.out.println(v3);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1092">
+<emphasis id="strong1132" effect="bold">
+What will the output look like?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+By now, you should know what to expect in the way of text appearing on the computer screen.  The code in 
+
+<link id="a1033" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+
+
+    causes the following text to be displayed: 
+
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">toString in class C </code>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1133" effect="bold">
+Overridden version of toString was called
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+This confirms what you should already have known by now.  In particular, even though the reference to the object of the class 
+
+
+<emphasis id="strong1134" effect="bold">
+C
+
+</emphasis>
+ is stored in a reference variable of type 
+
+<emphasis id="strong1135" effect="bold">
+Object
+
+</emphasis>
+, the overridden version of the 
+
+
+<emphasis id="strong1136" effect="bold">
+toString
+
+</emphasis>
+ method defined in the class named 
+
+<emphasis id="strong1137" effect="bold">
+C
+
+</emphasis>
+ was executed.  Again, this is 
+
+
+<emphasis id="em1026" effect="italics">
+runtime polymorphic behavior
+
+</emphasis>
+ based on class inheritance and method overriding.
+
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1138" effect="bold">
+No downcasting was required
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+It is also very important to note that no downcasting was required in order to call the 
+
+
+<emphasis id="strong1139" effect="bold">
+toString
+
+</emphasis>
+ method in any of the cases shown above.  
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Because a default version of the 
+
+<emphasis id="strong1140" effect="bold">
+toString
+
+</emphasis>
+ method is defined in the 
+
+
+<emphasis id="strong1141" effect="bold">
+Object
+
+</emphasis>
+ class, the 
+
+<emphasis id="strong1142" effect="bold">
+toString
+
+</emphasis>
+ method can be called without a requirement for downcasting on a reference to any object stored in a variable of type 
+
+
+<emphasis id="strong1143" effect="bold">
+Object
+
+</emphasis>
+.  This holds true for any of the eleven methods defined in the class named 
+
+
+<emphasis id="strong1144" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1027" effect="italics">
+(although some of those methods are declared 
+
+<emphasis id="strong1145" effect="bold">
+
+final
+
+</emphasis>
+ and therefore may not be overridden)
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1099">
+Polymorphism manifests itself in Java in the form of multiple methods having the same name.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1100">
+From a practical programming viewpoint, polymorphism manifests itself in three distinct forms in Java:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1033">
+Method overloading
+    
+
+</item>
+
+
+	
+
+<item id="li1034">
+Method overriding through class inheritance 
+
+</item>
+
+
+	
+
+<item id="li1035">
+Method overriding through the Java interface 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1101">
+In this module, I have continued my discussion of the implementation of polymorphism using method overriding through 
+class inheritance, and have concentrated on a special case in that category.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1102">
+More specifically, in this module, I have discussed the use of the 
+
+<emphasis id="strong1146" effect="bold">
+Object
+
+</emphasis>
+ class as a completely generic type for storing references to objects of subclass types, and have explained how that results in a very useful form of runtime polymorphism. .
+
+
+
+</para>
+
+
+
+
+
+<para id="p1103">
+I briefly mentioned the default version of the eleven methods defined in the 
+
+
+<emphasis id="strong1147" effect="bold">
+Object
+
+</emphasis>
+ class, and explained that in some cases, those default versions are meant to be overridden.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1104">
+I provided a sample program that illustrates the overriding of the 
+
+<emphasis id="strong1148" effect="bold">
+toString
+
+</emphasis>
+ method, which is one of the eleven methods defined in the 
+
+
+<emphasis id="strong1149" effect="bold">
+Object
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1105">
+In the next module, I will embark on an explanation of runtime polymorphic behavior based on the Java interface and method overriding.  
+
+</para>
+
+
+
+
+
+<para id="p1106">
+In my opinion, this is one of the most important concepts in Java OOP, and the one that seems to give students the greatest amount of difficulty. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1107">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1150" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+				
+
+<list id="ul1008" list-type="bulleted">
+
+					
+
+<item id="li1036">
+Module name: Java OOP: Polymorphism and the Object Class
+
+</item>
+
+
+					
+
+<item id="li1037">
+File: Java1614.htm
+
+
+</item>
+
+
+					
+
+<item id="li1038">
+Published: 03/13/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1151" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1108">
+<emphasis id="strong1152" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1109">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1110">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1111">
+<emphasis id="strong1153" effect="bold">
+Affiliation
+
+</emphasis>
+:: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+A complete listing of the program is shown in 
+
+<link id="a1034" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Complete program listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1009" display="block">/*File Poly04.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates polymorphic 
+behavior
+
+Program output is:
+  
+A@111f71
+toString in class B
+toString in class C
+**************************************/
+
+class A extends Object{
+  //This class is empty
+}//end class A
+//===================================//
+
+class B extends A{
+  public String toString(){
+    return "toString in class B";
+  }//end overridden toString()
+}//end class B
+//===================================//
+
+class C extends B{
+  public String toString(){
+    return "toString in class C";
+  }//end overridden toString()
+}//end class B
+//===================================//
+
+public class Poly04{
+  public static void main(String[] args){
+    Object varA = new A();
+    String v1 = varA.toString();
+    System.out.println(v1);
+    
+    Object varB = new B();
+    String v2 = varB.toString();
+    System.out.println(v2);
+    
+    Object varC = new C();
+    String v3 = varC.toString();
+    System.out.println(v3);
+
+  }//end main
+}//end class Poly04</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1113">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

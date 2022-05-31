@@ -1,0 +1,3817 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4570: Session Tracking using Cookies</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48571</md:content-id>
+  <md:title>Java4570: Session Tracking using Cookies</md:title>
+  <md:abstract>The purpose of this module is to explain session tracking using cookies, and to compare a servlet with a JSP to accomplish the same objective.</md:abstract>
+  <md:uuid>3c135e40-62e9-45a4-bd26-e2c78a27f026</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Program_output">
+
+Program output
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="What_are_cookies">
+
+What are cookies?
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="The_Java_Cookie_class">
+
+The Java Cookie class
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="The_servlet_program">
+
+The servlet program
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="The_JSP_program">
+
+The JSP program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. The purpose of this module is to explain 
+	session tracking using cookies, and to compare a servlet with a JSP to 
+	accomplish the same objective.
+
+</para>
+
+
+
+
+<para id="p1001">
+If you haven't already done so, I strongly recommend that you study 
+
+
+<link id="a1015" url="http://cnx.org/content/m48091/latest/?collection=col11441/latest">
+
+Java4370: Cookies with JSP
+
+</link>
+
+ 
+before continuing with this module. Dr. Martinez explains many aspects of 
+cookies in that module. Most of those aspects apply to both JSP and servlets and 
+many of them won't be repeated in this module.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output from the servlet program. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output from the JSP program. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Description of the Cookie constructor.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the doGet method. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Construct a unique session ID. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get all of the cookies into an array of type Cookie. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Get and save submitted value. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Create a new session ID cookie.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Create, name, and populate a new Cookie object.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Familiar code.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Get and display cookie names and values.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1027" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Display currently submitted field value.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1028" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. The servlet program named Java4570a.java.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1029" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. The JSP program named Java4570b.jsp.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Program_output" effect="bold">
+
+Program output
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+I will explain a servlet program and present a comparable JSP program in this module. The 
+purpose is to show you how to write servlets that use cookies for session 
+tracking and to make it possible to compare a servlet and a JSP that both achieve 
+the same objective.
+
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1001" effect="bold">
+The servlet output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+<link id="a1030" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the output produced by requesting the servlet from the 
+localhost server using the Chrome browser and then submitting the names Tom, 
+Dick, and Harry using the input text field and the submit button. I will refer 
+back to this Figure later while explaining the servlet code.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Output from the servlet program.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+<media id="media1000" alt="Missing Figure" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/java4570a-01.jpg" width="464" height="333"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1003" effect="bold">
+The JSP output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+<link id="a1031" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the output produced by requesting the JSP from the 
+localhost server using the Firefox browser and then submitting the names Tom, 
+Dick, and Harry using the input text field and the submit button. I will refer 
+back to this Figure later while explaining the JSP code. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Output from the JSP program.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="Missing Figure" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java4570b-02.jpg" width="464" height="405"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="em1000" effect="italics">
+(The main difference between 
+
+<link id="a1032" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1033" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+is the line that begins with JSESSIONID in 
+
+<link id="a1034" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Also 
+
+<link id="a1035" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ 
+is displayed in a Chrome browser and 
+
+<link id="a1036" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is displayed 
+in a Firefox browser.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="What_are_cookies" effect="bold">
+
+What are cookies?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+<emphasis id="em1001" effect="italics">
+Cookies
+
+</emphasis>
+ are information that is created by a web application and 
+stored on the client machine by the browser. Under certain conditions, this 
+information is sent to the HTTP server whenever a request is sent from the 
+client to the server.
+
+</para>
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1005" effect="bold">
+Used for session tracking
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1015">
+Cookies are widely used by various server-side programming techniques for 
+session tracking. Java provides classes and methods designed to allow you to use 
+cookies in your servlets.
+
+</para>
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1006" effect="bold">
+Which server receives a cookie?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1017">
+By default, cookies are sent only to the host that caused them to be saved. 
+Methods can be called to set attributes for each cookie that determine which 
+servers will receive the cookie. For example, the 
+
+<emphasis id="strong1007" effect="bold">
+setDomain
+
+</emphasis>
+ 
+method can be used to specify a domain pattern indicating which servers should 
+receive a cookie.
+
+</para>
+
+
+
+
+<para id="p1018">
+By default, cookies are sent to the page that set the cookie and to all the 
+pages in that directory or under that directory. This also can be modified by 
+calling the 
+
+<emphasis id="strong1008" effect="bold">
+setPath
+
+</emphasis>
+ method on the cookie.
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1009" effect="bold">
+What is the life expectancy of a cookie?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+Also by default, a cookie expires when the browser exits. The 
+
+<emphasis id="strong1010" effect="bold">
+
+setMaxAge
+
+</emphasis>
+ method can be called to override the default and specify the 
+maximum age of the cookie in seconds. The cookie will expire when the maximum 
+age has been reached. The parameter to this method is an 
+
+<emphasis id="strong1011" effect="bold">
+int
+
+</emphasis>
+ so 
+the maximum age of a cookie can be a very large number of seconds. 
+
+<emphasis id="em1002" effect="italics">
+(The 
+maximum positive value of Java type 
+
+<emphasis id="strong1012" effect="bold">
+int
+
+</emphasis>
+ is 2,147,483,647. If I did the 
+arithmetic correctly, that is about 68 years.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1013" effect="bold">
+Comments in a cookie
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+The 
+
+<emphasis id="strong1014" effect="bold">
+setComment
+
+</emphasis>
+ method can be used to provide a comment with 
+the cookie. The browser may elect to make this information available to the 
+user.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1015" effect="bold">
+Name and value of a cookie
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+The constructor sets the name and value of a cookie when the 
+
+<emphasis id="strong1016" effect="bold">
+Cookie
+
+</emphasis>
+ 
+object is instantiated. The 
+
+<emphasis id="strong1017" effect="bold">
+setValue
+
+</emphasis>
+ method can be used to 
+assign a new value to the cookie after it is instantiated.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1018" effect="bold">
+Other attributes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+There are a few other attributes that can be set as well. You can read about 
+them in the 
+
+
+<link id="a1037" url="http://docs.oracle.com/javaee/7/api/index.html?javax/servlet/http/Cookie.html">
+
+Java(TM) EE 7
+
+</link>
+
+ documentation.
+
+</para>
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1019" effect="bold">
+Cookies can be disabled
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1028">
+CAUTION: The user can disable cookies in most, and perhaps all browsers. As a 
+result, the user can defeat session tracking using cookies. 
+
+</para>
+
+
+
+
+<para id="p1029">
+Therefore, unless you can be certain that all of your clients will operate 
+with cookies enabled, the use of cookies for session tracking may not be 
+satisfactory in all cases. 
+
+<emphasis id="em1003" effect="italics">
+(The fallback position may be the less-persistent 
+Hidden Fields and/or URL Rewriting methods of session tracking.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_Java_Cookie_class" effect="bold">
+
+The Java Cookie class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+The 
+
+<emphasis id="strong1020" effect="bold">
+Cookie
+
+</emphasis>
+ class represents a cookie that can be used for 
+session management with the HTTP protocol.
+
+</para>
+
+
+
+
+<para id="p1031">
+Cookies are used to cause 
+
+<emphasis id="em1004" effect="italics">
+user agents
+
+</emphasis>
+ such as web browsers to store 
+small amounts of state associated with a user's web browsing activities. 
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1021" effect="bold">
+Applications
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+Common applications for cookies include:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Storing user preferences 
+
+</item>
+
+
+	
+
+<item id="li1030">
+Automating low security user signon facilities, and 
+
+</item>
+
+
+	
+
+<item id="li1031">
+Helping collect data used for "shopping cart" applications. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1022" effect="bold">
+Names, values, and attributes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1035">
+Each cookie has a name and a single value 
+
+<emphasis id="em1005" effect="italics">
+(a name::value pair)
+
+</emphasis>
+. As mentioned earlier, it may have 
+optional attributes, including:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1032">
+A comment presented to the user 
+
+</item>
+
+
+	
+
+<item id="li1033">
+Path and domain qualifiers to specify which hosts can see the cookie
+	
+
+</item>
+
+
+	
+
+<item id="li1034">
+A maximum age, and 
+
+</item>
+
+
+	
+
+<item id="li1035">
+A version. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1023" effect="bold">
+Sending cookies to the browser
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1037">
+In the Java API, cookies are saved one at a time into such HTTP response 
+headers, using the 
+
+<emphasis id="strong1024" effect="bold">
+addCookie
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1038">
+According to the Java
+
+
+<link id="a1038" url="http://docs.oracle.com/javaee/7/api/index.html?javax/servlet/http/Cookie.html">
+
+
+documentation
+
+</link>
+
+, The browser is expected to support 20 cookies for each web server, 300 cookies total, and may limit cookie size to 4 KB each.
+
+</para>
+
+
+
+
+<para id="p1039">
+Servers assign cookies, using fields added to HTTP 
+
+<emphasis id="em1006" effect="italics">
+response
+
+</emphasis>
+ headers. 
+
+</para>
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1025" effect="bold">
+Retrieving cookies from the browser
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+Cookies are passed from the browser to the server using fields added to HTTP 
+
+
+<emphasis id="em1007" effect="italics">
+request
+
+</emphasis>
+ headers. 
+
+</para>
+
+
+
+
+<para id="p1042">
+In the Java API, HTTP cookies are retrieved using the 
+
+<emphasis id="strong1026" effect="bold">
+getCookies
+
+</emphasis>
+ 
+method. This method returns all of the cookies found in the request sent by the 
+client.
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1027" effect="bold">
+Description of the Cookie constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+An abbreviated description of the constructor for the 
+
+<emphasis id="strong1028" effect="bold">
+Cookie
+
+</emphasis>
+ class is 
+shown in 
+
+<link id="a1039" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Description of 
+				the Cookie constructor.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+				
+
+<para id="p1045">
+<emphasis id="strong1029" effect="bold">
+public Cookie(String name,
+      String value) 
+
+</emphasis>
+</para>
+
+
+				
+
+<para id="p1046">
+Constructs a cookie with the specified name and value.
+
+
+
+</para>
+
+
+				
+
+<para id="p1047">
+The name of a cookie cannot be changed once the cookie has been created.
+
+				
+
+</para>
+
+
+				
+
+<para id="p1048">
+The value can be anything the server chooses to send. The cookie's value can be changed after creation with the 
+				
+
+<emphasis id="strong1030" effect="bold">
+setValue
+
+</emphasis>
+ method. 
+
+</para>
+
+
+				
+
+<para id="p1049">
+Parameters:
+    
+
+</para>
+
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1036">
+name - the name of the cookie
+    
+
+</item>
+
+
+					
+
+<item id="li1037">
+value - the value of the cookie 
+
+</item>
+
+
+				
+
+</list>
+
+
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<section id="h21004">
+<title>
+<emphasis id="The_servlet_program" effect="bold">
+
+The servlet program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+The name of the servlet program is 
+
+<emphasis id="strong1031" effect="bold">
+Java4570
+
+</emphasis>
+ I will discuss 
+this program in fragments. A complete listing of the program is provided in 
+
+
+<link id="a1040" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1032" effect="bold">
+Displays an HTML form
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+Each time the servlet is called, it displays an HTML form on the client 
+screen as shown in 
+
+<link id="a1041" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The form contains:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1038">
+An input field for submitting a name 
+
+</item>
+
+
+	
+
+<item id="li1039">
+A submit button 
+
+</item>
+
+
+	
+
+<item id="li1040">
+A list of previously submitted names
+
+</item>
+
+
+	
+
+<item id="li1041">
+Some static text
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1033" effect="bold">
+A unique session ID
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+The first time the servlet is called by a given browser, code written into the servlet creates a 
+unique session ID and stores it in a cookie on the browser. This session ID is 
+not used for any purpose in this sample program. It is included in the servlet 
+simply to show how to create and save a unique session ID.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1034" effect="bold">
+A cookie containing the submitted value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+Each time the servlet is called, it creates a cookie containing the field 
+value submitted by the user and stores it on the browser.
+
+</para>
+
+
+
+
+<para id="p1057">
+When the servlet is called, it gets all of the cookie information stored on 
+the browser and displays that information on the client screen as shown in 
+
+
+<link id="a1042" target-id="Figure_1">
+
+Figure 
+1
+
+</link>
+
+. The display includes the unique session ID and all of the field values 
+submitted by the user during that session.
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1035" effect="bold">
+The maximum age of the cookies
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+The cookie containing the session ID is deleted when the browser 
+is exited. 
+
+</para>
+
+
+
+
+<para id="p1060">
+The maximum age for all of the other cookies is set to 60 seconds. 
+Therefore, if you submit some names, wait more than 60 seconds, and then submit 
+some more names, the first batch of names submitted will have expired and 
+will have disappeared from the list.
+
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1036" effect="bold">
+The lifetime of a session
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+A session doesn't end just because the user 
+visits another page. If the user returns to the 
+
+<emphasis id="strong1037" effect="bold">
+Java4570
+
+</emphasis>
+ 
+servlet without exiting the browser, the cookies written by 
+
+<emphasis id="strong1038" effect="bold">
+Java4570
+
+</emphasis>
+ 
+that have not yet expired will continue to exist on the browser and the session 
+will continue. 
+
+</para>
+
+
+
+
+<para id="p1063">
+Also, if the user exits and then restarts the browser and calls 
+the servlet, the cookies that have not yet expired will continue to exist and 
+will be displayed when the server responds to the request. Thus, a session being 
+tracked by cookies with a long maximum age can persist over long periods of 
+time, even when the computer has been shut down and restarted. 
+
+<emphasis id="em1008" effect="italics">
+(Many web 
+sites will remember you on the same computer using the same browser over days, 
+months, and even years.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1039" effect="bold">
+Beginning of the doGet method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+<link id="a1043" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the controlling class and the beginning of 
+the 
+
+<emphasis id="strong1040" effect="bold">
+doGet
+
+</emphasis>
+ method. You have seen code like this before, so I won't discuss 
+it further in this module.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the doGet 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1000" display="block">
+public class Java4570a extends HttpServlet{
+  public void doGet(HttpServletRequest request, 
+                    HttpServletResponse response)
+                      throws ServletException, IOException{
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1066">
+<emphasis id="strong1041" effect="bold">
+Construct a unique session ID
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1067">
+<link id="a1044" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ constructs a unique session ID that is later written into a 
+	cookie on the browser.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Construct a unique 
+				session ID.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1001" display="block">
+    String uid = new java.rmi.server.UID().toString();
+    String sessionID = java.net.URLEncoder.encode(uid);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1042" effect="bold">
+A UID object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+The first step is to get a 
+
+<emphasis id="strong1043" effect="bold">
+String
+
+</emphasis>
+ representation of a
+
+
+<emphasis id="strong1044" effect="bold">
+UID
+
+</emphasis>
+ object. According to the documentation, the 
+
+<emphasis id="strong1045" effect="bold">
+UID
+
+</emphasis>
+ 
+class is an 
+
+<emphasis id="em1009" effect="italics">
+"Abstraction for creating identifiers that are unique with respect 
+to the host on which it is generated."
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1070">
+<emphasis id="strong1046" effect="bold">
+Some cleanup is required
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+The second step is to call the 
+
+<emphasis id="strong1047" effect="bold">
+encode
+
+</emphasis>
+ method of the
+	
+
+<emphasis id="strong1048" effect="bold">
+URLEncoder
+
+</emphasis>
+ class to convert the string into a MIME format 
+	called the 
+
+<emphasis id="em1010" effect="italics">
+"x-www-form-urlencoded"
+
+</emphasis>
+ format. This ensures that the 
+	identifier can be reliably transmitted between the server and the client and 
+	that it will contain only those characters that are acceptable for saving in 
+	a cookie 
+
+<emphasis id="em1011" effect="italics">
+(see documentation on the 
+
+</emphasis>
+<emphasis id="strong1049" effect="bold">
+<emphasis id="em1012" effect="italics">
+setValue
+
+</emphasis>
+</emphasis>
+<emphasis id="em1013" effect="italics">
+ 
+	method of the 
+
+<emphasis id="strong1050" effect="bold">
+Cookie
+
+</emphasis>
+ class for more information)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1072">
+To convert the 
+
+<emphasis id="strong1051" effect="bold">
+String
+
+</emphasis>
+, each character is examined and 
+modified as follows: 
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1042">
+The ASCII characters 'a' through 'z', 'A' through 'Z', and '0' through 
+	'9' remain the same. 
+
+</item>
+
+
+	
+
+<item id="li1043">
+The space character is converted into a plus sign '+'. 
+
+</item>
+
+
+	
+
+<item id="li1044">
+All other characters are converted into the 3-character string "%xy", 
+	where xy is the two-digit hexadecimal representation of the lower 8-bits of 
+	the character.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1073">
+A typical session identifier created by this process might appear as follows:
+
+</para>
+
+
+
+
+<para id="p1074">
+1cce64%3Ad69878ccf0%3A-7ff9
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1052" effect="bold">
+Get all of the cookies into an array of type Cookie
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1053" effect="bold">
+getCookies
+
+</emphasis>
+ method of the incoming
+
+
+<emphasis id="strong1054" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ object to get and save the cookies submitted 
+by the browser. The values of the cookies will be displayed later.
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get all of the cookies 
+				into an array of type Cookie.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1002" display="block">
+    Cookie[] cookies = request.getCookies();
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1055" effect="bold">
+Get and save submitted value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+As in the sample programs in earlier modules, 
+
+<link id="a1046" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ gets and saves 
+	the field value submitted by the client.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Get and save submitted 
+				value.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1003" display="block">
+    String name = request.getParameter("firstName");
+    response.setContentType("text/html");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1079">
+<link id="a1047" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also establishes the type of output.
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1056" effect="bold">
+Create a new session ID cookie
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+Because cookies are sent to the browser using HTTP headers, they should be 
+added to the response before you send any content.
+
+</para>
+
+
+
+
+<para id="p1082">
+If no cookies were submitted by the client with the request, this is 
+interpreted by this servlet to be the beginning of the session. A new
+
+
+<emphasis id="strong1057" effect="bold">
+Cookie
+
+</emphasis>
+ object is instantiated containing the session ID value 
+created above along with the name of the cookie: 
+
+<emphasis id="strong1058" effect="bold">
+sessionID
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1083">
+Then the cookie is sent to the client's browser by calling the 
+
+<emphasis id="strong1059" effect="bold">
+
+addCookie
+
+</emphasis>
+ method on the outgoing 
+
+<emphasis id="strong1060" effect="bold">
+HttpServletResponse
+
+</emphasis>
+ 
+object as shown in 
+
+<link id="a1048" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Create a new session ID 
+				cookie.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1004" display="block">
+    if(cookies == null){
+      Cookie newCookie = new Cookie("sessionID",sessionID);
+      response.addCookie(newCookie);
+    }//end if
+    
+    PrintWriter out = response.getWriter();
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1084">
+<link id="a1049" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ also gets an output stream using code 
+	that you have seen in earlier 
+	modules.
+
+</para>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1061" effect="bold">
+Create, name, and populate a new Cookie object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1086">
+<link id="a1050" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ instantiates a 
+
+<emphasis id="strong1062" effect="bold">
+Cookie
+
+</emphasis>
+ object containing the field value submitted by the 
+client and sends that cookie back to the browser for storage.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Create, name, and 
+				populate a new Cookie object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1005" display="block">
+    if(name != null){
+      String cookieName = "" + new Date().getTime();
+      Cookie newCookie = new Cookie(cookieName, name);
+      newCookie.setMaxAge(60);
+      response.addCookie(newCookie);
+    }//end if
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1087">
+<emphasis id="strong1063" effect="bold">
+Unique names for cookies
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+Unless delineated by path information, each cookie needs a unique name in 
+addition to its value. Assuming that successive calls to this servlet will 
+be separated in time by at least one millisecond, unique names can be created by 
+using the current date and time in milliseconds. That mechanism was used in 
+	
+
+<link id="a1051" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ to create 
+unique cookie names. The 
+
+<emphasis id="strong1064" effect="bold">
+getTime
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1065" effect="bold">
+Date
+
+</emphasis>
+ class returns the date and time in 
+milliseconds represented by a 
+
+<emphasis id="strong1066" effect="bold">
+Date
+
+</emphasis>
+ object. The 
+
+<emphasis id="strong1067" effect="bold">
+Date
+
+</emphasis>
+ 
+	object in 
+
+<link id="a1052" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ encapsulates the current date and time. You can see 
+	those times represented in milliseconds in the list of cookies in 
+
+<link id="a1053" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1089">
+On the other hand, a servlet that creates two or more Cookie objects could 
+easily create more than one cookie during each one-millisecond interval. In that 
+case, you should probably use something like the code in 
+
+<link id="a1054" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ to create 
+unique cookie names.
+
+</para>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1068" effect="bold">
+Familiar code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1091">
+<link id="a1055" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ contains code that is very similar to code discussed in earlier 
+modules, so I won't discuss it further here. The fragment is being included here 
+for continuity.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Familiar code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1006" display="block">    //Construct an html form and send it back to the client
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4570a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+        
+    //Substitute the name of your server in
+    // the following statement.
+    out.println("&lt;form method='get' action="
+                      + "'http://localhost:8080/Java4570a'&gt;");
+    out.println("&lt;p&gt;Enter a name and press the button&lt;/p&gt;");
+    out.println("&lt;p&gt;Name: &lt;input type='text' name="
+                                       + "'firstName'/&gt;&lt;/p&gt;");
+    out.println("&lt;input type='submit' value="
+                                         + "'Submit Name'/&gt;");
+    out.println(
+      "&lt;br/&gt;&lt;br/&gt;Your session ID and list of names is:&lt;br/&gt;");
+    if(name == null){
+      out.println("Empty&lt;br/&gt;");
+    }//end if 
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1092">
+<emphasis id="strong1069" effect="bold">
+Get and display cookie names and values
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1093">
+<link id="a1056" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1070" effect="bold">
+getName
+
+</emphasis>
+ and 
+
+<emphasis id="strong1071" effect="bold">
+getValue
+
+</emphasis>
+ methods of the
+	
+
+<emphasis id="strong1072" effect="bold">
+Cookie
+
+</emphasis>
+ class to get and display the names and values of 
+	each of the cookies saved earlier in the array of cookies. 
+
+</para>
+
+
+
+
+<para id="p1094">
+The first value 
+	displayed should be the session ID that was stored in the first cookie 
+	saved. The remaining items in the list should be the field input values 
+	previously submitted by the user each time the servlet was called but not 
+	including the field input value for this invocation of the servlet.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Get and display cookie 
+				names and values.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1007" display="block">    if(cookies != null){
+      for(int i = 0; i &lt; cookies.length; i++){
+        out.println(cookies[i].getName() + ":" + 
+                             cookies[i].getValue() + "&lt;br/&gt;");
+      }//end for loop
+    }//end if</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1095">
+The output from 
+
+<link id="a1057" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ is shown by the 
+	
+
+<emphasis id="strong1073" effect="bold">
+sessionID
+
+</emphasis>
+ line and the lines 
+	for Tom and Dick in 
+
+<link id="a1058" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+<emphasis id="em1014" effect="italics">
+(The output from 
+
+<link id="a1059" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ does not include the line for Harry.)
+
+</emphasis>
+ 
+	The large numeric values to the left of Tom and Dick are the cookie names 
+	based on the number of milliseconds since January 1, 1970.
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1074" effect="bold">
+Display currently submitted field value
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+<link id="a1060" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ displays the field value 
+
+<emphasis id="em1015" effect="italics">
+(Harry)
+
+</emphasis>
+ submitted by the user for 
+the current invocation of the servlet. This value is displayed at the end of the 
+list as shown in 
+
+<link id="a1061" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Note that there is no cookie name associated with 
+Harry in 
+
+<link id="a1062" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. This value was not extracted from a named cookie for display. 
+However, it will be displayed with a cookie name if the user calls the servlet 
+again with a new field value before the cookie with the value Harry expires.
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Display currently 
+				submitted field value.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1008" display="block">    if(name != null){
+      out.println(name + "&lt;br/&gt;");
+    }//end if
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1098">
+The remaining code is typical of what you have seen in earlier modules. 
+	You can view that code in 
+
+<link id="a1063" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_JSP_program" effect="bold">
+
+The JSP program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1099">
+If you understand the explanation of the servlet code given above and you 
+have understood the explanations of JSP code provided in earlier modules, you 
+should have no difficulty understanding the JSP code provided in 
+
+<link id="a1064" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+Therefore, I won't bore you with a detailed explanation of that code. The JSP 
+code is provided simply for comparison with the servlet code.
+
+</para>
+
+
+
+
+<para id="p1100">
+However, there is one point that is worth noting. If you compare 
+
+<link id="a1065" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+showing the JSP output with 
+
+<link id="a1066" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ showing the servlet output, you will see 
+that the JSP output contains an extra cookie named 
+
+<emphasis id="strong1075" effect="bold">
+JSESSIONID
+
+</emphasis>
+. 
+This is a unique session ID value that is automatically created by the JSP 
+container. When writing servlets, you need to take the necessary steps to create 
+a unique session ID. However, when writing JSP, that task is handled 
+automatically for you so there is no need to create your own unique session ID.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1101">
+I encourage you to copy the code from 
+
+<link id="a1067" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ and 
+
+<link id="a1068" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Install 
+the programs on your server. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1102">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1076" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1045">
+Module name: Java4570: Session Tracking using Cookies
+
+</item>
+
+
+					
+
+<item id="li1046">
+File: Java4570.htm
+
+
+</item>
+
+
+
+
+<item id="li1047">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1077" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1103">
+<emphasis id="strong1078" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1104">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1105">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1106">
+<emphasis id="strong1079" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1080" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - The servlet program named Java4570a.java.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1009" display="block">
+/*File Java4570a.java, Copyright 1999, R.G.Baldwin
+Rev 12/24/13
+The purpose of this program is to illustrate session
+tracking through the use of cookies.
+
+Each time the servlet is called, it displays an html
+form on the client screen.  The form contains:
+  An input field for submitting a name
+  A submit button
+  A list of previously submitted names
+  
+The first time the servlet is called, it creates a
+unique session ID and stores it in a cookie on the browser.
+
+Each time the servlet is called, it creates a cookie
+containing the name submitted by the user and stores it
+on the browser. 
+*************************************************************/
+import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Java4570a extends HttpServlet{
+  public void doGet(HttpServletRequest request, 
+                    HttpServletResponse response)
+                      throws ServletException, IOException{
+                        
+    //Get a unique ID to be used to construct a session ID
+    String uid = new java.rmi.server.UID().toString();
+    //Encode any special characters that may be in the uid
+    // to construct the session ID
+    String sessionID = java.net.URLEncoder.encode(uid);
+
+    //Get and save the cookies submitted with the request
+    Cookie[] cookies = request.getCookies();
+    
+    //Get the submitted name for the current get request
+    String name = request.getParameter("firstName");
+
+    //Establish the type of output
+    response.setContentType("text/html");
+    
+    //If no cookies were submitted with the request, 
+    // create and add a cookie containing the session ID
+    if(cookies == null){
+      Cookie newCookie = new Cookie("sessionID",sessionID);
+      response.addCookie(newCookie);
+    }//end if
+    
+    //Get an output stream
+    PrintWriter out = response.getWriter();
+
+    if(name != null){
+      String cookieName = "" + new Date().getTime();
+      Cookie newCookie = new Cookie(cookieName, name);
+      newCookie.setMaxAge(60);
+      response.addCookie(newCookie);
+    }//end if
+    
+    //Construct an html form and send it back to the client
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Java4570a&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+        
+    //Substitute the name of your server in
+    // the following statement.
+    out.println("&lt;form method='get' action="
+                      + "'http://localhost:8080/Java4570a'&gt;");
+    out.println("&lt;p&gt;Enter a name and press the button&lt;/p&gt;");
+    out.println("&lt;p&gt;Name: &lt;input type='text' name="
+                                       + "'firstName'/&gt;&lt;/p&gt;");
+    out.println("&lt;input type='submit' value="
+                                         + "'Submit Name'/&gt;");
+    out.println(
+      "&lt;br/&gt;&lt;br/&gt;Your session ID and list of names is:&lt;br/&gt;");
+    if(name == null){
+      out.println("Empty&lt;br/&gt;");
+    }//end if 
+    
+    //Display the session ID and the values of the
+    // cookies that have been saved.
+    if(cookies != null){
+      for(int i = 0; i &lt; cookies.length; i++){
+        out.println(cookies[i].getName() + ":" + 
+                             cookies[i].getValue() + "&lt;br/&gt;");
+      }//end for loop
+    }//end if
+
+    //Display name submitted with current get request
+    if(name != null){
+      out.println(name + "&lt;br/&gt;");
+    }//end if
+
+    out.println("&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;");
+      
+  }//end doGet()
+}//end class Java4570a
+</code>
+
+
+
+	
+
+
+<para id="p1108">
+<emphasis id="strong1081" effect="bold">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - The JSP program named Java4570b.jsp.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">
+&lt;%@ page import='java.util.*,java.io.*' %&gt;
+
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Java4570b&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+
+&lt;%
+    String uid = new java.rmi.server.UID().toString();
+    String sessionID = java.net.URLEncoder.encode(uid);
+
+    Cookie[] cookies = request.getCookies();
+    String name = request.getParameter("firstName");
+
+    response.setContentType("text/html");
+    
+    if(cookies == null){
+      Cookie newCookie = new Cookie("sessionID",sessionID);
+      response.addCookie(newCookie);
+    }//end if
+    
+    if(name != null){
+      String cookieName = "" + new Date().getTime();
+      Cookie newCookie = new Cookie(cookieName, name);
+      newCookie.setMaxAge(60);
+      response.addCookie(newCookie);
+    }//end if
+%&gt;
+
+        
+&lt;form method='get' 
+ action='http://localhost:8080/Java4570b.jsp'&gt;
+  &lt;p&gt;Enter a name and press the button&lt;/p&gt;
+  &lt;p&gt;Name: &lt;input type='text' name='firstName'/&gt;&lt;/p&gt;
+  &lt;input type='submit' value='Submit Name'/&gt;
+
+&lt;br/&gt;&lt;br/&gt;Your session ID and list of names is:&lt;br/&gt;
+
+&lt;%
+    if(name == null){
+      out.println("Empty&lt;br/&gt;");
+    }//end if 
+
+    if(cookies != null){
+      for(int i = 0; i &lt; cookies.length; i++){
+        out.println(cookies[i].getName() + ":" + 
+                          cookies[i].getValue() + "&lt;br/&gt;");
+      }//end for loop
+    }//end if
+
+    if(name != null){
+      out.println(name + "&lt;br/&gt;");
+    }//end if
+%&gt;
+&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;
+</code>
+
+
+
+
+
+<para id="p1109">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

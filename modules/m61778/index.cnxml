@@ -1,0 +1,2053 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0210R: Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61778</md:content-id>
+  <md:title>Json0210R: Review</md:title>
+  <md:abstract>This page contains review questions and answers for the page titled "Json0210: Structure of the json-simple Java Library" in the book titled "The json-simple Java Library".</md:abstract>
+  <md:uuid>e4350caf-d139-4a52-9460-6a65991cbefe</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Jun 03 17:21:17 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1005">
+<link id="a1005" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="question07">
+
+Question 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="question08">
+
+Question 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="question09">
+
+Question 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="question10">
+
+Question 10
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1017">
+<link id="a1017" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="answer09">
+
+Answer 9
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="answer08">
+
+Answer 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1021">
+<link id="a1021" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1022">
+<link id="a1022" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1023">
+<link id="a1023" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1024">
+<link id="a1024" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1025">
+<link id="a1025" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1026">
+<link id="a1026" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1027">
+<link id="a1027" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. 
+The book explains how to use the 
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to 
+generate, transform, and query JSON text. This page provides review questions 
+and answers for the page titled 
+
+
+<link id="a1028" url="http://cnx.org/contents/5sRB9gpG:_u3ZKIdD">
+
+Json0210: Structure of the json-simple Java Library
+
+</link>
+
+. Once you study that page, you should be able to answer the review 
+questions in this page.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers in this page are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1002" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+True or False? Version 1.1 of the 
+
+<emphasis id="strong1003" effect="bold">
+json-simple
+
+</emphasis>
+ Java library 
+contains the following packages:
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1028">
+org.json.simple
+
+</item>
+
+
+	
+
+<item id="li1029">
+org.json.simple.parser
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1005">
+<link id="a1029" target-id="answer01">
+
+Go to answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+True or False? Version 1.1 of the 
+
+<emphasis id="strong1004" effect="bold">
+json-simple
+
+</emphasis>
+ Java library 
+contains the public classes shown below
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1030">
+ItemList
+
+</item>
+
+
+	
+
+<item id="li1031">
+JSONArray
+
+</item>
+
+
+	
+
+<item id="li1032">
+JSONObject
+
+</item>
+
+
+	
+
+<item id="li1033">
+JSONParser
+
+</item>
+
+
+	
+
+<item id="li1034">
+JSONValue
+
+</item>
+
+
+	
+
+<item id="li1035">
+ParseException
+
+</item>
+
+
+	
+
+<item id="li1036">
+Object
+
+</item>
+
+
+	
+
+<item id="li1037">
+Yytoken
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1007">
+<link id="a1030" target-id="answer02">
+
+Go to answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+True or False? Version 1.1 of the 
+
+<emphasis id="strong1005" effect="bold">
+json-simple
+
+</emphasis>
+ Java library 
+contains a class named 
+
+<emphasis id="strong1006" effect="bold">
+Yylex
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1007" effect="bold">
+
+org.json.simple.parser
+
+</emphasis>
+ package that is declared to be 
+
+<emphasis id="em1004" effect="italics">
+
+package-private
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1031" target-id="answer03">
+
+Go to answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False? Despite its name, the 
+
+<emphasis id="strong1008" effect="bold">
+JSONArray
+
+</emphasis>
+ class is not really an array. 
+Instead, it is a 
+
+<emphasis id="strong1009" effect="bold">
+List
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1032" target-id="answer04">
+
+Go to answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? Objects of the 
+
+<emphasis id="strong1010" effect="bold">
+JSONArray
+
+</emphasis>
+ class contain 
+
+
+<emphasis id="em1005" effect="italics">
+unordered
+
+</emphasis>
+ data.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1033" target-id="answer05">
+
+Go to answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+True or False? Other than the 
+
+<emphasis id="strong1011" effect="bold">
+JSONObject
+
+</emphasis>
+ class and the
+
+
+<emphasis id="strong1012" effect="bold">
+JSONArray
+
+</emphasis>
+ class, all of the classes in version 1.1 of the 
+
+<emphasis id="strong1013" effect="bold">
+json-simple
+
+</emphasis>
+ 
+Java library extend the 
+
+<emphasis id="strong1014" effect="bold">
+Object
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<link id="a1034" target-id="answer06">
+
+Go to answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+True or False? The 
+
+<emphasis id="strong1015" effect="bold">
+JSONObject
+
+</emphasis>
+ class extends the standard 
+Java 
+
+<emphasis id="strong1016" effect="bold">
+TreeSet
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<link id="a1035" target-id="answer07">
+
+Go to answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+True or False? An object of the 
+
+<emphasis id="strong1017" effect="bold">
+JSONObject
+
+</emphasis>
+ class maps 
+
+<emphasis id="em1006" effect="italics">
+keys
+
+</emphasis>
+ or 
+
+<emphasis id="em1007" effect="italics">
+names
+
+</emphasis>
+ to 
+
+<emphasis id="em1008" effect="italics">
+
+values
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1019">
+<link id="a1036" target-id="answer08">
+
+Go to answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+True or False? An object of the 
+
+<emphasis id="strong1018" effect="bold">
+JSONObject
+
+</emphasis>
+ class can contain 
+duplicate keys but cannot contain duplicate values.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<link id="a1037" target-id="answer09">
+
+Go to answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or False? An object of the 
+
+<emphasis id="strong1019" effect="bold">
+JSONObject
+
+</emphasis>
+ class is an 
+unordered collection.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<link id="a1038" target-id="answer10">
+
+Go to answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+<para id="p1024">
+<emphasis id="strong1020" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1026">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1027">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+True. An object of the 
+
+<emphasis id="strong1021" effect="bold">
+JSONObject
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1022" effect="bold">
+
+HashMap
+
+</emphasis>
+ class and implements the 
+
+<emphasis id="strong1023" effect="bold">
+Map
+
+</emphasis>
+ interface. 
+According to the Oracle documentation, 
+
+<emphasis id="em1009" effect="italics">
+"The order of a map is defined as the 
+order in which the iterators on the map's collection views return their 
+elements. Some map implementations, like the 
+
+<emphasis id="strong1024" effect="bold">
+TreeMap
+
+</emphasis>
+ class, 
+make specific guarantees as to their order; others, like the 
+
+<emphasis id="strong1025" effect="bold">
+HashMap
+
+</emphasis>
+ 
+class, do not."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+<link id="a1039" target-id="question10">
+
+Go back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1030">
+False. The 
+
+<emphasis id="strong1026" effect="bold">
+JSONObject
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1027" effect="bold">
+Map
+
+</emphasis>
+ 
+interface. According to the Oracle documentation, 
+
+<emphasis id="em1010" effect="italics">
+"A map cannot contain 
+duplicate keys; each key can map to at most one value."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1040" target-id="question09">
+
+Go back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1032">
+True. JSON documentation often speaks of 
+
+<emphasis id="em1011" effect="italics">
+name/value
+
+</emphasis>
+ pairs. However, 
+the 
+
+<emphasis id="strong1028" effect="bold">
+JSONObject
+
+</emphasis>
+ class extends the standard Java 
+
+<emphasis id="strong1029" effect="bold">
+HashMap
+
+</emphasis>
+ 
+class, which implements the 
+
+<emphasis id="strong1030" effect="bold">
+Map
+
+</emphasis>
+ interface. According to the 
+Oracle Java documentation, an object that implements the 
+
+<emphasis id="strong1031" effect="bold">
+Map
+
+</emphasis>
+ 
+interface is 
+
+<emphasis id="em1012" effect="italics">
+"An object that maps keys to values."
+
+</emphasis>
+ Therefore, it is probably 
+acceptable to use the terms 
+
+<emphasis id="em1013" effect="italics">
+name/value
+
+</emphasis>
+ and 
+
+<emphasis id="em1014" effect="italics">
+key/value
+
+</emphasis>
+ 
+interchangeably.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1033">
+<link id="a1041" target-id="question08">
+
+Go back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1034">
+False. The 
+
+<emphasis id="strong1032" effect="bold">
+JSONObject
+
+</emphasis>
+ class extends the standard Java
+
+<emphasis id="strong1033" effect="bold">
+ 
+HashMap
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<link id="a1042" target-id="question07">
+
+Go back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<link id="a1043" target-id="question06">
+
+Go back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+False. Because the 
+
+<emphasis id="strong1034" effect="bold">
+JSONArray
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1035" effect="bold">
+ArrayList
+
+</emphasis>
+ 
+class, which implements 
+the 
+
+<emphasis id="strong1036" effect="bold">
+List
+
+</emphasis>
+ interface, it is 
+
+<emphasis id="em1015" effect="italics">
+"An ordered collection (also known as a sequence). The user of this interface has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+<link id="a1044" target-id="question05">
+
+Go back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1040">
+True. The 
+
+<emphasis id="strong1037" effect="bold">
+JSONArray
+
+</emphasis>
+ class extends the standard 
+
+<emphasis id="strong1038" effect="bold">
+
+ArrayList
+
+</emphasis>
+ class, which implements the 
+
+<emphasis id="strong1039" effect="bold">
+List
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1045" target-id="question04">
+
+Go back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1042">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1046" target-id="question03">
+
+Go back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+False. Version 1.1 of the 
+
+<emphasis id="strong1040" effect="bold">
+json-simple
+
+</emphasis>
+ Java library does not 
+contain a class named 
+
+<emphasis id="strong1041" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<link id="a1047" target-id="question02">
+
+Go back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<link id="a1048" target-id="question01">
+
+Go back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1042" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1006" list-type="bulleted">
+
+				
+
+<item id="li1038">
+Module name: Json0210R: Review
+
+</item>
+
+
+				
+
+<item id="li1039">
+File: Json0210R.htm 
+
+</item>
+
+
+				
+
+<item id="li1040">
+Published: 06/03/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1043" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1049">
+<emphasis id="strong1044" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1050">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1051">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1052">
+<emphasis id="strong1045" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1053">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

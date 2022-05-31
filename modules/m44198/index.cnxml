@@ -1,0 +1,5147 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1622: Array Objects, Part 1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44198</md:content-id>
+  <md:title>Java1622: Array Objects, Part 1</md:title>
+  <md:abstract>Baldwin shows how array objects fit into the grand scheme of things in OOP using Java.</md:abstract>
+  <md:uuid>5d005fa3-76ff-42ae-8be2-128f59fd45c2</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Apr 01 15:07:49 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Sample variable declarations for array objects.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The special case of type Object. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Creating array objects. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The beginning of the class named Array05. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. A new ordinary object of class Array05.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Populate the second element.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Print some data.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Produce some more output.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+This module explains how array objects fit into the grand scheme of things 
+in Object-Oriented Programming 
+
+<emphasis id="em1003" effect="italics">
+(OOP)
+
+</emphasis>
+ using Java.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+A different syntax is required to create array objects than the syntax 
+normally used to create ordinary objects. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Array objects are accessed via references. Any of the methods of the 
+
+<emphasis id="strong1000" effect="bold">
+
+Object
+
+</emphasis>
+ class can be called on a reference to an array object. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+Array objects encapsulate a group of variables. The variables don't have 
+individual names. They are accessed using positive integer index values. The 
+integer indices of a Java array object always extend from 
+
+<emphasis id="strong1001" effect="bold">
+0
+
+</emphasis>
+ to 
+
+<emphasis id="strong1002" effect="bold">
+(n-1)
+
+</emphasis>
+ 
+where 
+
+<emphasis id="strong1003" effect="bold">
+n
+
+</emphasis>
+ is the 
+
+<emphasis id="strong1004" effect="bold">
+length
+
+</emphasis>
+ of the array encapsulated in the object. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+All array objects in Java encapsulate one-dimensional arrays. The component 
+type of an array may itself be an array type. This makes it possible to create 
+array objects whose individual components refer to other array objects. This is 
+the mechanism for creating 
+
+<emphasis id="em1004" effect="italics">
+multi-dimensional
+
+</emphasis>
+ or 
+
+<emphasis id="em1005" effect="italics">
+ragged
+
+</emphasis>
+ arrays in 
+Java. 
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+Three kinds of objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+In an earlier module, I told you that from a conceptual viewpoint, there are 
+at least three kinds of objects involved in a Java program: 
+
+</para>
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1020">
+Ordinary objects
+
+</item>
+
+
+	
+
+<item id="li1021">
+Class objects
+
+</item>
+
+
+	
+
+<item id="li1022">
+Array objects
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1011">
+
+
+
+<emphasis id="strong1006" effect="bold">
+Ordinary objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Most of the discussion up to that point in the collection dealt with what I 
+have referred to in the above list as 
+
+<emphasis id="em1006" effect="italics">
+ordinary objects
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+These are the objects that you instantiate in your code by applying the 
+
+<emphasis id="strong1007" effect="bold">
+new
+
+</emphasis>
+ 
+operator to a constructor for a class in order to create a new instance 
+
+<emphasis id="em1007" effect="italics">
+
+(object)
+
+</emphasis>
+ of that class. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1008" effect="bold">
+Class objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+In that module that discussed 
+
+<emphasis id="strong1009" effect="bold">
+Class
+
+</emphasis>
+ objects, I emphasized that my discussion of 
+
+<emphasis id="strong1010" effect="bold">
+Class
+
+</emphasis>
+ objects was 
+conceptual in nature and did not necessarily represent an actual implementation. 
+I went on to discuss the class named 
+
+<emphasis id="strong1011" effect="bold">
+Class
+
+</emphasis>
+, and discussed how the use of 
+that class fits into the grand scheme of OOP in Java. I explained how the 
+existence of 
+
+<emphasis id="em1008" effect="italics">
+class variables
+
+</emphasis>
+ and 
+
+<emphasis id="em1009" effect="italics">
+class methods
+
+</emphasis>
+ tends to complicate 
+the rather simple OOP structure consisting only of ordinary objects. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1012" effect="bold">
+Array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+I haven't discussed 
+
+<emphasis id="em1010" effect="italics">
+array objects
+
+</emphasis>
+ up to this point in this collection. 
+That is the purpose of this module. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1013" effect="bold">
+Also tends to complicate
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+The existence of array objects also tends to complicate the OOP structure of 
+a Java program consisting only of ordinary objects. Even if you don't consider 
+array objects to be a different kind of object, you must at least consider them 
+to be a 
+
+<emphasis id="em1011" effect="italics">
+special
+
+</emphasis>
+ kind of object. A completely different syntax is required 
+to create array objects than the syntax normally used to instantiate ordinary 
+objects. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1014" effect="bold">
+References to array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+Arrays are objects in Java 
+
+<emphasis id="em1012" effect="italics">
+(at least, arrays are always encapsulated in 
+objects).
+
+</emphasis>
+ Array objects are dynamically created. Like ordinary objects, 
+array objects are accessed via references. The reference to an array object may 
+be assigned to a reference variable whose type is specified as: 
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">TypeName[] </code>
+
+
+
+
+<para id="p1022">
+For example, 
+
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows some unrelated 
+declarations for variables that are capable of storing references to array 
+objects. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Sample variable 
+				declarations for array objects.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1001" display="block">int[] x1;
+
+Button[] x2;
+
+Object[] x3;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1023">
+Note the empty square brackets that are required in the variable 
+	declarations in 
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1015" effect="bold">
+The special case of type Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+In addition, a reference to an array object may be assigned to a reference 
+variable of type 
+
+<emphasis id="strong1016" effect="bold">
+Object
+
+</emphasis>
+ as shown in 
+
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, 
+where 
+
+<emphasis id="strong1017" effect="bold">
+x4
+
+</emphasis>
+ is a reference to an array object.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The special case of type Object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">Object x4;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+Note that there are 
+
+<emphasis id="em1013" effect="italics">
+no square brackets
+
+</emphasis>
+ in the statement in 
+	
+
+<link id="a1023" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1018" effect="bold">
+What does this mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+This means that like ordinary objects, a reference to an array object 
+
+<emphasis id="em1014" effect="italics">
+can be 
+treated 
+
+</emphasis>
+as type 
+
+<emphasis id="strong1019" effect="bold">
+Object 
+
+</emphasis>
+<emphasis id="em1015" effect="italics">
+(with no square brackets).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+This further means that any of the methods defined in the 
+
+<emphasis id="strong1020" effect="bold">
+Object
+
+</emphasis>
+ class
+
+
+<emphasis id="em1016" effect="italics">
+(such as the 
+
+<emphasis id="strong1021" effect="bold">
+toString
+
+</emphasis>
+ and 
+
+<emphasis id="strong1022" effect="bold">
+getClass
+
+</emphasis>
+ methods) 
+
+</emphasis>
+can be called 
+on a reference to an array object. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1023" effect="bold">
+The String representation of an array object's reference
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+For example, when the 
+
+<emphasis id="strong1024" effect="bold">
+toString
+
+</emphasis>
+ method is called on a reference to an 
+array object containing data of type 
+
+<emphasis id="strong1025" effect="bold">
+int
+
+</emphasis>
+, the resulting string will be 
+similar to the following: 
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">[I@73d6a5 </code>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1026" effect="bold">
+Pretty ugly, huh?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+You may recognize this as being similar to the default 
+
+<emphasis id="strong1027" effect="bold">
+String
+
+</emphasis>
+ returned 
+by calling the 
+
+<emphasis id="strong1028" effect="bold">
+toString
+
+</emphasis>
+ method on an ordinary object with the name of the 
+class for the ordinary object being replaced by 
+
+<emphasis id="strong1029" effect="bold">
+[I
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+For example, the 
+
+<emphasis id="strong1030" effect="bold">
+String 
+
+</emphasis>
+returned by calling the 
+
+<emphasis id="strong1031" effect="bold">
+toString
+
+</emphasis>
+ method 
+on an object of the class named 
+
+<emphasis id="strong1032" effect="bold">
+Array04
+
+</emphasis>
+, 
+
+<emphasis id="em1017" effect="italics">
+(with no overridden toString 
+method), 
+
+</emphasis>
+looks something like the following. 
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">Array04@73d6a5 </code>
+
+
+
+
+<para id="p1035">
+<emphasis id="em1018" effect="italics">
+(Note that the hexadecimal numeric values following the @ in both of the 
+above examples will change from one case to the next.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1033" effect="bold">
+Calling the getClass method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+Similarly, calling the 
+
+<emphasis id="strong1034" effect="bold">
+getClass
+
+</emphasis>
+ method on references to array objects 
+containing data of the types 
+
+<emphasis id="strong1035" effect="bold">
+Array04
+
+</emphasis>
+, 
+
+<emphasis id="strong1036" effect="bold">
+Button
+
+</emphasis>
+, and 
+
+<emphasis id="strong1037" effect="bold">
+int
+
+</emphasis>
+, 
+respectively, and then calling the 
+
+<emphasis id="strong1038" effect="bold">
+toString
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1039" effect="bold">
+Class
+
+</emphasis>
+ 
+objects returned by the 
+
+<emphasis id="strong1040" effect="bold">
+getClass
+
+</emphasis>
+ method, produces the following: 
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">class [LArray04;
+class [Ljava.awt.Button;
+class [I</code>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1041" effect="bold">
+Complicating the OOP structure
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+I made the following statement in an earlier paragraph:
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="em1019" effect="italics">
+"The existence of array objects also tends to complicate the OOP structure 
+of a Java program consisting only of ordinary objects."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1042" effect="bold">
+Array object is not a subclass of class Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+An array object can be treated as type 
+
+<emphasis id="strong1043" effect="bold">
+Object
+
+</emphasis>
+ for purposes of calling 
+the methods of the 
+
+<emphasis id="strong1044" effect="bold">
+Object
+
+</emphasis>
+ class on the reference to the array object. 
+However, it would probably be misleading to say that an array object is 
+instantiated from a subclass of the 
+
+<emphasis id="strong1045" effect="bold">
+Object
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1046" effect="bold">
+The new operator and the constructor name
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+Ordinary objects are created by applying the 
+
+<emphasis id="strong1047" effect="bold">
+new
+
+</emphasis>
+ operator to the 
+constructor for a class, where the name of the constructor is always the same as 
+the name of the class. That is not the case with array objects. Array objects 
+are created by applying the 
+
+<emphasis id="strong1048" effect="bold">
+new
+
+</emphasis>
+ operator to the name of the type of data 
+to be encapsulated in the array object. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1049" effect="bold">
+Passing parameters versus square-bracket notation
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+In addition, whereas the instantiation of ordinary objects involves 
+parameters passed in parentheses, a square-bracket notation is used instead of 
+parentheses to create an array object. The value in the square brackets 
+specifies the 
+
+<emphasis id="strong1050" effect="bold">
+length
+
+</emphasis>
+ of the array. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1051" effect="bold">
+Creating an array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+Array objects 
+
+<emphasis id="em1020" effect="italics">
+(with 
+
+<emphasis id="strong1052" effect="bold">
+default
+
+</emphasis>
+ initialization values)
+
+</emphasis>
+ are created by 
+applying the 
+
+<emphasis id="strong1053" effect="bold">
+new
+
+</emphasis>
+ operator to the name of the data type to be stored in 
+the array, using a square-bracket notation. An example is shown by the 
+right-hand portion of the first statement in 
+
+<link id="a1024" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Creating array objects.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1006" display="block">int[] x1 = new int[5];
+
+int[] x2 = {1,2,3,4,5};</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1049">
+<emphasis id="strong1054" effect="bold">
+A five-element array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The first statement in 
+
+<link id="a1025" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ creates an array 
+object capable of storing five values of type 
+
+<emphasis id="strong1055" effect="bold">
+int
+
+</emphasis>
+. The statement also assigns the array object's 
+reference to the newly-declared reference variable named 
+
+<emphasis id="strong1056" effect="bold">
+x1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1057" effect="bold">
+Default initial values
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+Each element in the array is initialized to the default value zero.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="em1021" effect="italics">
+(All array elements created in this manner receive a default initial 
+value. Numeric primitive types receive an initial value of zero. Elements of 
+type 
+
+<emphasis id="strong1058" effect="bold">
+boolean
+
+</emphasis>
+ receive an initial value of 
+
+<emphasis id="strong1059" effect="bold">
+false
+
+</emphasis>
+. Elements whose 
+type is the name of a class or the name of an interface receive an initial value 
+of 
+
+<emphasis id="strong1060" effect="bold">
+null
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1061" effect="bold">
+Explicit initialization
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+The second statement in 
+
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ also creates an 
+array object capable of storing five values of type 
+
+<emphasis id="strong1062" effect="bold">
+int
+
+</emphasis>
+, but in this case, the values in the 
+elements are explicitly initialized to the values shown.
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<emphasis id="em1022" effect="italics">
+(Note that the 
+
+<emphasis id="strong1063" effect="bold">
+new
+
+</emphasis>
+ operator is not used in the second statement in 
+
+
+<link id="a1027" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+. This is also a significant departure from the syntax used to 
+instantiate ordinary objects.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+This array object's reference is assigned to the reference variable named 
+
+<emphasis id="strong1064" effect="bold">
+x2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1065" effect="bold">
+Note the empty square brackets in the variable declarations
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+The syntax of the type specification for the reference variable in each 
+statement in 
+
+<link id="a1028" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+is different from the syntax used in the type specification for either a 
+primitive variable or an ordinary class type reference variable 
+
+<emphasis id="em1023" effect="italics">
+(note the 
+square brackets on the left in 
+
+<link id="a1029" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+)
+
+</emphasis>
+. In 
+
+<link id="a1030" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, 
+the type specifications indicate that each variable is capable of holding a 
+reference to an array object. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1066" effect="bold">
+The size of the array
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+Furthermore, the empty square brackets 
+
+<emphasis id="em1024" effect="italics">
+(in the declaration of the 
+reference variable)
+
+</emphasis>
+ indicate that the reference variable doesn't know 
+
+<emphasis id="em1025" effect="italics">
+
+(and doesn't care)
+
+</emphasis>
+ about the size of the array to which it may refer. Each 
+of the reference variables declared in 
+
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ can 
+refer to a one-dimensional array object of any size. Also, each of the reference 
+variables can refer to different array objects at different points in time 
+during the execution of the program.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1067" effect="bold">
+The Array class
+
+</emphasis>
+
+				
+
+<para id="p1062">
+As an aside, let me mention that there is a class named 
+
+<emphasis id="strong1068" effect="bold">
+
+				Array
+
+</emphasis>
+, which provides 
+
+<emphasis id="strong1069" effect="bold">
+static
+
+</emphasis>
+ methods to 
+				dynamically create and access Java arrays. The use of the 
+				methods of this class makes it possible to handle arrays with a 
+				programming style similar to the programming style typically 
+				used with ordinary objects. However, the use of the methods of 
+				the 
+
+<emphasis id="strong1070" effect="bold">
+Array
+
+</emphasis>
+ class tends to require more programming effort 
+				than the square-bracket notation discussed in this module. I 
+				will discuss a sample program that illustrates the methods of 
+				the 
+
+<emphasis id="strong1071" effect="bold">
+Array
+
+</emphasis>
+ class in a future module.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1063">
+<emphasis id="strong1072" effect="bold">
+Encapsulating a group of variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+As is the case with other languages that support arrays, array objects in 
+Java encapsulate a group of variables. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+Zero or more variables may be encapsulated in an array object. If the number 
+is zero, the array object is said to be empty.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="em1026" effect="italics">
+(An example of an empty array object is the 
+
+<emphasis id="strong1073" effect="bold">
+String[]
+
+</emphasis>
+ 
+array passed to the 
+
+<emphasis id="strong1074" effect="bold">
+main
+
+</emphasis>
+ method in a Java application when the user doesn't enter 
+any arguments at the command line.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1075" effect="bold">
+No individual names
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Also, as with other languages that support arrays, the variables encapsulated 
+in an array object don't have individual names. Rather, they are referenced 
+using positive integer index values.
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="em1027" effect="italics">
+(Typically, in Java, the index is placed in square brackets, which are 
+applied to the name of the reference variable holding a reference to the array 
+object.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1076" effect="bold">
+Elements or components?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+It is common in the literature to refer to the variables that make up an 
+array as its 
+
+<emphasis id="em1028" effect="italics">
+elements
+
+</emphasis>
+. However, the Java specification refers to them as
+
+
+<emphasis id="em1029" effect="italics">
+components. 
+
+</emphasis>
+The specification ascribes a different meaning to the word 
+element, as shown in the following quotation from the specification:
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="em1030" effect="italics">
+"The value of an array component of type 
+
+<emphasis id="strong1077" effect="bold">
+float
+
+</emphasis>
+ is always 
+an element of the 
+
+<emphasis id="strong1078" effect="bold">
+float
+
+</emphasis>
+ value set ...; similarly, the value of 
+an array component of type 
+
+<emphasis id="strong1079" effect="bold">
+double
+
+</emphasis>
+ is always an element of the
+
+
+<emphasis id="strong1080" effect="bold">
+double
+
+</emphasis>
+ value set."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+Another quotation from Sun 
+
+<emphasis id="em1031" effect="italics">
+(shown later in this module)
+
+</emphasis>
+ provides a somewhat 
+clearer distinction between the words 
+
+<emphasis id="em1032" effect="italics">
+component
+
+</emphasis>
+ and 
+
+<emphasis id="em1033" effect="italics">
+element
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="em1034" effect="italics">
+(However, from force of habit, I will probability use component and 
+element interchangeably in this module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1081" effect="bold">
+The length of an array
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+If an array has 
+
+<emphasis id="strong1082" effect="bold">
+n
+
+</emphasis>
+ components, the 
+
+<emphasis id="strong1083" effect="bold">
+length
+
+</emphasis>
+ of the array 
+is 
+
+<emphasis id="strong1084" effect="bold">
+n
+
+</emphasis>
+. 
+The components of the array are referenced using integer indices from 0 to (n - 
+1), inclusive. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1085" effect="bold">
+Another quotation from Sun
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1078">
+Here is another quotation from the Java specification that explains the type 
+specifications for the variable declarations in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+and 
+
+<link id="a1033" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="em1035" effect="italics">
+"All the components of an array have the same type, called the component 
+type of the array. If the component type of an array is T, then the type of the 
+array itself is written T[]."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1086" effect="bold">
+Components may be of an array type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+As of this writing, all array objects in 
+Java encapsulate one-dimensional arrays 
+
+<emphasis id="em1036" effect="italics">
+(I have read that this may change in 
+the future).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1082">
+The component type of an array may itself be an array type. This makes it 
+possible to create array objects whose individual components refer to other 
+array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1087" effect="bold">
+Multi-dimensional or ragged arrays
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+One way to think of this is to think of the second level of array objects as 
+being sub-arrays of the original array object. This construct can be used to 
+create multi-dimensional array structures.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="em1037" effect="italics">
+(The geometry of such multi-dimensional array structures is not 
+constrained to be rectangles, cubes, etc., as is the requirement in many other 
+languages. Some authors may refer to this as ragged arrays.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+<emphasis id="strong1088" effect="bold">
+Tree structures
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+This process of having the components of an array contain references to 
+sub-arrays can be continued indefinitely 
+
+<emphasis id="em1038" effect="italics">
+(well, maybe not indefinitely, but 
+further than I care to contemplate).
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="em1039" effect="italics">
+(This can be thought of as a tree structure where each array object 
+containing references to other array objects is a node in the tree.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1089" effect="bold">
+The leaves of the tree
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+Eventually, the components 
+
+<emphasis id="em1040" effect="italics">
+(the leaves of the tree structure)
+
+</emphasis>
+ must 
+refer to a component type that is not an array type. According to Sun:
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="em1041" effect="italics">
+"... this is called the element type of the original array, and the 
+
+<emphasis id="strong1090" effect="bold">
+
+components
+
+</emphasis>
+ at this level of the data structure are called the 
+
+<emphasis id="strong1091" effect="bold">
+elements
+
+</emphasis>
+ 
+of the original array."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1092" effect="bold">
+Component versus element
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+Hopefully, the above quotation provides a somewhat clearer distinction 
+between the use of the words 
+
+<emphasis id="em1042" effect="italics">
+component
+
+</emphasis>
+ and 
+
+<emphasis id="em1043" effect="italics">
+element
+
+</emphasis>
+ than was presented earlier 
+but then again, maybe not. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1093" effect="bold">
+Generic references
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+Any array object's reference can also be assigned to reference variables 
+of the types 
+
+<emphasis id="strong1094" effect="bold">
+Object
+
+</emphasis>
+, 
+
+<emphasis id="strong1095" effect="bold">
+Cloneable
+
+</emphasis>
+, or 
+
+<emphasis id="strong1096" effect="bold">
+Serializable
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="em1044" effect="italics">
+(
+
+<emphasis id="strong1097" effect="bold">
+Object
+
+</emphasis>
+ is the class at the top of the inheritance hierarchy. 
+
+<emphasis id="strong1098" effect="bold">
+
+Cloneable
+
+</emphasis>
+ and 
+
+<emphasis id="strong1099" effect="bold">
+Serializable
+
+</emphasis>
+ are interfaces, which are implemented by 
+all array objects. Thus, a reference to an array object can be treated as any of 
+these three types.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1100" effect="bold">
+Generic array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+Therefore, if the element type of an array object is one of these types, the 
+elements in the array can refer to: 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+Other array objects
+
+</item>
+
+
+	
+
+<item id="li1024">
+Ordinary objects
+
+</item>
+
+
+	
+
+<item id="li1025">
+A mixture of the two
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1099">
+This is illustrated in the sample program named 
+
+<emphasis id="strong1101" effect="bold">
+Array05
+
+</emphasis>
+ shown in
+
+
+<link id="a1034" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1102" effect="bold">
+Will explain in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+I will explain this program in fragments. 
+
+<link id="a1035" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+shows the beginning of the controlling class and the beginning of the 
+
+<emphasis id="strong1103" effect="bold">
+main
+
+</emphasis>
+ method 
+for the program named 
+
+<emphasis id="strong1104" effect="bold">
+Array05
+
+</emphasis>
+.. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The beginning of the 
+				class named Array05.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1007" display="block">
+public class Array05{
+  public static void main(String[] args){
+    int[] v1 = {1,2,3,4,5};
+    Object[] v2 = new Object[2];</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1102">
+ 
+
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+	creates two array objects. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1105" effect="bold">
+An array of type int
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+The first array object is a five-element array of element type 
+
+<emphasis id="strong1106" effect="bold">
+int
+
+</emphasis>
+, 
+with the element values initialized as shown by the values within the curly 
+brackets. The reference to this array object is assigned to the reference 
+variable named 
+
+<emphasis id="strong1107" effect="bold">
+v1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1108" effect="bold">
+An array of element type Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+The second array object is a two-element array of element type 
+
+<emphasis id="strong1109" effect="bold">
+Object
+
+</emphasis>
+, 
+with each of the element values initialized to their default value of 
+
+<emphasis id="strong1110" effect="bold">
+null
+
+</emphasis>
+. 
+The reference to the array object is assigned to the reference variable named 
+
+<emphasis id="strong1111" effect="bold">
+
+v2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="em1045" effect="italics">
+(Note that unlike the previous discussion of 
+
+<emphasis id="strong1112" effect="bold">
+Object
+
+</emphasis>
+, the 
+declaration of the reference variable in this case does include empty square 
+brackets. I will have more to say about this later.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1113" effect="bold">
+A new object of this class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+<link id="a1037" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ creates a new 
+
+<emphasis id="em1046" effect="italics">
+ordinary object
+
+</emphasis>
+ of 
+class 
+
+<emphasis id="strong1114" effect="bold">
+Array05
+
+</emphasis>
+. The code assigns the object's reference to the first 
+element in the array object of element type 
+
+<emphasis id="strong1115" effect="bold">
+Object
+
+</emphasis>
+, referred to by the 
+reference variable named 
+
+<emphasis id="strong1116" effect="bold">
+v2
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. A new ordinary object of 
+				class Array05.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1008" display="block">
+    v2[0] = new Array05();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1110">
+This is allowable because the reference to an object of any class can be 
+	assigned to a reference variable of type 
+
+<emphasis id="strong1117" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="em1047" effect="italics">
+(The array object referred to by 
+
+<emphasis id="strong1118" effect="bold">
+v2
+
+</emphasis>
+ contains two elements, each of 
+which is a reference variable of type 
+
+<emphasis id="strong1119" effect="bold">
+Object
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1120" effect="bold">
+Populate the second element
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+The code in 
+
+<link id="a1038" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ assigns the reference that 
+points to the existing array object of 
+the element type 
+
+<emphasis id="strong1121" effect="bold">
+int
+
+</emphasis>
+ to the second element in the array object of element 
+type 
+
+<emphasis id="strong1122" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Populate the second element.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1009" display="block">
+    v2[1] = v1;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1114">
+This is allowable because a reference to any array object can be assigned 
+	to a reference variable of type 
+
+<emphasis id="strong1123" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1124" effect="bold">
+Array contains two references
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+At this point, the array object of element type 
+
+<emphasis id="strong1125" effect="bold">
+Object
+
+</emphasis>
+ contains two 
+references.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="em1048" effect="italics">
+(Each of the elements in an array of the declared type 
+
+<emphasis id="strong1126" effect="bold">
+Object[]
+
+</emphasis>
+ is 
+a reference of type 
+
+<emphasis id="strong1127" effect="bold">
+Object
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1118">
+The first element refers to an ordinary object of the class 
+
+<emphasis id="strong1128" effect="bold">
+Array05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1119">
+The second element refers to an array object of type 
+
+<emphasis id="strong1129" effect="bold">
+int
+
+</emphasis>
+, having five 
+elements, populated with the integer values of 1 through 5 inclusive.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<emphasis id="em1049" effect="italics">
+(Note that this is not a multi-dimensional array in the traditional sense. 
+I will discuss the Java approach to such multi-dimensional arrays in the next 
+module. This is simply a generic array of element type 
+
+<emphasis id="strong1130" effect="bold">
+Object
+
+</emphasis>
+, one 
+element of which happens to contain a reference to an array object of type 
+
+<emphasis id="strong1131" effect="bold">
+
+int
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1132" effect="bold">
+Print some data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+The code in
+
+<link id="a1039" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ passes each of the references 
+to the 
+
+<emphasis id="strong1133" effect="bold">
+println
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1134" effect="bold">
+PrintStream
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Print some data.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1010" display="block">
+    System.out.println(v2[0]);
+    System.out.println(v2[1]);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1123">
+The 
+
+<emphasis id="strong1135" effect="bold">
+println
+
+</emphasis>
+ method causes the 
+
+<emphasis id="strong1136" effect="bold">
+toString
+
+</emphasis>
+ method to be called 
+	on each reference. The 
+
+<emphasis id="strong1137" effect="bold">
+String
+
+</emphasis>
+ returned by the 
+
+<emphasis id="strong1138" effect="bold">
+toString
+
+</emphasis>
+ method 
+	is displayed on the computer screen in each case. 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+This is allowable because any method defined in the 
+
+<emphasis id="strong1139" effect="bold">
+Object
+
+</emphasis>
+ class 
+
+<emphasis id="em1050" effect="italics">
+
+(including the 
+
+<emphasis id="strong1140" effect="bold">
+toString
+
+</emphasis>
+ method)
+
+</emphasis>
+ can be called on any reference stored 
+in a reference variable of type 
+
+<emphasis id="strong1141" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+This is true regardless of whether that reference is a reference to an 
+ordinary object or a reference to an array object. 
+
+</para>
+
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1142" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<link id="a1040" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ causes the following two lines of text to 
+be displayed: 
+
+</para>
+
+
+
+
+
+<code id="pre1011" display="block">Array05@73d6a5
+[I@111f71</code>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1143" effect="bold">
+Pretty ugly, huh?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+In both cases, this is the value of the 
+
+<emphasis id="strong1144" effect="bold">
+String
+
+</emphasis>
+ returned by the default 
+version of the 
+
+<emphasis id="strong1145" effect="bold">
+toString
+
+</emphasis>
+ method defined in the 
+
+<emphasis id="strong1146" effect="bold">
+Object
+
+</emphasis>
+ class. Here 
+is what Sun has to say about that default behavior:
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<emphasis id="em1051" effect="italics">
+"Returns a string representation of the object. In general, the 
+
+<emphasis id="strong1147" effect="bold">
+
+toString
+
+</emphasis>
+ method returns a string that "textually represents" this object. 
+The result should be a concise but informative representation that is easy for a 
+person to read. It is recommended that all subclasses override this method.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="em1052" effect="italics">
+The 
+
+<emphasis id="strong1148" effect="bold">
+toString
+
+</emphasis>
+ method for class 
+
+<emphasis id="strong1149" effect="bold">
+Object
+
+</emphasis>
+ returns a string 
+consisting of the name of the class of which the object is an instance, the 
+at-sign character `@', and the unsigned hexadecimal representation of the hash 
+code of the object."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1150" effect="bold">
+Doesn't address array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+Obviously, this description of behavior doesn't address the case where the 
+object is an array object, unless the characters 
+
+<emphasis id="strong1151" effect="bold">
+[I
+
+</emphasis>
+ are considered to be 
+the name of a class. 
+
+<emphasis id="em1053" effect="italics">
+(I will have a little more to say about this later.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1152" effect="bold">
+Produce some more output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+Finally, 
+
+<link id="a1041" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ shows the last statement in this 
+simple program. 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Produce some more output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1012" display="block">
+    System.out.println( ( (int[])v2[1] )[4] );
+  }//end main
+}//end class Array05</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1136">
+<emphasis id="strong1153" effect="bold">
+What does this mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+As you can see, the syntax of this statement is pretty ugly. 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+Values are accessed from an array object by following the array's reference 
+with a pair of square brackets containing an integer index value as follows:
+
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">v2[1]</code>
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1154" effect="bold">
+Get the value at index 1 as type Object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+This code begins by accessing the component at index value 1 of the array 
+object referred to by the reference variable named 
+
+<emphasis id="strong1155" effect="bold">
+v2
+
+</emphasis>
+<emphasis id="em1054" effect="italics">
+.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+The value retrieved is a reference, and is retrieved as type 
+
+<emphasis id="strong1156" effect="bold">
+Object
+
+</emphasis>
+,
+
+
+<emphasis id="em1055" effect="italics">
+(because the variable named 
+
+<emphasis id="strong1157" effect="bold">
+v2
+
+</emphasis>
+ was declared to be of type 
+
+<emphasis id="strong1158" effect="bold">
+Object[]
+
+</emphasis>
+).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1159" effect="bold">
+A cast is required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+A cast is used to convert from type 
+
+<emphasis id="strong1160" effect="bold">
+Object[] 
+
+</emphasis>
+to type 
+
+<emphasis id="strong1161" effect="bold">
+int[]
+
+</emphasis>
+ using 
+the following code:
+
+</para>
+
+
+
+
+
+<code id="pre1014" display="block">(int[])</code>
+
+
+
+
+<para id="p1144">
+This produces a reference to an 
+array object capable of containing values of type 
+
+<emphasis id="strong1162" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1163" effect="bold">
+Apply index to the int array
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+After the type of the reference has been converted, the accessor 
+
+<emphasis id="strong1164" effect="bold">
+[4]
+
+</emphasis>
+ 
+is applied to the reference. This causes the 
+
+<emphasis id="strong1165" effect="bold">
+int
+
+</emphasis>
+ value stored in the 
+array object of type 
+
+<emphasis id="strong1166" effect="bold">
+int
+
+</emphasis>
+ 
+
+<emphasis id="em1056" effect="italics">
+(at index value 4)
+
+</emphasis>
+ to be returned.
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="em1057" effect="italics">
+(If you refer back to 
+
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, you will see that the integer value 5 was 
+stored in the element at index value 4 of this array object.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+You should try to remember this syntax and compare it with the syntax used in 
+the Java approach to traditional multi-dimensional arrays, which I will discuss 
+in the next module.
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1167" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1150">
+Thus, the code in 
+
+<link id="a1043" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ causes the number 5 to be displayed on the 
+computer screen. 
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1168" effect="bold">
+Let's recap
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+To recap, the program named 
+
+<emphasis id="strong1169" effect="bold">
+Array05
+
+</emphasis>
+ creates a two-element array object 
+capable of storing references of type 
+
+<emphasis id="strong1170" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1171" effect="bold">
+Object is generic
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1154">
+Because 
+
+<emphasis id="strong1172" effect="bold">
+Object
+
+</emphasis>
+ is a completely generic type, each of 
+the elements in the array is capable of storing a reference to any ordinary 
+object, or storing a reference to any array object. 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1173" effect="bold">
+Store reference to ordinary object in generic array
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+The first element in the array is populated with a reference to an ordinary 
+object instantiated from the class named 
+
+<emphasis id="strong1174" effect="bold">
+Array05
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1157">
+<emphasis id="em1058" effect="italics">
+(Important: The actual object does not occupy the array element. Rather, 
+the actual object exists someplace else in memory, and a reference to the object 
+occupies the array element.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1158">
+<emphasis id="strong1175" effect="bold">
+Store a reference to an array object in the generic array
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1159">
+The second element in the array of element type 
+
+<emphasis id="strong1176" effect="bold">
+Object
+
+</emphasis>
+ is populated 
+with a reference to another array object capable of containing elements of type
+
+
+<emphasis id="strong1177" effect="bold">
+int
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+As above, the actual array object of type 
+
+<emphasis id="strong1178" effect="bold">
+int
+
+</emphasis>
+ does not occupy the 
+second element. Rather, that array object exists someplace else in memory, and a 
+reference to the array object occupies the second element in the array of 
+element type 
+
+<emphasis id="strong1179" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1180" effect="bold">
+Display some data
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+After the array object of element type 
+
+<emphasis id="strong1181" effect="bold">
+Object
+
+</emphasis>
+ is created and 
+populated, three print statements are executed to display information about the 
+array object and its contents 
+
+<emphasis id="em1059" effect="italics">
+(those print statements are shown in 
+
+
+<link id="a1044" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ 
+and 
+
+</emphasis>
+ 
+
+<link id="a1045" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+
+<emphasis id="em1060" effect="italics">
+).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1163">
+The print statements produce the following output on the computer screen: 
+
+</para>
+
+
+
+
+
+<code id="pre1015" display="block">Array05@73d6a5
+[I@111f71
+5</code>
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1182" effect="bold">
+Default textual representation of ordinary object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1165">
+The first line of output is the default textual representation of the 
+ordinary object, achieved by calling the default 
+
+<emphasis id="strong1183" effect="bold">
+toString
+
+</emphasis>
+ method on the 
+reference to the ordinary object. 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1184" effect="bold">
+Default textual representation of array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+The second line of output is the textual representation of the array object 
+of type 
+
+<emphasis id="strong1185" effect="bold">
+int[]
+
+</emphasis>
+, achieved by calling the default 
+
+<emphasis id="strong1186" effect="bold">
+toString
+
+</emphasis>
+ method on 
+the reference to the array object. 
+
+</para>
+
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1187" effect="bold">
+Primitive value stored in array object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1169">
+The third line of text is the value stored in element index 4 of the 
+
+<emphasis id="strong1188" effect="bold">
+int[]
+
+</emphasis>
+ 
+array object whose reference is stored in element index 1 of the array object of 
+element type 
+
+<emphasis id="strong1189" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1190" effect="bold">
+Primitive versus non-primitive array element contents
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1171">
+References to objects are stored in the elements of non-primitive array 
+objects. The objects themselves exist somewhere else in memory.
+
+</para>
+
+
+
+
+
+<para id="p1172">
+Actual primitive values are stored in the elements of 
+a primitive array object.
+
+</para>
+
+
+
+
+
+<para id="p1173">
+Thus, the elements of an array object contain actual primitive 
+values, null references, or actual references to ordinary or array objects, 
+depending on the type of the elements of the array object.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1174">
+This module begins the discussion of array objects in Java.
+
+</para>
+
+
+
+
+
+<para id="p1175">
+The existence of array objects tends to complicate the OOP structure of a 
+Java program otherwise consisting only of ordinary objects. 
+
+</para>
+
+
+
+
+
+<para id="p1176">
+A completely different syntax is required to create array objects than the 
+syntax normally used to instantiate ordinary objects. Ordinary objects are 
+normally instantiated by applying the 
+
+<emphasis id="strong1191" effect="bold">
+new
+
+</emphasis>
+ operator to the constructor for 
+the target class passing parameters between a pair of matching parentheses. 
+
+</para>
+
+
+
+
+
+<para id="p1177">
+Array objects 
+
+<emphasis id="em1061" effect="italics">
+(with default initialization)
+
+</emphasis>
+ are created using the 
+
+<emphasis id="strong1192" effect="bold">
+
+new
+
+</emphasis>
+ operator, the type of data to be encapsulated in the array, and a 
+square-bracket notation to specify the 
+
+<emphasis id="strong1193" effect="bold">
+length
+
+</emphasis>
+ of the array encapsulated 
+in the object. 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+Array objects with explicit initialization are created using a 
+comma-separated list of expressions enclosed in curly brackets. 
+
+</para>
+
+
+
+
+
+<para id="p1179">
+Arrays in Java are objects, which are dynamically created and allocated to 
+dynamic memory. 
+
+</para>
+
+
+
+
+
+<para id="p1180">
+Like ordinary objects, array objects are accessed via references. The type of 
+such a reference is considered to be 
+
+<emphasis id="strong1194" effect="bold">
+TypeName[]
+
+</emphasis>
+ 
+
+<emphasis id="em1062" effect="italics">
+(note the empty square 
+brackets in the type specification).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1181">
+A reference to an array object can also be assigned to a reference variable 
+of type 
+
+<emphasis id="strong1195" effect="bold">
+Object
+
+</emphasis>
+ 
+
+<emphasis id="em1063" effect="italics">
+(note the absence of square brackets).
+
+</emphasis>
+ Thus, any of 
+the methods of the 
+
+<emphasis id="strong1196" effect="bold">
+Object
+
+</emphasis>
+ class can be called on a reference to an array 
+object. 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+As is the case with other languages that support arrays, array objects in 
+Java encapsulate a group of zero or more variables. The variables encapsulated 
+in an array object don't have individual names. Rather, they are accessed using 
+positive integer index values. 
+
+</para>
+
+
+
+
+
+<para id="p1183">
+The integer indices of a Java array object always extend from 
+
+<emphasis id="strong1197" effect="bold">
+0
+
+</emphasis>
+ to 
+
+<emphasis id="strong1198" effect="bold">
+
+(n-1)
+
+</emphasis>
+ where 
+
+<emphasis id="strong1199" effect="bold">
+n
+
+</emphasis>
+ is the 
+
+<emphasis id="strong1200" effect="bold">
+length
+
+</emphasis>
+ of the array object. 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+As of the time of this writing, all array objects in Java encapsulate 
+one-dimensional arrays. However, the component type of an array may itself be an 
+array type. This makes it possible to create array objects whose individual 
+components refer to other array objects. This is the mechanism for creating 
+
+<emphasis id="em1064" effect="italics">
+
+multi-dimensional
+
+</emphasis>
+ or 
+
+<emphasis id="em1065" effect="italics">
+ragged
+
+</emphasis>
+ arrays in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1185">
+The reference to any array object can be assigned to reference variables of 
+the types 
+
+<emphasis id="strong1201" effect="bold">
+Object
+
+</emphasis>
+, 
+
+<emphasis id="strong1202" effect="bold">
+Cloneable
+
+</emphasis>
+, or 
+
+<emphasis id="strong1203" effect="bold">
+Serializable
+
+</emphasis>
+. If the 
+element type of an array object is one of these types, the elements in the array 
+can refer to:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1026">
+Other array objects
+
+</item>
+
+
+	
+
+<item id="li1027">
+Ordinary objects
+
+</item>
+
+
+	
+
+<item id="li1028">
+A mixture of the two
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1186">
+This module has barely scratched the surface in explaining how array objects 
+fit into the grand scheme of things in OOP using Java. In the next module, I 
+will continue the discussion, showing you some of the 
+
+<emphasis id="em1066" effect="italics">
+(often complex)
+
+</emphasis>
+ 
+aspects of using Java array objects to emulate traditional
+
+<emphasis id="em1067" effect="italics">
+ multi-dimensional
+
+</emphasis>
+ 
+arrays. I will also show you how to create 
+
+<emphasis id="em1068" effect="italics">
+ragged
+
+</emphasis>
+ arrays in Java. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1187">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1204" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1008" list-type="bulleted">
+
+					
+
+<item id="li1029">
+Module name: Java OOP: Array Objects, Part 1
+
+</item>
+
+
+					
+
+<item id="li1030">
+File: Java1622.htm
+
+
+</item>
+
+
+					
+
+<item id="li1031">
+Published: 05/15/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1205" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1188">
+<emphasis id="strong1206" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1189">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1190">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1191">
+<emphasis id="strong1207" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1192">
+A complete listing of the program is shown in 
+
+<link id="a1046" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+below.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Complete program listing.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1016" display="block">
+/*File Array05.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates storage of
+references to ordinary objects and
+references to array objects in the
+same array object of type Object.
+
+Program output is:
+
+Array05@73d6a5
+[I@111f71
+5
+**************************************/
+
+public class Array05{
+  public static void main(
+                        String[] args){
+
+    int[] v1 = {1,2,3,4,5};
+    Object[] v2 = new Object[2];
+    v2[0] = new Array05();
+    v2[1] = v1;
+
+    System.out.println(v2[0]);
+    System.out.println(v2[1]);
+    System.out.println(
+                    ((int[])v2[1])[4]);
+  }//end main
+}//end class Array05</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1193">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

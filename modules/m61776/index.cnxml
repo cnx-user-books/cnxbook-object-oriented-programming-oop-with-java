@@ -1,0 +1,1725 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Json0200R: Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m61776</md:content-id>
+  <md:title>Json0200R: Review</md:title>
+  <md:abstract>This page contains review questions and answers for the page titled "Json0200 The What and Why of JSON" in the book titled "The json-simple Java Library".</md:abstract>
+  <md:uuid>2a2c8669-79a2-440b-8aa2-139b14d15f3f</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Fri Jun 03 14:06:45 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+        
+
+<item id="li1000">
+
+        
+
+<link id="a1000" url="http://cnx.org/contents/5sRB9gpG">
+
+
+<emphasis id="em1001" effect="italics">
+The json-simple Java Library
+
+</emphasis>
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/yWyT-uhM">
+
+
+<emphasis id="em1002" effect="italics">
+INEW2338 - Advanced Java Programming
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+
+	
+
+<link id="a1002" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1003" effect="italics">
+Object-Oriented Programming (OOP) with Java
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1003">
+<link id="a1003" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1005">
+<link id="a1005" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1006">
+<link id="a1006" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="question07">
+
+Question 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="question08">
+
+Question 8
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_index">
+
+Figure index
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1016">
+<link id="a1016" target-id="answer08">
+
+Answer 8
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1021">
+<link id="a1021" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1022">
+<link id="a1022" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1023">
+<link id="a1023" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1024">
+<link id="a1024" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1025">
+<link id="a1025" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This is a page from the book titled 
+
+<emphasis id="strong1000" effect="bold">
+The json-simple Java Library
+
+</emphasis>
+. 
+The book explains how to use the 
+
+<emphasis id="strong1001" effect="bold">
+json-simple
+
+</emphasis>
+ Java library to 
+generate, transform, and query JSON text. This page provides review questions 
+and answers for the page titled 
+
+
+<link id="a1026" url="http://cnx.org/contents/5sRB9gpG:A-LhzKT_">
+
+Json0200 The What and Why of 
+JSON
+
+</link>
+
+. Once you study that page, you should be able to answer the review 
+questions in this page.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers in this page are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+The Figures and Listings 
+
+<emphasis id="em1004" effect="italics">
+(if any)
+
+</emphasis>
+ are grouped together. It is recommend that when a question 
+or an answer refers to a Figure or a Listing, that you open it in a new window to 
+make it easy to view it while reading the question or the answer.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1002" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1005">
+True or False? JSON is an acronym for "Java Object Names."
+
+</para>
+
+
+
+
+
+
+<para id="p1006">
+<link id="a1027" target-id="answer01">
+
+Go to answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+True or False? JSON is based on a subset of the JavaScript Programming 
+Language.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<link id="a1028" target-id="answer02">
+
+Go to answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1009">
+True or False? JSON is a text format that is language independent but uses 
+conventions that are familiar to programmers of the C-family of languages 
+including C, C++, C#, Java, JavaScript, Perl, Python, Visual Basic, and many 
+others.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<link id="a1029" target-id="answer03">
+
+Go to answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+True or False? JSON is part of the JavaScript programming language.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<link id="a1030" target-id="answer04">
+
+Go to answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+True or False? JSON can represent three structured types: objects, arrays, 
+and conditionals.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<link id="a1031" target-id="answer05">
+
+Go to answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+True or False? 
+
+<link id="a1032" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows a JSON text string 
+containing name/value pairs as well as nested arrays.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<link id="a1033" target-id="answer06">
+
+Go to answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+True or False? JSON is important in the implementation of
+
+
+<link id="a1034" url="https://en.wikipedia.org/wiki/Big_data">
+
+Big Data
+
+</link>
+
+ 
+
+<link id="a1035" url="https://en.wikipedia.org/wiki/NoSQL">
+
+NoSQL
+
+</link>
+
+ databases such as
+
+
+<link id="a1036" url="https://www.mongodb.com/">
+
+MongoDB
+
+</link>
+
+ and
+
+
+<link id="a1037" url="http://www.couchbase.com/">
+
+Couchbase
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<link id="a1038" target-id="answer07">
+
+Go to answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+True or False? This book is intended to teach you about JSON.
+
+</para>
+
+
+
+
+
+
+
+<para id="p1020">
+<link id="a1039" target-id="answer08">
+
+Go to answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figure_index" effect="bold">
+
+Figure index
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1026">
+<link id="a1040" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1003" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1023">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21008">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1025">
+False. This book is not intended to teach you about JSON. There are numerous 
+tutorials on the web that you can access for that purpose. This book is intended 
+to teach you how to use the
+
+
+<link id="a1041" url="https://code.google.com/archive/p/json-simple/">
+
+json-simple
+
+</link>
+
+ Java 
+library, 
+
+<emphasis id="em1005" effect="italics">
+(which is one of several available libraries),
+
+</emphasis>
+ to parse, 
+generate, transform, and query JSON.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1026">
+<link id="a1042" target-id="question08">
+
+Go back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1027">
+True. According to the
+
+
+<link id="a1043" url="http://www.infoworld.com/article/2608805/database/big-databases-jump-on-the-json-bandwagon.html">
+
+
+InfoWorld
+
+</link>
+
+ article of August 25, 2014, "Several NoSQL databases -- including 
+the wildly successful 
+
+<link id="a1044" url="https://www.mongodb.com/">
+
+MongoDB
+
+</link>
+
+ and
+
+
+<link id="a1045" url="http://www.couchbase.com/">
+
+Couchbase
+
+</link>
+
+ -- store data in JSON 
+documents natively."
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<link id="a1046" target-id="question07">
+
+Go back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<link id="a1047" target-id="question06">
+
+Go back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+False. According to the online document titled
+
+
+<link id="a1048" url="http://www.oracle.com/technetwork/articles/java/json-1973242.html">
+
+Java 
+API for JSON Processing: An Introduction to JSON
+
+</link>
+
+,  "JSON can represent two 
+structured types: objects and arrays. An object is an unordered collection of 
+zero or more name/value pairs. An array is an ordered sequence of zero or more 
+values. The values can be strings, numbers, booleans, null, and these two 
+structured types."
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<link id="a1049" target-id="question05">
+
+Go back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1033">
+False. It is important to note that even though JSON is based on JavaScript 
+syntax, JASON is not JavaScript nor is it any other programming language. In 
+fact, it is not a programming language at all. JSON is simply 
+
+<emphasis id="em1006" effect="italics">
+"a 
+lightweight, text-based, language-independent data exchange format"
+
+</emphasis>
+ 
+-- nothing more and nothing less.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<link id="a1050" target-id="question04">
+
+Go back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+False. Visual Basic is not based on the C-family of languages. Visual Basic 
+is based on the BASIC programming language that
+
+
+<link id="a1051" url="http://time.com/69316/basic/">
+
+came into existence
+
+</link>
+
+ in 1964. The C programming language
+
+
+<link id="a1052" url="https://www.le.ac.uk/users/rjm1/cotter/page_06.htm">
+
+came into existence
+
+</link>
+
+ 
+independently in 1972.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<link id="a1053" target-id="question03">
+
+Go back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<link id="a1054" target-id="question02">
+
+Go back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+False. According to the online document titled 
+
+<link id="a1055" url="http://www.json.org/">
+
+
+Introducing JSON
+
+</link>
+
+. "JSON (JavaScript Object Notation) is a ...".
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<link id="a1056" target-id="question01">
+
+Go back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+This section contains Figures that may be referred to by one or more 
+questions or answers. These Figures may also be helpful as reference material 
+for answering the questions.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+	
+
+
+		
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+
+		
+
+<code id="pre1000" display="block">{
+  "game":
+    [
+      {"cards":
+        [
+          "2-club","3-heart","4-diamond","5-spade"
+        ],
+        "name":"Tom"
+      },
+      {"cards":
+        [
+          "4-heart","5-heart","6-club","7-diamond"
+        ],
+        "name":"Joe"
+      }
+    ]
+}</code>
+
+
+		
+
+</note>
+
+	
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1004" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1005" list-type="bulleted">
+
+				
+
+<item id="li1027">
+Module name: Json0200R: Review
+
+</item>
+
+
+				
+
+<item id="li1028">
+File: Json0200R.htm 
+
+</item>
+
+
+				
+
+<item id="li1029">
+Published: 06/03/16
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1005" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1043">
+<emphasis id="strong1006" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1044">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1045">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1046">
+<emphasis id="strong1007" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1047">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,3912 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4640: The URL Class and the URLEncoder Class</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49535</md:content-id>
+  <md:title>Java4640: The URL Class and the URLEncoder Class</md:title>
+  <md:abstract>This module explains the use of the URL class and the URLEncoder class.</md:abstract>
+  <md:uuid>75a2a784-9f2f-4add-98ff-7d816455bdd0</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="The_program_Java4640a">
+
+The program Java4640a
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="The_program_Java4640d">
+
+The program Java4640d
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the programs
+
+</link>
+
+
+</item>
+
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listing">
+
+Complete program listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. More specifically, it is one in a 
+	sub-collection of modules designed for teaching network programming in that 
+	course. The purpose of this module is to introduce the student to the 
+	
+
+<emphasis id="strong1001" effect="bold">
+URL
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1002" effect="bold">
+URLEncoder
+
+</emphasis>
+ class.  
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. General syntax of a URL.
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output from the program named 
+		Java4640a.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Program output for string-parameter constructor.
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Building an absolute URL.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. An encoded string.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Encoding rules.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Program output.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The method named display. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the program named Java4640a. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Building an absolute URL.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The URLEncoder.encode method. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the program named Java4640d.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Open a connection to the URL.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Read and display the data.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The program named Java4640a.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The program named Java4640d.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+<emphasis id="strong1003" effect="bold">
+What is a URL?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1003">
+URL is an acronym for 
+
+<emphasis id="em1000" effect="italics">
+Uniform Resource Locator. 
+
+</emphasis>
+It is also the 
+name of a class in Java, which is the primary topic for this module. 
+
+</para>
+
+
+
+
+<para id="p1004">
+A URL
+
+<emphasis id="em1001" effect="italics">
+ 
+
+</emphasis>
+is a pointer to a particular resource at a particular location on 
+the Internet. As you learned in an earlier module, a URL 
+
+
+<emphasis id="specifies_the_following" effect="bold">
+
+specifies the following
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1028">
+protocol used to access the server (such as http), 
+
+</item>
+
+
+	
+
+<item id="li1029">
+name of the server,
+
+</item>
+
+
+	
+
+<item id="li1030">
+port on the server 
+
+<emphasis id="em1002" effect="italics">
+(optional)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1031">
+path and name of a specific file on the server 
+
+<emphasis id="em1003" effect="italics">
+(sometimes optional)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1032">
+anchor or reference within the file 
+
+<emphasis id="em1004" effect="italics">
+(optional)
+
+</emphasis>
+</item>
+
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1005">
+Sometimes the name of the file can be omitted, in which case an HTTP server 
+may append the file name 
+
+<emphasis id="strong1004" effect="bold">
+index.html
+
+</emphasis>
+ to the specified path and 
+try to load that file. For example, we will write a simple HTTP server in a 
+future module that will attempt to deliver a file named 
+
+<emphasis id="strong1005" effect="bold">
+index.html
+
+</emphasis>
+ if 
+the name of the file is omitted from the URL. 
+
+</para>
+
+
+
+
+<para id="p1006">
+In addition to specifying the name of the file of interest, it is also 
+sometimes possible to specify an anchor or reference that has been 
+established inside the file. An example of how to take advantage of this 
+capability was provided in an earlier module. 
+
+</para>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1006" effect="bold">
+General syntax of a URL
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1008">
+The general syntax of a URL is shown in 
+
+<link id="a1028" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - General syntax of a URL.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+protocol://hostname[:port]/path/filename#ref
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1009">
+The port number is optional, and is not normally required if you are accessing a server 
+that provides the required service on a standard port. 
+
+</para>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1007" effect="bold">
+Two ways to do network programming
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+Java provides at least two different ways to do network programming. The two ways are 
+associated with socket classes and URL classes. The 
+socket classes will be the topic of future modules. This module is 
+concerned primarily with the URL class. 
+
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1008" effect="bold">
+A higher level approach
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+URL programming occurs at a higher level than socket programming, and 
+in theory represents some very powerful ideas. The powerful ideas represented by 
+the advanced features of the URL class require an understanding of the 
+development of protocol handlers and content handlers. I discussed this in some 
+detail in an earlier module titled 
+
+<emphasis id="em1005" effect="italics">
+Java4620: General Information
+
+</emphasis>
+, and won't 
+repeat that discussion here.
+
+</para>
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1009" effect="bold">
+A mundane alternative
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1015">
+In addition to supporting the advanced concepts discussed in the earlier 
+module, the 
+URL
+
+<emphasis id="strong1010" effect="bold">
+
+
+
+</emphasis>
+class also provides a relatively mundane alternative way to connect one 
+computer to another and transfer data on a stream basis. This module is 
+primarily based on this capability. 
+
+</para>
+
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1016">
+I will explain the programs named 
+
+<emphasis id="strong1011" effect="bold">
+Java4640a
+
+</emphasis>
+ and 
+
+<emphasis id="strong1012" effect="bold">
+Java4640d
+
+</emphasis>
+ in fragments. 
+	Complete listings of both programs are provided in 
+
+<link id="a1029" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ and 
+	
+
+<link id="a1030" target-id="Listing_9">
+
+Listing 
+	9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="The_program_Java4640a" effect="bold">
+
+The program Java4640a
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+This program exercises four of the constructors and six of the methods of the
+URL class. 
+
+</para>
+
+
+
+
+<para id="p1018">
+The program also illustrates the use of the 
+
+<emphasis id="strong1013" effect="bold">
+URLEncoder 
+
+</emphasis>
+class 
+to convert a string containing spaces and other such characters into a UTF-8 
+encoded string format. 
+
+</para>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1014" effect="bold">
+Screen output from the program named Java4640a
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+The output from the program is shown in 
+
+<link id="a1031" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. I 
+will refer to portions of this output while discussing the program.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Screen output 
+				from the program named Java4640a.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+Use simple string constructor for host URL
+http www.austincc.edu -1  null
+http://www.austincc.edu
+
+Use simple string constructor for host plus file
+http www.austincc.edu -1 /baldwin null
+http://www.austincc.edu/baldwin
+
+Use strings for protocol, host, and file
+http www.austincc.edu -1 /baldwin null
+http://www.austincc.edu/baldwin
+
+Use strings for protocol host, and file
+ and int for port
+http www.austincc.edu 80 /baldwin null
+http://www.austincc.edu:80/baldwin
+
+Construct absolute URL from host URL and relative URL
+http www.austincc.edu -1 /baldwin/Index.html null
+http://www.austincc.edu/baldwin/Index.html
+
+Now use URLEncoder to create UTF-8 encoded String
+http://space .tilde~.plus+.com
+http%3A%2F%2Fspace+.tilde%7E.plus%2B.com
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1021">
+<emphasis id="strong1015" effect="bold">
+The method named display
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+The code in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is a method named 
+
+<emphasis id="strong1016" effect="bold">
+display
+
+</emphasis>
+ 
+	that I wrote to illustrate some of the methods of the URL 
+	class, and also to serve the practical needs of displaying information 
+	contained in a URL object. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The method named display.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">  void display(URL url){//method to display parts of URL
+    System.out.print(url.getProtocol() + " ");
+    System.out.print(url.getHost() + " ");
+    System.out.print(url.getPort() + " ");
+    System.out.print(url.getFile() + " ");
+    System.out.println(url.getRef());
+    
+    //Now display entire URL as a string.
+    System.out.println(url.toString());
+    System.out.println();
+  }//end display
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1023">
+This method receives a reference to a 
+	URL
+
+<emphasis id="strong1017" effect="bold">
+
+	
+
+</emphasis>
+object as a parameter and displays its component parts 
+	separated by space characters. Then it uses the overridden 
+
+<emphasis id="strong1018" effect="bold">
+toString
+
+</emphasis>
+ 
+	method of the URL class to display the contents of the
+	URL object as a single 
+
+<emphasis id="strong1019" effect="bold">
+String
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1020" effect="bold">
+The parts of the URL
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1025">
+As you can see from 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, there is a method available for extracting each of the parts 
+of a URL that were identified in the 
+
+<link id="a1034" target-id="specifies_the_following">
+
+
+above list
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1021" effect="bold">
+Beginning of the program named Java4640a
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+Now that we know what the 
+
+<emphasis id="strong1022" effect="bold">
+display
+
+</emphasis>
+ method does, we can 
+examine the code in the 
+
+<emphasis id="strong1023" effect="bold">
+main
+
+</emphasis>
+ method of the class.
+
+</para>
+
+
+
+
+<para id="p1028">
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the beginning of the program named 
+
+<emphasis id="strong1024" effect="bold">
+Java4640a
+
+</emphasis>
+ and the beginning of the 
+
+
+<emphasis id="strong1025" effect="bold">
+main
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the program 
+				named Java4640a.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">import java.net.*;
+import java.io.*;
+
+class  Java4640a{
+  public static void main(String[] args){
+    Java4640a obj = new Java4640a();
+    try{
+      System.out.println(
+             "Use simple string constructor for host URL");
+      obj.display(new URL("http://www.austincc.edu"));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1029">
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ illustrates the instantiation of a URL 
+object using the version of the constructor that expects to receive the URL
+
+<emphasis id="em1006" effect="italics">
+
+
+
+</emphasis>
+in string format. 
+
+<emphasis id="em1007" effect="italics">
+(I will ignore the exception handling code from these 
+	discussions for brevity.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1030">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ begins by instantiating an object of the controlling class that 
+can be used to access the 
+
+<emphasis id="strong1026" effect="bold">
+display
+
+</emphasis>
+ method. Then it 
+instantiates a new URL object using the string-parameter 
+version of the constructor and passes that object to the 
+
+<emphasis id="strong1027" effect="bold">
+display
+
+</emphasis>
+ 
+method. 
+
+</para>
+
+
+
+
+<para id="p1031">
+As described above, the 
+
+<emphasis id="strong1028" effect="bold">
+display
+
+</emphasis>
+ method accesses each 
+component part of the URL object and displays them separated 
+by spaces. Then it displays the URL object using the overridden 
+
+<emphasis id="strong1029" effect="bold">
+toString
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1030" effect="bold">
+Program output for string-parameter constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1033">
+The code in 
+
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ produced the output shown in 
+
+<link id="a1039" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Program output for 
+				string-parameter constructor.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+							
+
+<code id="pre1004" display="block">Use simple string constructor for host URL
+http www.austincc.edu -1  null
+http://www.austincc.edu
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1034">
+The -1 in 
+
+<link id="a1040" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ indicates that there was no port specification, and the 
+	null indicates that there was no file name specification in the 
+
+<emphasis id="em1008" effect="italics">
+URL 	
+
+</emphasis>
+passed to the constructor for the URL object. 
+
+</para>
+
+
+
+
+<para id="p1035">
+The code fragment in 
+
+<link id="a1041" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is followed by code that constructs the
+URL object using other overloaded versions of the constructor. 
+Each overloaded version requires the URL
+
+<emphasis id="em1009" effect="italics">
+ 
+
+</emphasis>
+information 
+in different formats. You can view that code in 
+
+<link id="a1042" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1031" effect="bold">
+Building an absolute URL
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+I will to skip that code and move down to a more 
+interesting case as shown by the fragment in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Building an absolute URL.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">      System.out.println("Construct absolute URL from " +
+                              "host URL and relative URL");
+      URL baseURL = new URL(
+             "http://www.austincc.edu/baldwin/hello.html");
+      obj.display(new URL(baseURL,"/baldwin/Index.html"));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1038">
+<link id="a1044" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ uses a URL constructor that requires two 
+	parameters: a URL object and a 
+
+<emphasis id="strong1032" effect="bold">
+String 
+
+</emphasis>
+
+	object. Here is part of the somewhat cryptic description of this constructor from the Oracle 
+	documentation.
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+"Creates a URL by parsing the given spec within a specified context. 
+The new URL is created from the given context URL and the spec argument as 
+described in RFC2396 "Uniform Resource Identifiers : Generic * Syntax" : "
+
+</quote>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1033" effect="bold">
+What does this mean?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+Let me try to explain this constructor in my own words 
+
+<emphasis id="em1010" effect="italics">
+(with some help 
+from Elliotte Rusty Harold)
+
+</emphasis>
+. You can use this constructor to build an 
+
+<emphasis id="em1011" effect="italics">
+
+absolute URL
+
+</emphasis>
+ from a 
+
+<emphasis id="em1012" effect="italics">
+relative URL
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1041">
+Assume, for example, that you have written your own method to display HTML 
+files the way that they are displayed by a browser rather than simply as a text file. Such files often contain links to relative 
+
+<emphasis id="em1013" effect="italics">
+URL's
+
+</emphasis>
+. In such a 
+case, the link would be provided simply as a path and file name under the 
+assumption that the path and file name can be found relative to the 
+
+<emphasis id="em1014" effect="italics">
+base
+
+</emphasis>
+ 
+
+<emphasis id="em1015" effect="italics">
+
+URL 
+
+</emphasis>
+containing the HTML file. 
+
+</para>
+
+
+
+
+<para id="p1042">
+According to 
+
+<emphasis id="em1016" effect="italics">
+Java Network Programming
+
+</emphasis>
+ by Elliotte Rusty Harold,
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	"In this case, you use the URL to the document that contains the 
+	link to provide the missing information."
+
+</quote>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1034" effect="bold">
+The construction process
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+The code in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ constructs a base URL object 
+pointing to 
+
+</para>
+
+
+
+
+<para id="p1045">
+"http://www.austincc.edu/baldwin/hello.html"
+
+</para>
+
+
+
+
+<para id="p1046">
+Then it uses the version of the constructor currently under discussion 
+to combine that base URL object with a relative URL given by 
+
+</para>
+
+
+
+
+<para id="p1047">
+"/baldwin/Index.html" 
+
+</para>
+
+
+
+
+<para id="p1048">
+This produces the URL object displayed in 
+
+<link id="a1046" target-id="Figure_4">
+
+Figure 
+4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Building an absolute 
+				URL.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+							
+
+<code id="pre1006" display="block">Construct absolute URL from host URL and relative URL
+http www.austincc.edu -1 /baldwin/Index.html null
+http://www.austincc.edu/baldwin/Index.html
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1049">
+Hopefully this example illustrates how the constructor can combine a base
+	URL object with a relative URL to produce 
+	a new URL object that is an absolute pointer to the 
+	relative URL. 
+
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1035" effect="bold">
+The URLEncoder class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+There is one more issue that we need to examine before leaving this program: the 
+
+<emphasis id="strong1036" effect="bold">
+URLEncoder
+
+
+</emphasis>
+class. This class is provided to help deal with problems arising from
+
+
+<emphasis id="em1017" effect="italics">
+spaces, special characters, non-alphanumeric characters, etc.
+
+</emphasis>
+, that 
+some operating systems may allow in file names but which may not be allowed in a 
+URL. 
+
+</para>
+
+
+
+
+<para id="p1052">
+If you need to create a URL object using a URL 
+string that has these problems, you should first use the 
+
+<emphasis id="strong1037" effect="bold">
+encode
+
+</emphasis>
+ method of 
+the 
+
+<emphasis id="strong1038" effect="bold">
+URLEncoder 
+
+</emphasis>
+class to convert it into an acceptable URL 
+string. 
+
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1039" effect="bold">
+The URLEncoder.encode method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+This class provides a static method named 
+
+<emphasis id="strong1040" effect="bold">
+encode
+
+</emphasis>
+ that 
+encodes a string representation of a URL into an acceptable format.
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+(Technically I believe it is correct to say that the format produced 
+	in Listing 4 is 
+"application/x-www-form-urlencoded" and the binary encoding is UTF-8.)
+
+</quote>
+
+
+
+
+<para id="p1055">
+The 
+
+<emphasis id="strong1041" effect="bold">
+encode
+
+</emphasis>
+ method returns a 
+
+<emphasis id="strong1042" effect="bold">
+String 
+
+</emphasis>
+object that is a 
+cleaned-up version of the original string.
+
+</para>
+
+
+
+
+<para id="p1056">
+<link id="a1047" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1043" effect="bold">
+encode
+
+</emphasis>
+ method to encode a string that 
+was purposely constructed to contain several unsafe characters. It displays both 
+the raw string and the encoded string for comparison.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - The URLEncoder.encode 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">      System.out.println("Now use URLEncoder to create " +
+                                   "UTF-8 encoded String");
+      System.out.println("http://space .tilde~.plus+.com");
+      System.out.println(URLEncoder.encode(
+                "http://space .tilde~.plus+.com","UTF-8"));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1044" effect="bold">
+The encoded output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+The output from the code in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is shown in 
+
+<link id="a1049" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - An encoded 
+				string.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+							
+
+<code id="pre1008" display="block">Now use URLEncoder to create UTF-8 encoded String
+http://space .tilde~.plus+.com
+http%3A%2F%2Fspace+.tilde%7E.plus%2B.com
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1059">
+The encoded version doesn't mean a lot to a human, but it is a format 
+	that is acceptable across a wide variety of computers. In case you are 
+	interested, the encoding rules are shown in 
+
+<link id="a1050" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Encoding rules.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+
+
+<para id="p1060">
+
+To convert a String, each character is examined in turn:
+
+</para>
+
+
+							
+
+<para id="p1061">
+
+							The ASCII characters 'a' through 'z', 'A' through 'Z', and '0' through '9' remain the same.
+
+</para>
+
+
+							
+
+<para id="p1062">
+
+							The space character ' ' is converted into a plus sign '+'. 
+
+
+</para>
+
+
+							
+
+<para id="p1063">
+
+							All other characters are converted into the 3-character string "%xy", where xy is the two-digit hexadecimal representation of the lower 8-bits of the character.
+
+
+</para>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+<para id="p1064">
+Elliotte Rusty Harold provides a 
+
+<emphasis id="strong1045" effect="bold">
+
+URLDecoder 
+
+</emphasis>
+class in his 
+
+<emphasis id="em1018" effect="italics">
+Java Network Programming
+
+</emphasis>
+ book that takes a
+URL string in the format shown above and converts it back to 
+its 
+
+<emphasis id="strong1046" effect="bold">
+String 
+
+</emphasis>
+representation.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_program_Java4640d" effect="bold">
+
+The program Java4640d
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+Now it is time to put some of what you have learned to work with a program 
+named 
+
+<emphasis id="strong1047" effect="bold">
+Java4640d
+
+</emphasis>
+. Once again, I will explain this program in 
+fragments. A complete listing is provided in 
+
+<link id="a1051" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1066">
+This program illustrates using a URL object to connect to a URL and to read a file from that URL as an input stream. As we will see 
+later, we can and will do the same thing using sockets in future modules. 
+
+</para>
+
+
+
+
+<para id="p1067">
+Your computer must be online for this program to run properly. Otherwise, it 
+will throw an exception of type 
+
+<emphasis id="strong1048" effect="bold">
+UnknownHostException
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1049" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+The output from the program is a display of the contents of the file named 
+
+
+<emphasis id="strong1050" effect="bold">
+page1.html
+
+</emphasis>
+ in a raw text format. Thus, all of the HTML tags are visible.
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+(Of course, you can modify the program to download and display a different file 
+on the same or a different website.)
+
+</quote>
+
+
+
+
+<para id="p1070">
+As of January 2014, the output for the beginning of the file was as shown in 
+
+
+<link id="a1052" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. 
+
+<emphasis id="em1019" effect="italics">
+(The file is much longer than that shown.)
+
+</emphasis>
+</para>
+
+
+
+
+<quote id="blockquote1004" display="block">
+(I may modify the contents of this file from time to time, so if you 
+compile and run this program later, you may get different results.)
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Program output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+
+<code id="pre1009" display="block">
+&lt;!doctype html public "-//w3c//dtd html 4.0 transitional//en"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"&gt;
+&lt;meta name="GENERATOR" content="Mozilla/4.7 [en] (WinNT; I) [Netscape]"&gt;
+&lt;title&gt;Java and JavaScript Programming, by Richard G Baldwin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor="#FFFFFF" link="#0000FF" vlink="#FF0000" lang="EN-US"&gt;
+
+&lt;h1&gt;
+Baldwin's Test Page 1&lt;/h1&gt;
+Click &lt;a href="http://www2.austin.cc.tx.us/baldwin/page2.html"&gt;here&lt;/a&gt;
+to view page 2
+&lt;p&gt;Note: The material on this page is not intended to be of any particular
+
+value. This file is posted for the purpose of testing HTTP network
+programs only.
+&lt;p&gt;The following red bar is a centered gif file.
+&lt;center&gt;
+&lt;p&gt;&lt;img SRC="red_thick_line_1.gif" BORDER=0 id="_x0000_i1025" height=9 width=300
+&gt;&lt;/center&gt;
+
+&lt;center&gt;
+&lt;h2&gt;
+The following is a centered two-column table&lt;/h2&gt;&lt;/center&gt;
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1071">
+<emphasis id="strong1051" effect="bold">
+The beginning of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+The program begins in 
+
+<link id="a1053" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Beginning of the program named Java4640d.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1010" display="block">import java.net.*;
+import java.io.*;
+
+class   Java4640d{
+  public static void main(String[] args){
+    String dataLine;
+    try{
+      //Get a URL object
+      URL url = new URL(
+             "http://www.austincc.edu/baldwin/page1.html");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1073">
+As before, I will ignore the exception-handling code while discussing this program.
+
+</para>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1052" effect="bold">
+Create a URL object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+As you saw in the previous program, the URL class has several different 
+constructors, each of which can create a new URL object on the basis of URL 
+information provided as parameters to the constructor. The constructors differ 
+in terms of how the URL information is provided. 
+
+</para>
+
+
+
+
+<para id="p1076">
+<link id="a1054" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ creates a URL object that points to the file named
+
+
+<emphasis id="strong1053" effect="bold">
+page1.html
+
+</emphasis>
+ in the directory named 
+
+<emphasis id="strong1054" effect="bold">
+baldwin 
+
+</emphasis>
+on 
+the server at Austin Community College where I teach. 
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1055" effect="bold">
+No port was specified
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+The URL object will not contain a port specification because I didn't provide 
+a port number. Later when we use one of the methods of the URL class along with 
+this URL object to make a connection to the server, the connection will, by default, be made 
+to port 80 which is the standard port for servers that support the HTTP 
+protocol. 
+
+</para>
+
+
+
+
+<para id="p1079">
+In other words, when the port is not provided 
+
+<emphasis id="em1020" effect="italics">
+(the URL object contains a port 
+number of -1)
+
+</emphasis>
+, the connection method of the URL class will use the protocol 
+portion of the URL to decide which port to connect to. 
+
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1056" effect="bold">
+Open a connection to the URL
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+Once you have a URL object, there are a number of things that you can do with 
+it. One of the things you can do with it is to open 
+
+<emphasis id="em1021" effect="italics">
+input
+
+</emphasis>
+ and 
+
+<emphasis id="em1022" effect="italics">
+output
+
+</emphasis>
+ streams 
+that will be connected to the server software that is monitoring the port of 
+interest. 
+
+</para>
+
+
+
+
+<para id="p1082">
+The code in 
+
+<link id="a1055" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ opens a connection to the URL described by this URL
+
+<emphasis id="strong1057" effect="bold">
+
+
+
+</emphasis>
+object and returns an input stream object for reading data from the 
+connection. This is the point where the port number defaults on the basis of the 
+protocol specification in the URL object. 
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Open a connection to the 
+				URL.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1011" display="block">      BufferedReader htmlPage = 
+                new BufferedReader(new InputStreamReader(
+                                        url.openStream()));
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1083">
+Be aware that only a small portion of the statement in 
+
+<link id="a1056" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ has to do with URL 
+processing. The remainder of the statement has to do with the more complex topic 
+of I/O stream processing.
+
+</para>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1058" effect="bold">
+Read and display the data
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+The remaining code in this program, as shown in 
+
+<link id="a1057" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, is completely 
+straightforward. Data is read from the stream one line at a time and displayed 
+as it is read. The 
+
+<emphasis id="strong1059" effect="bold">
+readLine
+
+</emphasis>
+ method returns 
+
+<emphasis id="strong1060" effect="bold">
+null
+
+
+</emphasis>
+when there is no more data to be read from the stream and the program 
+terminates.
+
+</para>
+
+
+
+
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Read and display the 
+				data.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1012" display="block">      while((dataLine = htmlPage.readLine()) != null){
+        System.out.println(dataLine);
+      }//end while loop</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1086">
+<emphasis id="strong1061" effect="bold">
+Not complicated at all
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1087">
+As you can see, it is very easy to write a program that will connect to 
+	an HTTP server and download the contents of a specified file. There are lots 
+	of things that you do by using this as a starting point. A common 
+	assignments given to students is to add a little more knowledge and code to this and 
+	to write a crawler that will crawl the web searching for some specified file 
+	contents.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the programs
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1088">
+I encourage you to copy the code from 
+
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ and 
+
+<link id="a1059" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+The next module in the series will deal with the 
+
+<emphasis id="strong1062" effect="bold">
+URLConnection
+
+</emphasis>
+ class.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1090">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1063" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1033">
+Module name: Java4640: The URL Class and the URLEncoder 
+					Class
+
+</item>
+
+
+					
+
+<item id="li1034">
+File: Java4640.htm
+
+
+</item>
+
+
+					
+
+<item id="li1035">
+Published: 03/02/14
+
+</item>
+
+
+
+
+<item id="li1036">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1064" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1091">
+<emphasis id="strong1065" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1092">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1093">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1094">
+<emphasis id="strong1066" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1067" effect="bold">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - The program named Java4640a.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1013" display="block">
+/*File  Java4640a.java Copyright 1998, R.G.Baldwin Revised 01/05/14
+
+This program exercises  four of the constructors and
+six of the methods of the URL class.
+
+The program also illustrates the use of the URLEncoder
+class to convert a string containing spaces and other
+such characters into UTF-8 format.
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+
+class  Java4640a{
+  public static void main(String[] args){
+      Java4640a obj = new Java4640a();
+    try{
+      System.out.println(
+             "Use simple string constructor for host URL");
+      obj.display(new URL("http://www.austincc.edu"));
+      
+      System.out.println("Use simple string constructor " +
+                                     "for host plus file");
+      obj.display(new URL(
+                       "http://www.austincc.edu/baldwin"));
+                    
+      System.out.println(
+               "Use strings for protocol, host, and file");
+      obj.display(new URL(
+                    "http","www.austincc.edu","/baldwin"));
+                 
+      System.out.println("Use strings for protocol " +
+                      "host, and file\n and int for port");
+      obj.display(new URL(
+                 "http","www.austincc.edu",80,"/baldwin"));
+              
+      System.out.println("Construct absolute URL from " +
+                              "host URL and relative URL");
+      URL baseURL = new URL(
+             "http://www.austincc.edu/baldwin/hello.html");
+      obj.display(new URL(baseURL,"/baldwin/Index.html"));
+      
+
+      System.out.println("Now use URLEncoder to create " +
+                                   "UTF-8 encoded String");
+      System.out.println("http://space .tilde~.plus+.com");
+      System.out.println(URLEncoder.encode(
+                "http://space .tilde~.plus+.com","UTF-8"));
+    }catch(MalformedURLException | 
+                           UnsupportedEncodingException e){
+      e.printStackTrace();
+    }//end catch
+
+  }//end main
+  //-----------------------------------------------------//
+  
+  void display(URL url){//method to display parts of URL
+    System.out.print(url.getProtocol() + " ");
+    System.out.print(url.getHost() + " ");
+    System.out.print(url.getPort() + " ");
+    System.out.print(url.getFile() + " ");
+    System.out.println(url.getRef());
+    
+    //Now display entire URL as a string.
+    System.out.println(url.toString());
+    System.out.println();
+  }//end display
+}//end class  Java4640a
+</code>
+
+
+
+
+
+
+	
+
+<table id="table1014" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - The program named Java4640d.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+
+
+<code id="pre1014" display="block">
+/*File Java4640d.java Copyright 1998, R.G.Baldwin Revised 01/06/14
+
+Illustrates connecting to a URL and reading a file from
+that URL as an input stream.
+
+Computer must be online for this program to run properly.
+Otherwise, it will throw an exception of type 
+UnknownHostException.  
+**********************************************************/
+
+import java.net.*;
+import java.io.*;
+
+class   Java4640d{
+    public static void main(String[] args){
+    String dataLine;
+    try{
+      //Get a URL object
+      URL url = new URL(
+             "http://www.austincc.edu/baldwin/page1.html");
+          
+      //Open a connection to this URL and return an 
+      // input stream for reading from the connection.
+      BufferedReader htmlPage = 
+                new BufferedReader(new InputStreamReader(
+                                        url.openStream()));
+                     
+      //Read and display file one line at a time.
+      while((dataLine = htmlPage.readLine()) != null){
+        System.out.println(dataLine);
+      }//end while loop
+    }//end try
+    catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+
+  }//end main
+}//end class Java4640d
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1096">
+
+
+
+
+
+
+
+	-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

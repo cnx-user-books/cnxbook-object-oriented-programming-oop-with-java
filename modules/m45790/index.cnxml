@@ -1,0 +1,2140 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Gf0100: Objects First with Greenfoot</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45790</md:content-id>
+  <md:title>Gf0100: Objects First with Greenfoot</md:title>
+  <md:abstract>If you are new to programming and want to learn how to program, or if you have programming experience but are new to OOP and want to learn OOP, I can't think of a better way to take that first step than through the use of Greenfoot.</md:abstract>
+  <md:uuid>8a9fbd1c-8343-454e-9a51-ae93039e0c78</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Overview">
+
+Overview
+
+</link>
+
+ 
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1002">
+<link id="a1002" target-id="A_visual_interactive_programming_environment">
+
+A visual interactive programming environment
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Greenfoot_is_not_a_toy">
+
+Greenfoot is not a toy
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="The_Greenfoot_gallery">
+
+The Greenfoot gallery
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Software">
+
+Software
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Software_to_download_and_install">
+
+Software to download and install
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Stand_alone_software">
+
+Stand alone software
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Running_Greenfoot">
+
+Running Greenfoot
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="The_installed_version">
+
+The installed version
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="The_stand_alone_version">
+
+The stand alone version
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Textbook_and_tutorials">
+
+Textbook and tutorials
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="The_textbook">
+
+The textbook
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="The_tutorials">
+
+The tutorials
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="Written_tutorials">
+
+Written tutorials
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="Video_tutorials">
+
+Video tutorials
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="Other_possibilities">
+
+Other possibilities
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="What_comes_next_after_Greenfoot">
+
+What comes next after Greenfoot
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+If you are new to programming and want to learn how to program, or if you have programming experience but 
+	are new to 
+
+<emphasis id="em1000" effect="italics">
+object-oriented programming (OOP) 
+
+</emphasis>
+and want to learn OOP, 
+	I can't think of a better way to take that first step than through the use of 
+
+<link id="a1019" url="http://www.greenfoot.org/door">
+
+Greenfoot
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1001">
+Greenfoot provides a set of interactive visual tools coupled with the Java 
+programming language that makes learning to program both interesting and 
+productive.
+
+</para>
+
+
+
+
+<para id="p1002">
+<emphasis id="em1001" effect="italics">
+(Note that descriptions of the Greenfoot website contained herein are 
+current as of 02/19/13.)
+
+</emphasis>
+</para>
+
+
+	
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Overview" effect="bold">
+
+Overview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="A_visual_interactive_programming_environment" effect="bold">
+
+A visual 
+	interactive programming environment
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+The greenfoot 
+
+<link id="a1020" url="http://www.greenfoot.org/overview">
+
+overview
+
+</link>
+
+ 
+	page describes Greenfoot as an Interactive Visual World that 
+
+<emphasis id="em1002" effect="italics">
+"...teaches object orientation with Java."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1004">
+When programming with Greenfoot, you 
+
+<emphasis id="em1003" effect="italics">
+"Create 'actors' which 
+		live in 'worlds' to build games, simulations, and other graphical 
+		programs."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+Greenfoot is both instructive and enjoyable because it is visual and 
+interactive. Visualization and interaction tools are built into the programming 
+environment.
+
+</para>
+
+
+
+
+<para id="p1006">
+Unlike 
+
+<link id="a1021" url="http://scratch.mit.edu/">
+
+Scratch
+
+</link>
+
+ and
+
+
+<link id="a1022" url="http://www.alice.org/">
+
+Alice
+
+</link>
+
+ 
+
+<emphasis id="em1004" effect="italics">
+(two programming 
+environments for beginners that use a drag-and-drop approach to programming)
+
+</emphasis>
+, 
+Greenfoot actors 
+
+<emphasis id="em1005" effect="italics">
+"are programmed in standard textual Java code, providing a 
+		combination of programming experience in a traditional text-based 
+		language with visual execution."
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1007">
+According to 
+
+<link id="a1023" url="http://en.wikipedia.org/wiki/Greenfoot">
+
+Wikipedia
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<para id="p1008">
+<emphasis id="em1006" effect="italics">
+"Greenfoot is an interactive Java development environment designed primarily for educational 
+purposes at the high school and undergraduate level. It allows easy development 
+of two-dimensional graphical applications, such as simulations and interactive 
+games.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+<emphasis id="em1007" effect="italics">
+Greenfoot is being developed and maintained at the 
+
+</emphasis>
+
+
+
+<link id="a1024" url="http://en.wikipedia.org/wiki/University_of_Kent">
+
+
+
+
+<emphasis id="em1008" effect="italics">
+University of Kent
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1009" effect="italics">
+ and 
+
+</emphasis>
+
+
+
+<link id="a1025" url="http://en.wikipedia.org/wiki/La_Trobe_University">
+
+
+
+
+<emphasis id="em1010" effect="italics">
+La Trobe University
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1011" effect="italics">
+, with support from 
+
+</emphasis>
+
+
+
+<link id="a1026" url="http://en.wikipedia.org/wiki/Oracle">
+
+
+<emphasis id="em1012" effect="italics">
+Oracle
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1013" effect="italics">
+. 
+It is free software, released under the GPL license. Greenfoot is available for
+
+
+</emphasis>
+
+
+
+<link id="a1027" url="http://en.wikipedia.org/wiki/Microsoft_Windows">
+
+
+
+
+<emphasis id="em1014" effect="italics">
+Microsoft Windows
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1015" effect="italics">
+, 
+
+</emphasis>
+
+
+
+<link id="a1028" url="http://en.wikipedia.org/wiki/Mac_OS_X">
+
+
+
+
+<emphasis id="em1016" effect="italics">
+Mac OS X
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1017" effect="italics">
+, 
+
+</emphasis>
+
+
+
+<link id="a1029" url="http://en.wikipedia.org/wiki/Linux">
+
+
+<emphasis id="em1018" effect="italics">
+Linux
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1019" effect="italics">
+,
+
+
+</emphasis>
+
+
+
+<link id="a1030" url="http://en.wikipedia.org/wiki/Sun_Solaris">
+
+
+
+
+<emphasis id="em1020" effect="italics">
+Sun Solaris
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1021" effect="italics">
+, and any recent 
+
+</emphasis>
+
+
+
+<link id="a1031" url="http://en.wikipedia.org/wiki/Java_Virtual_Machine">
+
+
+
+
+<emphasis id="em1022" effect="italics">
+JVM
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1023" effect="italics">
+."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+Continuing with 
+
+<link id="a1032" url="http://en.wikipedia.org/wiki/Greenfoot">
+
+Wikipedia
+
+</link>
+
+,
+
+</para>
+
+
+
+
+<para id="p1011">
+<emphasis id="em1024" effect="italics">
+"Greenfoot aims to motivate learners quickly by providing easy access to 
+animated graphics, sound and interaction. The environment is highly interactive 
+and encourages exploration and experimentation. Pedagogically, the design is 
+based on constructivist and apprenticeship approaches.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="em1025" effect="italics">
+Secondly, the environment is designed to illustrate and emphasize 
+important abstractions and concepts of object-oriented programming. Concepts 
+such as the class/object relationship, methods, parameters, and object 
+interaction are conveyed through visualizations and guided interactions. The 
+goal is to build and support a mental model that correctly represents modern 
+object-oriented programming systems."
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Greenfoot_is_not_a_toy" effect="bold">
+
+Greenfoot is not a toy
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+Your first impression when you enter the Greenfoot
+
+
+<link id="a1033" url="http://www.greenfoot.org/home">
+
+home page
+
+</link>
+
+ may be that Greenfoot is a 
+toy, but that definitely is not the case.
+
+</para>
+
+
+
+
+<para id="p1014">
+While it is true that the first impulse of many beginning programmers is to 
+create computer games 
+
+<emphasis id="em1026" effect="italics">
+(as evidenced on the 
+
+</emphasis>
+
+
+
+<link id="a1034" url="http://www.greenfoot.org/home">
+
+
+<emphasis id="em1027" effect="italics">
+home page
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1028" effect="italics">
+ and the 
+
+</emphasis>
+<link id="a1035" url="http://www.greenfoot.org/scenarios">
+
+
+
+
+<emphasis id="em1029" effect="italics">
+Greenfoot Gallery
+
+</emphasis>
+</link>
+
+), Greenfoot can 
+also be used to create serious interactive simulations. As an example, I will 
+point you to the following simulations:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1019">
+<link id="a1036" url="http://www.greenfoot.org/scenarios/1016">
+
+Ants
+
+</link>
+
+ by mik
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1037" url="http://www.greenfoot.org/scenarios/597">
+
+Wave-Lab
+
+</link>
+
+ by delmar
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1038" url="http://www.greenfoot.org/scenarios/267">
+
+Birds and Trees
+
+</link>
+
+ by 
+	polle
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1015">
+<emphasis id="em1030" effect="italics">
+(Click a link given above to download and run a simulation. When the 
+simulation window appears, click the Run button on the simulation window to 
+start the simulation running.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+You can view more than 7500 scenarios 
+
+<emphasis id="em1031" effect="italics">
+(Greenfoot programs are commonly 
+referred to as scenarios)
+
+</emphasis>
+ by clicking the 
+
+<emphasis id="strong1000" effect="bold">
+Scenarios
+
+</emphasis>
+ link at the top of the
+
+
+<link id="a1039" url="http://www.greenfoot.org/home">
+
+home page
+
+</link>
+
+. Some of the scenarios are impressive. Some 
+are not so impressive. Many, possibly most, were written by beginning 
+programmers.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="em1032" effect="italics">
+(Note that you must have Java applets enabled on your computer to run 
+these simulations. Alternatively, if you have Greenfoot installed on your 
+computer, you can click the "Open in Greenfoot" button to cause the program to be 
+downloaded for compilation and execution locally on your computer.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_Greenfoot_gallery" effect="bold">
+
+The Greenfoot Gallery
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+What you see when you click the 
+
+<emphasis id="strong1001" effect="bold">
+Scenarios
+
+</emphasis>
+ link at the top of the
+
+
+<link id="a1040" url="http://www.greenfoot.org/home">
+
+home page
+
+</link>
+
+ has been called the 
+
+<emphasis id="em1033" effect="italics">
+<link id="a1041" url="http://www.greenfoot.org/scenarios">
+
+
+Greenfoot Gallery
+
+</link>
+
+
+</emphasis>
+ in times past. This is a place where the authors of 
+Greenfoot scenarios can publish their scenarios if they so choose.
+
+</para>
+
+
+
+
+<para id="p1019">
+This is a social network or virtual programming community where 
+Greenfoot programmers gather to encourage one another and to 
+critique the work being done by themselves and others. Note however that active 
+participation in the gallery is completely voluntary.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Software" effect="bold">
+
+Software
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1020">
+The Greenfoot software and the Java Development Kit (JDK), both of which run on 
+	Windows, Mac, and Linux, are available for 	free 	
+
+<link id="a1042" url="http://www.greenfoot.org/download">
+
+download
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Software_to_download_and_install" effect="bold">
+
+Software to download and install
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+When you visit the 
+
+<link id="a1043" url="http://www.greenfoot.org/download">
+
+download
+
+</link>
+
+ 
+page, you will find download links for Windows, Mac OS X, and Ubuntu. Click one 
+of those links to download and install the appropriate version of Greenfoot on 
+your computer. 
+
+</para>
+
+
+
+
+<para id="p1022">
+You will also need to download and install the Java Development Kit (JDK). 
+There is a download button labeled 
+
+<emphasis id="strong1002" effect="bold">
+Download JDK
+
+</emphasis>
+ for that 
+purpose.
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Stand_alone_software" effect="bold">
+
+Stand alone software
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+As an alternative to the version that can be installed on your computer, there is 
+a self-contained 
+
+<emphasis id="strong1003" effect="bold">
+Stand Alone
+
+</emphasis>
+ version that you can 
+download, unzip, copy to, and run either from a disk folder or from a USB memory 
+stick with no other installation required. This version contains both the Greenfoot 
+software and the Java JDK.
+
+</para>
+
+
+
+
+<para id="p1024">
+Once you extract the software from the zip file, you will need about 200 
+Mbytes to store it in a disk folder. Depending on the formatting, you may need 
+as much as 275 Mbytes of available space to copy the software to a USB memory 
+stick.
+
+</para>
+
+
+
+
+<para id="p1025">
+The stand alone version is particularly useful in several situations 
+including the following:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1022">
+You want to run Greenfoot on a computer for which you don't have 
+	installation privileges, such as in a public library or a college computer 
+	lab.
+
+</item>
+
+
+	
+
+<item id="li1023">
+You don't already have the Java JDK installed on your computer and would 
+	prefer not to go through the effort to download and install it.
+
+</item>
+
+
+	
+
+<item id="li1024">
+You want to run Greenfoot, but you don't want to install anything on 
+	your computer.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Running_Greenfoot" effect="bold">
+
+Running Greenfoot
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1026">
+</para>
+
+
+	
+
+<section id="h21005">
+<title>
+<emphasis id="The_installed_version" effect="bold">
+
+The installed version
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+If you download and install Greenfoot and the Java JDK on your computer, you 
+will have an opportunity to place a Greenfoot icon on your desktop. Just 
+double-click the icon to start the Greenfoot program running. 
+
+<emphasis id="em1034" effect="italics">
+(Although not 
+necessary, it is probably best to install the JDK before installing Greenfoot.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_stand_alone_version" effect="bold">
+
+The stand alone version
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+If you elect to use the stand alone version, you will extract the following 
+folders from the zip file:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1025">
+<link id="a1044" url="http://www.bluej.org/">
+
+BlueJ
+
+</link>
+
+ 
+
+<emphasis id="em1035" effect="italics">
+(a more advanced Java programming environment)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1026">
+Greenfoot 
+
+<emphasis id="em1036" effect="italics">
+(the programming environment of interest in this module)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1027">
+jdk 
+
+<emphasis id="em1037" effect="italics">
+(the Java Development Kit)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1028">
+userhome 
+
+<emphasis id="em1038" effect="italics">
+(not sure the purpose of this folder)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1029">
+You will find a file named 
+
+<emphasis id="strong1004" effect="bold">
+Greenfoot.exe
+
+</emphasis>
+ inside the 
+
+
+<emphasis id="strong1005" effect="bold">
+Greenfoot
+
+</emphasis>
+ folder. It will have an icon of a small green footprint. Double click 
+this file to start the Greenfoot program running.
+
+</para>
+
+
+
+
+<para id="p1030">
+Once the program is running, you can select the 
+
+<emphasis id="em1039" effect="italics">
+Greenfoot Tutorial
+
+</emphasis>
+ item on 
+the 
+
+<emphasis id="strong1006" effect="bold">
+Help
+
+</emphasis>
+ menu to open a webpage containing a variety of educational tutorials.
+
+
+<emphasis id="em1040" effect="italics">
+(I will have more to say about this later.)
+
+</emphasis>
+ The 
+
+<emphasis id="strong1007" effect="bold">
+Help
+
+</emphasis>
+ menu also provides 
+access to several other useful items, such as documentation for both Greenfoot 
+and the Java JDK.
+
+</para>
+
+
+	
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Textbook_and_tutorials" effect="bold">
+
+Textbook and tutorials
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1031">
+There is a textbook titled 
+
+<link id="a1045" url="http://www.greenfoot.org/book">
+
+Introduction to Programming with Greenfoot 
+	-
+
+Object-Oriented Programming in Java with Games and Simulations
+
+</link>
+
+ that you can purchase on Amazon for about 
+	$75.00. 
+
+<emphasis id="em1041" effect="italics">
+(As usual, you can rent it for less or purchase a used copy for 
+	less.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+There are also many free online 
+
+<link id="a1046" url="http://www.greenfoot.org/doc">
+
+tutorials
+
+</link>
+
+ 
+available to help you get started programming with Java and Greenfoot.
+
+</para>
+
+
+
+
+<para id="p1033">
+Whether you need the textbook, or whether the tutorials will suffice will 
+depend on your background. My advice is to begin with the tutorials alone, and 
+then purchase the textbook if needed.
+
+</para>
+
+
+
+
+<section id="h21007">
+<title>
+<emphasis id="The_textbook" effect="bold">
+
+The textbook
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+That having been said, I will comment on the textbook. If I had the luxury of 
+designing a computer programming curriculum from scratch, I would choose a model 
+very similar to the Greenfoot textbook.
+
+</para>
+
+
+
+
+<para id="p1035">
+In particular, unlike the programming curricula in many colleges and 
+universities, I would begin with the big picture 
+
+<emphasis id="em1042" effect="italics">
+(classes, interfaces, 
+objects, methods, variables, etc.)
+
+</emphasis>
+ and work my way down to the more 
+detailed aspects of programming 
+
+<emphasis id="em1043" effect="italics">
+(selection, loops, operators, types, etc.)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="em1044" effect="italics">
+(The programming curricula at many colleges and universities begin at the 
+bottom and work their way up instead of beginning at the top and working their 
+way down. As a result, many students become bogged down in details and either 
+quit or fail and never get a chance to see the big picture of object-oriented 
+programming.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+Because I believe in the top down model on which the textbook is 
+based, I can recommend this textbook as a very good way to get started 
+learning computer programming in general and object-oriented programming in 
+particular. 
+
+<emphasis id="em1045" effect="italics">
+(I am not affiliated with the author or the publisher and 
+receive no compensation 
+from the sale of this textbook.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="The_tutorials" effect="bold">
+
+The tutorials
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Written_tutorials" effect="bold">
+
+Written tutorials
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+As of 02/19/13, the Greenfoot website provides the following written 
+tutorials to help you learn how to use Greenfoot and begin programming: 
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1029">
+<link id="a1047" url="http://www.greenfoot.org/doc/tut-1">
+
+Interacting with Greenfoot
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1048" url="http://www.greenfoot.org/doc/tut-2">
+
+Movement and Key Control
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1049" url="http://www.greenfoot.org/doc/tut-3">
+
+Detecting and Removing Actors, 
+and Making Methods
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1032">
+
+	
+
+<link id="a1050" url="http://www.greenfoot.org/doc/tut-4">
+
+Saving the World, Making and 
+Playing Sound
+
+</link>
+
+ 
+	
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1051" url="http://www.greenfoot.org/doc/tut-5">
+
+Adding a Randomly Moving Enemy
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1052" url="http://www.greenfoot.org/doc/howto-1">
+
+How to Access One Object From 
+Another
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Video_tutorials" effect="bold">
+
+Video tutorials
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+If you prefer video tutorials, the 
+
+<link id="a1053" url="http://www.joyofcode.org/">
+
+Joy Of 
+Code
+
+</link>
+
+ is a thorough introduction to Greenfoot broken down into a large number 
+of videos. A wide range of other
+
+
+<link id="a1054" url="http://www.youtube.com/user/18km?ob=5#g/u">
+
+short videos
+
+</link>
+
+ are also 
+available. 
+
+</para>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Other_possibilities" effect="bold">
+
+Other possibilities
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+Once you become an accomplished Greenfoot programmer, you might be interested 
+in some of the following possibilities, which generally require other resources 
+or more advanced knowledge: 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1035">
+<link id="a1055" url="http://www.greenfoot.org/doc/kinect">
+
+Kinect with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1056" url="http://www.greenfoot.org/doc/pico">
+
+PicoBoard with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1057" url="http://www.greenfoot.org/doc/sense">
+
+Sense Board with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1058" url="http://www.greenfoot.org/doc/finch">
+
+Finch with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1059" url="http://www.greenfoot.org/doc/native_loader">
+
+Loading native 
+	libraries with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1060" url="http://www.greenfoot.org/doc/gamepad">
+
+Gamepads with Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1061" url="http://www.greenfoot.org/doc/csunplugged">
+
+CS Unplugged with 
+	Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1062" url="http://www.greenfoot.org/doc/ap">
+
+AP Computer Science with 
+	Greenfoot
+
+</link>
+
+.
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1063" url="http://sinepost.wordpress.com/">
+
+Learn Maths with Greenfoot
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="What_comes_next_after_Greenfoot" effect="bold">
+
+What comes next after 
+	Greenfoot
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1041">
+While this may sound like an exaggeration, programming with Greenfoot is sort of 
+	like riding a bicycle with training wheels. After awhile, you no longer 
+	need the training wheels and you are ready to move on to true two-wheeler.
+
+</para>
+
+
+
+
+<para id="p1042">
+While is it possible to push Greenfoot into some pretty complex and 
+sophisticated scenarios, there comes a time when you need to take the training 
+wheels off and ride that two-wheeler.
+
+</para>
+
+
+
+
+<para id="p1043">
+Numerous possibilities are possible in this regard. One possibility is 
+
+<link id="a1064" url="http://www.bluej.org/">
+
+BlueJ - The interactive Java environment
+
+</link>
+
+ 
+ 
+from the same folks who brought you Greenfoot. Like Greenfoot, the BlueJ 
+software is available for free downloading. Also like Greenfoot, a textbook can 
+be purchased and some free tutorials are available.
+
+</para>
+
+
+
+
+<para id="p1044">
+Another possibility is to continue working through the modules in this 
+collection.
+
+</para>
+
+
+
+
+<para id="p1045">
+A very good possibility is to do both.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1046">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1008" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1044">
+Module name: Gf0100: Objects First with Greenfoot
+
+</item>
+
+
+					
+
+<item id="li1045">
+File: Gf0100.htm
+
+
+</item>
+
+
+					
+
+<item id="li1046">
+Published: 02/19/13
+
+</item>
+
+
+					
+
+<item id="li1047">
+Revised: 12/26/14
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1009" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1047">
+<emphasis id="strong1010" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1048">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1049">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1050">
+<emphasis id="strong1011" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1051">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,2566 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3030: Merging Pictures</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44247</md:content-id>
+  <md:title>Java3030: Merging Pictures</md:title>
+  <md:abstract>Learn how to merge pictures.</md:abstract>
+  <md:uuid>62b0fc01-ef14-4280-879d-ab47ab50545c</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 10:55:29 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Online_video_links">
+
+Online video link
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1013" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Input file named Prob05a.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Input file named Prob05b.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Required graphic output image.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Required output text.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob05.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob05Runner. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The run method of the Prob05Runner class. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the merge method. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Do the merge.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, you will learn how to do a linear merge on two pictures 
+	based on the distance of each pixel from the left side of the picture.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1001" effect="bold">
+Prob05
+
+</emphasis>
+ that uses the class definition 
+shown in 
+
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along 
+with the image files named 
+
+<emphasis id="strong1002" effect="bold">
+Prob05a.jpg
+
+</emphasis>
+ and 
+
+<emphasis id="strong1003" effect="bold">
+Prob05b.jpg
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(see
+
+
+<link id="a1025" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1026" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+)
+
+</emphasis>
+ to 
+produce the graphic output image shown in 
+
+<link id="a1027" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Input file named Prob05a.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image of a penguin near the right side of the frame." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/javaexam3.05a.jpg" width="348" height="317"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1010">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Input file named Prob05b.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="Image of a rabbit near the left side of the frame" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/javaexam3.05b.jpg" width="348" height="317"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1012">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Required graphic output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<media id="media1002" alt="Merged image showing a rabbit near the left side of the the frame and a penguin near the right side of the frame. Image also shows an elliptical sun in the center with a gradient from yellow to orange." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/javaexam3.05c.jpg" width="339" height="285"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1014">
+<emphasis id="strong1007" effect="bold">
+Required output text
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+In addition to the output image mentioned above, your program must display 
+your name and the other line of text shown in 
+
+<link id="a1028" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+ on the command-line 
+screen.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Required output text.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename None height 252 width 330</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1016">
+This program does a linear merge on two pictures based on the distance of 
+	each pixel from the left side of the picture. The program also adds a sun 
+	with a gradient and the student's name to the picture.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1008" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+I will discuss and explain this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of 
+the module. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1009" effect="bold">
+The driver class named Prob05
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+The driver class containing the 
+
+<emphasis id="strong1010" effect="bold">
+main
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob05.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Prob05{
+  public static void main(String[] args){
+    new Prob05Runner().run();
+  }//end main method
+}//end class Prob05</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1021">
+The code in 
+
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shouldn't require an 
+	explanation at this stage in the course.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1011" effect="bold">
+Beginning of the class named Prob05Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+The class named 
+
+<emphasis id="strong1012" effect="bold">
+Prob05Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1032" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob05Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob05Runner{
+  public Prob05Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1024">
+As with 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, the code in
+	
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shouldn't require an explanation.
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1013" effect="bold">
+The run method of the Prob05Runner class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+<link id="a1035" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1014" effect="bold">
+run
+
+</emphasis>
+ method on an object of the 
+
+<emphasis id="strong1015" effect="bold">
+
+Prob05Runner
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1016" effect="bold">
+run
+
+</emphasis>
+ method is shown in its 
+entirety in 
+
+<link id="a1036" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - The run method of the Prob05Runner class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public void run(){
+    Picture penguin = new Picture("Prob05a.jpg");
+    Picture hare = new Picture("Prob05b.jpg");
+    merge(hare,penguin);
+    hare = crop(hare,6,58,330,252);
+    hare.addMessage("Display your name here.",10,20);
+    drawSun(hare);
+    hare.show();
+    System.out.println(hare);
+  }//end run</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+The only thing in 
+
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ that I haven't explained in earlier modules 
+	is the call to the 
+
+<emphasis id="strong1017" effect="bold">
+merge
+
+</emphasis>
+ method, so I will limit my 
+	discussion to that method.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1018" effect="bold">
+The merge method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The 
+
+<emphasis id="strong1019" effect="bold">
+merge
+
+</emphasis>
+ method is used to merge the image in 
+
+
+<link id="a1038" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ with 
+the image in 
+
+<link id="a1039" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ to produce the image shown in 
+
+
+<link id="a1040" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="em1004" effect="italics">
+(Note, however, that the merged image was cropped to 
+eliminate the buttons at the top of 
+
+<link id="a1041" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+
+<link id="a1042" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ before displaying it 
+in 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1020" effect="bold">
+A linear merge
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The 
+
+<emphasis id="strong1021" effect="bold">
+merge
+
+</emphasis>
+ method does a linear merge on two pictures based 
+on the distance of each pixel from the left side of the picture.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The method assumes that both pictures have the same dimensions.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1022" effect="bold">
+Beginning of the merge method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+The 
+
+<emphasis id="strong1023" effect="bold">
+merge
+
+</emphasis>
+ method begins in 
+
+<link id="a1044" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Beginning of the merge method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  private void merge(Picture left,Picture right){
+    int width = left.getWidth();
+    int height = left.getHeight();
+
+    double scaleL = 0;
+    double scaleR = 0;
+    int redL = 0;
+    int greenL = 0;
+    int blueL = 0;
+    int redR = 0;
+    int greenR = 0;
+    int blueR = 0;
+    Pixel pixelL = null;
+    Pixel pixelR = null;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1036">
+The code in 
+
+<link id="a1045" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ simply declares and 
+	initializes a large number of working variables.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1024" effect="bold">
+Do the merge
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+The merge is accomplished in the nested 
+
+<emphasis id="strong1025" effect="bold">
+for
+
+</emphasis>
+ loop in
+
+
+<link id="a1046" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Do the merge.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">    for(int row = 0;row &lt; height;row++){
+      for(int col = 0;col &lt; width;col++){
+        scaleR = (double)col/width;
+        scaleL = 1.0 - scaleR;
+        pixelL = left.getPixel(col,row);
+        pixelR = right.getPixel(col,row);
+
+        redL = pixelL.getColor().getRed();
+        greenL = pixelL.getColor().getGreen();
+        blueL = pixelL.getColor().getBlue();
+
+        redR = pixelR.getColor().getRed();
+        greenR = pixelR.getColor().getGreen();
+        blueR = pixelR.getColor().getBlue();
+
+        redL = (int)(redL*scaleL + redR*scaleR);
+        greenL = (int)(greenL*scaleL + greenR*scaleR);
+        blueL = (int)(blueL*scaleL + blueR*scaleR);
+
+        pixelL.setColor(new Color(redL,greenL,blueL));
+      }//end inner loop
+    }//end outer loop
+  }//end merge</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1026" effect="bold">
+Difficult to explain
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+Although the code in 
+
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is long, tedious, and 
+ugly, it isn't complicated However, it is somewhat difficult to explain in 
+words.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1027" effect="bold">
+Two scale factors
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+The body of the 
+
+<emphasis id="strong1028" effect="bold">
+for
+
+</emphasis>
+ loop begins by computing a pair of scale 
+factors named 
+
+<emphasis id="strong1029" effect="bold">
+scaleR
+
+</emphasis>
+ and 
+
+<emphasis id="strong1030" effect="bold">
+scaleL
+
+</emphasis>
+. The factor 
+named 
+
+<emphasis id="strong1031" effect="bold">
+scaleR
+
+</emphasis>
+ has a maximum value of 1.0 and is directly 
+proportional to the distance of the current pixel from the left edge of the 
+picture.
+
+</para>
+
+
+
+
+
+<para id="p1043">
+The factor named 
+
+<emphasis id="strong1032" effect="bold">
+scaleL
+
+</emphasis>
+ also has a maximum value of 1.0 and 
+is inversely proportional to the distance of the pixel from the left edge.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1033" effect="bold">
+Get and save color components
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The red, green, and blue values for the same pixel location in each of the 
+pictures are obtained and saved.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1034" effect="bold">
+Compute a new set of color values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+A new set of red, green, and blue color values are computed as the sum of 
+scaled versions of the pixel colors from the rabbit image pixel and the penguin 
+image pixel.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1035" effect="bold">
+The nature of the scaling
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+The scaling is such that the pixel colors from the rabbit image contribute 
+most heavily to output pixels to the left of center and pixel colors from the 
+penguin image contribute most heavily to output pixels to the right of center.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+You can see the effect of this scaling algorithm in 
+
+<link id="a1048" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1036" effect="bold">
+The pixels in the horizontal center
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+The pixels along a vertical line at the center of the output image contain 
+equal contributions of colors from both images. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1037" effect="bold">
+End of discussion
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+That concludes the explanation of the code in this program.
+
+</para>
+
+
+
+
+
+<para id="p1055">
+You can view the 
+
+<emphasis id="strong1038" effect="bold">
+drawSun
+
+</emphasis>
+ and 
+
+<emphasis id="strong1039" effect="bold">
+crop
+
+</emphasis>
+ methods 
+in 
+
+<link id="a1049" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1056">
+I encourage you to copy the code from 
+
+<link id="a1050" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Click 
+
+<link id="a1051" url="Prob05a.jpg">
+
+Prob05a.jpg
+
+</link>
+
+ and 
+
+<link id="a1052" url="Prob05b.jpg">
+
+
+Prob05b.jpg
+
+</link>
+
+ to download the required input image files.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+In this module, you learned how to merge two pictures.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video link
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1059">
+While not a requirement of the course, you can select the following link to 
+view an optional online video lecture on the material in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1023">
+<link id="a1053" url="http://vimeo.com/channels/itse2321/21222484">
+
+ITSE 2321 Lecture 
+	15
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1060">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1040" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1024">
+Module name: Java OOP: Merging Pictures
+
+</item>
+
+
+					
+
+<item id="li1025">
+File: Java3030.htm
+
+
+</item>
+
+
+					
+
+<item id="li1026">
+Published: 08/07/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1041" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1061">
+<emphasis id="strong1042" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1062">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1063">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1064">
+<emphasis id="strong1043" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+A complete listing of the program discussed in this module is provided in
+
+
+<link id="a1054" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1006">
+
+
+
+<row id="tr1012">
+
+
+
+<entry id="th1006">
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1044" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1006">
+
+
+
+<row id="tr1013">
+
+
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">/*File Prob05 Copyright 2008 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.GradientPaint;
+import java.awt.geom.Ellipse2D;
+
+public class Prob05{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob05Runner().run();
+  }//end main method
+}//end class Prob05
+//======================================================//
+
+class Prob05Runner{
+  public Prob05Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture penguin = new Picture("Prob05a.jpg");
+    Picture hare = new Picture("Prob05b.jpg");
+    merge(hare,penguin);
+    hare = crop(hare,6,58,330,252);
+    hare.addMessage("Display your name here.",10,20);
+    drawSun(hare);
+    hare.show();
+    System.out.println(hare);
+  }//end run
+  //----------------------------------------------------//
+
+  private void drawSun(Picture pic){
+
+    Graphics2D g2d = (Graphics2D)(pic.getGraphics());
+    int width = 75;
+    int height = 50;
+    int center = pic.getWidth()/2;
+    int xCoor = center - width/2;
+    int yCoor = 75;
+
+
+    //Create the gradient for painting from yellow to red
+    // with yellow at the left of the sun and red at the
+    // right.
+    GradientPaint gPaint = new GradientPaint(
+                              xCoor, yCoor+height/2,
+                              Color.YELLOW,
+                              xCoor+width,yCoor+height/2,
+                              Color.ORANGE);
+
+    //Set the gradient and draw the ellipse
+    g2d.setPaint(gPaint);
+    g2d.fill(new Ellipse2D.Double(
+                               xCoor,yCoor,width,height));
+
+  }//end drawSun
+  //----------------------------------------------------//
+
+  //Assumes both pictures have the same dimensions.
+  // Does a linear merge on two pictures based on the
+  // distance of each pixel from the left side of the
+  // picture.
+  private void merge(Picture left,Picture right){
+    int width = left.getWidth();
+    int height = left.getHeight();
+
+    double scaleL = 0;
+    double scaleR = 0;
+    int redL = 0;
+    int greenL = 0;
+    int blueL = 0;
+    int redR = 0;
+    int greenR = 0;
+    int blueR = 0;
+    Pixel pixelL = null;
+    Pixel pixelR = null;
+
+    for(int row = 0;row &lt; height;row++){
+      for(int col = 0;col &lt; width;col++){
+        scaleR = (double)col/width;
+        scaleL = 1.0 - scaleR;
+        pixelL = left.getPixel(col,row);
+        pixelR = right.getPixel(col,row);
+
+        redL = pixelL.getColor().getRed();
+        greenL = pixelL.getColor().getGreen();
+        blueL = pixelL.getColor().getBlue();
+
+        redR = pixelR.getColor().getRed();
+        greenR = pixelR.getColor().getGreen();
+        blueR = pixelR.getColor().getBlue();
+
+        redL = (int)(redL*scaleL + redR*scaleR);
+        greenL = (int)(greenL*scaleL + greenR*scaleR);
+        blueL = (int)(blueL*scaleL + blueR*scaleR);
+
+        pixelL.setColor(new Color(redL,greenL,blueL));
+      }//end inner loop
+    }//end outer loop
+  }//end merge
+  //----------------------------------------------------//
+
+  //Crops a Picture object to the given width and height
+  // with the upper-left corner located at startCol and
+  // startRow.
+  private Picture crop(Picture pic,int startCol,
+                                   int startRow,
+                                   int width,
+                                   int height){
+    Picture output = new Picture(width,height);
+
+    int colOut = 0;
+    int rowOut = 0;
+    int col = 0;
+    int row = 0;
+    Pixel pixel = null;
+    Color color = null;
+    for(col = startCol;col &lt; startCol+width;col++){
+      for(row = startRow;row &lt; startRow+height;row++){
+        color = pic.getPixel(col,row).getColor();
+        pixel = output.getPixel(colOut,rowOut);
+        pixel.setColor(color);
+        rowOut++;
+      }//end inner loop
+      rowOut = 0;
+      colOut++;
+    }//end outer loop
+    return output;
+  }//end crop
+}//end class Prob05Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1066">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

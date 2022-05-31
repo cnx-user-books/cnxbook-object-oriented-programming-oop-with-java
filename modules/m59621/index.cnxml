@@ -1,0 +1,4392 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java085 Swing, New Event Types in Swing</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m59621</md:content-id>
+  <md:title>Java085 Swing, New Event Types in Swing</md:title>
+  <md:abstract>Although event handling using Swing components is the same as event handling using AWT components, the Swing classes provide a number of new event types. This lesson briefly discusses all of the new event types, and provides two different sample programs that illustrate event handling with one of the new event types.</md:abstract>
+  <md:uuid>6f8fb037-9d3b-4aad-a559-9a5ed20643b6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Jul 09 16:44:27 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_contents" effect="bold">
+
+Table of contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_contents">
+
+Table of contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="New_event_types_in_Swing">
+
+New event types in 
+	Swing
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="First_sample_program">
+
+First sample program
+
+</link>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+<item id="li1010">
+<link id="a1010" target-id="Interesting_code_fragments_for_SwingEvent10">
+
+Interesting code 
+fragments for SwingEvent10
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Program_listing_for_SwingEvent10">
+
+Program listing for SwingEvent10
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Second_sample_program">
+
+Second sample program
+
+</link>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+<item id="li1013">
+<link id="a1013" target-id="Interesting_code_fragments_for_SwingEvent11">
+
+Interesting code 
+fragments for SwingEvent11
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1014">
+<link id="a1014" target-id="Program_listing_for_SwingEvent11">
+
+Program listing for SwingEvent11
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This is a page from the 
+	
+
+<link id="a1016" url="http://cnx.org/contents/Rl23r3Lw:qfO9iJX-">
+
+Event Handling
+
+</link>
+
+ 
+	section of the book titled
+	
+
+<link id="a1017" url="http://cnx.org/contents/Rl23r3Lw:JVTd7bX1">
+
+ITSE2317 - Java Programming (Intermediate)
+
+</link>
+
+. The 
+	
+
+<emphasis id="strong1000" effect="bold">
+Event Handling
+
+</emphasis>
+ section explains how to write programs that handle 
+	events in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+Students in Prof. Baldwin's 
+
+<emphasis id="strong1001" effect="bold">
+Intermediate Java Programming
+
+</emphasis>
+ 
+classes at ACC are responsible for knowing and understanding all of the material 
+in this lesson. 
+
+</para>
+
+
+
+	
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+
+
+<item id="li1016">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1.
+
+</link>
+
+
+ Listener interfaces defined in Swing.
+
+
+</item>
+
+
+
+
+<item id="li1017">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2.
+
+</link>
+
+
+ Event classes defined in Swing.
+
+
+</item>
+
+
+
+
+<item id="li1018">
+<link id="a1020" target-id="Figure_3">
+
+Figure 3.
+
+</link>
+
+
+ Graphic screen output for SwingEvent10.
+
+
+</item>
+
+
+
+
+<item id="li1019">
+<link id="a1021" target-id="Figure_4">
+
+Figure 4.
+
+</link>
+
+
+ Text screen output from moving the JFrame.
+
+
+</item>
+
+
+
+
+<item id="li1020">
+<link id="a1022" target-id="Figure_5">
+
+Figure 5.
+
+</link>
+
+
+ Information regarding the content pane. 
+
+
+
+</item>
+
+
+
+
+<item id="li1021">
+<link id="a1023" target-id="Figure_6">
+
+Figure 6.
+
+</link>
+
+
+ Methods of the AncestorListener interface.
+
+
+</item>
+
+
+
+
+<item id="li1022">
+<link id="a1024" target-id="Figure_7">
+
+Figure 7.
+
+</link>
+
+
+ Graphic screen output for SwingEvent11.
+
+
+</item>
+
+
+
+
+<item id="li1023">
+<link id="a1025" target-id="Figure_8">
+
+Figure 8.
+
+</link>
+
+
+ Text output from clicking buttons.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+
+
+<item id="li1024">
+<link id="a1026" target-id="Listing_1">
+
+Listing 1.
+
+</link>
+
+
+ Import directives for SwingEvent10.
+
+
+</item>
+
+
+
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_2">
+
+Listing 2.
+
+</link>
+
+
+ The main method for SwingEvent10.
+
+
+</item>
+
+
+
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_3">
+
+Listing 3.
+
+</link>
+
+
+ Beginning of the class named GUI.
+
+
+</item>
+
+
+
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_4">
+
+Listing 4.
+
+</link>
+
+
+ Definition of the AncestorAdded method.
+
+
+</item>
+
+
+
+
+<item id="li1028">
+<link id="a1030" target-id="Listing_5">
+
+Listing 5.
+
+</link>
+
+
+ Remaining two methods of the AncestorListener 
+interface.
+
+
+</item>
+
+
+
+
+<item id="li1029">
+<link id="a1031" target-id="Listing_6">
+
+Listing 6.
+
+</link>
+
+
+ Complete listing of program named SwingEvent10.
+
+
+</item>
+
+
+
+
+<item id="li1030">
+<link id="a1032" target-id="Listing_7">
+
+Listing 7.
+
+</link>
+
+
+ The constructor for the GUI class.
+
+
+</item>
+
+
+
+
+<item id="li1031">
+<link id="a1033" target-id="Listing_8">
+
+Listing 8.
+
+</link>
+
+
+ Definition of the ancestor listener class.
+
+
+</item>
+
+
+
+
+<item id="li1032">
+<link id="a1034" target-id="Listing_9">
+
+Listing 9.
+
+</link>
+
+
+ Definition of the action listener class.
+
+
+</item>
+
+
+
+
+<item id="li1033">
+<link id="a1035" target-id="Listing_10">
+
+Listing 10.
+
+</link>
+
+
+ Complete listing of program named SwingEvent11.
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+Although event handling using 
+
+<emphasis id="strong1002" effect="bold">
+Swing
+
+</emphasis>
+ components is 
+essentially the same 
+as event handling using 
+
+<emphasis id="strong1003" effect="bold">
+AWT
+
+</emphasis>
+ components, the 
+
+<emphasis id="strong1004" effect="bold">
+Swing
+
+</emphasis>
+ 
+classes provide a number of new event types. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+This lesson will briefly discuss the new event types 
+
+<emphasis id="em1003" effect="italics">
+(as of Swing 1.0.1)
+
+</emphasis>
+, and will provide 
+two sample programs that illustrate event handling with one of the new 
+event types. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+One of the sample programs will also illustrate an important new aspect of
+
+
+<emphasis id="strong1005" effect="bold">
+Swing
+
+</emphasis>
+ wherein every component is also a container. In 
+this case, we will build a pyramid of 
+
+<emphasis id="strong1006" effect="bold">
+Swing JButton
+
+</emphasis>
+ objects 
+where each 
+
+<emphasis id="strong1007" effect="bold">
+JButton
+
+</emphasis>
+ object is contained in the one below it with 
+the bottom 
+
+<emphasis id="strong1008" effect="bold">
+JButton
+
+</emphasis>
+ object being contained in a 
+
+<emphasis id="strong1009" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object. 
+
+<emphasis id="em1004" effect="italics">
+(See 
+
+<link id="a1036" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+We will then illustrate how these 
+
+<emphasis id="strong1010" effect="bold">
+JButton
+
+</emphasis>
+ objects respond to 
+action events and ancestor events. Action events come to us from the
+
+
+<emphasis id="strong1011" effect="bold">
+AWT
+
+</emphasis>
+ whereas ancestor events are new to 
+
+<emphasis id="strong1012" effect="bold">
+Swing
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="New_event_types_in_Swing" effect="bold">
+
+New event types in 
+	Swing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+One of the easiest ways to identify the new event types in 
+
+<emphasis id="strong1013" effect="bold">
+Swing
+
+</emphasis>
+ 
+is to take a look at the listener interfaces defined in 
+
+<emphasis id="strong1014" effect="bold">
+Swing
+
+</emphasis>
+. 
+Another way is to take a look at the event classes defined in 
+
+<emphasis id="strong1015" effect="bold">
+
+Swing
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<link id="a1037" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+ shows a list of the listener interfaces defined in the
+
+
+<emphasis id="strong1016" effect="bold">
+com.sun.java.swing.event
+
+</emphasis>
+ package of 
+
+<emphasis id="strong1017" effect="bold">
+Swing 1.0.1
+
+</emphasis>
+. 
+
+
+<emphasis id="em1005" effect="italics">
+(Note that sometime between 1997 and 2016, all Swing components were moved 
+into the standard Java library in the javax.swing package.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ Listener interfaces defined in Swing.
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1034">
+AncestorListener 
+
+</item>
+
+
+	
+
+<item id="li1035">
+CaretListener 
+
+</item>
+
+
+	
+
+<item id="li1036">
+CellEditorListener
+
+</item>
+
+
+	
+
+<item id="li1037">
+ChangeListener 
+
+</item>
+
+
+	
+
+<item id="li1038">
+DocumentEvent 
+
+</item>
+
+
+	
+
+<item id="li1039">
+DocumentListener 
+
+</item>
+
+
+	
+
+<item id="li1040">
+HyperlinkListener 
+
+</item>
+
+
+	
+
+<item id="li1041">
+InternalFrameListener 
+
+</item>
+
+
+	
+
+<item id="li1042">
+ListDataListener 
+
+</item>
+
+
+	
+
+<item id="li1043">
+ListSelectionListener 
+
+</item>
+
+
+	
+
+<item id="li1044">
+MenuListener 
+
+</item>
+
+
+	
+
+<item id="li1045">
+PopupMenuListener 
+
+</item>
+
+
+	
+
+<item id="li1046">
+TableColumnModelListener 
+
+</item>
+
+
+	
+
+<item id="li1047">
+TableModelListener 
+
+</item>
+
+
+	
+
+<item id="li1048">
+TreeExpansionListener 
+
+</item>
+
+
+	
+
+<item id="li1049">
+TreeModelListener 
+
+</item>
+
+
+	
+
+<item id="li1050">
+TreeSelectionListener 
+
+</item>
+
+
+	
+
+<item id="li1051">
+UndoableEditListener 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1011">
+<link id="a1038" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ shows a list of the event classes defined in the 
+
+<emphasis id="strong1018" effect="bold">
+
+com.sun.java.swing.event
+
+</emphasis>
+ package of 
+
+<emphasis id="strong1019" effect="bold">
+Swing 1.0.1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ Event classes defined in Swing.
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1052">
+AncestorEvent 
+
+</item>
+
+
+	
+
+<item id="li1053">
+CaretEvent 
+
+</item>
+
+
+	
+
+<item id="li1054">
+ChangeEvent 
+
+</item>
+
+
+	
+
+<item id="li1055">
+EventListenerList 
+
+</item>
+
+
+	
+
+<item id="li1056">
+HyperlinkEvent 
+
+</item>
+
+
+	
+
+<item id="li1057">
+InternalFrameAdapter 
+
+</item>
+
+
+	
+
+<item id="li1058">
+InternalFrameEvent 
+
+</item>
+
+
+	
+
+<item id="li1059">
+ListDataEvent 
+
+</item>
+
+
+	
+
+<item id="li1060">
+ListSelectionEvent 
+
+</item>
+
+
+	
+
+<item id="li1061">
+MenuEvent 
+
+</item>
+
+
+	
+
+<item id="li1062">
+PopupMenuEvent 
+
+</item>
+
+
+	
+
+<item id="li1063">
+TableColumnModelEvent 
+
+</item>
+
+
+	
+
+<item id="li1064">
+TableModelEvent 
+
+</item>
+
+
+	
+
+<item id="li1065">
+TreeExpansionEvent 
+
+</item>
+
+
+	
+
+<item id="li1066">
+TreeModelEvent 
+
+</item>
+
+
+	
+
+<item id="li1067">
+TreeSelectionEvent 
+
+</item>
+
+
+	
+
+<item id="li1068">
+UndoableEditEvent 
+
+</item>
+
+
+
+
+</list>
+
+
+ 
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1012">
+The two sample programs that follow illustrate the 
+
+
+<emphasis id="strong1020" effect="bold">
+AncestorEvent
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1021" effect="bold">
+AncestorListener
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="First_sample_program" effect="bold">
+
+First sample program
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1013">
+The first sample program is named 
+
+<emphasis id="strong1022" effect="bold">
+SwingEvent10
+
+</emphasis>
+. A complete 
+listing of the program is shown in 
+
+<link id="a1039" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+. This program illustrates the use of 
+the 
+
+<emphasis id="strong1023" effect="bold">
+getContentPane
+
+</emphasis>
+ 
+method to add a 
+
+<emphasis id="strong1024" effect="bold">
+JButton
+
+</emphasis>
+ 
+object to a 
+
+
+<emphasis id="strong1025" effect="bold">
+JFrame
+
+</emphasis>
+ object. It also illustrates the use of an 
+
+<emphasis id="strong1026" effect="bold">
+AncestorListener
+
+</emphasis>
+ on a 
+
+<emphasis id="strong1027" effect="bold">
+JButton
+
+</emphasis>
+. 
+The graphic output produced by this program is shown in 
+
+<link id="a1040" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3.
+
+</emphasis>
+
+ Graphic screen output for SwingEvent10.
+
+
+<para id="p1014">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/swingevent10a.jpg" width="301" height="301"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1015">
+Running the program under Java 8 and physically moving the resulting 
+
+<emphasis id="strong1028" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object on the screen produced 
+the output shown in 
+
+<link id="a1041" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4.
+
+</emphasis>
+
+ Text screen output from moving the JFrame.
+
+
+<code id="pre1000" display="block">
+Make JFrame visible
+ancestorMoved method
+ancestorMoved method
+ancestorAdded method invoked
+Event source: javax.swing.JButton[,0,0,292x268,alignmentX=0.0,alignmentY=0.5,bor
+der=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7bac7cc2,flags=29
+6,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSe
+lectedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,righ
+t=14],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rollove
+rIcon=,rolloverSelectedIcon=,selectedIcon=,text=Button,defaultCapable=true]
+Ancestor: javax.swing.JFrame[frame0,0,0,300x300,layout=java.awt.BorderLayout,tit
+le=Copyright 1998, R.G.Baldwin,resizable,normal,defaultCloseOperation=HIDE_ON_CL
+OSE,rootPane=javax.swing.JRootPane[,4,28,292x268,layout=javax.swing.JRootPane$Ro
+otLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=16777673,maximumSize=,minim
+umSize=,preferredSize=],rootPaneCheckingEnabled=true]
+Parent: null
+Component: javax.swing.JButton[,0,0,292x268,alignmentX=0.0,alignmentY=0.5,border
+=javax.swing.plaf.BorderUIResource$CompoundBorderUIResource@7bac7cc2,flags=296,m
+aximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,disabledSelec
+tedIcon=,margin=javax.swing.plaf.InsetsUIResource[top=2,left=14,bottom=2,right=1
+4],paintBorder=true,paintFocus=true,pressedIcon=,rolloverEnabled=true,rolloverIc
+on=,rolloverSelectedIcon=,selectedIcon=,text=Button,defaultCapable=true]
+ID value: 1
+ancestorMoved method
+ancestorMoved method
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1016">
+The program was originally tested using JDK 1.1.6 and Swing 1.0.1 under Windows 95. 
+It was more recently tested using Java 8 and Windows 7.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Note that 
+
+<link id="a1042" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+ shows a lot more output than was produced when the same 
+thing was done using JDK 1.1.6 and Swing 1.0.1.
+
+</para>
+
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Interesting_code_fragments_for_SwingEvent10" effect="bold">
+
+Interesting code 
+fragments for SwingEvent10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+I will discuss and explain this program in fragments. As mentioned earlier, a 
+complete listing of this program is shown in 
+
+<link id="a1043" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+. 
+
+<link id="a1044" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+ shows the import 
+declarations required to 
+import the 
+
+<emphasis id="strong1029" effect="bold">
+Swing
+
+</emphasis>
+
+ packages. 
+
+<emphasis id="em1006" effect="italics">
+(Note that this is different than was the case 
+with JDK 1.1.6 and Swing 1.0.1. The old versions of the import directives are 
+shown as comments in 
+
+<link id="a1045" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1.
+
+</emphasis>
+
+ Import directives for SwingEvent10.
+
+
+<code id="pre1001" display="block">
+import java.awt.*;
+import java.awt.event.*;
+//import com.sun.java.swing.*;//JDK 1.1 version
+//import com.sun.java.swing.event.*;//JDK 1.1 version
+import javax.swing.*;//JDK 1.2 version
+import javax.swing.event.*;//JDK 1.2 version
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1019">
+The 
+
+<emphasis id="strong1030" effect="bold">
+main
+
+</emphasis>
+ method in the controlling class is simple, but we will 
+include it in 
+
+<link id="a1046" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+ for continuity.
+
+</para>
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2.
+
+</emphasis>
+
+ The main method for SwingEvent10.
+
+
+<code id="pre1002" display="block">
+public class SwingEvent10 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class SwingEvent10
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1020">
+That brings us to the class named 
+
+<emphasis id="strong1031" effect="bold">
+GUI
+
+</emphasis>
+
+ from which we will instantiate our 
+graphical user interface object and display it on the screen. The class named
+
+
+<emphasis id="strong1032" effect="bold">
+GUI
+
+</emphasis>
+ begins in 
+
+<link id="a1047" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1006" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3.
+
+</emphasis>
+
+ Beginning of the class named GUI.
+
+
+<code id="pre1003" display="block">
+class GUI {
+  public GUI(){//constructor
+    //Create a new JFrame object, set size, title, etc.
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");
+    //Add window listener to terminate the program
+    displayWindow.addWindowListener(new WProc1());
+    
+    //Create a JButton object
+    JButton theButton = new JButton("Button");
+    
+    //Register an AncestorListener object on the JButton
+    theButton.addAncestorListener(new MyAncestorListener());
+    
+    //Add the JButton to the JFrame using content pane
+    displayWindow.getContentPane().add(theButton);
+
+    System.out.println("Make JFrame visible");
+    displayWindow.setVisible(true);    
+  }//end constructor
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1021">
+As you can see in 
+
+<link id="a1048" target-id="Listing_3">
+
+ Listing 3
+
+</link>
+
+, the constructor for our 
+
+<emphasis id="strong1033" effect="bold">
+GUI
+
+</emphasis>
+
+ object is pretty straightforward. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+We begin by instantiating a 
+
+<emphasis id="strong1034" effect="bold">
+Swing
+
+</emphasis>
+
+ object of type 
+
+<emphasis id="strong1035" effect="bold">
+JFrame
+
+</emphasis>
+, setting its size, 
+giving it a title, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+We also add a 
+
+<emphasis id="strong1036" effect="bold">
+WindowListener
+
+</emphasis>
+
+ to terminate the program 
+when the user closes the 
+
+<emphasis id="strong1037" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+<emphasis id="em1007" effect="italics">
+(There is an 
+alternative and possibly better way to accomplish that in Java 8 than was the 
+case in 1997. See the 
+
+<emphasis id="strong1038" effect="bold">
+setDefaultCloseOperation
+
+</emphasis>
+ method in the 
+documentation for the 
+
+<emphasis id="strong1039" effect="bold">
+JFrame
+
+</emphasis>
+ class.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+Then we instantiate a 
+
+<emphasis id="strong1040" effect="bold">
+Swing
+
+</emphasis>
+
+ object of type 
+
+<emphasis id="strong1041" effect="bold">
+JButton
+
+</emphasis>
+ and register an 
+
+
+<emphasis id="strong1042" effect="bold">
+AncestorListener
+
+</emphasis>
+ object on the button. We will discuss the class from 
+which the listener was instantiated shortly. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+After this, we add the 
+
+<emphasis id="strong1043" effect="bold">
+JButton
+
+</emphasis>
+ object to the 
+
+<emphasis id="strong1044" effect="bold">
+JFrame
+
+</emphasis>
+ object named 
+
+
+<emphasis id="strong1045" effect="bold">
+displayWindow
+
+</emphasis>
+ by first invoking the 
+
+<emphasis id="strong1046" effect="bold">
+getContentPane
+
+</emphasis>
+ method and then invoking 
+the 
+
+<emphasis id="strong1047" effect="bold">
+add
+
+</emphasis>
+ method on the content pane.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+Finally, we display a message and make the 
+
+<emphasis id="strong1048" effect="bold">
+JFrame
+
+</emphasis>
+ object visible. 
+That 
+concludes the constructor. 
+
+</para>
+
+
+
+
+
+
+<para id="p1027">
+Now what about the 
+
+<emphasis id="strong1049" effect="bold">
+getContentPane
+
+</emphasis>
+ method. This is something that 
+doesn't exist in the 
+
+<emphasis id="strong1050" effect="bold">
+AWT
+
+</emphasis>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+In the 
+
+<emphasis id="strong1051" effect="bold">
+AWT
+
+</emphasis>
+
+, we add components to, and otherwise manipulate the 
+client area of a 
+
+<emphasis id="strong1052" effect="bold">
+Frame
+
+</emphasis>
+
+ object directly. However, in 
+
+<emphasis id="strong1053" effect="bold">
+Swing
+
+</emphasis>
+, some "panes" are automatically placed in the client area 
+of a 
+
+<emphasis id="strong1054" effect="bold">
+JFrame
+
+</emphasis>
+ object, and we add components to, and otherwise manipulate those 
+panes instead of manipulating the client area of the 
+
+<emphasis id="strong1055" effect="bold">
+JFrame
+
+</emphasis>
+ object directly. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Rather than to try to explain this in my own words, I am simply going to 
+provide a quotation from the JavaSoft documentation for the 
+
+<emphasis id="strong1056" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object, Swing, Version 1.0.1 in 
+
+<link id="a1049" target-id="Figure_5">
+
+ Figure 5
+
+</link>
+
+. Note that the wording in 
+
+<link id="a1050" target-id="Figure_5">
+
+ Figure 5
+
+</link>
+
+ is 
+the copyrighted property of JavaSoft.
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1007" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1030">
+
+
+
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5.
+
+</emphasis>
+
+ Information regarding the content pane. 
+
+
+
+</para>
+
+
+
+
+
+
+<para id="p1031">
+public class JFrame extends Frame implements WindowConstants, Accessible, RootPaneContainer
+
+</para>
+
+
+
+
+
+<para id="p1032">
+An extended version of java.awt.Frame that adds support for 
+interposing input and painting behavior in front of the frames children (see 
+glassPane), support for special children that are managed by a
+LayeredPane (see rootPane) and for Swing
+MenuBars.
+
+</para>
+
+
+
+
+
+
+<para id="p1033">
+The JFrame class is slightly incompatible with 
+java.awt.Frame.
+JFrame contains a JRootPane as it's only 
+child. The
+contentPane should be the parent of any children of the JFrame. 
+This is different than java.awt.Frame, e.g. to add a child to 
+an
+AWT Frame you'd write:
+
+</para>
+
+
+
+
+
+
+<para id="p1034">
+frame.add(child);
+
+</para>
+
+
+
+
+
+
+
+<para id="p1035">
+However using JFrame you need to add the child to the 
+JFrame,s contentPane instead:
+
+</para>
+
+
+
+
+
+
+<para id="p1036">
+frame.getContentPane().add(child);
+
+</para>
+
+
+
+
+
+<para id="p1037">
+The same is true for setting LayoutManagers, removing components, listing 
+children, etc. All these methods should normally be sent to the
+contentPane
+instead of the JFrame itself. The contentPane 
+will always be non-null. Attempting to set it to null will cause the 
+JFrame
+to throw an exception. The default contentPane will have a 
+BorderLayout
+manager set on it.
+
+</para>
+
+
+
+
+
+
+<para id="p1038">
+Please see the JRootPane documentation for a complete 
+description of the contentPane, glassPane, and layeredPane properties.
+
+</para>
+
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1039">
+For the time being, and for this simple example, this all boils down to a 
+requirement to insert the method call 
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">getContentPane() </code>
+
+
+
+
+<para id="p1040">
+between the reference to the 
+
+<emphasis id="strong1057" effect="bold">
+JFrame
+
+</emphasis>
+ object and calls to 
+
+
+<emphasis id="strong1058" effect="bold">
+add
+
+</emphasis>
+, 
+
+<emphasis id="strong1059" effect="bold">
+setLayout
+
+</emphasis>
+, 
+etc. For more complex programs, the ramifications could be more 
+significant. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+Our 
+
+<emphasis id="strong1060" effect="bold">
+GUI
+
+</emphasis>
+
+ class has two inner classes. One of those is a 
+
+<emphasis id="strong1061" effect="bold">
+WindowListener
+
+</emphasis>
+
+ 
+class that is used to terminate the program when the user closes the 
+
+<emphasis id="strong1062" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object. It is so simple and so common that I'm not going to show it here. 
+You can see it in the complete listing of the program in 
+
+<link id="a1051" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ if you 
+are interested. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+The second inner class 
+
+<emphasis id="em1008" effect="italics">
+(and these could just as well be implemented as 
+top-level classes instead of inner classes)
+
+</emphasis>
+ is used to instantiate an 
+
+
+<emphasis id="strong1063" effect="bold">
+AncestorListener
+
+</emphasis>
+ object to be registered on the 
+
+<emphasis id="strong1064" effect="bold">
+JButton
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+This is a little more interesting. The 
+
+<emphasis id="strong1065" effect="bold">
+AncestorListener
+
+</emphasis>
+ interface 
+declares three methods, and as far as I know there is no adapter for this 
+interface. Therefore, our class that implements the interface must define 
+all three methods. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+A brief description of each of the three methods is provided in 
+
+<link id="a1052" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1008" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6.
+
+</emphasis>
+
+ Methods of the AncestorListener interface.
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1069">
+<emphasis id="strong1066" effect="bold">
+ancestorAdded(AncestorEvent)
+
+</emphasis>
+ -- Called when the source 
+	or one of its ancestors is made visible either by setVisible(true) being 
+	called or by its being added to the component hierarchy.
+
+</item>
+
+
+	
+
+<item id="li1070">
+<emphasis id="strong1067" effect="bold">
+ancestorMoved(AncestorEvent)
+
+</emphasis>
+ -- Called when either the 
+	source or one of its ancestors is moved.
+
+</item>
+
+
+	
+
+<item id="li1071">
+<emphasis id="strong1068" effect="bold">
+ancestorRemoved(AncestorEvent)
+
+</emphasis>
+ -- Called when the 
+	source or one of its ancestors is made invisible either by setVisible(false) 
+	being called or by its being remove from the component hierarchy. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1045">
+As you can see, whenever one of the methods is called, an object of type 
+
+
+<emphasis id="strong1069" effect="bold">
+AncestorEvent
+
+</emphasis>
+ is passed as a parameter. As usual, it is possible to invoke 
+the methods of the 
+
+<emphasis id="strong1070" effect="bold">
+AncestorEvent
+
+</emphasis>
+ class and the classes extended by that class to 
+learn more about the event. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+We will define all three of the interface methods 
+
+<emphasis id="em1009" effect="italics">
+(as required)
+
+</emphasis>
+ in our class 
+definition. The code fragment in 
+
+<link id="a1053" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ shows the definition of the
+
+
+<emphasis id="strong1071" effect="bold">
+ancestorAdded
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<note id="note1009" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4.
+
+</emphasis>
+
+ Definition of the AncestorAdded method.
+
+
+<code id="pre1005" display="block">
+  class MyAncestorListener implements AncestorListener{
+    //Define three methods declared in AncestorListener
+    // interface.
+    
+    public void ancestorAdded(AncestorEvent e){
+      System.out.println("ancestorAdded method invoked");
+      System.out.println("Event source: " + e.getSource());
+      System.out.println("Ancestor: " + e.getAncestor());
+      System.out.println("Parent: " + e.getAncestorParent());
+      System.out.println("Component: " + e.getComponent());
+      System.out.println("ID value: " + e.getID());
+    }//end ancestorAdded()
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1047">
+When this method is called, it invokes five different methods of the incoming 
+
+
+<emphasis id="strong1072" effect="bold">
+AncestorEvent
+
+</emphasis>
+ object and displays the material returned from 
+those methods. The output from invoking these methods was shown earlier in 
+
+
+<link id="a1054" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<para id="p1048">
+The final code fragment for this program in 
+
+<link id="a1055" target-id="Listing_5">
+
+ Listing 5
+
+</link>
+
+ shows the definitions of the other two methods of the 
+
+
+<emphasis id="strong1073" effect="bold">
+AncestorListener
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+
+<note id="note1010" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5.
+
+</emphasis>
+
+ Remaining two methods of the AncestorListener 
+interface.
+
+
+<code id="pre1006" display="block">
+    public void ancestorRemoved(AncestorEvent e){
+      System.out.println("ancestorRemoved method");
+    }//end ancestorRemoved()
+      
+    public void ancestorMoved(AncestorEvent e){
+      System.out.println("ancestorMoved method");
+    }//end ancestorMoved
+  }//end class MyAncestorListener
+  //.....................................................//
+}//end class GUI definition
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1049">
+If you compile and run this program and observe the output as the program 
+runs, you will see that the 
+
+<emphasis id="strong1074" effect="bold">
+ancestorAdded
+
+</emphasis>
+ method and the 
+
+
+<emphasis id="strong1075" effect="bold">
+ancestorMoved
+
+</emphasis>
+ 
+method are both called when the 
+
+<emphasis id="strong1076" effect="bold">
+JFrame
+
+</emphasis>
+ object is made visible. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+Following this, whenever the 
+
+<emphasis id="strong1077" effect="bold">
+JFrame
+
+</emphasis>
+ object is moved on the screen, the 
+
+
+<emphasis id="strong1078" effect="bold">
+ancestorMoved
+
+</emphasis>
+ method will be called. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Iconifying and then deiconifying the 
+
+<emphasis id="strong1079" effect="bold">
+JFrame
+
+</emphasis>
+ object will also 
+cause the 
+
+<emphasis id="strong1080" effect="bold">
+ancestorMoved
+
+</emphasis>
+ method to be called. 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Program_listing_for_SwingEvent10" effect="bold">
+
+Program listing for SwingEvent10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1052">
+<link id="a1056" target-id="Listing_6">
+
+ Listing 6
+
+</link>
+
+ contains a complete listing for the program named 
+
+<emphasis id="strong1081" effect="bold">
+
+SwingEvent10
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1011" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6.
+
+</emphasis>
+
+ Complete listing of program named SwingEvent10.
+
+
+<code id="pre1007" display="block">
+/*File SwingEvent10.java Copyright 1998, R.G.Baldwin
+Code updated 07/10/16 to be Java 8 compatible.
+Rev 1/12/99 to be JDK 1.2 Swing compatible
+
+Illustrates use of getContentPane() to add a JButton to
+a JFrame.
+
+Illustrates use of AncestorListener on a JButton.
+
+Running the program and moving the resulting JFrame on the
+screen produced the following output.  Note that line breaks
+were manually added to this presentation to make the lines
+fit in this format. Note that these outputs don't seem to
+provide a good match for the descriptions and names of the
+methods in the JavaSoft documentation.
+
+Make JFrame visible
+ancestorAdded method invoked
+Event source: com.sun.java.swing.JButton[,0,0,0x0,
+            invalid,layout=com.sun.java.swing.OverlayLayout]
+Ancestor: com.sun.java.swing.JButton[,0,0,0x0,
+            invalid,layout=com.sun.java.swing.OverlayLayout]
+Parent: com.sun.java.swing.JPanel[null.contentPane,0,0,0x0,
+              invalid,layout=com.sun.java.swing.JRootPane$1]
+Component: com.sun.java.swing.JButton[,0,0,0x0,
+            invalid,layout=com.sun.java.swing.OverlayLayout]
+ID value: 1
+ancestorMoved method
+ancestorMoved method
+
+Tested using JDK 1.1.6 and Swing 1.0.1 under Win95.
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+//import com.sun.java.swing.*;//JDK 1.1 version
+//import com.sun.java.swing.event.*;//JDK 1.1 version
+import javax.swing.*;//JDK 1.2 version
+import javax.swing.event.*;//JDK 1.2 version
+
+public class SwingEvent10 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class SwingEvent10
+//=======================================================//
+
+//The following class is used to instantiate a 
+// graphical user interface object.
+class GUI {
+  public GUI(){//constructor
+    //Create a new JFrame object, set size, title, etc.
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");
+    //Add window listener to terminate the program
+    displayWindow.addWindowListener(new WProc1());
+    
+    //Create a JButton object
+    JButton theButton = new JButton("Button");
+    
+    //Register an AncestorListener object on the JButton
+    theButton.addAncestorListener(new MyAncestorListener());
+    
+    //Add the JButton to the JFrame using content pane
+    displayWindow.getContentPane().add(theButton);
+
+    System.out.println("Make JFrame visible");
+    displayWindow.setVisible(true);    
+  }//end constructor
+  //.....................................................//
+  //Begin inner class definitions
+  //The following listener is used to terminate the program
+  // when the user closes the frame.
+  class WProc1 extends WindowAdapter{
+    public void windowClosing(WindowEvent e){
+      System.exit(0);
+    }//end windowClosing()
+  }//end class WProc1
+  //.....................................................//
+
+  //Define an AncestorListener class
+  class MyAncestorListener implements AncestorListener{
+    //Define three methods declared in AncestorListener
+    // interface.
+    
+    public void ancestorAdded(AncestorEvent e){
+      System.out.println("ancestorAdded method invoked");
+      System.out.println("Event source: " + e.getSource());
+      System.out.println("Ancestor: " + e.getAncestor());
+      System.out.println("Parent: " + e.getAncestorParent());
+      System.out.println("Component: " + e.getComponent());
+      System.out.println("ID value: " + e.getID());
+    }//end ancestorAdded()
+      
+    public void ancestorRemoved(AncestorEvent e){
+      System.out.println("ancestorRemoved method");
+    }//end ancestorRemoved()
+      
+    public void ancestorMoved(AncestorEvent e){
+      System.out.println("ancestorMoved method");
+    }//end ancestorMoved
+  }//end class MyAncestorListener
+  //.....................................................//
+}//end class GUI definition
+//=======================================================//
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Second_sample_program" effect="bold">
+
+Second sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1053">
+This program named 
+
+<emphasis id="strong1082" effect="bold">
+SwingEvent11
+
+</emphasis>
+ further illustrates the use of an 
+
+<emphasis id="strong1083" effect="bold">
+AncestorListener
+
+</emphasis>
+ on a 
+
+<emphasis id="strong1084" effect="bold">
+JButton
+
+</emphasis>
+.
+The graphic screen output for this program is shown in 
+
+<link id="a1057" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1012" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7.
+
+</emphasis>
+
+ Graphic screen output for SwingEvent11.
+
+
+<para id="p1054">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/swingevent11a.jpg" width="301" height="101"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1055">
+More importantly, this program illustrates the very important fact that 
+
+
+<emphasis id="strong1085" effect="bold">
+JButton
+
+</emphasis>
+ objects are containers that can contain other objects including other 
+
+
+<emphasis id="strong1086" effect="bold">
+JButton
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+This program stacks three 
+
+<emphasis id="strong1087" effect="bold">
+JButton
+
+</emphasis>
+ objects on top of one another with the 
+stack of three 
+
+<emphasis id="strong1088" effect="bold">
+JButton
+
+</emphasis>
+ objects being placed on a 
+
+<emphasis id="strong1089" effect="bold">
+JFrame
+
+</emphasis>
+ object. 
+
+<emphasis id="strong1090" effect="bold">
+ActionListener
+
+</emphasis>
+ 
+objects are registered on each of the buttons to trap an 
+
+<emphasis id="strong1091" effect="bold">
+actionPerformed
+
+</emphasis>
+ event 
+when the button is clicked and to display the source of the event. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+Running the program using Java 8 and carefully clicking each of the three buttons in 
+succession from the top of the stack to the bottom of the stack, and then moving 
+the 
+
+<emphasis id="strong1092" effect="bold">
+JFrame
+
+</emphasis>
+ object on the screen produces the output shown in 
+
+
+<link id="a1058" target-id="Figure_8">
+
+ Figure 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1013" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8.
+
+</emphasis>
+
+ Text output from clicking buttons.
+
+
+<code id="pre1008" display="block">
+Make JFrame visible
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorAdded method
+Event source: First Button
+In ancestorAdded method
+Event source: Second Button
+In ancestorAdded method
+Event source: Third Button
+In actionPerformed method
+Event source: Third Button
+In actionPerformed method
+Event source: Second Button
+In actionPerformed method
+Event source: First Button
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1058">
+This program was originally tested using JDK 1.1.6 and Swing 1.0.1 under 
+Windows 95. More recently it was tested using Java 8 under Windows 7. As 
+mentioned above, the output 
+shown in 
+
+<link id="a1059" target-id="Figure_8">
+
+ Figure 8
+
+</link>
+
+ was produced using Java 8.
+
+</para>
+
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Interesting_code_fragments_for_SwingEvent11" effect="bold">
+
+Interesting code 
+fragments for SwingEvent11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1059">
+As before, I will discuss and explain this program using code fragments. A 
+complete listing of the program is shown in 
+
+<link id="a1060" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1060">
+The controlling class and the 
+
+<emphasis id="strong1093" effect="bold">
+main
+
+</emphasis>
+ method for this program 
+is the same as the previous program, so I won't discuss it here.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+The 
+
+<emphasis id="strong1094" effect="bold">
+GUI
+
+</emphasis>
+ class is shown in 
+
+<link id="a1061" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<note id="note1014" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7.
+
+</emphasis>
+
+ The constructor for the GUI class.
+
+
+<code id="pre1009" display="block">
+class GUI {
+  public GUI(){//constructor
+    //...snip
+
+    displayWindow.getContentPane().setLayout(
+                                          new FlowLayout());
+    //...snip
+    
+    JButton firstButton = new JButton("First Button");
+    JButton secondButton = new JButton("Second Button");
+    JButton thirdButton = new JButton("Third Button");
+    
+    //Stack the three JButton objects on top of one
+    // another.
+    firstButton.add(secondButton);
+    secondButton.add(thirdButton);
+    
+    //Register an AncestorListener object on each JButton
+    firstButton.addAncestorListener(
+                                 new MyAncestorListener());
+    secondButton.addAncestorListener(
+                                 new MyAncestorListener());
+    thirdButton.addAncestorListener(
+                                 new MyAncestorListener());
+    
+    //Register an ActionListener object on each JButton
+    firstButton.addActionListener(new MyActionListener());
+    secondButton.addActionListener(new MyActionListener());
+    thirdButton.addActionListener(new MyActionListener());
+    
+    //...snip
+        
+  }//end constructor
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1062">
+Much of the code in the constructor for the 
+
+<emphasis id="strong1095" effect="bold">
+GUI
+
+</emphasis>
+
+ class is also the same as in 
+the previous program so I deleted it from 
+
+<link id="a1062" target-id="Listing_7">
+
+ Listing 7
+
+</link>
+
+ for 
+brevity. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+Note the use of 
+
+<emphasis id="strong1096" effect="bold">
+getContentPane
+
+</emphasis>
+ when setting the layout manager as described 
+earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+Three 
+
+<emphasis id="strong1097" effect="bold">
+JButton
+
+</emphasis>
+ objects are instantiated. Then the three buttons are 
+stacked by adding 
+
+<emphasis id="strong1098" effect="bold">
+secondButton
+
+</emphasis>
+ to 
+
+<emphasis id="strong1099" effect="bold">
+firstButton
+
+</emphasis>
+, and by adding 
+
+
+<emphasis id="strong1100" effect="bold">
+thirdButton
+
+</emphasis>
+ to 
+
+
+<emphasis id="strong1101" effect="bold">
+secondButton
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+An 
+
+<emphasis id="strong1102" effect="bold">
+AncestorListener
+
+</emphasis>
+ object is registered on all three of the buttons and then 
+an 
+
+<emphasis id="strong1103" effect="bold">
+ActionListener
+
+</emphasis>
+ object is registered on all three of the buttons. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+The remainder of the constructor is the same as before and was deleted for 
+brevity. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The ancestor listener class is very similar to the previous version, so the 
+definition for only one of the methods is shown in 
+
+<link id="a1063" target-id="Listing_8">
+
+ Listing 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<note id="note1015" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8.
+
+</emphasis>
+
+ Definition of the ancestor listener class.
+
+
+<code id="pre1010" display="block">
+  class MyAncestorListener implements AncestorListener{
+    public void ancestorAdded(AncestorEvent e){
+      System.out.println("In ancestorAdded method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+    }//end ancestorAdded()
+      
+    //...snip
+  }//end class MyAncestorListener
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<para id="p1068">
+Note the requirement for downcasting in this version of the method. This is 
+because invocation of the 
+
+<emphasis id="strong1104" effect="bold">
+getSource
+
+</emphasis>
+ method returns an object of type 
+
+<emphasis id="strong1105" effect="bold">
+Object
+
+</emphasis>
+ 
+and it must be downcast to type 
+
+<emphasis id="strong1106" effect="bold">
+JButton
+
+</emphasis>
+ to be useful. 
+
+</para>
+
+
+
+
+
+
+<para id="p1069">
+<link id="a1064" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1107" effect="bold">
+ActionListener
+
+</emphasis>
+ class that traps action events on the 
+buttons when they are clicked and presents appropriate output on the screen.
+
+</para>
+
+
+
+
+
+<note id="note1016" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9.
+
+</emphasis>
+
+ Definition of the action listener class.
+
+
+<code id="pre1011" display="block">
+  class MyActionListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      System.out.println("In actionPerformed method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+    }//end actionPerformed()
+  }//end class MyActionListener
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Program_listing_for_SwingEvent11" effect="bold">
+
+Program listing for SwingEvent11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+<link id="a1065" target-id="Listing_10">
+
+ Listing 10
+
+</link>
+
+ contains a complete listing of the program named
+
+<emphasis id="strong1108" effect="bold">
+ SwingEvent11
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<note id="note1017" type="">
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10.
+
+</emphasis>
+
+ Complete listing of program named SwingEvent11.
+
+
+<code id="pre1012" display="block">
+/*File SwingEvent11.java Copyright 1998, R.G.Baldwin
+Code updated 7/10/16 for Java 8 compatibility.
+
+Revised 1.12/98 for JDK 1.2 Swing compatibility.
+
+Further illustrates use of AncestorListener on a JButton.
+Also see SwingEvent10.java.
+
+Illustrates that JButton objects are containers that 
+can contain other JButton objects.
+
+This program stacks three JButton objects on top of one
+another with the stack of three JButton objects being
+placed on a JFrame object.
+
+Running the program and carefully clicking each of the
+three buttons in succession from the top of the stack to
+the bottom of the stack, and then moving the JFrame object
+on the screen produces the following output. Note that
+some blank lines were manually inserted to make it easier
+to follow this material.
+
+Make JFrame visible
+In ancestorAdded method
+Event source: First Button
+In ancestorAdded method
+Event source: Second Button
+In ancestorAdded method
+Event source: Third Button
+
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+In ancestorMoved method
+Event source: Third Button
+
+In actionPerformed method
+Event source: Third Button
+In actionPerformed method
+Event source: Second Button
+In actionPerformed method
+Event source: First Button
+
+In ancestorMoved method
+Event source: First Button
+In ancestorMoved method
+Event source: Second Button
+In ancestorMoved method
+Event source: Third Button
+
+
+Tested using JDK 1.1.6 and Swing 1.0.1 under Win95.
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+//import com.sun.java.swing.*;//JDK 1.1 version
+//import com.sun.java.swing.event.*;//JDK 1.1 version
+import javax.swing.*;//JDK 1.2 version
+import javax.swing.event.*;//JDK 1.2 version
+
+public class SwingEvent11 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class SwingEvent11
+//=======================================================//
+
+//The following class is used to instantiate a 
+// graphical user interface object.
+class GUI {
+  public GUI(){//constructor
+    //Create a new JFrame object, set size, title, etc.
+    JFrame displayWindow = new JFrame();
+    displayWindow.setSize(300,100);
+    displayWindow.setTitle("Copyright 1998, R.G.Baldwin");
+    
+    //Note required use of getContentPane() in following
+    // statement.
+    displayWindow.getContentPane().setLayout(
+                                          new FlowLayout());
+    //Add window listener to terminate the program
+    displayWindow.addWindowListener(new WProc1());
+    
+    //Create three JButton objects
+    JButton firstButton = new JButton("First Button");
+    JButton secondButton = new JButton("Second Button");
+    JButton thirdButton = new JButton("Third Button");
+    
+    //Stack the three JButton objects on top of one
+    // another.
+    firstButton.add(secondButton);
+    secondButton.add(thirdButton);
+    
+    //Register an AncestorListener object on each JButton
+    firstButton.addAncestorListener(
+                                 new MyAncestorListener());
+    secondButton.addAncestorListener(
+                                 new MyAncestorListener());
+    thirdButton.addAncestorListener(
+                                 new MyAncestorListener());
+    
+    //Register an ActionListener object on each JButton
+    firstButton.addActionListener(new MyActionListener());
+    secondButton.addActionListener(new MyActionListener());
+    thirdButton.addActionListener(new MyActionListener());
+    
+    //Add the JButton to the JFrame using content pane
+    displayWindow.getContentPane().add(firstButton);
+
+    System.out.println("Make JFrame visible");
+    displayWindow.setVisible(true);    
+  }//end constructor
+  //.....................................................//
+  //Begin inner class definitions
+
+  //The following listener is used to terminate the 
+  // program when the user closes the frame.
+  class WProc1 extends WindowAdapter{
+    public void windowClosing(WindowEvent e){
+      System.exit(0);
+    }//end windowClosing()
+  }//end class WProc1
+  //.....................................................//
+
+  //Define an AncestorListener class
+  class MyAncestorListener implements AncestorListener{
+    //Define three methods declared in AncestorListener
+    // interface.  Note the required downcasting.
+    
+    public void ancestorAdded(AncestorEvent e){
+      System.out.println("In ancestorAdded method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+    }//end ancestorAdded()
+      
+    public void ancestorRemoved(AncestorEvent e){
+      System.out.println("In ancestorRemoved method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+    }//end ancestorRemoved()
+      
+    public void ancestorMoved(AncestorEvent e){
+      System.out.println("In ancestorMoved method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+
+    }//end ancestorMoved
+  }//end class MyAncestorListener
+  //.....................................................//
+
+  //Define an ActionListener class
+  class MyActionListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      System.out.println("In actionPerformed method");
+      System.out.println("Event source: " + 
+              ((JButton)e.getSource()).getActionCommand());
+    }//end actionPerformed()
+  }//end class MyActionListener
+  //.....................................................//
+
+}//end class GUI definition
+//=======================================================//
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1071">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1018" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1109" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1072">
+Module name: Java085 Swing, New Event Types in Swing
+
+</item>
+
+
+					
+
+<item id="li1073">
+File: Java085.htm
+
+</item>
+
+
+					
+
+<item id="li1074">
+Originally published: 1997
+
+</item>
+
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+
+
+
+
+	
+
+<note id="note1019" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1110" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1072">
+<emphasis id="strong1111" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1073">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1074">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1075">
+<emphasis id="strong1112" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+
+</note>
+
+
+
+	
+
+
+<para id="p1076">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

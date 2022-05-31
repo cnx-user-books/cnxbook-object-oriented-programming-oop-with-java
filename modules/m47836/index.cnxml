@@ -1,0 +1,3137 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4270r: Review of Wildcards</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47836</md:content-id>
+  <md:title>Java4270r: Review of Wildcards</md:title>
+  <md:abstract>This module contains review questions and answers related to generic wildcards in Java.</md:abstract>
+  <md:uuid>d351cd4b-8f01-4f9f-9217-ef6a2225215d</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 18:39:23 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+<emphasis id="Table_of_Contents" effect="bold">
+
+Table of Contents
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+<item id="li1002">
+<link id="a1002" target-id="Table_of_Contents">
+
+Table of Contents
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1003">
+<link id="a1003" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1004">
+<link id="a1004" target-id="Questions">
+
+Questions
+
+</link>
+
+
+
+
+<list id="ul1002" list-type="bulleted">
+<item id="li1005">
+<link id="a1005" target-id="question01">
+
+Question 1
+
+</link>
+
+
+
+
+
+</item>
+
+
+<item id="li1006">
+<link id="a1006" target-id="question02">
+
+Question 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1007">
+<link id="a1007" target-id="question03">
+
+Question 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1008">
+<link id="a1008" target-id="question04">
+
+Question 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1009">
+<link id="a1009" target-id="question05">
+
+Question 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1010">
+<link id="a1010" target-id="question06">
+
+Question 6
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1011">
+<link id="a1011" target-id="Figures">
+
+Figures
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1012">
+<link id="a1012" target-id="Listings">
+
+Listings
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1013">
+<link id="a1013" target-id="Answers">
+
+Answers
+
+</link>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+<item id="li1014">
+<link id="a1014" target-id="answer06">
+
+Answer 6
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1015">
+<link id="a1015" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1016">
+<link id="a1016" target-id="answer04">
+
+Answer 4
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1017">
+<link id="a1017" target-id="answer03">
+
+Answer 3
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1018">
+<link id="a1018" target-id="answer02">
+
+Answer 2
+
+</link>
+
+
+
+
+</item>
+
+
+<item id="li1019">
+<link id="a1019" target-id="answer01">
+
+Answer 1
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+</item>
+
+
+<item id="li1020">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+
+
+</item>
+
+
+</list>
+
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one in a collection of modules on Java Generics designed for 
+teaching 
+
+<emphasis id="em1003" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin Community 
+College in Austin, TX.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This and future modules in this series will be based on the
+
+
+<link id="a1021" url="http://docs.oracle.com/javase/tutorial/java/generics/">
+
+Generics 
+(Updated)
+
+</link>
+
+ section of
+
+
+<link id="a1022" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+The Java Tutorials
+
+</link>
+
+ 
+from Oracle. 
+
+<emphasis id="em1004" effect="italics">
+(In the event that these links become broken, you should have 
+no difficulty finding the Oracle material with an online search.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+You will find the learning resources for this module on the Oracle site at
+
+
+<link id="a1023" url="http://docs.oracle.com/javase/tutorial/java/generics/wildcards.html">
+
+
+Wildcards
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+This module contains review questions and answers keyed to the material in 
+
+
+<link id="a1024" url="http://docs.oracle.com/javase/tutorial/java/generics/wildcards.html">
+
+
+Wildcards
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+Once you study that material, you should be able to answer the review 
+questions in this module.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+This is the final module in this series. This course does not cover the 
+following topics:
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1021">
+
+	
+
+<link id="a1025" url="http://docs.oracle.com/javase/tutorial/java/generics/erasure.html">
+
+
+	Type Erasure
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+
+	
+
+<link id="a1026" url="http://docs.oracle.com/javase/tutorial/java/generics/restrictions.html">
+
+
+	Restrictions on Generics
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+However, once you complete your study of all the 
+
+
+<link id="a1027" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+material on generics
+
+</link>
+
+, 
+
+<emphasis id="em1005" effect="italics">
+(including the two topics listed above)
+
+</emphasis>
+, you should be able to answer the review questions at
+
+
+<link id="a1028" url="http://docs.oracle.com/javase/tutorial/java/generics/QandE/generics-questions.html">
+
+
+Questions and Exercises
+
+</link>
+
+ on the Oracle site.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+The questions and the answers in this module are connected by hyperlinks to 
+make it easy for you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False: The code shown in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ will 
+compile and run successfully producing the output shown in 
+
+<link id="a1030" target-id="Figure_1">
+
+Figure 
+1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1001" effect="bold">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Question 
+				1.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1000" display="block">
+/*File Q01.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.Component;
+
+public class Q01{
+/*
+Given:
+Button and Label are subclasses of the Component
+class.
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+    //Create and populate a list designed to
+    // store references to objects of type Button
+    // and display its contents.
+    ArrayList &lt;Button&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(new Button("Button01"));
+    listA.add(new Button("Button02"));
+    display(listA);
+    System.out.println("");//blank line
+
+    //Create and populate a list designed to
+    // store references to objects of type Label
+    // and display its contents.
+    ArrayList &lt;Label&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Label("Label01"));
+    listB.add(new Label("Label02"));
+    display(listB);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(ArrayList&lt;Component&gt; list){
+    for(Component n : list){
+      System.out.println(n.getClass());
+      if(n instanceof Button){
+        System.out.println(
+                         ((Button)n).getLabel());
+      }else if(n instanceof Label) {
+        System.out.println(((Label)n).getText());
+      }//end else
+    }//end for loop
+  }//end display
+}//end class Q01
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Question  
+				1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1001" display="block">
+class java.awt.Button
+Button01
+class java.awt.Button
+Button02
+
+class java.awt.Label
+Label01
+class java.awt.Label
+Label02
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1012">
+<link id="a1031" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+True or False: The code shown in 
+
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1033" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Question 
+				2.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1002" display="block">
+/*File Q02.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.Component;
+
+public class Q02{
+/*
+Given:
+Button and Label are subclasses of the Component
+class.
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+    //Create and populate a list designed to
+    // store references to objects of type Button
+    // and display its contents.
+    ArrayList &lt;Button&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(new Button("Button01"));
+    listA.add(new Button("Button02"));
+    display(listA);
+    System.out.println("");//blank line
+
+    //Create and populate a list designed to
+    // store references to objects of type Label
+    // and display its contents.
+    ArrayList &lt;Label&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Label("Label01"));
+    listB.add(new Label("Label02"));
+    display(listB);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(
+            ArrayList&lt;? extends Component&gt; list){
+    for(Component n : list){
+      System.out.println(n.getClass());
+      if(n instanceof Button){
+        System.out.println(
+                         ((Button)n).getLabel());
+      }else if(n instanceof Label) {
+        System.out.println(((Label)n).getText());
+      }//end else
+    }//end for loop
+  }//end display
+}//end class Q02
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Question  
+				2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1003" display="block">
+class java.awt.Button
+Button01
+class java.awt.Button
+Button02
+
+class java.awt.Label
+Label01
+class java.awt.Label
+Label02
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1015">
+<link id="a1034" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1016">
+True or False: The code shown in 
+
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1036" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Question 
+				3.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1004" display="block">
+/*File Q03.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.Component;
+
+public class Q03{
+/*
+Given:
+Button and Label are subclasses of the Component
+class.
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+    //Create and populate a list designed to
+    // store references to objects of type Button
+    // and display its contents.
+    ArrayList &lt;Button&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(new Button("Button01"));
+    listA.add(new Button("Button02"));
+    display(listA);
+    System.out.println("");//blank line
+
+    //Create and populate a list designed to
+    // store references to objects of type Label
+    // and display its contents.
+    ArrayList &lt;Label&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Label("Label01"));
+    listB.add(new Label("Label02"));
+    display(listB);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(ArrayList&lt;?&gt; list){
+    for(Object n : list){
+      System.out.println(n.getClass());
+      if(n instanceof Button){
+        System.out.println(
+                         ((Button)n).getLabel());
+      }else if(n instanceof Label) {
+        System.out.println(((Label)n).getText());
+      }//end else
+    }//end for loop
+  }//end display
+}//end class Q03
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Question  
+				3.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1005" display="block">
+class java.awt.Button
+Button01
+class java.awt.Button
+Button02
+
+class java.awt.Label
+Label01
+class java.awt.Label
+Label02
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1018">
+<link id="a1037" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+True or False: The code shown in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1039" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Question 
+				4.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1006" display="block">
+/*File Q04.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Button;
+import java.awt.Label;
+import java.awt.Component;
+
+public class Q04{
+/*
+Given:
+Button and Label are subclasses of the Component
+class.
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+    //Create and populate a list designed to
+    // store references to objects of type Button
+    // and display its contents.
+    ArrayList &lt;Button&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(new Button("Button01"));
+    listA.add(new Button("Button02"));
+    display(listA);
+    System.out.println("");//blank line
+
+    //Create and populate a list designed to
+    // store references to objects of type Label
+    // and display its contents.
+    ArrayList &lt;Label&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Label("Label01"));
+    listB.add(new Label("Label02"));
+    display(listB);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(ArrayList&lt;Object&gt; list){
+    for(Object n : list){
+      System.out.println(n.getClass());
+      if(n instanceof Button){
+        System.out.println(
+                         ((Button)n).getLabel());
+      }else if(n instanceof Label) {
+        System.out.println(((Label)n).getText());
+      }//end else
+    }//end for loop
+  }//end display
+}//end class Q04
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Question  
+				4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1007" display="block">
+class java.awt.Button
+Button01
+class java.awt.Button
+Button02
+
+class java.awt.Label
+Label01
+class java.awt.Label
+Label02
+
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1021">
+<link id="a1040" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or False: The code shown in 
+
+<link id="a1041" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1042" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Question 
+				5.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1008" display="block">
+/*File Q05.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Window;
+import java.awt.Frame;
+import javax.swing.JFrame;
+
+public class Q05{
+/*
+Given:
+Component extends Object
+Container extends Component
+Window extends Container
+Frame extends Window
+JFrame extends Frame
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+
+    Frame frame0 = new Frame("Frame0");
+
+    ArrayList &lt;Frame&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(frame0);
+    listA.add(new Frame("Frame1"));
+    display(listA);
+
+    ArrayList&lt;Window&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Window(frame0));
+    listB.add(new Window(frame0));
+    display(listB);
+
+    ArrayList&lt;JFrame&gt; listC = new ArrayList&lt;&gt;();
+    listC.add(new JFrame("JFrame0"));
+    listC.add(new JFrame("JFrame1"));
+    display(listC);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(
+                 ArrayList&lt;? super JFrame&gt; list){
+    for(Object n : list){
+      System.out.println(n.getClass());
+    }//end for loop
+    System.out.println();//blank line
+  }//end display
+}//end class Q05
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Question  
+				5.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1009" display="block">
+class java.awt.Frame
+class java.awt.Frame
+
+class java.awt.Window
+class java.awt.Window
+
+class javax.swing.JFrame
+class javax.swing.JFrame
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1024">
+<link id="a1043" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+True or False: The code shown in 
+
+<link id="a1044" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ will compile and run successfully 
+producing the output shown in 
+
+<link id="a1045" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Question 
+				6.
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<code id="pre1010" display="block">
+/*File Q06.java
+************************************************/
+import java.util.ArrayList;
+import java.awt.Window;
+import java.awt.Frame;
+import javax.swing.JFrame;
+
+public class Q06{
+/*
+Given:
+Component extends Object
+Container extends Component
+Window extends Container
+Frame extends Window
+JFrame extends Frame
+The getClass method is defined in the Object
+class. When called on a reference to an object,
+the method returns the name of the class from
+which the object was instantiated.
+*/
+
+  public static void main(String[] args){
+
+    Frame frame0 = new Frame("Frame0");
+
+    ArrayList &lt;Frame&gt; listA = new ArrayList&lt;&gt;();
+    listA.add(frame0);
+    listA.add(new Frame("Frame1"));
+    display(listA);
+
+    ArrayList&lt;Window&gt; listB = new ArrayList&lt;&gt;();
+    listB.add(new Window(frame0));
+    listB.add(new Window(frame0));
+    display(listB);
+
+    ArrayList&lt;JFrame&gt; listC = new ArrayList&lt;&gt;();
+    listC.add(new JFrame("JFrame0"));
+    listC.add(new JFrame("JFrame1"));
+    display(listC);
+  }//end main
+  //-------------------------------------------//
+
+  static void display(
+                 ArrayList&lt;? super Frame&gt; list){
+    for(Object n : list){
+      System.out.println(n.getClass());
+    }//end for loop
+    System.out.println();//blank line
+  }//end display
+}//end class Q06
+</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Question  
+				6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1011" display="block">
+class java.awt.Frame
+class java.awt.Frame
+
+class java.awt.Window
+class java.awt.Window
+
+class javax.swing.JFrame
+class javax.swing.JFrame
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1027">
+<link id="a1046" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1023">
+<link id="a1047" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Question 1. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1048" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Question 2.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1049" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Question 3.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1050" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Question 4.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1051" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Question 5.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1052" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Question 6.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1053" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Answer 6. 
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1054" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Answer 4.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1055" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Answer 1.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1032">
+<link id="a1056" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1057" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 2.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1058" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 3.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1059" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 4.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1060" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 5.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1061" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 6.
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1007" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+These images were inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+
+<media id="media1000" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1030">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+
+
+
+<media id="media1001" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+False. This program attempts to illustrate the use of a lower bounded 
+wildcard to define a generic method that will accept an incoming reference to an 
+object of a generic class where the parameter type for the object is equal to or 
+above the type of the wildcard in the inheritance hierarchy. The lower bounded 
+wildcard type for the display method is Frame. Therefore, the display method 
+will accept references to ArrayList objects for parameter types Frame, Window, 
+Container, Component, or Object, but it will not accept a reference to an 
+ArrayList object for parameter type JFrame. Therefore, the program will not 
+compile, resulting in the error shown in 
+
+<link id="a1062" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+.
+
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Answer  6.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1012" display="block">
+Q06.java:56: error: method display in class Q06 cannot be applied 
+to given types;
+    display(listC);
+    ^
+  required: ArrayList&lt;? super Frame&gt;
+  found: ArrayList&lt;JFrame&gt;
+  reason: actual argument ArrayList&lt;JFrame&gt; cannot be converted to 
+  ArrayList&lt;? super Frame&gt; by method invocation conversion
+1 error
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1033">
+<link id="a1063" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+True. This program illustrates the use of a lower
+bounded wildcard to define a generic method that
+will accept an incoming reference to an object of
+a generic class where the parameter type for the
+object is equal to or above the type of the
+wildcard in the inheritance hierarchy. The lower
+bounded wildcard type for the display method is
+JFrame. Therefore, the display method will
+accept references to ArrayList objects for
+parameter types JFrame, Frame, Window, Container,
+Component, or Object
+
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<link id="a1064" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1036">
+False. This program illustrates the fact that a
+parameter of type Object is not the same as an
+unbounded wildcard parameter.
+The program refuses to compile and produces the errors shown in 
+
+
+<link id="a1065" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Answer  4.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1013" display="block">
+Q04.java:31: error: method display in class Q04 cannot be applied 
+to given types;
+    display(listA);
+    ^
+  required: ArrayList&lt;Object&gt;
+  found: ArrayList&lt;Button&gt;
+  reason: actual argument ArrayList&lt;Button&gt; cannot be converted to 
+  ArrayList&lt;Object&gt; by method invocation conversion
+  
+Q04.java:40: error: method display in class Q04 cannot be applied 
+to given types;
+    display(listB);
+    ^
+  required: ArrayList&lt;Object&gt;
+  found: ArrayList&lt;Label&gt;
+  reason: actual argument ArrayList&lt;Label&gt; cannot be converted to 
+  ArrayList&lt;Object&gt; by method invocation conversion
+2 errors
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1037">
+<link id="a1066" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1038">
+True. This program illustrates two scenarios where
+an unbounded wildcard is a useful approach:
+
+
+
+</para>
+
+
+
+
+
+<para id="p1039">
+1. When you are writing a method that can be
+implemented using functionality provided in the
+Object class.
+
+The getClass method that is called in the display
+method is defined in the Object class.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1040">
+2. When the code in a generic method doesn't
+depend on the type parameter.
+
+An if-else statement along with specific casts
+is used in the display method to isolate the calls to the getText
+and getLabel methods from the type parameter.
+
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1067" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+True. This program illustrates the use of upper bounded
+wildcards. The method named display will accept
+and process a reference to an ArrayList object
+whose element types are Component or any subclass
+of Component. Methods that are defined in or
+inherited into the Component class can be called
+on the elements with no requirement for a cast.
+Methods that are not defined in or inherited into the Component class but are defined in the element classes
+can be called on the elements after casting to
+the element type.
+
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1068" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1044">
+False.  This program will not compile. The method named display will 
+only accept and process a reference to an ArrayList object whose element are of 
+type Component. ArrayList objects whose element types are subclasses of 
+Component do not satisfy that requirement. An attempt to compile the program 
+produces the errors shown in 
+
+<link id="a1069" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Answer  1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1014" display="block">
+Q01.java:34: error: method display in class Q01 
+cannot be applied to given types;
+    display(listA);
+    ^
+  required: ArrayList&lt;Component&gt;
+  found: ArrayList&lt;Button&gt;
+  reason: actual argument ArrayList&lt;Button&gt; cannot be converted to 
+  ArrayList&lt;Component&gt; by method invocation conversion
+  
+Q01.java:43: error: method display in class Q01 cannot be applied 
+to given types;
+    display(listB);
+    ^
+  required: ArrayList&lt;Component&gt;
+  found: ArrayList&lt;Label&gt;
+  reason: actual argument ArrayList&lt;Label&gt; cannot be converted to 
+  ArrayList&lt;Component&gt; by method invocation conversion
+2 errors
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1045">
+<link id="a1070" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1008" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1007" list-type="bulleted">
+
+				
+
+<item id="li1038">
+Module name: Java4270r: Review of Wildcards
+
+</item>
+
+
+				
+
+<item id="li1039">
+File: Java4270r.htm 
+
+</item>
+
+
+				
+
+<item id="li1040">
+Published: 10/24/13
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1009" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1047">
+<emphasis id="strong1010" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1048">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1049">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1050">
+<emphasis id="strong1011" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1051">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

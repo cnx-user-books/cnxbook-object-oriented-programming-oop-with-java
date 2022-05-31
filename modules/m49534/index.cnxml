@@ -1,0 +1,3875 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4630: The InetAddress Class</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49534</md:content-id>
+  <md:title>Java4630: The InetAddress Class</md:title>
+  <md:abstract>This module explains the use of the InetAddress class.</md:abstract>
+  <md:uuid>aca7457c-0111-42c1-9780-ddfccc272365</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+
+<emphasis id="strong1000" effect="bold">
+
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin Community College in Austin, 
+TX. More specifically, it is one in a sub-collection of modules designed for 
+teaching network programming in that course. The purpose of this module is to 
+introduce the student to the 
+
+<emphasis id="strong1001" effect="bold">
+InetAddress
+
+</emphasis>
+ class that can be used 
+to deal with 
+
+<emphasis id="em1000" effect="italics">
+IP addresses
+
+</emphasis>
+ and 
+
+<emphasis id="em1001" effect="italics">
+domain names
+
+</emphasis>
+.  
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output. 
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The list of Google IP addresses.
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. The IP Address for my 
+				localhost.
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Name and IP address of my localhost.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Canonical host name for Google.
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Google host name using reverse 
+		lookup.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the program. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Display the Google InetAddress 
+		objects. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Get InetAddress object for localhost.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Extract name and IP 
+				address of my localhost.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Get and display canonical host 
+		name for Google.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Do a reverse lookup on Google.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. End of the program.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+Every computer attached to an IP network has a unique 32-bit or 128-bit IP address.
+
+</para>
+
+
+
+
+<para id="p1003">
+For human consumption, we usually convert each of the bytes in the IP address to an unsigned 
+decimal value and display them connected by periods to make them easier to 
+remember. As of this writing, the IP
+
+<emphasis id="strong1002" effect="bold">
+ 
+
+</emphasis>
+address of
+
+
+<link id="a1024" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+ 
+
+<emphasis id="em1002" effect="italics">
+(the college where I 
+teach)
+
+</emphasis>
+ is 206.77.150.222. 
+
+</para>
+
+
+
+
+<para id="p1004">
+<emphasis id="strong1003" effect="bold">
+The domain name
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1005">
+What do we mean when we speak of 
+
+<link id="a1025" url="http://www.austincc.edu">
+
+
+www.austincc.edu
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+<para id="p1006">
+Each IP address can have a corresponding name known as a 
+
+<emphasis id="em1003" effect="italics">
+domain name
+
+</emphasis>
+. 
+The 
+
+<emphasis id="em1004" effect="italics">
+domain name
+
+</emphasis>
+ for the IP address 206.77.150.222
+
+<emphasis id="strong1004" effect="bold">
+ 
+
+</emphasis>
+is 
+
+
+<link id="a1026" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1007">
+For example, I can enter either the IP address or the domain 
+name into the address field of my 
+browser and use it to connect to the ACC web site.
+
+</para>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1005" effect="bold">
+The Domain Name System (DNS)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+The 
+
+<emphasis id="em1005" effect="italics">
+Domain Name System (DNS)
+
+</emphasis>
+ was developed to translate between IP
+addresses and domain names. Whenever you log your browser onto the internet and 
+attempt to connect to a server using its 
+
+<emphasis id="em1006" effect="italics">
+domain name
+
+</emphasis>
+, the browser first 
+communicates with a DNS server to learn the corresponding numeric IP
+address. The numeric IP address is encapsulated into the data packets and 
+used by the internet protocol to route those packets from the source to the 
+destination. 
+
+</para>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1006" effect="bold">
+The InetAddress class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+We will learn how to use methods of the Java 
+
+<emphasis id="strong1007" effect="bold">
+InetAddress 
+
+</emphasis>
+class to find the IP
+address corresponding to a 
+
+<emphasis id="em1007" effect="italics">
+domain name
+
+</emphasis>
+ in this 
+module. 
+
+</para>
+
+
+
+
+<para id="p1012">
+We will learn how to find the 
+
+<emphasis id="em1008" effect="italics">
+canonical host name
+
+</emphasis>
+ for a given domain 
+name.
+
+</para>
+
+
+
+
+<para id="p1013">
+We will learn how to obtain information about the 
+
+<emphasis id="em1009" effect="italics">
+localhost
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1014">
+We will learn how to do a reverse lookup to find the canonical host name 
+associated with an IP address.
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1008" effect="bold">
+Methods of the InetAddress class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+The 
+
+<emphasis id="strong1009" effect="bold">
+InetAddress 
+
+</emphasis>
+class provides several 
+
+<emphasis id="strong1010" effect="bold">
+static 
+
+</emphasis>
+methods that 
+return a reference to an object of type 
+
+<emphasis id="strong1011" effect="bold">
+InetAddress
+
+</emphasis>
+. You can use those methods to deal 
+with and to manipulate IP addresses and domain names.
+
+</para>
+
+
+
+
+<para id="p1017">
+For example, the 
+
+<emphasis id="strong1012" effect="bold">
+static getByName(String host) 
+
+</emphasis>
+method returns a 
+reference to an 
+
+<emphasis id="strong1013" effect="bold">
+InetAddress 
+
+</emphasis>
+object representing the host whose 
+domain name is passed as a parameter to the method. The resulting object can be used to 
+determine the IP address and the canonical host name of the host.
+
+</para>
+
+
+
+
+<para id="p1018">
+There is a problem with this, however. As I will explain later, many hosts 
+have multiple IP addresses. To accommodate this, the 
+
+<emphasis id="strong1014" effect="bold">
+InetAddress
+
+</emphasis>
+ class provides 
+a method named 
+
+<emphasis id="strong1015" effect="bold">
+getAllByName(String host)
+
+</emphasis>
+ that can be used to 
+get an array of references to 
+
+<emphasis id="strong1016" effect="bold">
+InetAddress
+
+</emphasis>
+ objects representing IP addresses 
+assigned to the host.
+
+</para>
+
+
+
+
+<para id="p1019">
+The 
+
+<emphasis id="strong1017" effect="bold">
+getLocalHost
+
+</emphasis>
+ method returns a reference to an 
+
+<emphasis id="strong1018" effect="bold">
+InetAddress 
+
+</emphasis>
+
+object representing the local host computer. 
+
+</para>
+
+
+
+
+<para id="p1020">
+There are also a variety of methods that can be called on an 
+
+<emphasis id="strong1019" effect="bold">
+
+InetAddress
+
+</emphasis>
+ object to get information about the host that is 
+represented by that object.
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1021">
+I will present and explain a program named 
+
+<emphasis id="strong1020" effect="bold">
+Java4630a
+
+</emphasis>
+ that illustrates various 
+aspects of the 
+
+<emphasis id="strong1021" effect="bold">
+InetAddress
+
+</emphasis>
+ class in this module.
+
+</para>
+
+
+
+
+<para id="p1022">
+I will explain the program in fragments. A complete listing of the program is 
+provided in 
+
+<link id="a1027" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1022" effect="bold">
+The program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1024">
+The program 
+produces the screen output shown in 
+
+<link id="a1028" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ when run on my computer. However, 
+the information regarding the 
+
+<emphasis id="em1010" effect="italics">
+LocalHost
+
+</emphasis>
+ will be different when you run this 
+program on your computer.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Program output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+Get and display InetAddress(es) of Google URL
+www.google.com/173.194.115.17
+www.google.com/173.194.115.18
+www.google.com/173.194.115.19
+www.google.com/173.194.115.20
+www.google.com/173.194.115.16
+
+Get and display current InetAddress of LocalHost
+dell8700/192.168.2.16
+
+Extract and display current name of LocalHost
+dell8700
+
+Extract and display current address of LocalHost
+192.168.2.16
+
+Display canonical host name for Google
+dfw06s39-in-f17.1e100.net
+Display Google name using reverse lookup.
+dfw06s39-in-f17.1e100.net
+dfw06s39-in-f17.1e100.net</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1025">
+I will refer to this output in context as I explain the various elements 
+	of the program.
+
+</para>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1023" effect="bold">
+Beginning of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+This is a very simple program consisting solely of the 
+
+<emphasis id="strong1024" effect="bold">
+main
+
+</emphasis>
+ 
+method in a class named 
+
+<emphasis id="strong1025" effect="bold">
+Java4630a
+
+</emphasis>
+. The program begins in 
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the program.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.net.*;
+
+class Java4630a{
+  public static void main(String[] args){
+    try{
+      System.out.println(
+          "Get and display InetAddress(es) of Google URL");
+      InetAddress[] addresses = 
+                InetAddress.getAllByName("www.google.com");</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1028">
+<emphasis id="strong1026" effect="bold">
+Domain names and IP addresses
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+There is not necessarily a one-to-one correspondence between IP addresses 
+	and domain names. In fact there can be a many-to-one correspondence between 
+	the two.
+
+</para>
+
+
+
+
+<para id="p1030">
+Every computer on the Internet must have a unique IP address, but multiple 
+computers can have 
+
+<emphasis id="em1011" effect="italics">
+(or can respond to)
+
+</emphasis>
+ the same domain name. For 
+example, if the domain name,
+
+<link id="a1030" url="http://www.google.com">
+
+ www.google.com
+
+</link>
+
+, were required to apply to a 
+single computer, that computer would require an enormous amount of bandwidth and 
+processing power to accommodate all of the search requests that are made to that 
+domain name every 
+second of every day.
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1027" effect="bold">
+The getAllByName method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+The 
+
+<emphasis id="strong1028" effect="bold">
+InetAddress
+
+</emphasis>
+ class provides a static method named 
+
+<emphasis id="strong1029" effect="bold">
+getAllByName
+
+</emphasis>
+ 
+that takes the domain name of a host as an incoming parameter and returns an array 
+containing references to one or more objects of type 
+
+<emphasis id="strong1030" effect="bold">
+InetAddress
+
+</emphasis>
+. 
+Each object contains an IP address and some other information related to the 
+domain name. The set of 
+
+
+<emphasis id="strong1031" effect="bold">
+InetAddress
+
+</emphasis>
+ objects in the array contain all of the IP addresses that are 
+currently assigned to that domain name.
+
+</para>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1032" effect="bold">
+Get all for Google
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+The code in 
+
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1033" effect="bold">
+getAllByName
+
+</emphasis>
+ method passing 
+the domain name for Google as a parameter. It receives a reference to an array containing 
+references to one or more 
+
+<emphasis id="strong1034" effect="bold">
+InetAddress
+
+</emphasis>
+ objects. The set of 
+
+
+<emphasis id="strong1035" effect="bold">
+InetAddress
+
+</emphasis>
+ objects encapsulate a 
+list of five IP addresses that are currently assigned to Google.
+
+</para>
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1036" effect="bold">
+Display the InetAddress objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1036">
+<link id="a1032" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ contains a 
+
+<emphasis id="strong1037" effect="bold">
+for
+
+</emphasis>
+ loop that displays the 
+
+
+<emphasis id="strong1038" effect="bold">
+toString
+
+</emphasis>
+ 
+version of the information encapsulated in each of the 
+
+<emphasis id="strong1039" effect="bold">
+InetAddress
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Display the Google 
+				InetAddress objects.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">      for(int cnt=0; cnt&lt;addresses.length;cnt++){
+        System.out.println(addresses[cnt]);
+      }//end for loop
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1037">
+<link id="a1033" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the output produced by 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - The list of Google 
+				IP addresses.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+							
+
+<code id="pre1003" display="block">Get and display InetAddress(es) of Google URL
+www.google.com/173.194.115.83
+www.google.com/173.194.115.84
+www.google.com/173.194.115.80
+www.google.com/173.194.115.81
+www.google.com/173.194.115.82
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1038">
+Everything to the left of the slash in the last five lines of 
+
+<link id="a1036" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ 
+	shows the domain name. Everything to the right of the slash shows the IP 
+	addresses. Note that there are duplicate domain names but there are no 
+	duplicate IP addresses.
+
+</para>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1040" effect="bold">
+Why only five IP addresses?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1040">
+I was surprised that there are only five IP addresses in the list. 
+Surely Google needs more than five front-end computers to handle the thousands 
+of incoming requests that it receives every second of every day.
+
+</para>
+
+
+
+
+<para id="p1041">
+Upon further investigation I noticed that if I run the same program over and 
+over, I am likely to get different sets of five IP addresses on different runs. 
+This suggests that in some fashion, the 
+
+<emphasis id="strong1041" effect="bold">
+getAllByName
+
+</emphasis>
+ method 
+limits the number of 
+
+<emphasis id="strong1042" effect="bold">
+InetAddress
+
+</emphasis>
+ objects to only five of the 
+potentially hundreds of IP addresses that are assigned to a particular host. 
+However, this is not mentioned in the Oracle documentation. The documentation 
+states:
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+"Given the name of a host, returns an array of its IP addresses, 
+based on the configured name service on the system."
+
+</quote>
+
+
+
+
+<para id="p1042">
+There is clearly more going on here than I understand.
+
+</para>
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1043" effect="bold">
+The localhost
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+The computer that you are using to read this module online also has an IP address 
+and a name. The IP address, the name, and perhaps some other things as well are 
+grouped together under something commonly referred to as 
+
+<emphasis id="strong1044" effect="bold">
+localhost
+
+</emphasis>
+. 
+In other words, the IP address of your localhost is the IP address of the 
+computer that you are using to read this module.
+
+</para>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1045" effect="bold">
+Get InetAddress object for localhost
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1046">
+The code in 
+
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ calls the static 
+
+<emphasis id="strong1046" effect="bold">
+getLocalHost
+
+</emphasis>
+ method 
+of the 
+
+<emphasis id="strong1047" effect="bold">
+InetAddress
+
+</emphasis>
+ class to get a reference to an 
+
+<emphasis id="strong1048" effect="bold">
+InetAddress
+
+</emphasis>
+ object 
+representing 
+the computer that I was using when I wrote this module.
+
+</para>
+
+
+
+
+<para id="p1047">
+Then it passes that object's reference to the 
+
+<emphasis id="strong1049" effect="bold">
+println
+
+</emphasis>
+ method causing the 
+overridden 
+
+<emphasis id="strong1050" effect="bold">
+toString
+
+</emphasis>
+ method belonging the 
+
+<emphasis id="strong1051" effect="bold">
+InetAddress
+
+</emphasis>
+ 
+object to be executed.
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Get InetAddress object 
+				for localhost.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">      System.out.println();//blank line
+      System.out.println("Get and display current " +
+                               "InetAddress of LocalHost");
+      InetAddress address = InetAddress.getLocalHost();
+      System.out.println(address);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1048">
+<emphasis id="strong1052" effect="bold">
+The screen output for localhost
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+The string returned by the overridden 
+
+<emphasis id="strong1053" effect="bold">
+toString
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1054" effect="bold">
+InetAddress
+
+</emphasis>
+ object is shown by the 
+	second line in 
+
+<link id="a1038" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - The IP Address for my 
+				localhost.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+							
+
+<code id="pre1005" display="block">Get and display current InetAddress of LocalHost
+dell8700/192.168.2.16
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1050">
+Everything to the left of the slash is the name of the computer. Everything 
+	to the right of the slash is the IP address.
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1055" effect="bold">
+A local area network
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+Note that this is not the IP 
+	address by which the world sees my computer on the Internet. Instead, this 
+is one of several 
+	computers on a local area network. This is the address that 
+	was assigned to this computer by the network router. 
+
+</para>
+
+
+
+
+<para id="p1053">
+I can find the IP address that 
+	my cable modem presents to the world by entering the following text into the 
+	Google search box without the quotation marks: "get ip address"
+
+</para>
+
+
+
+
+<para id="p1054">
+As you can see, the second line in 
+
+<link id="a1039" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ contains both the name and the IP 
+address separated by a slash character.
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1056" effect="bold">
+Extract name and IP address of my localhost
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+Assume that you have a reference to an 
+
+<emphasis id="strong1057" effect="bold">
+InetAddress
+
+</emphasis>
+ object and for some reason 
+you need to extract the name and IP address as separate 
+
+<emphasis id="strong1058" effect="bold">
+String
+
+</emphasis>
+ 
+objects. 
+
+<emphasis id="em1012" effect="italics">
+(We will need to do this in a future module.)
+
+</emphasis>
+ The 
+
+<emphasis id="strong1059" effect="bold">
+InetAddress
+
+</emphasis>
+ 
+class provides two methods that allow you to do that. 
+
+</para>
+
+
+
+
+<para id="p1057">
+The code in 
+
+<link id="a1040" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1060" effect="bold">
+getHostName
+
+</emphasis>
+ and the 
+
+<emphasis id="strong1061" effect="bold">
+
+getHostAddress
+
+</emphasis>
+ methods on the reference to the 
+
+<emphasis id="strong1062" effect="bold">
+
+InetAddress
+
+</emphasis>
+ object and displays the strings returned by those methods.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Extract name and IP 
+				address of my localhost.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">      System.out.println();//blank line
+      System.out.println("Extract and display current " +
+                                      "name of LocalHost");
+      System.out.println(address.getHostName());
+
+      System.out.println();//blank line
+      System.out.println("Extract and display current " +
+                                   "address of LocalHost");
+      System.out.println(address.getHostAddress());
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1058">
+The code in 
+
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ produces the output shown in 
+
+<link id="a1042" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Name and IP address 
+				of my localhost.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+							
+
+<code id="pre1007" display="block">Extract and display current name of LocalHost
+dell8700
+
+Extract and display current address of LocalHost
+192.168.2.16
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1059">
+<emphasis id="strong1063" effect="bold">
+But, we already knew the answer
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+Of course, we already knew what the output would be based on the 
+
+<emphasis id="strong1064" effect="bold">
+
+toString
+
+</emphasis>
+ output in 
+
+<link id="a1043" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. The difference is 
+	that in 
+
+<link id="a1044" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, we only have that information as part of something that is 
+	displayed on the screen. The code in 
+
+<link id="a1045" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+gives us that same information in the form of 
+
+<emphasis id="strong1065" effect="bold">
+String
+
+</emphasis>
+ objects that we can use for some purpose other 
+	than simply looking at the information on the screen. 
+
+<emphasis id="em1013" effect="italics">
+(See googleAddress in
+
+
+<link id="a1046" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ for example.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1066" effect="bold">
+Canonical host name
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1062">
+The documentation describes the method named 
+
+<emphasis id="strong1067" effect="bold">
+getCanonicalHostName
+
+</emphasis>
+ 
+partially as follows:
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+"Gets the fully qualified domain name for this IP address. Best effort method, meaning we may not be able to return the FQDN depending on the underlying system configuration."
+
+</quote>
+
+
+
+
+<para id="p1063">
+One online description for a canonical host name reads as follows:
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+"A host machine on a network can be identified by several different names. However, each host must have one official hostname. All other hostnames are considered aliases of the canonical hostname"
+
+</quote>
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1068" effect="bold">
+Get and display canonical host name for Google
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+Returning now to Google, the code in 
+
+<link id="a1047" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ gets and displays the 
+canonical hostname for Google.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Get and display canonical 
+				host name for Google.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">      System.out.println(
+                 "Display canonical host name for Google");
+      //Get InetAddress containing one of Google's
+      // IP addresses.
+      address = InetAddress.getByName("www.google.com");
+      System.out.println(address.getCanonicalHostName());
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1066">
+The code in 
+
+<link id="a1048" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ begins by getting a reference to one of the 
+	
+
+<emphasis id="strong1069" effect="bold">
+InetAddress
+
+</emphasis>
+ objects that represent 
+
+<link id="a1049" url="http://www.google.com">
+
+
+	www.google.com
+
+</link>
+
+. Then the 
+
+<emphasis id="strong1070" effect="bold">
+getCanonicalHostName
+
+</emphasis>
+ method is called on that object to get and 
+	display the canonical host name. The code in 
+
+<link id="a1050" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ produces the output 
+	shown in 
+
+<link id="a1051" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Canonical host name 
+				for Google.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+							
+
+<code id="pre1009" display="block">Display canonical host name for Google
+dfw06s39-in-f17.1e100.net
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1067">
+As you can see, this canonical host name wouldn't mean much to a human 
+	observer.
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1071" effect="bold">
+Other canonical host names
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+Here is a list of some canonical host names that can be obtained using code 
+similar to that shown in 
+
+<link id="a1052" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Try pasting them into your browser's address 
+window and pressing the Enter key to see which ones access the sites that you 
+expect and 
+
+<emphasis id="which_ones_dont" effect="bold">
+
+which ones don't
+
+</emphasis>
+
+.
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1024">
+<link id="a1053" url="http://www.google.com">
+
+www.google.com
+
+</link>
+
+: dfw06s39-in-f17.1e100.net
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1054" url="http://www.amazon.com">
+
+www.amazon.com
+
+</link>
+
+: (No canonical host name 
+was returned.)
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1055" url="http://www.yahoo.com">
+
+www.yahoo.com
+
+</link>
+
+: ir2.fp.vip.bf1.yahoo.com 
+	
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1056" url="http://www.dickbaldwin.com">
+
+www.dickbaldwin.com
+
+</link>
+
+: (No canonical 
+host name was returned.)
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1057" url="http://www.whitehouse.gov">
+
+www.whitehouse.gov
+
+</link>
+
+: (No canonical 
+host name was returned.)
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1058" url="http://www.healthcare.gov">
+
+www.healthcare.gov
+
+</link>
+
+: 
+a23-207-26-194.deploy.static.akamaitechnologies.com
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1059" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+: m20677150222.austincc.edu
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1060" url="http://www.ebay.com">
+
+www.ebay.com
+
+</link>
+
+: www.ebay.com
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1061" url="http://www.facebook.com">
+
+www.facebook.com
+
+</link>
+
+: 
+	edge-star-shv-02-dfw1.facebook.com
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1062" url="http://www.twitter.com">
+
+www.twitter.com
+
+</link>
+
+: (No canonical host 
+	name was returned.)
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1063" url="http://www.foxnews.com">
+
+www.foxnews.com
+
+</link>
+
+: 
+	a96-17-203-72.deploy.akamaitechnologies.com
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1064" url="http://www.cbsnews.com">
+
+www.cbsnews.com
+
+</link>
+
+: 
+	a96-17-203-90.deploy.akamaitechnologies.com
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1072" effect="bold">
+Reverse lookup
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+At one point in the history of Java, it was possible to call the 
+
+
+<emphasis id="strong1073" effect="bold">
+getByName
+
+</emphasis>
+ method passing the IP address as a string to do a 
+reverse lookup on an IP address. The method would return the domain name to which the IP address 
+was assigned. However, this changed around Java version 1.4 and some additional code 
+is now required to do a reverse lookup.
+
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1074" effect="bold">
+Do a reverse lookup on Google
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+<link id="a1065" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ does a reverse lookup on Google by passing one of the IP addresses 
+to the 
+
+<emphasis id="strong1075" effect="bold">
+getByName
+
+</emphasis>
+ method and then calling the following methods on the 
+InetAddress object that is returned:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1036">
+getHostName
+
+</item>
+
+
+	
+
+<item id="li1037">
+getCanonicalHostName
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Do a reverse lookup on 
+				Google.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1010" display="block">      System.out.println(
+              "Display Google name using reverse lookup.");
+      String googleAddress = address.getHostAddress();
+      System.out.println(InetAddress.getByName(
+                             googleAddress).getHostName());
+      System.out.println(InetAddress.getByName(
+                    googleAddress).getCanonicalHostName());
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1074">
+The code in 
+
+<link id="a1066" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ produces the output shown in 
+
+<link id="a1067" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Google host name 
+				using reverse lookup.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+							
+
+<code id="pre1011" display="block">Display Google name using reverse lookup.
+dfw06s39-in-f17.1e100.net
+dfw06s39-in-f17.1e100.net
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1075">
+<emphasis id="strong1076" effect="bold">
+The canonical host name
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+To me, the most interesting thing in 
+
+<link id="a1068" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ is that both methods return the 
+	canonical host name. Neither method returns the domain name.
+
+</para>
+
+
+
+
+<para id="p1077">
+Although it isn't shown here, calling the 
+
+<emphasis id="strong1077" effect="bold">
+
+	getHostName
+
+</emphasis>
+ method on one of the 
+
+<emphasis id="strong1078" effect="bold">
+InetAddress
+
+</emphasis>
+ objects contained in 
+	the 
+
+<emphasis id="strong1079" effect="bold">
+addresses
+
+</emphasis>
+ array in 
+
+<link id="a1069" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+returns the domain name or
+	
+
+<link id="a1070" url="http://www.google.com">
+
+www.google.com
+
+</link>
+
+. Calling the 
+
+<emphasis id="strong1080" effect="bold">
+
+	getCanonicalHostName
+
+</emphasis>
+ on the same 
+
+<emphasis id="strong1081" effect="bold">
+InetAddress
+
+</emphasis>
+ object 
+returns the 
+	canonical name shown in 
+
+<link id="a1071" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1078">
+Apparently when you create an 
+
+<emphasis id="strong1082" effect="bold">
+InetAddress
+
+</emphasis>
+ object on the basis of the domain 
+name, the object knows both the domain name and the canonical host name. 
+However, when you create an 
+
+<emphasis id="strong1083" effect="bold">
+InetAddress
+
+</emphasis>
+ object using the IP address, the only 
+name that it knows is the canonical host name.
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+The 
+
+<emphasis id="strong1084" effect="bold">
+InetAddress
+
+</emphasis>
+ class also has a method named
+
+
+<emphasis id="strong1085" effect="bold">
+getByAddress
+
+</emphasis>
+ 
+that apparently provides the same behavior when the IP address is converted to 
+an array of bytes and passed to the method in that format. However, I haven't 
+tested that method.
+
+</quote>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1086" effect="bold">
+Can you access the site with the canonical host name
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+
+<para id="p1080">
+With respect to Google, the canonical host name, the domain name, or one of the IP addresses 
+can be used in your browser address field to access the site. 
+
+</para>
+
+
+
+
+<para id="p1081">
+However, for those 
+websites in the above 
+
+<link id="a1072" target-id="which_ones_dont">
+
+list
+
+</link>
+
+ that have a canonical name that ends with 
+
+
+<emphasis id="strong1087" effect="bold">
+akamaitechnologies.com
+
+</emphasis>
+, it appears that you cannot use either the canonical name 
+or the IP address to access the web site. 
+
+<emphasis id="em1014" effect="italics">
+(I will leave it as an exercise 
+for the student to investigate this further.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1088" effect="bold">
+The end of the program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1083">
+The code in 
+
+<link id="a1073" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ takes care of the administrative details 
+necessary to properly end the program.
+
+</para>
+
+
+
+
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - End of the program.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1012" display="block">    }catch(UnknownHostException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end main
+}//end class Java4630a
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1084">
+I encourage you to copy the code from 
+
+<link id="a1074" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Compile the code and 
+execute it while you are connected to the Internet. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+The next module will deal with the 
+
+<emphasis id="strong1089" effect="bold">
+URL
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1090" effect="bold">
+URLEncoder
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1086">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1091" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1007" list-type="bulleted">
+
+					
+
+<item id="li1038">
+Module name: Java4630: The InetAddress Class
+
+</item>
+
+
+					
+
+<item id="li1039">
+File: Java4630.htm
+
+
+</item>
+
+
+					
+
+<item id="li1040">
+Published: 03/02/14
+
+</item>
+
+
+
+
+<item id="li1041">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1092" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1087">
+<emphasis id="strong1093" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1088">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1089">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1090">
+<emphasis id="strong1094" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1095" effect="bold">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Complete program listing.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">
+/*File Java4630a.java Copyright 1998, R.G.Baldwin
+Revised 01/03/14
+
+This program exercises several of the methods of the
+InetAddress class. 
+**********************************************************/
+
+import java.net.*;
+
+public class Java4630a{
+  public static void main(String[] args){
+    try{
+      System.out.println(
+          "Get and display InetAddress(es) of Google URL");
+      InetAddress[] addresses = 
+                InetAddress.getAllByName("www.google.com");
+      for(int cnt=0; cnt&lt;addresses.length;cnt++){
+        System.out.println(addresses[cnt]);
+      }//end for loop
+
+      System.out.println();//blank line
+      System.out.println("Get and display current " +
+                               "InetAddress of LocalHost");
+      InetAddress address = InetAddress.getLocalHost();
+      System.out.println(address);
+
+      System.out.println();//blank line
+      System.out.println("Extract and display current " +
+                                      "name of LocalHost");
+      System.out.println(address.getHostName());
+
+      System.out.println();//blank line
+      System.out.println("Extract and display current " +
+                                   "address of LocalHost");
+      System.out.println(address.getHostAddress());
+      
+      System.out.println();//blank line
+      System.out.println(
+                 "Display canonical host name for Google");
+      //Get InetAddress containing one of Google's
+      // IP addresses.
+      address = InetAddress.getByName("www.google.com");
+      System.out.println(address.getCanonicalHostName());
+      System.out.println(
+              "Display Google name using reverse lookup.");
+      String googleAddress = address.getHostAddress();
+      System.out.println(InetAddress.getByName(
+                             googleAddress).getHostName());
+      System.out.println(InetAddress.getByName(
+                    googleAddress).getCanonicalHostName());
+    }catch(UnknownHostException e){
+      e.printStackTrace();
+    }//end catch
+    
+  }//end main
+}//end class Java4630a
+</code>
+
+
+
+
+
+<para id="p1092">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

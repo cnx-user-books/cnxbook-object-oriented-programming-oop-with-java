@@ -1,0 +1,4704 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3022: Scaling, Rotating, and Translating Images using Affine Transforms</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44223</md:content-id>
+  <md:title>Java3022: Scaling, Rotating, and Translating Images using Affine Transforms</md:title>
+  <md:abstract>Learn how to scale images and how to rotate and translate images using the AffineTransform class.</md:abstract>
+  <md:uuid>24dc9a51-8576-4640-bc8b-eb69540be877</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 09:24:13 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="General_Background_Information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Online_video_links">
+
+Online video link
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1015" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Input file named Prob01.jpg. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. First output image. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Second output image.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Required output text. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class named Prob01.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob01Runner. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The run method. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1023" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the method named rotatePicture. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Compute the dimensions of the new Picture object.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Prepare the translation transform.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Concatenate the transforms.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1027" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Instantiate the new Picture object .
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1028" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Perform the concatenated transform.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1029" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, you will learn how to scale images and how to rotate and 
+	translate images using the 
+
+<emphasis id="strong1000" effect="bold">
+AffineTransform
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1001" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+Write a program named 
+
+<emphasis id="strong1002" effect="bold">
+Prob01
+
+</emphasis>
+ that uses the class definition 
+shown in 
+
+<link id="a1030" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and Ericson's media library along 
+with the image file named 
+
+<emphasis id="strong1003" effect="bold">
+Prob01.jpg
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(see 
+
+<link id="a1031" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+ to 
+produce the output images shown in 
+
+<link id="a1032" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and
+
+
+<link id="a1033" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Input file named Prob01.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<media id="media1000" alt="Image of a beach scene." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/javaexam3.01a.jpg" width="341" height="256"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1010">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - First output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1001" alt="Image of the beach scene in a PictureExplorer object." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/javaexam3.01b.jpg" width="353" height="388"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1012">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Second output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+<media id="media1002" alt="Scaled and rotated version of the beach scene." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/javaexam3.01c.jpg" width="401" height="492"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+	
+
+<para id="p1014">
+<emphasis id="strong1007" effect="bold">
+Scale and rotate
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+The image from the file named 
+
+<emphasis id="strong1008" effect="bold">
+Prob01.jpg
+
+</emphasis>
+ must be scaled and 
+then rotated 30 degrees clockwise. A scale factor of 0.95 must be applied to the 
+horizontal and a scale factor of 0.9 must be applied to the vertical.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1009" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named
+
+
+<emphasis id="strong1010" effect="bold">
+Prob01
+
+</emphasis>
+ shown in 
+
+<link id="a1034" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1011" effect="bold">
+Required output text
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+In addition to the two output images mentioned above, your program must 
+display your name and the other line of text shown in 
+
+<link id="a1035" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ on the 
+command-line screen.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Required output text.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Display your name here.
+Picture, filename None height 360 width 394</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_Background_Information" effect="bold">
+
+General background 
+information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+Writing the code from scratch to rotate an image can be a daunting task. 
+However, the task is made much easier through the use of the standard 
+
+
+<emphasis id="strong1012" effect="bold">
+AffineTransform
+
+</emphasis>
+ class, which is included in the standard Java 
+library.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+The 
+
+<emphasis id="strong1013" effect="bold">
+AffineTransform
+
+</emphasis>
+ class can also be used to scale, flip, 
+rotate, shear, and translate images.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1022">
+<emphasis id="strong1014" effect="bold">
+Will discuss in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+I will discuss and explain this program in fragments. A complete listing of 
+the program is provided in 
+
+<link id="a1036" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ near the end of 
+the module.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1015" effect="bold">
+The driver class named Prob01
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+The driver class containing the 
+
+<emphasis id="strong1016" effect="bold">
+main
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1037" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The driver class named Prob01.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.Graphics;
+
+public class Prob01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob01Runner().run();
+  }//end main method
+}//end class Prob01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1026">
+<emphasis id="strong1017" effect="bold">
+Instantiate a new object and call its run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+As has been the case in several earlier modules, the code in the 
+
+<emphasis id="strong1018" effect="bold">
+main
+
+</emphasis>
+ 
+method instantiates a new object of the class named 
+
+<emphasis id="strong1019" effect="bold">
+Prob01Runner
+
+</emphasis>
+ 
+and calls the 
+
+<emphasis id="strong1020" effect="bold">
+run
+
+</emphasis>
+ method on that object.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+When the 
+
+<emphasis id="strong1021" effect="bold">
+run
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1022" effect="bold">
+main
+
+</emphasis>
+ 
+method terminates causing the program to terminate.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1023" effect="bold">
+Beginning of the class named Prob01Runner
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+The class named 
+
+<emphasis id="strong1024" effect="bold">
+Prob01Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class named Prob01Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Prob01Runner{
+  public Prob01Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1031">
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the constructor for the class, which simply displays the 
+student's name on the command line screen as shown in 
+
+<link id="a1040" target-id="Figure_4">
+
+Figure 
+4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="strong1025" effect="bold">
+The run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1026" effect="bold">
+run
+
+</emphasis>
+ method, which is called in 
+
+<link id="a1041" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+, is shown in its entirety in 
+
+<link id="a1042" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - The run method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">  public void run(){
+    Picture pic = new Picture("Prob01.jpg");
+    //Add your name and display the picture.
+    pic.addMessage("Display your name here.",10,20);
+    pic.explore();
+
+    pic = pic.scale(0.95,0.9);
+    pic = rotatePicture(pic,30);
+
+    pic.explore();
+    System.out.println(pic);
+  }//end run</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1034">
+<emphasis id="strong1027" effect="bold">
+Mostly familiar code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1035">
+You are already familiar with all of the code in 
+
+<link id="a1043" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+except for the call to the 
+
+<emphasis id="strong1028" effect="bold">
+scale
+
+</emphasis>
+ method and the call to the
+
+
+<emphasis id="strong1029" effect="bold">
+rotatePicture
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1030" effect="bold">
+The scale method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1037">
+The 
+
+<emphasis id="strong1031" effect="bold">
+scale
+
+</emphasis>
+ method is part of Ericson's library. However, it 
+is not included in the library on the CD in the back of my copy of her textbook. 
+It is included in the zip files containing later versions, which can be 
+downloaded from Ericson's website. 
+
+<emphasis id="em1004" effect="italics">
+(See 
+
+</emphasis>
+
+
+
+<link id="a1044" url="http://cnx.org/content/m44148/latest/">
+
+
+<emphasis id="em1005" effect="italics">
+Java OOP: The 
+Guzdial-Ericson Multimedia Class Library
+
+</emphasis>
+</link>
+
+.
+
+<emphasis id="em1006" effect="italics">
+)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1032" effect="bold">
+The scale method is straightforward
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+When the 
+
+<emphasis id="strong1033" effect="bold">
+scale
+
+</emphasis>
+ method is called on a 
+
+<emphasis id="strong1034" effect="bold">
+Picture
+
+</emphasis>
+ 
+object, it creates and returns a reference to a new 
+
+<emphasis id="strong1035" effect="bold">
+Picture
+
+</emphasis>
+ 
+object that is a scaled version of the original.
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1036" effect="bold">
+Parameters
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1041">
+The 
+
+<emphasis id="strong1037" effect="bold">
+scale
+
+</emphasis>
+ method requires two parameters of type 
+
+<emphasis id="strong1038" effect="bold">
+
+double
+
+</emphasis>
+. The first parameter is the scale factor that is applied to the 
+horizontal dimension of the picture. The second parameter is the scale factor 
+that is applied to the vertical dimension of the picture.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1039" effect="bold">
+Replace original picture with scaled picture
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+The reference to the new 
+
+<emphasis id="strong1040" effect="bold">
+Picture
+
+</emphasis>
+ object returned by the
+
+
+<emphasis id="strong1041" effect="bold">
+scale
+
+</emphasis>
+ method in 
+
+<link id="a1045" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is stored in 
+the variable named 
+
+<emphasis id="strong1042" effect="bold">
+pic
+
+</emphasis>
+ overwriting the reference to the 
+original 
+
+<emphasis id="strong1043" effect="bold">
+Picture
+
+</emphasis>
+ object. From this point forward, all 
+operations are performed on the scaled version of the original picture.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1044" effect="bold">
+Beginning of the method named rotatePicture
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The method named 
+
+<emphasis id="strong1045" effect="bold">
+rotatePicture
+
+</emphasis>
+ begins in 
+
+
+<link id="a1046" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Beginning of the method named rotatePicture.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  private Picture rotatePicture(Picture pic,double angle){
+
+    //Prepare the rotation transform
+    AffineTransform rotateTransform =
+                                    new AffineTransform();
+    rotateTransform.rotate(Math.toRadians(angle),
+                           pic.getWidth()/2,
+                           pic.getHeight()/2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1046">
+<emphasis id="strong1046" effect="bold">
+Rotate and translate
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The 
+
+<emphasis id="strong1047" effect="bold">
+rotatePicture
+
+</emphasis>
+ method accepts a reference to a 
+
+<emphasis id="strong1048" effect="bold">
+
+Picture
+
+</emphasis>
+ object along with a rotation angle in degrees.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+It creates and returns a new 
+
+<emphasis id="strong1049" effect="bold">
+Picture
+
+</emphasis>
+ object that is of the 
+correct size, containing the rotated version of the image as shown in
+
+
+<link id="a1047" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The incoming image is rotated around its center by the specified rotation 
+angle. Then it is translated to and drawn in the center of the new 
+
+<emphasis id="strong1050" effect="bold">
+
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1051" effect="bold">
+Affine transforms
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1051">
+The 
+
+<emphasis id="strong1052" effect="bold">
+rotatePicture
+
+</emphasis>
+ method uses 
+
+<emphasis id="em1007" effect="italics">
+affine transforms
+
+</emphasis>
+ to 
+rotate and translate the image. Affine transforms can also be used to scale 
+images, but it is easier to scale images using Ericson's 
+
+<emphasis id="strong1053" effect="bold">
+scale
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+
+
+<para id="p1052">
+However, the lack of complexity of the 
+
+<emphasis id="strong1054" effect="bold">
+scale
+
+</emphasis>
+ method is easily made up 
+for by the complexity of affine transforms.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1055" effect="bold">
+Google me
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1054">
+I have published several tutorials discussing and explaining the use of the
+
+
+<emphasis id="strong1056" effect="bold">
+AffineTransform
+
+</emphasis>
+ class in Java. You can locate those modules by 
+going to Google and searching for the following keywords:
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1057" effect="bold">
+<emphasis id="em1008" effect="italics">
+richard baldwin affine transform
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1056">
+<emphasis id="strong1058" effect="bold">
+The AffineTransform class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+The 
+
+<emphasis id="strong1059" effect="bold">
+AffineTransform
+
+</emphasis>
+ class is part of the standard Java 
+library. Here is part of what the
+
+
+<link id="a1048" url="http://java.sun.com/javase/6/docs/api/java/awt/geom/AffineTransform.html">
+
+
+documentation
+
+</link>
+
+ has to say about the class:
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="em1009" effect="italics">
+"The AffineTransform class represents a 2D 
+affine transform that performs a linear mapping from 2D coordinates to other 2D 
+coordinates that preserves the "straightness" and "parallelness" of lines. 
+Affine transformations can be constructed using sequences of translations, 
+scales, flips, rotations, and shears."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1060" effect="bold">
+The ideas behind affine transforms
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+One of the ideas behind affine transforms is that you can create an affine 
+transform object and apply it to an unlimited number of other objects. This 
+might be useful in a game program, for example, where a large number of enemy 
+ships need to be rotated, translated, and scaled in unison.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1061" effect="bold">
+Concatenated affine transform objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1062">
+Another idea is that you can create two or more affine transform objects, 
+concatenate them, and apply the concatenated transform object to an unlimited 
+number of other objects.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1062" effect="bold">
+Application of concatenated transform objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+Applying a concatenated transform to an object is equivalent to applying one 
+of the transform objects to the original object and then applying the other 
+transform objects to the transformed objects in sequential fashion. 
+Concatenation of transform objects can result in considerable computational 
+savings in certain situations.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1063" effect="bold">
+A larger Picture object is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+Looking back at 
+
+<link id="a1049" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ and 
+
+<link id="a1050" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, you can see that the 
+
+<emphasis id="strong1064" effect="bold">
+Picture
+
+</emphasis>
+ 
+object required to contain the rotated image must be larger than the 
+
+<emphasis id="strong1065" effect="bold">
+
+Picture
+
+</emphasis>
+ object required to contain the original image. You will learn 
+how to compute the dimensions of the larger 
+
+<emphasis id="strong1066" effect="bold">
+Picture
+
+</emphasis>
+ object 
+later in this module.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1067" effect="bold">
+Behavior of the rotatePicture method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1068">
+The 
+
+<emphasis id="strong1068" effect="bold">
+rotatePicture
+
+</emphasis>
+ method performs the following operations:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Prepare an 
+
+<emphasis id="strong1069" effect="bold">
+AffineTransform
+
+</emphasis>
+ object that can be used to 
+	rotate the incoming image around its center by the specified angle.
+
+</item>
+
+
+	
+
+<item id="li1030">
+Get the dimensions of a rectangle of sufficient size to contain the 
+	rotated image.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Prepare an 
+
+<emphasis id="strong1070" effect="bold">
+AffineTransform
+
+</emphasis>
+ object that will translate 
+	the rotated image to the center of a new, larger 
+
+<emphasis id="strong1071" effect="bold">
+Picture
+
+</emphasis>
+ 
+	object having the dimensions computed above.
+
+</item>
+
+
+	
+
+<item id="li1032">
+Concatenate the rotation transform object with the translation transform 
+	object.
+
+</item>
+
+
+	
+
+<item id="li1033">
+Create a new 
+
+<emphasis id="strong1072" effect="bold">
+Picture
+
+</emphasis>
+ object with the dimensions 
+	computed above.
+
+</item>
+
+
+	
+
+<item id="li1034">
+Apply the concatenated transform to the incoming image and draw the 
+	transformed image in the new 
+
+<emphasis id="strong1073" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1035">
+Return a reference to the new 
+
+<emphasis id="strong1074" effect="bold">
+Picture
+
+</emphasis>
+ object containing 
+	the rotated and translated image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1075" effect="bold">
+Prepare the rotation transform
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ begins by instantiating a new object of the 
+
+<emphasis id="strong1076" effect="bold">
+AffineTransform
+
+</emphasis>
+ 
+class and saving the object's reference in the local reference variable named
+
+
+<emphasis id="strong1077" effect="bold">
+rotateTransform
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1078" effect="bold">
+Call an overloaded rotate method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+Then 
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls one of four overloaded 
+
+<emphasis id="strong1079" effect="bold">
+rotate
+
+</emphasis>
+ methods 
+on the rotation transform object.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1080" effect="bold">
+Three parameters are required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1074">
+This version of the 
+
+<emphasis id="strong1081" effect="bold">
+rotate
+
+</emphasis>
+ method requires three parameters:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1036">
+theta - the angle of rotation measured in radians
+
+</item>
+
+
+	
+
+<item id="li1037">
+anchorx - the X coordinate of the rotation anchor point
+
+</item>
+
+
+	
+
+<item id="li1038">
+anchory - the Y coordinate of the rotation anchor point 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1082" effect="bold">
+To make a long story short...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1076">
+The 
+
+<emphasis id="strong1083" effect="bold">
+rotate
+
+</emphasis>
+ 
+method prepares the transform object to rotate an image around the point 
+specified by the last two parameters.
+
+</para>
+
+
+
+
+
+<para id="p1077">
+The angle of rotation must be specified in radians.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1084" effect="bold">
+Convert from degrees to radians
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+<link id="a1053" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ calls the static 
+
+<emphasis id="strong1085" effect="bold">
+toRadians
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1086" effect="bold">
+Math
+
+</emphasis>
+ class to convert the rotation angle from 
+degrees to radians. The angle in radians is passed as the first parameter 
+
+<emphasis id="em1010" effect="italics">
+
+(theta)
+
+</emphasis>
+ to the 
+
+<emphasis id="strong1087" effect="bold">
+rotate
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1088" effect="bold">
+Compute the anchor point
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+Then the code in 
+
+<link id="a1054" target-id="Listing_4">
+
+ Listing 4
+
+</link>
+
+ computes the coordinates of the 
+center of the image and passes those coordinates to the 
+
+<emphasis id="strong1089" effect="bold">
+rotate
+
+</emphasis>
+ 
+method as 
+
+<emphasis id="em1011" effect="italics">
+anchorx
+
+</emphasis>
+ and 
+
+<emphasis id="em1012" effect="italics">
+anchory
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="strong1090" effect="bold">
+The dimensions of the new Picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1083">
+How would you compute the dimensions of the new 
+
+<emphasis id="strong1091" effect="bold">
+Picture
+
+</emphasis>
+ 
+object required to barely contain the rotated image shown in 
+
+<link id="a1055" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+?
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The computation of those dimensions is not rocket science, but would 
+certainly require you to know quite a lot about dealing with angles and 
+triangles.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1092" effect="bold">
+Fortunately, we don't have to perform that computation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+Ericson provides a method named 
+
+<emphasis id="strong1093" effect="bold">
+getTransformEnclosingRect
+
+</emphasis>
+ 
+that will perform that computation for us, returning the required dimensions in 
+the form of a reference to a standard Java 
+
+<emphasis id="strong1094" effect="bold">
+Rectangle2D
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1095" effect="bold">
+Compute the dimensions of the new Picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+The code in 
+
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1096" effect="bold">
+getTransformEnclosingRect
+
+</emphasis>
+ 
+method on the previously scaled 
+
+<emphasis id="strong1097" effect="bold">
+Picture
+
+</emphasis>
+ object passing a 
+reference to the rotation transform object to get the required dimensions for a
+
+
+<emphasis id="strong1098" effect="bold">
+Picture
+
+</emphasis>
+ object that will contain the rotated image.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Compute the dimensions of the new Picture object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">    Rectangle2D rectangle2D =
+           pic.getTransformEnclosingRect(rotateTransform);
+
+    int resultWidth = (int)(rectangle2D.getWidth());
+    int resultHeight = (int)(rectangle2D.getHeight());</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1089">
+<emphasis id="strong1099" effect="bold">
+The dimensions of the rectangle
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+After getting a reference to the rectangle, 
+
+<link id="a1057" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+gets and saves the 
+
+<emphasis id="strong1100" effect="bold">
+width
+
+</emphasis>
+ and 
+
+<emphasis id="strong1101" effect="bold">
+height
+
+</emphasis>
+ of the rectangle. These 
+values will be used later to instantiate a new 
+
+<emphasis id="strong1102" effect="bold">
+Picture
+
+</emphasis>
+ object 
+of the same size as the rectangle.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1103" effect="bold">
+Prepare the translation transform
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1092">
+<link id="a1058" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ prepares a translation transform that can be used to translate the 
+rotated image to the center of the new 
+
+<emphasis id="strong1104" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Prepare the translation transform.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    AffineTransform translateTransform =
+                                    new AffineTransform();
+    translateTransform.translate(
+                      (resultWidth - pic.getWidth())/2,
+                      (resultHeight - pic.getHeight())/2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1093">
+<emphasis id="strong1105" effect="bold">
+A new AffineTransform object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+<link id="a1059" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ begins by instantiating a new object of the 
+
+<emphasis id="strong1106" effect="bold">
+
+AffineTransform
+
+</emphasis>
+ class and saving the object's reference in the local 
+reference variable named 
+
+<emphasis id="strong1107" effect="bold">
+translateTransform
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1108" effect="bold">
+Call the translate method on the transform object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+Then 
+
+<link id="a1060" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1109" effect="bold">
+translate
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1110" effect="bold">
+
+AffineTransform
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+According to the
+
+
+<link id="a1061" url="http://java.sun.com/javase/6/docs/api/java/awt/geom/AffineTransform.html#translate%28double,%20double%29">
+
+
+documentation
+
+</link>
+
+, the required parameters of the 
+
+<emphasis id="strong1111" effect="bold">
+translate
+
+</emphasis>
+ 
+method are:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1039">
+tx - the distance by which coordinates are translated in the X axis 
+	direction
+
+</item>
+
+
+	
+
+<item id="li1040">
+ty - the distance by which coordinates are translated in the Y axis 
+	direction
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1112" effect="bold">
+Compute the translation distance components
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1099">
+<link id="a1062" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ computes the distance from the center of the image to the center of 
+the new 
+
+<emphasis id="strong1113" effect="bold">
+Picture
+
+</emphasis>
+ object and passes the X and Y components of 
+this distance to the 
+
+<emphasis id="strong1114" effect="bold">
+translate
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1115" effect="bold">
+Two AffineTransform objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+At this point, we have two different 
+
+<emphasis id="strong1116" effect="bold">
+AffineTransform
+
+</emphasis>
+ 
+objects. One is capable of rotating the image by a specified angle. The other is 
+capable of translating the image by a specified amount.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+We could apply the two transforms sequentially to the image being careful to 
+rotate before we translate. 
+
+<emphasis id="em1013" effect="italics">
+(The order of rotation and translation makes a 
+huge difference.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1117" effect="bold">
+A more computationally economical approach
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+The preferred approach is to concatenate the two transform objects and apply 
+only the concatenated transform object to the image. This is particularly 
+important if the transforms are going to be applied to a large number of images 
+such as in a game program for example.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1118" effect="bold">
+Concatenate the transforms
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+<link id="a1063" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1119" effect="bold">
+concatenate
+
+</emphasis>
+ method on the translation 
+transform passing a reference to the rotation transform as a parameter. This 
+modifies the translation transform in such a way that it can be used to rotate 
+the image around its center point and then translate it to the center of the new
+
+
+<emphasis id="strong1120" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Concatenate the transforms.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">    translateTransform.concatenate(rotateTransform);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1107">
+<emphasis id="strong1121" effect="bold">
+Instantiate the new Picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1108">
+<link id="a1064" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ instantiates a new 
+
+<emphasis id="strong1122" effect="bold">
+Picture
+
+</emphasis>
+ object with the 
+dimensions computed in 
+
+<link id="a1065" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. This 
+
+<emphasis id="strong1123" effect="bold">
+Picture
+
+</emphasis>
+ object will be 
+used to contain and return the rotated image.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Instantiate the new Picture object
+.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">    Picture result = new Picture(
+                                resultWidth,resultHeight);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1109">
+<emphasis id="strong1124" effect="bold">
+Perform the concatenated transform
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1110">
+<link id="a1066" target-id="Listing_9">
+
+ Listing 9
+
+</link>
+
+ performs the rotation and translation, draws the modified image in 
+the new 
+
+<emphasis id="strong1125" effect="bold">
+Picture
+
+</emphasis>
+ object, and returns a reference to the new
+
+
+<emphasis id="strong1126" effect="bold">
+Picture
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Perform the concatenated transform
+.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">    Graphics2D g2 = (Graphics2D)result.getGraphics();
+
+    g2.drawImage(pic.getImage(),translateTransform,null);
+
+    return result;
+  }//end rotatePicture
+}//end class Prob01Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1111">
+<emphasis id="strong1127" effect="bold">
+Call the getGraphics method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+<link id="a1067" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ begins by calling Ericson's 
+
+<emphasis id="strong1128" effect="bold">
+
+getGraphics
+
+</emphasis>
+ method on the new 
+
+<emphasis id="strong1129" effect="bold">
+Picture
+
+</emphasis>
+ object and 
+casting the returned value to the standard type 
+
+<emphasis id="strong1130" effect="bold">
+Graphics2D
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1131" effect="bold">
+A cast is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Ericson's 
+
+<emphasis id="strong1132" effect="bold">
+getGraphics
+
+</emphasis>
+ method returns a reference to the 
+graphics context of the 
+
+<emphasis id="strong1133" effect="bold">
+Picture
+
+</emphasis>
+ object as type 
+
+<emphasis id="strong1134" effect="bold">
+Graphics
+
+</emphasis>
+. 
+That reference must be cast to type 
+
+<emphasis id="strong1135" effect="bold">
+Graphics2D
+
+</emphasis>
+ before the
+
+
+<emphasis id="strong1136" effect="bold">
+drawImage
+
+</emphasis>
+ method can be called on the reference.
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1137" effect="bold">
+Call the drawImage method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+Then 
+
+<link id="a1068" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ calls the standard 
+
+<emphasis id="strong1138" effect="bold">
+drawImage
+
+</emphasis>
+ method on the 
+reference to the graphics context passing three parameters to the method. This 
+is one of two overloaded versions of the 
+
+<emphasis id="strong1139" effect="bold">
+drawImage
+
+</emphasis>
+ method 
+defined in the standard 
+
+<emphasis id="strong1140" effect="bold">
+Graphics2D
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1141" effect="bold">
+The first parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1118">
+The first required parameter for this version of the 
+
+<emphasis id="strong1142" effect="bold">
+drawImage
+
+</emphasis>
+ 
+method is a reference to an object of type 
+
+<emphasis id="strong1143" effect="bold">
+Image
+
+</emphasis>
+ containing the 
+image that is to be drawn. In this case, Ericson's 
+
+<emphasis id="strong1144" effect="bold">
+getImage
+
+</emphasis>
+ 
+method is called on the 
+
+<emphasis id="strong1145" effect="bold">
+Picture
+
+</emphasis>
+ object to get the image and 
+pass it as the first parameter.
+
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1146" effect="bold">
+The second parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+The second required parameter is a reference to an 
+
+<emphasis id="strong1147" effect="bold">
+AffineTransform
+
+</emphasis>
+ 
+object that is to be applied to the image before it is drawn. Our concatenated 
+transform object is passed as the second parameter.
+
+</para>
+
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1148" effect="bold">
+The third parameter
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1122">
+The third required parameter is a reference to an object of the standard type
+
+
+<emphasis id="strong1149" effect="bold">
+ImageObserver
+
+</emphasis>
+ or 
+
+<emphasis id="strong1150" effect="bold">
+null
+
+</emphasis>
+. If you would like to 
+know more about the use of an 
+
+<emphasis id="strong1151" effect="bold">
+ImageObserver
+
+</emphasis>
+ object, go to 
+Google and search for the following keywords:
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1152" effect="bold">
+<emphasis id="em1014" effect="italics">
+richard baldwin java imageobserver
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1124">
+We don't need an image observer in this case so 
+
+<link id="a1069" target-id="Listing_9">
+
+
+Listing 9
+
+</link>
+
+ passes 
+
+<emphasis id="strong1153" effect="bold">
+null
+
+</emphasis>
+ 
+for the third parameter.
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1154" effect="bold">
+When the drawImage method returns
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+When the 
+
+<emphasis id="strong1155" effect="bold">
+drawImage
+
+</emphasis>
+ method returns, the image will have been 
+rotated, translated, and drawn in the center of the new 
+
+<emphasis id="strong1156" effect="bold">
+Picture
+
+</emphasis>
+ 
+object as shown in 
+
+<link id="a1070" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1157" effect="bold">
+Return a Picture and terminate the method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+<link id="a1071" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ returns a reference to the 
+
+<emphasis id="strong1158" effect="bold">
+Picture
+
+</emphasis>
+ object, 
+
+<emphasis id="em1015" effect="italics">
+
+(which now contains the rotated image)
+
+</emphasis>
+ and terminates, returning control to 
+the 
+
+<emphasis id="strong1159" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+<link id="a1072" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1129">
+<emphasis id="strong1160" effect="bold">
+Return to the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+Returning to the 
+
+<emphasis id="strong1161" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+<link id="a1073" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, we see that the 
+remaining code in the 
+
+<emphasis id="strong1162" effect="bold">
+run
+
+</emphasis>
+ method:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1041">
+Calls Ericson's 
+
+<emphasis id="strong1163" effect="bold">
+explore
+
+</emphasis>
+ method on the returned 
+
+<emphasis id="strong1164" effect="bold">
+
+	Picture
+
+</emphasis>
+ object producing the screen output shown in 
+	
+
+<link id="a1074" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1042">
+Passes the returned 
+
+<emphasis id="strong1165" effect="bold">
+Picture
+
+</emphasis>
+ object to the 
+
+<emphasis id="strong1166" effect="bold">
+
+	println
+
+</emphasis>
+ method producing the last line of text output shown in 
+	
+
+<link id="a1075" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1043">
+Returns control the 
+
+<emphasis id="strong1167" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+<link id="a1076" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, causing 
+	the program to terminate as soon as the user dismisses both images from the 
+	screen.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1131">
+I encourage you to copy the code from 
+
+<link id="a1077" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. For example, try reversing the order of 
+translation and rotation beginning with 
+
+<link id="a1078" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Make 
+certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+<para id="p1132">
+Click 
+
+<link id="a1079" url="Prob01.jpg">
+
+Prob01.jpg
+
+</link>
+
+ to download the required input 
+image file.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1133">
+You learned how to scale images and how to rotate and translate images using 
+the 
+
+<emphasis id="strong1168" effect="bold">
+AffineTransform
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1134">
+In the next module, you will learn how to mirror images both horizontally and 
+vertically.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video link
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1135">
+While not a requirement of the course, you can select the following link to 
+view an optional online video lecture on the material in this module.
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1044">
+<link id="a1080" url="http://vimeo.com/channels/itse2321/21211960">
+
+ITSE 2321 Lecture 
+	11
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1136">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1169" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1045">
+Module name: Java OOP: Scaling, Rotating, and Translating Images using Affine Transforms
+
+
+</item>
+
+
+					
+
+<item id="li1046">
+File: Java3022.htm
+
+
+</item>
+
+
+					
+
+<item id="li1047">
+Published: 08/02/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1170" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1137">
+<emphasis id="strong1171" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1138">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1139">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1140">
+<emphasis id="strong1172" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1141">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1081" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1010">
+
+
+
+<row id="tr1020">
+
+
+
+<entry id="th1010">
+
+
+
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1173" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1010">
+
+
+
+<row id="tr1021">
+
+
+
+<entry id="td1010">
+
+
+
+<code id="pre1010" display="block">/*File Prob01 Copyright 2008 R.G.Baldwin
+Revised 12/17/08
+*********************************************************/
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
+import java.awt.Graphics;
+
+public class Prob01{
+  //DO NOT MODIFY THE CODE IN THIS CLASS DEFINITION.
+  public static void main(String[] args){
+    new Prob01Runner().run();
+  }//end main method
+}//end class Prob01
+//======================================================//
+
+class Prob01Runner{
+  public Prob01Runner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture pic = new Picture("Prob01.jpg");
+    //Add your name and display the picture.
+    pic.addMessage("Display your name here.",10,20);
+    pic.explore();
+    pic = pic.scale(0.95,0.9);
+    pic = rotatePicture(pic,30);
+
+    pic.explore();
+    System.out.println(pic);
+  }//end run
+  //----------------------------------------------------//
+
+  //This method accepts a reference to a Picture object
+  // along with a rotation angle in degrees. It creates
+  // and returns a new Picture object that is of the
+  // correct size to contain and display the incoming
+  // picture after it has been rotated around its center
+  // by the specified rotation angle and translated to the
+  // center of the new Picture object.
+  private Picture rotatePicture(Picture pic,double angle){
+
+    //Set up the rotation transform
+    AffineTransform rotateTransform =
+                                    new AffineTransform();
+    rotateTransform.rotate(Math.toRadians(angle),
+                           pic.getWidth()/2,
+                           pic.getHeight()/2);
+
+    //Get the required dimensions of a rectangle that will
+    // contain the rotated image.
+    Rectangle2D rectangle2D =
+           pic.getTransformEnclosingRect(rotateTransform);
+    int resultWidth = (int)(rectangle2D.getWidth());
+    int resultHeight = (int)(rectangle2D.getHeight());
+
+    //Set up the translation transform that will translate
+    // the rotated image to the center of the new Picture
+    // object.
+    AffineTransform translateTransform =
+                                    new AffineTransform();
+    translateTransform.translate(
+                      (resultWidth - pic.getWidth())/2,
+                      (resultHeight - pic.getHeight())/2);
+
+    //Concatenate the two transforms so that the image
+    // will first be rotated around its center and then
+    // translated to the center of the new Picture object.
+    translateTransform.concatenate(rotateTransform);
+    //Create a new Picture object to contain the results
+    // of the transformation.
+    Picture result = new Picture(
+                                resultWidth,resultHeight);
+
+    //Get the graphics context of the new Picture object,
+    // apply the transform to the incoming picture and
+    // draw the transformed picture on the new Picture
+    // object.
+    Graphics2D g2 = (Graphics2D)result.getGraphics();
+    g2.drawImage(pic.getImage(),translateTransform,null);
+
+    return result;
+  }//end rotatePicture
+  //----------------------------------------------------//
+
+}//end class Prob01Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1142">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

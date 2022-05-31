@@ -1,0 +1,7178 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3002r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45762</md:content-id>
+  <md:title>Java3002r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java3002: Creating and Manipulating Turtles and Pictures in a World Object.</md:abstract>
+  <md:uuid>0b46b434-1699-4a4c-a75d-842ee1c8aa09</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Apr 02 14:17:44 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+,
+		
+
+<link id="a1008" target-id="question05">
+
+5
+
+</link>
+
+, 
+
+<link id="a1009" target-id="question06">
+
+6
+
+</link>
+
+,
+		
+
+<link id="a1010" target-id="question07">
+
+7
+
+</link>
+
+, 
+
+<link id="a1011" target-id="question08">
+
+8
+
+</link>
+
+,
+		
+
+<link id="a1012" target-id="question09">
+
+9
+
+</link>
+
+, 
+
+<link id="a1013" target-id="question10">
+
+10
+
+</link>
+
+, 
+		
+
+<link id="a1014" target-id="question11">
+
+11
+
+</link>
+
+, 
+
+<link id="a1015" target-id="question12">
+
+12
+
+</link>
+
+, 
+		
+
+<link id="a1016" target-id="question13">
+
+13
+
+</link>
+
+, 
+		
+
+<link id="a1017" target-id="question14">
+
+14
+
+</link>
+
+, 
+		
+
+<link id="a1018" target-id="question15">
+
+15
+
+</link>
+
+,
+		
+
+<link id="a1019" target-id="question16">
+
+16
+
+</link>
+
+,
+		
+
+<link id="a1020" target-id="question17">
+
+17
+
+</link>
+
+, 
+		
+
+<link id="a1021" target-id="question18">
+
+18
+
+</link>
+
+,
+		
+
+<link id="a1022" target-id="question19">
+
+19
+
+</link>
+
+,
+		
+
+<link id="a1023" target-id="question20">
+
+20
+
+</link>
+
+,
+		
+
+<link id="a1024" target-id="question21">
+
+21
+
+</link>
+
+,
+		
+
+<link id="a1025" target-id="question22">
+
+22
+
+</link>
+
+,
+		
+
+<link id="a1026" target-id="question23">
+
+23
+
+</link>
+
+,
+		
+
+<link id="a1027" target-id="question24">
+
+24
+
+</link>
+
+,
+		
+
+<link id="a1028" target-id="question25">
+
+25
+
+</link>
+
+,
+		
+
+<link id="a1029" target-id="question26">
+
+26
+
+</link>
+
+,
+		
+
+<link id="a1030" target-id="question27">
+
+27
+
+</link>
+
+,
+		
+
+<link id="a1031" target-id="question28">
+
+28
+
+</link>
+
+,
+		
+
+<link id="a1032" target-id="question29">
+
+29
+
+</link>
+
+,
+		
+
+<link id="a1033" target-id="question30">
+
+30
+
+</link>
+
+,
+		
+
+<link id="a1034" target-id="question31">
+
+31
+
+</link>
+
+,
+		
+
+<link id="a1035" target-id="question32">
+
+32
+
+</link>
+
+,
+		
+
+<link id="a1036" target-id="question33">
+
+33
+
+</link>
+
+,
+		
+
+<link id="a1037" target-id="question34">
+
+34
+
+</link>
+
+,
+		
+
+<link id="a1038" target-id="question35">
+
+35
+
+</link>
+
+,
+		
+
+<link id="a1039" target-id="question36">
+
+36
+
+</link>
+
+,
+		
+
+<link id="a1040" target-id="question37">
+
+37
+
+</link>
+
+,
+		
+
+<link id="a1041" target-id="question38">
+
+38
+
+</link>
+
+,
+		
+
+<link id="a1042" target-id="question39">
+
+39
+
+</link>
+
+,
+		
+
+<link id="a1043" target-id="question40">
+
+40
+
+</link>
+
+,
+		
+
+<link id="a1044" target-id="question41">
+
+41
+
+</link>
+
+,
+		
+
+<link id="a1045" target-id="question42">
+
+42
+
+</link>
+
+,
+		
+
+<link id="a1046" target-id="question43">
+
+43
+
+</link>
+
+,
+		
+
+<link id="a1047" target-id="question44">
+
+44
+
+</link>
+
+,
+		
+
+<link id="a1048" target-id="question45">
+
+45
+
+</link>
+
+,
+		
+
+<link id="a1049" target-id="question46">
+
+46
+
+</link>
+
+,
+		
+
+<link id="a1050" target-id="question47">
+
+47
+
+</link>
+
+,
+		
+
+<link id="a1051" target-id="question48">
+
+48
+
+</link>
+
+,
+		
+
+<link id="a1052" target-id="question49">
+
+49
+
+</link>
+
+,
+		
+
+<link id="a1053" target-id="question50">
+
+50
+
+</link>
+
+
+		
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1054" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1055" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1056" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1057" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled 
+
+
+<link id="a1058" url="http://cnx.org/content/m44149">
+
+Java3002: Creating and Manipulating Turtles and Pictures in a World Object
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+True or False? The 
+
+<emphasis id="em1003" effect="italics">
+import directive
+
+</emphasis>
+ at the very beginning of
+
+
+<link id="a1059" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is a directive 
+to the compiler and the virtual machine notifying them that the class named
+
+
+<emphasis id="strong1001" effect="bold">
+Color
+
+</emphasis>
+ can be found in the package named 
+
+<emphasis id="strong1002" effect="bold">
+java.awt
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Question 1.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">import java.awt.Color;
+
+public class Prob01{//Driver class
+  public static void main(String[] args){
+    //Instantiate an object and call its method named run.
+    Prob01Runner obj = new Prob01Runner();
+    obj.run();
+
+    //Get information from the object and display it on
+    // the command-line screen.
+    System.out.println(obj.getMars());
+    System.out.println(obj.getJoe());
+    System.out.println(obj.getSue());
+  }//end main
+}//end class Prob01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1005">
+<link id="a1060" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+True or False? The class named 
+
+<emphasis id="strong1003" effect="bold">
+Color
+
+</emphasis>
+ imported in
+
+
+<link id="a1061" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ is a member of Ericson's multimedia library.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<link id="a1062" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+True or False? A 
+
+<emphasis id="em1004" effect="italics">
+package
+
+</emphasis>
+ is the specification of a particular folder 
+on the disk relative to a standard root folder.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1063" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False? Every Java application and every Java applet must include the 
+definition of a class that contains the definition of a method named 
+
+<emphasis id="strong1004" effect="bold">
+
+main
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<link id="a1064" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="question05" effect="bold">
+
+Question 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? The name of the class containing the 
+
+<emphasis id="strong1005" effect="bold">
+main
+
+</emphasis>
+ 
+method is also the name of the application insofar as being able to compile and 
+execute the application is concerned.
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1065" target-id="answer05">
+
+Answer 5
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="question06" effect="bold">
+
+Question 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+True or False? The name of the application shown in 
+
+<link id="a1066" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ is 
+
+<emphasis id="strong1006" effect="bold">
+Proj01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<link id="a1067" target-id="answer06">
+
+Answer 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="question07" effect="bold">
+
+Question 7
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+True or False? The name of the source code file containing the class 
+definition shown in 
+
+<link id="a1068" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ must be 
+
+<emphasis id="strong1007" effect="bold">
+
+Prob01.java
+
+</emphasis>
+ in order for the application to compile and run as an application named 
+
+
+<emphasis id="strong1008" effect="bold">
+Prob01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<link id="a1069" target-id="answer07">
+
+Answer 7
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="question08" effect="bold">
+
+Question 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1018">
+True or False? In its simplest form, an application can be compiled by executing the 
+command shown in 
+
+<link id="a1070" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ at the command prompt where 
+
+
+<emphasis id="strong1009" effect="bold">
+Prob01.java
+
+</emphasis>
+ is the name of the 
+file containing the 
+
+<emphasis id="strong1010" effect="bold">
+main
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Question 8.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+javac Prob01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1019">
+<link id="a1071" target-id="answer08">
+
+Answer 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="question09" effect="bold">
+
+Question 9
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+True or False? It is often necessary to specify the path to various 
+library files on the command line when compiling an application. In that case, 
+the simplest form given in 
+
+<link id="a1072" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ is not sufficient.
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<link id="a1073" target-id="answer09">
+
+Answer 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="question10" effect="bold">
+
+Question 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+True or False? When a Java application is successfully compiled, it will 
+produce one or more output files with an extension of 
+
+<emphasis id="em1005" effect="italics">
+.class
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<link id="a1074" target-id="answer10">
+
+Answer 10
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="question11" effect="bold">
+
+Question 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+True or False? The execution of a Java application begins and ends in the 
+method named 
+
+<emphasis id="strong1011" effect="bold">
+main
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<link id="a1075" target-id="answer11">
+
+Answer 11
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="question12" effect="bold">
+
+Question 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+True or False? The two commands shown in 
+
+<link id="a1076" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+can be used to compile and execute a Java application named 
+
+<emphasis id="strong1012" effect="bold">
+Prob01
+
+</emphasis>
+ 
+where:
+
+</para>
+
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1009">
+The only special class library required is contained in the folder named
+	
+
+<emphasis id="strong1013" effect="bold">
+bookClasses
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1010">
+The path from the root to the folder named 
+
+<emphasis id="strong1014" effect="bold">
+bookClasses
+
+</emphasis>
+ 
+	is represented by ---\bookClasses.
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Question 12.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+javac -cp .;---\bookClasses Prob01.java
+
+java -cp .;---\bookClasses Prob01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1027">
+<link id="a1077" target-id="answer12">
+
+Answer 12
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="question13" effect="bold">
+
+Question 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+True or False? The Java compiler program is named 
+
+<emphasis id="strong1015" effect="bold">
+java.exe
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<link id="a1078" target-id="answer13">
+
+Answer 13
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="question14" effect="bold">
+
+Question 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+True or False? The 
+
+<emphasis id="strong1016" effect="bold">
+Prob01.java
+
+</emphasis>
+ and 
+
+<emphasis id="strong1017" effect="bold">
+Prob01
+
+</emphasis>
+ 
+at the ends of the two commands in 
+
+<link id="a1079" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ specify 
+the files being operated on by the virtual machine and the compiler 
+respectively.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1080" target-id="answer14">
+
+Answer 14
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21014">
+<title>
+<emphasis id="question15" effect="bold">
+
+Question 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1032">
+True or False? In 
+
+<link id="a1081" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, the 
+
+<emphasis id="strong1018" effect="bold">
+-cp
+
+</emphasis>
+ indicates that a classpath 
+follows. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<link id="a1082" target-id="answer15">
+
+Answer 15
+
+</link>
+
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h21015">
+<title>
+<emphasis id="question16" effect="bold">
+
+Question 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+True or False? A classpath consists of one or more path specifications 
+separated by semicolon characters.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<link id="a1083" target-id="answer16">
+
+Answer 16
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21016">
+<title>
+<emphasis id="question17" effect="bold">
+
+Question 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+True or False? The purpose of the classpath in 
+
+<link id="a1084" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+is to tell the compiler and the virtual machine where to look for source code 
+files that the application needs in order to successfully compile and execute.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<link id="a1085" target-id="answer17">
+
+Answer 17
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21017">
+<title>
+<emphasis id="question18" effect="bold">
+
+Question 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+True or False? The period ahead of the semicolon in 
+
+<link id="a1086" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+ says to search the root folder first.
+
+</para>
+
+
+
+
+
+<para id="p1039">
+<link id="a1087" target-id="answer18">
+
+Answer 18
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21018">
+<title>
+<emphasis id="question19" effect="bold">
+
+Question 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+True or False? The first statement in the body of the 
+
+<emphasis id="strong1019" effect="bold">
+main
+
+</emphasis>
+ 
+method in 
+
+<link id="a1088" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a new object of the 
+class named 
+
+<emphasis id="strong1020" effect="bold">
+Prob01Runner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<link id="a1089" target-id="answer19">
+
+Answer 19
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21019">
+<title>
+<emphasis id="question20" effect="bold">
+
+Question 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+True or False? The first statement in 
+
+<link id="a1090" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+saves a reference to a new object of the class named 
+
+<emphasis id="strong1021" effect="bold">
+Prob01Runner
+
+
+</emphasis>
+in a reference variable named 
+
+<emphasis id="strong1022" effect="bold">
+obj
+
+</emphasis>
+. In general, the type of the variable must 
+be: 
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1011">
+The name of the object, or 
+
+</item>
+
+
+	
+
+<item id="li1012">
+The name of a superclass of the object, or 
+
+</item>
+
+
+	
+
+<item id="li1013">
+The name of an interface implemented by the object. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1043">
+<link id="a1091" target-id="answer20">
+
+Answer 20
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21020">
+<title>
+<emphasis id="question21" effect="bold">
+
+Question 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+True or False? In Java, you must save a reference to a newly instantiated 
+object in order to gain access to that object later in the program.
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<link id="a1092" target-id="answer21">
+
+Answer 21
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21021">
+<title>
+<emphasis id="question22" effect="bold">
+
+Question 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+True or False? The second statement in the body of the 
+
+<emphasis id="strong1023" effect="bold">
+main
+
+</emphasis>
+ 
+method in 
+
+<link id="a1093" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ uses the reference stored in the 
+variable named 
+
+<emphasis id="strong1024" effect="bold">
+obj
+
+</emphasis>
+ to call the method named 
+
+<emphasis id="strong1025" effect="bold">
+run
+
+</emphasis>
+ encapsulated in the 
+object referred to by the contents of 
+
+<emphasis id="strong1026" effect="bold">
+obj
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<link id="a1094" target-id="answer22">
+
+Answer 22
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21022">
+<title>
+<emphasis id="question23" effect="bold">
+
+Question 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+True or False? The following three methods that are called in 
+
+<link id="a1095" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+are of a type that is commonly referred to as 
+
+<emphasis id="em1006" effect="italics">
+accessor methods
+
+</emphasis>
+. They 
+are also sometimes referred to by the slang term 
+
+<emphasis id="em1007" effect="italics">
+getter methods
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1014">
+getMars 
+
+</item>
+
+
+	
+
+<item id="li1015">
+getJoe 
+
+</item>
+
+
+	
+
+<item id="li1016">
+getSue 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1049">
+<link id="a1096" target-id="answer23">
+
+Answer 23
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21023">
+<title>
+<emphasis id="question24" effect="bold">
+
+Question 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+True or False? The method named 
+
+<emphasis id="strong1027" effect="bold">
+println
+
+</emphasis>
+ that is called in 
+
+<link id="a1097" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+is a member of Ericson's multimedia library. The purpose of the 
+
+<emphasis id="strong1028" effect="bold">
+println
+
+</emphasis>
+ 
+method is to display text on an image. 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<link id="a1098" target-id="answer24">
+
+Answer 24
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21024">
+<title>
+<emphasis id="question25" effect="bold">
+
+Question 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+True or False? Java uses four access modifiers to specify the accessibility 
+of various classes and members in a Java application: 
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1017">
+public 
+
+</item>
+
+
+	
+
+<item id="li1018">
+private 
+
+</item>
+
+
+	
+
+<item id="li1019">
+protected 
+
+</item>
+
+
+	
+
+<item id="li1020">
+package-private 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1053">
+<link id="a1099" target-id="answer25">
+
+Answer 25
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21025">
+<title>
+<emphasis id="question26" effect="bold">
+
+Question 26
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1054">
+True or False? 
+
+<link id="a1100" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the beginning of a 
+class named 
+
+<emphasis id="strong1029" effect="bold">
+Prob01Runner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Question 26.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">class Prob01Runner{
+  //Instantiate the World and Turtle objects.
+  private World mars = new World(300,274);
+  private Turtle joe = new Turtle(mars);
+  private Turtle sue = new Turtle(mars);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1055">
+<link id="a1101" target-id="answer26">
+
+Answer 26
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21026">
+<title>
+<emphasis id="question27" effect="bold">
+
+Question 27
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1056">
+True or False? The class that begins in 
+
+<link id="a1102" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+does not have an access modifier. This puts it in 
+
+<emphasis id="strong1030" effect="bold">
+package-private
+
+</emphasis>
+ 
+access category. A class with package-private access can be accessed by code 
+that is stored in the same package and cannot be accessed by code stored in 
+other packages.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<link id="a1103" target-id="answer27">
+
+Answer 27
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21027">
+<title>
+<emphasis id="question28" effect="bold">
+
+Question 28
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+True or False? The last three statements in 
+
+<link id="a1104" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+declare three 
+
+<emphasis id="strong1031" effect="bold">
+private
+
+</emphasis>
+ variables. Because these variables are 
+declared private, they can be accessed by any method defined in any class in the 
+same package. 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<link id="a1105" target-id="answer28">
+
+Answer 28
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21028">
+<title>
+<emphasis id="question29" effect="bold">
+
+Question 29
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+True or False? The three variables declared in 
+
+<link id="a1106" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+are 
+
+<emphasis id="em1008" effect="italics">
+instance variables
+
+</emphasis>
+ as opposed to 
+
+<emphasis id="em1009" effect="italics">
+class variables
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<link id="a1107" target-id="answer29">
+
+Answer 29
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21029">
+<title>
+<emphasis id="question30" effect="bold">
+
+Question 30
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1062">
+True or False? Because the three variables declared in 
+
+<link id="a1108" target-id="Listing_5">
+
+
+Listing 5
+
+</link>
+
+ are instance variables, they belong to an object 
+instantiated from the class. Even if the variables were public, they could only 
+be accessed by first gaining access to the object to which they belong. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<link id="a1109" target-id="answer30">
+
+Answer 30
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21030">
+<title>
+<emphasis id="question31" effect="bold">
+
+Question 31
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1064">
+True or False? The three variables declared in 
+
+<link id="a1110" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+are 
+
+<emphasis id="em1010" effect="italics">
+reference variables
+
+</emphasis>
+. This means that they are capable of storing 
+references to objects and are also capable of storing values of the eight 
+primitive types.
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<link id="a1111" target-id="answer31">
+
+Answer 31
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21031">
+<title>
+<emphasis id="question32" effect="bold">
+
+Question 32
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+True or False? Ericson's class library contains a class named 
+
+<emphasis id="strong1032" effect="bold">
+World
+
+</emphasis>
+ 
+and another class named 
+
+<emphasis id="strong1033" effect="bold">
+Turtle
+
+</emphasis>
+. The code in
+
+
+<link id="a1112" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ instantiates one object of the 
+
+<emphasis id="strong1034" effect="bold">
+World
+
+</emphasis>
+ 
+class and populates that world with three objects of the 
+
+<emphasis id="strong1035" effect="bold">
+Turtle
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<link id="a1113" target-id="answer32">
+
+Answer 32
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21032">
+<title>
+<emphasis id="question33" effect="bold">
+
+Question 33
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+True or False? Every class definition has one or more method-like members 
+called constructors. 
+
+<emphasis id="em1011" effect="italics">
+(If you don't define a constructor when you define a 
+class, a default constructor will be automatically defined for your class.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+<link id="a1114" target-id="answer33">
+
+Answer 33
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21033">
+<title>
+<emphasis id="question34" effect="bold">
+
+Question 34
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+True or False? The name of the constructor must always be the same as the 
+name of the class in which it is defined. Like a method, a constructor may or 
+may not take arguments. If there are two or more 
+
+<emphasis id="em1012" effect="italics">
+(overloaded)
+
+</emphasis>
+ 
+constructors, they must have different argument lists.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<link id="a1115" target-id="answer34">
+
+Answer 34
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21034">
+<title>
+<emphasis id="question35" effect="bold">
+
+Question 35
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1072">
+True or False? To instantiate an object of a class, you apply the 
+
+<emphasis id="strong1036" effect="bold">
+new
+
+</emphasis>
+ 
+operator to the class' constructor, passing parameters that satisfy the required 
+arguments for the constructor. 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+<link id="a1116" target-id="answer35">
+
+Answer 35
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21035">
+<title>
+<emphasis id="question36" effect="bold">
+
+Question 36
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+True or False? When an object is instantiated, the constructor returns an 
+array containing the values in all of the instance variables.
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<link id="a1117" target-id="answer36">
+
+Answer 36
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21036">
+<title>
+<emphasis id="question37" effect="bold">
+
+Question 37
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1076">
+True or False? The last two statements in 
+
+<link id="a1118" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+instantiate two objects of the 
+
+<emphasis id="strong1037" effect="bold">
+Turtle
+
+</emphasis>
+ class and use them to populate the
+
+
+<emphasis id="strong1038" effect="bold">
+World
+
+</emphasis>
+ object whose reference is stored in the variable named
+
+
+<emphasis id="strong1039" effect="bold">
+mars
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+<link id="a1119" target-id="answer37">
+
+Answer 37
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21037">
+<title>
+<emphasis id="question38" effect="bold">
+
+Question 38
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+True or False? If a variable 
+
+<emphasis id="em1013" effect="italics">
+(exclusive of local variables inside of 
+methods)
+
+</emphasis>
+ is not purposely initialized when the object in instantiated, it 
+will receive a default initialization value. The default values are: 
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1021">
+0 or 0.0 for numeric variables 
+
+</item>
+
+
+	
+
+<item id="li1022">
+true for boolean variables 
+
+</item>
+
+
+	
+
+<item id="li1023">
+null for reference variables 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1079">
+<link id="a1120" target-id="answer38">
+
+Answer 38
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21038">
+<title>
+<emphasis id="question39" effect="bold">
+
+Question 39
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1080">
+True or False? Code written into a class' constructor is executed when an 
+object of the class is instantiated.
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1121" target-id="answer39">
+
+Answer 39
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21039">
+<title>
+<emphasis id="question40" effect="bold">
+
+Question 40
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+True or False? Good object-oriented programming practice says that most of 
+the instance variables encapsulated in an object should be declared private. If 
+there is a need to make the contents of those variables available outside the 
+object, that should be accomplished by defining protected accessor methods. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<link id="a1122" target-id="answer40">
+
+Answer 40
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21040">
+<title>
+<emphasis id="question41" effect="bold">
+
+Question 41
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1084">
+True or False? Everything in Java is passed and returned by reference. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<link id="a1123" target-id="answer41">
+
+Answer 41
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21041">
+<title>
+<emphasis id="question42" effect="bold">
+
+Question 42
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+True or False? Each of the accessor methods shown in 
+
+<link id="a1124" target-id="Listing_6">
+
+
+Listing 6
+
+</link>
+
+ returns a copy of the reference pointing to either a 
+
+<emphasis id="strong1040" effect="bold">
+
+Turtle
+
+</emphasis>
+ object or a 
+
+<emphasis id="strong1041" effect="bold">
+
+World
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Question 42.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+
+<code id="pre1004" display="block">  public Turtle getJoe(){return joe;}
+  public Turtle getSue(){return sue;}
+  public World getMars(){return mars;}</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1087">
+<link id="a1125" target-id="answer42">
+
+Answer 42
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21042">
+<title>
+<emphasis id="question43" effect="bold">
+
+Question 43
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1088">
+True or False? Code in the 
+
+<emphasis id="strong1042" effect="bold">
+println
+
+</emphasis>
+ method calls a method 
+named 
+
+<emphasis id="strong1043" effect="bold">
+toString
+
+</emphasis>
+ on each incoming primitive value and displays 
+the string value returned by that method.
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<link id="a1126" target-id="answer43">
+
+Answer 43
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21043">
+<title>
+<emphasis id="question44" effect="bold">
+
+Question 44
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1090">
+True or False? The 
+
+<emphasis id="strong1044" effect="bold">
+toString
+
+</emphasis>
+ method is overridden 
+
+<emphasis id="em1014" effect="italics">
+(not 
+overloaded)
+
+</emphasis>
+ in the 
+
+<emphasis id="strong1045" effect="bold">
+World
+
+</emphasis>
+ and 
+
+<emphasis id="strong1046" effect="bold">
+Turtle
+
+</emphasis>
+ 
+classes so as to return a string value describing the object.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<link id="a1127" target-id="answer44">
+
+Answer 44
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21044">
+<title>
+<emphasis id="question45" effect="bold">
+
+Question 45
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1092">
+True or False? The code in 
+
+<link id="a1128" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ replaces the 
+default all-white picture in a 
+
+<emphasis id="strong1047" effect="bold">
+World
+
+</emphasis>
+ object with another 
+picture. 
+
+<emphasis id="em1015" effect="italics">
+(Note, the variable named 
+
+<emphasis id="strong1048" effect="bold">
+mars
+
+</emphasis>
+ contains a 
+reference to an object of the class 
+
+<emphasis id="strong1049" effect="bold">
+World
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Question 45.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">  public void run(){
+    mars.setPicture(new Picture("Prob01.jpg"));</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1093">
+<link id="a1129" target-id="answer45">
+
+Answer 45
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21045">
+<title>
+<emphasis id="question46" effect="bold">
+
+Question 46
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+True or False? The background of a 
+
+<emphasis id="strong1050" effect="bold">
+World
+
+</emphasis>
+ object consists of 
+an object of Ericson's 
+
+<emphasis id="strong1051" effect="bold">
+Picture
+
+</emphasis>
+ class. 
+
+<emphasis id="em1016" effect="italics">
+(A 
+
+</emphasis>
+<emphasis id="strong1052" effect="bold">
+<emphasis id="em1017" effect="italics">
+
+Picture
+
+</emphasis>
+</emphasis>
+<emphasis id="em1018" effect="italics">
+ object is encapsulated in the 
+
+</emphasis>
+<emphasis id="strong1053" effect="bold">
+<emphasis id="em1019" effect="italics">
+World
+
+</emphasis>
+</emphasis>
+<emphasis id="em1020" effect="italics">
+ 
+object.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+<link id="a1130" target-id="answer46">
+
+Answer 46
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21046">
+<title>
+<emphasis id="question47" effect="bold">
+
+Question 47
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1096">
+True or False? The code in 
+
+<link id="a1131" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ uses two levels 
+of indirection to add my name to the picture that forms the 
+background of the world shown in 
+
+<link id="a1132" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Question 47.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+
+
+<code id="pre1006" display="block">    mars.getPicture().toString(
+                         "Dick Baldwin",10,20);</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1097">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1054" effect="bold">
+<link id="a1133" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1055" effect="bold">
+ - Question 47.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+<media id="media1000" alt="Image of two turtles maneuvering in front of a background image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/3002-1.jpg" width="309" height="304"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<link id="a1134" target-id="answer47">
+
+Answer 47
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21047">
+<title>
+<emphasis id="question48" effect="bold">
+
+Question 48
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1100">
+True or False? A 
+
+<emphasis id="strong1056" effect="bold">
+Turtle
+
+</emphasis>
+ object encapsulates many methods 
+that can be used to manipulate the turtle in a variety of different ways.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<link id="a1135" target-id="answer48">
+
+Answer 48
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21048">
+<title>
+<emphasis id="question49" effect="bold">
+
+Question 49
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1102">
+True or False? A call to the 
+
+<emphasis id="strong1057" effect="bold">
+forward
+
+</emphasis>
+ method of a 
+
+<emphasis id="strong1058" effect="bold">
+
+turtle
+
+</emphasis>
+ object with no parameters causes the turtle to move forward by a 
+default distance of 100 pixels.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<link id="a1136" target-id="answer49">
+
+Answer 49
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21049">
+<title>
+<emphasis id="question50" effect="bold">
+
+Question 50
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1104">
+True or False? A call to the 
+
+<emphasis id="strong1059" effect="bold">
+moveTo
+
+</emphasis>
+ method of a 
+
+<emphasis id="strong1060" effect="bold">
+
+turtle
+
+</emphasis>
+ object with a single parameter value of 150 causes the turtle to 
+move forward by a distance of 150 pixels.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<link id="a1137" target-id="answer50">
+
+Answer 50
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1024">
+<link id="a1138" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Question 47.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1025">
+<link id="a1139" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1140" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 8. 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1141" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Answer 8. 
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1142" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Question 12. 
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1143" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Question 26. 
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1144" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Question 42. 
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1145" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Question 45. 
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1146" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Question 47. 
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1147" target-id="Listing_9">
+
+Listing 9.
+
+</link>
+
+ Answer 47. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1106">
+<emphasis id="strong1061" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1107">
+This image was inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+The image is also an example of the kinds of things that we do in my course 
+titled ITSE 2321, Object-Oriented Programming.
+
+</para>
+
+
+
+
+
+
+<media id="media1001" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1109">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+
+
+
+<media id="media1002" alt="Spacer image of a penguin and some houses." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21050">
+<title>
+<emphasis id="answer50" effect="bold">
+
+Answer 50
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1111">
+False. The moveTo method of the Turtle class cannot be called with a single 
+parameter. Two parameters are required.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<link id="a1148" target-id="question50">
+
+Back to Question 50
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21051">
+<title>
+<emphasis id="answer49" effect="bold">
+
+Answer 49
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1113">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<link id="a1149" target-id="question49">
+
+Back to Question 49
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21052">
+<title>
+<emphasis id="answer48" effect="bold">
+
+Answer 48
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1115">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1116">
+<link id="a1150" target-id="question48">
+
+Back to Question 48
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21053">
+<title>
+<emphasis id="answer47" effect="bold">
+
+Answer 47
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1117">
+False. The code in 
+
+<link id="a1151" target-id="Listing_7">
+
+Listing 8
+
+</link>
+
+ won't compile. The
+
+
+<emphasis id="strong1062" effect="bold">
+toString
+
+</emphasis>
+ method does not apply to images. The 
+correct code is shown in 
+
+<link id="a1152" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Answer 47.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+
+
+<code id="pre1007" display="block">    mars.getPicture().addMessage(
+                         "Dick Baldwin",10,20);</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1118">
+<link id="a1153" target-id="question47">
+
+Back to Question 47
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21054">
+<title>
+<emphasis id="answer46" effect="bold">
+
+Answer 46
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1119">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<link id="a1154" target-id="question46">
+
+Back to Question 46
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21055">
+<title>
+<emphasis id="answer45" effect="bold">
+
+Answer 45
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1121">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<link id="a1155" target-id="question45">
+
+Back to Question 45
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21056">
+<title>
+<emphasis id="answer44" effect="bold">
+
+Answer 44
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1123">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<link id="a1156" target-id="question44">
+
+Back to Question 44
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21057">
+<title>
+<emphasis id="answer43" effect="bold">
+
+Answer 43
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1125">
+False. Code in the 
+
+<emphasis id="strong1063" effect="bold">
+println
+
+</emphasis>
+ method calls a method named
+
+
+<emphasis id="strong1064" effect="bold">
+toString
+
+</emphasis>
+ on each incoming 
+
+<emphasis id="strong1065" effect="bold">
+object reference
+
+</emphasis>
+ and 
+displays the string value returned by that method.
+
+</para>
+
+
+
+
+
+<para id="p1126">
+<link id="a1157" target-id="question43">
+
+Back to Question 43
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21058">
+<title>
+<emphasis id="answer42" effect="bold">
+
+Answer 42
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1127">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<link id="a1158" target-id="question42">
+
+Back to Question 42
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21059">
+<title>
+<emphasis id="answer41" effect="bold">
+
+Answer 41
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1129">
+False. Everything in Java is passed and returned 
+
+<emphasis id="em1021" effect="italics">
+by value
+
+</emphasis>
+, not by 
+reference. 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<link id="a1159" target-id="question41">
+
+Back to Question 41
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21060">
+<title>
+<emphasis id="answer40" effect="bold">
+
+Answer 40
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1131">
+False. If there is a need to make the contents of those variables available 
+outside the object, that should be accomplished by defining 
+
+<emphasis id="strong1066" effect="bold">
+public
+
+</emphasis>
+ 
+accessor methods. 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<link id="a1160" target-id="question40">
+
+Back to Question 40
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21061">
+<title>
+<emphasis id="answer39" effect="bold">
+
+Answer 39
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1133">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<link id="a1161" target-id="question39">
+
+Back to Question 39
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21062">
+<title>
+<emphasis id="answer38" effect="bold">
+
+Answer 38
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1135">
+False. 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+The default values are: 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1034">
+0 or 0.0 for numeric variables 
+
+</item>
+
+
+	
+
+<item id="li1035">
+<emphasis id="strong1067" effect="bold">
+false
+
+</emphasis>
+ for boolean variables 
+
+</item>
+
+
+	
+
+<item id="li1036">
+null for reference variables 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1137">
+<link id="a1162" target-id="question38">
+
+Back to Question 38
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21063">
+<title>
+<emphasis id="answer37" effect="bold">
+
+Answer 37
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1138">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1139">
+<link id="a1163" target-id="question37">
+
+Back to Question 37
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21064">
+<title>
+<emphasis id="answer36" effect="bold">
+
+Answer 36
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1140">
+False. When an object is instantiated, the constructor returns a reference to 
+the new object.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<link id="a1164" target-id="question36">
+
+Back to Question 36
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21065">
+<title>
+<emphasis id="answer35" effect="bold">
+
+Answer 35
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1142">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<link id="a1165" target-id="question35">
+
+Back to Question 35
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21066">
+<title>
+<emphasis id="answer34" effect="bold">
+
+Answer 34
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1144">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1145">
+<link id="a1166" target-id="question34">
+
+Back to Question 34
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21067">
+<title>
+<emphasis id="answer33" effect="bold">
+
+Answer 33
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1146">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<link id="a1167" target-id="question33">
+
+Back to Question 33
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21068">
+<title>
+<emphasis id="answer32" effect="bold">
+
+Answer 32
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+False. The code in 
+
+<link id="a1168" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ instantiates one object 
+of the 
+
+<emphasis id="strong1068" effect="bold">
+World
+
+</emphasis>
+ class and populates that world with 
+
+<emphasis id="strong1069" effect="bold">
+<emphasis id="em1022" effect="italics">
+
+two
+
+</emphasis>
+</emphasis>
+ objects of the 
+
+<emphasis id="strong1070" effect="bold">
+Turtle
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<link id="a1169" target-id="question32">
+
+Back to Question 32
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21069">
+<title>
+<emphasis id="answer31" effect="bold">
+
+Answer 31
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1150">
+False. The three variables declared in 
+
+<link id="a1170" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ are
+
+
+<emphasis id="em1023" effect="italics">
+reference variables (as opposed to primitive variables)
+
+</emphasis>
+. This means 
+that they are capable of storing references to objects as opposed to simply 
+being able to store values of the eight primitive types. It also means that they 
+are incapable of storing values of the eight primitive types.
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<link id="a1171" target-id="question31">
+
+Back to Question 31
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21070">
+<title>
+<emphasis id="answer30" effect="bold">
+
+Answer 30
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1152">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<link id="a1172" target-id="question30">
+
+Back to Question 30
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21071">
+<title>
+<emphasis id="answer29" effect="bold">
+
+Answer 29
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1154">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<link id="a1173" target-id="question29">
+
+Back to Question 29
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21072">
+<title>
+<emphasis id="answer28" effect="bold">
+
+Answer 28
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1156">
+False. Because these variables are declared 
+
+<emphasis id="strong1071" effect="bold">
+private
+
+</emphasis>
+, they 
+can only be accessed by code contained in methods defined inside the same class
+
+
+<emphasis id="em1024" effect="italics">
+(and in inner classes of the class, which is beyond the scope of this 
+module)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1157">
+<link id="a1174" target-id="question28">
+
+Back to Question 28
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21073">
+<title>
+<emphasis id="answer27" effect="bold">
+
+Answer 27
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1158">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1159">
+<link id="a1175" target-id="question27">
+
+Back to Question 27
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21074">
+<title>
+<emphasis id="answer26" effect="bold">
+
+Answer 26
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1160">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<link id="a1176" target-id="question26">
+
+Back to Question 26
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h21075">
+<title>
+<emphasis id="answer25" effect="bold">
+
+Answer 25
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1162">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+<link id="a1177" target-id="question25">
+
+Back to Question 25
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21076">
+<title>
+<emphasis id="answer24" effect="bold">
+
+Answer 24
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1164">
+False. The method named 
+
+<emphasis id="strong1072" effect="bold">
+println
+
+</emphasis>
+ that is called in 
+
+<link id="a1178" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+is a method belonging to a standard system object that represents the standard 
+output device 
+
+<emphasis id="em1025" effect="italics">
+(usually the command-line screen)
+
+</emphasis>
+. The purpose of the
+
+
+<emphasis id="strong1073" effect="bold">
+println
+
+</emphasis>
+ method is to display material on the command-line 
+screen.
+
+</para>
+
+
+
+
+
+<para id="p1165">
+<link id="a1179" target-id="question24">
+
+Back to Question 24
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21077">
+<title>
+<emphasis id="answer23" effect="bold">
+
+Answer 23
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1166">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1167">
+<link id="a1180" target-id="question23">
+
+Back to Question 23
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21078">
+<title>
+<emphasis id="answer22" effect="bold">
+
+Answer 22
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1168">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1169">
+<link id="a1181" target-id="question22">
+
+Back to Question 22
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21079">
+<title>
+<emphasis id="answer21" effect="bold">
+
+Answer 21
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1170">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1171">
+<link id="a1182" target-id="question21">
+
+Back to Question 21
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21080">
+<title>
+<emphasis id="answer20" effect="bold">
+
+Answer 20
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1172">
+False. 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+In general, the type of the variable must be: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1037">
+The name of the class, or 
+
+</item>
+
+
+	
+
+<item id="li1038">
+The name of a superclass of the class, or 
+
+</item>
+
+
+	
+
+<item id="li1039">
+The name of an interface implemented by the class. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1174">
+<link id="a1183" target-id="question20">
+
+Back to Question 20
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21081">
+<title>
+<emphasis id="answer19" effect="bold">
+
+Answer 19
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1175">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1176">
+<link id="a1184" target-id="question19">
+
+Back to Question 19
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21082">
+<title>
+<emphasis id="answer18" effect="bold">
+
+Answer 18
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1177">
+False. The period ahead of the semicolon in 
+
+<link id="a1185" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+says to search the current folder first.
+
+</para>
+
+
+
+
+
+<para id="p1178">
+<link id="a1186" target-id="question18">
+
+Back to Question 18
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21083">
+<title>
+<emphasis id="answer17" effect="bold">
+
+Answer 17
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1179">
+False. The purpose of the classpath is to tell the compiler and the virtual 
+machine where to look for previously compiled class files that the application 
+needs in order to successfully compile and execute.
+
+</para>
+
+
+
+
+
+<para id="p1180">
+<link id="a1187" target-id="question17">
+
+Back to Question 17
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21084">
+<title>
+<emphasis id="answer16" effect="bold">
+
+Answer 16
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1181">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1182">
+<link id="a1188" target-id="question16">
+
+Back to Question 16
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21085">
+<title>
+<emphasis id="answer15" effect="bold">
+
+Answer 15
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1183">
+True
+
+</para>
+
+
+
+
+
+<para id="p1184">
+<link id="a1189" target-id="question15">
+
+Back to Question 15
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21086">
+<title>
+<emphasis id="answer14" effect="bold">
+
+Answer 14
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1185">
+False. The 
+
+<emphasis id="strong1074" effect="bold">
+Prob01.java
+
+</emphasis>
+ and 
+
+<emphasis id="strong1075" effect="bold">
+Prob01
+
+</emphasis>
+ at the 
+ends of the two commands in 
+
+<link id="a1190" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ specify the files 
+being operated on by the compiler and the virtual machine respectively. 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+<link id="a1191" target-id="question14">
+
+Back to Question 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21087">
+<title>
+<emphasis id="answer13" effect="bold">
+
+Answer 13
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1187">
+False. The Java compiler program is named 
+
+<emphasis id="strong1076" effect="bold">
+javac.exe
+
+</emphasis>
+. The 
+virtual machine is named 
+
+<emphasis id="strong1077" effect="bold">
+java.exe
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1188">
+<link id="a1192" target-id="question13">
+
+Back to Question 13
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21088">
+<title>
+<emphasis id="answer12" effect="bold">
+
+Answer 12
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1189">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1190">
+<link id="a1193" target-id="question12">
+
+Back to Question 12
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21089">
+<title>
+<emphasis id="answer11" effect="bold">
+
+Answer 11
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1191">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1192">
+<link id="a1194" target-id="question11">
+
+Back to Question 11
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21090">
+<title>
+<emphasis id="answer10" effect="bold">
+
+Answer 10
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1193">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1194">
+<link id="a1195" target-id="question10">
+
+Back to Question 10
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21091">
+<title>
+<emphasis id="answer09" effect="bold">
+
+Answer 9
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1195">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1196">
+<link id="a1196" target-id="question09">
+
+Back to Question 9
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21092">
+<title>
+<emphasis id="answer08" effect="bold">
+
+Answer 8
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1197">
+False. The required command is shown in 
+
+<link id="a1197" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Answer 8.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+
+<code id="pre1008" display="block">
+javac Prob01.java
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1198">
+<link id="a1198" target-id="question08">
+
+Back to Question 8
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21093">
+<title>
+<emphasis id="answer07" effect="bold">
+
+Answer 7
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1199">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1200">
+<link id="a1199" target-id="question07">
+
+Back to Question 7
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21094">
+<title>
+<emphasis id="answer06" effect="bold">
+
+Answer 6
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1201">
+False. The name of the application shown in 
+
+<link id="a1200" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+is 
+
+<emphasis id="strong1078" effect="bold">
+Prob01
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1202">
+<link id="a1201" target-id="question06">
+
+Back to Question 6
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21095">
+<title>
+<emphasis id="answer05" effect="bold">
+
+Answer 5
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1203">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1204">
+<link id="a1202" target-id="question05">
+
+Back to Question 5
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21096">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1205">
+False. Java applets do not require a method named 
+
+<emphasis id="strong1079" effect="bold">
+main
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1206">
+<link id="a1203" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21097">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1207">
+True.
+
+</para>
+
+
+
+
+
+<para id="p1208">
+<link id="a1204" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21098">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1209">
+False. 
+
+<emphasis id="strong1080" effect="bold">
+java.awt.Color
+
+</emphasis>
+ belongs to the Java standard edition 
+class library.
+
+</para>
+
+
+
+
+
+<para id="p1210">
+<link id="a1205" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21099">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1211">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1212">
+<link id="a1206" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1213">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1081" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1012" list-type="bulleted">
+
+				
+
+<item id="li1040">
+Module name: Java3002r Review: Creating and Manipulating 
+				Turtles and Pictures in a World Object
+
+</item>
+
+
+				
+
+<item id="li1041">
+File: Java3002r.htm 
+
+</item>
+
+
+				
+
+<item id="li1042">
+Published: 02/10/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1082" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1214">
+<emphasis id="strong1083" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1215">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1216">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1217">
+<emphasis id="strong1084" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1218">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

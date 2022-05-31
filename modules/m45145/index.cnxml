@@ -1,0 +1,1407 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0180: Java OOP: The main method.</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45145</md:content-id>
+  <md:title>Jb0180: Java OOP: The main method.</md:title>
+  <md:abstract>Every Java application requires a class containing a method named main. This module provides information on the main method.</md:abstract>
+  <md:uuid>18b2d10e-9adc-4398-a6dc-b281153c0d36</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 11:21:22 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="The_main_method_in_Java">
+
+The main method in Java
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+This module is part of a collection of modules designed to help you 
+	learn to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+Every Java application requires a class containing a method named 
+
+<emphasis id="strong1000" effect="bold">
+
+main
+
+</emphasis>
+. 
+This module provides information on the 
+
+<emphasis id="strong1001" effect="bold">
+main
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. The method signature according to Niemeyer and Peck. 
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The method signature according to Oracle. 
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Allowable signatures for the main method. 
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="The_main_method_in_Java" effect="bold">
+
+The main method in Java
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+There must be a 
+
+<emphasis id="strong1002" effect="bold">
+main
+
+</emphasis>
+ method in the controlling class in 
+	every Java application.
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+The method signature
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1007">
+The Java literature frequently refers to the signature of a method, or the
+
+
+<emphasis id="em1003" effect="italics">
+method signature
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<emphasis id="em1004" effect="italics">
+Exploring Java
+
+</emphasis>
+ by Patrick Niemeyer and Joshua Peck (O'Reilly) provides 
+the definition of a method signature shown in 
+
+<link id="a1010" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1.
+
+</emphasis>
+
+ 
+
+<emphasis id="strong1004" effect="bold">
+The method signature according to 
+Niemeyer and Peck
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+"A method signature is a collection of information about the method, as in a 
+C prototype or a forward function declaration in other languages. It includes 
+the method's name, type, and visibility, as well as its arguments and return 
+type."
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+Type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Apparently in this definition, the authors are referring to the 
+
+<emphasis id="em1005" effect="italics">
+type
+
+</emphasis>
+ 
+of the method as distinguishing between static and non-static. 
+
+<emphasis id="em1006" effect="italics">
+(Other 
+literature refers to the type of a function or method as being the return type 
+which according to the above definition is a separate part of the signature.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1006" effect="bold">
+Visibility
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+Apparently also the use of the word visibility in the above definition refers 
+to the use of 
+
+<emphasis id="strong1007" effect="bold">
+public
+
+</emphasis>
+, 
+
+<emphasis id="strong1008" effect="bold">
+private
+
+</emphasis>
+, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1009" effect="bold">
+According to Oracle...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+Oracle's
+
+
+<link id="a1011" url="http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html">
+
+Java 
+Tutorials
+
+</link>
+
+, on the other hand, describe the method signature as in 
+
+
+<link id="a1012" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1001">
+
+
+
+<row id="tr1002">
+
+
+
+<entry id="th1001">
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2.
+
+</emphasis>
+
+ 
+
+<emphasis id="strong1010" effect="bold">
+The method signature according to 
+Oracle
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1001">
+
+
+
+<row id="tr1003">
+
+
+
+<entry id="td1001">
+
+Definition: Two of the components of a method declaration comprise the method signature -- the method's name and the parameter types. 
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1015">
+As you can see, the Oracle definition is more restrictive than the Niemeyer and Peck definition.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1011" effect="bold">
+Bottom line on method signature
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+The method signature can probably be thought of as providing information about the programming interface to the method. In other words, it 
+provides the information that you need to be able to call the 
+method in your program code. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1012" effect="bold">
+Signature of main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+The controlling class of every Java application must contain a 
+
+<emphasis id="strong1013" effect="bold">
+main 
+
+</emphasis>
+method having one of the signatures 
+shown in 
+
+<link id="a1013" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Allowable signatures for 
+				the main method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1000" display="block">
+public static void main(String[] args)
+
+public static void main(String args[])
+</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1020">
+<emphasis id="em1007" effect="italics">
+(I prefer the first 
+signature in 
+
+</emphasis>
+<link id="a1014" target-id="Figure_3">
+
+
+<emphasis id="em1008" effect="italics">
+<link id="a1015" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1009" effect="italics">
+ as being the most descriptive of an array of
+
+
+</emphasis>
+ 
+
+<emphasis id="strong1014" effect="bold">
+<emphasis id="em1010" effect="italics">
+String 
+
+</emphasis>
+ 
+
+</emphasis>
+
+
+
+<emphasis id="em1011" effect="italics">
+references which is what is passed in as an argument.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1015" effect="bold">
+public
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+The keyword 
+
+<emphasis id="strong1016" effect="bold">
+public
+
+</emphasis>
+ indicates that the method can be called 
+by any object. A future module will discuss the keywords 
+
+<emphasis id="strong1017" effect="bold">
+public
+
+</emphasis>
+,
+
+
+<emphasis id="strong1018" effect="bold">
+private
+
+</emphasis>
+, and 
+
+<emphasis id="strong1019" effect="bold">
+protected
+
+</emphasis>
+ in more detail. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1020" effect="bold">
+static
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1024">
+The keyword 
+
+<emphasis id="strong1021" effect="bold">
+static
+
+</emphasis>
+ indicates that the method is a 
+
+<emphasis id="em1012" effect="italics">
+class
+
+</emphasis>
+ 
+method, which can be called without the requirement to instantiate an object of 
+the class. This is used by the JVM to launch the program by calling the 
+
+<emphasis id="strong1022" effect="bold">
+
+main
+
+</emphasis>
+ method of the class identified in the command to start 
+the program. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1023" effect="bold">
+void
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1026">
+The keyword 
+
+<emphasis id="strong1024" effect="bold">
+void
+
+</emphasis>
+ indicates that the method doesn't return 
+any value. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+<emphasis id="strong1025" effect="bold">
+args
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+The formal parameter 
+
+<emphasis id="strong1026" effect="bold">
+args
+
+</emphasis>
+ is a reference to an array object 
+of type 
+
+<emphasis id="strong1027" effect="bold">
+String
+
+</emphasis>
+. The array elements contain references to
+
+
+<emphasis id="strong1028" effect="bold">
+String
+
+</emphasis>
+ objects that encapsulate 
+
+<emphasis id="strong1029" effect="bold">
+String
+
+</emphasis>
+ 
+representations of the arguments, if any, entered at the 
+command line. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Note that the 
+
+<emphasis id="strong1030" effect="bold">
+args
+
+</emphasis>
+ parameter must be specified 
+whether or not the user is required to enter command-line arguments and whether 
+or not the code in the program actually makes use of the argument. Also note 
+that the name can be any legal Java identifier. It doesn't have to be 
+
+
+<emphasis id="strong1031" effect="bold">
+args
+
+</emphasis>
+. It 
+could be joe or sue, for example.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1032" effect="bold">
+The length property
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+The parameter named 
+
+<emphasis id="strong1033" effect="bold">
+args
+
+</emphasis>
+ is a reference to an array object. Java array 
+objects have a property named 
+
+<emphasis id="strong1034" effect="bold">
+length
+
+</emphasis>
+, which specifies the 
+number of elements in the array.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+The runtime system monitors for the entry of command-line arguments by the 
+user and constructs the 
+
+<emphasis id="strong1035" effect="bold">
+String 
+
+</emphasis>
+array containing those 
+arguments.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1036" effect="bold">
+Processing command-line arguments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+The 
+
+<emphasis id="strong1037" effect="bold">
+args.length
+
+</emphasis>
+ property can be used by the code in the 
+program to determine the number of arguments actually entered by the user. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+If the 
+
+<emphasis id="strong1038" effect="bold">
+length
+
+</emphasis>
+ property is not equal to zero, the first 
+string in the array corresponds to the first argument entered on the command 
+line.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Command-line arguments along with strings and 
+
+<emphasis id="strong1039" effect="bold">
+String
+
+</emphasis>
+ arrays 
+will be discussed in more detail in a future module.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1037">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1040" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1005" list-type="bulleted">
+
+					
+
+<item id="li1010">
+Module name: Jb0180: Java OOP: The main method.
+
+</item>
+
+
+					
+
+<item id="li1011">
+File: Jb0180.htm
+
+
+</item>
+
+
+					
+
+<item id="li1012">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1013">
+Published at cnx.org: 11/17/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1041" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1038">
+<emphasis id="strong1042" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1039">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1040">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1041">
+<emphasis id="strong1043" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1042">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

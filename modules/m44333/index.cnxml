@@ -1,0 +1,5279 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java0077 Java OOP Callbacks - I</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44333</md:content-id>
+  <md:title>Java0077 Java OOP Callbacks - I</md:title>
+  <md:abstract>Learn the fundamentals of callbacks using interfaces in Java.</md:abstract>
+  <md:uuid>d2977ef6-ec99-4c98-a0e1-da88ab680106</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu May 12 11:00:55 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Unicast_Sample_Program">
+
+Unicast sample program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Multicast_sample_program">
+
+Multicast sample program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one in a series of three modules designed to teach you 
+	about callbacks in Object-Oriented Programming (OOP) using Java. The other 
+	two modules are titled Callbacks - II and Callbacks - III. 
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+	and listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Documentation for the removeElement method. 
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Output from Callback02. 
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Define the CallBack interface. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Define the Teacher class. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Define the Student class. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. A controlling class named Callback01. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Complete listing of program named Callback01.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Define the CallBack interface.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Define the Teacher class.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Define the method named register.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The unRegister method.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Define the callTheRoll method.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Define the class named Dog.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Define the class named Callback02.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Complete listing of program named Callback02.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+Many processes in the standard Java API make use of a mechanism that 
+	might be referred to as a 
+
+<emphasis id="em1003" effect="italics">
+callback
+
+</emphasis>
+ mechanism. Basically, this is a 
+	mechanism where a method in one object asks a method in another object to 
+
+<emphasis id="em1004" effect="italics">
+
+	"call me back"
+
+</emphasis>
+ or 
+
+<emphasis id="em1005" effect="italics">
+"notify me"
+
+</emphasis>
+ when an interesting event happens.
+
+
+</para>
+
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1000" effect="bold">
+An interesting event
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+For example, an interesting event might be that the price of a specified 
+stock goes above its previous high value, or the toaster finishes toasting the 
+bread. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1001" effect="bold">
+Multicasting
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+In fact, many different objects may ask one object to notify 
+them when the interesting event happens. This is sometimes referred to as 
+
+<emphasis id="em1006" effect="italics">
+
+multicasting
+
+</emphasis>
+. 
+
+<emphasis id="em1007" effect="italics">
+(The one-to-one case is often referred to as unicasting.)
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1009">
+Going further, many different objects may ask one object to 
+notify them when any interesting event in a family of interesting 
+events happens, and to identify the specific event that actually 
+happened along with the notification. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1002" effect="bold">
+Many examples
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+For example, we see different forms of callback activity in conjunction with
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1029">
+the 
+
+<emphasis id="em1008" effect="italics">
+Delegation Event Model
+
+</emphasis>
+ used with GUIs in JDK 1.1, 
+
+</item>
+
+
+	
+
+<item id="li1030">
+the 
+
+<emphasis id="em1009" effect="italics">
+Observer/Observable
+
+</emphasis>
+ concept used in the 
+
+<emphasis id="em1010" effect="italics">
+Model-View-Controller
+
+</emphasis>
+ 
+paradigm, 
+
+</item>
+
+
+	
+
+<item id="li1031">
+the concept of 
+
+<emphasis id="em1011" effect="italics">
+Bound Properties
+
+</emphasis>
+ and 
+
+<emphasis id="em1012" effect="italics">
+Constrained Properties
+
+</emphasis>
+ 
+in 
+
+<emphasis id="em1013" effect="italics">
+Java Beans
+
+</emphasis>
+, etc. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+You can find examples of all of these in the pages of 
+my online tutorial lessons. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1003" effect="bold">
+Callback implementation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+Callback capabilities are often implemented in other languages by passing a
+function pointer to another function. The receiving function uses the 
+passed function pointer to call another function when an interesting event 
+happens. However, Java doesn't support function pointers. In this module, we will learn how to 
+implement the callback mechanism using 
+
+<emphasis id="strong1004" effect="bold">
+interfaces
+
+</emphasis>
+ instead. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1005" effect="bold">
+From the simple to the more complex
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+As usual, our approach will be to learn the material by reviewing programs 
+that progress from very simple to more complex. As mentioned earlier, this topic 
+consumes all of 
+this module and two additional lessons on my website as well. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1006" effect="bold">
+Meaningful scenarios
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+It is usually easier to understand abstract concepts if they are explained in 
+terms of meaningful scenarios. In this case, our scenario will consist of a 
+
+<emphasis id="em1014" effect="italics">
+
+teacher 
+
+</emphasis>
+and some 
+
+<emphasis id="em1015" effect="italics">
+students
+
+</emphasis>
+. In the beginning there will only be one 
+student. Ultimately there will be many students and there will also be some 
+animals in the classroom as well. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1007" effect="bold">
+Registration
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+The students 
+
+<emphasis id="em1016" effect="italics">
+(and the animals)
+
+</emphasis>
+ register themselves on the teachers roll book 
+to be notified of interesting events. Initially the interesting event will 
+simply be the teacher taking the roll. Ultimately the interesting event will be 
+notification that it is 
+
+<emphasis id="em1017" effect="italics">
+either 
+
+</emphasis>
+time for recess, 
+
+<emphasis id="em1018" effect="italics">
+or 
+
+</emphasis>
+it is time for 
+lunch. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1008" effect="bold">
+Unicast and multicast scenarios
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1022">
+Initially, only one student receives notification of the one type of event. 
+Ultimately, all of the students and all of the animals receive notification of 
+both types of event 
+
+<emphasis id="em1019" effect="italics">
+(recess or lunch) 
+
+</emphasis>
+but some of those who are notified choose 
+to ignore the notification. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+We will refer to the case where only one student is on the list as the 
+
+<emphasis id="em1020" effect="italics">
+
+unicast
+
+</emphasis>
+ program. We will refer to the case where many students 
+
+<emphasis id="em1021" effect="italics">
+(and possibly 
+animals as well)
+
+</emphasis>
+ are on the list as the 
+
+<emphasis id="em1022" effect="italics">
+multicast
+
+</emphasis>
+ program. This 
+terminology was selected because it matches the terminology used in the JDK 1.1 
+documentation for the Delegation Event Model. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Without further discussion, let's look at some code.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Unicast_Sample_Program" effect="bold">
+
+Unicast sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+The purpose of this program is to develop a 
+
+<emphasis id="em1023" effect="italics">
+callback 
+
+</emphasis>
+capability using
+
+
+<emphasis id="em1024" effect="italics">
+Interfaces
+
+</emphasis>
+. This version of the program is designed to emphasize the 
+structure of the process. Therefore an effort was made to avoid the 
+requirement for any extra code so it doesn't do anything fancy. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1009" effect="bold">
+A CallBack interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+This program defines a 
+
+<emphasis id="strong1010" effect="bold">
+CallBack 
+
+</emphasis>
+interface 
+
+<emphasis id="em1025" effect="italics">
+(interface named 
+
+</emphasis>
+ 
+
+<emphasis id="strong1011" effect="bold">
+
+
+
+<emphasis id="em1026" effect="italics">
+CallBack
+
+</emphasis>
+</emphasis>
+) 
+that can be used to establish a new type of object reference, and also to
+declare the interface to a method named 
+
+<emphasis id="strong1012" effect="bold">
+callBack
+
+</emphasis>
+ that will be 
+contained in all objects of classes that implement the interface. This method 
+will then be used to notify those objects whenever something interesting 
+happens. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1013" effect="bold">
+A Teacher class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+The program defines a 
+
+<emphasis id="strong1014" effect="bold">
+Teacher 
+
+</emphasis>
+class that has the ability to
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1032">
+create and maintain a list of 
+
+<emphasis id="em1027" effect="italics">
+(only)
+
+</emphasis>
+ one object of the interface 
+	type 
+
+<emphasis id="em1028" effect="italics">
+(multiple objects come later)
+
+</emphasis>
+, and
+
+</item>
+
+
+	
+
+<item id="li1033">
+to notify that object that something interesting has happened by calling 
+	its 
+
+<emphasis id="strong1015" effect="bold">
+callBack
+
+</emphasis>
+ method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1030">
+<emphasis id="em1029" effect="italics">
+(As mentioned earlier, the size of the list was constrained to only one object 
+in order to emphasize callback structure and avoid getting bogged down in 
+list processing. A subsequent version will implement list processing.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1016" effect="bold">
+A Student class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+The program defines a class named 
+
+<emphasis id="strong1017" effect="bold">
+Student 
+
+</emphasis>
+that 
+
+<emphasis id="em1030" effect="italics">
+implements
+
+</emphasis>
+<emphasis id="strong1018" effect="bold">
+ 
+
+</emphasis>
+the
+
+
+<emphasis id="strong1019" effect="bold">
+CallBack 
+
+</emphasis>
+interface. Objects of the 
+
+<emphasis id="strong1020" effect="bold">
+Student
+
+</emphasis>
+ class can be 
+
+<emphasis id="em1031" effect="italics">
+
+registered 
+
+</emphasis>
+on the list maintained by an object of the 
+
+<emphasis id="strong1021" effect="bold">
+Teacher 
+
+</emphasis>
+class, 
+and can be 
+
+<emphasis id="em1032" effect="italics">
+notified 
+
+</emphasis>
+by the object of the 
+
+<emphasis id="strong1022" effect="bold">
+Teacher 
+
+</emphasis>
+class whenever 
+something interesting happens. Notification takes the form of calling the
+
+
+<emphasis id="strong1023" effect="bold">
+callBack
+
+</emphasis>
+ method on the object. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1024" effect="bold">
+The method named callBack
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1034">
+The body of the 
+
+<emphasis id="strong1025" effect="bold">
+callBack
+
+</emphasis>
+ method can be designed to do anything, but 
+in this case, to keep things simple, it just announces that it has been called.
+
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1026" effect="bold">
+The controlling class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+Finally, the program defines a controlling class named 
+
+<emphasis id="strong1027" effect="bold">
+Callback01
+
+</emphasis>
+ that ties all the 
+pieces together and exercises them. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+The program was originally tested using JDK 1.1.3 under Win95 and more 
+recently tested using JDK 1.7 under Windows Vista.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The output from the program is shown in the complete program listing in a later 
+section.
+
+</para>
+
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1028" effect="bold">
+Interesting unicast code fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ defines an interface named 
+
+<emphasis id="strong1029" effect="bold">
+CallBack 
+
+</emphasis>
+that creates a new type 
+and declares a generic method named 
+
+<emphasis id="strong1030" effect="bold">
+callBack
+
+</emphasis>
+ that can be used to execute 
+a callback on any object that is instantiated from a class that implements the 
+interface. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Define the CallBack 
+				interface.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">interface CallBack{
+  public void callBack();
+}//end interface CallBack</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1041">
+<emphasis id="strong1031" effect="bold">
+A class that can register and notify objects of type CallBack
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+Next we need a class whose objects can maintain a list of references to 
+objects of type 
+
+<emphasis id="strong1032" effect="bold">
+CallBack 
+
+</emphasis>
+<emphasis id="em1033" effect="italics">
+(objects whose class implements the 
+
+</emphasis>
+<emphasis id="strong1033" effect="bold">
+
+
+
+<emphasis id="em1034" effect="italics">
+CallBack 
+
+</emphasis>
+</emphasis>
+<emphasis id="em1035" effect="italics">
+interface)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+We refer to the process of putting an object on the list is 
+
+<emphasis id="em1036" effect="italics">
+registering
+
+</emphasis>
+ 
+the object. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+This class also needs to have the ability to notify all the objects on that 
+list when something interesting happens. We will name this class 
+
+<emphasis id="strong1034" effect="bold">
+Teacher
+
+</emphasis>
+ 
+in keeping with the scenario described earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+As mentioned earlier, to keep things simple, and emphasize the callback 
+structure without getting bogged down in list processing, we will begin with a 
+limitation of one object for the length of the list. 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+<emphasis id="strong1035" effect="bold">
+The unicast class named Teacher
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1047">
+The unicast 
+
+<emphasis id="strong1036" effect="bold">
+Teacher
+
+</emphasis>
+ class consists of one instance variable 
+of type 
+
+<emphasis id="strong1037" effect="bold">
+CallBack
+
+</emphasis>
+ 
+
+<emphasis id="em1037" effect="italics">
+(the interface type)
+
+</emphasis>
+ and two instance methods.
+
+
+</para>
+
+
+
+
+
+<para id="p1048">
+One of the methods named 
+
+<emphasis id="strong1038" effect="bold">
+register
+
+</emphasis>
+ places an object on the list. 
+The other method named 
+
+<emphasis id="strong1039" effect="bold">
+callTheRoll
+
+</emphasis>
+ calls the 
+
+<emphasis id="strong1040" effect="bold">
+callBack
+
+</emphasis>
+ method on 
+the object that is on the list. 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+Note that the object on the list is guaranteed to have a method named 
+
+<emphasis id="strong1041" effect="bold">
+
+callBack 
+
+</emphasis>
+because it implements the
+
+<emphasis id="strong1042" effect="bold">
+ CallBack
+
+</emphasis>
+ interface.
+
+<emphasis id="strong1043" effect="bold">
+
+
+
+</emphasis>
+Otherwise, it couldn't get on the list in the first place. This is 
+because the 
+
+<emphasis id="strong1044" effect="bold">
+register
+
+</emphasis>
+ method requires the incoming object's reference to 
+be of type 
+
+<emphasis id="strong1045" effect="bold">
+CallBack
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1050">
+The Teacher class is defined in 
+
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Define the Teacher class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">class Teacher{
+  CallBack obj; //list of objects of type CallBack
+  //-----------------------------------------------------//
+
+  //Method to add objects to the list.
+  void register(CallBack obj){
+    this.obj = obj;
+  }//end register()
+  //-----------------------------------------------------//
+
+  //Method to notify all objects on the list
+  void callTheRoll(){
+    obj.callBack();
+  }//end callTheRoll()
+  //-----------------------------------------------------//
+}//end class Teacher</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1051">
+<emphasis id="strong1046" effect="bold">
+A class that implements the CallBack interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+Next, we need a class that 
+
+<emphasis id="em1038" effect="italics">
+implements
+
+</emphasis>
+<emphasis id="strong1047" effect="bold">
+ 
+
+</emphasis>
+the 
+
+<emphasis id="strong1048" effect="bold">
+CallBack 
+
+</emphasis>
+
+interface. Objects of this class can be registered on the list maintained by an 
+object of the 
+
+<emphasis id="strong1049" effect="bold">
+Teacher 
+
+</emphasis>
+class, and will be 
+
+<emphasis id="em1039" effect="italics">
+notified 
+
+</emphasis>
+whenever that 
+object calls the 
+
+<emphasis id="strong1050" effect="bold">
+callBack
+
+</emphasis>
+ method on the registered objects on the list. 
+In keeping with the scenario described earlier, we will name this class 
+
+<emphasis id="strong1051" effect="bold">
+
+Student
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+By claiming to implement the 
+
+<emphasis id="strong1052" effect="bold">
+CallBack
+
+</emphasis>
+ interface, this class is 
+required to provide a concrete definition for the method named 
+
+<emphasis id="strong1053" effect="bold">
+callBack
+
+</emphasis>
+ that is 
+declared in the interface. Otherwise, the program won't compile. In this case, 
+that definition is rather simple. The 
+
+<emphasis id="strong1054" effect="bold">
+callBack
+
+</emphasis>
+ method simply announces 
+that it has been called. 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1055" effect="bold">
+The callback mechanism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+As we saw above, an object of the 
+
+<emphasis id="strong1056" effect="bold">
+Teacher
+
+</emphasis>
+ class will call the 
+
+<emphasis id="strong1057" effect="bold">
+
+callBack
+
+</emphasis>
+ method on all objects on its list when the interesting event 
+occurs. It is important to note that the callback mechanism is to call this 
+method. 
+
+</para>
+
+
+
+	
+
+<para id="p1056">
+The 
+
+<emphasis id="strong1058" effect="bold">
+Student
+
+</emphasis>
+ class is defined in 
+
+<link id="a1031" target-id="Listing_3">
+
+
+	Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Define the Student class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Student implements CallBack{
+  String name;
+  //-----------------------------------------------------//
+
+  Student(String name){//constructor
+    this.name = name;  //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void callBack(){
+    System.out.println(name + " here");
+  }//end callBack()
+}//end class Student</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1057">
+<emphasis id="strong1059" effect="bold">
+A controlling class named Callback01
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1058">
+Finally, we need a controlling class to tie all the pieces together and to 
+exercise them. The 
+
+<emphasis id="strong1060" effect="bold">
+main
+
+</emphasis>
+ method in this class
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1034">
+instantiates an object of the 
+
+<emphasis id="strong1061" effect="bold">
+Teacher
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1062" effect="bold">
+missJones
+
+</emphasis>
+,
+
+</item>
+
+
+	
+
+<item id="li1035">
+instantiates an anonymous 
+
+<emphasis id="strong1063" effect="bold">
+Student
+
+</emphasis>
+ object named "
+
+<emphasis id="strong1064" effect="bold">
+Joe
+
+</emphasis>
+",
+
+</item>
+
+
+	
+
+<item id="li1036">
+registers the object on the list maintained by 
+
+<emphasis id="strong1065" effect="bold">
+missJones
+
+</emphasis>
+, and
+
+</item>
+
+
+	
+
+<item id="li1037">
+calls the 
+
+<emphasis id="strong1066" effect="bold">
+callTheRoll
+
+</emphasis>
+ method on 
+
+<emphasis id="strong1067" effect="bold">
+missJones
+
+</emphasis>
+ to cause the 
+	objects on the list to be notified (to cause their 
+
+<emphasis id="strong1068" effect="bold">
+callBack
+
+</emphasis>
+ methods 
+	to be called).
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1059">
+This is not too complicated once you break the process into its 
+component parts. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+The class named Callback01 is defined in 
+
+<link id="a1032" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. A controlling class named Callback01.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">class Callback01{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+    //Instantiate and register a Student object with the
+    // Teacher object
+    missJones.register(new Student("Joe"));
+    //Cause the Teacher object to do a callBack on the
+    // Student object.
+    missJones.callTheRoll();
+  }//end main()
+}//end class Callback01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1061">
+There you have it. This simple program contains the sum and substance of 
+	one approach to callbacks in Java. 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+It is critical to note that the objects registered on the list are of the 
+interface type 
+
+<emphasis id="strong1069" effect="bold">
+CallBack
+
+</emphasis>
+. This guarantees that there cannot be an object 
+on the list that does not have an instance method named 
+
+<emphasis id="strong1070" effect="bold">
+callBack
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1071" effect="bold">
+Unicast Program Listing
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1064">
+A complete listing of the program is provided in 
+
+<link id="a1033" target-id="Listing_5">
+
+Listing 
+5
+
+</link>
+
+ so that you can view the code fragments in context. 
+
+</para>
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1072" effect="bold">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Complete listing of 
+				program named Callback01.
+
+</emphasis>
+</para>
+
+
+
+
+				
+
+<code id="pre1004" display="block">/*File Callback01.java Copyright 1997, R.G.Baldwin
+The purpose of this program is to develop a callback
+capability using Interfaces.  This version of the
+program is designed to emphasize the structure of
+the process, and therefore an effort was made to
+avoid the requirement for any extra code to do
+anything fancy.
+
+Tested using JDK 1.1.3 under Win95.
+
+The output from the program is:
+
+Joe here.
+**********************************************************/
+//First we define an interface that will create a new type
+// and declare a generic method that can be used to
+// callback any object that is of a class that implements
+// the interface.
+interface CallBack{
+  public void callBack();
+}//end interface CallBack
+//=======================================================//
+
+//Next we need a class whose objects can maintain a
+// registered list of objects of type CallBack (whose
+// class implements the CallBack interface) and can
+// notify all the objects on that list when something
+// interesting happens.
+
+//To keep things simple, and emphasize the structure of
+// what we are doing, we will begin with a limitation
+// of one object on the length of the list.
+
+class Teacher{
+  CallBack obj; //list of objects of type CallBack
+  //-----------------------------------------------------//
+
+  //Method to add objects to the list.
+  void register(CallBack obj){
+    this.obj = obj;
+  }//end register()
+  //-----------------------------------------------------//
+
+  //Method to notify all objects on the list that
+  // something interesting has happened.
+  void callTheRoll(){
+    //Call the callBack() method on the object.  The
+    // object is guaranteed to have such a method because
+    // it is of a class that implements the CallBack
+    // interface.
+    obj.callBack();
+  }//end callTheRoll()
+  //-----------------------------------------------------//
+}//end class Teacher
+//=======================================================//
+
+//Class that implements the CallBack interface.  Objects
+// of this class can be registered on the list maintained
+// by an object of the Teacher class, and will be notified
+// whenever that object calls the callBack method on the
+// registered objects on the list.
+class Student implements CallBack{
+  String name;
+  //-----------------------------------------------------//
+
+  Student(String name){//constructor
+    this.name = name;  //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class will call this method
+  // as the callback mechanism to notify an object of this
+  // class that something interesting has happened.
+  public void callBack(){
+    System.out.println(name + " here");
+  }//end overridden callBack()
+}//end class Student
+//=======================================================//
+
+//Controlling class that ties all the pieces together and
+// exercises them.
+class Callback01{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+    //Instantiate and register a Student object with the
+    // Teacher object
+    missJones.register(new Student("Joe"));
+    //Cause the Teacher object to do a callBack on the
+    // Student object.
+    missJones.callTheRoll();
+  }//end main()
+}//end class Callback01
+//=======================================================/</code>
+
+
+
+
+</note>
+
+
+
+
+	
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Multicast_sample_program" effect="bold">
+
+Multicast sample program
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1066">
+The multicast version of this program does not modify the basic callback 
+	mechanism developed in the previous program. It simply enhances that 
+	mechanism to make it possible to maintain 
+
+<emphasis id="em1040" effect="italics">
+a list of objects
+
+</emphasis>
+ 
+	registered for callback and to notify all the objects on that list when an 
+	interesting event happens. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+In case you started reading at this point, this is an enhanced version of the 
+program named 
+
+<emphasis id="strong1073" effect="bold">
+Callback01
+
+</emphasis>
+. You should familiarize yourself with 
+that program before trying to understand this program. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1074" effect="bold">
+A list of registered objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+This program has the capability to create and maintain a list of objects that 
+register for callback whereas the program named 
+
+<emphasis id="strong1075" effect="bold">
+Callback01
+
+</emphasis>
+ 
+could only remember a single object for callback. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1076" effect="bold">
+Multiple classes implement CallBack interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+In addition, this program defines two different classes that implement the 
+
+<emphasis id="strong1077" effect="bold">
+
+CallBack 
+
+</emphasis>
+interface. Mixed objects of those two types are maintained on the 
+list and notified at callback time. This is a subtle but very important point. 
+It is not necessary that all the objects that are registered on a callback list 
+be of the same class type, only that they all be of a class that implements the
+
+
+<emphasis id="strong1078" effect="bold">
+CallBack
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1079" effect="bold">
+The CallBack interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1073">
+As before, this program defines a 
+
+<emphasis id="strong1080" effect="bold">
+CallBack 
+
+</emphasis>
+interface that establishes 
+a new type of object, and also declares the interface to a method named 
+
+<emphasis id="strong1081" effect="bold">
+
+callBack 
+
+</emphasis>
+that is contained in all objects of classes that implement 
+the interface. Because the 
+
+<emphasis id="strong1082" effect="bold">
+callBack 
+
+</emphasis>
+method is guaranteed to be 
+contained in all of the objects on the list, it can be used to notify those 
+objects whenever something interesting happens. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1083" effect="bold">
+The Teacher class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+The program defines a 
+
+<emphasis id="strong1084" effect="bold">
+Teacher 
+
+</emphasis>
+class that creates and maintains a list 
+of objects of the 
+
+<emphasis id="strong1085" effect="bold">
+CallBack
+
+</emphasis>
+ interface type, and 
+notifies those objects that something interesting has happened by calling the 
+
+<emphasis id="strong1086" effect="bold">
+
+callBack
+
+</emphasis>
+ method on each of the objects on the list. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+The size of the list is limited only to the largest 
+
+<emphasis id="strong1087" effect="bold">
+Vector 
+
+</emphasis>
+object that 
+can be accommodated by the system. 
+
+<emphasis id="em1041" effect="italics">
+(See the Java documentation or my online 
+tutorials for information about the 
+
+<emphasis id="strong1088" effect="bold">
+Vector
+
+</emphasis>
+ class.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1089" effect="bold">
+The Student and Dog classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1078">
+The program defines a class named 
+
+<emphasis id="strong1090" effect="bold">
+Student 
+
+</emphasis>
+that implements the 
+
+<emphasis id="strong1091" effect="bold">
+
+CallBack 
+
+</emphasis>
+interface. The program also defines a class named 
+
+<emphasis id="strong1092" effect="bold">
+Dog 
+
+</emphasis>
+that 
+implements the 
+
+<emphasis id="strong1093" effect="bold">
+CallBack 
+
+</emphasis>
+interface as well. 
+
+<emphasis id="em1042" effect="italics">
+(Back in the description 
+of the scenario, I promised you that 
+
+</emphasis>
+<emphasis id="strong1094" effect="bold">
+<emphasis id="em1043" effect="italics">
+missJones
+
+</emphasis>
+</emphasis>
+<emphasis id="em1044" effect="italics">
+ was 
+going to have to deal with animals in the classroom. I'm glad I don't have that 
+problem.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1095" effect="bold">
+Registration and notification of Student and Dog objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1080">
+Objects of the 
+
+<emphasis id="strong1096" effect="bold">
+Student 
+
+</emphasis>
+and 
+
+<emphasis id="strong1097" effect="bold">
+Dog 
+
+</emphasis>
+classes can be 
+
+<emphasis id="em1045" effect="italics">
+registered 
+
+</emphasis>
+
+on the list 
+
+<emphasis id="em1046" effect="italics">
+(of 
+
+<emphasis id="strong1098" effect="bold">
+CallBack
+
+</emphasis>
+ objects)
+
+</emphasis>
+ maintained by an 
+object of the 
+
+<emphasis id="strong1099" effect="bold">
+Teacher 
+
+</emphasis>
+class 
+
+<emphasis id="em1047" effect="italics">
+(because they both implement the 
+
+<emphasis id="strong1100" effect="bold">
+
+CallBack
+
+</emphasis>
+ interface)
+
+</emphasis>
+, and can be 
+
+<emphasis id="em1048" effect="italics">
+notified 
+
+</emphasis>
+by the object of 
+the 
+
+<emphasis id="strong1101" effect="bold">
+Teacher 
+
+</emphasis>
+class whenever something interesting happens. 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1102" effect="bold">
+Addition and removal from the list
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1082">
+Note that objects can be added to the list and then removed from the list. 
+One object is first added and later removed for demonstration purposes. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1103" effect="bold">
+The callback mechanism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+As before, notification takes the form of calling the 
+
+<emphasis id="strong1104" effect="bold">
+callBack
+
+</emphasis>
+ method 
+on each of the objects on the list. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1105" effect="bold">
+Behavior of the callBack methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+The behavior of the 
+
+<emphasis id="strong1106" effect="bold">
+callBack
+
+</emphasis>
+ methods in the classes that implement the 
+interface can be designed to do anything. In this case, to keep things simple, 
+they just announce that they have been called. However, they make the 
+announcement in slightly different ways. 
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1107" effect="bold">
+Text display statements
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+This program contains display statements in the registration and notification 
+methods for demonstration purposes only, and to allow us to track what is 
+happening as the program runs. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1108" effect="bold">
+The controlling class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+Finally, the program defines a controlling class named 
+
+<emphasis id="strong1109" effect="bold">
+Callback02
+
+</emphasis>
+ 
+that ties all the pieces together and exercises them. 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+The program was originally tested using JDK 1.1.3 under Win95 and more 
+recently tested using JDK 1.7 under Windows Vista.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+The output from the program is shown following a discussion of the 
+controlling class at the end of the next section.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1110" effect="bold">
+Interesting multicast code fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+<link id="a1034" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ defines an interface that creates a new type and 
+declares a generic method that can be used to call back any object that is of a 
+class that implements the interface. There is nothing new here. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Define the CallBack 
+				interface.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1005" display="block">interface CallBack{
+  public void callBack();
+}//end interface CallBack</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1095">
+<emphasis id="strong1111" effect="bold">
+A class that can register and notify objects of type CallBack
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1096">
+Next we need a class whose objects can maintain a registered list of objects 
+of type 
+
+<emphasis id="strong1112" effect="bold">
+CallBack
+
+</emphasis>
+ 
+
+<emphasis id="em1049" effect="italics">
+(objects whose class implements the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1113" effect="bold">
+<emphasis id="em1050" effect="italics">
+CallBack 
+
+
+</emphasis>
+ 
+
+</emphasis>
+
+
+
+<emphasis id="em1051" effect="italics">
+interface)
+
+</emphasis>
+ and can 
+
+<emphasis id="em1052" effect="italics">
+notify 
+
+</emphasis>
+all the objects on that list when something 
+interesting happens. As before, we name this class 
+
+<emphasis id="strong1114" effect="bold">
+Teacher
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1115" effect="bold">
+The Teacher class
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1098">
+The 
+
+<emphasis id="strong1116" effect="bold">
+Teacher
+
+</emphasis>
+ class has grown to the point that we will break it into parts and 
+discuss them separately. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+There is quite a bit here that is new, due simply to the requirement for list 
+processing. There is nothing new about the basic callback mechanism. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1117" effect="bold">
+An object of type Vector
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1101">
+We start out by replacing the single instance variable of type 
+
+<emphasis id="strong1118" effect="bold">
+CallBack
+
+</emphasis>
+ 
+by a reference to an object of type 
+
+<emphasis id="strong1119" effect="bold">
+Vector
+
+</emphasis>
+. We will maintain our list in 
+an object of type 
+
+<emphasis id="strong1120" effect="bold">
+Vector
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+Recall that a 
+
+<emphasis id="strong1121" effect="bold">
+Vector
+
+</emphasis>
+ object can only work with references to 
+objects of type 
+
+<emphasis id="strong1122" effect="bold">
+Object
+
+</emphasis>
+, so this will entail some down casting later. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="em1053" effect="italics">
+(Editor's note: Sometime around JDK 1.5, a concept known as generics was 
+released into Java, which eliminated the restriction to objects of type 
+
+<emphasis id="strong1123" effect="bold">
+
+Object
+
+</emphasis>
+ mentioned in the previous paragraph. However, this code has not 
+been updated to take advantage of that capability.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+The constructor for our new 
+
+<emphasis id="strong1124" effect="bold">
+Teacher
+
+</emphasis>
+ class, which is shown in
+
+
+<link id="a1035" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, instantiates the 
+
+<emphasis id="strong1125" effect="bold">
+Vector
+
+</emphasis>
+ 
+object. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Define the Teacher class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1006" display="block">class Teacher{
+  Vector objList; //list of objects of type CallBack
+  //----------------------------------------------//
+
+  Teacher(){//constructor
+    objList = new Vector();
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1105">
+<emphasis id="strong1126" effect="bold">
+The method named register
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+Next we need a method to add objects to the list. We will synchronize it to 
+protect against the possibility of two or more objects on different threads 
+trying to register at the same time. 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+Note that the references to the objects are received as type 
+
+<emphasis id="strong1127" effect="bold">
+CallBack
+
+</emphasis>
+, 
+which is the interface type, and stored as type 
+
+<emphasis id="strong1128" effect="bold">
+Object
+
+</emphasis>
+, because the 
+
+<emphasis id="strong1129" effect="bold">
+
+Vector 
+
+</emphasis>
+class only accommodates references to objects of type 
+
+<emphasis id="strong1130" effect="bold">
+Object
+
+</emphasis>
+.
+
+
+<emphasis id="em1054" effect="italics">
+(See the earlier editor's note.)
+
+</emphasis>
+ Again, this will lead to some down 
+casting requirements later. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Define the method named 
+				register.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1007" display="block">  synchronized void register(CallBack obj){
+    this.objList.addElement(obj);
+    System.out.println(obj + " added");
+  }//end register()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1108">
+<emphasis id="strong1131" effect="bold">
+The unRegister method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+To be general, we also need a method to remove objects from the list. Removal 
+of an object from the list is a little more complicated than adding an object to 
+the list due to the possibility of having two or more identical objects on the 
+list. 
+
+<emphasis id="em1055" effect="italics">
+(We could, and possibly should, guard against that possibility when 
+constructing the list.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<link id="a1036" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ contains a partial excerpt from the JDK 
+1.1.3 documentation, which describes the 
+
+<emphasis id="strong1132" effect="bold">
+removeElement
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1133" effect="bold">
+Vector
+
+</emphasis>
+ 
+class that we are using to accomplish this 
+
+<emphasis id="em1056" effect="italics">
+(three different methods are 
+available to remove objects from a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1134" effect="bold">
+<emphasis id="em1057" effect="italics">
+Vector
+
+</emphasis>
+</emphasis>
+). 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Documentation for the 
+				removeElement method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+							
+
+<code id="pre1008" display="block">public final synchronized boolean removeElement(Object obj)
+
+This method removes the first occurrence of the argument from this 
+vector. Indices beyond that point are adjusted appropriately
+
+Parameters: obj - the component to be removed.
+
+Returns: true if the argument was a component of this vector; 
+         false otherwise.</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1111">
+<emphasis id="strong1135" effect="bold">
+Registered object removal code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+Given that explanation, the code for removal of an object from the list is 
+straightforward. The 
+
+<emphasis id="strong1136" effect="bold">
+unRegister
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. The unRegister method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1009" display="block">  synchronized void unRegister(CallBack obj){
+    if(this.objList.removeElement(obj))
+      System.out.println(obj + " removed");
+    else System.out.println(obj + " not in the list");
+  }//end register()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1113">
+<emphasis id="strong1137" effect="bold">
+The callTheRoll method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Now we need a method to notify all of the objects on the list that something 
+interesting has happened. We will name this method 
+
+<emphasis id="strong1138" effect="bold">
+callTheRoll
+
+</emphasis>
+ to adhere 
+to our classroom scenario. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1139" effect="bold">
+Maintain the integrity of the callback list
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+One of the potential problems with this type of callback mechanism is that 
+when the callback method is called on an object, that method might take a while 
+to finish.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="em1058" effect="italics">
+(As an aside, when writing callback methods, if they do anything 
+significant in terms of time, the code in the method should probably spawn 
+another thread to do the actual work and return as quickly as possible.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1118">
+This leads to the possibility that additional objects might attempt to 
+register during that time interval. To protect against this, we make a copy of 
+the state of the list object as it existed at the point in time that the 
+decision was made to do the callbacks, and then perform the callbacks using that 
+copy. That way, the original list is free to be updated as needed during this 
+interval. 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+So, we start out by creating a clone of the list. We also 
+
+<emphasis id="em1059" effect="italics">
+synchronize 
+
+</emphasis>
+
+this process to prevent the list from being modified while we are creating the 
+clone. 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+Following this, we use a 
+
+<emphasis id="strong1140" effect="bold">
+for
+
+</emphasis>
+ loop to access all the objects on the 
+list, and call the 
+
+<emphasis id="strong1141" effect="bold">
+callBack
+
+</emphasis>
+ method on those objects. 
+
+<emphasis id="em1060" effect="italics">
+(Actually, the 
+list contains references to objects, and not the actual objects, so we are 
+calling the method on the references.) 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1121">
+As promised earlier, we have to downcast from 
+
+<emphasis id="strong1142" effect="bold">
+Object
+
+</emphasis>
+ to 
+
+<emphasis id="strong1143" effect="bold">
+CallBack
+
+</emphasis>
+ 
+to gain access to the 
+
+<emphasis id="strong1144" effect="bold">
+callBack
+
+</emphasis>
+ method in the objects. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Define the callTheRoll 
+				method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1010" display="block">
+  void callTheRoll(){
+    Vector tempList;//save a temporary copy of list here
+
+    synchronized(this){
+      tempList = (Vector)objList.clone();
+    }//end synchronized block
+
+    for(int cnt = 0; cnt &lt; tempList.size(); cnt++){
+      ((CallBack)tempList.elementAt(cnt)).callBack();
+    }//end for loop
+  }//end callTheRoll()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1122">
+<emphasis id="strong1145" effect="bold">
+End of the class named Teacher
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1123">
+That ends the discussion of the class named 
+
+<emphasis id="strong1146" effect="bold">
+Teacher
+
+</emphasis>
+ and brings us to 
+the class named 
+
+<emphasis id="strong1147" effect="bold">
+Student
+
+</emphasis>
+ that implements the 
+
+<emphasis id="strong1148" effect="bold">
+CallBack
+
+</emphasis>
+ interface. 
+This class hasn't changed. As indicated earlier, this version of the program 
+also has a class named 
+
+<emphasis id="strong1149" effect="bold">
+Dog
+
+</emphasis>
+ that implements the interface. These two 
+classes are essentially the same. 
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1150" effect="bold">
+Define the class named Dog
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1125">
+Because of their similarity, and because they are essentially the same as in 
+the previous program, I will simply show the class named 
+
+<emphasis id="strong1151" effect="bold">
+Dog
+
+</emphasis>
+ with no 
+further discussion. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Define the class named 
+				Dog.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1011" display="block">class Dog implements CallBack{
+  String name; //store name here for later ID
+  //-----------------------------------------------------//
+
+  Dog(String name){//constructor
+    this.name = name; //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class will call this method
+  // as the callback mechanism to notify an object of this
+  // class that something interesting has happened.
+
+  public void callBack(){//announce callBack
+
+    System.out.println("Woof, Woof " + name);
+  }//end overridden callBack()
+}//end class Dog</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1126">
+<emphasis id="strong1152" effect="bold">
+The controlling class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1127">
+That brings us to the controlling class named 
+
+<emphasis id="strong1153" effect="bold">
+Callback02
+
+</emphasis>
+ 
+that ties all the pieces together and exercises them. This class is shown in
+
+
+<link id="a1038" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+	
+
+
+<para id="p1128">
+<emphasis id="strong1154" effect="bold">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Define the class named 
+				Callback02.
+
+</emphasis>
+</para>
+
+
+
+
+				
+
+<code id="pre1012" display="block">
+class Callback02{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+
+ //Instantiate some Student objects
+    Student tom = new Student("Tom");
+    Student sue = new Student("Sue");
+    Student peg = new Student("Peg");
+    Student bob = new Student("Bob");
+    Student joe = new Student("Joe");
+
+    //Instantiate some Dog objects.
+    Dog spot = new Dog("Spot");
+    Dog fido = new Dog("Fido");
+    Dog brownie = new Dog("Brownie");
+
+    //Register some Student and Dog objects with the
+    // Teacher object.
+    System.out.println("Register Tom");
+    missJones.register(tom);
+    System.out.println("Register Spot");
+    missJones.register(spot);
+    System.out.println("Register Sue");
+    missJones.register(sue);
+    System.out.println("Register Fido");
+    missJones.register(fido);
+    System.out.println("Register Peg");
+    missJones.register(peg);
+    System.out.println("Register Bob");
+    missJones.register(bob);
+    System.out.println("Register Brownie");
+    missJones.register(brownie);
+
+    //Remove a Student object from the list.
+    System.out.println("Remove Peg");
+    missJones.unRegister(peg);
+
+    //Try to remove an object that is not on the list.
+    System.out.println("Try to remove Joe");
+    missJones.unRegister(joe);
+
+    System.out.println();//blank line
+
+    //Cause the Teacher object to do a callBack on all
+    // the objects on the list.
+    missJones.callTheRoll();
+  }//end main()
+}//end class Callback02</code>
+
+
+
+
+</note>
+
+
+
+
+
+	
+
+<para id="p1129">
+<emphasis id="strong1155" effect="bold">
+Differences relative to Callback01
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1130">
+This program differs from the previous program primarily in terms of the 
+volume of 
+
+<emphasis id="strong1156" effect="bold">
+Student
+
+</emphasis>
+ and 
+
+<emphasis id="strong1157" effect="bold">
+Dog
+
+</emphasis>
+ objects to be 
+instantiated and registered on the 
+
+<emphasis id="strong1158" effect="bold">
+Teacher
+
+</emphasis>
+ object. There are also a lot 
+of display statements to help us keep track of what is going on. 
+
+</para>
+
+
+
+
+
+<para id="p1131">
+The ability to remove objects from the list is also illustrated. 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1159" effect="bold">
+Call the roll
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1133">
+Finally, the callback to the objects on the list is executed in
+
+
+<link id="a1039" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ by calling the
+
+
+<emphasis id="strong1160" effect="bold">
+callTheRoll
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1161" effect="bold">
+Teacher
+
+</emphasis>
+ object named 
+
+<emphasis id="strong1162" effect="bold">
+missJones
+
+</emphasis>
+. 
+The output from running this program is shown later.
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1163" effect="bold">
+Mixed object types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+A subtle, but extremely important point is illustrated here. 
+
+<emphasis id="strong1164" effect="bold">
+Student
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1165" effect="bold">
+Dog
+
+</emphasis>
+ are different classes. Objects of both of those classes are registered on the single object of the 
+
+<emphasis id="strong1166" effect="bold">
+Teacher
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1167" effect="bold">
+Teacher
+
+</emphasis>
+ 
+object doesn't care that they are different, so long as they are all 
+instantiated from classes that implement the 
+
+<emphasis id="strong1168" effect="bold">
+CallBack
+
+</emphasis>
+ interface. The 
+
+<emphasis id="strong1169" effect="bold">
+
+register
+
+</emphasis>
+ method will only accept object references of type 
+
+<emphasis id="strong1170" effect="bold">
+CallBack
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1171" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+The output from running this program is shown in 
+
+<link id="a1040" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. You can see the 
+identification of each individual object as it is added to, or removed from the 
+list. 
+
+</para>
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Output from Callback02.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+							
+
+<code id="pre1013" display="block">Register Tom
+Student@1cc73e added
+Register Spot
+Dog@1cc74e added
+Register Sue
+Student@1cc741 added
+Register Fido
+Dog@1cc751 added
+Register Peg
+Student@1cc744 added
+Register Bob
+Student@1cc747 added
+Register Brownie
+Dog@1cc754 added
+Remove Peg
+Student@1cc744 removed
+Try to remove Joe
+Student@1cc74a not in the list
+
+Tom here
+Woof, Woof Spot
+Sue here
+Woof, Woof Fido
+Bob here
+Woof, Woof Brownie</code>
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1138">
+Note that the attempt to remove Joe from the list was not successful because 
+he was never registered in the first place. 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+Finally, you see the output produced by calling 
+
+<emphasis id="strong1172" effect="bold">
+callTheRoll
+
+</emphasis>
+ which in 
+turn calls the 
+
+<emphasis id="strong1173" effect="bold">
+callBack
+
+</emphasis>
+ method on each of the objects on the list. 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+Note that Peg didn't appear in the roll call because she was first added and 
+then removed from the list before the roll call was taken.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1174" effect="bold">
+The sum and substance
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+So there you have it, the sum and substance of multicast callbacks in Java. 
+Obviously improvements could be made. You can see a couple of them in the 
+remaining two tutorial lessons on callbacks that are published on my website.
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1175" effect="bold">
+Multicast Program Listing
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1144">
+A complete listing of the multicast program named 
+
+<emphasis id="strong1176" effect="bold">
+Callback02
+
+</emphasis>
+ 
+is provided in 
+
+<link id="a1041" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1177" effect="bold">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. Complete listing of program named Callback02.
+
+</emphasis>
+</para>
+
+
+
+	
+				
+
+<code id="pre1014" display="block">/*File Callback02.java Copyright 1997, R.G.Baldwin
+The purpose of this program is to develop a callback
+capability using Interfaces.
+
+This is an enhanced version of the program named
+Callback01. You should familiarize yourself with
+the earlier program before getting into this program.
+
+This version has the added capability to create and
+maintain a list of objects that register for callback
+whereas the program named Callback01 could only remember
+a single object for callback.
+
+Tested using JDK 1.1.3 under Win95.
+
+The output from the program was:
+
+Register Tom
+Student@1cc73e added
+Register Spot
+Dog@1cc74e added
+Register Sue
+Student@1cc741 added
+Register Fido
+Dog@1cc751 added
+Register Peg
+Student@1cc744 added
+Register Bob
+Student@1cc747 added
+Register Brownie
+Dog@1cc754 added
+Remove Peg
+Student@1cc744 removed
+Try to remove Joe
+Student@1cc74a not in the list
+
+Tom here
+Woof, Woof Spot
+Sue here
+Woof, Woof Fido
+Bob here
+Woof, Woof Brownie
+
+Note that Peg didn't appear in the callBack list because
+she was first added to, and later removed from the list.
+**********************************************************/
+import java.util.*;
+
+//First we define an interface that will create a new type
+// and declare a generic method that can be used to
+// callback any object that is of a class that implements
+// the interface.
+interface CallBack{
+  public void callBack();
+}//end interface CallBack
+//=======================================================//
+
+//Next we need a class whose objects can maintain a
+// registered list of objects of type CallBack (whose
+// class implements the CallBack interface) and can
+// notify all the objects on that list when something
+// interesting happens.
+
+class Teacher{
+  Vector objList; //list of objects of type CallBack
+  //-----------------------------------------------------//
+
+  Teacher(){//constructor
+    //Instantiate a Vector object to contain the list
+    // of registered objects.
+    objList = new Vector();
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //Method to add objects to the list.  Synchronize to
+  // protect against two or more objects on different
+  // threads trying to register at the same time.  Note
+  // that the objects are received as type CallBack which
+  // is the interface type, and stored as type Object,
+  // because the Vector class only accommodates objects of
+  // type Object.
+  synchronized void register(CallBack obj){
+    this.objList.addElement(obj);
+    System.out.println(obj + " added");
+  }//end register()
+  //-----------------------------------------------------//
+
+  //Method to remove objects from the list.
+  synchronized void unRegister(CallBack obj){
+    if(this.objList.removeElement(obj))
+      //true when successfully found and removed
+      System.out.println(obj + " removed");
+    else//false on failure to find and remove
+      System.out.println(obj + " not in the list");
+  }//end register()
+  //-----------------------------------------------------//
+
+  //Method to notify all objects on the list that
+  // something interesting has happened.
+  void callTheRoll(){
+    Vector tempList;//save a temporary copy of list here
+
+    //Make a copy of the list to avoid the possibility of
+    // the list changing while objects are being notified.
+    // Synchronize to protect against list changing while
+    // making the copy.
+    synchronized(this){
+      tempList = (Vector)objList.clone();
+    }//end synchronized block
+
+    //Call the callBack() method on each object on
+    // the list.  The object are guaranteed to have such
+    // a method, even if they are of different types,
+    // because they are all of a class that implements
+    // the CallBack interface. If not, they could not
+    // have been registered on the list in the first
+    // place.  Note the requirement to downcast to
+    // type CallBack.
+    for(int cnt = 0; cnt &lt; tempList.size(); cnt++){
+      ((CallBack)tempList.elementAt(cnt)).callBack();
+    }//end for loop
+  }//end callTheRoll()
+  //-----------------------------------------------------//
+}//end class Teacher
+//=======================================================//
+
+//Class that implements the CallBack interface.  Objects
+// of this class can be registered on the list maintained
+// by an object of the Teacher class, and will be notified
+// whenever that object calls the callBack method on the
+// registered objects on the list.  This program will not
+// compile if this class fails to implement the CallBack
+// interface
+
+class Student implements CallBack{
+  String name; //store the object name here for later ID
+  //-----------------------------------------------------//
+
+  Student(String name){//constructor
+    this.name = name;  //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class will call this method
+  // as the callback mechanism to notify an object of this
+  // class that something interesting has happened.
+
+  public void callBack(){//announce callBack
+    System.out.println(name + " here");
+  }//end overridden callBack()
+}//end class Student
+//=======================================================//
+
+//Another Class that implements the CallBack interface.
+// Objects of this class can also be registered on the list
+// maintained by an object of the Teacher class, and will
+// also be notified whenever that object calls the
+// callBack() method on the registered objects on the
+// list. This program will not compile if this class
+// fails to implement the CallBack interface.
+
+class Dog implements CallBack{
+  String name; //store name here for later ID
+  //-----------------------------------------------------//
+
+  Dog(String name){//constructor
+    this.name = name; //save the name to identify the obj
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //An object of the Teacher class will call this method
+  // as the callback mechanism to notify an object of this
+  // class that something interesting has happened.
+
+  public void callBack(){//announce callBack
+    System.out.println("Woof, Woof " + name);
+  }//end overridden callBack()
+}//end class Dog
+//=======================================================//
+
+//Controlling class that ties all the pieces together and
+// exercises them.
+class Callback02{
+  public static void main(String[] args){
+    //Instantiate Teacher object
+    Teacher missJones = new Teacher();
+
+    //Instantiate some Student objects
+    Student tom = new Student("Tom");
+    Student sue = new Student("Sue");
+    Student peg = new Student("Peg");
+    Student bob = new Student("Bob");
+    Student joe = new Student("Joe");
+
+    //Instantiate some Dog objects.
+    Dog spot = new Dog("Spot");
+    Dog fido = new Dog("Fido");
+    Dog brownie = new Dog("Brownie");
+
+    //Register some Student and Dog objects with the
+    // Teacher object.
+    System.out.println("Register Tom");
+    missJones.register(tom);
+    System.out.println("Register Spot");
+    missJones.register(spot);
+    System.out.println("Register Sue");
+    missJones.register(sue);
+    System.out.println("Register Fido");
+    missJones.register(fido);
+    System.out.println("Register Peg");
+    missJones.register(peg);
+    System.out.println("Register Bob");
+    missJones.register(bob);
+    System.out.println("Register Brownie");
+    missJones.register(brownie);
+
+    //Remove a Student object from the list.
+    System.out.println("Remove Peg");
+    missJones.unRegister(peg);
+
+    //Try to remove an object that is not on the list.
+    System.out.println("Try to remove Joe");
+    missJones.unRegister(joe);
+
+    System.out.println();//blank line
+
+    //Cause the Teacher object to do a callBack on all
+    // the objects on the list.
+    missJones.callTheRoll();
+  }//end main()
+}//end class Callback02
+//=======================================================//</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1146">
+I encourage you to copy the code from
+
+
+<link id="a1042" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ and
+
+
+<link id="a1043" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Compile the code and execute it. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1147">
+In this module, you learned the fundamentals of callbacks using interfaces in 
+Java.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+In the next module, you will learn about something that goes by the name 
+Delegation Event Model along with a few other names as well.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1149">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1178" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1038">
+Module name: Java OOP: Callbacks - I
+
+</item>
+
+
+					
+
+<item id="li1039">
+File: Java0077.htm
+
+
+</item>
+
+
+					
+
+<item id="li1040">
+Published: 1998
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1179" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1150">
+<emphasis id="strong1180" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1151">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1152">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1153">
+<emphasis id="strong1181" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1154">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

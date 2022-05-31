@@ -1,0 +1,10374 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1636 Java OOP Member Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44347</md:content-id>
+  <md:title>Java1636 Java OOP Member Classes</md:title>
+  <md:abstract>Baldwin explains the various relationships that exist among member classes and their enclosing classes.</md:abstract>
+  <md:uuid>842d95ee-aee3-4265-8bf5-a3ba2d53b228</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 15:16:30 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="What_can_you_include_in_a_class_definition">
+
+What can you include in a class definition?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="What_is_a_member_class">
+
+What is a member class?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="What_about_a_member_interface">
+
+What about a member interface?
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Why_use_member_classes">
+
+Why use member classes?
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Smoke_and_mirrors">
+
+Smoke and mirrors
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Class_containment_hierarchy">
+
+Class containment hierarchy
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Behavior_of_the_program">
+
+Behavior of the program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Structure_of_the_program">
+
+Structure of the program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Figures01">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="Listings01">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one in a collection of modules designed for teaching 
+
+<emphasis id="em1003" effect="italics">
+
+	ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin Community College 
+	in Austin, TX.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+<emphasis id="em1004" effect="italics">
+(Editor's note: As you read this module, you will see that it was 
+originally written around 2003. However, despite many improvements in Java since 
+then, most of what was true then is still true in 2013.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+This module makes several references to my website, which is located at 
+
+<link id="a1023" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1023">
+<link id="a1024" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Class files produced when the 
+		program is compiled. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1025" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1026" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1027" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1028" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1029" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1030" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1031" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1032" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1033" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1034" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1035" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1036" target-id="Figure_13">
+
+Figure 13
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1037" target-id="Figure_14">
+
+Figure 14
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1038" target-id="Figure_15">
+
+Figure 15
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1039" target-id="Figure_16">
+
+Figure 16
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1039">
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The main method.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1041" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The class named X.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1042" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the top-level class 
+		named A.
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Constructor for class A.
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1044" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the member class 
+		named B.
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1045" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Constructor for class B.
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1046" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Beginning of the member class 
+		named C.
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1047" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Beginning of constructor for 
+		class C.
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1048" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The private member class named 
+		D.
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1049" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. More constructor code for 
+		class C.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1050" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. More constructor code for 
+		class C.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1051" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The method named bShow.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1052" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. The method named aShow.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1053" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. Beginning of the cShow method.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1054" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1055" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Call the aShow method.
+
+</item>
+
+
+		
+
+<item id="li1055">
+<link id="a1056" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1056">
+<link id="a1057" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1057">
+<link id="a1058" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1058">
+<link id="a1059" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1059">
+<link id="a1060" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1060">
+<link id="a1061" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1061">
+<link id="a1062" target-id="Listing_23">
+
+Listing 23
+
+</link>
+
+. Overridden toString method in 
+		class C.
+
+</item>
+
+
+		
+
+<item id="li1062">
+<link id="a1063" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+. More cShow method code.
+
+</item>
+
+
+		
+
+<item id="li1063">
+<link id="a1064" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="What_can_you_include_in_a_class_definition" effect="bold">
+
+What can you include in a class definition
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1006">
+There are several different kinds of items that can be contained in a class 
+definition. As you learned in the early modules in this series, the list 
+includes: 
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1064">
+Static variables
+
+</item>
+
+
+	
+
+<item id="li1065">
+Instance variables
+
+</item>
+
+
+	
+
+<item id="li1066">
+Static methods
+
+</item>
+
+
+	
+
+<item id="li1067">
+Instance methods
+
+</item>
+
+
+	
+
+<item id="li1068">
+Constructors
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+As you can learn at 
+
+<link id="a1065" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+, the list also includes: 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1069">
+Static initializer blocks
+
+</item>
+
+
+	
+
+<item id="li1070">
+Instance initializers
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1000" effect="bold">
+Can also contain other class definitions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+In this and the next two modules, you will learn that a class definition can 
+also contain the following three kinds of 
+
+<emphasis id="em1005" effect="italics">
+<emphasis id="inner_classes" effect="bold">
+
+inner classes
+
+</emphasis>
+
+:
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1071">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1072">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1073">
+Anonymous classes
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+A class can also contain 
+
+<emphasis id="strong1001" effect="bold">
+Nested top-level classes and interfaces
+
+</emphasis>
+, 
+which you can learn about at 
+
+<link id="a1066" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<para id="p1011">
+<emphasis id="em1006" effect="italics">
+(Note that it is questionable whether a nested top-level class or 
+	interface should be referred to as an inner class, because an object of a 
+	nested top-level class can exist in the absence of an object of the 
+	enclosing class. Regardless of whether the term inner class applies, a 
+	nested top-level class is defined within the definition of another class, so 
+	its definition is internal to the definition of another class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1012">
+This module will be dedicated to an explanation of 
+
+<emphasis id="strong1002" effect="bold">
+member classes
+
+</emphasis>
+. Subsequent 
+modules will explain the other two types of inner classes in the
+
+
+<link id="a1067" target-id="inner_classes">
+
+above list
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="What_is_a_member_class" effect="bold">
+
+What is a member class
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1013">
+A 
+
+<emphasis id="em1007" effect="italics">
+member class
+
+</emphasis>
+ is a class that is defined inside the definition of 
+another class, 
+
+<emphasis id="em1008" effect="italics">
+(without the use of the static modifier as is the case with a 
+nested top-level class). 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+An object of the member class must be internally linked to an object of the 
+enclosing class, 
+
+<emphasis id="em1009" effect="italics">
+(which is not the case with a nested top-level class).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Thus, a member class is truly an inner class. 
+
+<emphasis id="em1010" effect="italics">
+(An object of the member 
+class cannot exist in the absence of an object of the enclosing class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="What_about_a_member_interface" effect="bold">
+
+What about a member interface
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1016">
+Interfaces defined within classes are implicitly static. This means that they 
+are always 
+
+<emphasis id="em1011" effect="italics">
+top-level.
+
+</emphasis>
+ There is no such thing as a member interface, a 
+local interface, or an anonymous interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Why_use_member_classes" effect="bold">
+
+Why use member classes
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1017">
+Probably the most important benefit of member classes has to do with 
+accessing the other members of enclosing classes. The methods of a member class 
+have direct access to all the members of the enclosing classes, including 
+private members. Thus the use of member classes can eliminate the requirement to 
+connect objects together via constructor parameters. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+This is particularly useful in those cases where there is no reason for an 
+object of a member class to exist in the absence of an object of the enclosing 
+class, and where the methods of the object of the member class need access to 
+members of the object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1003" effect="bold">
+Data structures and iterators
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+For example, there is usually no reason for an 
+
+<emphasis id="strong1004" effect="bold">
+Iterator 
+
+</emphasis>
+object to 
+exist in the absence of the data-structure object for which it is designed to 
+provide iterator services. Also, the iterator object usually needs to have ready 
+access to the members of the data-structure object, some or all of which may be 
+private. Thus, a class from which an 
+
+<emphasis id="strong1005" effect="bold">
+Iterator
+
+</emphasis>
+ object can be 
+constructed is a good candidate for inclusion as a member class in the class 
+from which the associated data-structure object is instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1006" effect="bold">
+Listener objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Another common use for inner classes is in the definition of classes from 
+which listener objects 
+
+<emphasis id="em1012" effect="italics">
+(which listen for events fired by other objects) 
+
+</emphasis>
+
+are instantiated. 
+
+<emphasis id="em1013" effect="italics">
+(However, it may be more common to use anonymous classes 
+than member classes for this purpose.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+<emphasis id="strong1007" effect="bold">
+What does Flanagan have to say?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Here is how David Flanagan, author of Java in a Nutshell, summarizes his 
+discussion of member classes. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<para id="p1025">
+<emphasis id="em1014" effect="italics">
+"A class defined as a member (non-static) of another. Each instance 
+	has an enclosing instance, and can use its members. New syntax for 
+
+<emphasis id="strong1008" effect="bold">
+this
+
+</emphasis>
+,
+	
+
+<emphasis id="strong1009" effect="bold">
+new
+
+</emphasis>
+, and 
+
+<emphasis id="strong1010" effect="bold">
+super
+
+</emphasis>
+. Cannot have 
+
+<emphasis id="strong1011" effect="bold">
+static 
+
+</emphasis>
+members. Cannot have 
+	same name as containing class."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1026">
+According to Flanagan, the main features of member classes are: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1074">
+Every instance of a member class is internally associated with an 
+	instance of the class that defines or contains the member class.
+
+</item>
+
+
+	
+
+<item id="li1075">
+The methods of a member class can implicitly refer to the fields defined 
+	within the member class, as well as those defined by any enclosing class, 
+	including 
+
+<emphasis id="strong1012" effect="bold">
+private 
+
+</emphasis>
+fields of the enclosing class.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Smoke_and_mirrors" effect="bold">
+
+Smoke and mirrors
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1027">
+Every class definition in a Java program, including nested top-level classes, 
+member classes, local classes, and anonymous classes, produces a class file when 
+the program is compiled. According to Flanagan, 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<para id="p1028">
+<emphasis id="em1015" effect="italics">
+"The Java Virtual Machine knows nothing about nested top-level classes 
+	and interfaces or the various types of inner classes. Therefore, the Java 
+	compiler must convert these new types into standard non-nested class files 
+	that the Java interpreter can understand. This is done through source code 
+	transformations that insert $ characters into nested class names. These 
+	source code transformations may also insert hidden fields, methods, and 
+	constructor arguments into the affected classes."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1013" effect="bold">
+A reference to the containing object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+For example, the compiler automatically inserts a private instance variable 
+in the member class to hold a reference to the containing object. It also 
+inserts a hidden argument in all constructors for the member class, and passes 
+the containing object's reference to the constructor for the member class. The 
+modified constructor saves that reference in the private instance variable of 
+the object of the member class. Thus each object instantiated from the member 
+class contains a private reference to the containing object. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1014" effect="bold">
+Accessing private members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+In those cases where it is necessary for an object of the member class to 
+access private members of the containing object, the compiler automatically 
+creates and uses accessor methods that make such access possible.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1015" effect="bold">
+Similar to your code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+The bottom line is that the code that is automatically produced by the 
+compiler is probably very similar to code that you would write if you were 
+writing the program using only of top-level classes. The good news is that you 
+don't have to write that extra code, and you don't have to maintain it. The 
+extra code is written for you, and if you modify your class structure, the extra 
+code is automatically modified accordingly. 
+
+</para>
+
+
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1035">
+The paragraphs that follow will explain a program named 
+
+<emphasis id="strong1016" effect="bold">
+InnerClasses06
+
+</emphasis>
+, 
+which is designed specifically to illustrate various characteristics of member 
+classes. I will discuss the program in fragments. A complete listing is shown in 
+
+
+<link id="a1068" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1036">
+This program illustrates the use of member classes. The program consists 
+	of a total of six classes:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1076">
+Top-level classes named 
+	
+
+<list id="ul1013" list-type="bulleted">
+
+		
+
+<item id="li1077">
+InnerClasses06
+
+</item>
+
+
+		
+
+<item id="li1078">
+A
+
+</item>
+
+
+		
+
+<item id="li1079">
+X
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1080">
+Member classes named 
+	
+
+<list id="ul1014" list-type="bulleted">
+
+		
+
+<item id="li1081">
+B
+
+</item>
+
+
+		
+
+<item id="li1082">
+C
+
+</item>
+
+
+		
+
+<item id="li1083">
+D
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1037">
+When compiled, the program produces the class files shown in 
+
+<link id="a1069" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<section id="h21006">
+<title>
+<emphasis id="Class_containment_hierarchy" effect="bold">
+
+Class containment hierarchy
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+Once you understand the class file 
+	naming convention, you can determine from the file names in 
+
+<link id="a1070" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ that 
+	class B is a member class of class A. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+<emphasis id="em1016" effect="italics">
+(The class file named A$B.class 
+	indicates that the class named B is a member of the class named A.)
+
+</emphasis>
+ 
+
+
+</quote>
+
+
+
+
+<para id="p1039">
+Similarly, class C is a member of class B, and class D is a private member 
+	of class C. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1017" effect="italics">
+(However, you cannot tell from the class file names that 
+	class D is private.)
+
+</emphasis>
+ 
+
+</quote>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Behavior_of_the_program" effect="bold">
+
+Behavior of the program
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1040">
+An object is instantiated 
+	from the class named A. This makes it possible to instantiate an object of 
+	the member class named B. The object of the class named B is internally 
+	linked to the object of the class named A. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+	
+
+<emphasis id="em1018" effect="italics">
+(This causes the instance variable, constructor parameter, and accessor 
+	methods discussed above to be automatically created to link the object of 
+	the class named B to the object of the class named A.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1041">
+The object of the class named B is used to instantiate an object of the 
+member class named C. This object of the class C is linked to the object of 
+the class named B. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1017" effect="bold">
+Instantiate additional objects of classes A and B, plus an 
+object of class D
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+When the object of the class named C is instantiated, the 
+constructor for that class instantiates separate objects of the classes named A 
+and B, and also instantiates an object of the 
+
+<emphasis id="strong1018" effect="bold">
+private 
+
+</emphasis>
+member class named 
+D.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+
+	
+
+<emphasis id="em1019" effect="italics">
+(We will see later that the new and separate object of the class named B 
+	continues to be internally linked to the original object of the Class named 
+	A, and is not internally linked to the new object of the class named A.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1044">
+Instantiation of the object of class D illustrates the use of private member 
+classes. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1007" display="block">
+
+	
+
+<emphasis id="em1020" effect="italics">
+(Note that while top-level classes cannot be private, member classes can 
+	be private.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1019" effect="bold">
+Perform a variety of operations
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+A variety of operations are performed 
+from within the methods belonging to the object of the class C to illustrate the 
+attributes and behavior of objects instantiated from member classes. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Comments in 
+the code explain the purpose of each of those operations. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+Many of those 
+operations produce screen output, which will be shown in conjunction with the 
+code that produced the output. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Structure_of_the_program" effect="bold">
+
+Structure of the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1020" effect="bold">
+The main method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+The 
+
+<emphasis id="strong1021" effect="bold">
+main 
+
+</emphasis>
+method of 
+the controlling class named 
+
+<emphasis id="strong1022" effect="bold">
+InnerClasses06
+
+</emphasis>
+, is shown in 
+
+<link id="a1071" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1051">
+The code in 
+
+<link id="a1072" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of the member class named C 
+	and calls the method named 
+
+<emphasis id="strong1023" effect="bold">
+cShow 
+
+</emphasis>
+on that object.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1008" display="block">
+
+	
+
+<emphasis id="em1021" effect="italics">
+(Note that it is necessary to first instantiate objects of the enclosing 
+	classes named A and B before the object of the member class named C can be 
+	instantiated.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1024" effect="bold">
+An independent top-level class named X
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<link id="a1073" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the definition of an independent top-level class named X.
+
+</para>
+
+
+
+
+	
+
+<para id="p1054">
+This class will be extended by the class named C, which is a member of 
+	the class named B, which is a member of the class named A. This will 
+	illustrate that the inheritance hierarchy is independent of the containment 
+	hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+As you can see in 
+
+<link id="a1074" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+, the class named X overrides the 
+
+<emphasis id="strong1025" effect="bold">
+
+	toString
+
+</emphasis>
+ method to identify itself when called. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1009" display="block">
+
+	
+
+<emphasis id="em1022" effect="italics">
+(The 
+
+<emphasis id="strong1026" effect="bold">
+toString 
+
+</emphasis>
+method is automatically called whenever an object's 
+	reference is passed as a parameter to the 
+
+<emphasis id="strong1027" effect="bold">
+println 
+
+</emphasis>
+method.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1028" effect="bold">
+The top-level class named A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<link id="a1075" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the beginning of the 
+top-level class named A. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1058">
+<link id="a1076" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the declaration of two instance variables and three class 
+	variables in the class named A. All of the variables are private, and some 
+	are initialized when declared. The three class variables will be used to 
+	maintain a count of the number of objects instantiated from the classes 
+	named A, B, and C. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1010" display="block">
+
+	
+
+<emphasis id="em1023" effect="italics">
+(Because member classes 
+
+<emphasis id="strong1029" effect="bold">
+cannot contain static members
+
+</emphasis>
+, the counter 
+	variables for the member classes named B and C were placed in the top-level 
+	class named A instead of placing them in their respective class 
+	definitions.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1030" effect="bold">
+Constructor for class A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<link id="a1077" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the constructor for the 
+top-level class named A.
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1061">
+Whenever an object of the class named A is instantiated, the constructor 
+	does the following:
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1084">
+Saves the value of an incoming parameter in a private instance variable 
+	named 
+
+<emphasis id="strong1031" effect="bold">
+aVar
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1085">
+Increments the object counter named 
+
+<emphasis id="strong1032" effect="bold">
+objCntA
+
+</emphasis>
+, maintaining a count 
+	of the objects instantiated from class A.
+
+</item>
+
+
+	
+
+<item id="li1086">
+Saves the value of the object counter in an instance variable named 
+
+<emphasis id="strong1033" effect="bold">
+
+	objNumber 
+
+</emphasis>
+to identify the specific object.
+
+</item>
+
+
+	
+
+<item id="li1087">
+Displays a message showing the identification of the object being 
+	instantiated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1034" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+The code in 
+
+<link id="a1078" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a new object of the class named A, passing 
+the integer value 1 as a parameter to the constructor. As a result, the code in 
+the constructor shown in 
+
+<link id="a1079" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ produces the screen output shown in 
+
+<link id="a1080" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1064">
+As you can see from the value of the object counter in 
+
+<link id="a1081" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, this is 
+	the first object instantiated from the class named A.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1011" display="block">
+
+	
+
+<emphasis id="em1024" effect="italics">
+(The value passed, as a parameter to the constructor, is not displayed by 
+	the code in the constructor. That value will be displayed later.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1035" effect="bold">
+The method named aShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+The class named A also defines a private method named 
+
+<emphasis id="strong1036" effect="bold">
+aShow
+
+</emphasis>
+. I will 
+defer my discussion of that method until later when it is called. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1037" effect="bold">
+The member 
+class named B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<link id="a1082" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the beginning of the member class named B. 
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1069">
+If you examine the complete listing of the program in 
+
+<link id="a1083" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+, you will 
+	see that the class named B is defined internal 
+	to the class named A. In other words, the beginning of the definition of the 
+	class named B appears before the curly brace that signals the end of the 
+	definition of the class named A. Thus, the class named B is a member class 
+	of the class named A. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+The code in 
+
+<link id="a1084" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ declares two private instance 
+	variables and initializes one of them. 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1038" effect="bold">
+Constructor for class B
+
+</emphasis>
+ 
+	
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<link id="a1085" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ shows the entire constructor for the class named B.
+
+</para>
+
+
+
+
+	
+
+<para id="p1073">
+Whenever an object of the class named B is instantiated, the constructor 
+	does the following: 
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1088">
+Saves the value of an incoming parameter in a private instance variable 
+	named 
+
+<emphasis id="strong1039" effect="bold">
+bVar
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1089">
+Increments the object counter named 
+
+<emphasis id="strong1040" effect="bold">
+objCntB
+
+</emphasis>
+, which is a class 
+	variable of the containing top-level class named A, maintaining a count of 
+	objects instantiated from class B.
+
+</item>
+
+
+	
+
+<item id="li1090">
+Saves the value of the object counter in an instance variable named 
+
+<emphasis id="strong1041" effect="bold">
+
+	objNumber 
+
+</emphasis>
+to identify the specific object.
+
+</item>
+
+
+	
+
+<item id="li1091">
+Displays a message showing the identification of the object being 
+	instantiated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1042" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+<link id="a1086" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the instantiation of a new object of 
+class B, immediately following the instantiation of an object of class A. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+The 
+object instantiated from the member class named B is linked to the object 
+instantiated from the top-level class named A. 
+
+</para>
+
+
+
+
+
+<para id="p1077">
+The constructors for the classes 
+named A and B produce the two lines of output shown in 
+
+<link id="a1087" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, the first of 
+which is a repeat of the output shown in 
+
+<link id="a1088" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1078">
+<emphasis id="strong1043" effect="bold">
+The method named bShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+The class named B also defines a private 
+	method named 
+
+<emphasis id="strong1044" effect="bold">
+bShow
+
+</emphasis>
+. As with the method named 
+
+<emphasis id="strong1045" effect="bold">
+aShow
+
+</emphasis>
+ mentioned 
+	earlier, I will defer a discussion of 
+
+<emphasis id="strong1046" effect="bold">
+bShow
+
+</emphasis>
+ until later when it is 
+	called. 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1047" effect="bold">
+The member class named C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1089" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ shows the beginning of a 
+	member class named C. 
+
+</para>
+
+
+
+	
+
+<para id="p1082">
+Class C is a member of the class named B. In other words, the beginning 
+	of the definition of the class named C begins before the curly brace that 
+	ends the definition of the class named B. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+The code in 
+
+<link id="a1090" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ declares 
+	several instance variables for the class named C, and initializes two of 
+	them. The purpose of these variables will become clear later when they are 
+	used. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1012" display="block">
+
+	
+
+<emphasis id="em1025" effect="italics">
+(Note also that class C extends class X, in order to illustrate that the 
+	class containment hierarchy is independent of the inheritance hierarchy.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1048" effect="bold">
+Constructor for class C
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<link id="a1091" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ shows the beginning of the 
+constructor for the class named C.
+
+</para>
+
+
+
+
+
+	
+
+<para id="p1086">
+Whenever an object of the class named C is instantiated, the constructor 
+	code shown in 
+
+<link id="a1092" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ does the following: 
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1092">
+Saves the value of an incoming parameter in a private instance variable 
+	named 
+
+<emphasis id="strong1049" effect="bold">
+cVar
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1093">
+Increments the object counter named 
+
+<emphasis id="strong1050" effect="bold">
+objCntC
+
+</emphasis>
+, which is a class 
+	variable of the class named A, maintaining a count of objects instantiated 
+	from class C.
+
+</item>
+
+
+	
+
+<item id="li1094">
+Saves the value of the object counter in an instance variable named 
+
+<emphasis id="strong1051" effect="bold">
+
+	objNumber 
+
+</emphasis>
+to identify the specific object.
+
+</item>
+
+
+	
+
+<item id="li1095">
+Displays a message showing the identification of the object being 
+	instantiated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1052" effect="bold">
+Screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<link id="a1093" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the instantiation of a new object of 
+class C, immediately following the instantiation of an object of class B. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+The 
+object instantiated from the member class named C is linked to the object 
+instantiated from the member class named B. Similarly, the object instantiated 
+from the member class named B is linked to the object instantiated from the 
+top-level class named A. 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+The constructors for the classes named A, B, and C 
+produce the three lines of output shown in 
+
+<link id="a1094" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+, the first two of which are 
+repeated from Figures 2 and 
+
+<link id="a1095" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<para id="p1091">
+The output shown in 
+
+<link id="a1096" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ demonstrates that the code in 
+
+<link id="a1097" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+	causes the constructors for the three classes to be executed in sequence. 
+	
+
+</para>
+
+
+
+
+
+<para id="p1092">
+At this point, I am going to put the discussion of the class named C on hold 
+	and discuss another member class named D. 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1053" effect="bold">
+The private member 
+	class named D
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+Top-level classes cannot be private. However, member 
+	classes can be private provided that the using code is consistent with the 
+	use of private members. To demonstrate this, the class named C contains a 
+	private member class named D, which is shown in its entirety in 
+
+<link id="a1098" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<para id="p1095">
+The most significant thing about the class named D is that it is declared 
+	private. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+When an object is instantiated from the class named D, it displays 
+	a couple of messages, one of which provides the name of the class file 
+	produced by the compiler to represent the class named D. We will see those 
+	messages shortly in conjunction with the instantiation of an object of the 
+	class named D. 
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1054" effect="bold">
+Returning to the constructor for class C 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+<link id="a1099" target-id="Listing_10">
+
+Listing 
+	10
+
+</link>
+
+ shows the next statement in the constructor for the class named C. 
+This statement instantiates an object of its private member class named D.
+
+</para>
+
+
+
+
+	
+
+<para id="p1099">
+The code in 
+
+<link id="a1100" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ causes the constructor for the class named D to be 
+	executed, producing the screen output shown in 
+
+<link id="a1101" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1100">
+As mentioned earlier, comparing the class file name in 
+
+<link id="a1102" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ with the 
+	class file naming convention for member classes, you can determine that D is 
+	a member of C, C is a member of B, and B is a member of A. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1055" effect="bold">
+Instantiate 
+	independent objects of classes A and B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+The remaining constructor code 
+	for class C is shown in 
+
+<link id="a1103" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+The code in 
+
+<link id="a1104" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ instantiates new and independent objects of the 
+classes named A and B, both of which are enclosing classes of the member class 
+named C.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1013" display="block">
+
+	
+
+<emphasis id="em1026" effect="italics">
+(Note that the parameter values passed to the constructors are different 
+	than was the case for the objects instantiated in 
+
+<link id="a1105" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. We will see the 
+	result of that later.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1104">
+I will display information about these two objects later. That information will show 
+that the new object of the member class named B is linked to the original object 
+of the enclosing class named A. 
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1056" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+In the meantime, when 
+these two objects are instantiated, their constructors are executed, producing 
+the screen output shown in 
+
+<link id="a1106" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<para id="p1107">
+In each case, the value of the object counter shows that this is the 
+	second object instantiated from each of these two classes. 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1057" effect="bold">
+Methods aShow, 
+	bShow, and cShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1109">
+The classes named A, B, and C, each contain display 
+	methods named 
+
+<emphasis id="strong1058" effect="bold">
+aShow
+
+</emphasis>
+, 
+
+<emphasis id="strong1059" effect="bold">
+bShow
+
+</emphasis>
+, and 
+
+<emphasis id="strong1060" effect="bold">
+cShow
+
+</emphasis>
+ respectively. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+The 
+	method named 
+
+<emphasis id="strong1061" effect="bold">
+cShow
+
+</emphasis>
+ is rather long, and I will discuss it in detail 
+	shortly. For now, suffice it to say that code in 
+
+<emphasis id="strong1062" effect="bold">
+cShow
+
+</emphasis>
+ calls the 
+	private method named 
+
+<emphasis id="strong1063" effect="bold">
+bShow
+
+</emphasis>
+ in the containing object to which it is 
+	linked. Therefore, this will be an appropriate time to examine the method 
+	named 
+
+<emphasis id="strong1064" effect="bold">
+bShow
+
+</emphasis>
+, which is defined in the member class named B. 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1065" effect="bold">
+The 
+	method named bShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1112">
+The 
+
+<emphasis id="strong1066" effect="bold">
+bShow
+
+</emphasis>
+ method, defined in the member class 
+	named B, is shown in 
+
+<link id="a1107" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. It is important to note that this is a 
+	private method.
+
+</para>
+
+
+
+	
+
+<para id="p1113">
+When this method is called, it does the following: 
+
+</para>
+
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1096">
+Displays the value of the constructor parameter passed to the object 
+	when it was constructed.
+
+</item>
+
+
+	
+
+<item id="li1097">
+Displays the identification of the object based on the value of the 
+	object counter when it was constructed.
+
+</item>
+
+
+	
+
+<item id="li1098">
+Calls the corresponding 
+
+<emphasis id="strong1067" effect="bold">
+aShow
+
+</emphasis>
+ method of the object of the 
+	containing class to which it is linked.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1114">
+Since the code in the 
+
+<emphasis id="strong1068" effect="bold">
+bShow
+
+</emphasis>
+ method calls the private 
+
+<emphasis id="strong1069" effect="bold">
+aShow
+
+</emphasis>
+ 
+method of the containing object to which it is linked, it is also time to take a 
+look at that method. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1070" effect="bold">
+The method named aShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+The 
+
+<emphasis id="strong1071" effect="bold">
+aShow
+
+</emphasis>
+ method, 
+defined in the top-level class named A, is shown in 
+
+<link id="a1108" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. It is also 
+important to note that this is a private method. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1117">
+When this method is called, it does the following: 
+
+</para>
+
+
+
+
+
+<list id="ul1019" list-type="bulleted">
+
+	
+
+<item id="li1099">
+Displays the value of the constructor parameter passed to the object 
+	when it was constructed.
+
+</item>
+
+
+	
+
+<item id="li1100">
+Displays the identification of the object based on the value of the 
+	object counter when it was constructed.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1072" effect="bold">
+Containment hierarchy is displayed
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1119">
+Because 
+
+<emphasis id="strong1073" effect="bold">
+cShow
+
+</emphasis>
+ calls 
+
+<emphasis id="strong1074" effect="bold">
+bShow
+
+</emphasis>
+, 
+which in turn calls 
+
+<emphasis id="strong1075" effect="bold">
+aShow
+
+</emphasis>
+, we should expect that the call to the 
+
+<emphasis id="strong1076" effect="bold">
+
+cShow
+
+</emphasis>
+ method on an object of the member class named C would display 
+information about the containment hierarchy. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1014" display="block">
+
+	
+
+<emphasis id="em1027" effect="italics">
+(Simply as another reminder, the containment hierarchy is completely 
+	independent of the inheritance hierarchy.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1077" effect="bold">
+Calling cShow
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1121">
+Referring once more to 
+
+<link id="a1109" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, we see that the method 
+named 
+
+<emphasis id="strong1078" effect="bold">
+cShow
+
+</emphasis>
+ is called on the object of the class named C when that object 
+is instantiated. We will see the result of that call shortly. 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1079" effect="bold">
+The cShow 
+method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<link id="a1110" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ shows the beginning of the 
+
+<emphasis id="strong1080" effect="bold">
+cShow
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+	
+
+<para id="p1124">
+The code in 
+
+<link id="a1111" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1020" list-type="bulleted">
+
+	
+
+<item id="li1101">
+Displays a string separator to help locate the specific output in the 
+	large quantity of output produced by the program.
+
+</item>
+
+
+	
+
+<item id="li1102">
+Displays the object identifier based on the object counter.
+
+</item>
+
+
+	
+
+<item id="li1103">
+Displays the value passed to the constructor when the object was 
+	instantiated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1081" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1126">
+The code in 
+
+<link id="a1112" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ produces the output shown in 
+
+
+<link id="a1113" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+	
+	
+
+<para id="p1127">
+As you can see by comparing this with 
+
+<link id="a1114" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, this is the first object 
+	instantiated from the class named C, and is the object instantiated from the 
+	statement in the 
+
+<emphasis id="strong1082" effect="bold">
+main 
+
+</emphasis>
+method in 
+
+<link id="a1115" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+<emphasis id="em1028" effect="italics">
+(The constructor 
+	parameter value is 3.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1083" effect="bold">
+Call the bShow method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1129">
+Continuing with the 
+	code in the 
+
+<emphasis id="strong1084" effect="bold">
+cShow
+
+</emphasis>
+ method, the code in 
+
+<link id="a1116" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ calls the private 
+	method named 
+
+<emphasis id="strong1085" effect="bold">
+bShow
+
+</emphasis>
+ on the containing object of the class B to which 
+	this object is linked. 
+
+</para>
+
+
+
+	
+
+<para id="p1130">
+As you will recall from the previous discussion, the code in the 
+
+<emphasis id="strong1086" effect="bold">
+bShow
+
+</emphasis>
+ 
+	method will, in turn, call the 
+
+<emphasis id="strong1087" effect="bold">
+aShow
+
+</emphasis>
+ method on the containing object 
+	of the class named A to which the object of the class B is linked. 
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1088" effect="bold">
+The 
+	screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+The code in 
+
+<link id="a1117" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+ produces the output shown in 
+
+
+<link id="a1118" target-id="Figure_8">
+
+Figure 
+	8
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1133">
+As you can see in 
+
+<link id="a1119" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+, the linked objects of the classes B and A are 
+	the first objects instantiated from those classes. In addition, the saved 
+	values of the constructor parameters show that these are the objects that 
+	were instantiated by the statement in the 
+
+<emphasis id="strong1089" effect="bold">
+main
+
+</emphasis>
+ method of 
+
+<link id="a1120" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+	
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1090" effect="bold">
+Call the aShow method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+As I explained earlier, the object of the class 
+	C is linked to the containing object of the class named B. The code in 
+	
+
+<link id="a1121" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ shows that the object of the class C is also linked to the 
+	containing object of the class A 
+
+<emphasis id="em1029" effect="italics">
+(even though the containing class named 
+	A is one level removed in the containment hierarchy).
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1136">
+<emphasis id="strong1091" effect="bold">
+Implicit access
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+The methods of a member class have implicit access to all members 
+
+<emphasis id="em1030" effect="italics">
+
+	(including private members)
+
+</emphasis>
+ of all containing classes. Thus, the code in 
+	the 
+
+<emphasis id="strong1092" effect="bold">
+cShow
+
+</emphasis>
+ method, belonging to the object of the class named C, can 
+	directly call the private 
+
+<emphasis id="strong1093" effect="bold">
+aShow
+
+</emphasis>
+ method of the containing class named 
+	A. 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1094" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+Therefore, the code in 
+
+<link id="a1122" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ produces the output 
+	shown in 
+
+<link id="a1123" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+	
+
+<para id="p1140">
+You can tell by the values displayed in 
+
+<link id="a1124" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ that the 
+
+<emphasis id="strong1095" effect="bold">
+aShow
+
+</emphasis>
+ 
+	method called in 
+
+<link id="a1125" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+ was called on the same object on which the 
+
+<emphasis id="strong1096" effect="bold">
+
+	aShow
+
+</emphasis>
+ method was called by the code in 
+
+<link id="a1126" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. However, in 
+
+<link id="a1127" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+, the 
+
+<emphasis id="strong1097" effect="bold">
+bShow
+
+</emphasis>
+ method was called first, which in turn called the 
+
+<emphasis id="strong1098" effect="bold">
+
+	aShow
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1099" effect="bold">
+Accessing the object of the class C,
+
+</emphasis>
+ 
+
+<emphasis id="strong1100" effect="bold">
+and the 
+	this keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1142">
+The syntax used with the keyword 
+
+<emphasis id="strong1101" effect="bold">
+this
+
+</emphasis>
+ is somewhat 
+	different for member classes and contained objects than is the case for 
+	top-level classes. For example, continuing with the method named 
+
+<emphasis id="strong1102" effect="bold">
+cShow
+
+</emphasis>
+, 
+	the code in 
+
+<link id="a1128" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ shows five different ways to access the object 
+	instantiated from the member class named C in order to get and display the 
+	name of the class file that represents the member class named C.
+
+</para>
+
+
+
+	
+
+<para id="p1143">
+<emphasis id="strong1103" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+All five statements in 
+
+<link id="a1129" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ display the 
+	name of the same class file, as shown in 
+
+<link id="a1130" target-id="Figure_10">
+
+Figure 10
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1145">
+Obviously in this situation, the last three statements in 
+
+<link id="a1131" target-id="Listing_17">
+
+Listing 17
+
+</link>
+
+ are 
+	overly complex. There is no particular problem writing code in the method 
+	named 
+
+<emphasis id="strong1104" effect="bold">
+cShow 
+
+</emphasis>
+to gain access to the object to which the method 
+	belongs. It isn't even necessary to use 
+
+<emphasis id="strong1105" effect="bold">
+this
+
+</emphasis>
+ to refer to that object, 
+	although the use of the hidden reference 
+
+<emphasis id="strong1106" effect="bold">
+this
+
+</emphasis>
+ may make the code more 
+	readable. 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1107" effect="bold">
+Accessing the containing object of the class B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+However, 
+	things get a little more complicated when you need to gain access to a 
+	containing object, such as the containing object instantiated from the class 
+	named B. 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+The two statements shown in 
+
+<link id="a1132" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+ gain access to the 
+	containing object of the class named B. Each statement gets and displays the 
+	name of the class file that represents the member class named B. 
+
+<emphasis id="em1031" effect="italics">
+(Note 
+	the use of the keyword 
+
+<emphasis id="strong1108" effect="bold">
+this 
+
+</emphasis>
+in these statements.)
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1149">
+<emphasis id="strong1109" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1150">
+The output produced by the code in 
+
+<link id="a1133" target-id="Listing_18">
+
+Listing 18
+
+</link>
+
+ is 
+	shown in 
+
+<link id="a1134" target-id="Figure_11">
+
+Figure 11
+
+</link>
+
+. Once again, both statements get and display the name of 
+	the same class file. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1151">
+<emphasis id="strong1110" effect="bold">
+Accessing the containing object of the class named A
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+Finally, the 
+	code in 
+
+<link id="a1135" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+ gains access to the containing object of the class named 
+	A. 
+
+<emphasis id="em1032" effect="italics">
+(Once again, note the use of the 
+
+<emphasis id="strong1111" effect="bold">
+this 
+
+</emphasis>
+keyword in the statement 
+	in 
+
+<link id="a1136" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+	
+	
+
+<para id="p1153">
+The code in 
+
+<link id="a1137" target-id="Listing_19">
+
+Listing 19
+
+</link>
+
+ produces the output shown in 
+
+<link id="a1138" target-id="Figure_12">
+
+Figure 12
+
+</link>
+
+.
+
+<emphasis id="em1033" effect="italics">
+ 
+
+</emphasis>
+</para>
+
+
+
+
+
+<quote id="blockquote1015" display="block">
+
+	
+
+<emphasis id="em1034" effect="italics">
+(Since the class named A is a top-level class, the name of the class file 
+	is the same as the name of the class, with no $ characters inserted by the 
+	compiler.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+	
+
+<para id="p1154">
+<emphasis id="strong1112" effect="bold">
+Investigate independent objects of classes A and B
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+Recall that 
+	when the object of the member class named C was instantiated, the 
+	constructor for the class instantiated independent objects of the enclosing 
+	classes named A and B, and saved those object's references in instance 
+	variables of the class named C.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1016" display="block">
+
+	
+
+<emphasis id="em1035" effect="italics">
+(See 
+
+<link id="a1139" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+, noting the parameter values of 10 and 20 passed to the 
+	constructors for A and B. Recall that the constructors for A and B save 
+	those parameter values in private instance variables named 
+
+<emphasis id="strong1113" effect="bold">
+aVar
+
+</emphasis>
+ and
+	
+
+<emphasis id="strong1114" effect="bold">
+bVar
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1115" effect="bold">
+Display variable values and class file names
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1157">
+The code in 
+
+<link id="a1140" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+ 
+displays the values stored in the private instance variables belonging to those 
+objects. The code in 
+
+<link id="a1141" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+ also displays the names of the class files 
+representing the classes from which those objects were instantiated. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1158">
+<emphasis id="strong1116" effect="bold">
+Screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1159">
+The code in 
+
+<link id="a1142" target-id="Listing_20">
+
+Listing 20
+
+</link>
+
+ produces the output shown in 
+	
+
+<link id="a1143" target-id="Figure_13">
+
+Figure 13
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1160">
+There should be no surprises in the output shown in 
+
+<link id="a1144" target-id="Figure_13">
+
+Figure 13
+
+</link>
+
+. The values 
+	of the instance variables match the parameter values passed to the 
+	constructors in 
+
+<link id="a1145" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ when the objects were instantiated. The class 
+	file names match what you already know to be true from previous discussions 
+	earlier in this module. 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1117" effect="bold">
+Call the private bShow method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+The code in 
+	
+
+<link id="a1146" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+ is somewhat more interesting. This code calls the private 
+
+<emphasis id="strong1118" effect="bold">
+
+	bShow 
+
+</emphasis>
+method on the separate object instantiated from the class named B 
+	in order to identify the object to which that object is linked. 
+
+</para>
+
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1119" effect="bold">
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+The output produced by the code in 
+
+<link id="a1147" target-id="Listing_21">
+
+Listing 21
+
+</link>
+
+ is 
+shown in 
+
+<link id="a1148" target-id="Figure_14">
+
+Figure 14
+
+</link>
+
+. Even though this object of the member class B was 
+instantiated from within the constructor for the member class named C, the 
+object of the class named B is internally linked to the object of the class 
+named A that was originally used to instantiate the object of the class named C.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1017" display="block">
+
+	
+
+<emphasis id="em1036" effect="italics">
+(See 
+
+<link id="a1149" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ where the objects of classes named A, B, and C were 
+	originally instantiated. This object of the class named B is a different 
+	object from the object of the class named B instantiated in 
+
+<link id="a1150" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. This 
+	object of the class named B was instantiated by the code in 
+
+<link id="a1151" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+	
+
+<para id="p1165">
+<emphasis id="strong1120" effect="bold">
+How is this determined from 
+
+<link id="a1152" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+The second line in 
+
+<link id="a1153" target-id="Figure_14">
+
+Figure 14
+
+</link>
+
+ 
+	shows that a parameter value of 20 was received by the constructor when the 
+	object of the class named B was instantiated. This corresponds to the 
+	instantiation of the object by the code in the constructor in 
+
+<link id="a1154" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+	
+
+</para>
+
+
+
+
+
+<para id="p1167">
+The third line in 
+
+<link id="a1155" target-id="Figure_14">
+
+Figure 14
+
+</link>
+
+ shows that this was the second object 
+	instantiated from the class named B. 
+
+<emphasis id="em1037" effect="italics">
+(See the definition of the 
+
+<emphasis id="strong1121" effect="bold">
+bShow
+
+</emphasis>
+ 
+	method in 
+
+<link id="a1156" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+, which displays the value stored in a variable that is 
+	used to save the object number.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1122" effect="bold">
+The proof of the pudding
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1169">
+Now 
+	recall that the method named 
+
+<emphasis id="strong1123" effect="bold">
+bShow
+
+</emphasis>
+ 
+
+<emphasis id="em1038" effect="italics">
+(belonging to an object of the 
+	class B)
+
+</emphasis>
+ calls the method named 
+
+<emphasis id="strong1124" effect="bold">
+aShow
+
+</emphasis>
+ belonging to the object of 
+	the class named A to which it is internally linked. 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+The fourth line in 
+
+<link id="a1157" target-id="Figure_14">
+
+ Figure 14
+
+</link>
+
+ 
+shows the value of the parameter passed to the constructor for the object 
+	of class A when that object was instantiated. 
+
+<emphasis id="em1039" effect="italics">
+(See the definition of the
+	
+
+<emphasis id="strong1125" effect="bold">
+aShow
+
+</emphasis>
+ method in 
+
+<link id="a1158" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+.)
+
+</emphasis>
+ This value corresponds to the value 
+	that was passed to the constructor for the original object of class A when 
+	it was constructed in 
+
+<link id="a1159" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1018" display="block">
+
+	
+
+<emphasis id="em1040" effect="italics">
+(It does not correspond to the value passed to the constructor for the 
+	class named A when the object of the class A was constructed in 
+
+<link id="a1160" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1171">
+The fifth line in 
+
+<link id="a1161" target-id="Figure_14">
+
+Figure 14
+
+</link>
+
+ shows that the object was the first object 
+instantiated from the class named A. 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1126" effect="bold">
+Both B objects link to the same A 
+object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+Thus, both objects instantiated from the class named B in this 
+program are internally linked to the same object instantiated from the class 
+named A, which is the enclosing class for the class named B. 
+
+</para>
+
+
+
+
+	
+
+<para id="p1174">
+
+	
+
+<emphasis id="em1041" effect="italics">
+(However, had I instantiated the new object of the class B using a 
+	statement such as the following,
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1175">
+
+	
+
+<emphasis id="em1042" effect="italics">
+<emphasis id="strong1127" effect="bold">
+new A(100).new B(200).bShow();
+
+</emphasis>
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1176">
+
+	
+
+<emphasis id="em1043" effect="italics">
+the 
+	new object of the class B would have been linked to the new object of the 
+	class A rather than being linked to the original object of the class A. As 
+	you can see, keeping mental track of which object is linked to which other 
+	object could become complicated.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1128" effect="bold">
+Call the aShow method on the other A object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+The code in 
+
+<link id="a1162" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+ 
+calls the private 
+
+<emphasis id="strong1129" effect="bold">
+aShow
+
+</emphasis>
+ method on the independent object of the class A 
+that was instantiated in the constructor for class C, shown in 
+
+<link id="a1163" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<para id="p1179">
+The output produced by the code in 
+
+<link id="a1164" target-id="Listing_22">
+
+Listing 22
+
+</link>
+
+ is shown in 
+
+<link id="a1165" target-id="Figure_15">
+
+Figure 15
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1180">
+It should come as no surprise that this object of the class A was 
+	instantiated with a constructor parameter value of 10, and that it was the 
+	second object of the class named A that was constructed. 
+
+</para>
+
+
+
+
+
+<para id="p1181">
+This is simply a 
+	matter of code in the constructor for class C instantiating an object of a 
+	top-level class, and is no different in concept from instantiating an object 
+	of the member class B, also shown in 
+
+<link id="a1166" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+<emphasis id="strong1130" effect="bold">
+Inheritance and 
+	containment hierarchies are independent
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1183">
+The remaining code is designed 
+	to demonstrate that the containment hierarchy is completely independent of 
+	the inheritance hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+The class named C is a member of 
+
+<emphasis id="em1044" effect="italics">
+(is contained 
+	in)
+
+</emphasis>
+ the class named B. That constitutes a part of the containment 
+	hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1185">
+The class named C also extends the class named X, which in turn 
+	extends the class named 
+
+<emphasis id="strong1131" effect="bold">
+Object
+
+</emphasis>
+. That constitutes the inheritance 
+	hierarchy. 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+<emphasis id="strong1132" effect="bold">
+Overridden toString methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1187">
+I'm going to put the 
+	discussion of the method named 
+
+<emphasis id="strong1133" effect="bold">
+cShow 
+
+</emphasis>
+on hold and return 
+	to that discussion shortly. 
+
+</para>
+
+
+
+
+
+<para id="p1188">
+The class named X inherits, and overrides the 
+
+<emphasis id="strong1134" effect="bold">
+
+	toString
+
+</emphasis>
+ method, as shown in 
+
+<link id="a1167" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. When this version of the 
+
+<emphasis id="strong1135" effect="bold">
+
+	toString
+
+</emphasis>
+ method is called, it returns the string "
+
+<emphasis id="strong1136" effect="bold">
+toString in Class X
+
+</emphasis>
+". 
+	
+
+</para>
+
+
+
+
+
+<para id="p1189">
+The class named C, which extends the class named X, also overrides the 
+
+<emphasis id="strong1137" effect="bold">
+
+	toString
+
+</emphasis>
+ method as shown in 
+
+<link id="a1168" target-id="Listing_23">
+
+Listing 23
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+	
+
+<para id="p1190">
+When this version of the 
+
+<emphasis id="strong1138" effect="bold">
+toString
+
+</emphasis>
+ method is called, it returns the 
+	string 
+
+</para>
+
+
+
+
+
+<para id="p1191">
+"
+
+<emphasis id="strong1139" effect="bold">
+toString in Class C
+
+</emphasis>
+". 
+
+</para>
+
+
+
+
+
+<para id="p1192">
+We will see the impact of overriding 
+	these two methods later. 
+
+</para>
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1140" effect="bold">
+Illustrate the inheritance hierarchy
+
+</emphasis>
+ 
+	
+
+</para>
+
+
+
+
+
+<para id="p1194">
+Returning to the 
+
+<emphasis id="strong1141" effect="bold">
+cShow 
+
+</emphasis>
+method, the code in 
+
+<link id="a1169" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ illustrates the 
+	inheritance hierarchy to which the class named C belongs by getting and 
+	displaying the value stored in the instance variables named 
+
+<emphasis id="strong1142" effect="bold">
+className 
+
+</emphasis>
+
+	belonging to the object instantiated from the class named C.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1019" display="block">
+
+	
+
+<emphasis id="em1045" effect="italics">
+(The object contains two instance variables having the name 
+
+<emphasis id="strong1143" effect="bold">
+className
+
+</emphasis>
+. 
+	One of these instance variables was contributed to the object by the 
+	superclass named X. The other was contributed to the object by the class 
+	named C.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+	
+
+<para id="p1195">
+<emphasis id="strong1144" effect="bold">
+Two instance variables named className
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1196">
+The 
+
+<emphasis id="strong1145" effect="bold">
+String
+
+</emphasis>
+ value 
+
+<emphasis id="strong1146" effect="bold">
+
+	X
+
+</emphasis>
+ was stored in one of the instance variables named 
+
+<emphasis id="strong1147" effect="bold">
+className
+
+</emphasis>
+ by 
+	the initialization of the variable shown in 
+
+<link id="a1170" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1197">
+The 
+
+<emphasis id="strong1148" effect="bold">
+String
+
+</emphasis>
+ 
+	value 
+
+<emphasis id="strong1149" effect="bold">
+C
+
+</emphasis>
+ was stored in the other instance variable named 
+
+<emphasis id="strong1150" effect="bold">
+className
+
+</emphasis>
+ 
+	by the initialization of the variable shown in 
+
+<link id="a1171" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1020" display="block">
+
+	
+
+<emphasis id="em1046" effect="italics">
+(
+
+</emphasis>
+Note that the variable named 
+
+<emphasis id="strong1151" effect="bold">
+className
+
+</emphasis>
+ is 
+
+<emphasis id="strong1152" effect="bold">
+protected 
+
+</emphasis>
+in 
+	the class named X.
+
+<emphasis id="em1047" effect="italics">
+ A subclass method cannot access a private variable in 
+	a superclass. To be accessible by a subclass method, the superclass variable 
+	must be 
+
+<emphasis id="strong1153" effect="bold">
+protected
+
+</emphasis>
+, 
+
+<emphasis id="strong1154" effect="bold">
+package-private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1155" effect="bold">
+public
+
+</emphasis>
+.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1198">
+<emphasis id="strong1156" effect="bold">
+Two overridden toString methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1199">
+An object instantiated from the class 
+named C also contains two overridden versions of the 
+
+<emphasis id="strong1157" effect="bold">
+toString
+
+</emphasis>
+ method. One 
+version of the method was contributed to the object by the superclass named X. 
+The other version was contributed to the object by the class named C. 
+
+</para>
+
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1158" effect="bold">
+Call 
+the toString methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1201">
+The code in 
+
+<link id="a1172" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ also calls the two overridden 
+
+<emphasis id="strong1159" effect="bold">
+
+toString 
+
+</emphasis>
+methods belonging to the object instantiated from the classes named 
+C. As explained earlier, one version of the 
+
+<emphasis id="strong1160" effect="bold">
+toString 
+
+</emphasis>
+method is overridden 
+in the class named X and the other version is overridden in the class named C.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1021" display="block">
+
+	
+
+<emphasis id="em1048" effect="italics">
+(Note the use of the 
+
+<emphasis id="strong1161" effect="bold">
+super
+
+</emphasis>
+ keyword to access the variable named 
+
+<emphasis id="strong1162" effect="bold">
+
+	className 
+
+</emphasis>
+and the method named 
+
+<emphasis id="strong1163" effect="bold">
+toString 
+
+</emphasis>
+contributed to the object 
+	by the superclass named X.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1202">
+The code in 
+
+<link id="a1173" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1164" effect="bold">
+cShow
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1203">
+<emphasis id="strong1165" effect="bold">
+
+The screen output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1204">
+The output produced by the code in 
+
+<link id="a1174" target-id="Listing_24">
+
+Listing 24
+
+</link>
+
+ is shown in 
+
+
+<link id="a1175" target-id="Figure_16">
+
+Figure 16
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<para id="p1205">
+<link id="a1176" target-id="Figure_16">
+
+Figure 16
+
+</link>
+
+ shows that even though 
+	the class named C is contained in the class named B, the superclass of C is 
+	X, and is not B. To repeat, the containment hierarchy is 
+
+<emphasis id="strong1166" effect="bold">
+<emphasis id="em1049" effect="italics">
+entirely 
+	independent
+
+</emphasis>
+</emphasis>
+ of the inheritance hierarchy. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1022" display="block">
+
+	
+
+<emphasis id="em1050" effect="italics">
+(Note, however, that there is nothing to prevent you from establishing an 
+	inheritance relationship between a member class and one of its containing 
+	classes if such a relationship will serve your needs. For example, in this 
+	program, it would be technically acceptable for the class named B to extend 
+	the class named A provided that either:
+
+</emphasis>
+
+	
+
+<list id="ul1021" list-type="bulleted">
+
+		
+
+<item id="li1104">
+<emphasis id="em1051" effect="italics">
+A noarg constructor is provided for the class named A, or
+
+</emphasis>
+</item>
+
+
+		
+
+<item id="li1105">
+<emphasis id="em1052" effect="italics">
+The constructor for the class named B calls the parameterized 
+		constructor belonging to the class named A.)
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+</list>
+
+
+
+
+</quote>
+
+
+
+
+<para id="p1206">
+And that is probably more than you ever wanted to know about the detailed 
+relationships involving member classes. However, once you start using member 
+classes, you will need to keep these relationships in mind. 
+
+</para>
+
+
+
+
+
+
+	
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1207">
+I encourage you to copy the code from 
+
+<link id="a1177" target-id="Listing_25">
+
+Listing 25
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1208">
+In addition to a number of other items, a class definition can contain:
+
+</para>
+
+
+
+
+
+<list id="ul1022" list-type="bulleted">
+
+	
+
+<item id="li1106">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1107">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1108">
+Anonymous classes
+
+</item>
+
+
+	
+
+<item id="li1109">
+Nested top-level classes and interfaces
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1209">
+This module explains member classes. Future modules will explain local 
+classes and anonymous classes
+
+</para>
+
+
+
+
+
+<para id="p1210">
+A 
+
+<emphasis id="em1053" effect="italics">
+member class
+
+</emphasis>
+ is a class that is defined inside the definition of 
+another class without being declared static. 
+
+</para>
+
+
+
+
+
+<para id="p1211">
+An object of the member class must 
+be internally linked to an object of the enclosing class. A member class is truly 
+an inner class because an object of the member class cannot exist in the absence 
+of an object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1212">
+The methods of a member class have direct 
+access to all the members of the enclosing classes, including private members. 
+Thus the use of member classes can eliminate the requirement to connect objects 
+together via constructor parameters. This is particularly useful in those cases 
+where there is no reason for an object of a member class to exist in the absence 
+of an object of the enclosing class, and where the methods of the object of the 
+member class need access to members of the object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1213">
+The 
+containment hierarchy of member classes is independent of the inheritance 
+hierarchy. However, it is technically possible to establish an inheritance 
+relationship between a member class and one of its enclosing classes. 
+
+</para>
+
+
+
+
+
+<para id="p1214">
+Member 
+classes may be declared private, and may be instantiated from code that would 
+normally have access to a private member at that level. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1215">
+The next module in this series will explain and discuss local classes. 
+A future module will explain 
+
+<emphasis id="em1054" effect="italics">
+anonymous 
+
+</emphasis>
+classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1216">
+A complete listing of the program discussed in this module is show in 
+
+
+<link id="a1178" target-id="Listing_25">
+
+Listing 
+25
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1217">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1167" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1023" list-type="bulleted">
+
+					
+
+<item id="li1110">
+Module name: Java OOP: Member Classes
+
+</item>
+
+
+					
+
+<item id="li1111">
+File: Java1636.htm
+
+
+</item>
+
+
+					
+
+<item id="li1112">
+Published: 11/18/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1168" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1218">
+<emphasis id="strong1169" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1219">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1220">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1221">
+<emphasis id="strong1170" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Figures01" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Class files produced 
+				when the program is compiled.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<code id="pre1000" display="block">A$B$C$D.class
+A$B$C.class
+A$B.class
+A.class
+InnerClasses06.class
+X.class</code>
+
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+							
+
+<code id="pre1001" display="block">In xstr for A, objCntA = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+							
+
+<code id="pre1002" display="block">In xstr for A, objCntA = 1
+In xstr for B, objCntB = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+							
+
+<code id="pre1003" display="block">In xstr for A, objCntA = 1
+In xstr for B, objCntB = 1
+In xstr for C, objCntC = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+							
+
+<code id="pre1004" display="block">Construct obj of private class D.
+Private class file name: A$B$C$D</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+							
+
+<code id="pre1005" display="block">In xstr for A, objCntA = 2
+In xstr for B, objCntB = 2</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+							
+
+<code id="pre1006" display="block">-1-
+In cShow, objNumber = 1
+In cShow, cVar = 3</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+							
+
+<code id="pre1007" display="block">-2-
+In bShow, bVar = 2
+In bShow, objNumber = 1
+In aShow, aVar = 1
+In aShow, objNumber = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+							
+
+<code id="pre1008" display="block">-3-
+In aShow, aVar = 1
+In aShow, objNumber = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Figure_10" effect="bold">
+
+Figure 10
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+							
+
+<code id="pre1009" display="block">-4-
+A$B$C
+A$B$C
+A$B$C
+A$B$C
+A$B$C</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Figure_11" effect="bold">
+
+Figure 11
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+							
+
+<code id="pre1010" display="block">-5-
+A$B
+A$B</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Figure_12" effect="bold">
+
+Figure 12
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+							
+
+<code id="pre1011" display="block">-6-
+A</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Figure_13" effect="bold">
+
+Figure 13
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+							
+
+<code id="pre1012" display="block">-7-
+In cShow, bVar = 20
+A$B
+In cShow, aVar = 10
+A</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Figure_14" effect="bold">
+
+Figure 14
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+							
+
+<code id="pre1013" display="block">-8-
+In bShow, bVar = 20
+In bShow, objNumber = 2
+In aShow, aVar = 1
+In aShow, objNumber = 1</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1014" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Figure_15" effect="bold">
+
+Figure 15
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+							
+
+<code id="pre1014" display="block">-9-
+In aShow, aVar = 10
+In aShow, objNumber = 2</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+
+
+	
+
+<table id="table1015" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Figure_16" effect="bold">
+
+Figure 16
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+							
+
+<code id="pre1015" display="block">-10-
+className = C
+toString in Class C
+className = X
+toString in Class X</code>
+
+
+
+							
+
+</entry>
+
+						
+
+</row>
+
+					
+
+</tbody>
+
+
+				
+
+</tgroup>
+</table>
+
+
+	
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Listings01" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+	
+
+<table id="table1016" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The main method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1016" display="block">public class InnerClasses06{
+  public static void main(String[] args){
+    new A(1).new B(2).new C(3).cShow();
+  }//end main
+}//end class InnerClasses06</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1017" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - The class named X.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+				
+
+<code id="pre1017" display="block">class X{//extends Object by default
+  protected String className = "X";
+
+  public String toString(){
+    return "toString in Class X";
+  }//end overridden toString
+}//end class X</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1018" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1018">
+
+			
+
+<row id="tr1036">
+
+				
+
+<entry id="th1018">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the 
+				top-level class named A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1018">
+
+			
+
+<row id="tr1037">
+
+				
+
+<entry id="td1018">
+
+				
+
+<code id="pre1018" display="block">class A{
+  private int aVar;
+  private int objNumber = 0;
+
+  private static int objCntA = 0;
+  private static int objCntB = 0;
+  private static int objCntC = 0;</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1019" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1019">
+
+			
+
+<row id="tr1038">
+
+				
+
+<entry id="th1019">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Constructor for class A.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1019">
+
+			
+
+<row id="tr1039">
+
+				
+
+<entry id="td1019">
+
+				
+
+<code id="pre1019" display="block">  A(int val){//top-level class constructor
+    aVar = val;
+    objCntA++;//Increment object counter
+    //Record the number of the object being
+    // instantiated
+    objNumber = objCntA;
+    System.out.println(
+      "In xstr for A, objCntA = " + objCntA);
+  }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1020" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1020">
+
+			
+
+<row id="tr1040">
+
+				
+
+<entry id="th1020">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Beginning of the member class named B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1020">
+
+			
+
+<row id="tr1041">
+
+				
+
+<entry id="td1020">
+
+				
+
+<code id="pre1020" display="block">class B{//member class of A
+  private int bVar;
+  private int objNumber = 0;</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+	
+
+	
+
+<table id="table1021" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1021">
+
+			
+
+<row id="tr1042">
+
+				
+
+<entry id="th1021">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Constructor for class B.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1021">
+
+			
+
+<row id="tr1043">
+
+				
+
+<entry id="td1021">
+
+				
+
+<code id="pre1021" display="block">    B(int val){//constructor
+      bVar = val;
+      //Increment static variable in top-level
+      // class named A
+      A.objCntB++;
+      //Record the number of the object being
+      // instantiated
+      objNumber = objCntB;
+      System.out.println(
+          "In xstr for B, objCntB = " + objCntB);
+    }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1022" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1022">
+
+			
+
+<row id="tr1044">
+
+				
+
+<entry id="th1022">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Beginning of the member class named C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1022">
+
+			
+
+<row id="tr1045">
+
+				
+
+<entry id="td1022">
+
+				
+
+<code id="pre1022" display="block">    class C extends X{//member class of B
+      private int cVar;
+      private A refToA;
+      private B refToB;
+      private String className = "C";
+      private int objNumber = 0;</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1023" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1023">
+
+			
+
+<row id="tr1046">
+
+				
+
+<entry id="th1023">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Beginning of constructor for class C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1023">
+
+			
+
+<row id="tr1047">
+
+				
+
+<entry id="td1023">
+
+				
+
+<code id="pre1023" display="block">      C(int val){//constructor
+        cVar = val;
+        //Increment the object counter in the
+        // top-level class named A.
+        A.objCntC++;
+        objNumber = A.objCntC;
+        System.out.println(
+                     "In xstr for C, objCntC = "
+                                   + A.objCntC);</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1024" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1024">
+
+			
+
+<row id="tr1048">
+
+				
+
+<entry id="th1024">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - The private member class 
+				named D.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1024">
+
+			
+
+<row id="tr1049">
+
+				
+
+<entry id="td1024">
+
+				
+
+<code id="pre1024" display="block">      private class D{//member class of C
+        D(){//constructor
+          System.out.println(
+            "Construct obj of private class D.");
+          System.out.println(
+                    "  Private class file name: "
+                    + this.getClass().getName());
+        }//end constructor
+      }//end class D</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1025" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1025">
+
+			
+
+<row id="tr1050">
+
+				
+
+<entry id="th1025">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - More constructor code 
+				for class C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1025">
+
+			
+
+<row id="tr1051">
+
+				
+
+<entry id="td1025">
+
+				
+
+<code id="pre1025" display="block">        new D();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+	
+
+<table id="table1026" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1026">
+
+			
+
+<row id="tr1052">
+
+				
+
+<entry id="th1026">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - More constructor code 
+				for class C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1026">
+
+			
+
+<row id="tr1053">
+
+				
+
+<entry id="td1026">
+
+				
+
+<code id="pre1026" display="block">        refToA = new A(10);
+        refToB = new B(20);
+
+      }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1027" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1027">
+
+			
+
+<row id="tr1054">
+
+				
+
+<entry id="th1027">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - The method named bShow.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1027">
+
+			
+
+<row id="tr1055">
+
+				
+
+<entry id="td1027">
+
+				
+
+<code id="pre1027" display="block">    private void bShow(){
+      System.out.println(
+                     "In bShow, bVar = " + bVar);
+      System.out.println(
+           "In bShow, objNumber = " + objNumber);
+      aShow();
+    }//end bShow</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1028" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1028">
+
+			
+
+<row id="tr1056">
+
+				
+
+<entry id="th1028">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - The method named aShow.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1028">
+
+			
+
+<row id="tr1057">
+
+				
+
+<entry id="td1028">
+
+				
+
+<code id="pre1028" display="block">  private void aShow(){
+    System.out.println(
+                     "In aShow, aVar = " + aVar);
+    System.out.println(
+           "In aShow, objNumber = " + objNumber);
+  }//end aShow</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1029" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1029">
+
+			
+
+<row id="tr1058">
+
+				
+
+<entry id="th1029">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+ - Beginning of the cShow method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1029">
+
+			
+
+<row id="tr1059">
+
+				
+
+<entry id="td1029">
+
+				
+
+<code id="pre1029" display="block">      public void cShow(){
+        System.out.println("-1-");//separator
+        System.out.println(
+           "In cShow, objNumber = " + objNumber);
+        System.out.println(
+                     "In cShow, cVar = " + cVar);</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1030" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1030">
+
+			
+
+<row id="tr1060">
+
+				
+
+<entry id="th1030">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1030">
+
+			
+
+<row id="tr1061">
+
+				
+
+<entry id="td1030">
+
+				
+
+<code id="pre1030" display="block">        System.out.println("-2-");//separator
+
+        bShow();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1031" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1031">
+
+			
+
+<row id="tr1062">
+
+				
+
+<entry id="th1031">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+ - Call the aShow method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1031">
+
+			
+
+<row id="tr1063">
+
+				
+
+<entry id="td1031">
+
+				
+
+<code id="pre1031" display="block">        System.out.println("-3-");//separator
+
+        aShow();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1032" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1032">
+
+			
+
+<row id="tr1064">
+
+				
+
+<entry id="th1032">
+<emphasis id="Listing_17" effect="bold">
+
+Listing 17
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1032">
+
+			
+
+<row id="tr1065">
+
+				
+
+<entry id="td1032">
+
+				
+
+<code id="pre1032" display="block">        System.out.println("-4-");//separator
+
+        System.out.println(getClass().getName());
+        System.out.println(
+                      this.getClass().getName());
+        System.out.println(
+                    C.this.getClass().getName());
+        System.out.println(
+                  B.C.this.getClass().getName());
+        System.out.println(
+                A.B.C.this.getClass().getName());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1033" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1033">
+
+			
+
+<row id="tr1066">
+
+				
+
+<entry id="th1033">
+<emphasis id="Listing_18" effect="bold">
+
+Listing 18
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1033">
+
+			
+
+<row id="tr1067">
+
+				
+
+<entry id="td1033">
+
+				
+
+<code id="pre1033" display="block">        System.out.println("-5-");//separator
+
+        System.out.println(
+                    B.this.getClass().getName());
+        System.out.println(
+                  A.B.this.getClass().getName());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1034" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1034">
+
+			
+
+<row id="tr1068">
+
+				
+
+<entry id="th1034">
+<emphasis id="Listing_19" effect="bold">
+
+Listing 19
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1034">
+
+			
+
+<row id="tr1069">
+
+				
+
+<entry id="td1034">
+
+				
+
+<code id="pre1034" display="block">        System.out.println("-6-");//separator
+
+        System.out.println(
+                    A.this.getClass().getName());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1035" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1035">
+
+			
+
+<row id="tr1070">
+
+				
+
+<entry id="th1035">
+<emphasis id="Listing_20" effect="bold">
+
+Listing 20
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1035">
+
+			
+
+<row id="tr1071">
+
+				
+
+<entry id="td1035">
+
+				
+
+<code id="pre1035" display="block">        System.out.println("-7-");
+
+        System.out.println(
+              "In cShow, bVar = " + refToB.bVar);
+        System.out.println(
+                    refToB.getClass().getName());
+
+        System.out.println(
+              "In cShow, aVar = " + refToA.aVar);
+        System.out.println(
+                    refToA.getClass().getName());</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1036" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1036">
+
+			
+
+<row id="tr1072">
+
+				
+
+<entry id="th1036">
+<emphasis id="Listing_21" effect="bold">
+
+Listing 21
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1036">
+
+			
+
+<row id="tr1073">
+
+				
+
+<entry id="td1036">
+
+				
+
+<code id="pre1036" display="block">        System.out.println("-8-");
+
+        refToB.bShow();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1037" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1037">
+
+			
+
+<row id="tr1074">
+
+				
+
+<entry id="th1037">
+<emphasis id="Listing_22" effect="bold">
+
+Listing 22
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1037">
+
+			
+
+<row id="tr1075">
+
+				
+
+<entry id="td1037">
+
+				
+
+<code id="pre1037" display="block">        System.out.println("-9-");
+
+        refToA.aShow();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+
+
+	
+
+<table id="table1038" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1038">
+
+			
+
+<row id="tr1076">
+
+				
+
+<entry id="th1038">
+<emphasis id="Listing_23" effect="bold">
+
+Listing 23
+
+</emphasis>
+
+ - Overridden toString 
+				method in class C.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1038">
+
+			
+
+<row id="tr1077">
+
+				
+
+<entry id="td1038">
+
+				
+
+<code id="pre1038" display="block">      public String toString(){
+        return "toString in Class C";
+      }//end overridden toString</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+	
+
+<table id="table1039" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1039">
+
+			
+
+<row id="tr1078">
+
+				
+
+<entry id="th1039">
+<emphasis id="Listing_24" effect="bold">
+
+Listing 24
+
+</emphasis>
+
+ - More cShow method code.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1039">
+
+			
+
+<row id="tr1079">
+
+				
+
+<entry id="td1039">
+
+				
+
+<code id="pre1039" display="block">        System.out.println("-10-");
+        System.out.println(
+                     "className = " + className);
+        System.out.println(toString());
+
+        System.out.println(
+               "className = " + super.className);
+        System.out.println(super.toString());
+      }//end cShow method</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1222">
+<emphasis id="strong1171" effect="bold">
+<emphasis id="Listing_25" effect="bold">
+
+Listing 25
+
+</emphasis>
+
+ - Complete program 
+				listing.
+
+</emphasis>
+</para>
+
+
+
+
+				
+
+<code id="pre1040" display="block">/*File InnerClasses06.java
+Copyright 2003 R.G.Baldwin
+
+Rev 6/22/03
+
+Illustrates the use of member classes.  Class B
+is a member class of class A.  Class C is a
+member class of class B.  Class D is a private
+member class of class C.  An object is
+instantiated from the class named A, which makes
+it possible to instantiate an object of the
+member class named B.  According to Flanagan,
+this causes the object of the Class B to be
+internally associated with the object of the
+class named A.  The object of the class named B
+is used to instantiate an object of the member
+class named C.  This object is internally
+associated with the object of the class B.
+
+When the object of the class C is instantiated,
+the constructor for that class instantiates
+separate objects of the classes named A and B and
+also instantiates an object of the private member
+class named D.  The new and separate object of
+the class B continues to be internally associated
+with the original object of the Class A.
+
+A variety of operations are performed from within
+methods belonging to the object of the Class C to
+illustrate the various characteristics of objects
+instantiated from member classes.  Comments in
+the code explain the purpose of each of those
+operations.
+
+The compilation of this program produces the
+following class files:
+
+A$B$C$D.class
+A$B$C.class
+A$B.class
+A.class
+InnerClasses06.class
+X.class
+
+The output from this program is shown below:
+
+In xstr for A, objCntA = 1
+In xstr for B, objCntB = 1
+In xstr for C, objCntC = 1
+Construct obj of private class D.
+  Private class file name: A$B$C$D
+In xstr for A, objCntA = 2
+In xstr for B, objCntB = 2
+-1-
+In cShow, objNumber = 1
+In cShow, cVar = 3
+-2-
+In bShow, bVar = 2
+In bShow, objNumber = 1
+In aShow, aVar = 1
+In aShow, objNumber = 1
+-3-
+In aShow, aVar = 1
+In aShow, objNumber = 1
+-4-
+A$B$C
+A$B$C
+A$B$C
+A$B$C
+A$B$C
+-5-
+A$B
+A$B
+-6-
+A
+-7-
+In cShow, bVar = 20
+A$B
+In cShow, aVar = 10
+A
+-8-
+In bShow, bVar = 20
+In bShow, objNumber = 2
+In aShow, aVar = 1
+In aShow, objNumber = 1
+-9-
+In aShow, aVar = 10
+In aShow, objNumber = 2
+-10-
+className = C
+toString in Class C
+className = X
+toString in Class X
+
+
+Tested using SDK 1.4.1 under WinXP
+************************************************/
+
+public class InnerClasses06{
+  public static void main(String[] args){
+    //Instantiate an object of the member class
+    // named C.  Note that it is necessary to
+    // instantiate objects of the enclosing
+    // classes as well.  Then invoke the public
+    // method named cShow on the object of the
+    // class named C.
+    new A(1).new B(2).new C(3).cShow();
+  }//end main
+}//end class InnerClasses06
+//=============================================//
+
+//This class will be extended by the class named
+// C, which is a member of the class named B,
+// which is a member of the class named A.  This
+// will illustrate that the inheritance
+// hierarchy is independent of the containment
+// hierarchy.
+class X{//extends Object by default
+  protected String className = "X";
+
+  //Override the toString method
+  public String toString(){
+    return "toString in Class X";
+  }//end overridden toString
+}//end class X
+//=============================================//
+
+class A{
+  private int aVar;
+  private static int objCntA = 0;
+  //Cannot place static variable in inner class.
+  // Place it here instead.
+  private static int objCntB = 0;
+  //Cannot place static variable in inner class.
+  // Place it here instead.
+  private static int objCntC = 0;
+  private int objNumber = 0;
+
+  A(int val){//top-level class constructor
+    aVar = val;
+    objCntA++;//Increment object counter
+    //Record the number of the object being
+    // instantiated
+    objNumber = objCntA;
+    System.out.println(
+          "In xstr for A, objCntA = " + objCntA);
+  }//end constructor
+  //-------------------------------------------//
+
+  private void aShow(){
+    System.out.println(
+                     "In aShow, aVar = " + aVar);
+    System.out.println(
+           "In aShow, objNumber = " + objNumber);
+  }//end aShow
+  //===========================================//
+
+  //Note that this class is defined internal to
+  // the class named A.
+  class B{//member class of A
+    private int bVar;
+    private int objNumber = 0;
+
+    B(int val){//constructor
+      bVar = val;
+      //Increment static variable in top-level
+      // class
+      A.objCntB++;
+      //Record the number of the object being
+      // instantiated
+      objNumber = objCntB;
+      System.out.println(
+          "In xstr for B, objCntB = " + objCntB);
+    }//end constructor
+    //-----------------------------------------//
+
+    private void bShow(){
+      System.out.println(
+                     "In bShow, bVar = " + bVar);
+      System.out.println(
+           "In bShow, objNumber = " + objNumber);
+      //Invoke the private method named aShow
+      // belonging to the internally associated
+      // object of the class named A.
+      aShow();
+    }//end bShow
+    //=========================================//
+
+    //Note that this class is defined internal to
+    // the class named B.
+    class C extends X{//member class of B
+      private int cVar;
+      private A refToA;
+      private B refToB;
+      private String className = "C";
+      private int objNumber = 0;
+
+      C(int val){//constructor
+
+        cVar = val;
+        //Instantiate separate objects of the
+        // enclosing classes B and C.  Will
+        // display info about them later.  The
+        // object of the Class B is internally
+        // associated with the original object of
+        // the Class A.
+
+        //Increment the object counter in the
+        // top-level class.
+        A.objCntC++;
+        objNumber = A.objCntC;
+        System.out.println(
+                      "In xstr for C, objCntC = "
+                                    + A.objCntC);
+
+        //Instantiate object of private member
+        // class named D.
+        new D();
+
+        //Instantiate objects of enclosing
+        // classes named A and B.
+
+        refToA = new A(10);
+        refToB = new B(20);
+
+      }//end constructor
+
+      public void cShow(){
+        System.out.println("-1-");//separator
+        //Display private member variables
+        // belonging to this object.
+        System.out.println(
+           "In cShow, objNumber = " + objNumber);
+        System.out.println(
+                     "In cShow, cVar = " + cVar);
+        System.out.println("-2-");//separator
+        //Invoke the private method named bShow
+        // in the internally associated object of
+        // the class named B.  This method will,
+        // in turn invoke the private method
+        // named aShow in the object of the class
+        // named A to which the object of the
+        // class named B is internally
+        // associated.
+        bShow();
+        System.out.println("-3-");//separator
+
+        //Invoke the private method named aShow
+        // in the internally associated object
+        // of the class named A.
+        aShow();
+        System.out.println("-4-");//separator
+
+        //Illustrate the syntax required to gain
+        // access to the objects instantiated
+        // from the classes named C, B, and A.
+        // The first five statements produce the
+        // same result.  The class names that are
+        // displayed match the names of the class
+        // files produced by the compilation
+        // process.
+        System.out.println(getClass().getName());
+        System.out.println(
+                      this.getClass().getName());
+        System.out.println(
+                    C.this.getClass().getName());
+        System.out.println(
+                  B.C.this.getClass().getName());
+        System.out.println(
+                A.B.C.this.getClass().getName());
+        System.out.println("-5-");//separator
+
+        //The following two statements produce
+        // the same output
+        System.out.println(
+                    B.this.getClass().getName());
+        System.out.println(
+                  A.B.this.getClass().getName());
+        System.out.println("-6-");//separator
+
+
+        System.out.println(
+                    A.this.getClass().getName());
+        System.out.println("-7-");
+
+        //Display private instance variables and
+        // class names belonging to separate
+        // objects instantiated from the
+        // enclosing classes named A and B.
+        System.out.println(
+              "In cShow, bVar = " + refToB.bVar);
+        System.out.println(
+                    refToB.getClass().getName());
+
+        System.out.println(
+              "In cShow, aVar = " + refToA.aVar);
+        System.out.println(
+                    refToA.getClass().getName());
+        System.out.println("-8-");
+
+        //Invoke the private bShow method on the
+        // separate object instantiated from the
+        // class named B in order to show the
+        // object to which that object is
+        // internally associated.  Even though
+        // this object was instantiated from
+        // within the constructor for the class
+        // named C, it is internally associated
+        // with the object of the class A that
+        // was originally used to instantiate the
+        // object of the class named C.
+        refToB.bShow();
+        System.out.println("-9-");
+
+        //Invoke the private aShow method on the
+        // separate object instantiated from the
+        // class named A.
+        refToA.aShow();
+        System.out.println("-10-");
+
+        //Illustrate the inheritance hierarchy to
+        // which the class named C belongs by
+        // getting and displaying the variable
+        // named className from both the C class
+        // and the X class.  Note that the
+        // variable is protected in the X class.
+        // Also invoke the overridden toString
+        // methods belonging to the object
+        // instantiated from the class named C.
+        // One version is overridden in the class
+        // named X and the other version is
+        // overridden in the class named C.  Note
+        // that the inheritance hierarchy is
+        // totally independent of the containment
+        // hierarchy.
+        System.out.println(
+                     "className = " + className);
+        System.out.println(toString());
+        //Note: cannot access private variable in
+        // superclass named X. Must be protected,
+        // package, or public.
+        System.out.println(
+               "className = " + super.className);
+        System.out.println(super.toString());
+      }//end cShow
+      //---------------------------------------//
+
+      //Override the toString method
+      public String toString(){
+        return "toString in Class C";
+      }//end overridden toString
+      //=======================================//
+
+      private class D{//member class of C
+        D(){//constructor
+          System.out.println(
+            "Construct obj of private class D.");
+          System.out.println(
+                    "  Private class file name: "
+                    + this.getClass().getName());
+        }//end constructor
+      //Note that all four class definitions end
+      // here in the proper nested order.
+      }//end class D
+    }//end class C
+  }//end class B
+}//end class A</code>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+<para id="p1223">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

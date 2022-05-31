@@ -1,0 +1,4709 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0150: Java OOP: A Gentle Introduction to Java Data Types</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45141</md:content-id>
+  <md:title>Jb0150: Java OOP: A Gentle Introduction to Java Data Types</md:title>
+  <md:abstract>This module introduces Java data types.</md:abstract>
+  <md:uuid>ffc58c53-2363-4f4e-bfca-e8c545f03ff9</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+
+
+<para id="p1000">
+Revised: Sun Mar 27 21:20:50 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+</quote>
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="General">
+
+General
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Prerequisites">
+
+Prerequisites
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1006">
+<link id="a1006" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion">
+
+Discussion
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Primitive_types">
+
+Primitive types
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="WholeNumber_types_">
+
+Whole-number types
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Floating_point_types">
+
+Floating-point types
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1012">
+<link id="a1012" target-id="The_character_type">
+
+The character type
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1013">
+<link id="a1013" target-id="The_boolean_type">
+
+The boolean type
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="User_defined_types">
+
+User-defined or reference types
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+ 
+
+<emphasis id="Preface" effect="bold">
+
+
+</emphasis>
+
+Preface
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+ 
+
+<emphasis id="General" effect="bold">
+
+General
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+<para id="p1002">
+This module is part of a collection of modules designed to help you learn 
+to program computers. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+It introduces Java data types.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Prerequisites" effect="bold">
+
+Prerequisites
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+In addition to an Internet connection and a browser, you will need the 
+following tools 
+
+<emphasis id="em1003" effect="italics">
+(as a minimum) 
+
+</emphasis>
+to work through the exercises in these 
+modules:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1017">
+The Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1004" effect="italics">
+(See
+	
+
+<link id="a1017" url="http://www.oracle.com/technetwork/java/javase/downloads/index.html">
+
+
+	http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1018">
+Documentation for the Sun/Oracle Java Development Kit (JDK) 
+
+<emphasis id="em1005" effect="italics">
+(See
+	
+
+<link id="a1018" url="http://download.oracle.com/javase/7/docs/api/">
+
+
+	http://download.oracle.com/javase/7/docs/api/
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1019">
+A simple IDE or text editor for use in writing Java code.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+The minimum prerequisites for understanding the material in these modules 
+include:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1020">
+An understanding of algebra.
+
+</item>
+
+
+	
+
+<item id="li1021">
+An understanding of all of the material covered in the earlier modules 
+	in this collection.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+ 
+
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+ I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+ 
+
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1022">
+<link id="a1019" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Range of values for whole-number types. 
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1020" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Definition of floating point. 
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1021" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Different ways to represent 623.57185. 
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1022" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Relationships between multiplicative factors and exponentiation. 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1023" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Other ways to represent the same information. 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1024" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Still other ways to represent 623.57185.
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1025" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Range of values for floating-point types. 
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1026" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Example of the use of the boolean type. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+ 
+
+<emphasis id="Discussion" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1000" effect="bold">
+Type-sensitive languages
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+Java and some other modern programming languages make heavy use of a concept that we refer to as 
+
+
+<emphasis id="em1006" effect="italics">
+type
+
+</emphasis>
+, or 
+
+<emphasis id="em1007" effect="italics">
+data type
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+We refer to those languages as 
+
+<emphasis id="em1008" effect="italics">
+type-sensitive languages
+
+</emphasis>
+.
+Not all languages are type-sensitive languages. In particular, some
+languages hide the concept of type from the programmer and
+automatically deal with type issues behind the scenes.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1001" effect="bold">
+So, what do we mean by type?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+One analogy that comes to my mind is international currency. For
+example, many years ago, I spent a little time in Japan and quite a
+long time on an island named Okinawa 
+
+<emphasis id="em1009" effect="italics">
+(Okinawa is now part of Japan)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1002" effect="bold">
+Types of currency
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+At that time, as now, the type of currency used in the United States
+was the dollar. The type of currency used in Japan was the yen, and the
+type of currency used on the island of Okinawa was also the yen.
+However, even though two of the currencies had the same name, they
+were different types of currency, as determined by the value
+relationships among them.
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1003" effect="bold">
+The exchange rate
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+As I recall, at that time, the exchange rate between the Japanese
+yen and the U.S. dollar was 360 yen for each dollar. The exchange rate
+between the Okinawan yen and the U.S. dollar was 120 yen for each dollar.
+This suggests that the exchange rate between the Japanese yen and the
+Okinawan yen would have been 3 Japanese yen for each Okinawan yen.
+
+</para>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1004" effect="bold">
+Analogous to different types of data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+So, why am I telling you this? I am telling you this to illustrate
+the concept that different types of currency are roughly analogous to
+different data types in programming.
+
+</para>
+
+
+
+
+
+<para id="p1018">
+<emphasis id="strong1005" effect="bold">
+Purchasing transactions were type sensitive
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+In particular, because there were three different types of currency involved,
+the differences in the types had to be taken into account in any
+purchasing transaction to determine the price in that particular
+currency. In other words, the purchasing process was sensitive to the
+type of currency being used for the purchase 
+
+<emphasis id="em1010" effect="italics">
+(type sensitive)
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1006" effect="bold">
+Different types of data
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1021">
+Type-sensitive programming languages deal with different types of data.  Some data types 
+such at type 
+
+<emphasis id="strong1007" effect="bold">
+int
+
+</emphasis>
+ involve whole numbers only 
+
+<emphasis id="em1011" effect="italics">
+(no fractional parts are allowed)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+Other data types such as 
+
+<emphasis id="strong1008" effect="bold">
+double
+
+</emphasis>
+ involve numbers with fractional parts.
+
+</para>
+
+
+
+
+
+<para id="p1023">
+Some data types conceptually have nothing to do with numeric values, but deal only with the concept of true or false 
+
+
+<emphasis id="em1012" effect="italics">
+(
+
+<emphasis id="strong1009" effect="bold">
+boolean
+
+</emphasis>
+)
+
+</emphasis>
+ or with the concept of the letters of the alphabet and the punctuation characters
+
+
+<emphasis id="em1013" effect="italics">
+(
+
+<emphasis id="strong1010" effect="bold">
+char
+
+</emphasis>
+)
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1011" effect="bold">
+Type specification
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+For every different type of data used with a particular programming
+language, there is a specification somewhere that defines two important
+characteristics of the type:
+
+</para>
+
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1030">
+What is the set of all possible data values that can be stored in an instance of the type 
+	
+
+<emphasis id="em1014" effect="italics">
+(we will learn some other names for instance later)
+
+</emphasis>
+?
+
+</item>
+
+
+	
+
+<item id="li1031">
+Once
+you have an instance of the type, what are the operations that you can
+perform on that instance alone, or in combination with other instances?
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1012" effect="bold">
+What do I mean by an instance of a type?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+Think of the type specification as being analogous to the plan or
+blueprint for a model airplane. Assume that you build three model
+airplanes from the same set of plans. You will have created three
+
+
+<emphasis id="em1015" effect="italics">
+instances
+
+</emphasis>
+ of the plans.
+
+</para>
+
+
+
+
+
+<para id="p1028">
+We might say that an 
+
+<emphasis id="em1016" effect="italics">
+instance
+
+</emphasis>
+ is the physical manifestation of a plan or a type.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1029">
+<emphasis id="strong1013" effect="bold">
+Using mixed types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1030">
+Somewhat secondary to the specifications for the different types,
+but also extremely important, is a set of rules that define what
+happens when you perform an operation involving mixed types 
+
+<emphasis id="em1017" effect="italics">
+(such as making a purchase using some yen currency in combination with some dollar currency)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1014" effect="bold">
+The short data type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1032">
+For example, in addition to the integer type 
+
+<emphasis id="strong1015" effect="bold">
+int
+
+</emphasis>
+, there is a data type in Java known as 
+
+
+<emphasis id="strong1016" effect="bold">
+short
+
+</emphasis>
+.  The 
+
+<emphasis id="strong1017" effect="bold">
+short
+
+</emphasis>
+ type is also an integer 
+type.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+If you have an instance of the 
+
+<emphasis id="strong1018" effect="bold">
+short
+
+</emphasis>
+ type, the set
+of all possible values that you can store in that instance is the set
+of all the whole numbers ranging from -32,768 to +32,767.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+This constitutes a set of 65,536 different values, including the
+value zero. No other value can be stored in an instance of the type 
+
+<emphasis id="strong1019" effect="bold">
+short
+
+</emphasis>
+.  For example, you cannot store the value 35,000 in an instance of the type 
+
+
+<emphasis id="strong1020" effect="bold">
+short
+
+</emphasis>
+ in Java.  If you need to store that value, you will need to use some type other than 
+
+
+<emphasis id="strong1021" effect="bold">
+short
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1022" effect="bold">
+Kind of like an odometer
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+This is somewhat analogous to the odometer in your car 
+
+<emphasis id="em1018" effect="italics">
+(the thing that records how many miles the car has been driven)
+
+</emphasis>
+.
+For example, depending on the make and model of car, there is a
+specified set of values that can appear in the odometer. The value that
+appears in the odometer depends on how many miles your car has been
+driven.
+
+</para>
+
+
+
+
+
+<para id="p1037">
+It is fairly common for an odometer to be able to store and to
+display the set of all positive values ranging from zero to 99999. If
+your odometer is designed to store that set of values and if you drive
+your car more than 99999 miles, it is likely that the odometer will
+roll over and start back at zero after you pass the 99999-mile mark. In
+other words, that particular odometer does not have the ability to
+store a value of 100,000 miles. Once you pass the 99999-mark, the data
+stored in the odometer is corrupt.
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1023" effect="bold">
+Now let's return to the Java type named short
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1039">
+Assume that you have two instances of the type 
+
+<emphasis id="strong1024" effect="bold">
+short
+
+</emphasis>
+ in a Java program.  What are the operations that you can perform on those instances?  For example:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1032">
+You can add them together.
+    
+
+</item>
+
+
+	
+
+<item id="li1033">
+You can subtract one from the other.
+    
+
+</item>
+
+
+	
+
+<item id="li1034">
+You can multiply one by the other.
+    
+
+</item>
+
+
+	
+
+<item id="li1035">
+You can divide one by the other.
+    
+
+</item>
+
+
+	
+
+<item id="li1036">
+You can compare one with the other to determine which is algebraically larger.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1040">
+There are some other operations that are allowed as well. In fact,
+there is a well-defined set of operations that you are allowed to
+perform on those instances. That set of operations is defined in the
+specification for the type 
+
+<emphasis id="strong1025" effect="bold">
+short
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1041">
+<emphasis id="strong1026" effect="bold">
+What if you want to do something different?
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1042">
+However, if you want to perform an operation that is not allowed by
+the type specification, then you will have to find another way to
+accomplish that purpose.
+
+
+</para>
+
+
+
+
+
+<para id="p1043">
+For example, some programming languages allow you to raise whole-number types to a power 
+
+
+<emphasis id="em1019" effect="italics">
+(examples:  four squared, six cubed, nine to the fourth power, etc.)
+
+</emphasis>
+.  However, that operation is not allowed by the Java specification for the type 
+
+
+<emphasis id="strong1027" effect="bold">
+short
+
+</emphasis>
+.  If you need to do that operation with a data value of the Java 
+
+
+<emphasis id="strong1028" effect="bold">
+short
+
+</emphasis>
+ type, you must find another way to do it.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1029" effect="bold">
+Two major categories of type
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+Java data types can be subdivided into two major categories:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1037">
+Primitive types
+    
+
+</item>
+
+
+	
+
+<item id="li1038">
+User-defined or reference types
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1046">
+These categories are discussed in more detail in the following sections.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Primitive_types" effect="bold">
+
+Primitive types
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+Java is an extensible programming language
+
+</para>
+
+
+
+
+
+<para id="p1048">
+What this means is that there is a core component to the language that
+is always available.  Beyond this, individual programmers can extend
+the language to provide new capabilities.  The primitive types discussed
+in this section are the types that are part of the core language. 
+A later section will discuss user-defined types that become available when
+a programmer extends the language. 
+
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1030" effect="bold">
+More subdivision 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1050">
+It seems that when teaching programming, I constantly find myself subdividing
+topics into sub-topics.  I am going to subdivide the topic of Primitive
+Types into four categories:
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+  
+
+<item id="li1039">
+Whole-number types
+  
+
+</item>
+
+
+  
+
+<item id="li1040">
+Floating-point types
+  
+
+</item>
+
+
+  
+
+<item id="li1041">
+Character types
+  
+
+</item>
+
+
+  
+
+<item id="li1042">
+Boolean types 
+  
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1051">
+Hopefully this categorization will make it possible for me to explain these
+types in a way that is easier for you to understand. 
+
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="WholeNumber_types_" effect="bold">
+
+Whole-number types 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1052">
+The whole-number types, often called 
+
+<emphasis id="em1020" effect="italics">
+integer
+
+</emphasis>
+ types, are relatively 
+easy to understand.  These are types that can be used to represent
+data without fractional parts. 
+
+
+</para>
+
+
+
+
+
+<para id="p1053">
+<emphasis id="strong1031" effect="bold">
+Applesauce and hamburger 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1054">
+For example, consider purchasing applesauce and hamburger.  At
+the grocery store where I shop, I am allowed to purchase cans of applesauce
+only in whole-number or integer quantities. 
+
+
+</para>
+
+
+
+
+
+<para id="p1055">
+<emphasis id="strong1032" effect="bold">
+Can purchase integer quantities only 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1056">
+For example, the grocer is happy to sell me one can of applesauce and
+is even happier to sell me 36 cans of applesauce.  However, she would
+be very unhappy if I were to open a can of applesauce in the store and
+attempt to purchase 6.3 cans of applesauce. 
+
+
+</para>
+
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1033" effect="bold">
+Counting doesn't require fractional parts 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1058">
+A count of the number of cans of applesauce that I purchase is somewhat
+analogous to the concept of whole-number data types in Java.  Applesauce
+is not available in fractional parts of cans 
+
+<emphasis id="em1021" effect="italics">
+(at my grocery store)
+
+</emphasis>
+. 
+
+
+</para>
+
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1034" effect="bold">
+Fractional pounds of hamburger are available 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1060">
+On the other hand, the grocer is perfectly willing to sell me 6.3 pounds
+of hamburger.  This is somewhat analogous to 
+
+<emphasis id="em1022" effect="italics">
+floating-point data types
+
+</emphasis>
+
+in Java. 
+
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1035" effect="bold">
+Accommodating applesauce and hamburger in a
+program 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Therefore, if I were writing a program dealing with quantities of applesauce
+and hamburger, I might elect to use a whole number type to represent cans
+of applesauce and to use a floating-point type to represent pounds of hamburger. 
+
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1036" effect="bold">
+Different whole-number types 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1064">
+In Java, there are four different whole-number types:
+
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+  
+
+<item id="li1043">
+byte
+
+</item>
+
+
+  
+
+<item id="li1044">
+short
+
+</item>
+
+
+  
+
+<item id="li1045">
+int
+
+</item>
+
+
+  
+
+<item id="li1046">
+long 
+  
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1065">
+<emphasis id="em1023" effect="italics">
+(The char type is also a whole number type, but since it is not intended 
+to be used for arithmetic, I discuss it later as a character type.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1066">
+The four types differ primarily in terms of the range of values that they
+can accommodate and the amount of computer memory required to store instances
+of the types. 
+
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1037" effect="bold">
+Differences in operations?
+
+</emphasis>
+ 
+
+
+</para>
+
+
+
+
+
+<para id="p1068">
+Although there are some subtle differences among the four whole-number types in terms of the
+operations that you can perform on them, I will defer a discussion of those
+differences until a more advanced module. 
+
+<emphasis id="em1024" effect="italics">
+(For example some operations require
+instances of the 
+
+<emphasis id="strong1038" effect="bold">
+byte
+
+</emphasis>
+ and 
+
+<emphasis id="strong1039" effect="bold">
+short
+
+</emphasis>
+ types to be converted to
+type
+
+
+<emphasis id="strong1040" effect="bold">
+int
+
+</emphasis>
+ before the operation takes place.) 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1041" effect="bold">
+Algebraically signed values 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1070">
+All four of these types can be used to represent algebraically signed
+values ranging from a specific negative value to a specific positive value. 
+
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1042" effect="bold">
+Range of the byte type 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1072">
+For example, the 
+
+<emphasis id="strong1043" effect="bold">
+byte
+
+</emphasis>
+ type can be used to represent the set of
+whole numbers ranging from -128 to +127 inclusive.  
+
+<emphasis id="em1025" effect="italics">
+(This
+constitutes a set of 256 different values, including the value zero.) 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1073">
+The 
+
+<emphasis id="strong1044" effect="bold">
+byte
+
+</emphasis>
+ type cannot be used to
+represent any value outside this range.  For example, the 
+
+<emphasis id="strong1045" effect="bold">
+byte
+
+</emphasis>
+
+type cannot be used to represent either -129 or +128. 
+
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1046" effect="bold">
+No fractional parts allowed by the byte type 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1075">
+Also, the 
+
+<emphasis id="strong1047" effect="bold">
+byte
+
+</emphasis>
+ type cannot be used to represent fractional values
+within the allowable range.  For example, the byte type cannot
+be used to represent the value of 63.5 or any other value that has a fractional
+part. 
+
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1048" effect="bold">
+Like a strange odometer 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1077">
+To form a crude analogy, the byte type is sort of like a strange
+odometer in a new 
+
+<emphasis id="em1026" effect="italics">
+(and unusual)
+
+</emphasis>
+ car that shows a mileage value of -128
+when you first purchase the car.  As you drive the car, the negative
+values shown on the odometer increment toward zero and then pass zero. 
+Beyond that point they increment up toward the value of +127. 
+
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1049" effect="bold">
+Oops, numeric overflow! 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1079">
+When the value passes 
+
+<emphasis id="em1027" effect="italics">
+(or attempts to pass)
+
+</emphasis>
+ +127 miles, something bad
+happens.  From that point forward, the value shown on the odometer
+is not a reliable indicator of the number of miles that the car has been
+driven. 
+
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1050" effect="bold">
+Ranges for each of the whole-number types 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the range of values that can be accommodated
+by each of the four whole-number types supported by the Java programming
+language:
+
+
+
+</para>
+
+
+
+
+	
+
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1000">
+<row id="tr1000">
+<entry id="th1000">
+
+
+
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Range of values for whole-number types.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1000">
+<row id="tr1001">
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+byte
+-128 to +127
+
+short
+-32768 to +32767
+
+int
+-2147483648 to +2147483647
+
+long
+-9223372036854775808 to +9223372036854775807</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1082">
+<emphasis id="strong1051" effect="bold">
+Can represent some fairly large values
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+As you can see, the 
+
+<emphasis id="strong1052" effect="bold">
+int
+
+</emphasis>
+ and 
+
+<emphasis id="strong1053" effect="bold">
+long
+
+</emphasis>
+ types can represent some fairly large values.  However, if your task involves calculations such as distances in interstellar space, these ranges probably won't accommodate your needs.  This will lead you to consider using the 
+
+
+<emphasis id="em1028" effect="italics">
+floating-point
+
+</emphasis>
+ types discussed in the upcoming sections. I will discuss 
+the operations that can be performed on whole-number types more fully in future 
+modules.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Floating_point_types" effect="bold">
+
+Floating-point types
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1084">
+Floating-point types are a little more complicated than whole-number types.  I found the definition of floating-point 
+shown in 
+
+<link id="a1028" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ in the 
+
+
+<emphasis id="em1029" effect="italics">
+Free On-Line Dictionary of Computing
+
+</emphasis>
+ at this 
+
+
+<link id="a1029" url="http://foldoc.org/floating+point">
+
+URL
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1001">
+<row id="tr1002">
+<entry id="th1001">
+
+
+
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Definition of floating point.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1001">
+<row id="tr1003">
+<entry id="td1001">
+
+
+
+<para id="p1085">
+A number representation consisting of a mantissa, M, an exponent, E, and an (assumed) radix 
+
+
+<emphasis id="em1030" effect="italics">
+(or "base") 
+
+</emphasis>
+. The number represented is M*R^E where R is the radix - usually ten but sometimes 2.
+
+</para>
+
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1086">
+<emphasis id="strong1054" effect="bold">
+So what does this really mean?
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1087">
+Assuming a base or radix of 10, I will attempt to explain it using an example.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1088">
+Consider the following value:
+
+
+
+</para>
+
+
+
+
+
+<para id="p1089">
+623.57185
+
+
+
+</para>
+
+
+
+
+
+<para id="p1090">
+I can represent this value in any of the ways shown in 
+
+<link id="a1030" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+ 
+
+<emphasis id="em1031" effect="italics">
+(where * indicates multiplication). 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1002">
+<row id="tr1004">
+<entry id="th1002">
+
+
+
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Different ways to represent 623.57185.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1002">
+<row id="tr1005">
+<entry id="td1002">
+
+
+
+<code id="pre1001" display="block">
+.62357185*1000
+6.2357185*100
+62.357185*10
+623.57185*1
+6235.7185*0.1
+62357.185*0.01
+623571.85*0.001
+6235718.5*0.0001
+62357185.*0.00001 </code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+	
+
+<para id="p1091">
+In other words, I can represent the value as a mantissa (62357185) multiplied by a factor where the purpose of the factor is to represent a left or right shift in the position of the decimal point.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1055" effect="bold">
+Now consider the factor
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+Each of the factors shown in 
+
+<link id="a1031" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+ represents the value of ten raised to some specific power, such as ten squared, ten cubed, ten raised to the fourth power, etc. 
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1056" effect="bold">
+Exponentiation
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+If we allow the following symbol (^) to represent exponentiation 
+
+<emphasis id="em1032" effect="italics">
+(raising to a power)
+
+</emphasis>
+ and allow the following symbol (/) to represent division, then we can write the values for the above factors in the 
+ways shown in 
+
+<link id="a1032" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+Note in particular the characters 
+following the first equal character (=) on each line, which I will refer to later as the exponents. 
+
+</para>
+
+
+
+	
+
+
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1003">
+<row id="tr1006">
+<entry id="th1003">
+
+
+
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+. Relationships between multiplicative factors 
+and exponentiation.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1003">
+<row id="tr1007">
+<entry id="td1003">
+
+
+
+<code id="pre1002" display="block">1000 = 10^+3 = 1*10*10*10
+100 = 10^+2 = 1*10*10
+10 = 10^+1 = 1*10
+1 = 10^+0 = 1
+0.1 = 10^-1 = 1/10
+0.01 = 10^-2 = 1/(10*10)
+0.001 = 10^-3 = 1/(10*10*10)
+0.0001 = 10^-4 = 1/(10*10*10*10)
+0.00001 = 10^-5 = 1/(10*10*10*10*10) </code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+	
+
+<para id="p1097">
+In the above notation, the term 10^+3 means 10 raised to the third power.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1057" effect="bold">
+The zeroth power
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+By definition, the value of any value raised to the zeroth power is 1.  
+
+<emphasis id="em1033" effect="italics">
+(Check this out in your high-school algebra book.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1058" effect="bold">
+The exponent and the factor
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+Hopefully, at this point you will understand the relationship between the exponent 
+and the factor introduced earlier in 
+
+<link id="a1033" target-id="Figure_3">
+
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+<emphasis id="strong1059" effect="bold">
+Different ways to represent the same value
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+Having reached this point, by using substitution, I can rewrite the 
+
+
+<link id="a1034" target-id="Figure_3">
+
+original set of representations
+
+</link>
+
+ of the value 623.57185 in the ways 
+shown in 
+
+<link id="a1035" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.  
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<emphasis id="em1034" effect="italics">
+(It is very important to for you to understand that these are simply different ways to represent the same value.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1004">
+<row id="tr1008">
+<entry id="th1004">
+
+
+
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+. Other ways to represent the same information.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1004">
+<row id="tr1009">
+<entry id="td1004">
+
+
+
+<code id="pre1003" display="block">.62357185*10^+3
+6.2357185*10^+2
+62.357185*10^+1
+623.57185*10^+0
+6235.7185*10^-1
+62357.185*10^-2
+623571.85*10^-3
+6235718.5*10^-4
+62357185.*10^-5 </code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+	
+
+<para id="p1105">
+<emphasis id="strong1060" effect="bold">
+A simple change in notation
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1106">
+Finally, by making a simplifying change in notation where I replace (*10^) by 
+(E) I can rewrite the different representations of the value of 623.57185 in the 
+ways shown in 
+
+<link id="a1036" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+	
+
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1005">
+<row id="tr1010">
+<entry id="th1005">
+
+
+
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+. Still other ways to represent 623.57185.
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1005">
+<row id="tr1011">
+<entry id="td1005">
+
+
+
+<code id="pre1004" display="block">.62357185E+3
+6.2357185E+2
+62.357185E+1
+623.57185E+0
+6235.7185E-1
+62357.185E-2
+623571.85E-3
+6235718.5E-4
+62357185.E-5 </code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1107">
+<emphasis id="strong1061" effect="bold">
+Getting the true value
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+Floating point types represent values as a mantissa containing a decimal point along with an exponent value which tells how many places to shift the decimal point to the left or to the right in order to determine the true value.
+
+</para>
+
+
+
+
+
+<para id="p1109">
+Positive exponent values mean that the decimal point should be shifted to the right.  Negative exponent values mean that the decimal point should be shifted to the left. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1062" effect="bold">
+Maintaining fractional parts
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+One advantage of floating-point types is that they can be used to maintain 
+fractional parts in data values, such as 6.3 pounds of hamburger.
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1063" effect="bold">
+Accommodating a very large range of values
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+Another advantage is that a very large range of values can be represented using a reasonably small amount of computer memory for storage of the values.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1064" effect="bold">
+Another example
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+For example 
+
+<emphasis id="em1035" effect="italics">
+(assuming that I counted the number of digits correctly)
+
+</emphasis>
+ the following very large value 
+
+</para>
+
+
+
+
+
+<code id="pre1005" display="block">62357185000000000000000000000000000000.0 </code>
+
+
+
+
+<para id="p1116">
+can be represented as
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1006" display="block">6.2357185E+37 </code>
+
+
+
+
+<para id="p1117">
+Similarly, again assuming that I counted the digits correctly, the following very small value
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1007" display="block">0.0000000000000000000000000000062357185 </code>
+
+
+
+
+<para id="p1118">
+can be represented as
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1008" display="block">6.2357185E-30 </code>
+
+
+
+
+<para id="p1119">
+<emphasis id="strong1065" effect="bold">
+When would you use floating-point?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+If you happen to be working in an area where you
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1047">
+need to keep track of fractional parts 
+
+<emphasis id="em1036" effect="italics">
+(such as the amount of hamburger in a package)
+
+</emphasis>
+, 
+	
+
+</item>
+
+
+	
+
+<item id="li1048">
+have to work with extremely large numbers 
+
+<emphasis id="em1037" effect="italics">
+(distances between galaxies)
+
+</emphasis>
+, or 
+	
+
+</item>
+
+
+	
+
+<item id="li1049">
+have to work with extremely small values 
+
+<emphasis id="em1038" effect="italics">
+(the size of atomic particles)
+
+</emphasis>
+, 
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1121">
+then you will need to use the floating-point types. 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1066" effect="bold">
+Don't use floating-point in financial transactions
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1123">
+You probably don't want to use floating-point in financial calculations, 
+however, because there is a lot of rounding that takes place in floating-point 
+calculations. In other words, floating point calculations provide answers that 
+are very close to the truth but the answers are often not exact.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+<emphasis id="strong1067" effect="bold">
+Two floating-point types
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+Java supports two different floating point types:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1050">
+float
+    
+
+</item>
+
+
+	
+
+<item id="li1051">
+double 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1126">
+These two types differ primarily in terms of the range of values that they can support.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1068" effect="bold">
+Range of values for floating point types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+The table in 
+
+<link id="a1037" target-id="Figure_7">
+
+
+<emphasis id="strong1069" effect="bold">
+<link id="a1038" target-id="Figure_7">
+
+ Figure 7
+
+</link>
+
+
+</emphasis>
+</link>
+
+ shows the smallest and largest values that can be accommodated by each of the floating-point types.  Values of either type can be either positive or negative. 
+
+</para>
+
+
+
+	
+
+
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1006">
+<row id="tr1012">
+<entry id="th1006">
+
+
+
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+. Range of values for floating-point types.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1006">
+<row id="tr1013">
+<entry id="td1006">
+
+
+
+<code id="pre1009" display="block">float
+1.4E-45 to 3.4028235E38
+
+double
+4.9E-324 to 1.7976931348623157E308</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1129">
+I will discuss the operations that can be performed on floating-point types in a 
+future module.
+
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="The_character_type" effect="bold">
+
+The character type
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1130">
+Computers deal only in numeric values.  They don't know how to deal directly with the letters of the alphabet and punctuation characters.
+
+This gives rise to a type named 
+
+<emphasis id="strong1070" effect="bold">
+char
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1131">
+<emphasis id="strong1071" effect="bold">
+Purpose of the char type
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+The purpose of the character type is to make it possible to represent the letters of the alphabet, the punctuation characters, and the numeric characters internally in the computer.  This is accomplished by assigning a numeric value to each character, much as you may have done to create secret codes when you were a child.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1072" effect="bold">
+A single character type
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+Java supports a single character type named 
+
+<emphasis id="strong1073" effect="bold">
+char
+
+</emphasis>
+.  The char type uses a standard character representation known as 
+
+
+<emphasis id="strong1074" effect="bold">
+Unicode
+
+</emphasis>
+ to represent up to 65,535 different characters. 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+<emphasis id="strong1075" effect="bold">
+Why so many characters?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1136">
+The reason for the large number of possible characters is to make it possible to represent the characters making up the alphabets of many different countries and many different 
+spoken languages.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1137">
+<emphasis id="strong1076" effect="bold">
+What are the numeric values representing characters?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+As long as the characters that you use in your program appear on your keyboard, you usually don't have a need to know the numeric value associated with the different characters.
+
+If you are curious, however, the upper-case A is represented by the value 65 in 
+the Unicode character set.
+
+</para>
+
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1077" effect="bold">
+Representing a character symbolically
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+In Java, you usually represent a character in your program by surrounding it with apostrophes as 
+shown below:
+
+</para>
+
+
+
+
+
+<para id="p1141">
+'A'. 
+
+</para>
+
+
+
+
+
+<para id="p1142">
+The Java programming tools know how to cross reference that specific character symbol against the Unicode table to obtain the corresponding numeric value.  
+
+
+<emphasis id="em1039" effect="italics">
+(A discussion of the use of the 
+
+<emphasis id="strong1078" effect="bold">
+char
+
+</emphasis>
+ type to represent characters that don't appear on your keyboard is beyond the scope of this 
+module.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1143">
+I will discuss the operations that can be performed on the 
+
+<emphasis id="strong1079" effect="bold">
+char
+
+</emphasis>
+ type in a 
+future module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_boolean_type" effect="bold">
+
+The boolean type
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1144">
+The boolean type is the simplest type supported by Java.  It can have only two values:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1052">
+true
+    
+
+</item>
+
+
+	
+
+<item id="li1053">
+false
+
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1145">
+Generally speaking, about the only operations that can be directly applied to an instance of the
+
+
+<emphasis id="strong1080" effect="bold">
+boolean
+
+</emphasis>
+ type are to change it from 
+
+<emphasis id="strong1081" effect="bold">
+true
+
+</emphasis>
+ to 
+
+
+<emphasis id="strong1082" effect="bold">
+false
+
+</emphasis>
+, and vice versa. However, the 
+
+<emphasis id="strong1083" effect="bold">
+boolean
+
+</emphasis>
+ 
+type can be included in a large number of somewhat higher-level operations.
+
+</para>
+
+
+
+
+
+<para id="p1146">
+The 
+
+<emphasis id="strong1084" effect="bold">
+boolean
+
+</emphasis>
+ type is commonly used in some sort of a test to determine what to do next, such as 
+that shown in 
+
+<link id="a1039" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+
+
+<thead id="thead1007">
+<row id="tr1014">
+<entry id="th1007">
+
+
+
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+. Example of the use of the boolean type.
+
+
+</entry>
+</row>
+</thead>
+
+
+
+
+<tbody id="tbody1007">
+<row id="tr1015">
+<entry id="td1007">
+
+
+
+<code id="pre1010" display="block">
+Perform a test that returns a value of type boolean.
+if that value is true,
+  do one thing 
+otherwise (meaning that value is false)
+  do a different thing</code>
+
+
+
+
+</entry>
+</row>
+</tbody>
+
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+
+<para id="p1147">
+ I will discuss the operations that can be performed on the 
+
+<emphasis id="strong1085" effect="bold">
+boolean
+
+</emphasis>
+ type in 
+more detail in a future module.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="User_defined_types" effect="bold">
+
+User-defined or reference types
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1086" effect="bold">
+Extending the language
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+Java is an 
+
+<emphasis id="em1040" effect="italics">
+extensible
+
+</emphasis>
+ programming language.  By this, I mean that there is a core component to the language that is always available.  Beyond 
+the core component, different programmers can extend the language in different ways to meet their individual needs. 
+
+</para>
+
+
+
+
+
+<para id="p1150">
+<emphasis id="strong1087" effect="bold">
+Creating new types
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1151">
+One of the ways that individual programmers can extend the language is to create new types.  When creating a new type, the 
+programmer must define the set of values that can be stored in an instance of the type as well as the operations that can be performed on instances of the type. 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+<emphasis id="strong1088" effect="bold">
+No magic involved
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1153">
+While this might initially seem like magic, once you get to the heart of the matter, it is really pretty straightforward.  New types are created by combining instances of primitive types 
+along with instances of 
+other user-defined types. In other words, the process begins with the 
+primitive types explained earlier and builds upward from there.
+
+</para>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1089" effect="bold">
+An example
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1155">
+For example, a 
+
+<emphasis id="strong1090" effect="bold">
+String
+
+</emphasis>
+ type, which can be used to represent a person's last name, is just a grouping of a bunch of instances of the primitive 
+
+
+<emphasis id="strong1091" effect="bold">
+char
+
+</emphasis>
+ or character type.
+
+</para>
+
+
+
+
+
+<para id="p1156">
+A user-defined 
+
+<emphasis id="strong1092" effect="bold">
+Person
+
+</emphasis>
+ type, which could be used to represent both a person's first name and their last name, might simply be a grouping of two instances of the user-defined 
+
+
+<emphasis id="strong1093" effect="bold">
+String
+
+</emphasis>
+ type. 
+
+<emphasis id="em1041" effect="italics">
+(The 
+
+<emphasis id="strong1094" effect="bold">
+String
+
+</emphasis>
+ type is part of 
+the Java standard library. However, the standard library doesn't have a type 
+named 
+
+<emphasis id="strong1095" effect="bold">
+Person
+
+</emphasis>
+. If you need that type, you will have to define it 
+yourself.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1157">
+<emphasis id="strong1096" effect="bold">
+Differences
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1158">
+The biggest conceptual difference between the 
+
+<emphasis id="strong1097" effect="bold">
+String
+
+</emphasis>
+ type and the
+
+
+<emphasis id="strong1098" effect="bold">
+Person
+
+</emphasis>
+ type is that the 
+
+<emphasis id="strong1099" effect="bold">
+String
+
+</emphasis>
+ type is 
+contained in the 
+standard Java library while the 
+
+<emphasis id="strong1100" effect="bold">
+Person
+
+</emphasis>
+ type isn't in that 
+library. However, you could put it in a library of your own design if you choose 
+to do so.
+
+</para>
+
+
+
+
+
+<para id="p1159">
+<emphasis id="strong1101" effect="bold">
+Removing types
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1160">
+You could easily remove the 
+
+<emphasis id="strong1102" effect="bold">
+String
+
+</emphasis>
+ type from your copy of the 
+standard Java library if you choose to do so, although that would probably be a 
+bad idea. However, you cannot remove the primitive 
+
+<emphasis id="strong1103" effect="bold">
+double
+
+</emphasis>
+ type 
+from the core language without making major modifications to the language.
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1104" effect="bold">
+The company telephone book
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+A programmer responsible for producing the company telephone book might create a new type that can be used to store the first and last names along with the telephone number of an individual. 
+That programmer might choose to give the new type the name 
+
+<emphasis id="strong1105" effect="bold">
+Employee
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+The programmer could create an instance of the 
+
+<emphasis id="strong1106" effect="bold">
+Employee
+
+</emphasis>
+ type 
+to represent each employee in the company, populating each such instance with 
+the name and telephone number for an individual employee.  
+
+
+<emphasis id="em1042" effect="italics">
+(At this point, let me sneak a little jargon in and tell you that we will be referring to such instances as objects.)
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+<emphasis id="strong1107" effect="bold">
+A comparison operation
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1165">
+The programmer might define one of the allowable operations for the new 
+
+
+<emphasis id="strong1108" effect="bold">
+Employee
+
+</emphasis>
+ type to be a comparison between two objects of the new type to determine which is greater in an alphabetical sorting sense.  This operation could be used to sort the set of objects representing all of the employees into alphabetical order.  The set of sorted objects could then be used to print a new telephone book.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1109" effect="bold">
+A name-change operation
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1167">
+Another allowable operation that the programmer might define would be the ability to change the name stored in an object representing 
+a particular employee.
+
+For example when Suzie Smith marries Tom Jones, she might elect to thereafter be known as 
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1054">
+Suzie Smith
+
+</item>
+
+
+	
+
+<item id="li1055">
+Suzie Jones, 
+
+</item>
+
+
+	
+
+<item id="li1056">
+Suzie Smith-Jones, 
+
+</item>
+
+
+	
+
+<item id="li1057">
+Suzie Jones-Smith, or
+
+</item>
+
+
+	
+
+<item id="li1058">
+something entirely different.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1168">
+In this case, there would be a need to modify the object that represents 
+Suzie 
+in order to reflect her newly-elected surname.  
+
+<emphasis id="em1043" effect="italics">
+(Or perhaps Tom Jones might elect to thereafter be known as Tom 
+Jones-Smith, in which case it would be necessary to modify the object that represents him.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1169">
+<emphasis id="strong1110" effect="bold">
+An updated telephone book
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+The person charged with maintaining the database could 
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1059">
+use the name-changing operation to modify the object and change the name, 
+
+</item>
+
+
+	
+
+<item id="li1060">
+make use of the sorting operation to re-sort the set of objects, and 
+
+</item>
+
+
+	
+
+<item id="li1061">
+print and distribute an updated version of the telephone book. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1111" effect="bold">
+Many user-defined types already exist
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+Unlike the primitive types which are predefined in the core language, I am unable to give you much in the way of specific information about user-defined types, simply because they don't exist until 
+a user defines them.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1173">
+I can tell you, however, that when you obtain the Java programming tools from Sun, you not only receive the core language containing the primitive types, you also receive a large library containing several thousand user-defined types that have already been defined.  A large documentation package is available from Sun to help you determine the individual characteristics of these user-defined types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1174">
+<emphasis id="strong1112" effect="bold">
+The most important thing
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1175">
+At this stage in your development as a Java programmer, the most important thing for you to know about user-defined types is that they are possible.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1176">
+You can define new types.  Unlike earlier procedural programming languages such as C and Pascal, you are no longer forced to adapt your problem to the available tools.  Rather, you now have the opportunity to extend the tools to make them better suited to solve your problem.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1113" effect="bold">
+The class definition
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1178">
+The specific mechanism that makes it possible for you to define new types in 
+Java is a mechanism known as the 
+
+
+<emphasis id="em1044" effect="italics">
+class definition
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1179">
+In Java, whenever you define a new class, you are at the same time defining a new type.  Your new type can be as simple, or as 
+complex and powerful as you want it to be.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1180">
+An object 
+
+<emphasis id="em1045" effect="italics">
+(instance)
+
+</emphasis>
+ of your new type can contain a very small amount of data, or it can contain a very large amount of data.
+
+The operations that you allow to be performed on an object of your new type can be rudimentary, or they can be very powerful.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1181">
+<emphasis id="strong1114" effect="bold">
+It is all up to you
+
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1182">
+Whenever you define a new class 
+
+<emphasis id="em1046" effect="italics">
+(type)
+
+</emphasis>
+ you not only have the opportunity to define the data definition and the operations, you also have a responsibility to do so.
+
+</para>
+
+
+
+
+
+<para id="p1183">
+<emphasis id="strong1115" effect="bold">
+Much to learn and much to do
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+But, you still have much to learn and much to do before you will need to define new types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1185">
+There are a lot of fundamental programming concepts that we will need to cover before we seriously embark on a study involving the definition of new types.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1186">
+For the present then, simply remember that such a capability is available, and if you work to expand your knowledge of Java programming one small step at a time, when we reach the point of defining new types, you will be ready and eager to do so. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1187">
+I'm not going to provide a sample program in this module. Instead, I will be 
+using what you have learned about Java data types in the sample 
+programs in future modules.
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1188">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+
+
+<emphasis id="strong1116" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+
+
+<item id="li1062">
+Module name: Jb0150: Java OOP: A Gentle Introduction to Java Data Types
+
+</item>
+
+
+
+
+<item id="li1063">
+File: Jb0150.htm 
+
+</item>
+
+
+
+
+<item id="li1064">
+Published: 11/17/12
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</note>
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+<emphasis id="strong1117" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1189">
+<emphasis id="strong1118" effect="bold">
+Financial
+
+</emphasis>
+: 
+	Although the Connexions site makes it possible for you to download a PDF 
+	file for this module at no charge, and also makes it possible for you to 
+	purchase a pre-printed version of the PDF file, you should be aware that 
+	some of the HTML elements in this module may not translate well into PDF.
+
+</para>
+
+
+
+	
+
+<para id="p1190">
+I also want you to know that, I receive no financial compensation from 
+	the Connexions website even if you purchase the PDF version of the module.
+
+</para>
+
+
+
+	
+
+<para id="p1191">
+In the past, unknown individuals have copied my modules from cnx.org, 
+	converted them to Kindle books, and placed them for sale on Amazon.com 
+	showing me as the author. I neither receive compensation for those sales nor 
+	do I know who does receive compensation. If you purchase such a book, please 
+	be aware that it is a copy of a module that is freely available on cnx.org 
+	and that it was made and published without my prior knowledge.
+
+</para>
+
+
+
+		
+
+<para id="p1192">
+<emphasis id="strong1119" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+		Information Technology at Austin Community College in Austin, TX.
+		
+
+</para>
+
+
+
+	
+
+</note>
+
+
+
+
+
+
+
+
+
+<para id="p1193">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+</document>

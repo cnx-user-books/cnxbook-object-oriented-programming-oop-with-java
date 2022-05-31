@@ -1,0 +1,3083 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4620: General Information</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49533</md:content-id>
+  <md:title>Java4620: General Information</md:title>
+  <md:abstract>The purpose of this module is to introduce the student to various aspects of network programming that will be incorporated into future modules.</md:abstract>
+  <md:uuid>645f8b76-f2d6-4670-a32c-5be84d5fd8f5</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Background_Information">
+
+Background Information
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Communication_Protocol">
+
+Communication Protocol
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Network_Layers">
+
+Network Layers
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Clients_and_Servers">
+
+Clients and Servers
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="IP_TCP_and_UDP">
+
+IP, TCP, and, UDP
+
+</link>
+
+
+		
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1007">
+<link id="a1007" target-id="ip">
+
+IP
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1008">
+<link id="a1008" target-id="tcp">
+
+TCP
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1009">
+<link id="a1009" target-id="udp">
+
+UDP
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="IP_Addresses">
+
+IP Addresses
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Domain_Names">
+
+Domain Names
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="What_is_Your_IP_Address">
+
+What is Your IP Address?
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Ports">
+
+Ports
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Firewalls">
+
+Firewalls
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Proxy_Servers">
+
+Proxy Servers
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Standards_and_Protocols">
+
+Standards and Protocols
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="URL">
+
+URL
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Socket_Classes_and_URL_Class">
+
+Socket Classes and the URL Class
+
+</link>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Socket_Programming">
+
+Socket Programming
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="URL_Programming">
+
+URL Programming
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+    
+
+<item id="li1021">
+<link id="a1021" target-id="A_local_area_network">
+
+A local area network
+
+</link>
+
+
+</item>
+
+
+    
+
+<item id="li1022">
+<link id="a1022" target-id="The_operating_system">
+
+The operating system
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Whats_next">
+
+What's Next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. More specifically, it is one in a 
+	sub-collection of modules designed for teaching network programming in that 
+	course. The purpose of this module is to introduce the student to various 
+	aspects of network programming that will be incorporated into future 
+	modules.  
+
+</para>
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1001">
+One of the Java books on my bookshelf makes the following analogy 
+
+<emphasis id="em1000" effect="italics">
+(or one 
+very similar)
+
+</emphasis>
+. Just because you may know how to speak conversational French 
+doesn't mean that you know how to interpret an autopsy report written in French. 
+In order to interpret the autopsy report, you must also know a good deal about 
+the meaning of the medical terms used in such reports.
+
+</para>
+
+
+
+
+<para id="p1002">
+A similar situation exist for networking. It isn't very difficult to learn 
+how to use the Java programming language to implement some network operations. 
+However, in order to achieve depth in this area, you probably also need to know 
+something about the many other technical aspects of networking. 
+
+</para>
+
+
+
+
+<para id="p1003">
+This is not a new field, and many good books have been written on the 
+technical details of networking. you are referred to one or more of those books 
+to gain an in-depth knowledge of networking. In particular, I would refer you to
+
+
+<link id="a1025" url="http://shop.oreilly.com/product/0636920028420.do">
+
+Java Network 
+Programming
+
+</link>
+
+ by Elliotte Rusty Harold. 
+
+</para>
+
+
+
+
+<para id="p1004">
+In addition there are many other books that contain excellent sections on 
+network programming. I would recommend that you take a look at the following:
+
+
+</para>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1025">
+<emphasis id="em1001" effect="italics">
+Exploring Java
+
+</emphasis>
+ by Patrick Niemeyer and Joshua Peck 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<emphasis id="em1002" effect="italics">
+Just Java 1.1 and Beyond
+
+</emphasis>
+ by Peter van der Linden 
+
+</item>
+
+
+	
+
+<item id="li1027">
+<emphasis id="em1003" effect="italics">
+Java Primer Plus
+
+</emphasis>
+ by Tyma, Torok, and Downing 
+
+</item>
+
+
+	
+
+<item id="li1028">
+<emphasis id="em1004" effect="italics">
+Java How to Program
+
+</emphasis>
+ by Deitel and Deitel 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+These books have been around for a long time, so you should be able to find a 
+used copy online for a reasonable price.
+
+</para>
+
+
+
+
+<para id="p1006">
+For the most part, this and the next few modules will be restricted to how 
+you can use the programming capabilities of Java to write and execute network 
+programs and won't attempt to go into overall network programming in depth. 
+However, a minimal amount of background information will be required, so we will 
+attempt to provide that background in this module. Subsequent modules will use 
+this background along with the network programming capabilities of Java to write 
+some simple, but interesting networking programs. 
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Background_Information" effect="bold">
+
+Background Information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+For our purposes, a network is a group of computers and other devices that 
+are connected in some fashion for the purpose of exchanging data.
+
+</para>
+
+
+
+
+<para id="p1008">
+Each of the devices on the network can be thought of as a 
+
+<emphasis id="em1005" effect="italics">
+node
+
+</emphasis>
+, and 
+each node has a unique address. The manner in which addresses are assigned will 
+vary from one type of network to another, but in all cases, the address of each 
+device must be unique so as to distinguish it from the other devices. 
+
+</para>
+
+
+
+
+<para id="p1009">
+Addresses are numeric quantities that are easy for computers to work with, 
+but are not easy for humans to remember. Therefore, some networks also provide 
+names that humans can more easily remember than numbers. 
+
+</para>
+
+
+
+
+<para id="p1010">
+Modern networks transfer data using a concept known as 
+
+<emphasis id="em1006" effect="italics">
+packet switching
+
+</emphasis>
+. 
+This means that the data are encapsulated into packets that are transferred from 
+the source to the destination. It is necessary to extract the data from one or 
+more packets at the destination and use it to reconstruct the original message.
+
+
+</para>
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Communication_Protocol" effect="bold">
+
+Communication Protocol
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+In order for two or more computers connected to a network to be able to 
+exchange data in an orderly manner, they must adhere to a mutually acceptable 
+communication protocol. The protocol defines the rules by which they 
+communicate. 
+
+</para>
+
+
+
+
+<para id="p1012">
+Teaching your children to say 
+
+<emphasis id="em1007" effect="italics">
+please
+
+</emphasis>
+ and 
+
+<emphasis id="em1008" effect="italics">
+thank you
+
+</emphasis>
+ involves 
+teaching them something about a protocol. If they occasionally forget to say 
+please, however, they will probably get the cookie anyway. 
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+If a computer protocol requires the participating computers to say please, 
+and they forget to say please, they probably won't get the cookie. 
+
+</quote>
+
+
+
+
+<para id="p1013">
+There are many protocols available. For example, the HTTP protocol defines 
+how web browsers and servers communicate and the SMTP protocol defines how email 
+is transferred 
+
+<emphasis id="em1009" effect="italics">
+(we will write programs that implement part of the HTTP 
+protocol)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1014">
+Note here that I have been discussing application protocols that operate at 
+the surface level. We will also be making mention of lower-level protocols that 
+operate below the application level. Fortunately, as high-level Java 
+programmers, we don't have to be too concerned about the lower-level protocols. 
+We'll let the systems people worry about them. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Network_Layers" effect="bold">
+
+Network Layers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+Networks are 
+
+<emphasis id="em1010" effect="italics">
+logically 
+
+</emphasis>
+separated into layers ranging from the 
+
+<emphasis id="em1011" effect="italics">
+
+Application Layer
+
+</emphasis>
+ at the top to the 
+
+<emphasis id="em1012" effect="italics">
+Physical Layer
+
+</emphasis>
+ at the bottom. The 
+technical details of network layering are beyond the scope of this module. 
+Fortunately, you will be able to write useful network programs using Java 
+without understanding the details of network layering. 
+
+</para>
+
+
+
+
+<para id="p1016">
+The 
+
+<emphasis id="em1013" effect="italics">
+Application Layer
+
+</emphasis>
+ is the layer that delivers data to the user. The 
+layers below that are involved with getting data from the 
+
+<emphasis id="em1014" effect="italics">
+Application Layer
+
+</emphasis>
+ 
+at one end of the conversation to the 
+
+<emphasis id="em1015" effect="italics">
+Application Layer
+
+</emphasis>
+ at the other end. 
+For the most part, we will be concerned only with the 
+
+<emphasis id="em1016" effect="italics">
+Application Layer
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Clients_and_Servers" effect="bold">
+
+Clients and Servers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+In these modules, we will be concerned with networked communications that 
+involve 
+
+<emphasis id="em1017" effect="italics">
+client
+
+</emphasis>
+ computers and a 
+
+<emphasis id="em1018" effect="italics">
+server
+
+</emphasis>
+ computers. How do we know 
+which is which? 
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+For the purposes of our studies, it will be sufficient to say 
+that the 
+
+<emphasis id="em1019" effect="italics">
+client
+
+</emphasis>
+ always initiates the conversation, and the 
+
+<emphasis id="em1020" effect="italics">
+server
+
+</emphasis>
+ 
+waits and listens for a 
+
+<emphasis id="em1021" effect="italics">
+client
+
+</emphasis>
+ to initiate a conversation. 
+
+
+</quote>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="IP_TCP_and_UDP" effect="bold">
+
+IP, TCP, and UDP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+We need to know something about the following acronyms: 
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1029">
+IP
+
+</item>
+
+
+	
+
+<item id="li1030">
+TCP
+
+</item>
+
+
+	
+
+<item id="li1031">
+UDP
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="ip" effect="bold">
+
+IP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1001" effect="bold">
+IP
+
+</emphasis>
+, which stands for 
+
+<emphasis id="em1022" effect="italics">
+Internet Protocol
+
+</emphasis>
+, is the protocol that 
+will be involved below the 
+
+<emphasis id="em1023" effect="italics">
+Application Layer
+
+</emphasis>
+ to move our data between a 
+client and a server. Beyond knowing that it exists, we probably don't need to 
+concern ourselves with the fact that IP is being used 
+
+</para>
+
+
+
+
+<para id="p1020">
+In fact, in some situations, some other protocol could be used to move our data 
+between a client and a server. As long as it works, we really don't care too 
+much.
+
+</para>
+
+
+
+
+<para id="p1021">
+In a nutshell, IP is a network protocol that moves packets of data from a 
+source to a destination. As the name implies, this is the protocol normally used 
+on the Internet. 
+
+</para>
+
+
+
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="tcp" effect="bold">
+
+TCP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+It is sometimes important to be able to have confidence that all packets that 
+make up a message arrive at the destination undamaged and in proper order.
+
+</para>
+
+
+
+
+<para id="p1023">
+The 
+
+<emphasis id="em1024" effect="italics">
+Transmission Control Protocol
+
+</emphasis>
+ (
+
+<emphasis id="strong1002" effect="bold">
+TCP
+
+</emphasis>
+)
+
+<emphasis id="strong1003" effect="bold">
+ 
+
+</emphasis>
+was added to 
+
+<emphasis id="strong1004" effect="bold">
+
+IP 
+
+</emphasis>
+to give each end of a connection the ability to acknowledge receipt of 
+
+<emphasis id="strong1005" effect="bold">
+
+IP 
+
+</emphasis>
+packets and to request retransmission of corrupted or lost packets. Also 
+
+<emphasis id="strong1006" effect="bold">
+TCP 
+
+</emphasis>
+
+makes it possible to put the packets back together at the destination in the 
+same order that they were sent. 
+
+</para>
+
+
+
+
+<para id="p1024">
+Therefore, you will often hear people using both acronyms in the same breath, 
+as in 
+
+<emphasis id="strong1007" effect="bold">
+TCP/IP
+
+</emphasis>
+. The two work together to provide a 
+
+<emphasis id="em1025" effect="italics">
+reliable
+
+</emphasis>
+ method 
+of encapsulating a message into data packets, sending the packets to a 
+destination, and reconstructing the message from the packets at the destination.
+
+
+</para>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="udp" effect="bold">
+
+UDP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+Sometimes it may not be critically important that all the packets arrive at the 
+destination or that they arrive in the proper order. Further, sometimes, you may 
+not want to incur the time delays and overhead cost associated with those 
+guarantees. 
+
+</para>
+
+
+
+
+<para id="p1026">
+For example, if one computer is sending date and time information to another 
+computer every 100 milliseconds, and the data in the packets is displayed on a 
+digital clock as it is received, you might prefer that each packet make the trip 
+as quickly as possible even if that means that occasionally a packet will be 
+lost or damaged. 
+
+</para>
+
+
+
+
+<para id="p1027">
+The 
+
+<emphasis id="em1026" effect="italics">
+User Datagram Protocol
+
+</emphasis>
+ (
+
+<emphasis id="strong1008" effect="bold">
+UDP) 
+
+</emphasis>
+is available to support this 
+type of operation. 
+
+<emphasis id="strong1009" effect="bold">
+UDP 
+
+</emphasis>
+is often referred to as an 
+
+<emphasis id="em1027" effect="italics">
+unreliable
+
+</emphasis>
+ 
+protocol because there is no guarantee that a series of packets will arrive in 
+the right order, or that they will arrive at all. 
+
+</para>
+
+
+
+
+<para id="p1028">
+As Java programmers, we have the choice of 
+
+<emphasis id="strong1010" effect="bold">
+TCP 
+
+</emphasis>
+or 
+
+<emphasis id="strong1011" effect="bold">
+UDP
+
+</emphasis>
+, and we 
+need to know enough about the characteristics of each to be able to make 
+informed choices between them. 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="IP_Addresses" effect="bold">
+
+IP Addresses
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+We don't really need to know very much about 
+
+<emphasis id="strong1012" effect="bold">
+IP 
+
+</emphasis>
+to be able to use it, 
+but we do need to know about the addressing scheme used in 
+
+<emphasis id="strong1013" effect="bold">
+IP
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1030">
+Every computer attached to an 
+
+<emphasis id="strong1014" effect="bold">
+IP 
+
+</emphasis>
+network has a unique address, 
+typically consisting of four bytes or 32 bits 
+
+<emphasis id="em1028" effect="italics">
+(
+
+<link id="a1026" url="http://en.wikipedia.org/wiki/IPv6">
+
+IPv4
+
+</link>
+
+)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1031">
+Thirty-two bits are sufficient to define a large number of unique addresses, 
+but the manner in which addresses are allocated is wasteful, and many of the 
+addresses that have been allocated are not being used. 
+
+</para>
+
+
+
+
+<para id="p1032">
+Efforts are underway to expand the number of possible unique addresses to a 
+much larger number. The planned number is the number of unique addresses that 
+can be represented with a 128-bit address. The new scheme is known as
+
+
+<link id="a1027" url="http://en.wikipedia.org/wiki/IPv6">
+
+IPv6
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1033">
+For human consumption, we usually convert the value of each of the bytes 
+to an unsigned decimal value and display them connected by periods to make them 
+easier to remember. For example, as near as I can tell, as of this writing, the
+
+
+<emphasis id="strong1015" effect="bold">
+IP 
+
+</emphasis>
+address of 
+
+<link id="a1028" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+
+
+
+<emphasis id="em1029" effect="italics">
+(the college where I teach)
+
+</emphasis>
+ is
+
+
+<emphasis id="strong1016" effect="bold">
+206.77.150.222
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Domain_Names" effect="bold">
+
+Domain Names
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+What do I mean by 
+
+<link id="a1029" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+?
+
+</para>
+
+
+
+
+<para id="p1035">
+Even though we can do some tricks to make the numeric 
+
+<emphasis id="strong1017" effect="bold">
+IP 
+
+</emphasis>
+addresses 
+easier to remember, humans don't do a very good job of remembering long strings 
+of numbers. Humans remember words and names better. Therefore, most 
+
+<emphasis id="strong1018" effect="bold">
+IP 
+
+</emphasis>
+
+addresses have a corresponding name known as a 
+
+<emphasis id="em1030" effect="italics">
+domain name
+
+</emphasis>
+. The domain 
+name for the 
+
+<emphasis id="strong1019" effect="bold">
+IP 
+
+</emphasis>
+address
+
+
+<emphasis id="strong1020" effect="bold">
+206.77.150.222
+
+</emphasis>
+ is 
+
+<link id="a1030" url="http://www.austincc.edu">
+
+www.austincc.edu
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1036">
+The 
+
+<emphasis id="em1031" effect="italics">
+Domain Name System
+
+</emphasis>
+ (DNS) was developed to translate between 
+
+<emphasis id="strong1021" effect="bold">
+IP
+
+
+</emphasis>
+addresses and domain names. Whenever you log your browser onto the internet 
+and attempt to connect to a server using its domain name, the browser first 
+communicates with a DNS server to learn the corresponding numeric 
+
+<emphasis id="strong1022" effect="bold">
+IP 
+
+</emphasis>
+
+address. The numeric 
+
+<emphasis id="strong1023" effect="bold">
+IP 
+
+</emphasis>
+address 
+
+<emphasis id="em1032" effect="italics">
+(and not the domain name)
+
+</emphasis>
+ is 
+encapsulated into the data packets and used by the internet protocol to route 
+those packets from the source to the destination. 
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	(You should also be able to enter 206.77.150.222 into the address field of 
+	your browser and access the college where I teach.)
+
+</quote>
+
+
+
+
+<para id="p1037">
+We will learn how to use the Java 
+
+<emphasis id="strong1024" effect="bold">
+InetAddress 
+
+</emphasis>
+class to find the domain 
+name corresponding to an 
+
+<emphasis id="strong1025" effect="bold">
+IP 
+
+</emphasis>
+address, and to find the 
+
+<emphasis id="strong1026" effect="bold">
+IP 
+
+</emphasis>
+address 
+corresponding to a domain name. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="What_is_Your_IP_Address" effect="bold">
+
+What is Your IP Address?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1038">
+Do you have an 
+
+<emphasis id="strong1027" effect="bold">
+IP 
+
+</emphasis>
+address and a 
+
+<emphasis id="em1033" effect="italics">
+domain name
+
+</emphasis>
+? 
+
+</para>
+
+
+
+
+<para id="p1039">
+If 
+
+<emphasis id="em1034" effect="italics">
+(like me)
+
+</emphasis>
+ you use a commercial Internet Service Provider (ISP) 
+for your Internet service at home, 
+you probably don't have a fixed 
+
+<emphasis id="strong1028" effect="bold">
+IP 
+
+</emphasis>
+address or a fixed 
+
+<emphasis id="em1035" effect="italics">
+domain name
+
+</emphasis>
+. Rather, the 
+ISP has a block of 
+
+<emphasis id="strong1029" effect="bold">
+IP 
+
+</emphasis>
+addresses reserved. When you subscribe to the ISP, 
+the ISP temporarily assigns an 
+
+<emphasis id="strong1030" effect="bold">
+IP 
+
+</emphasis>
+address to you. 
+That IP address may or may not change over time, but probably will change unless you 
+pay the extra fee for a fixed IP address.
+
+</para>
+
+
+
+
+<para id="p1040">
+On the other hand, I currently pay for server space from a company in North 
+Carolina under the 
+domain name 
+
+<link id="a1031" url="http://www.dickbaldwin.com">
+
+www.dickbaldwin.com
+
+</link>
+
+. My 
+domain has an IP address of 
+
+<emphasis id="strong1031" effect="bold">
+98.129.229.162
+
+</emphasis>
+. For as long as I continue 
+to pay the bill, that domain name and that IP address will be assigned to me for 
+use as my personal website.
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+I suppose that the company could change the IP address at some point 
+provided that they make certain that all of the domain name servers get updated 
+to reflect the new IP address that corresponds to the domain name.
+
+</quote>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Ports" effect="bold">
+
+Ports
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+Each server computer that you may connect to will be logically organized into 
+
+<emphasis id="em1036" effect="italics">
+ports
+
+</emphasis>
+. These are not physical ports in the sense of the 
+VGA or HDMI port on 
+the back of your computer. Rather, they are simply logical sub-addresses which 
+you provide to the operating system on the server so that the operating system 
+can cause the appropriate server software to 
+
+<emphasis id="em1037" effect="italics">
+"answer the call."
+
+</emphasis>
+ We will write a 
+simple server software package that will service several different ports on 
+independent threads in a future module. 
+
+</para>
+
+
+
+
+<para id="p1042">
+One of the Java books on my bookshelf refers to the 
+
+<emphasis id="strong1032" effect="bold">
+IP 
+
+</emphasis>
+address as being analogous to 
+the telephone number of a company and the 
+
+<emphasis id="em1038" effect="italics">
+port 
+
+</emphasis>
+to be analogous to the 
+employee's telephone extension within that company. 
+
+<emphasis id="em1039" effect="italics">
+(At least that is how 
+telephone systems in companies were organized when I was working in industry.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+Theoretically, there are 65,535 available ports. Port numbers between 1 and 
+1023 are predefined to be used for certain standard services. For example, if 
+you want to connect with server software that communicates using the HTTP 
+protocol, you would normally connect to port 80 on the server of interest. 
+
+</para>
+
+
+
+
+<para id="p1044">
+Similarly, if you want to connect to a port that will tell you the time, you 
+should connect to port 13, assuming that you can find a server somewhere that is 
+willing to support port 13. If you want to connect to a port that will simply 
+echo whatever you send to it 
+
+<emphasis id="em1040" effect="italics">
+(usually for test purposes)
+
+</emphasis>
+, you should 
+connect to port 7. We will write Java applications that connect to all of these 
+ports.
+
+</para>
+
+
+
+
+<para id="p1045">
+In the interest of brevity, I am not going to provide a complete list of ports 
+and their services. 
+However, you should be able to find all the information you might need about 
+port numbers and the services they support by starting your favorite search 
+engine and searching for "
+
+<link id="a1032" url="http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">
+
+well 
+known ports
+
+</link>
+
+"". 
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Firewalls" effect="bold">
+
+Firewalls
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+You may have heard about 
+
+<emphasis id="em1041" effect="italics">
+firewalls
+
+</emphasis>
+. A firewall is the common name 
+given to the equipment and associated software that is used to insulate the 
+network inside of a company from the Internet at large outside the company. 
+Typically, the firewall will restrict the degree to which computers inside the 
+company can communicate with the Internet for security and other reasons.
+
+</para>
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="Proxy_Servers" effect="bold">
+
+Proxy Servers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1047">
+You may also have heard about 
+
+<emphasis id="em1042" effect="italics">
+proxy servers
+
+</emphasis>
+. A proxy server acts as an 
+interface between computers inside the company and the Internet at large.
+
+</para>
+
+
+
+
+<para id="p1048">
+Oftentimes the proxy server will have the ability to 
+
+<emphasis id="em1043" effect="italics">
+cache
+
+</emphasis>
+ web pages 
+for limited periods of time. For example, if ten people inside the company 
+attempt to connect to the same Internet server and download the same web page 
+within a 
+
+<emphasis id="em1044" effect="italics">
+(hopefully)
+
+</emphasis>
+ short period of time, that page may be saved on 
+the proxy server on the first attempt and then delivered to the next nine people 
+without re-acquiring it from the outside web server. This can significantly 
+improve delivery time and reduce network traffic into and out of the company. It 
+can also result in the delivery of stale pages in some cases. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21010">
+<title>
+<emphasis id="Standards_and_Protocols" effect="bold">
+
+Standards and Protocols
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+At some point, you may be interested in obtaining technical information about 
+Internet standards and protocol specifications. A good place to start looking 
+for such information is  
+
+
+<link id="a1033" url="http://www.w3.org/pub/WWW/Protocols/">
+
+http://www.w3.org/pub/WWW/Protocols/
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="URL" effect="bold">
+
+URL
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1033" effect="bold">
+URL 
+
+</emphasis>
+is an acronym for 
+
+<emphasis id="strong1034" effect="bold">
+Uniform Resource Locator
+
+</emphasis>
+. 
+
+<emphasis id="em1045" effect="italics">
+
+(It is also the name of a class in Java.)
+
+</emphasis>
+ A URL is a pointer to a 
+particular resource at a particular location on the Internet. A URL specifies 
+the following:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1032">
+the protocol used to access the server 
+
+<emphasis id="em1046" effect="italics">
+(such as http)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1033">
+the name of the server
+
+</item>
+
+
+	
+
+<item id="li1034">
+the port on the server 
+
+<emphasis id="em1047" effect="italics">
+(optional)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1035">
+the path and name of a specific file on the server 
+
+<emphasis id="em1048" effect="italics">
+(sometimes 
+	optional)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1036">
+the anchor or reference point within the file 
+
+<emphasis id="em1049" effect="italics">
+(optional)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1051">
+Sometimes the name of the file can be omitted, in which case an HTTP browser 
+will usually append the file name 
+
+<emphasis id="strong1035" effect="bold">
+index.html
+
+</emphasis>
+ to the specified path and 
+try to load that file. For example, as of this writing, you can connect to my 
+home page on the HTTP server at Austin Community College using either of the 
+following URLs:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1037">
+<link id="a1034" url="http://www.austincc.edu/baldwin/">
+
+
+	http://www.austincc.edu/baldwin/
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1035" url="http://www.austincc.edu/baldwin/index.html">
+
+http://www.austincc.edu/baldwin/index.html
+
+</link>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1052">
+In addition to specifying the name of the file of interest, it is also 
+sometimes possible to specify an 
+
+<emphasis id="em1050" effect="italics">
+anchor
+
+</emphasis>
+ or 
+
+<emphasis id="em1051" effect="italics">
+reference
+
+</emphasis>
+ that has been 
+established inside the file. The anchor is identified by the text following the 
+# character in the URL.
+
+</para>
+
+
+
+
+<para id="p1053">
+For example, as of this writing, the following URL will take you to a 
+specific location inside one of my modules on Java servlets. 
+
+</para>
+
+
+
+
+<para id="p1054">
+<link id="a1036" url="http://cnx.org/content/m48518/latest/#Images">
+
+
+http://cnx.org/content/m48518/latest/#Images
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1055">
+<emphasis id="em1052" effect="italics">
+(Note the 
+
+</emphasis>
+<emphasis id="strong1036" effect="bold">
+<emphasis id="em1053" effect="italics">
+#Images
+
+</emphasis>
+</emphasis>
+<emphasis id="em1054" effect="italics">
+ at 
+the end of the URL. That is commonly known as the 
+
+</emphasis>
+<emphasis id="strong1037" effect="bold">
+<emphasis id="em1055" effect="italics">
+anchor
+
+</emphasis>
+</emphasis>
+<emphasis id="em1056" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The general syntax of a URL is as follows:
+
+</para>
+
+
+
+
+<para id="p1057">
+protocol://hostname[:port]/path/filename#ref
+
+</para>
+
+
+
+
+<para id="p1058">
+The port is optional, and is not normally required if you are accessing a 
+server that provides the required service on a standard port. The browser 
+
+<emphasis id="em1057" effect="italics">
+
+(or other software being used to connect)
+
+</emphasis>
+ should know which port supports 
+the specified protocol and should connect to that port by default.
+
+</para>
+
+
+
+
+<para id="p1059">
+You could fill in the optional port number and use the following URL to 
+access the same location in my servlets module, but that would simply require 
+you to do some extra typing.
+
+</para>
+
+
+
+
+<para id="p1060">
+<link id="a1037" url="http://cnx.org:80/content/m48518/latest/#Images">
+
+
+http://cnx.org:80/content/m48518/latest/#Images
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+<para id="p1061">
+However, if you were to change the 80 to a 25, you would not be able to 
+connect and successfully communicate with the server because the server does not 
+support the HTTP protocol on port 25. In fact, here is the text of the Firefox 
+error message that resulted from me doing that:
+
+</para>
+
+
+
+
+<quote id="blockquote1004" display="block">
+"This address is restricted
+
+This address uses a network port which is normally used for purposes other than Web browsing. Firefox has canceled the request for your protection."
+
+</quote>
+
+
+
+
+<para id="p1062">
+The Google Chrome browser simply provided the following error message when I 
+attempted to do that.
+
+</para>
+
+
+
+
+<quote id="blockquote1005" display="block">
+"This webpage is not available."
+
+</quote>
+
+
+
+
+<para id="p1063">
+When I clicked a "More" button on the Chrome error message, this is what I 
+got:
+
+</para>
+
+
+
+
+<quote id="blockquote1006" display="block">
+"The webpage at http://cnx.org:25/content/m48518/latest/#Images might be temporarily down or it may have moved permanently to a new web address.
+Error code: ERR_UNSAFE_PORT"
+
+</quote>
+
+
+
+
+<para id="p1064">
+Note, however, that we will be properly addressing port 8080 on 
+a particular server in some future modules. Since 8080 is not a standard port, it will be necessary for 
+us to enter the port number following a colon in order to access the material on 
+the server.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Socket_Classes_and_URL_Class" effect="bold">
+
+Socket Classes and the URL Class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+Java provides at least two different approaches for doing network programming
+
+
+<emphasis id="em1058" effect="italics">
+(and possibly more)
+
+</emphasis>
+, insofar as the web is concerned. The two 
+approaches are associated with 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1039">
+The 
+
+<emphasis id="strong1038" effect="bold">
+Socket
+
+</emphasis>
+, 
+
+<emphasis id="strong1039" effect="bold">
+DatagramSocket
+
+</emphasis>
+, and 
+
+<emphasis id="strong1040" effect="bold">
+ServerSocket 
+
+</emphasis>
+classes
+
+</item>
+
+
+	
+
+<item id="li1040">
+The 
+
+<emphasis id="strong1041" effect="bold">
+URL,
+
+</emphasis>
+ 
+
+<emphasis id="strong1042" effect="bold">
+URLEncoder, 
+
+</emphasis>
+and 
+
+<emphasis id="strong1043" effect="bold">
+URLConnection
+
+</emphasis>
+  classes.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h21012">
+<title>
+<emphasis id="Socket_Programming" effect="bold">
+
+Socket Programming
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+Socket programming primarily makes use of two socket classes named 
+
+<emphasis id="strong1044" effect="bold">
+Socket
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1045" effect="bold">
+DatagramSocket
+
+</emphasis>
+ along with the 
+
+<emphasis id="strong1046" effect="bold">
+ServerSocket
+
+</emphasis>
+ class. The first 
+two socket classes represent 
+
+<emphasis id="strong1047" effect="bold">
+TCP
+
+</emphasis>
+ and 
+
+<emphasis id="strong1048" effect="bold">
+UDP
+
+</emphasis>
+ communications 
+respectively. 
+
+</para>
+
+
+
+
+<para id="p1067">
+Generally, the two socket classes are used to implement both 
+
+<emphasis id="em1059" effect="italics">
+clients 
+
+</emphasis>
+
+and 
+
+<emphasis id="em1060" effect="italics">
+servers 
+
+</emphasis>
+, while the 
+
+<emphasis id="strong1049" effect="bold">
+ServerSocket
+
+</emphasis>
+ class is only used to 
+implement 
+
+<emphasis id="em1061" effect="italics">
+servers
+
+</emphasis>
+. We will see several examples of socket programming in 
+this series of modules. 
+
+</para>
+
+
+
+
+<para id="p1068">
+Socket programming provides a low-level approach by which you can connect two 
+computers for the exchange of data. One of those is generally considered to be 
+the 
+
+<emphasis id="em1062" effect="italics">
+client 
+
+</emphasis>
+while the other is considered to be the 
+
+<emphasis id="em1063" effect="italics">
+server
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1069">
+Although the distinction between client and server is becoming less clear 
+each day, there is one fundamental distinction that is inherent in the Java 
+programming language. 
+
+</para>
+
+
+
+
+<quote id="blockquote1007" display="block">
+
+	The client initiates conversations with servers, while servers block and 
+	wait for a client to initiate a conversation.
+
+
+</quote>
+
+
+
+
+<para id="p1070">
+The governing application-level protocol will determine what happens after 
+the connection is made and the conversation has begun. The fact that the two 
+computers can connect doesn't necessarily mean that they can communicate. In 
+order to communicate, they must implement some mutually acceptable application 
+protocol 
+
+</para>
+
+
+
+
+<para id="p1071">
+For example, the fact that I can dial a telephone number for a telephone 
+located in France doesn't mean that I can communicate with the person who 
+answers the phone. I don't know how to speak the French language. Unless the 
+person who answers the phone speaks English, very little communication is likely 
+to take place. 
+
+</para>
+
+
+
+
+<para id="p1072">
+Socket programming has been around for quite a while in the Unix world. Java 
+simply makes it easier by encapsulating much of the complexity of socket 
+programming into classes, and allowing you to approach the task on an 
+object-oriented basis. 
+
+</para>
+
+
+
+
+<para id="p1073">
+On the other hand, according to some authors, some of the generality and capability that Unix 
+socket programmers have enjoyed has been lost in the encapsulation process. 
+
+</para>
+
+
+
+
+<para id="p1074">
+Basically, socket programming makes it possible for you to cause data to flow 
+in a full-duplex mode between a client and a server. This data flow can be 
+viewed in almost exactly the same way that we view data flow to and from a disk: 
+as a stream of bytes. 
+
+</para>
+
+
+
+
+<para id="p1075">
+As with most stream data processing, the system is responsible for moving the 
+bytes from the source to the destination. It is the responsibility of the 
+programmer to assign meaning to those bytes. 
+
+</para>
+
+
+
+
+<para id="p1076">
+Assigning meaning takes on a special significance for socket programming. In 
+particular, as mentioned above, it is the responsibility of the programmer to 
+implement a mutually acceptable communication protocol at the application level 
+to cause the data to flow in an orderly manner. 
+
+</para>
+
+
+
+
+<para id="p1077">
+An application protocol is a set of rules by which the programs in the two 
+computers can carry on a conversation and transfer data in the process. For 
+example, we will also write a program that implements a very abbreviated form of 
+the HTTP protocol to download web pages from a server and display them. 
+
+</para>
+
+
+
+
+<para id="p1078">
+We will also write a program that functions as an 
+
+<emphasis id="em1064" effect="italics">
+(abbreviated)
+
+</emphasis>
+ HTTP server 
+to deliver web pages to a client and also supports the 
+
+<emphasis id="em1065" effect="italics">
+echo
+
+</emphasis>
+ protocol for 
+both TCP and UDP programming. 
+
+</para>
+
+
+
+
+<para id="p1079">
+Each of these programs will involve adherence to a fairly simple protocol. 
+
+<emphasis id="em1066" effect="italics">
+
+(At least the part that we implement will be fairly simple)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1080">
+In addition, we will also write a program that obtains the date and time from 
+another computer. In this case, the protocol will be about as simple as it can 
+possibly be. The client will simply make the connection and listen 
+for a string containing the date and time. This will be sort of like dialing the 
+local time service, except that we won't have to listen to an advertisement 
+before getting the time. 
+
+</para>
+
+
+
+
+<para id="p1081">
+The bottom line is that with socket programming, it is easy to write code 
+that will cause a stream of bytes to flow in both directions between a client 
+and a server. This is no more difficult than causing a stream of bytes to flow 
+in both directions between memory and a file on a disk. 
+
+</para>
+
+
+
+
+<para id="p1082">
+However, getting the bytes to flow is the easy part. Beyond that, you must do 
+all of the programming to implement an application protocol that is understood 
+by both the client and the server. 
+
+</para>
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="URL_Programming" effect="bold">
+
+URL Programming
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1083">
+URL programming occurs at a higher level than socket programming, and in 
+theory represents a very powerful idea.
+
+</para>
+
+
+
+
+<para id="p1084">
+In theory, by using the 
+
+<emphasis id="strong1050" effect="bold">
+URL
+
+</emphasis>
+ class, you can open a connection to a 
+resource on the web, specified by a 
+
+<emphasis id="strong1051" effect="bold">
+URL 
+
+</emphasis>
+object, and simply call the 
+
+<emphasis id="strong1052" effect="bold">
+
+getContent
+
+</emphasis>
+ method on that 
+
+<emphasis id="strong1053" effect="bold">
+URL 
+
+</emphasis>
+object. The content of the resource 
+will then be magically downloaded and will appear as an object on the client 
+machine, even if it requires an application protocol that didn't exist when you 
+wrote the program, and contains content that you didn't understand when you 
+wrote the program. 
+
+</para>
+
+
+
+
+<para id="p1085">
+This description may be a bit of an overstatement, but it is pretty close to 
+the claims being made. This is a powerful idea, which may or may not bear fruit 
+in the future. 
+
+</para>
+
+
+
+
+<para id="p1086">
+If fully implemented by browsers, the idea means that you can place new and 
+unusual material on a web site along with special content handlers and protocol 
+handlers. Then a cooperating browser will use those special handlers to move 
+that material from the web site to the client and interpret its content once it 
+gets there without a requirement to install software 
+
+<emphasis id="em1067" effect="italics">
+(such as plug-ins)
+
+</emphasis>
+ 
+on the client computer on a permanent basis. 
+
+</para>
+
+
+
+
+<para id="p1087">
+Here is what Peter van der Linden has to say about this topic in his 
+excellent book titled Just Java 1.1 and Beyond:
+
+</para>
+
+
+
+
+<quote id="blockquote1008" display="block">
+"If a browser doesn't recognize a media type, it should be able to 
+download the code to process it from the same place it got the file. If they 
+ever get this working, it will be ... a good thing."
+
+</quote>
+
+
+
+
+<para id="p1088">
+Is it working, or will they ever get it working? I don't know. If it depends 
+on cooperation among all the major players, including the major browser vendors 
+- probably not. Therefore, I don't plan to spend much time on the topic of 
+protocol and content handlers until I see some evidence that it is working to 
+such an extent that it is practically useful.
+
+</para>
+
+
+
+
+<para id="p1089">
+That is not to say that you couldn't use the capability right now if you were 
+developing an intranet and wanted the clients to have access to new and unusual 
+content. It would be necessary for you to provide the appropriate protocol and 
+content handlers, and it would probably be necessary for the clients to run Java 
+applications written by you instead of standard browsers to access the data. 
+
+</para>
+
+
+
+
+<para id="p1090">
+Also, the 
+
+<emphasis id="strong1054" effect="bold">
+URL 
+
+</emphasis>
+class provides an alternative way to connect one 
+computer to another and transfer data on a stream basis, so we will see some 
+examples of retrieving data from a server by obtaining a 
+
+<emphasis id="strong1055" effect="bold">
+URL 
+
+</emphasis>
+connection, 
+and then opening and servicing I/O streams between the client and the server. We 
+will see some sample programs that make use of this technique, but we will also 
+see that it is somewhat redundant with the socket programming approach. 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="A_local_area_network" effect="bold">
+
+A local area network
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1091">
+This is part of a sub-collection of modules designed for teaching network 
+programming. Therefore, you may find some of the modules more meaningful if you 
+are able to connect two or more computers in a local area network and run the 
+sample programs across the network.
+
+</para>
+
+
+
+
+<para id="p1092">
+However, it is possible to simulate a network inside a single computer. If 
+you are unable to create an actual network, you should be able to run all of the 
+sample programs by simulating a network in your single computer.
+
+</para>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="The_operating_system" effect="bold">
+
+The operating system
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1093">
+While the capabilities of Java are generally independent of the operating 
+system in use, the manner in which an individual computer must be configured for 
+network operation is generally not independent of the operating system.
+
+</para>
+
+
+
+
+<para id="p1094">
+In those cases where these modules provide instructions for configuring the 
+computer, those instructions will assume a Windows operating system. If you are 
+using a different operating system, you will need to translate those 
+instructions into your operating system.
+
+</para>
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's Next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1095">
+We will learn how to use the Java 
+
+<emphasis id="strong1056" effect="bold">
+InetAddress
+
+</emphasis>
+ class to find 
+the domain name corresponding to an IP address, and to find the IP address 
+corresponding to a domain name in our sample program in the next module.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1096">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1057" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1041">
+Module name: Java4620: General Information
+
+</item>
+
+
+					
+
+<item id="li1042">
+File: Java4620.htm
+
+
+</item>
+
+
+					
+
+<item id="li1043">
+Published: 03/02/14
+
+</item>
+
+
+					
+
+<item id="li1044">
+Revised 12/26/14
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1058" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1097">
+<emphasis id="strong1059" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1098">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1099">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1100">
+<emphasis id="strong1060" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1101">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

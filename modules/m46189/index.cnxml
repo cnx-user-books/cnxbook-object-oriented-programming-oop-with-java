@@ -1,0 +1,4335 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4090: The Comparator Interface, Part 1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46189</md:content-id>
+  <md:title>Java4090: The Comparator Interface, Part 1</md:title>
+  <md:abstract>This module discusses and illustrates the use of the Comparator interface. The sorting order established by a Comparator may be different or may be the same as the natural order. A Comparator can be used to establish a sorting order for objects that don't have a natural ordering. The use of a Comparator is an alternative to the implementation of the Comparable interface.</md:abstract>
+  <md:uuid>e7f45dfd-1da5-4dca-a470-44468d6d9340</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed Apr 06 23:01:46 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+
+
+<item id="li1007">
+<link id="a1007" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1008">
+<link id="a1008" target-id="The_Comparable_interface_">
+
+The Comparable interface 
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1009">
+<link id="a1009" target-id="The_Comparator_interface_">
+
+The Comparator interface
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1010">
+<link id="a1010" target-id="Beginning_with_a_quiz_">
+
+Beginning with a quiz
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1011">
+<link id="a1011" target-id="Eligibility_for_inclusion_in_a_TreeSet_">
+
+Eligibility for inclusion in a TreeSet 
+
+
+</link>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Using_a_Comparator_object_">
+
+Using a Comparator object
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Passing_Comparator_to_TreeSet_constructor_">
+
+Passing Comparator to TreeSet constructor 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Passing_the_TreeSet_to_a_populator_method_">
+
+Passing the TreeSet to a 
+	Populator method
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1015" target-id="Similar_to_previous_program_">
+
+Similar to previous program 
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="MyClass_does_not_implement_Comparable_">
+
+MyClass does not implement Comparable 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Comparator_eliminates_requirement_for_Comparable_">
+
+Comparator eliminates requirement for Comparable 
+	
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1018">
+<link id="a1018" target-id="The_class_named_TheComparator_">
+
+The class named TheComparator 
+
+</link>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Implementing_the_Comparator_interface_">
+
+Implementing the Comparator interface 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Implementing_the_Serializable_interface_">
+
+Implementing the Serializable interface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Methods_of_the_Comparator_interface_">
+
+Methods of the Comparator interface 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="The_compare_method_">
+
+The compare method 
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1023">
+<link id="a1023" target-id="Specialization_is_required_">
+
+Specialization is required
+
+</link>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Must_gain_access_to_instance_variables_">
+
+Must gain access to instance variables 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="Specialized_for_type_MyClass_">
+
+Specialized for type MyClass 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1026" target-id="General_behavior_of_compare_method_">
+
+General behavior of compare method 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="Implementation_of_required_behavior_">
+
+Implementation of required behavior 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" target-id="Other_stipulations_">
+
+Other stipulations
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1029">
+<link id="a1029" target-id="The_equals_method_">
+
+The equals method 
+
+</link>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Overridden_equals_method_">
+
+Overridden equals method
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</item>
+
+
+
+
+<item id="li1031">
+<link id="a1031" target-id="The_program_output_">
+
+The program output 
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1032" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1034" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1035" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming (OOP) in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+This module discusses and illustrates the use of the 
+
+<emphasis id="strong1000" effect="bold">
+Comparator
+
+</emphasis>
+ interface.  The sorting order established by a 
+
+
+<emphasis id="strong1001" effect="bold">
+Comparator
+
+</emphasis>
+ may be different or may be the same as the natural order.  A 
+
+
+<emphasis id="strong1002" effect="bold">
+Comparator
+
+</emphasis>
+ can be used to establish a sorting order for objects that don't have a natural ordering.  The use of a 
+
+
+<emphasis id="strong1003" effect="bold">
+Comparator
+
+</emphasis>
+ is an alternative to the implementation of the 
+
+
+<emphasis id="strong1004" effect="bold">
+Comparable
+
+</emphasis>
+ interface.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+This module is also the first of several modules on the 
+
+<emphasis id="strong1005" effect="bold">
+Comparator
+
+</emphasis>
+ 
+interface. The purpose of the modules in this group is to teach you about the 
+interactions between the 
+
+<emphasis id="strong1006" effect="bold">
+Comparator
+
+</emphasis>
+ interface and the Collections 
+Framework
+
+<emphasis id="em1003" effect="italics">
+,
+
+</emphasis>
+ particularly with respect to the 
+
+<emphasis id="strong1007" effect="bold">
+Set
+
+</emphasis>
+, 
+
+<emphasis id="strong1008" effect="bold">
+SortedSet
+
+</emphasis>
+, 
+and 
+
+<emphasis id="strong1009" effect="bold">
+SortedMap
+
+</emphasis>
+ interfaces of the Collections Framework. This module 
+discusses 
+
+<emphasis id="strong1010" effect="bold">
+Set
+
+</emphasis>
+ and 
+
+<emphasis id="strong1011" effect="bold">
+SortedSet
+
+</emphasis>
+. A discussion of 
+
+<emphasis id="strong1012" effect="bold">
+SortedMap
+
+</emphasis>
+ will be 
+deferred to a future module. 
+
+</para>
+
+
+
+
+
+<para id="p1005">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1036" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1037" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1036">
+<link id="a1038" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The program named Comparator02. 
+
+</item>
+
+
+	
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Passing Comparator to TreeSet constructor. 
+
+</item>
+
+
+	
+
+<item id="li1038">
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The fillIt method. 
+
+</item>
+
+
+	
+
+<item id="li1039">
+<link id="a1041" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The class named MyClass. 
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1042" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of the class named TheComparator. 
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1043" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the compare method. 
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1044" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Implementation of required behavior.
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1045" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The overridden equals method. 
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1046" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Display the contents of the TreeSet object. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+Previous modules have discussed the use of the 
+
+<emphasis id="strong1013" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+This module discusses and illustrates the use of the 
+
+<emphasis id="strong1014" effect="bold">
+Comparator
+
+</emphasis>
+ 
+interface. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+The 
+
+<emphasis id="strong1015" effect="bold">
+Comparable
+
+</emphasis>
+ interface establishes 
+
+<emphasis id="em1004" effect="italics">
+natural ordering.
+
+</emphasis>
+ 
+The sorting order established by a 
+
+<emphasis id="strong1016" effect="bold">
+Comparator
+
+</emphasis>
+ may be different or may be 
+the same as the 
+
+<emphasis id="em1005" effect="italics">
+natural order.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+A 
+
+<emphasis id="strong1017" effect="bold">
+Comparator
+
+</emphasis>
+ can be used to establish a sorting order for objects that 
+don't have a 
+
+<emphasis id="em1006" effect="italics">
+natural ordering
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+The use of a 
+
+<emphasis id="strong1018" effect="bold">
+Comparator
+
+</emphasis>
+ is an alternative to the implementation of the
+
+
+<emphasis id="strong1019" effect="bold">
+Comparable
+
+</emphasis>
+ interface. For example, a 
+
+<emphasis id="strong1020" effect="bold">
+TreeSet
+
+</emphasis>
+ object instantiated with the 
+benefit of a 
+
+<emphasis id="strong1021" effect="bold">
+Comparator
+
+</emphasis>
+ object doesn't require the objects in its 
+collection to implement 
+
+<emphasis id="strong1022" effect="bold">
+Comparable
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+The code in this module is written with no thought given to
+
+
+<link id="a1047" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile this code, you will probably 
+get a warning about 
+
+<emphasis id="em1007" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1012">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_Comparable_interface_" effect="bold">
+
+The Comparable interface 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+Previous modules have discussed the use of the 
+
+<emphasis id="strong1023" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface to establish the 
+
+<emphasis id="em1008" effect="italics">
+natural ordering
+
+</emphasis>
+ of elements in a sorted set. 
+Although the name of the 
+
+<emphasis id="strong1024" effect="bold">
+Comparable
+
+</emphasis>
+ interface is similar to the name of 
+the 
+
+<emphasis id="strong1025" effect="bold">
+Comparator
+
+</emphasis>
+ interface, they are different interfaces. Don't be 
+confused by the similarity of the names. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_Comparator_interface_" effect="bold">
+
+The Comparator interface 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+This module will begin the discussion of an alternative approach to sorting, 
+using the 
+
+<emphasis id="strong1026" effect="bold">
+Comparator
+
+</emphasis>
+ interface to establish sorting order. The discussion 
+will be continued in future modules.
+
+</para>
+
+
+
+
+
+<para id="p1015">
+The sorting order established by a 
+
+<emphasis id="strong1027" effect="bold">
+Comparator
+
+</emphasis>
+ may be different from 
+the 
+
+<emphasis id="em1009" effect="italics">
+natural ordering
+
+</emphasis>
+. The 
+
+<emphasis id="strong1028" effect="bold">
+Comparator
+
+</emphasis>
+ interface can also be 
+used to establish sorting order for objects that do not implement the 
+
+<emphasis id="strong1029" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface and therefore do not have a 
+
+<emphasis id="em1010" effect="italics">
+natural ordering
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Beginning_with_a_quiz_" effect="bold">
+
+Beginning with a quiz 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+Let's begin with a little quiz to test your prior knowledge of the 
+Collections Framework. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+What output is produced by the program shown in 
+
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+? 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1045">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1046">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1047">
+C. 44321
+
+</item>
+
+
+	
+
+<item id="li1048">
+D. 4321
+
+</item>
+
+
+	
+
+<item id="li1049">
+E. 1234
+
+</item>
+
+
+	
+
+<item id="li1050">
+F. 12344
+
+</item>
+
+
+	
+
+<item id="li1051">
+G. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1030" effect="bold">
+The program named Comparator02.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">//File Comparator02.java
+//Copyright 2001, R.G.Baldwin
+import java.util.*;
+import java.io.Serializable;
+
+public class Comparator02{
+  public static void main(String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class Comparator02
+
+class Worker{
+  public void doIt(){
+    Iterator iter;
+    Collection ref;
+
+    ref = new TreeSet(new TheComparator());
+    Populator.fillIt(ref);
+    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(3));
+    ref.add(new MyClass(2));
+    ref.add(new MyClass(1));
+  }//end fillIt()
+}//end class Populator
+
+class MyClass{
+  int data;
+
+  MyClass(){
+    data = 0;
+  }//end noarg constructor
+
+  MyClass(int data){
+    this.data = data;
+  }//end parameterized constructor
+
+  public String toString(){
+    return "" + data;
+  }//end overridden toString()
+
+}//end MyClass
+
+class TheComparator
+    implements Comparator,Serializable{
+
+  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof MyClass))
+        throw new ClassCastException();
+    if(!(o2 instanceof MyClass))
+        throw new ClassCastException();
+    if(((MyClass)o1).data
+                  &lt; ((MyClass)o2).data)
+      return -1;
+    if(((MyClass)o1).data
+                  &gt; ((MyClass)o2).data)
+      return 1;
+    else return 0;
+  }//end compare()
+
+  public boolean equals(Object o){
+    if(!(o instanceof TheComparator))
+        return false;
+    else return true;
+  }//end overridden equals()
+}//end class TheComparator
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1018">
+If your answer was 
+
+<emphasis id="strong1031" effect="bold">
+E. 1234
+
+</emphasis>
+, then you are correct. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Eligibility_for_inclusion_in_a_TreeSet_" effect="bold">
+
+Eligibility for inclusion in a TreeSet
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1019">
+The 
+
+<emphasis id="strong1032" effect="bold">
+TreeSet
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1033" effect="bold">
+SortedSet
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+In an earlier module, I told you that in order to be eligible for inclusion 
+in a 
+
+<emphasis id="strong1034" effect="bold">
+TreeSet
+
+</emphasis>
+ collection, an object must be instantiated from a class that 
+implements the 
+
+<emphasis id="strong1035" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+At that time, I also told you that it is possible to instantiate a new 
+
+<emphasis id="strong1036" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object using a constructor that receives an incoming reference to a
+
+
+<emphasis id="strong1037" effect="bold">
+Comparator
+
+</emphasis>
+ object, in which case it is not necessary for the objects in 
+the collection to implement the 
+
+<emphasis id="strong1038" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="Using_a_Comparator_object_" effect="bold">
+
+Using a Comparator object 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+The program in 
+
+<link id="a1049" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ takes this latter approach. The main purpose 
+of this program is to illustrate the use of a 
+
+<emphasis id="strong1039" effect="bold">
+Comparator
+
+</emphasis>
+ object as an 
+alternative to implementation of the 
+
+<emphasis id="strong1040" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="Passing_Comparator_to_TreeSet_constructor_" effect="bold">
+
+Passing Comparator to TreeSet constructor
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1023">
+The code fragment in 
+
+<link id="a1050" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the instantiation of a new 
+
+<emphasis id="strong1041" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object, passing an anonymous object of type 
+
+<emphasis id="strong1042" effect="bold">
+TheComparator
+
+</emphasis>
+ as a parameter 
+to the constructor for 
+
+<emphasis id="strong1043" effect="bold">
+TreeSet
+
+</emphasis>
+. Shortly, we will see that the class 
+named 
+
+<emphasis id="strong1044" effect="bold">
+TheComparator
+
+</emphasis>
+ implements the 
+
+<emphasis id="strong1045" effect="bold">
+Comparator
+
+</emphasis>
+ interface. 
+Therefore, an object instantiated from that class is a 
+
+<emphasis id="strong1046" effect="bold">
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Passing Comparator to TreeSet constructor.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    Collection ref;
+    ref = new TreeSet(new TheComparator());
+    Populator.fillIt(ref);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Passing_the_TreeSet_to_a_populator_method_" effect="bold">
+
+Passing the TreeSet to a 
+Populator method
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+The code fragment in 
+
+<link id="a1051" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ also shows the reference to the 
+
+<emphasis id="strong1047" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object being stored in a reference variable of the interface type 
+
+<emphasis id="strong1048" effect="bold">
+Collection
+
+</emphasis>
+. 
+The reference to the 
+
+<emphasis id="strong1049" effect="bold">
+TreeSet
+
+</emphasis>
+ object is passed as type 
+
+<emphasis id="strong1050" effect="bold">
+Collection
+
+</emphasis>
+ 
+to a method named 
+
+<emphasis id="strong1051" effect="bold">
+fillIt
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+The purpose of the 
+
+<emphasis id="strong1052" effect="bold">
+fillIt
+
+</emphasis>
+ method is to instantiate some objects of 
+type 
+
+<emphasis id="strong1053" effect="bold">
+MyClass
+
+</emphasis>
+, and to store those object references in the 
+
+<emphasis id="strong1054" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+collection. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_fillIt_method_" effect="bold">
+
+The fillIt method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+The code fragment in 
+
+<link id="a1052" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the entire method named 
+
+<emphasis id="strong1055" effect="bold">
+fillIt
+
+</emphasis>
+. 
+This method instantiates five objects from the class named 
+
+<emphasis id="strong1056" effect="bold">
+MyClass
+
+</emphasis>
+ and 
+adds those object's references to the 
+
+<emphasis id="strong1057" effect="bold">
+TreeSet
+
+</emphasis>
+ collection. 
+
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The fillIt 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(4));
+    ref.add(new MyClass(3));
+    ref.add(new MyClass(2));
+    ref.add(new MyClass(1));
+  }//end fillIt()
+}//end class Populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Similar_to_previous_program_" effect="bold">
+
+Similar to previous program 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1027">
+This is essentially the same code that we saw in a sample program in a 
+previous module. In that module, we saw that it was necessary for the 
+class named 
+
+<emphasis id="strong1058" effect="bold">
+MyClass
+
+</emphasis>
+ to implement the 
+
+<emphasis id="strong1059" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+Otherwise, the 
+
+<emphasis id="strong1060" effect="bold">
+add
+
+</emphasis>
+ method would throw a runtime exception. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="MyClass_does_not_implement_Comparable_" effect="bold">
+
+MyClass does not implement Comparable
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1028">
+In that program, however, the 
+
+<emphasis id="strong1061" effect="bold">
+TreeSet
+
+</emphasis>
+ object was instantiated without 
+benefit of a 
+
+<emphasis id="strong1062" effect="bold">
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+As you can see in the code fragment in 
+
+<link id="a1053" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, the class named 
+
+<emphasis id="strong1063" effect="bold">
+MyClass
+
+</emphasis>
+ 
+in this program 
+does not implement the 
+
+<emphasis id="strong1064" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Comparator_eliminates_requirement_for_Comparable_" effect="bold">
+
+Comparator eliminates requirement for Comparable
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1030">
+Furthermore, the 
+
+<emphasis id="strong1065" effect="bold">
+add
+
+</emphasis>
+ method in 
+
+<link id="a1054" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ does not throw a runtime 
+exception. That is because the 
+
+<emphasis id="strong1066" effect="bold">
+TreeSet
+
+</emphasis>
+ object was instantiated with 
+the benefit of a 
+
+<emphasis id="strong1067" effect="bold">
+Comparator
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+The use of a 
+
+<emphasis id="strong1068" effect="bold">
+Comparator
+
+</emphasis>
+ object in the instantiation of the 
+
+<emphasis id="strong1069" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object eliminates the requirement for objects stored in the 
+
+<emphasis id="strong1070" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+collection to implement the 
+
+<emphasis id="strong1071" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The class 
+				named MyClass.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">class MyClass{
+  int data;
+
+  MyClass(){
+    data = 0;
+  }//end noarg constructor
+
+  MyClass(int data){
+    this.data = data;
+  }//end parameterized constructor
+
+  public String toString(){
+    return "" + data;
+  }//end overridden toString()
+}//end MyClass
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+</section>
+<section id="h21006">
+<title>
+<emphasis id="The_class_named_TheComparator_" effect="bold">
+
+The class named TheComparator 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1032">
+That brings us to the class named 
+
+<emphasis id="strong1072" effect="bold">
+TheComparator
+
+</emphasis>
+ from which the 
+
+<emphasis id="strong1073" effect="bold">
+
+Comparator
+
+</emphasis>
+ object was instantiated and passed to the constructor for the 
+
+<emphasis id="strong1074" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object in 
+
+<link id="a1055" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The declaration for the class named 
+
+<emphasis id="strong1075" effect="bold">
+
+TheComparator
+
+</emphasis>
+ is shown in 
+
+<link id="a1056" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Beginning of 
+				the class named TheComparator.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">class TheComparator
+    implements Comparator,Serializable{
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1033">
+As you can see, the class named 
+
+<emphasis id="strong1076" effect="bold">
+TheComparator
+
+</emphasis>
+ implements both the 
+
+<emphasis id="strong1077" effect="bold">
+
+Comparator
+
+</emphasis>
+ interface and the 
+
+<emphasis id="strong1078" effect="bold">
+Serializable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="Implementing_the_Comparator_interface_" effect="bold">
+
+Implementing the Comparator interface
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1034">
+By implementing the 
+
+<emphasis id="strong1079" effect="bold">
+Comparator
+
+</emphasis>
+ interface, an object instantiated from 
+the class is eligible to be passed to the constructor for a 
+
+<emphasis id="strong1080" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object, which requires an incoming parameter of type 
+
+<emphasis id="strong1081" effect="bold">
+Comparator
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Implementing_the_Serializable_interface_" effect="bold">
+
+Implementing the Serializable interface
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+Here is what Oracle has to say about implementing the 
+
+<emphasis id="strong1082" effect="bold">
+Serializable
+
+</emphasis>
+ 
+interface: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1011" effect="italics">
+"Note: It is generally a good idea for comparators to implement 
+	java.io.Serializable, as they may be used as ordering methods in 
+	serializable data structures (like TreeSet, TreeMap). In order for the data 
+	structure to serialize successfully, the comparator (if provided) must 
+	implement Serializable."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1036">
+Since the 
+
+<emphasis id="strong1083" effect="bold">
+Serializable
+
+</emphasis>
+ interface doesn't declare any methods, 
+implementing the interface simply requires a declaration that the interface is 
+being implemented. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Methods_of_the_Comparator_interface_" effect="bold">
+
+Methods of the Comparator interface
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1037">
+The 
+
+<emphasis id="strong1084" effect="bold">
+Comparator
+
+</emphasis>
+ interface declares the two methods listed below: 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1052">
+public int 
+
+<emphasis id="strong1085" effect="bold">
+compare
+
+</emphasis>
+(Object o1, Object o2) 
+
+</item>
+
+
+	
+
+<item id="li1053">
+public boolean 
+
+<emphasis id="strong1086" effect="bold">
+equals
+
+</emphasis>
+(Object 
+obj) 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1038">
+As is always the case when implementing interfaces, a class that implements 
+the 
+
+<emphasis id="strong1087" effect="bold">
+Comparator
+
+</emphasis>
+ interface must provide concrete definitions for both of 
+these methods. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="The_compare_method_" effect="bold">
+
+The compare method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+The beginning of the 
+
+<emphasis id="strong1088" effect="bold">
+compare
+
+</emphasis>
+ method is shown in 
+
+<link id="a1057" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Beginning of 
+				the compare method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">  public int compare(Object o1,Object o2){
+    if(!(o1 instanceof MyClass))
+        throw new ClassCastException();
+    if(!(o2 instanceof MyClass))
+        throw new ClassCastException();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1040">
+The purpose of a 
+
+<emphasis id="strong1089" effect="bold">
+Comparator
+
+</emphasis>
+ is to compare the values stored in the 
+instance variables of two objects and to return a value indicating which object 
+is 
+
+<emphasis id="em1012" effect="italics">
+greater
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Specialization_is_required_" effect="bold">
+
+Specialization is required 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1041">
+Generally speaking, therefore, a 
+
+<emphasis id="strong1090" effect="bold">
+Comparator
+
+</emphasis>
+ object must be specialized 
+to deal with a particular type of object. That type could be 
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1054">
+A specific class from which the object is instantiated,
+
+</item>
+
+
+	
+
+<item id="li1055">
+A specific interface implemented by the class from which the object is 
+	instantiated, or perhaps
+
+</item>
+
+
+	
+
+<item id="li1056">
+A specific superclass of the class from which the object is 
+	instantiated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1042">
+The code in 
+
+<link id="a1058" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ confirms that both of the objects to be compared are of 
+the correct type, which in this case is type 
+
+<emphasis id="strong1091" effect="bold">
+MyClass
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<section id="h31012">
+<title>
+<emphasis id="Must_gain_access_to_instance_variables_" effect="bold">
+
+Must gain access to instance variables
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1043">
+Regardless of how the type is established, the code in the 
+
+<emphasis id="strong1092" effect="bold">
+compare
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1093" effect="bold">
+Comparator
+
+</emphasis>
+ object must gain access to the instance 
+variables of the two objects passed to the 
+
+<emphasis id="strong1094" effect="bold">
+compare
+
+</emphasis>
+ method as type 
+
+<emphasis id="strong1095" effect="bold">
+
+Object
+
+</emphasis>
+. This normally requires that a downcast be performed on the 
+incoming object references. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="Specialized_for_type_MyClass_" effect="bold">
+
+Specialized for type MyClass 
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1044">
+This 
+
+<emphasis id="strong1096" effect="bold">
+Comparator
+
+</emphasis>
+ is specialized to compare two objects of the class 
+named 
+
+<emphasis id="strong1097" effect="bold">
+MyClass
+
+</emphasis>
+. The first two statements in 
+
+<link id="a1059" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ above confirm 
+that both of the incoming objects are of type 
+
+<emphasis id="strong1098" effect="bold">
+MyClass
+
+</emphasis>
+. If either 
+object is not of that type, an exception is thrown. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="General_behavior_of_compare_method_" effect="bold">
+
+General behavior of compare method
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1045">
+The general description of the behavior of the 
+
+<emphasis id="strong1099" effect="bold">
+compare
+
+</emphasis>
+ method as 
+provided by Oracle is shown below: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1013" effect="italics">
+"Compares its two arguments for order. Returns a negative integer, zero, 
+	or a positive integer as the first argument is less than, equal to, or 
+	greater than the second."
+
+</emphasis>
+</quote>
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="Implementation_of_required_behavior_" effect="bold">
+
+Implementation of required behavior
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+This behavior is accomplished by the code shown in 
+
+<link id="a1060" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. In this 
+case, the comparison is based solely on the values of the instance variable 
+named 
+
+<emphasis id="strong1100" effect="bold">
+data
+
+</emphasis>
+ in each of the two objects. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Depending on which object contains the larger value in its instance variable, 
+a value of 1 or -1 is returned. If the two values are equal, a value of 0 
+is returned. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1014" effect="italics">
+(Note that it is up to the author of the 
+
+<emphasis id="strong1101" effect="bold">
+compare
+
+</emphasis>
+ 
+method to decide what constitutes larger. This gives the author of the 
+method a great deal of control over the results of a sorting operation.)
+
+</emphasis>
+ 
+
+
+</quote>
+
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Implementation of required behavior.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">    if(((MyClass)o1).data &lt; ((MyClass)o2).data)
+      return -1;
+    if(((MyClass)o1).data &gt; ((MyClass)o2).data)
+      return 1;
+    else return 0;
+  }//end compare()
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+
+
+
+<emphasis id="Other_stipulations_" effect="bold">
+
+
+Other stipulations 
+
+</emphasis>
+
+
+
+
+</title>
+
+
+
+
+<para id="p1048">
+The documentation for the 
+
+<emphasis id="strong1102" effect="bold">
+compare
+
+</emphasis>
+ method contains several other 
+stipulations regarding the behavior of the method. While I believe that 
+this version of the 
+
+<emphasis id="strong1103" effect="bold">
+compare
+
+</emphasis>
+ method meets all of those stipulations, I 
+haven't taken the time to test it fully. Therefore, it is possible that it 
+may not meet all of the stipulations in terms of its behavior. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21008">
+<title>
+<emphasis id="The_equals_method_" effect="bold">
+
+The equals method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1049">
+Every new class inherits a default version of the 
+
+<emphasis id="strong1104" effect="bold">
+equals
+
+</emphasis>
+ method from 
+the class named 
+
+<emphasis id="strong1105" effect="bold">
+Object. 
+
+</emphasis>
+Therefore, a new class that implements the
+
+
+<emphasis id="strong1106" effect="bold">
+Comparator
+
+</emphasis>
+ interface already has such a method. The new class is 
+free to override the inherited version, or to simply make use of the inherited 
+version. Here is what Oracle has to say on the subject: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1015" effect="italics">
+"Note that it is always safe not to override Object.equals(Object). 
+	However, overriding this method may, in some cases, improve performance by 
+	allowing programs to determine that two distinct Comparators impose the same 
+	order."
+
+</emphasis>
+</quote>
+
+
+
+
+<section id="h31017">
+<title>
+<emphasis id="Overridden_equals_method_" effect="bold">
+
+Overridden equals method 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1050">
+I decided, for purposes of illustration, to go ahead and override the 
+
+<emphasis id="strong1107" effect="bold">
+
+equals
+
+</emphasis>
+ method. However, my overridden version, as shown in 
+
+<link id="a1061" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+isn't very significant. It simply confirms that an object being compared 
+for equality to a 
+
+<emphasis id="strong1108" effect="bold">
+Comparator
+
+</emphasis>
+ object is instantiated from the same class.
+
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Since the 
+
+<emphasis id="strong1109" effect="bold">
+Comparator
+
+</emphasis>
+ object doesn't contain any instance variables, 
+there isn't much more to be tested for equality. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. The overridden 
+				equals method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">  public boolean equals(Object o){
+    if(!(o instanceof TheComparator))
+        return false;
+    else return true;
+  }//end overridden equals()
+}//end class TheComparator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+</section>
+</section>
+<section id="h21009">
+<title>
+<emphasis id="The_program_output_" effect="bold">
+
+The program output 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1052">
+Finally, the code shown in 
+
+<link id="a1062" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ uses an 
+
+<emphasis id="strong1110" effect="bold">
+Iterator
+
+</emphasis>
+ to 
+display the contents of the populated 
+
+<emphasis id="strong1111" effect="bold">
+TreeSet
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Display the 
+				contents of the TreeSet object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">    iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1053">
+The output produced by this code fragment is shown below. 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1112" effect="bold">
+1234
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+As you can see, the duplicate elements having the value 4 were eliminated as 
+would be expected for a 
+
+<emphasis id="strong1113" effect="bold">
+Set
+
+</emphasis>
+ object. In addition, the 
+
+<emphasis id="strong1114" effect="bold">
+Comparator
+
+</emphasis>
+ 
+was used to accomplish the following contract of a 
+
+<emphasis id="strong1115" effect="bold">
+SortedSet
+
+</emphasis>
+ object: 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+
+	
+
+<emphasis id="em1016" effect="italics">
+"A set that further guarantees that its iterator will traverse the set in 
+	ascending element order, sorted according to the natural ordering of its 
+	elements (see 
+
+<emphasis id="strong1116" effect="bold">
+Comparable
+
+</emphasis>
+), or by a 
+
+<emphasis id="strong1117" effect="bold">
+Comparator
+
+</emphasis>
+ provided at sorted set 
+	creation time."
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1056">
+In this case, the sorted order was controlled by the 
+
+<emphasis id="strong1118" effect="bold">
+Comparator
+
+</emphasis>
+ 
+object, and not by the 
+
+<emphasis id="em1017" effect="italics">
+natural ordering
+
+</emphasis>
+ of the elements. The 
+
+<emphasis id="em1018" effect="italics">
+
+natural ordering
+
+</emphasis>
+ is controlled by implementation of the 
+
+<emphasis id="strong1119" effect="bold">
+Comparable
+
+</emphasis>
+ 
+interface, and the elements in this collection did not implement the 
+
+<emphasis id="strong1120" effect="bold">
+
+Comparable
+
+</emphasis>
+ interface. Therefore, objects of the class named 
+
+<emphasis id="strong1121" effect="bold">
+MyClass
+
+</emphasis>
+ 
+do not have a natural order in this program.
+
+</para>
+
+
+
+
+
+<para id="p1057">
+However, the code in this version of the 
+
+<emphasis id="strong1122" effect="bold">
+Comparator
+
+</emphasis>
+ produced 
+an output order that matches the ascending natural order that one might expect 
+for objects of type 
+
+<emphasis id="strong1123" effect="bold">
+MyClass
+
+</emphasis>
+. Future modules will show you how 
+to design the 
+
+<emphasis id="strong1124" effect="bold">
+Comparator
+
+</emphasis>
+ object to produce different output 
+orders, such as descending order for example.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+I encourage you to copy the code 
+
+<link id="a1063" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ and paste it into your Java editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+This module has discussed and illustrated the use of the 
+
+<emphasis id="strong1125" effect="bold">
+Comparator
+
+</emphasis>
+ 
+interface. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+The sorting order established by a 
+
+<emphasis id="strong1126" effect="bold">
+Comparator
+
+</emphasis>
+ may be different or may 
+be the same as the 
+
+<emphasis id="em1019" effect="italics">
+natural ordering
+
+</emphasis>
+ for a collection of objects
+
+<emphasis id="em1020" effect="italics">
+.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1062">
+A 
+
+<emphasis id="strong1127" effect="bold">
+Comparator
+
+</emphasis>
+ can be used to establish a sorting order for objects that 
+don't have a 
+
+<emphasis id="em1021" effect="italics">
+natural ordering
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+The use of a 
+
+<emphasis id="strong1128" effect="bold">
+Comparator
+
+</emphasis>
+ is an alternative to the implementation of the
+
+
+<emphasis id="strong1129" effect="bold">
+Comparable
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+A 
+
+<emphasis id="strong1130" effect="bold">
+TreeSet
+
+</emphasis>
+ object instantiated with the benefit of a 
+
+<emphasis id="strong1131" effect="bold">
+Comparator
+
+</emphasis>
+ 
+object doesn't require the objects in its collection to implement 
+
+<emphasis id="strong1132" effect="bold">
+Comparable
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1065">
+In the next module, I will illustrate the use of a 
+
+<emphasis id="strong1133" effect="bold">
+Comparator
+
+</emphasis>
+ to 
+eliminate the effect of case when sorting 
+
+<emphasis id="strong1134" effect="bold">
+String
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1135" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1013" list-type="bulleted">
+
+					
+
+<item id="li1057">
+Module name: Java4090: The Comparator Interface, Part 1
+
+</item>
+
+
+					
+
+<item id="li1058">
+File: Java4090.htm
+
+
+</item>
+
+
+					
+
+<item id="li1059">
+Published: 05/07/13
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1136" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1067">
+<emphasis id="strong1137" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1068">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1069">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1070">
+<emphasis id="strong1138" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1071">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

@@ -1,0 +1,4385 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4010: Getting Started with Java Collections</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46135</md:content-id>
+  <md:title>Java4010: Getting Started with Java Collections</md:title>
+  <md:abstract>The purpose of this module is to introduce you to the Java Collections Framework. Once you learn how to use the framework, it is unlikely that you will need to reinvent common data structures, search algorithms, or sorting algorithms again, because those capabilities are neatly packaged within the framework.</md:abstract>
+  <md:uuid>05a3d262-597c-46a0-8d6a-ab4ceee293dd</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Tue Apr 05 13:19:04 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Preview">
+
+Preview
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Generics">
+
+Generics
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="A_little_quiz_">
+
+A quiz 
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Elements_of_the_Framework_are_easy_to_use">
+
+Elements of the Framework are easy to use 
+		
+
+</link>
+
+ 
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="Dont_reinvent_the_wheel_">
+
+Don't reinvent the wheel
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Collections_Framework_encourages_reuse">
+
+Collections Framework encourages reuse
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Sample_program">
+
+Sample program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="InterestingCodeFragments">
+
+Interesting code fragments
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="An_object_of_the_TreeSet_class">
+
+An object of the TreeSet class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Collection_is_an_interface">
+
+Collection is an interface
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="What_is_a_TreeSet_object">
+
+What is a TreeSet object?
+
+</link>
+
+
+		
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1017">
+<link id="a1017" target-id="What_does_ascending_element_order_mean_">
+
+What does ascending element order mean?
+
+</link>
+
+
+			
+
+</item>
+
+
+			
+
+<item id="li1018">
+<link id="a1018" target-id="What_does_log_time_cost_mean">
+
+What does log(n) time cost mean? 
+			
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="A_TreeSet_object_is_a_Set_">
+
+A TreeSet object is a Set 
+			
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="A_TreeSet_object_is_a_SortedSet_">
+
+A TreeSet object is a SortedSet 
+			
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1021">
+<link id="a1021" target-id="A_TreeSet_object_is_a_Collection_">
+
+A TreeSet object is a Collection 
+			
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Populate_the_Collection">
+
+Populate the Collection 
+
+</link>
+
+
+		
+
+<list id="ul1007" list-type="bulleted">
+
+			
+
+<item id="li1023">
+<link id="a1023" target-id="Dont_know_dont_care_">
+
+Don't know, don't care 
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1024">
+<link id="a1024" target-id="Polymorphism_in_action">
+
+Polymorphism in action
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1025">
+<link id="a1025" target-id="Add_five_elements_with_some_duplicates_">
+
+Add five elements with some duplicates 
+			
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1026">
+<link id="a1026" target-id="Filter_out_the_duplicates_">
+
+Filter out the duplicates 
+			
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1027">
+<link id="a1027" target-id="Notification_of_duplicates_">
+
+Notification of duplicates
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1028">
+<link id="a1028" target-id="Sort_the_elements_">
+
+Sort the elements
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1029">
+<link id="a1029" target-id="The_TreeSet_object_is_now_populated_">
+
+The TreeSet object is now populated 
+			
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Get_an_Iterator_object_">
+
+Get an Iterator object 
+		
+
+</link>
+
+ 
+		
+
+<list id="ul1008" list-type="bulleted">
+
+			
+
+<item id="li1031">
+<link id="a1031" target-id="Againdontknowdontcare_">
+
+Again, don't know, don't care
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1032">
+<link id="a1032" target-id="An_Iterator_object_acts_as_a_doorkeeper_">
+
+An Iterator object acts as a doorkeeper 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1033">
+<link id="a1033" target-id="Traverse_the_collection">
+
+Traverse the collection
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1034">
+<link id="a1034" target-id="Four_elements_with_no_duplicates_">
+
+Four elements with no duplicates
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1035" target-id="An_editorial_opinion_">
+
+An editorial opinion 
+		
+
+</link>
+
+ 
+		
+
+<list id="ul1009" list-type="bulleted">
+
+			
+
+<item id="li1036">
+<link id="a1036" target-id="What_kind_of_knowledge_is_needed_">
+
+What kind of knowledge is needed? 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1037">
+<link id="a1037" target-id="The_same_concept_applies_to_software_design_">
+
+The same concept applies to software design
+
+</link>
+
+ 
+
+</item>
+
+
+			
+
+<item id="li1038">
+<link id="a1038" target-id="An_analogy_">
+
+An analogy
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1039">
+<link id="a1039" target-id="Its_time_to_reinvent_the_CS2_curriculum_">
+
+Its time to reinvent the CS2 curriculum 
+			
+
+</link>
+
+ 
+
+</item>
+
+
+	
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1040">
+<link id="a1040" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1041">
+<link id="a1041" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1042">
+<link id="a1042" target-id="WhatsNext">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1043">
+<link id="a1043" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1044">
+<link id="a1044" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about 
+Object-Oriented Programming in general and the Java Collections 
+framework in particular.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The purpose of this module is to introduce you to the Java Collections Framework. Once you learn how to use the framework, it is unlikely that you will need to reinvent common data structures, search algorithms, or sorting algorithms again, because those capabilities are neatly packaged within the framework.
+
+</para>
+
+
+
+
+
+<para id="p1004">
+In addition to studying these modules, I strongly recommend that you study 
+the 
+
+<link id="a1045" url="http://docs.oracle.com/javase/tutorial/collections/index.html">
+
+
+Collections Trail
+
+</link>
+
+ in
+
+
+<link id="a1046" url="http://docs.oracle.com/javase/tutorial/index.html">
+
+Oracle's Java 
+Tutorials
+
+</link>
+
+. The modules in this collection are intended to supplement and not 
+to replace those tutorials.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the listings while you are reading about them.
+
+</para>
+
+
+
+
+
+<section id="h31000">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1045">
+<link id="a1047" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. A new object of the TreeSet class. 
+
+</item>
+
+
+	
+
+<item id="li1046">
+<link id="a1048" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Populate the collection. 
+
+</item>
+
+
+	
+
+<item id="li1047">
+<link id="a1049" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The Populator class. 
+
+</item>
+
+
+	
+
+<item id="li1048">
+<link id="a1050" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Get an Iterator object.
+
+</item>
+
+
+	
+
+<item id="li1049">
+<link id="a1051" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Traverse the collection. 
+
+</item>
+
+
+	
+
+<item id="li1050">
+<link id="a1052" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Complete program listing
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+This module provides a brief introduction to the use of the 
+
+<emphasis id="em1003" effect="italics">
+Java Collections 
+Framework
+
+</emphasis>
+. The framework is designed to encourage you to reuse rather than to 
+reinvent collections and maps.
+
+</para>
+
+
+
+
+
+<para id="p1007">
+A collection represents a group of objects, known as its elements. Some 
+collections allow duplicate elements while others do not. Some collections are 
+ordered and others are not. 
+
+<emphasis id="em1004" effect="italics">
+(Maps will be discussed in future modules.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+The 
+
+<emphasis id="em1005" effect="italics">
+Collections Framework
+
+</emphasis>
+ is defined by a set of interfaces and associated 
+contracts, and provides concrete implementations of the interfaces for the most 
+common data structures. In addition, the framework also provides several 
+abstract implementations, which are designed to make it easier for you to create 
+new and different implementations while still maintaining the structural 
+polymorphic integrity of the framework.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Generics" effect="bold">
+
+Generics
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+The code in this series of modules is written with no thought given to
+
+
+<link id="a1053" url="http://docs.oracle.com/javase/tutorial/java/generics/index.html">
+
+
+Generics
+
+</link>
+
+. As a result, if you copy and compile the code, you will probably 
+get warnings about 
+
+<emphasis id="em1006" effect="italics">
+unchecked or unsafe operations
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+While you will ultimately need to understand how to use Generics, that is a 
+very complex topic. An understanding of Generics is beyond the scope of this 
+course. Therefore, for purposes of this course, you can simply ignore those 
+warnings.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="A_little_quiz_" effect="bold">
+
+A quiz 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1011">
+Let's begin with a little quiz to establish your baseline knowledge of the 
+Collections Framework. Take a look at the program in 
+
+<link id="a1054" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ near the end of 
+this module. Which of the following is the output produced by that program?
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1051">
+A. Compiler Error
+
+</item>
+
+
+	
+
+<item id="li1052">
+B. Runtime Error
+
+</item>
+
+
+	
+
+<item id="li1053">
+C. 44321
+
+</item>
+
+
+	
+
+<item id="li1054">
+D. 12344
+
+</item>
+
+
+	
+
+<item id="li1055">
+E. 1234
+
+</item>
+
+
+	
+
+<item id="li1056">
+F. None of the above.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+If your answer was 
+
+<emphasis id="strong1000" effect="bold">
+1234
+
+</emphasis>
+ 
+
+<emphasis id="em1007" effect="italics">
+(and it wasn't a guess)
+
+</emphasis>
+ then you may already know quite a lot about the 
+use of the Collections Framework. If not, keep reading to begin learning about 
+the framework.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Elements_of_the_Framework_are_easy_to_use" effect="bold">
+
+Elements of the Framework are easy to use
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1013">
+This simple introductory program is not intended to do anything useful. 
+Instead, it was designed to illustrate several important features of the 
+framework, including the ease with which elements of the framework can be reused 
+in your programs. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Dont_reinvent_the_wheel_" effect="bold">
+
+Don't reinvent the wheel 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1014">
+As many of you already know, I am a college professor. I specialize in 
+teaching OOP using Java. In the past, many college courses in Data Structures 
+
+<emphasis id="em1008" effect="italics">
+
+(often referred to as CS2 courses)
+
+</emphasis>
+ have emphasized the concept of 
+
+<emphasis id="em1009" effect="italics">
+
+reinventing the wheel
+
+</emphasis>
+. Students were required to learn how to reinvent a 
+variety of complex data structures in order to successfully complete the course.
+
+
+</para>
+
+
+
+
+
+<para id="p1015">
+Hopefully, with the conversion of these CS2 courses to Java OOP, the emphasis 
+will change to 
+
+<emphasis id="em1010" effect="italics">
+reuse
+
+</emphasis>
+ instead of 
+
+<emphasis id="em1011" effect="italics">
+reinvent
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Collections_Framework_encourages_reuse" effect="bold">
+
+Collections Framework encourages reuse
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1016">
+The Java Collections Framework is designed to encourage programmers to reuse 
+existing interfaces and classes instead of inventing new ones. In the event that 
+it is necessary to invent a new class or interface, the programmer is encouraged 
+to integrate it into the framework in a polymorphic manner.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Sample_program" effect="bold">
+
+Sample program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+I am going to provide a brief discussion of the sample program 
+
+<emphasis id="em1012" effect="italics">
+(shown in 
+
+
+<link id="a1055" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+)
+
+</emphasis>
+ in this module. Later, I will provide more detailed discussions 
+of many of the features used in that program.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="InterestingCodeFragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+I will break this program down and discuss it in fragments. 
+
+</para>
+
+
+
+
+
+<section id="h21005">
+<title>
+<emphasis id="An_object_of_the_TreeSet_class" effect="bold">
+
+An object of the TreeSet class
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1019">
+The code fragment in 
+
+<link id="a1056" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of the 
+
+<emphasis id="strong1001" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+class and stores the object's reference in a reference variable of type 
+
+<emphasis id="strong1002" effect="bold">
+
+Collection 
+
+</emphasis>
+named
+
+<emphasis id="strong1003" effect="bold">
+
+ref
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. A new object 
+				of the TreeSet class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">class Worker{
+  public void doIt(){
+    Collection ref = new TreeSet();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Collection_is_an_interface" effect="bold">
+
+Collection is an interface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+The 
+
+<emphasis id="strong1004" effect="bold">
+TreeSet
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1005" effect="bold">
+SortedSet
+
+</emphasis>
+ interface, which 
+extends the 
+
+<emphasis id="strong1006" effect="bold">
+Set
+
+</emphasis>
+ interface, which in turn extends the 
+
+<emphasis id="strong1007" effect="bold">
+Collection
+
+</emphasis>
+ 
+interface. Thus, a 
+
+<emphasis id="strong1008" effect="bold">
+TreeSet
+
+</emphasis>
+ object 
+
+<emphasis id="em1013" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1009" effect="bold">
+Collection
+
+</emphasis>
+. 
+Therefore, a reference to a 
+
+<emphasis id="strong1010" effect="bold">
+TreeSet
+
+</emphasis>
+ object can be stored in a reference 
+variable of type 
+
+<emphasis id="strong1011" effect="bold">
+Collection
+
+</emphasis>
+, and can be treated as the generic type 
+
+<emphasis id="strong1012" effect="bold">
+
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="What_is_a_TreeSet_object" effect="bold">
+
+What is a TreeSet object?
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+Among other things, in CS2 courses, we worry about the time and memory cost 
+of a collection. According to Sun, the 
+
+<emphasis id="strong1013" effect="bold">
+TreeSet
+
+</emphasis>
+ class guarantees that the 
+sorted set will be in ascending element order, and provides guaranteed log(n) 
+time cost for the basic operations (
+
+<emphasis id="em1014" effect="italics">
+add
+
+</emphasis>
+, 
+
+<emphasis id="em1015" effect="italics">
+remove
+
+</emphasis>
+ and 
+
+<emphasis id="em1016" effect="italics">
+contains
+
+</emphasis>
+).
+
+
+</para>
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="What_does_ascending_element_order_mean_" effect="bold">
+
+What does ascending element order mean?
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1022">
+Again, according to Sun, the elements will be sorted according to the 
+
+<emphasis id="em1017" effect="italics">
+
+natural order
+
+</emphasis>
+ of the elements 
+
+<emphasis id="em1018" effect="italics">
+(see the 
+
+
+<link id="a1057" url="http://cnx.org/contents/L3qgZmWm">
+
+Comparable
+
+</link>
+
+ interface)
+
+</emphasis>
+ or by a 
+comparator 
+
+<emphasis id="em1019" effect="italics">
+(see the 
+
+<link id="a1058" url="http://cnx.org/contents/5_Rd_R2l">
+
+Comparator
+
+</link>
+
+ interface)
+
+</emphasis>
+ provided at the time the set is 
+created. This depends on which overloaded constructor is used. I will have more 
+to say about these alternatives in a future module. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="What_does_log_time_cost_mean" effect="bold">
+
+What does log(n) time cost mean?
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1023">
+I'm not going to try to explain the details of log(n) time cost here. Suffice 
+it to say that the 
+
+<emphasis id="em1020" effect="italics">
+add
+
+</emphasis>
+, 
+
+<emphasis id="em1021" effect="italics">
+remove
+
+</emphasis>
+, and 
+
+<emphasis id="em1022" effect="italics">
+contains
+
+</emphasis>
+ methods 
+execute very fast. 
+
+<emphasis id="em1023" effect="italics">
+(I will have more to say about this is a future 
+module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="A_TreeSet_object_is_a_Set_" effect="bold">
+
+A TreeSet object is a Set 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1024">
+An object of the 
+
+<emphasis id="strong1014" effect="bold">
+TreeSet
+
+</emphasis>
+ class also 
+
+<emphasis id="em1024" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1015" effect="bold">
+Set
+
+</emphasis>
+. One of the 
+characteristics of a Java 
+
+<emphasis id="strong1016" effect="bold">
+Set
+
+</emphasis>
+ 
+
+<emphasis id="em1025" effect="italics">
+(an object that implements the 
+
+<emphasis id="strong1017" effect="bold">
+Set
+
+</emphasis>
+ 
+interface)
+
+</emphasis>
+ is that it can contain no duplicate elements. Therefore, a 
+
+<emphasis id="strong1018" effect="bold">
+
+TreeSet
+
+</emphasis>
+ object can contain no duplicate elements. If the 
+
+<emphasis id="strong1019" effect="bold">
+add
+
+</emphasis>
+ method 
+of a 
+
+<emphasis id="strong1020" effect="bold">
+TreeSet
+
+</emphasis>
+ object is called in an attempt to add a duplicate element, 
+the element will not be added. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="A_TreeSet_object_is_a_SortedSet_" effect="bold">
+
+A TreeSet object is a SortedSet
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1025">
+The 
+
+<emphasis id="strong1021" effect="bold">
+TreeSet
+
+</emphasis>
+ class also implements the 
+
+<emphasis id="strong1022" effect="bold">
+SortedSet
+
+</emphasis>
+ interface. This 
+guarantees that the contents of a 
+
+<emphasis id="strong1023" effect="bold">
+TreeSet
+
+</emphasis>
+ object will be in ascending 
+element order, regardless of the order in which the elements are added. 
+
+<emphasis id="em1026" effect="italics">
+(In a 
+future module, I will discuss how comparisons are made to enforce the 
+ordering of the elements.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="A_TreeSet_object_is_a_Collection_" effect="bold">
+
+A TreeSet object is a Collection
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1026">
+Because an object of the 
+
+<emphasis id="strong1024" effect="bold">
+TreeSet
+
+</emphasis>
+ class 
+
+<emphasis id="em1027" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1025" effect="bold">
+Collection
+
+</emphasis>
+, 
+a reference to such an object can be passed to any method that requires an 
+incoming parameter of type 
+
+<emphasis id="strong1026" effect="bold">
+Collection
+
+</emphasis>
+. The receiving method can call any 
+method on that reference that is declared in the 
+
+<emphasis id="strong1027" effect="bold">
+Collection
+
+</emphasis>
+ interface
+
+<emphasis id="strong1028" effect="bold">
+.
+
+
+</emphasis>
+<emphasis id="em1028" effect="italics">
+(I will discuss such methods in detail in future modules.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Populate_the_Collection" effect="bold">
+
+Populate the Collection
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1027">
+The statement in 
+
+<link id="a1059" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ passes the 
+
+<emphasis id="strong1029" effect="bold">
+TreeSet
+
+</emphasis>
+ object's reference 
+to a method named 
+
+<emphasis id="strong1030" effect="bold">
+fillIt
+
+</emphasis>
+, which is a static method of the 
+
+<emphasis id="strong1031" effect="bold">
+Populator
+
+</emphasis>
+ 
+class. 
+
+<emphasis id="em1029" effect="italics">
+(The Populator class is a class of my own design whose only purpose is 
+to illustrate the polymorphic behavior achieved using the Collections 
+Framework.)
+
+</emphasis>
+ The behavior of this method is to add elements to the incoming
+
+
+<emphasis id="strong1032" effect="bold">
+Collection
+
+</emphasis>
+ object without regard for the actual type of the object 
+
+<emphasis id="em1030" effect="italics">
+
+(the class from which the object was instantiated).
+
+</emphasis>
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Populate the 
+				collection.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">    Populator.fillIt(ref);
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1028">
+At this point, I am going to discuss the 
+
+<emphasis id="strong1033" effect="bold">
+fillIt
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1034" effect="bold">
+
+Populator
+
+</emphasis>
+ class called in 
+
+<link id="a1060" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The entire class definition of 
+the 
+
+<emphasis id="strong1035" effect="bold">
+Populator
+
+</emphasis>
+ class, including the 
+
+<emphasis id="strong1036" effect="bold">
+fillit
+
+</emphasis>
+ method, is shown in 
+
+<link id="a1061" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The Populator 
+				class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Populator{
+  public static void fillIt(Collection ref){
+    ref.add(new Integer(4));
+    ref.add(new Integer(4));
+    ref.add(new Integer(3));
+    ref.add(new Integer(2));
+    ref.add(new Integer(1));
+  }//end fillIt()
+}//end class populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<section id="h31006">
+<title>
+<emphasis id="Dont_know_dont_care_" effect="bold">
+
+Don't know, don't care 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1029">
+As you can see in the above fragment, the 
+
+<emphasis id="strong1037" effect="bold">
+fillIt
+
+</emphasis>
+ method receives the 
+reference to the 
+
+<emphasis id="strong1038" effect="bold">
+TreeSet
+
+</emphasis>
+ object as type 
+
+<emphasis id="strong1039" effect="bold">
+Collection
+
+</emphasis>
+. This method 
+doesn't know, and doesn't care, what the actual type of the object is. All it 
+cares about is that the object 
+
+<emphasis id="em1031" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1040" effect="bold">
+Collection
+
+</emphasis>
+ object. 
+
+<emphasis id="em1032" effect="italics">
+
+(Otherwise, the object's reference couldn't be passed in as a parameter. A type 
+mismatch would occur.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+Because the incoming parameter is a reference to a 
+
+<emphasis id="strong1041" effect="bold">
+Collection
+
+</emphasis>
+ object, 
+the 
+
+<emphasis id="strong1042" effect="bold">
+fillIt 
+
+</emphasis>
+method can call the 
+
+<emphasis id="strong1043" effect="bold">
+add
+
+</emphasis>
+ method on the object with 
+confidence that the behavior of the 
+
+<emphasis id="strong1044" effect="bold">
+add
+
+</emphasis>
+ method will be appropriate for 
+the specific type of object involved. 
+
+<emphasis id="em1033" effect="italics">
+(For example, the behavior of the add 
+method for an object of the TreeSet class will probably be different from the 
+behavior of the add method for an object of some other class that implements 
+the Collection interface.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Polymorphism_in_action" effect="bold">
+
+Polymorphism in action
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1031">
+The great thing about polymorphic behavior is that the author of the 
+
+<emphasis id="strong1045" effect="bold">
+
+fillIt
+
+</emphasis>
+ method doesn't need to be concerned about the implementation 
+details of the 
+
+<emphasis id="strong1046" effect="bold">
+add
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Add_five_elements_with_some_duplicates_" effect="bold">
+
+Add five elements with some duplicates
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1032">
+The code in the 
+
+<emphasis id="strong1047" effect="bold">
+fillIt
+
+</emphasis>
+ method adds five elements to the object. Each 
+element is a reference to a new object of type 
+
+<emphasis id="strong1048" effect="bold">
+Integer
+
+</emphasis>
+. Two of the 
+objects encapsulate the 
+
+<emphasis id="strong1049" effect="bold">
+int
+
+</emphasis>
+ value 4, and thus are duplicates. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1050" effect="bold">
+int
+
+</emphasis>
+ values encapsulated in the 
+
+<emphasis id="strong1051" effect="bold">
+Integer
+
+</emphasis>
+ objects are not in 
+ascending order. Rather, they are added to the object in descending order. 
+
+<emphasis id="em1034" effect="italics">
+
+(They could be added in any order and the end result would be the same.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Filter_out_the_duplicates_" effect="bold">
+
+Filter out the duplicates 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1034">
+The 
+
+<emphasis id="strong1052" effect="bold">
+add
+
+</emphasis>
+ method 
+for the 
+
+<emphasis id="strong1053" effect="bold">
+TreeSet
+
+</emphasis>
+ object filters out the duplicate element in order to satisfy the contract of the 
+
+<emphasis id="strong1054" effect="bold">
+
+Collection
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Notification_of_duplicates_" effect="bold">
+
+Notification of duplicates 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1035">
+In this case, the author didn't care what happens in the case of duplicate 
+elements. If the author of the 
+
+<emphasis id="strong1055" effect="bold">
+fillIt
+
+</emphasis>
+ method does care what happens in the 
+case of duplicates, she can find out when an object is a duplicate. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+According to the contract of the 
+
+<emphasis id="strong1056" effect="bold">
+Collection
+
+</emphasis>
+ interface, the 
+
+<emphasis id="strong1057" effect="bold">
+add
+
+</emphasis>
+ 
+method must return 
+
+<emphasis id="em1035" effect="italics">
+true
+
+</emphasis>
+ if the call to the method modifies the 
+contents of the object and must return 
+
+<emphasis id="em1036" effect="italics">
+false
+
+</emphasis>
+ if the collection does not 
+permit duplicates and the collection already contains the specified element. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Sort_the_elements_" effect="bold">
+
+Sort the elements 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1037">
+Even though the 
+elements are passed to the 
+
+<emphasis id="strong1058" effect="bold">
+add
+
+</emphasis>
+ method in descending order 
+
+<emphasis id="em1037" effect="italics">
+(or could be 
+passed in any other order),
+
+</emphasis>
+ they are stored and maintained in the 
+
+<emphasis id="strong1059" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+object in such a way that they can later be accessed in ascending order. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="The_TreeSet_object_is_now_populated_" effect="bold">
+
+The TreeSet object is now populated
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1038">
+When the 
+
+<emphasis id="strong1060" effect="bold">
+fillIt
+
+</emphasis>
+ method returns, the 
+
+<emphasis id="strong1061" effect="bold">
+TreeSet
+
+</emphasis>
+ object contains 
+four 
+
+<emphasis id="em1038" effect="italics">
+(not five)
+
+</emphasis>
+ elements with no duplicates. Each element is a reference 
+to an object of type 
+
+<emphasis id="strong1062" effect="bold">
+Integer
+
+</emphasis>
+. Those references are maintained in such a 
+way as to make them accessible in ascending order, based on the 
+
+<emphasis id="strong1063" effect="bold">
+int
+
+</emphasis>
+ 
+values encapsulated in each of the 
+
+<emphasis id="strong1064" effect="bold">
+Integer
+
+</emphasis>
+ objects. 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21009">
+<title>
+<emphasis id="Get_an_Iterator_object_" effect="bold">
+
+Get an Iterator object 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1039">
+Returning now to the 
+
+<emphasis id="strong1065" effect="bold">
+doIt
+
+</emphasis>
+ method in the 
+
+<emphasis id="strong1066" effect="bold">
+Worker
+
+</emphasis>
+ 
+class that was called in 
+
+<link id="a1062" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, the statement in 
+
+<link id="a1063" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1067" effect="bold">
+
+iterator
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1068" effect="bold">
+TreeSet
+
+</emphasis>
+ object's 
+reference that is stored in the reference variable of type 
+
+<emphasis id="strong1069" effect="bold">
+Collection
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Get an Iterator object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    Iterator iter = ref.iterator();
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+<para id="p1040">
+The call to the 
+
+<emphasis id="strong1070" effect="bold">
+iterator
+
+</emphasis>
+ method on any 
+
+<emphasis id="strong1071" effect="bold">
+Collection
+
+</emphasis>
+ object 
+returns an instance of a class that implements the 
+
+<emphasis id="strong1072" effect="bold">
+Iterator
+
+</emphasis>
+ interface. 
+The 
+
+<emphasis id="strong1073" effect="bold">
+Iterator
+
+</emphasis>
+ object can be used to traverse the collection, gaining 
+access to each element in order. 
+
+<emphasis id="em1039" effect="italics">
+(The concept of in order means different 
+things for different kinds of collections. For a collection instantiated from 
+the TreeSet class, in order means in ascending order.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<section id="h31013">
+<title>
+<emphasis id="Againdontknowdontcare_" effect="bold">
+
+Again, don't know, don't care
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1041">
+Again, the author of the method that uses the 
+
+<emphasis id="strong1074" effect="bold">
+Collection
+
+</emphasis>
+ object 
+doesn't need to know or care about the internal implementation of the 
+collection, or the implementation of the methods of the 
+
+<emphasis id="strong1075" effect="bold">
+Iterator
+
+</emphasis>
+ object. 
+They simply do what they do, and can be used for their intended purpose. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="An_Iterator_object_acts_as_a_doorkeeper_" effect="bold">
+
+An Iterator object acts as a doorkeeper
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1042">
+The 
+
+<emphasis id="strong1076" effect="bold">
+Iterator
+
+</emphasis>
+ interface declares three methods:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1057">
+hasNext()
+
+</item>
+
+
+	
+
+<item id="li1058">
+next()
+
+</item>
+
+
+	
+
+<item id="li1059">
+remove()
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1043">
+You might say that an 
+
+<emphasis id="strong1077" effect="bold">
+Iterator
+
+</emphasis>
+ object acts as a doorkeeper for the 
+collection object that it represents, providing access to the contents of the 
+collection in a very specific manner. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="Traverse_the_collection" effect="bold">
+
+Traverse the collection
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+The code fragment in 
+
+<link id="a1064" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ below shows how the first two of the above 
+methods can be used to
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1060">
+Traverse the collection, accessing each of the object's elements in 
+	succession.
+
+</item>
+
+
+	
+
+<item id="li1061">
+Display the value encapsulated in the object referred to by each element.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1045">
+As mentioned earlier, when the collection is an object instantiated from the
+
+
+<emphasis id="strong1078" effect="bold">
+TreeSet
+
+</emphasis>
+ class, access to the elements is provided in ascending order.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. Traverse the 
+				collection.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Four_elements_with_no_duplicates_" effect="bold">
+
+Four elements with no duplicates
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1046">
+At this point, the 
+
+<emphasis id="strong1079" effect="bold">
+TreeSet
+
+</emphasis>
+ object contains four elements, with no 
+duplicates. Each of the elements is a reference to an object of type 
+
+<emphasis id="strong1080" effect="bold">
+Integer
+
+</emphasis>
+. 
+The code in the loop in 
+
+<link id="a1065" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ causes each of those elements to be accessed and 
+displayed in ascending order. This causes the following text to appear on the 
+screen: 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1081" effect="bold">
+1234 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21010">
+<title>
+<emphasis id="An_editorial_opinion_" effect="bold">
+
+An editorial opinion 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1048">
+In my opinion, this is the kind of knowledge that a computer science student 
+in a modern data structures course should be learning. This is a far departure 
+from courses of the past where CS2 students were required to memorize the 
+intricate details of how to implement various data structures. 
+
+</para>
+
+
+
+
+
+<section id="h31017">
+<title>
+<emphasis id="What_kind_of_knowledge_is_needed_" effect="bold">
+
+What kind of knowledge is needed?
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1049">
+Does an architect need to understand the detailed inner workings of an air 
+conditioning compressor to design a cooling system into a building? Of 
+course not! 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+However, the architect does need to know the tradeoffs among the available 
+cooling systems in terms of initial cost, operating cost, size, efficiency, etc.
+
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Does an audio technician need to understand the detailed inner workings of an 
+electronic audio equalizer in order to construct an integrated audio system? 
+Absolutely not! If that were a requirement, there would likely be very few audio 
+systems in existence. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+However, the audio technician does need to understand the tradeoffs among the 
+various available audio equalizers. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31018">
+<title>
+<emphasis id="The_same_concept_applies_to_software_design_" effect="bold">
+
+The same concept applies to software design
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1053">
+Does an OOP software designer need to know the detailed inner workings of the 
+various kinds of collection objects in order to use them effectively? No! 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+However, the software designer does need to know the tradeoffs among the 
+various types of collection objects in terms of their operational behavior. 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+Modern CS2 students should be learning about the performance and operational 
+differences among the different types of collections, and how to use available 
+frameworks to create and use those collections. They should not be wasting their 
+time learning how to reinvent them. They have more important ways to spend their 
+time, and they have more important things to learn. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31019">
+<title>
+<emphasis id="An_analogy_" effect="bold">
+
+An analogy 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1056">
+Frankly, I don't care how the programmers at Sun implemented the 
+
+<emphasis id="strong1082" effect="bold">
+TreeSet
+
+</emphasis>
+ 
+class, so long as the behavior of objects instantiated from that class meets the 
+published specifications. 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+As an analogy, I also don't care how they implemented the 
+
+<emphasis id="strong1083" effect="bold">
+Random
+
+</emphasis>
+ 
+class, so long as objects instantiated from the 
+
+<emphasis id="strong1084" effect="bold">
+Random
+
+</emphasis>
+ class provide the 
+pseudo random values that I need in my programs. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+I see no conceptual differences between the 
+
+<emphasis id="strong1085" effect="bold">
+TreeSet 
+
+</emphasis>
+class and the 
+
+<emphasis id="strong1086" effect="bold">
+
+Random
+
+</emphasis>
+ class from a software reuse viewpoint.
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1062">
+I can instantiate an object of the 
+
+<emphasis id="strong1087" effect="bold">
+Random
+
+</emphasis>
+ class to produce pseudo 
+	random values, without caring how those values are actually generated. 
+	However, if I am working in cryptography, I might need to know how many such 
+	values can be generated before the sequence repeats.
+
+</item>
+
+
+	
+
+<item id="li1063">
+I can use any of the thirty or so methods of the 
+
+<emphasis id="strong1088" effect="bold">
+Math
+
+</emphasis>
+ class to 
+	produce a variety of complex mathematical values without caring about how 
+	those values are actually produced. However, since many of those values are 
+	approximations, I might need to know something about the quality of the 
+	approximation.
+
+</item>
+
+
+	
+
+<item id="li1064">
+I can instantiate an object of the 
+
+<emphasis id="strong1089" effect="bold">
+TreeSet
+
+</emphasis>
+ class to create a 
+	collection object that guarantees that the sorted set will be in ascending 
+	element order, and provide log(n) time cost for the basic operations of 
+
+<emphasis id="em1040" effect="italics">
+
+	add
+
+</emphasis>
+, 
+
+<emphasis id="em1041" effect="italics">
+remove
+
+</emphasis>
+, and 
+
+<emphasis id="em1042" effect="italics">
+contains
+
+</emphasis>
+. As long as I know that, I have 
+	very little need to know exactly how the collection object is implemented.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31020">
+<title>
+<emphasis id="Its_time_to_reinvent_the_CS2_curriculum_" effect="bold">
+
+Its time to reinvent the CS2 curriculum
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1059">
+Having worked for 32 years in high-tech industry before becoming a college 
+professor, I'm confident that the future employers of most students share my opinion on 
+this. I don't know of any employer who wants their programmers to spend time 
+and dollars reinventing the classical data structures. What those employers are 
+looking for is a staff of programmers who understand the tradeoffs among the 
+data structures, and when it is appropriate to use each of the different 
+structures. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+It is time to reinvent the curriculum in CS2 courses by
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1065">
+Encouraging the understanding of techniques for software reuse.
+
+</item>
+
+
+	
+
+<item id="li1066">
+Teaching when, why, and how each of the different structures should be 
+	used.
+
+</item>
+
+
+	
+
+<item id="li1067">
+Discouraging the reinvention of those structures.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1061">
+Okay, I will step down from my soapbox. I encourage you to copy the code from 
+
+<link id="a1066" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and paste it into your text 
+editor. Then 
+compile and execute it.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Run the program 
+and observe the results. Experiment with the code. Make changes, run the program again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1063">
+In this module, I have provided a brief introduction to the use of the 
+
+<emphasis id="em1043" effect="italics">
+Java 
+Collections Framework
+
+</emphasis>
+. The framework is designed to encourage you to reuse 
+rather than to reinvent collections and maps 
+
+<emphasis id="em1044" effect="italics">
+(I will have more to say about 
+maps in a future module).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+A collection represents a group of objects, known as its elements. 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+While some collections allow duplicate elements, others do not. Some 
+collections are ordered and others are not ordered. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+The 
+
+<emphasis id="em1045" effect="italics">
+Collections Framework 
+
+</emphasis>
+is defined by a set of interfaces and associated 
+contracts. The framework provides concrete implementations of the interfaces 
+
+<emphasis id="em1046" effect="italics">
+
+(classes)
+
+</emphasis>
+ for the most common data structures. In addition, the framework 
+also provides several abstract implementations, which are designed to make it 
+easier for you to create new and different concrete implementations. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+The 
+
+<emphasis id="strong1090" effect="bold">
+TreeSet
+
+</emphasis>
+ class is a concrete implementation of the 
+
+<emphasis id="strong1091" effect="bold">
+SortedSet
+
+</emphasis>
+ 
+interface. The 
+
+<emphasis id="strong1092" effect="bold">
+SortedSet
+
+</emphasis>
+ interface extends 
+
+<emphasis id="strong1093" effect="bold">
+Set
+
+</emphasis>
+, which extends 
+
+<emphasis id="strong1094" effect="bold">
+
+Collection
+
+</emphasis>
+. Thus, a 
+
+<emphasis id="strong1095" effect="bold">
+TreeSet
+
+</emphasis>
+ object 
+
+<emphasis id="em1047" effect="italics">
+is a 
+
+</emphasis>
+<emphasis id="strong1096" effect="bold">
+SortedSet
+
+</emphasis>
+. Also 
+it 
+
+<emphasis id="em1048" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1097" effect="bold">
+Set
+
+</emphasis>
+, and it 
+
+<emphasis id="em1049" effect="italics">
+is a
+
+</emphasis>
+ 
+
+<emphasis id="strong1098" effect="bold">
+Collection
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+The 
+
+<emphasis id="strong1099" effect="bold">
+TreeSet
+
+</emphasis>
+ class guarantees that the sorted set will be in ascending 
+element order, and provides guaranteed log(n) time cost for the basic operations 
+(
+
+<emphasis id="em1050" effect="italics">
+add
+
+</emphasis>
+, 
+
+<emphasis id="em1051" effect="italics">
+remove
+
+</emphasis>
+ and 
+
+<emphasis id="em1052" effect="italics">
+contains
+
+</emphasis>
+). 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1100" effect="bold">
+TreeSet
+
+</emphasis>
+ objects can be treated as the generic type 
+
+<emphasis id="strong1101" effect="bold">
+Collection
+
+</emphasis>
+. 
+Methods declared in the 
+
+<emphasis id="strong1102" effect="bold">
+Collection
+
+</emphasis>
+ interface can be called on a 
+
+<emphasis id="strong1103" effect="bold">
+
+Collection
+
+</emphasis>
+ 
+object without regard for the actual class from which the object was 
+instantiated. 
+
+<emphasis id="em1053" effect="italics">
+(This is polymorphic behavior.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+When such methods are called, the author of the program can have confidence 
+that the behavior of the method will be appropriate
+
+<emphasis id="strong1104" effect="bold">
+<emphasis id="em1054" effect="italics">
+ 
+
+</emphasis>
+</emphasis>
+for an object 
+of the class from which the object was instantiated. In my opinion, this is the 
+true essence of object-oriented behavior.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="WhatsNext" effect="bold">
+
+What's next
+
+</emphasis>
+
+?
+
+</title>
+
+
+
+
+<para id="p1071">
+This is the first module in a miniseries on the 
+
+<emphasis id="em1055" effect="italics">
+Collection Framework
+
+</emphasis>
+. 
+Subsequent modules will teach you how to use the framework for creating and 
+using various types of collections and maps.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+Once you learn how to use the framework, it is unlikely that you will need to 
+reinvent classical data structures, search algorithms, or sorting algorithms, 
+because those capabilities are neatly packaged within the framework.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1073">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1105" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1016" list-type="bulleted">
+
+					
+
+<item id="li1068">
+Module name: Java0410: Getting Started with Java 
+					Collections 
+
+</item>
+
+
+					
+
+<item id="li1069">
+File: Java0410.htm
+
+
+</item>
+
+
+					
+
+<item id="li1070">
+Published: 04/18/13
+
+</item>
+
+
+					
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1106" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1074">
+<emphasis id="strong1107" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1075">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1076">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1077">
+<emphasis id="strong1108" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11011">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+A complete listing of the program is provided in 
+
+<link id="a1067" target-id="Listing_6">
+
+Listing 
+6
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Complete 
+				program listing.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">import java.util.TreeSet;
+import java.util.Collection;
+import java.util.Iterator;
+
+public class AP400{
+  public static void main(
+                        String args[]){
+    new Worker().doIt();
+  }//end main()
+}//end class AP400
+
+class Worker{
+  public void doIt(){
+    Collection ref = new TreeSet();
+    Populator.fillIt(ref);
+    Iterator iter = ref.iterator();
+    while(iter.hasNext()){
+      System.out.print(iter.next());
+    }//end while loop
+    System.out.println();
+
+  }//end doIt()
+}// end class Worker
+
+class Populator{
+  public static void fillIt(
+                       Collection ref){
+    ref.add(new Integer(4));
+    ref.add(new Integer(4));
+    ref.add(new Integer(3));
+    ref.add(new Integer(2));
+    ref.add(new Integer(1));
+  }//end fillIt()
+}//end class populator
+</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1079">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

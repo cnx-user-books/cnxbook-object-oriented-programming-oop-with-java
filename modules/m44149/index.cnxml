@@ -1,0 +1,8133 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3002: Creating and Manipulating Turtles and Pictures in a World Object</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44149</md:content-id>
+  <md:title>Java3002: Creating and Manipulating Turtles and Pictures in a World Object</md:title>
+  <md:abstract>Learn how to create and manipulate Turtle objects and Picture objects in a World object using the Guzdial-Ericson multimedia library.</md:abstract>
+  <md:uuid>5a99a137-7f07-432b-ad52-6708061c054f</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sat Apr 02 13:20:42 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Run_the_program_">
+
+Run the program
+
+
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+Before embarking on the material in this module, you should have studied and 
+should understand all of the material in the modules identified as 
+
+<emphasis id="strong1000" effect="bold">
+
+Java1600
+
+</emphasis>
+ through 
+
+<emphasis id="strong1001" effect="bold">
+Java1630
+
+</emphasis>
+ in the section of this book titled
+
+
+<link id="a1014" url="http://cnx.org/contents/dzOvxPFw:rOlnsVRr">
+
+Essence of OOP
+
+</link>
+
+ and 
+you should have studied and should understand all 
+of the material in the following books:
+
+</para>
+
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1014">
+<link id="a1015" url="http://cnx.org/contents/EHRr6hjR">
+
+Programming Fundamentals with Java
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1015">
+<link id="a1016" url="http://cnx.org/contents/1CVBGBJj">
+
+Java OOP Self-Assessment 
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1004">
+The program described in this module requires the use of the Guzdial-Ericson 
+multimedia class library. You will find download, installation, and usage 
+instructions for the library at 
+
+<link id="a1017" url="http://cnx.org/content/m44148/latest/">
+
+Java OOP: The Guzdial-Ericson Multimedia Class Library
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1016">
+<link id="a1018" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Graphic screen output. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1019" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Command-line output. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1020" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Commands to compile and execute the application.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1021" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Constructors for the World class. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1022" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Constructors for the Turtle class. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1023" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Constructors for the Picture class. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1022">
+<link id="a1024" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The driver class.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1025" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class named Prob01Runner. 
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1026" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The constructor for the Prob01Runner class. 
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1027" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Three accessor methods. 
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1028" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The beginning of the run method.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Add text to the image.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1030" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Manipulate the turtle named joe.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1031" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Manipulate the turtle named sue.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1032" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Source code for Prob01.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1006">
+In this module, I will explain a program that uses Java and Ericson's media library to
+	
+
+<emphasis id="em1003" effect="italics">
+(see 
+
+<link id="a1033" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+: 
+    
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1031">
+Add a picture and two turtles to a world.
+    
+
+</item>
+
+
+	
+
+<item id="li1032">
+Manipulate the turtles, their colors, and their pens. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+Stated in more detail, the program will:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1033">
+Create a 
+
+<emphasis id="strong1002" effect="bold">
+Picture
+
+</emphasis>
+ object from an image file and replace the default white 
+	
+
+<emphasis id="strong1003" effect="bold">
+Picture
+
+</emphasis>
+ in a 
+
+<emphasis id="strong1004" effect="bold">
+World
+
+</emphasis>
+ object with the new 
+	
+
+<emphasis id="strong1005" effect="bold">
+Picture
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1034">
+Place two 
+
+<emphasis id="strong1006" effect="bold">
+Turtle
+
+</emphasis>
+ objects in a 
+
+<emphasis id="strong1007" effect="bold">
+World
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1035">
+Apply a series of operations to manipulate the two turtle objects so as to produce a specific graphic output.
+    
+
+</item>
+
+
+	
+
+<item id="li1036">
+Provide accessor methods to get references to two 
+
+<emphasis id="strong1008" effect="bold">
+Turtle
+
+</emphasis>
+ objects and the 
+	
+
+<emphasis id="strong1009" effect="bold">
+World
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1037">
+Use the references to get information from the 
+
+<emphasis id="strong1010" effect="bold">
+World
+
+</emphasis>
+ and 
+	
+
+<emphasis id="strong1011" effect="bold">
+Turtle
+
+</emphasis>
+ objects and display that information on the command-line screen.
+    
+
+</item>
+
+
+	
+
+<item id="li1038">
+Display text on a 
+
+<emphasis id="strong1012" effect="bold">
+Picture
+
+</emphasis>
+ in a 
+
+<emphasis id="strong1013" effect="bold">
+World
+
+</emphasis>
+ object.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1014" effect="bold">
+Program output
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1009">
+<link id="a1034" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the graphic screen output produced by this program.
+
+</para>
+
+
+
+
+
+<para id="p1010">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1015" effect="bold">
+<link id="a1035" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1016" effect="bold">
+ - Graphic screen output.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1011">
+<media id="media1000" alt="Image of two turtles maneuvering in front of a background image." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/3002-1.jpg" width="309" height="304"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1012">
+<link id="a1036" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the text output produced by the program on the command line 
+screen.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Command-line output.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">javac 1.6.0_14
+java version "1.6.0_14"
+Java(TM) SE Runtime Environment (build 1.6.0_14-b08)
+Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode,
+ sharing)
+Dick Baldwin.
+A 300 by 274 world with 2 turtles in it.
+joe turtle at 44, 143 heading -135.0.
+sue turtle at 250, 237 heading 0.0.</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1013">
+<emphasis id="strong1017" effect="bold">
+Output produced by the system
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<link id="a1037" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ not only shows the output produced by the program. 
+It also shows information produced by the Java compiler and the Java virtual machine as a result of executing the following commands at runtime: 
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">javac -version 
+java -version</code>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1015">
+<emphasis id="strong1018" effect="bold">
+Will explain in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+I will explain this program in fragments.  A complete listing of the program is provided in 
+
+
+<link id="a1038" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ near the end of the module.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1017">
+I will begin with the driver class named 
+
+<emphasis id="strong1019" effect="bold">
+Prob01
+
+</emphasis>
+, which is 
+shown in its entirety in 
+
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. The driver class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1002" display="block">import java.awt.Color;
+
+public class Prob01{//Driver class
+  public static void main(String[] args){
+    //Instantiate an object and call its method named run.
+    Prob01Runner obj = new Prob01Runner();
+    obj.run();
+
+    //Get information from the object and display it on
+    // the command-line screen.
+    System.out.println(obj.getMars());
+    System.out.println(obj.getJoe());
+    System.out.println(obj.getSue());
+  }//end main
+}//end class Prob01</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1018">
+<emphasis id="strong1020" effect="bold">
+The import directive
+
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1019">
+Note the 
+
+<emphasis id="em1004" effect="italics">
+import directive
+
+</emphasis>
+ at the very beginning of 
+
+<link id="a1040" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.  This is a directive to the compiler and the virtual machine notifying them that the class named 
+
+
+<emphasis id="strong1021" effect="bold">
+Color
+
+</emphasis>
+ can be found in the package named 
+
+<emphasis id="strong1022" effect="bold">
+java.awt
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1023" effect="bold">
+What is a package?
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1021">
+Boiled down to its simplest description, a package is nothing more than the specification of a particular folder on the disk relative to a standard root folder.  
+
+
+<emphasis id="em1005" effect="italics">
+(Think of it as a disk-path specification with the periods representing \ characters on a Windows machine and representing / characters on a Unix machine.)
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1024" effect="bold">
+The public class named Prob01
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1023">
+Every Java application 
+
+<emphasis id="em1006" effect="italics">
+(not true for Java applets)
+
+</emphasis>
+ must include the definition of a class that contains the definition of a method named 
+
+
+<emphasis id="strong1025" effect="bold">
+main
+
+</emphasis>
+ with a method signature having the syntax shown in 
+
+<link id="a1041" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1026" effect="bold">
+The name of the class/application
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1025">
+The name of the class containing the 
+
+<emphasis id="strong1027" effect="bold">
+main
+
+</emphasis>
+ method is also the name of the application insofar as being able to compile and execute the application is concerned.  In this case, the name of the class, and hence the name of the application is 
+
+
+<emphasis id="strong1028" effect="bold">
+Prob01
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<emphasis id="strong1029" effect="bold">
+Source code file name
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1027">
+The name of the source code file containing this class must match the name of the class.  In this case, the source code file must be named 
+
+
+<emphasis id="strong1030" effect="bold">
+Prob01.java
+
+</emphasis>
+.  
+
+<emphasis id="em1007" effect="italics">
+(Note the .java extension.) 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1031" effect="bold">
+Compiling the application
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1029">
+In its simplest form, this application can be compiled by executing the following command at the command prompt: 
+
+</para>
+
+
+
+
+
+<code id="pre1003" display="block">javac Prob01.java </code>
+
+
+
+
+<para id="p1030">
+Note however that it is often necessary to specify the path to various library files on the command line when compiling the application.  In that case, the simplest form given above is not sufficient.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1032" effect="bold">
+Compiler output file names
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1032">
+When the application is successfully compiled, it will produce one or more output files with an extension of 
+
+
+<emphasis id="em1008" effect="italics">
+.class
+
+</emphasis>
+.  In this case, one of those files will be named 
+
+<emphasis id="strong1033" effect="bold">
+Prob01.class
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1034" effect="bold">
+Execution of the application
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1034">
+The execution of C and C++ programs begins and ends in the 
+
+<emphasis id="strong1035" effect="bold">
+main
+
+</emphasis>
+ function.  The execution of Java applications begin and end in the method named 
+
+
+<emphasis id="strong1036" effect="bold">
+main
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Once again, in its simplest form, this application can be executed by entering the following command at the command prompt:
+
+
+
+</para>
+
+
+
+
+
+<code id="pre1004" display="block">java Prob01 </code>
+
+
+
+
+<para id="p1036">
+Again, it is often necessary to specify the path to various library files on the command line when executing the application.  In that case, the simplest form is not sufficient.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1037" effect="bold">
+Compilation and execution on my machine
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1038">
+This application can be compiled and executed on my machine by entering the two commands shown in 
+
+
+<link id="a1042" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ at the command prompt.  
+
+<emphasis id="em1009" effect="italics">
+(Note that artificial line breaks were inserted into
+
+
+</emphasis>
+<link id="a1043" target-id="Figure_3">
+
+
+<emphasis id="em1010" effect="italics">
+<link id="a1044" target-id="Figure_3">
+
+ Figure 3
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1011" effect="italics">
+ to force the long commands to fit this narrow format.)
+
+</emphasis>
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Commands to compile and execute the application.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+							
+
+<code id="pre1005" display="block">javac -cp .;M:\Baldwin\AA-School\Itse2321IntroOOP\
+MediaCompBookMaterial\bookClasses Prob01.java
+
+java -cp .;M:\Baldwin\AA-School\Itse2321IntroOOP\
+MediaCompBookMaterial\bookClasses Prob01</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1039">
+<emphasis id="strong1038" effect="bold">
+The compiler and the virtual machine
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1040">
+The 
+
+<emphasis id="strong1039" effect="bold">
+javac
+
+</emphasis>
+ portion of the first command causes the Java compiler to run.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1041">
+The 
+
+<emphasis id="strong1040" effect="bold">
+java
+
+</emphasis>
+ portion of the second command causes the Java virtual machine to run.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1041" effect="bold">
+The input files
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1043">
+The 
+
+<emphasis id="strong1042" effect="bold">
+Prob01.java
+
+</emphasis>
+ and 
+
+<emphasis id="strong1043" effect="bold">
+Prob01
+
+</emphasis>
+ at the ends of the two commands specify the files being operated on by the compiler and the virtual machine respectively.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1044" effect="bold">
+A classpath
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1045">
+In both cases, the 
+
+<emphasis id="strong1045" effect="bold">
+-cp
+
+</emphasis>
+ indicates that a classpath follows.
+
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1000" type="">
+
+
+
+
+
+<para id="p1046">
+
+A classpath consists of one or more path specifications separated by semicolon characters.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1047">
+The purpose of the classpath is to tell the compiler and the virtual machine where to look for previously compiled class files that the application needs in order to successfully compile and execute.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1046" effect="bold">
+The current folder
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1049">
+The period ahead of the semicolon says to search the current folder first.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1050">
+<emphasis id="strong1047" effect="bold">
+The path to the Ericson library
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1051">
+The material following the semicolon is the absolute path to the folder containing the class files that make up Ericson's library on my machine.  The location of that folder will probably be different on your machine.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1048" effect="bold">
+The main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1053">
+Now that we have the preliminaries out of the way, let's go back and examine the body of the main method in 
+
+
+<link id="a1045" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+The first statement in the body of the main method in 
+
+<link id="a1046" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates a new object of the class named 
+
+
+<emphasis id="strong1049" effect="bold">
+Prob01Runner
+
+</emphasis>
+. 
+
+
+
+</para>
+
+
+
+
+
+<para id="p1055">
+The statement saves a reference to that object in a reference variable named 
+
+
+<emphasis id="strong1050" effect="bold">
+obj
+
+</emphasis>
+.  Note that the type of the variable is the same as the name of the class in this case.  In general, the type of the variable must be:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1039">
+The name of the class, or
+    
+
+</item>
+
+
+	
+
+<item id="li1040">
+The name of a superclass of the class, or
+    
+
+</item>
+
+
+	
+
+<item id="li1041">
+The name of an interface implemented by the class. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1051" effect="bold">
+Accessing the object
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1057">
+You must save a reference to an object in order to gain access to the object 
+later.  In this case, the reference is stored in the variable named 
+
+<emphasis id="strong1052" effect="bold">
+obj
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1053" effect="bold">
+Call the method named run
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1059">
+The second statement in the body of the 
+
+<emphasis id="strong1054" effect="bold">
+main
+
+</emphasis>
+ method in
+
+
+<link id="a1047" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ uses that reference to call the method named 
+
+
+<emphasis id="strong1055" effect="bold">
+run
+
+</emphasis>
+ encapsulated in the object.  As you will see later, most of the work in this application is performed in the method named 
+
+
+<emphasis id="strong1056" effect="bold">
+run
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1057" effect="bold">
+Get and display information about the object
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1061">
+When the 
+
+<emphasis id="strong1058" effect="bold">
+run
+
+</emphasis>
+ method returns control to the 
+
+<emphasis id="strong1059" effect="bold">
+main
+
+</emphasis>
+ method, the last three statements in the body of the 
+
+
+<emphasis id="strong1060" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ use the 
+object's reference to call the following three methods belonging to the object: 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1042">
+getMars 
+
+</item>
+
+
+	
+
+<item id="li1043">
+getJoe 
+
+</item>
+
+
+	
+
+<item id="li1044">
+getSue 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1061" effect="bold">
+Accessor methods
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1063">
+These three methods are of a type that is commonly referred to as 
+
+<emphasis id="em1012" effect="italics">
+accessor methods
+
+</emphasis>
+.  They access and return values encapsulated inside an object.  In most cases, 
+
+
+<emphasis id="em1013" effect="italics">
+(using good programming practice)
+
+</emphasis>
+ they return copies of the values.  This protects the encapsulated values from being corrupted by code outside the object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1062" effect="bold">
+The method named println
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1065">
+In each case in 
+
+<link id="a1049" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, the value returned by the method is passed to a method named 
+
+
+<emphasis id="strong1063" effect="bold">
+println
+
+</emphasis>
+.  This is a method belonging to a standard system object that represents the standard output device 
+
+
+<emphasis id="em1014" effect="italics">
+(usually the command-line screen)
+
+</emphasis>
+.  The purpose of the 
+
+<emphasis id="strong1064" effect="bold">
+println
+
+</emphasis>
+ method is to display material on the command-line screen.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1065" effect="bold">
+System.out.println...
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1067">
+Without going into detail about how this works, you should simply memorize the syntax of the last three statements in the body of the 
+
+
+<emphasis id="strong1066" effect="bold">
+main
+
+</emphasis>
+ method in 
+
+<link id="a1050" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.  If you are 
+interested in learning more on this topic, I explain the concepts involved in 
+some detail 
+
+<link id="a1051" url="http://cnx.org/contents/EHRr6hjR:WAqupWja">
+
+here
+
+</link>
+
+ and
+
+
+<link id="a1052" url="http://cnx.org/contents/EHRr6hjR:kAoiyWcB">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+This code 
+
+<emphasis id="em1015" effect="italics">
+(System.out.println...)
+
+</emphasis>
+ provides the mechanism by which you can display material on the command line screen in a running Java application.
+
+The last three statements in the main method in 
+
+<link id="a1053" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produced the last three lines of text in 
+
+
+<link id="a1054" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="em1016" effect="italics">
+(Note that only the last four lines of text in 
+
+</emphasis>
+<link id="a1055" target-id="Figure_2">
+
+
+
+
+<emphasis id="em1017" effect="italics">
+<link id="a1056" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1018" effect="italics">
+ were produced by the program.  Everything above that was produced by the system during the compilation and initial execution of the application.)
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1067" effect="bold">
+What do you know so far?
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1071">
+So far, you know the following to be true:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1045">
+The program instantiates an object of the class named 
+
+<emphasis id="strong1068" effect="bold">
+Prob01Runner
+
+</emphasis>
+.
+    
+
+</item>
+
+
+	
+
+<item id="li1046">
+The program causes a method named 
+
+<emphasis id="strong1069" effect="bold">
+run
+
+</emphasis>
+ belonging to that object to be executed.
+    
+
+</item>
+
+
+	
+
+<item id="li1047">
+When the 
+
+<emphasis id="strong1070" effect="bold">
+run
+
+</emphasis>
+ method returns, the program calls three accessor methods in succession, causing the values returned by those methods to be displayed on the command-line screen.
+    
+
+</item>
+
+
+	
+
+<item id="li1048">
+The fourth line of text from the bottom in 
+
+<link id="a1057" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+
+	
+
+<emphasis id="em1019" effect="italics">
+(Dick Baldwin)
+
+</emphasis>
+ was produced before the last three lines of text discussed above.  Therefore, that line of text must have been produced before control reached the call to the
+	
+
+<emphasis id="strong1071" effect="bold">
+getMars
+
+</emphasis>
+ method in 
+
+<link id="a1058" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1072" effect="bold">
+The public modifier
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1073">
+Java uses four access modifiers to specify the accessibility of various classes and members in a Java application:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1049">
+public
+    
+
+</item>
+
+
+	
+
+<item id="li1050">
+private
+    
+
+</item>
+
+
+	
+
+<item id="li1051">
+protected
+    
+
+</item>
+
+
+	
+
+<item id="li1052">
+package-private 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1074">
+Rather than trying to explain all four at this time, I will explain 
+
+<emphasis id="strong1073" effect="bold">
+public
+
+</emphasis>
+ here and explain the other three when we encounter them in code.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1075">
+The 
+
+<emphasis id="strong1074" effect="bold">
+public
+
+</emphasis>
+ modifier is the easiest of the four to explain.  As the name implies, it is analogous to a public telephone.  Any code that can find a class or class member with a public modifier can access and use it.  In this case, any code that can find the class definition for the class named 
+
+
+<emphasis id="strong1075" effect="bold">
+Prob01
+
+</emphasis>
+ can instantiate an object of that class.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1076" effect="bold">
+The class named Prob01Runner
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1077">
+There's not a lot more that we can say about the driver class named 
+
+<emphasis id="strong1077" effect="bold">
+Prob01
+
+</emphasis>
+, so it's time to analyze the class named 
+
+
+<emphasis id="strong1078" effect="bold">
+Prob01Runner
+
+</emphasis>
+.  We need to figure out what it is about that class that causes the program output to match the material shown in 
+
+
+<link id="a1059" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1060" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1079" effect="bold">
+Beginning of the class named Prob01Runner
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1079">
+The definition of the class named 
+
+<emphasis id="strong1080" effect="bold">
+Prob01Runner
+
+</emphasis>
+ begins in 
+
+<link id="a1061" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Beginning of the class 
+				named Prob01Runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1006" display="block">class Prob01Runner{
+  //Instantiate the World and Turtle objects.
+  private World mars = new World(300,274);
+  private Turtle joe = new Turtle(mars);
+  private Turtle sue = new Turtle(mars);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1080">
+<emphasis id="strong1081" effect="bold">
+No access modifier
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1081">
+Note that this class definition does not have an access modifier such as
+
+
+<emphasis id="strong1082" effect="bold">
+public
+
+</emphasis>
+, 
+
+<emphasis id="strong1083" effect="bold">
+private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1084" effect="bold">
+protected
+
+</emphasis>
+.  This puts it in 
+
+
+<emphasis id="strong1085" effect="bold">
+package-private
+
+</emphasis>
+ access category.
+
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1001" type="">
+
+
+
+
+
+<para id="p1082">
+
+The lack of an access modifier causes a class to be put in the 
+
+
+<emphasis id="strong1086" effect="bold">
+package-private
+
+</emphasis>
+ access category.
+
+A class with package-private access can be accessed by code that is stored in 
+the same package and cannot be accessed by code stored in other packages.
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1083">
+<emphasis id="strong1087" effect="bold">
+Three private variables
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1084">
+The last three statements in 
+
+<link id="a1062" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ declare three private variables.  Because these variables are declared 
+
+
+<emphasis id="strong1088" effect="bold">
+private
+
+</emphasis>
+, they can only be accessed by code contained in methods defined inside the class.
+
+    
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1085">
+
+They are also accessible by code contained in methods defined in classes defined 
+inside the class, but that is beyond the scope of this module.
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1086">
+<emphasis id="strong1089" effect="bold">
+Three private instance variables
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1087">
+These variables are also 
+
+<emphasis id="em1020" effect="italics">
+instance variables
+
+</emphasis>
+ as opposed to 
+
+<emphasis id="em1021" effect="italics">
+class variables
+
+</emphasis>
+.
+
+
+<emphasis id="em1022" effect="italics">
+(We will discuss class variables in a future 
+module.) 
+
+</emphasis>
+ 
+
+
+
+</para>
+
+
+
+
+
+<para id="p1088">
+Because they are instance variables, they belong to an object instantiated from the class.  
+
+
+<emphasis id="em1023" effect="italics">
+(An object is an instance of a class.) 
+
+</emphasis>
+Even if the variables were public, they could only be accessed by first gaining access to the object to which they belong.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1090" effect="bold">
+Multiple instances of the class
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1090">
+If you instantiate multiple objects of this same class 
+
+<emphasis id="em1024" effect="italics">
+(create multiple instances which you often do)
+
+</emphasis>
+, each object will encapsulate the same set of the three private instance variables shown in 
+
+<link id="a1063" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.  Instance variables have the same name but may have different values in the different objects.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1091" effect="bold">
+Three private instance reference variables
+
+</emphasis>
+
+
+    
+
+</para>
+
+
+
+
+
+<para id="p1092">
+The three variables declared in 
+
+<link id="a1064" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ are also 
+
+
+<emphasis id="em1025" effect="italics">
+reference variables (as opposed to primitive variables)
+
+</emphasis>
+.  This means that they are capable of storing references to objects as opposed to simply being able to store primitive values of the following 
+eight types:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1053">
+char
+    
+
+</item>
+
+
+	
+
+<item id="li1054">
+byte
+    
+
+</item>
+
+
+	
+
+<item id="li1055">
+short
+    
+
+</item>
+
+
+	
+
+<item id="li1056">
+int
+    
+
+</item>
+
+
+	
+
+<item id="li1057">
+long
+    
+
+</item>
+
+
+	
+
+<item id="li1058">
+float
+    
+
+</item>
+
+
+	
+
+<item id="li1059">
+double
+    
+
+</item>
+
+
+	
+
+<item id="li1060">
+boolean 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1093">
+Primitive variables can only store primitive values of the types in the above list.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1092" effect="bold">
+Classes, classes, and more classes
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1095">
+A Java application consists almost exclusively of objects.  Objects are instances of classes.  Therefore, class definitions must exist before objects can exist.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1093" effect="bold">
+The true power of Java
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1097">
+The Java programming language is small and compact.  The true power of Java lies in its libraries of predefined classes.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1098">
+The Java standard edition development kit and runtime engine available from 
+Oracle contains a library consisting of thousands of predefined classes.  Other class libraries containing thousands of classes are available from 
+Oracle in the enterprise edition and the micro edition.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1094" effect="bold">
+Non-standard class libraries
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+In some cases, you or your company may create your own class libraries and/or obtain class libraries from other sources such as the Ericson class library that we are using in this 
+module.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1095" effect="bold">
+Custom class definitions
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1102">
+In almost all cases, you will need to define a few new classes for new applications that you write.  We will define two new classes for this application.
+
+The remainder of the classes that we use will come either from Oracle's standard 
+library or Ericson's library.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1096" effect="bold">
+Objects of the World class and the Turtle class
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1104">
+Ericson's class library contains a class named 
+
+<emphasis id="strong1097" effect="bold">
+World
+
+</emphasis>
+ and another class named 
+
+
+<emphasis id="strong1098" effect="bold">
+Turtle
+
+</emphasis>
+.  The code in 
+
+<link id="a1065" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates one object of the 
+
+
+<emphasis id="strong1099" effect="bold">
+World
+
+</emphasis>
+ class and populates that world with two objects of the 
+
+
+<emphasis id="strong1100" effect="bold">
+Turtle
+
+</emphasis>
+ class.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1101" effect="bold">
+Every class has a constructor
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1106">
+Every class definition has one or more method-like members called constructors.  
+
+
+<emphasis id="em1026" effect="italics">
+(If you don't define a constructor when you define a class, a default constructor will be automatically defined for your class.)
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1107">
+The name of the constructor must always be the same as the name of the class.  Like a method, a constructor may or may not take arguments.  If there are two or more 
+
+
+<emphasis id="em1027" effect="italics">
+(overloaded)
+
+</emphasis>
+ constructors, they must have different argument lists.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1102" effect="bold">
+Instantiating an object of a class
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1109">
+To instantiate an object of a class, you apply the 
+
+<emphasis id="strong1103" effect="bold">
+new
+
+</emphasis>
+ operator 
+
+
+<emphasis id="em1028" effect="italics">
+(see 
+
+</emphasis>
+ 
+
+<link id="a1066" target-id="Listing_2">
+
+
+<emphasis id="em1029" effect="italics">
+<link id="a1067" target-id="Listing_2">
+
+ Listing 2
+
+</link>
+
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1030" effect="italics">
+)
+
+</emphasis>
+ to the class' constructor, passing parameters that satisfy the required arguments for the constructor.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1104" effect="bold">
+Return a reference to the object
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1111">
+Once the object has been instantiated, the constructor returns a reference to the new object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1105" effect="bold">
+A new World object
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1113">
+For example, the first statement in 
+
+<link id="a1068" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ applies the 
+
+
+<emphasis id="strong1106" effect="bold">
+new
+
+</emphasis>
+ operator to Ericson's 
+
+<emphasis id="strong1107" effect="bold">
+World
+
+</emphasis>
+ class constructor passing two integer values as parameters.  This causes a new 
+
+
+<emphasis id="strong1108" effect="bold">
+World
+
+</emphasis>
+ object to be instantiated.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1109" effect="bold">
+A reference is returned
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1115">
+A reference to the new 
+
+<emphasis id="strong1110" effect="bold">
+World
+
+</emphasis>
+ object is returned and stored in the reference variable named 
+
+
+<emphasis id="strong1111" effect="bold">
+mars
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1116">
+Once the reference is stored in the reference variable, it can be used to access the 
+
+
+<emphasis id="strong1112" effect="bold">
+World
+
+</emphasis>
+ object later.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1113" effect="bold">
+Constructors for the World class
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<link id="a1069" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ shows the overloaded constructors that are available for Ericson's 
+
+
+<emphasis id="strong1114" effect="bold">
+World
+
+</emphasis>
+ class.  
+
+<emphasis id="em1031" effect="italics">
+(See javadocs for the Ericson library.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+<emphasis id="Figure_4" effect="bold">
+
+
+<emphasis id="strong1115" effect="bold">
+<link id="a1070" target-id="Figure_4">
+
+ Figure 4
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1116" effect="bold">
+ - Constructors for the World class.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1120">
+<media id="media1001" alt="Screen shot of constructor documentation." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/3002-4.jpg" width="513" height="201"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1121">
+<emphasis id="strong1117" effect="bold">
+A new World object
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1122">
+The third constructor in 
+
+<link id="a1071" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ was used to construct a 
+
+
+<emphasis id="strong1118" effect="bold">
+World
+
+</emphasis>
+ object in 
+
+<link id="a1072" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ with a width of 300 pixels and a height of 274 pixels.  As explained earlier, this object's reference was saved in the variable named 
+
+
+<emphasis id="strong1119" effect="bold">
+mars
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1120" effect="bold">
+Two new Turtle objects
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1124">
+The last two statements in 
+
+<link id="a1073" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiate two objects of the 
+
+
+<emphasis id="strong1121" effect="bold">
+Turtle
+
+</emphasis>
+ class and use them to populate the 
+
+<emphasis id="strong1122" effect="bold">
+World
+
+</emphasis>
+ object whose reference is stored in the variable named 
+
+
+<emphasis id="strong1123" effect="bold">
+mars
+
+</emphasis>
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1124" effect="bold">
+More complicated than before
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+This is a little more complicated than the instantiation of the 
+
+<emphasis id="strong1125" effect="bold">
+World
+
+</emphasis>
+ object.  Ericson's javadocs indicate that the 
+
+
+<emphasis id="strong1126" effect="bold">
+Turtle
+
+</emphasis>
+ class provides the four overloaded constructors shown in 
+
+
+<link id="a1074" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="Figure_5" effect="bold">
+
+
+<emphasis id="strong1127" effect="bold">
+<link id="a1075" target-id="Figure_5">
+
+ Figure 5
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1128" effect="bold">
+ - Constructors for the Turtle class.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1128">
+<media id="media1002" alt="Screen shot of constructor documentation." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/3002-5.jpg" width="520" height="247"/>
+</media>
+
+
+</para>
+
+
+
+
+	
+
+
+
+<para id="p1129">
+<emphasis id="strong1129" effect="bold">
+A World object as a parameter
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1130">
+If you dig deep enough, and if you study Ericson's textbook, you can determine that the third constructor in  
+
+
+<link id="a1076" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ will accept a reference to a 
+
+<emphasis id="strong1130" effect="bold">
+World
+
+</emphasis>
+ object as a parameter.  This is the constructor that was used in the last two statements in 
+
+
+<link id="a1077" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1131" effect="bold">
+ModelDisplay interface
+
+</emphasis>
+
+				
+
+<para id="p1131">
+The World class implements the ModelDisplay interface.  Therefore, an object of the World class can be treated as it is type ModelDisplay. 
+				I explain the relationship between classes and interfaces
+				
+
+<link id="a1078" url="http://cnx.org/contents/dzOvxPFw:LAUK4UwQ">
+
+here
+
+</link>
+
+ and
+				
+
+<link id="a1079" url="http://cnx.org/contents/1CVBGBJj:-rp3xlXO">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1132">
+<emphasis id="strong1132" effect="bold">
+Displayed in the center of the world
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1133">
+When the two 
+
+<emphasis id="strong1133" effect="bold">
+Turtle
+
+</emphasis>
+ objects instantiated in 
+
+
+<link id="a1080" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ come into existence, they will be displayed in the center of the 
+
+
+<emphasis id="strong1134" effect="bold">
+World
+
+</emphasis>
+ object referred to by the contents of the variable named 
+
+
+<emphasis id="strong1135" effect="bold">
+mars
+
+</emphasis>
+.  However, that happens so quickly that you probably won't see it when you run this program.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1136" effect="bold">
+Eliminating the run method call
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1135">
+If you were to eliminate the call to the 
+
+<emphasis id="strong1137" effect="bold">
+run
+
+</emphasis>
+ method in 
+
+
+<link id="a1081" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, you would see a world with a white background and a single turtle positioned in the center of the world facing north.  There would actually be two turtles there, but they would be in exactly the 
+same location so only the one closest to you would be visible.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1138" effect="bold">
+The constructor for the Prob01Runner class
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1137">
+That's probably enough discussion of the three statements in 
+
+
+<link id="a1082" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.  The constructor for the class named 
+
+<emphasis id="strong1139" effect="bold">
+Prob01Runner
+
+</emphasis>
+ is shown in its entirety in 
+
+
+<link id="a1083" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. The constructor for the Prob01Runner class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1007" display="block">  public Prob01Runner(){//constructor
+    System.out.println("Dick Baldwin.");
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1138">
+<emphasis id="strong1140" effect="bold">
+The purpose of constructors
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1139">
+The primary purpose for which constructors exist is to assist in the initialization of the variables belonging to the object being constructed.  However, it is possible to directly initialize the variables as shown in 
+
+
+<link id="a1084" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1140">
+<emphasis id="strong1141" effect="bold">
+Initialization of variables
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1141">
+When an object comes into existence, the variables belonging to that object will have been initialized by any direct initializers like those shown in 
+
+
+<link id="a1085" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ as well any initialization produced by code written into the constructor.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1142">
+<emphasis id="strong1142" effect="bold">
+Default initialization
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1143">
+If a variable 
+
+<emphasis id="em1032" effect="italics">
+(exclusive of local variables inside of methods)
+
+</emphasis>
+ is not initialized in one of those two ways, it will receive a default initialization value.  The default values are:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1061">
+0 or 0.0 for numeric variables
+    
+
+</item>
+
+
+	
+
+<item id="li1062">
+false for boolean variables
+    
+
+</item>
+
+
+	
+
+<item id="li1063">
+null for reference variables 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1143" effect="bold">
+Non-initialization code in constructors
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1145">
+Although it is usually not good programming practice to do so, there is no technical reason that you can't write code into the constructor that has nothing to do with variable initialization.  Such code will be executed when the object is instantiated.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1146">
+<emphasis id="strong1144" effect="bold">
+An object counter
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1147">
+For example, you might need to keep track of the number of objects that are instantiated from a particular class, such as the total number of asteroid objects in a game program for example  You 
+could write the code to do the counting in the constructor.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1145" effect="bold">
+Display my name
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1149">
+The code in the constructor in 
+
+<link id="a1086" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ simply causes my name to be displayed on the command-line screen when the object is instantiated.  That is how my name appears ahead of the other lines of output text in 
+
+
+<link id="a1087" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.  My name is displayed when the object is instantiated.  The remaining three lines of text 
+in 
+
+<link id="a1088" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ are displayed later by manipulating the object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1150">
+<emphasis id="strong1146" effect="bold">
+Three accessor methods
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<link id="a1089" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ defines three accessor methods that are used to access and return copies of the contents of the private instance variables named
+
+
+<emphasis id="strong1147" effect="bold">
+joe
+
+</emphasis>
+, 
+
+<emphasis id="strong1148" effect="bold">
+sue
+
+</emphasis>
+, and 
+
+<emphasis id="strong1149" effect="bold">
+mars
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Three accessor methods.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1008" display="block">  public Turtle getJoe(){return joe;}
+  public Turtle getSue(){return sue;}
+  public World getMars(){return mars;}</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1152">
+<emphasis id="strong1150" effect="bold">
+Good OOP practice
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1153">
+Good object-oriented programming practice says that most of the instance 
+variables encapsulated in an object should be declared private. If there 
+is a need to make the contents of those variables available outside the object, 
+that should be accomplished by defining public accessor methods. 
+
+<emphasis id="em1033" effect="italics">
+
+(Accessor methods are often referred to as getter methods because the name of 
+the accessor method often includes the word "get".)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1151" effect="bold">
+Setter methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1155">
+If there is a need for code outside the object to store information in the 
+object's private instance variables, this should be accomplished by writing 
+public 
+
+<emphasis id="em1034" effect="italics">
+setter
+
+</emphasis>
+ methods. Code in the setter methods can filter 
+incoming data to make certain that the state of the object doesn't become 
+corrupt as a result of outside influences.
+
+</para>
+
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1152" effect="bold">
+Pass and return by value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1157">
+Everything in Java is passed and returned 
+
+<emphasis id="em1035" effect="italics">
+by value
+
+</emphasis>
+, not by 
+reference. 
+
+</para>
+
+
+
+
+
+<para id="p1158">
+Each of the accessor methods shown in 
+
+<link id="a1090" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ returns a copy of the 
+reference belonging to either a 
+
+<emphasis id="strong1153" effect="bold">
+Turtle
+
+</emphasis>
+ object or a 
+
+<emphasis id="strong1154" effect="bold">
+World
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1159">
+<emphasis id="strong1155" effect="bold">
+Pass to the println method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1160">
+As you saw earlier, each of the three references is passed to the println method in
+
+
+<link id="a1091" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ 
+causing information about the objects to be displayed on the command-line 
+screen.
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1156" effect="bold">
+The toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1162">
+Although it isn't obvious in 
+
+<link id="a1092" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, the code in the 
+
+
+<emphasis id="strong1157" effect="bold">
+println
+
+</emphasis>
+ method calls 
+a method named 
+
+<emphasis id="strong1158" effect="bold">
+toString
+
+</emphasis>
+ on the incoming object reference and displays the string 
+value returned by that method. I discuss the 
+
+<emphasis id="strong1159" effect="bold">
+toString
+
+</emphasis>
+ method in some 
+detail 
+
+<link id="a1093" url="http://cnx.org/contents/EHRr6hjR:Fg0-bUk3">
+
+here
+
+</link>
+
+ and
+
+
+<link id="a1094" url="http://cnx.org/contents/dzOvxPFw:ch9iAGEJ">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<para id="p1163">
+<emphasis id="strong1160" effect="bold">
+An overridden method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1164">
+The 
+
+<emphasis id="strong1161" effect="bold">
+toString
+
+</emphasis>
+ method is overridden 
+
+<emphasis id="em1036" effect="italics">
+(not overloaded)
+
+</emphasis>
+ in the 
+
+
+<emphasis id="strong1162" effect="bold">
+World
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1163" effect="bold">
+Turtle
+
+</emphasis>
+ classes so as to return a string value describing the object.
+
+</para>
+
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1164" effect="bold">
+The Ericson javadocs 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1166">
+Normally, the javadocs would tell you what information is contained in that 
+string, but that is not the case in Ericson's javadocs. You would have to 
+get into her source code, 
+
+<emphasis id="em1037" effect="italics">
+(which is readily available),
+
+</emphasis>
+ to get that 
+information. However, you can see the information that is contained in the 
+string values for the two different types of objects in the last three lines of 
+text in 
+
+<link id="a1095" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1167">
+<emphasis id="strong1165" effect="bold">
+The beginning of the run method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1168">
+This is where thing start to get interesting. 
+
+<link id="a1096" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows 
+the beginning of the 
+
+<emphasis id="strong1166" effect="bold">
+public
+
+</emphasis>
+ method named 
+
+<emphasis id="strong1167" effect="bold">
+run
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5.
+
+</emphasis>
+
+ The beginning of the run method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1009" display="block">  public void run(){
+    //Replace the default all-white picture with another
+    // picture.
+    mars.setPicture(new Picture("Prob01.jpg"));</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1169">
+Recall that the code in the 
+
+<emphasis id="strong1168" effect="bold">
+main
+
+</emphasis>
+ method in
+	
+
+<link id="a1097" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ calls the 
+	
+
+<emphasis id="strong1169" effect="bold">
+run
+
+</emphasis>
+ method on the object immediately after it is instantiated.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1170">
+<emphasis id="strong1170" effect="bold">
+A turtle on a white background
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1171">
+I told you earlier that if you were to eliminate the call to the 
+
+<emphasis id="strong1171" effect="bold">
+run
+
+</emphasis>
+ method, you would see a turtle at the center of the world with a white background.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1172">
+<emphasis id="strong1172" effect="bold">
+The background is a Picture object
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1173">
+The background of a 
+
+<emphasis id="strong1173" effect="bold">
+World
+
+</emphasis>
+ object consists of an object of Ericson's 
+
+
+<emphasis id="strong1174" effect="bold">
+Picture
+
+</emphasis>
+ class.  
+
+<emphasis id="em1038" effect="italics">
+(A 
+
+</emphasis>
+<emphasis id="strong1175" effect="bold">
+<emphasis id="em1039" effect="italics">
+Picture
+
+</emphasis>
+</emphasis>
+<emphasis id="em1040" effect="italics">
+ object is encapsulated in the 
+
+
+</emphasis>
+<emphasis id="strong1176" effect="bold">
+<emphasis id="em1041" effect="italics">
+World
+
+</emphasis>
+</emphasis>
+<emphasis id="em1042" effect="italics">
+ object.) 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1174">
+By default, the 
+
+<emphasis id="strong1177" effect="bold">
+Picture
+
+</emphasis>
+ object encapsulated in a 
+
+<emphasis id="strong1178" effect="bold">
+World
+
+</emphasis>
+ object is all white and is exactly the right size and shape to completely fill the area inside the world's border 
+
+
+<emphasis id="em1043" effect="italics">
+(see 
+
+</emphasis>
+<link id="a1098" target-id="Figure_1">
+
+
+<emphasis id="em1044" effect="italics">
+<link id="a1099" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</link>
+
+). 
+
+
+
+</para>
+
+
+
+
+
+<para id="p1175">
+<emphasis id="strong1179" effect="bold">
+Can be replaced
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1176">
+As you will see shortly, we can replace the default 
+
+<emphasis id="strong1180" effect="bold">
+Picture
+
+</emphasis>
+ object with a new 
+
+
+<emphasis id="strong1181" effect="bold">
+Picture
+
+</emphasis>
+ object of our own choosing.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1182" effect="bold">
+What if it doesn't fit?
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1178">
+If the new 
+
+<emphasis id="strong1183" effect="bold">
+Picture
+
+</emphasis>
+ object isn't large enough to completely fill the area inside the borders of the 
+
+
+<emphasis id="strong1184" effect="bold">
+World
+
+</emphasis>
+ object, it will be placed in the upper-left corner of the 
+
+
+<emphasis id="strong1185" effect="bold">
+World
+
+</emphasis>
+ object and the remainder of the 
+
+<emphasis id="strong1186" effect="bold">
+World
+
+</emphasis>
+ object will be a light gray color.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1179">
+If the 
+
+<emphasis id="strong1187" effect="bold">
+Picture
+
+</emphasis>
+ object is too large, an upper-left rectangular portion of the 
+
+
+<emphasis id="strong1188" effect="bold">
+Picture
+
+</emphasis>
+ object, sufficient to fill the 
+
+<emphasis id="strong1189" effect="bold">
+World
+
+</emphasis>
+ object, will be displayed.  The remainder of the 
+
+
+<emphasis id="strong1190" effect="bold">
+Picture
+
+</emphasis>
+ object will not be visible even if you manually resize the 
+
+
+<emphasis id="strong1191" effect="bold">
+World
+
+</emphasis>
+ object to make it larger.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1180">
+<emphasis id="strong1192" effect="bold">
+Constructors for the Picture class
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1181">
+<link id="a1100" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ shows the javadocs for the constructors for Ericson's 
+
+
+<emphasis id="strong1193" effect="bold">
+Picture
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1182">
+<emphasis id="Figure_6" effect="bold">
+
+
+<emphasis id="strong1194" effect="bold">
+<link id="a1101" target-id="Figure_6">
+
+ Figure 6
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1195" effect="bold">
+ - Constructors for the Picture class.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1183">
+<media id="media1003" alt="Screen shot of constructor documentation." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/3002-6.jpg" width="515" height="297"/>
+</media>
+
+
+</para>
+
+
+
+	
+	
+
+
+
+<para id="p1184">
+<emphasis id="strong1196" effect="bold">
+Replace the default picture object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1185">
+The right-hand portion of the last statement in 
+
+<link id="a1102" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ uses the last constructor in 
+
+
+<link id="a1103" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ to instantiate a new 
+
+<emphasis id="strong1197" effect="bold">
+Picture
+
+</emphasis>
+ object that 
+encapsulates the image contained in the image file named 
+
+<emphasis id="strong1198" effect="bold">
+Prob01.jpg
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1186">
+<emphasis id="em1045" effect="italics">
+(Click 
+
+<link id="a1104" url="Prob01.jpg">
+
+here
+
+</link>
+
+ to download a copy of the file named 
+Prob01.jpg.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1187">
+<emphasis id="strong1199" effect="bold">
+What about the size of the Picture object?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1188">
+I was careful to use an image that was a little wider than and exactly as 
+tall as the dimensions of my 
+
+<emphasis id="strong1200" effect="bold">
+World
+
+</emphasis>
+ object 
+
+<emphasis id="em1046" effect="italics">
+(300 x 274)
+
+</emphasis>
+. Therefore, 
+the image completely filled the world as shown in 
+
+<link id="a1105" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1189">
+<emphasis id="strong1201" effect="bold">
+Pass the reference to a setter method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1190">
+The reference belonging to the new 
+
+<emphasis id="strong1202" effect="bold">
+Picture
+
+</emphasis>
+ object was passed to the
+
+
+<emphasis id="strong1203" effect="bold">
+setPicture
+
+</emphasis>
+ method 
+of the 
+
+<emphasis id="strong1204" effect="bold">
+World
+
+</emphasis>
+ object 
+
+<emphasis id="em1047" effect="italics">
+(a setter method)
+
+</emphasis>
+ in 
+
+
+<link id="a1106" target-id="Listing_5">
+
+Listing 5.
+
+</link>
+
+ This caused the new 
+picture containing the penguin to replace the default all-white picture that 
+forms the background for the 
+
+<emphasis id="strong1205" effect="bold">
+World
+
+</emphasis>
+ object. 
+
+<emphasis id="em1048" effect="italics">
+(See 
+
+<link id="a1107" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1191">
+<emphasis id="strong1206" effect="bold">
+A subclass of the SimplePicture class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1192">
+Ericson's 
+
+<emphasis id="strong1207" effect="bold">
+Picture
+
+</emphasis>
+ class is a subclass of 
+
+<emphasis id="em1049" effect="italics">
+(extends)
+
+</emphasis>
+ the class named 
+
+
+<emphasis id="strong1208" effect="bold">
+SimplePicture
+
+</emphasis>
+. Therefore, an object of the 
+
+<emphasis id="strong1209" effect="bold">
+Picture
+
+</emphasis>
+ class encapsulates all 
+of the methods defined in the 
+
+<emphasis id="strong1210" effect="bold">
+Picture
+
+</emphasis>
+ class in addition to all of the methods 
+defined in the 
+
+<emphasis id="strong1211" effect="bold">
+SimplePicture
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1193">
+<emphasis id="strong1212" effect="bold">
+A subclass of the Object class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1194">
+Further, the 
+
+<emphasis id="strong1213" effect="bold">
+SimplePicture
+
+</emphasis>
+ class is a subclass of 
+
+<emphasis id="em1050" effect="italics">
+(extends)
+
+</emphasis>
+ the 
+
+
+<emphasis id="strong1214" effect="bold">
+Object
+
+</emphasis>
+ class. Therefore, an object of the 
+
+<emphasis id="strong1215" effect="bold">
+Picture
+
+</emphasis>
+ class also encapsulates 
+all of the methods defined in the 
+
+<emphasis id="strong1216" effect="bold">
+Object
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1195">
+<emphasis id="strong1217" effect="bold">
+The AddMessage method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1196">
+One of the methods defined in the 
+
+<emphasis id="strong1218" effect="bold">
+SimplePicture
+
+</emphasis>
+ class and inherited into the 
+
+
+<emphasis id="strong1219" effect="bold">
+Picture
+
+</emphasis>
+ class is named 
+
+<emphasis id="strong1220" effect="bold">
+AddMessage
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1197">
+The 
+
+<emphasis id="strong1221" effect="bold">
+addMessage
+
+</emphasis>
+ method requires three parameters: 
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1064">
+a string and 
+
+</item>
+
+
+	
+
+<item id="li1065">
+two coordinate 
+values of type 
+
+<emphasis id="strong1222" effect="bold">
+int
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1198">
+The 
+
+<emphasis id="strong1223" effect="bold">
+addMessage
+
+</emphasis>
+ method will draw the string as text characters onto the image at the 
+location specified by the two coordinate values.
+
+</para>
+
+
+
+
+
+<para id="p1199">
+<emphasis id="em1051" effect="italics">
+(The origin of the coordinate system is the upper-left corner of the 
+image with positive horizontal values going to the right and positive vertical 
+values going down.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1200">
+<emphasis id="strong1224" effect="bold">
+Add text to the image
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1201">
+The code in 
+
+<link id="a1108" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ uses two levels of indirection to add my name as a 
+message to the picture that forms the background of the world as shown in 
+
+
+<link id="a1109" target-id="Figure_1">
+
+Figure 
+1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Add text to the image.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1010" display="block">    mars.getPicture().addMessage(
+                         "Dick Baldwin",10,20);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1202">
+<emphasis id="strong1225" effect="bold">
+Get and access the World object
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1203">
+To begin with, 
+
+<link id="a1110" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ goes to the variable named 
+
+
+<emphasis id="strong1226" effect="bold">
+mars
+
+</emphasis>
+ to get a reference to the 
+
+<emphasis id="strong1227" effect="bold">
+World
+
+</emphasis>
+ object.  This reference is used to access the 
+
+
+<emphasis id="strong1228" effect="bold">
+World
+
+</emphasis>
+ object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1204">
+<emphasis id="strong1229" effect="bold">
+Access the Picture object via a getter method
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1205">
+Then the code in 
+
+<link id="a1111" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ calls the getter method named
+
+
+<emphasis id="strong1230" effect="bold">
+getPicture
+
+</emphasis>
+ to gin access to the 
+
+<emphasis id="strong1231" effect="bold">
+Picture
+
+</emphasis>
+ object encapsulated in the 
+
+
+<emphasis id="strong1232" effect="bold">
+World
+
+</emphasis>
+ object.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1206">
+<emphasis id="strong1233" effect="bold">
+Call the addMessage method
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1207">
+Having gained access to the 
+
+<emphasis id="strong1234" effect="bold">
+Picture
+
+</emphasis>
+ object, 
+
+
+<link id="a1112" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1235" effect="bold">
+addMessage
+
+</emphasis>
+ method on that object passing my name as a 
+
+
+<emphasis id="strong1236" effect="bold">
+String
+
+</emphasis>
+ object along with a pair of coordinate values that specify a location near the upper-left corner of the image.  The result is that my name appears in the world as shown in 
+
+
+<link id="a1113" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1208">
+<emphasis id="strong1237" effect="bold">
+Methods encapsulated in the Turtle object
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1209">
+The 
+
+<emphasis id="strong1238" effect="bold">
+Turtle
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1239" effect="bold">
+SimpleTurtle
+
+</emphasis>
+ class, which in turn extends the 
+
+
+<emphasis id="strong1240" effect="bold">
+Object
+
+</emphasis>
+ class.  Therefore, an object of the 
+
+<emphasis id="strong1241" effect="bold">
+Turtle
+
+</emphasis>
+ class encapsulates all of the methods defined in all three classes.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1210">
+<emphasis id="strong1242" effect="bold">
+Manipulate the turtle referred to by the variable named joe
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1211">
+A 
+
+<emphasis id="strong1243" effect="bold">
+Turtle
+
+</emphasis>
+ object encapsulates many methods that can be used to manipulate the turtle in a variety of different ways.  This is illustrated by the series of statements in 
+
+
+<link id="a1114" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Manipulate the turtle named joe.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1011" display="block">    joe.setName("joe");
+      
+    joe.setBodyColor(Color.RED);
+    joe.setShellColor(Color.BLUE);
+    
+    joe.setPenColor(Color.YELLOW);
+    joe.setPenWidth(3);
+    
+    joe.forward();
+    
+    joe.turn(-135);
+    joe.setPenColor(Color.BLUE);
+    joe.forward(150);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1212">
+<emphasis id="strong1244" effect="bold">
+Initial (default) state of a Turtle object
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1213">
+When a new 
+
+<emphasis id="strong1245" effect="bold">
+Turtle
+
+</emphasis>
+ object is instantiated and added to a 
+	
+
+<emphasis id="strong1246" effect="bold">
+World
+
+</emphasis>
+ object 
+
+<emphasis id="em1052" effect="italics">
+
+	(using the constructor shown in 
+
+<link id="a1115" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+)
+
+</emphasis>
+, it doesn't have a name 
+	property.
+
+</para>
+
+
+
+	
+
+<para id="p1214">
+The turtle initially appears in the center of the world, facing north 
+	with a default color.
+
+</para>
+
+
+
+	
+
+<para id="p1215">
+Every 
+
+<emphasis id="strong1247" effect="bold">
+Turtle
+
+</emphasis>
+ object has a pen attached to its belly that can draw a line 
+	with a default width of one pixel in a default color when the turtle moves.
+
+</para>
+
+
+
+	
+
+<para id="p1216">
+The pen can be raised so that it won't draw a line or lowered so that it 
+	will draw a line. Initially it is down and will draw a line by default.
+
+</para>
+
+
+
+	
+
+<para id="p1217">
+<emphasis id="strong1248" effect="bold">
+Set the name property to "joe"
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1218">
+<link id="a1116" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ begins by setting the name property of one of the turtles to 
+	the string value "joe."
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1004" type="">
+
+
+
+
+
+<para id="p1219">
+
+
+
+<emphasis id="em1053" effect="italics">
+Note that this is completely independent of the fact that a reference to 
+	this turtle is stored in a variable named 
+
+<emphasis id="strong1249" effect="bold">
+joe
+
+</emphasis>
+. The name property could 
+	have been set to "Tom", "Dick", "Harry", or any other string value. It 
+	is the value of the name property and not the name of the variable that 
+	determines the text output shown in 
+
+<link id="a1117" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</emphasis>
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+	
+
+<para id="p1220">
+<emphasis id="strong1250" effect="bold">
+Set the turtle's body and shell color
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1221">
+<link id="a1118" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ continues by calling two 
+
+<emphasis id="em1054" effect="italics">
+setter
+
+</emphasis>
+ methods on the turtle 
+	object to set the body color 
+
+<emphasis id="em1055" effect="italics">
+(head and feet)
+
+</emphasis>
+ to red and the color 
+	of the shell to blue. You can see the effect of this in 
+
+<link id="a1119" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1222">
+<emphasis id="strong1251" effect="bold">
+Set the pen color and width
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1223">
+Then 
+
+<link id="a1120" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls two 
+
+<emphasis id="em1056" effect="italics">
+setter
+
+</emphasis>
+ methods that set the turtle's 
+	pen color to yellow and the pen width to three pixels. You can also 
+	see the result of this in 
+
+<link id="a1121" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<para id="p1224">
+<emphasis id="strong1252" effect="bold">
+Make the turtle move forward
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1225">
+After that, 
+
+<link id="a1122" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1253" effect="bold">
+forward
+
+</emphasis>
+ method 
+
+<emphasis id="em1057" effect="italics">
+(with no parameters)
+
+</emphasis>
+ 
+	to cause the turtle to move forward by a default distance of 100 pixels.
+
+</para>
+
+
+
+	
+
+<para id="p1226">
+Recall that the turtle initially faces north. In this case, the 
+	forward method causes the turtle to move from the center of the world to a 
+	location that is 100 pixels due north of the center of the world, drawing a 
+	wide yellow line along the way.
+
+</para>
+
+
+
+	
+
+<para id="p1227">
+<emphasis id="strong1254" effect="bold">
+Turn counter clockwise
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1228">
+Then 
+
+<link id="a1123" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1255" effect="bold">
+turn 
+
+</emphasis>
+method causing the turtle to rotate its body by 135 degrees counter-clockwise.
+	
+
+<emphasis id="em1058" effect="italics">
+(A positive parameter causes a clockwise rotation and a negative 
+	parameter causes a counter clockwise rotation.)
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1229">
+<emphasis id="strong1256" effect="bold">
+Change the pen color and move forward again
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1230">
+Finally 
+
+<link id="a1124" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls methods to change the pen color to blue and to 
+	cause the turtle to move forward by 150 pixels.
+
+</para>
+
+
+
+	
+
+<para id="p1231">
+<emphasis id="strong1257" effect="bold">
+The final location
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1232">
+After making the turn, the turtle is facing southwest. Therefore, 
+	the forward movement causes a diagonal blue line to be drawn from the 
+	position at the top of the yellow line down toward the southwest. As 
+	you can see in 
+
+<link id="a1125" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, the turtle comes to rest at the end of that line.
+
+</para>
+
+
+
+	
+
+<para id="p1233">
+<emphasis id="strong1258" effect="bold">
+A few words about color
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1234">
+I have published extensively on the concept of color in Java. The best way to find that information is probably to go to 
+	Google and search for the keywords:
+
+</para>
+
+
+
+
+
+<code id="pre1012" display="block">
+richard baldwin "color class" site:http://cnx.org/contents/
+</code>
+
+
+
+
+<para id="p1235">
+Google is also probably your best bet for finding information on other topics 
+that I have published on various websites. For example, if you go to 
+
+
+<link id="a1126" url="https://images.google.com/">
+
+Google Images
+
+</link>
+
+ and 
+search for the following keywords, you will find a lot of the work that I have 
+published using Ericson's media library.
+
+</para>
+
+
+
+
+
+<code id="pre1013" display="block">richard baldwin java ericson</code>
+
+
+
+
+<para id="p1236">
+<emphasis id="strong1259" effect="bold">
+Manipulate the turtle named sue
+
+</emphasis>
+</para>
+
+
+
+	
+
+<para id="p1237">
+<link id="a1127" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ calls several methods on the object whose reference is stored 
+	in the variable named 
+
+<emphasis id="strong1260" effect="bold">
+sue
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Manipulate the turtle named sue.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1014" display="block">    sue.setName("sue");
+      
+    sue.setPenWidth(2);
+    sue.setPenColor(Color.RED);
+    
+    sue.moveTo(183,170);
+    sue.setPenDown(false);
+    
+    sue.moveTo(216,203);
+    sue.setPenDown(true);
+    
+    sue.moveTo(250,237);
+  }//end run method
+}//end class Prob01Runner</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1238">
+<emphasis id="strong1261" effect="bold">
+The end result
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1239">
+These method calls result in the turtle named 
+
+<emphasis id="strong1262" effect="bold">
+sue
+
+</emphasis>
+ facing north in the lower right corner of the window, having drawn the broken red line shown in 
+
+
+<link id="a1128" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ in getting there.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1240">
+<emphasis id="strong1263" effect="bold">
+The moveTo method 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1241">
+<link id="a1129" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1264" effect="bold">
+moveTo
+
+</emphasis>
+ method to cause the turtle to move to a new location on the basis of coordinate values instead of on the basis of a distance value.
+
+
+
+</para>
+
+
+
+
+
+<para id="p1242">
+<emphasis id="strong1265" effect="bold">
+Pen control
+
+
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1243">
+<link id="a1130" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ also calls the 
+
+<emphasis id="strong1266" effect="bold">
+setPenDown
+
+</emphasis>
+ method 
+twice passing false and then true as the parameter to first raise and then lower the pen.  This produced the gap in the red line shown in 
+
+
+<link id="a1131" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+
+
+</para>
+
+
+
+
+
+
+
+
+<note id="note1005" type="">
+
+
+
+
+
+<para id="p1244">
+
+The 
+
+<emphasis id="strong1267" effect="bold">
+Turtle
+
+</emphasis>
+ class also provides methods named 
+
+<emphasis id="strong1268" effect="bold">
+penUp
+
+</emphasis>
+ 
+and 
+
+<emphasis id="strong1269" effect="bold">
+penDown
+
+</emphasis>
+ that can be used to raise and lower the pen.
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+	
+
+
+
+<para id="p1245">
+<emphasis id="strong1270" effect="bold">
+The end of the program 
+
+</emphasis>
+
+
+
+
+</para>
+
+
+
+
+
+<para id="p1246">
+<link id="a1132" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ also signals the end of the method named 
+
+
+<emphasis id="strong1271" effect="bold">
+run
+
+</emphasis>
+ and the end of the class named 
+
+<emphasis id="strong1272" effect="bold">
+Prob01Runner
+
+</emphasis>
+.  As such, 
+
+
+<link id="a1133" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ signals the end of the program.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program_" effect="bold">
+
+Run the program
+
+
+
+</emphasis>
+
+
+
+
+
+</title>
+
+
+
+
+<para id="p1247">
+II encourage you to copy the code from 
+
+<link id="a1134" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+, compile it and execute it.  Experiment with the code, making changes, and observing the results of your changes.  Make certain that you can explain why your changes behave as they do. 
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1248">
+II explained a program that uses Java and Ericson's media library to:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1066">
+Add a picture and two turtles to a world.
+    
+
+</item>
+
+
+	
+
+<item id="li1067">
+Manipulate the turtles, their color, and their pens. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1249">
+Stated in more detail, the program:
+
+    
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1068">
+Creates a 
+
+<emphasis id="strong1273" effect="bold">
+Picture
+
+</emphasis>
+ object and replaces the default white 
+	
+
+<emphasis id="strong1274" effect="bold">
+Picture
+
+</emphasis>
+ in a 
+
+<emphasis id="strong1275" effect="bold">
+World
+
+</emphasis>
+ object with the new 
+	
+
+<emphasis id="strong1276" effect="bold">
+Picture
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1069">
+Places two 
+
+<emphasis id="strong1277" effect="bold">
+Turtle
+
+</emphasis>
+ objects in a 
+
+<emphasis id="strong1278" effect="bold">
+World
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1070">
+Applies a series of operations to manipulate the two turtle objects so as to produce a specific graphic output.
+    
+
+</item>
+
+
+	
+
+<item id="li1071">
+Provides accessor methods to get references to two 
+
+<emphasis id="strong1279" effect="bold">
+Turtle
+
+</emphasis>
+ objects and the 
+	
+
+<emphasis id="strong1280" effect="bold">
+World
+
+</emphasis>
+ object.
+    
+
+</item>
+
+
+	
+
+<item id="li1072">
+Gets information from the 
+
+<emphasis id="strong1281" effect="bold">
+World
+
+</emphasis>
+ and 
+
+<emphasis id="strong1282" effect="bold">
+Turtle
+
+</emphasis>
+ objects and displays the information on the command-line screen.
+    
+
+</item>
+
+
+	
+
+<item id="li1073">
+Displays text on a 
+
+<emphasis id="strong1283" effect="bold">
+Picture
+
+</emphasis>
+ in a 
+
+<emphasis id="strong1284" effect="bold">
+World
+
+</emphasis>
+ object.
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1250">
+In the next module, I will teach you how to invert images and how to display 
+images using Ericson's 
+
+<emphasis id="strong1285" effect="bold">
+PictureExplorer
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1251">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1074">
+
+	
+
+<link id="a1135" url="http://www.youtube.com/playlist?list=PL26BF7154F10D3854">
+
+
+	ITSE 2321 Lecture 01
+
+</link>
+
+
+<list id="ul1019" list-type="bulleted">
+
+		
+
+<item id="li1075">
+
+		
+
+<link id="a1136" url="http://www.youtube.com/watch?v=7KjSLqTgMec">
+
+
+		Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1076">
+
+		
+
+<link id="a1137" url="http://www.youtube.com/watch?v=Jnra7RfPKOI">
+
+
+		Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1077">
+
+		
+
+<link id="a1138" url="http://www.youtube.com/watch?v=mJDGp1HPCuE">
+
+
+		Part03
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1078">
+
+		
+
+<link id="a1139" url="http://www.youtube.com/watch?v=mYrGKI16j_4">
+
+
+		Part04
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1079">
+
+		
+
+<link id="a1140" url="http://www.youtube.com/watch?v=UUTlMh3J5Ow">
+
+
+		Part05
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1080">
+
+		
+
+<link id="a1141" url="http://www.youtube.com/watch?v=hmu-l1a7VyE">
+
+
+		Part06
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1081">
+
+		
+
+<link id="a1142" url="http://www.youtube.com/watch?v=tRpS7c-aPd0">
+
+
+		Part07
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1082">
+
+		
+
+<link id="a1143" url="http://www.youtube.com/watch?v=cE_ks6Oq3OY">
+
+
+		Part08
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1083">
+
+		
+
+<link id="a1144" url="http://www.youtube.com/watch?v=4f39g8oEWsY">
+
+
+		Part09
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1084">
+
+		
+
+<link id="a1145" url="http://www.youtube.com/watch?v=yeay7REkLBY">
+
+
+		Part10
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1252">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1286" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1020" list-type="bulleted">
+
+					
+
+<item id="li1085">
+Module name: Java OOP: Creating and Manipulating Turtles and Pictures in a World 
+					Object
+
+</item>
+
+
+					
+
+<item id="li1086">
+File: Java3002.htm
+
+
+</item>
+
+
+					
+
+<item id="li1087">
+Published: 07/26/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1287" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1253">
+<emphasis id="strong1288" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1254">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1255">
+In the past, unknown individuals have misappropriated copies 
+				of my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				receive no compensation for those sales and don't know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a bootleg copy of a module that is freely 
+				available on cnx.org.
+
+</para>
+
+
+
+				
+
+<para id="p1256">
+<emphasis id="strong1289" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1257">
+A complete listing of the program discussed in this module is shown in 
+
+
+<link id="a1146" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ below. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1010">
+
+
+
+<row id="tr1020">
+
+
+
+<entry id="th1010">
+
+
+
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1290" effect="bold">
+Source code for Prob01
+
+</emphasis>
+.
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1010">
+
+
+
+<row id="tr1021">
+
+
+
+<entry id="td1010">
+
+
+
+<code id="pre1015" display="block">/*File Prob01 Copyright 2008 R.G.Baldwin
+
+Command-line output
+
+javac 1.6.0_14
+java version "1.6.0_14"
+Java(TM) SE Runtime Environment (build 1.6.0_14-b08)
+Java HotSpot(TM) Client VM (build 14.0-b16, mixed mode,
+ sharing)
+Dick Baldwin.
+A 300 by 274 world with 2 turtles in it.
+joe turtle at 44, 143 heading -135.0.
+sue turtle at 250, 237 heading 0.0.
+*********************************************************/
+import java.awt.Color;
+
+public class Prob01{//Driver class
+  public static void main(String[] args){
+    Prob01Runner obj = new Prob01Runner();
+    obj.run();
+
+    System.out.println(obj.getMars());
+    System.out.println(obj.getJoe());
+    System.out.println(obj.getSue());
+  }//end main
+}//end class Prob01
+//*******************************************************/
+
+class Prob01Runner{
+  //Instantiate the World and Turtle objects.
+  private World mars = new World(300,274);
+  private Turtle joe = new Turtle(mars);
+  private Turtle sue = new Turtle(mars);
+
+  public Prob01Runner(){//constructor
+    System.out.println("Dick Baldwin.");
+  }//end constructor
+  //----------------------------------------------------//
+
+  //Accessor methods
+  public Turtle getJoe(){return joe;}
+  public Turtle getSue(){return sue;}
+  public World getMars(){return mars;}
+  //----------------------------------------------------//
+
+  //This method is where the action is.
+  public void run(){
+    //Replace the default all-white picture with another
+    // picture.
+    mars.setPicture(new Picture("Prob01.jpg"));
+    mars.getPicture().addMessage(
+                         "Dick Baldwin",10,20);
+
+    //Manipulate the turtle named joe.
+    joe.setName("joe");
+    joe.setBodyColor(Color.RED);
+    joe.setShellColor(Color.BLUE);
+    joe.setPenColor(Color.YELLOW);
+    joe.setPenWidth(3);
+    joe.forward();
+    joe.turn(-135);
+    joe.setPenColor(Color.BLUE);
+    joe.forward(150);
+
+    //Manipulate the turtle named sue
+    sue.setName("sue");
+    sue.setPenWidth(2);
+    sue.setPenColor(Color.RED);
+    sue.moveTo(183,170);
+    sue.setPenDown(false);
+    sue.moveTo(216,203);
+    sue.setPenDown(true);
+    sue.moveTo(250,237);
+  }//end run method
+}//end class Prob01Runner</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1258">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

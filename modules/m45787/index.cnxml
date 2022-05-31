@@ -1,0 +1,1123 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3030r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45787</md:content-id>
+  <md:title>Java3030r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java3030: Merging Pictures.</md:abstract>
+  <md:uuid>4df388d4-9787-4dad-9e71-d74dbf49883b</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Apr 04 11:10:04 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled 
+
+
+<link id="a1009" url="http://cnx.org/content/m44247">
+
+Java3030: Merging Pictures
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+Given the two input images shown in 
+
+<link id="a1010" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+
+<link id="a1011" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+, which of the 
+following two output images is produced by the code in 
+
+<link id="a1012" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+? Note that the 
+differences in the two possible output images are subtle. Also note the RGB color 
+values shown at the same cursor location in all four images.
+
+</para>
+
+
+
+
+
+<para id="p1005">
+A. 
+
+<link id="a1013" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+
+</para>
+
+
+
+
+
+<para id="p1006">
+B. 
+
+<link id="a1014" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1001" effect="bold">
+Question 1.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File Java3030ra Copyright 2013 R.G.Baldwin
+*********************************************************/
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
+import java.awt.GradientPaint;
+import java.awt.geom.Ellipse2D;
+
+public class Java3030ra{
+  public static void main(String[] args){
+    new Java3030raRunner().run();
+  }//end main method
+}//end class Java3030ra
+//======================================================//
+
+class Java3030raRunner{
+  public void run(){
+    Picture penguin = new Picture("Prob05a.jpg");
+    penguin.explore();
+    Picture hare = new Picture("Prob05b.jpg");
+    hare.explore();
+    merge(hare,penguin);
+    hare.explore();
+  }//end run
+  //----------------------------------------------------//
+
+  private void merge(Picture left,Picture right){
+    int width = left.getWidth();
+    int height = left.getHeight();
+
+    double scaleL = 0;
+    double scaleR = 0;
+    int redL = 0;
+    int greenL = 0;
+    int blueL = 0;
+    int redR = 0;
+    int greenR = 0;
+    int blueR = 0;
+    Pixel pixelL = null;
+    Pixel pixelR = null;
+
+    for(int row = 0;row &lt; height;row++){
+      for(int col = 0;col &lt; width;col++){
+        scaleR = (double)col/width;
+        scaleR *= scaleR;
+        scaleL = 1.0 - scaleR;
+        pixelL = left.getPixel(col,row);
+        pixelR = right.getPixel(col,row);
+
+        redL = pixelL.getColor().getRed();
+        greenL = pixelL.getColor().getGreen();
+        blueL = pixelL.getColor().getBlue();
+
+        redR = pixelR.getColor().getRed();
+        greenR = pixelR.getColor().getGreen();
+        blueR = pixelR.getColor().getBlue();
+
+        redL = (int)(redL*scaleL + redR*scaleR);
+        greenL = (int)(greenL*scaleL + greenR*scaleR);
+        blueL = (int)(blueL*scaleL + blueR*scaleR);
+
+        pixelL.setColor(new Color(redL,greenL,blueL));
+      }//end inner loop
+    }//end outer loop
+  }//end merge
+  //----------------------------------------------------//
+}//end class Java3030raRunner
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - One of two input images.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+<media id="media1000" alt="Input image displayed in a PictureExplorer object." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/java3030r01.jpg" width="360" height="445"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1003" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - The second of two input images.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+<media id="media1001" alt="Input image displayed in a PictureExplorer object." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java3030r02.jpg" width="360" height="445"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Possible output image.
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1012">
+<media id="media1002" alt="Possible output image." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/java3030r03.jpg" width="356" height="445"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1005" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Possible output image.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1014">
+<media id="media1003" alt="Possible output image." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/java3030r04.jpg" width="354" height="445"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1015">
+<link id="a1015" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1016" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. One of two input images. 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1017" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. The second of two input images. 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1018" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Possible output image. 
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1019" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Possible output image. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1013">
+<link id="a1020" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1006" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+This image was inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The image is also an example of the kinds of things that we do in my course 
+titled ITSE 2321, Object-Oriented Programming.
+
+</para>
+
+
+
+
+
+
+<media id="media1004" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1004" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1019">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+
+
+
+<media id="media1005" alt="Spacer image of a penguin in the snow in front of some houses." display="block">
+<image id="img1005" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+The code in 
+
+<link id="a1021" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ produces the output image 
+shown in 
+
+<link id="a1022" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<link id="a1023" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1023">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1007" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1005" list-type="bulleted">
+
+				
+
+<item id="li1014">
+Module name: Java3030r Review
+
+</item>
+
+
+				
+
+<item id="li1015">
+File: Java3030r.htm 
+
+</item>
+
+
+				
+
+<item id="li1016">
+Published: 02/18/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1008" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1024">
+<emphasis id="strong1009" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1025">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1026">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1027">
+<emphasis id="strong1010" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+
+<para id="p1028">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

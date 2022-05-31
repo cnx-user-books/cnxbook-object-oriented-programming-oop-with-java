@@ -1,0 +1,8603 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java0080 Java OOP Event Handling in JDK 1.1, A First Look, Delegation Event Model</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44340</md:content-id>
+  <md:title>Java0080 Java OOP Event Handling in JDK 1.1, A First Look, Delegation Event Model</md:title>
+  <md:abstract>This is the first module involving the use of the Delegation Event Model.</md:abstract>
+  <md:uuid>3adca1a4-3c18-49db-a30f-f8148efb842e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+
+	
+
+<link id="a1005" target-id="Design_Goals_of_the_JDK_1.1_Delegation_Model">
+
+Design Goals of the JDK 1.1 Delegation Event Model
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+
+	
+
+<link id="a1006" target-id="Simplified_Overview_of_the_New_Delegation_Model">
+
+Simplified Overview of the New Delegation Model
+
+</link>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Sample_Program">
+
+Sample Program
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Interesting_Code_Fragments">
+
+Interesting 
+		Code Fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="Program_Listing_for_Event08">
+
+Program Listing for Event08
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1010">
+
+	
+
+<link id="a1010" target-id="More_Detailed_Overview_of_the_Delegation_Model">
+
+More Detailed Overview of the Delegation Model
+
+</link>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1011">
+<link id="a1011" target-id="Event_Hierarchy">
+
+Event Hierarchy
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Low-level_vs._Semantic_Events">
+
+Low-level vs. Semantic Events
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Event_Listeners">
+
+Event Listeners
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Event_Sources">
+
+Event sources
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="adapters">
+
+Adapters
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Filtering_for_Performance">
+
+Filtering for 
+		Performance
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Another_Sample_Program">
+
+Another Sample 
+	Program
+
+</link>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Event09_Interesting_Code_Fragments">
+
+Event09 Interesting Code Fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Event09_Program_Listing">
+
+Event09 Program 
+		Listing
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Summary">
+
+Summary
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="Review">
+
+Review
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+(Editor's note: As you read this module, you will see that it was 
+originally written in 1997. However, despite many improvements in Java since 
+1997, most of what was true in 1997 is still true in 2012.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1002">
+This module makes several references to my website, which is located at
+
+
+<link id="a1025" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+. 
+A copy of the original html version of this module is available
+
+
+<link id="a1026" url="http://cnx.org/content/m45597/latest/Java080.htm">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the figures 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1025">
+<link id="a1027" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Program output. 
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1028" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Screen output from Event09. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1027">
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The main method for Event08.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the constructor.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Instantiate two Listener 
+		objects.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1032" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Register the listener objects.
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1033" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Make the Frame visible.
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1034" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Beginning of the class named 
+		WProc1.
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1035" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The windowClosing event handler.
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1036" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Definition for the class named 
+		WProc2.
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1037" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Complete listing for Event08.
+
+</item>
+
+
+		
+
+<item id="li1036">
+<link id="a1038" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Beginning of the class named 
+		Event09.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1039" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. The class named MyFrame.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1040" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Beginning of the class named 
+		GUI.
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1041" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Register two listener objects.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1042" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+. The class named MouseProc.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1043" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+. The class named WProc1.
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1044" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Complete listing of Event09.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+This module provides a description of the Delegation Event Model as 
+defined in JDK 1.1 along with sample 
+programs that illustrate some aspects of the model. I describe how the event model 
+maps to the AWT API. 
+
+</para>
+
+
+
+
+<para id="p1005">
+Much of this information was taken from the documentation 
+released with the various versions of JDK 1.1, and is the intellectual property 
+of Sun Microsystems. The material is being reproduced here for the sole purpose of assisting 
+students in learning how to use the event model.
+
+</para>
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Design_Goals_of_the_JDK_1.1_Delegation_Model" effect="bold">
+
+Design 
+Goals of the JDK 1.1 Delegation Model
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+According to Sun, the primary design goals of the event model in the AWT are 
+the following: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1000" effect="bold">
+Design goals:
+
+</emphasis>
+
+				
+
+<list id="ul1008" list-type="bulleted">
+
+					
+
+<item id="li1043">
+Simple and easy to learn
+
+</item>
+
+
+					
+
+<item id="li1044">
+Support a clean separation between application and GUI 
+					code
+
+</item>
+
+
+					
+
+<item id="li1045">
+Facilitate the creation of robust event handling code 
+					which is less error-prone (strong compile-time checking)
+
+</item>
+
+
+					
+
+<item id="li1046">
+Flexible enough to enable varied application models for 
+					event flow and propagation
+
+</item>
+
+
+					
+
+<item id="li1047">
+For visual tool builders, enable run-time discovery of 
+					both events that a component generates as well as the events 
+					it may observe
+
+</item>
+
+
+					
+
+<item id="li1048">
+Support backward binary compatibility with the old model
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1007">
+It will be up to you to decide if they have met their goals. 
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Simplified_Overview_of_the_New_Delegation_Model" effect="bold">
+
+Simplified Overview of the New Delegation Model
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+First, I will provide a simplified overview of the model including a sample 
+program. Following that, I will embark on a detailed discussion of the model. 
+Hopefully the simplified discussion and the sample program will help you to 
+understand the material in the detailed discussion. 
+
+</para>
+
+
+
+
+<para id="p1009">
+Also, the earlier module on 
+
+
+<link id="a1045" url="http://cnx.org/content/m44333/latest/?collection=col11441/latest">
+
+callbacks
+
+</link>
+
+ should have given you considerable 
+background to help you understand this material. If you are not familiar with 
+the callback material, you should go back and review that material. 
+
+</para>
+
+
+
+
+<para id="p1010">
+<emphasis id="strong1001" effect="bold">
+Event sources and listeners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1011">
+Events are now organized into a hierarchy of event classes. The model makes use of 
+
+<emphasis id="strong1002" effect="bold">
+event sources
+
+</emphasis>
+ and 
+
+<emphasis id="strong1003" effect="bold">
+event listeners
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+<para id="p1012">
+An event 
+
+<emphasis id="strong1004" effect="bold">
+source
+
+</emphasis>
+ is an object that has the ability
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1049">
+to determine when an 
+interesting event has occurred, and 
+
+</item>
+
+
+	
+
+<item id="li1050">
+to notify listener objects of the 
+occurrence of the event. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1013">
+Although you as the programmer establish the framework 
+for such notification, the actual notification takes place automatically behind 
+the scenes. 
+
+</para>
+
+
+
+
+<para id="p1014">
+A 
+
+<emphasis id="strong1005" effect="bold">
+listener
+
+</emphasis>
+ object is an instance of a class 
+
+<emphasis id="em1001" effect="italics">
+(or instance of a subclass of a 
+class)
+
+</emphasis>
+ that 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1051">
+implements a specific listener interface. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1015">
+A number of 
+listener interfaces are defined where each interface declares the methods 
+appropriate for a specific class of events. Thus, there is natural pairing of 
+classes of events and interface definitions. 
+
+</para>
+
+
+
+
+<para id="p1016">
+For example, there is a class of mouse events that includes most of the 
+events normally associated with mouse action. There is a matching interface 
+definition, which is used to define a listener class for those events 
+
+<emphasis id="em1002" effect="italics">
+(actually 
+this is the one case where two interfaces are defined to match up with a single 
+event class)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1006" effect="bold">
+Registration
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+A listener object can be 
+
+<emphasis id="em1003" effect="italics">
+registered
+
+</emphasis>
+ on a source object to be notified of the 
+occurrence of all events of the specific class for which the listener object is 
+designed. 
+
+</para>
+
+
+
+
+<para id="p1019">
+Once a listener object is registered to be notified of those events, the 
+occurrence of an event defined by the specified class will automatically call 
+the matching method in the listener object. The code in the body of the method 
+is designed by the programmer to perform the desired action when the event 
+occurs. 
+
+</para>
+
+
+
+
+<para id="p1020">
+<emphasis id="strong1007" effect="bold">
+Multiple notification methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1021">
+Some event classes 
+
+<emphasis id="em1004" effect="italics">
+(such as the mouse events, for example)
+
+</emphasis>
+ involve a number 
+of different possible event types 
+
+<emphasis id="em1005" effect="italics">
+(notification methods)
+
+</emphasis>
+. A listener class 
+that implements the 
+matching interface for that event class must implement or define 
+
+<emphasis id="em1006" effect="italics">
+(provide a body 
+for)
+
+</emphasis>
+ all the methods declared in the interface. 
+
+</para>
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1008" effect="bold">
+Adapter classes
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+An intermediate set of classes, known as 
+
+<emphasis id="em1007" effect="italics">
+Adapter 
+
+</emphasis>
+classes, is 
+provided to prevent this from becoming burdensome. These Adapter classes implement the listener interfaces, and define the 
+matching interface methods with empty methods. 
+
+</para>
+
+
+
+
+<para id="p1024">
+A listener class can then be defined that 
+
+<emphasis id="em1008" effect="italics">
+extends 
+
+</emphasis>
+the Adapter class instead of 
+
+<emphasis id="em1009" effect="italics">
+implementing 
+
+</emphasis>
+
+the corresponding listener interface. With this approach, the listener class need only override those 
+methods of interest since the requirement to define all of the interface 
+methods has already been satisfied by the Adapter class. 
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1009" effect="bold">
+An example
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+For example, in the sample program that follows, two different listener 
+objects instantiated from two different listener classes are registered to 
+receive all events involving the manipulation of a 
+
+<emphasis id="strong1010" effect="bold">
+Frame
+
+</emphasis>
+ object 
+
+
+<emphasis id="em1010" effect="italics">
+(opening, 
+closing, minimizing, etc.)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1027">
+One of the listener classes 
+
+<emphasis id="em1011" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1011" effect="bold">
+WindowListener 
+
+</emphasis>
+
+interface and hence must define all six methods of that interface. 
+
+</para>
+
+
+
+
+<para id="p1028">
+The other listener class 
+
+<emphasis id="em1012" effect="italics">
+extends 
+
+</emphasis>
+the 
+
+<emphasis id="strong1012" effect="bold">
+WindowAdapter 
+
+</emphasis>
+class, which 
+in turn 
+
+<emphasis id="em1013" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1013" effect="bold">
+WindowListener 
+
+</emphasis>
+interface. The 
+
+<emphasis id="strong1014" effect="bold">
+
+WindowAdapter 
+
+</emphasis>
+class defines all six methods as empty methods. Thus, this 
+listener class can get by with overriding only two of the six methods of 
+the interface.
+
+</para>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Sample_Program" effect="bold">
+
+Sample Program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+This program named 
+
+<link id="a1046" target-id="Listing_9">
+
+Event08
+
+</link>
+
+ was designed for simplicity. In this program, the code in each 
+of the methods is simple. In all cases but one, the code simply displays a 
+message indicating that the method has been called. Obviously, in order for a 
+program to be of much value, the body of code in the methods would have to be 
+much more substantive, or at least would have to call other methods that are 
+more substantive. 
+
+</para>
+
+
+
+
+<para id="p1030">
+This program illustrates the use of 
+
+<emphasis id="em1014" effect="italics">
+Event Sources
+
+</emphasis>
+,
+
+<emphasis id="em1015" effect="italics">
+ Event Listeners
+
+</emphasis>
+, 
+and 
+
+<emphasis id="em1016" effect="italics">
+Adapters 
+
+</emphasis>
+in the 
+
+<emphasis id="em1017" effect="italics">
+Delegation Event Model
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1015" effect="bold">
+Description
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+Briefly, 
+
+<link id="a1047" target-id="Listing_9">
+
+this program
+
+</link>
+
+ instantiates an object that creates a user interface 
+consisting of a simple 
+
+<emphasis id="strong1016" effect="bold">
+Frame 
+
+</emphasis>
+object. This object is an 
+
+<emphasis id="em1018" effect="italics">
+Event 
+Source
+
+</emphasis>
+ that notifies two different 
+
+<emphasis id="em1019" effect="italics">
+Event Listener
+
+</emphasis>
+ objects of 
+
+<emphasis id="strong1017" effect="bold">
+
+Window 
+
+</emphasis>
+events. 
+
+</para>
+
+
+
+
+<para id="p1033">
+One of the 
+
+<emphasis id="strong1018" effect="bold">
+Listener 
+
+</emphasis>
+objects 
+
+<emphasis id="em1020" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1019" effect="bold">
+WindowListener
+
+
+</emphasis>
+interface and defines all of the methods declared in that interface. The 
+other 
+
+<emphasis id="strong1020" effect="bold">
+Listener 
+
+</emphasis>
+object 
+
+<emphasis id="em1021" effect="italics">
+extends 
+
+</emphasis>
+the 
+
+<emphasis id="strong1021" effect="bold">
+Adapter 
+
+</emphasis>
+class named 
+
+<emphasis id="strong1022" effect="bold">
+
+WindowAdapter
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1034">
+As explained earlier, the purpose of 
+
+<emphasis id="strong1023" effect="bold">
+Adapter 
+
+</emphasis>
+classes 
+
+<emphasis id="em1022" effect="italics">
+(as used in 
+this context)
+
+</emphasis>
+ is to implement the 
+
+<emphasis id="strong1024" effect="bold">
+Listener 
+
+</emphasis>
+interfaces and to define all of the 
+methods with empty methods.
+
+</para>
+
+
+
+
+<para id="p1035">
+Classes that 
+
+<emphasis id="em1023" effect="italics">
+extend 
+
+</emphasis>
+the 
+
+<emphasis id="strong1025" effect="bold">
+Adapter 
+
+</emphasis>
+classes can then selectively 
+override only those methods of interest. This 
+
+<emphasis id="strong1026" effect="bold">
+Listener
+
+</emphasis>
+ object 
+overrides only two of the methods. 
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="em1024" effect="italics">
+(Note that this program does not terminate and return control to the 
+operating system. You must forcefully terminate it.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+This program was originally tested using JDK 1.1.3 under Win95. More recently 
+it was tested using JDK 1.7 under Windows Vista.
+
+</para>
+
+
+
+
+<para id="p1038">
+The output produced by running the program is presented later in this module.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Interesting_Code_Fragments" effect="bold">
+
+Interesting Code Fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+<link id="a1048" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1027" effect="bold">
+main
+
+</emphasis>
+ method of the 
+controlling class that instantiates a Graphical User Interface (GUI) object. 
+There are more compact 
+
+<emphasis id="em1025" effect="italics">
+(and more cryptic)
+
+</emphasis>
+ ways to accomplish this 
+objective, but for the time being, in order to achieve clarity, I will use this 
+approach. 
+
+</para>
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The main method for 
+				Event08.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">public class Event08 {//controlling class
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class Event08</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1040">
+The 
+
+<emphasis id="strong1028" effect="bold">
+GUI 
+
+</emphasis>
+class is rather long, so I will break it up and discuss it in 
+parts.
+
+</para>
+
+
+
+
+<para id="p1041">
+This class is used
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1052">
+to instantiate and display a user interface object,
+
+</item>
+
+
+	
+
+<item id="li1053">
+to instantiate two 
+
+<emphasis id="strong1029" effect="bold">
+Listener
+
+</emphasis>
+ objects, and
+
+</item>
+
+
+	
+
+<item id="li1054">
+to register those two objects for notification whenever a 
+
+<emphasis id="strong1030" effect="bold">
+Window
+
+</emphasis>
+ event 
+	occurs.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1042">
+The class begins by defining its own constructor. The first interesting code 
+in the constructor is the code to instantiate an object of type 
+
+<emphasis id="strong1031" effect="bold">
+Frame
+
+</emphasis>
+, 
+set its size, and give it a title, as shown in 
+
+<link id="a1049" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the 
+				constructor.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">class GUI{
+  public GUI(){//constructor
+    //Create a new Frame object
+    Frame displayWindow = new Frame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Copyright 1997, R.G.Baldwin");</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1043">
+<emphasis id="strong1032" effect="bold">
+What is a Frame?
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1044">
+The JDK documentation describes a 
+
+<emphasis id="strong1033" effect="bold">
+Frame
+
+</emphasis>
+ as follows:
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1034" effect="bold">
+Description of a Frame:
+
+</emphasis>
+ 
+				
+				
+
+<para id="p1045">
+A 
+
+<emphasis id="strong1035" effect="bold">
+Frame 
+
+</emphasis>
+is a 
+				top-level window with a title and a border. The default layout 
+				for a frame is 
+
+<emphasis id="strong1036" effect="bold">
+BorderLayout
+
+</emphasis>
+.
+
+<emphasis id="em1026" effect="italics">
+ (We will learn more about 
+				layout managers later) 
+
+</emphasis>
+</para>
+
+
+				
+
+<para id="p1046">
+Frames are capable of generating the following types of 
+				window events:
+
+</para>
+
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1055">
+WindowOpened
+
+</item>
+
+
+					
+
+<item id="li1056">
+WindowClosing
+
+</item>
+
+
+					
+
+<item id="li1057">
+WindowClosed
+
+</item>
+
+
+					
+
+<item id="li1058">
+WindowIconified
+
+</item>
+
+
+					
+
+<item id="li1059">
+WindowDeiconified
+
+</item>
+
+
+					
+
+<item id="li1060">
+WindowActivated
+
+</item>
+
+
+					
+
+<item id="li1061">
+WindowDeactivated.
+
+</item>
+
+
+				
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1047">
+Stated differently, a 
+
+<emphasis id="strong1037" effect="bold">
+Frame
+
+</emphasis>
+ object is the type of 
+
+<emphasis id="strong1038" effect="bold">
+GUI 
+
+</emphasis>
+object 
+that we might refer to as a window or a form in a typical 
+
+<emphasis id="strong1039" effect="bold">
+GUI 
+
+</emphasis>
+
+environment.
+
+</para>
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1040" effect="bold">
+Instantiate two Listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1049">
+<link id="a1050" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ instantiates two 
+
+<emphasis id="strong1041" effect="bold">
+Listener 
+
+</emphasis>
+objects that will process 
+
+<emphasis id="strong1042" effect="bold">
+
+Window 
+
+</emphasis>
+events. 
+
+</para>
+
+
+
+
+<para id="p1050">
+The class definitions, named 
+
+<emphasis id="strong1043" effect="bold">
+Wproc1 
+
+</emphasis>
+and 
+
+<emphasis id="strong1044" effect="bold">
+Wproc2
+
+</emphasis>
+, for these two 
+classes will follow the discussion of the 
+
+<emphasis id="strong1045" effect="bold">
+GUI 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="em1027" effect="italics">
+(Note that I am passing a reference to the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1046" effect="bold">
+<emphasis id="em1028" effect="italics">
+Frame 
+
+</emphasis>
+ 
+
+</emphasis>
+
+
+
+<emphasis id="em1029" effect="italics">
+object to the 
+constructor for one of these classes. There is a better (and more cryptic) way 
+to achieve the same objective without the need to pass the reference. Again, 
+since this program was designed for clarity, I am doing it the obvious way.)
+
+</emphasis>
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Instantiate two Listener objects.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">
+    WProc1 winProcCmd1 = new WProc1(displayWindow);
+    WProc2 winProcCmd2 = new WProc2();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1052">
+<emphasis id="strong1047" effect="bold">
+Register the listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+The code in 
+
+<link id="a1051" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is extremely important. This is the code by which we 
+register the listener objects for notification of 
+
+<emphasis id="strong1048" effect="bold">
+Window 
+
+</emphasis>
+events where the
+
+
+<emphasis id="strong1049" effect="bold">
+Frame
+
+</emphasis>
+ object named 
+
+<emphasis id="strong1050" effect="bold">
+displayWindow
+
+</emphasis>
+ is the source of the events.
+
+</para>
+
+
+
+
+<para id="p1054">
+Pay close attention to the syntax of these two statements, because you will 
+be using this syntax often. In subsequent modules, we will dig deeper into the
+
+
+<emphasis id="em1030" effect="italics">
+Delegation Event Model
+
+</emphasis>
+ and I will teach you what is going on behind the scenes 
+when you execute statements of this sort. 
+
+</para>
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Register the listener objects
+.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    displayWindow.addWindowListener(winProcCmd1);
+    displayWindow.addWindowListener(winProcCmd2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1055">
+<emphasis id="strong1051" effect="bold">
+Interpretation
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+The interpretation of the code in 
+
+<link id="a1052" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ is that the two listener objects 
+named 
+
+<emphasis id="strong1052" effect="bold">
+winProcCmd1 
+
+</emphasis>
+and 
+
+<emphasis id="strong1053" effect="bold">
+winProcCmd2 
+
+</emphasis>
+are added to a list of listener 
+objects that are to be automatically notified 
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1062">
+whenever an event of the 
+
+<emphasis id="strong1054" effect="bold">
+WindowEvent 
+
+</emphasis>
+class occurs 
+
+</item>
+
+
+	
+
+<item id="li1063">
+with respect to the 
+
+<emphasis id="strong1055" effect="bold">
+Frame 
+
+</emphasis>
+object named 
+
+<emphasis id="strong1056" effect="bold">
+displayWindow
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1057">
+These listener objects are notified by calling the methods in the objects 
+that match the specific type of the event 
+
+<emphasis id="em1031" effect="italics">
+(open window, close window, closing 
+window, minimize window, etc.)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1057" effect="bold">
+Make the Frame visible
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1059">
+We wrap up the definition of our 
+
+<emphasis id="strong1058" effect="bold">
+GUI 
+
+</emphasis>
+class with the statement shown in
+
+
+<link id="a1053" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ that 
+causes the 
+
+<emphasis id="strong1059" effect="bold">
+Frame 
+
+</emphasis>
+object to become visible on the screen. Note that this 
+statement also causes the 
+
+<emphasis id="strong1060" effect="bold">
+windowActivated 
+
+</emphasis>
+and 
+
+<emphasis id="strong1061" effect="bold">
+windowOpened 
+
+</emphasis>
+events 
+to be generated. 
+
+<emphasis id="em1032" effect="italics">
+(Current jargon would say that those events are "fired".)
+
+</emphasis>
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Make the Frame visible.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    displayWindow.setVisible(true);
+  }//end constructor
+}//end GUI class definition</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1060">
+<emphasis id="strong1062" effect="bold">
+Code for the Listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+At this point, we have examined the code that will create a 
+
+<emphasis id="strong1063" effect="bold">
+Frame 
+
+</emphasis>
+
+object and display it on the screen. Also we have examined the code that 
+
+<emphasis id="em1033" effect="italics">
+
+registers 
+
+</emphasis>
+two 
+
+<emphasis id="strong1064" effect="bold">
+Listener 
+
+</emphasis>
+objects on the 
+
+<emphasis id="strong1065" effect="bold">
+Frame 
+
+</emphasis>
+object. However, 
+at this point, the program cannot be compiled because the classes from which the 
+two 
+
+<emphasis id="strong1066" effect="bold">
+Listener 
+
+</emphasis>
+objects are to be instantiated have not yet been defined. 
+That will be our next assignment.
+
+</para>
+
+
+
+
+<para id="p1062">
+<emphasis id="strong1067" effect="bold">
+Beginning of the class named WProc1
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+<link id="a1054" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ begins the definition of the classes that can be used to 
+instantiate 
+
+<emphasis id="strong1068" effect="bold">
+Listener 
+
+</emphasis>
+objects. 
+
+</para>
+
+
+
+
+<para id="p1064">
+The first class definition that we will look at 
+
+<emphasis id="em1034" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1069" effect="bold">
+
+WindowListener 
+
+</emphasis>
+interface. This requires that all the methods declared in the 
+interface be defined in this class. This class defines all of the methods. Each 
+of the methods displays a descriptive message whenever it is called. 
+
+</para>
+
+
+
+
+<para id="p1065">
+I will begin the discussion with the constructor as shown in
+
+
+<link id="a1055" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+
+</para>
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Beginning of the class named WProc1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">class WProc1 implements WindowListener{
+  Frame displayWindowRef;
+
+  WProc1(Frame windowIn){//constructor
+    this.displayWindowRef = windowIn;
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1066">
+<emphasis id="em1035" effect="italics">
+(Note that the constructor for this class requires a reference to the
+	
+
+</emphasis>
+ 
+
+<emphasis id="strong1070" effect="bold">
+<emphasis id="em1036" effect="italics">
+Source 
+
+</emphasis>
+ 
+
+</emphasis>
+<emphasis id="em1037" effect="italics">
+object to be passed as 
+a parameter. As mentioned earlier, this is not the preferred way to accomplish 
+our objective, but it is the most straightforward and easy to understand. That 
+is why I elected to use it here. The code in the constructor saves a reference 
+to the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1071" effect="bold">
+<emphasis id="em1038" effect="italics">
+Source
+
+</emphasis>
+</emphasis>
+<emphasis id="em1039" effect="italics">
+ object in an instance variable named 
+	
+
+</emphasis>
+ 
+
+<emphasis id="strong1072" effect="bold">
+<emphasis id="em1040" effect="italics">
+displayWindowRef
+
+</emphasis>
+</emphasis>
+<emphasis id="em1041" effect="italics">
+.)
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1067">
+<emphasis id="strong1073" effect="bold">
+Implementing the WindowListener interface
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1068">
+It is important to note that this class 
+
+<emphasis id="em1042" effect="italics">
+implements 
+
+</emphasis>
+the 
+
+<emphasis id="strong1074" effect="bold">
+
+WindowListener 
+
+</emphasis>
+interface. This means that it must define all of the methods 
+that are declared in that interface.
+
+</para>
+
+
+
+
+<para id="p1069">
+If you examine the complete program listing that is presented later, you will 
+see that there is one method definition in this class definition for each of the 
+methods that are declared in the 
+
+<emphasis id="strong1075" effect="bold">
+WindowListener 
+
+</emphasis>
+interface. 
+
+</para>
+
+
+
+
+<para id="p1070">
+The definition of all the interface methods are very similar, so I am not 
+going to show all of them here. However, I will show the one that requires the reference to 
+the source object that was discussed above, which is the most complicated one of 
+the set. 
+
+</para>
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1076" effect="bold">
+The windowClosing event handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+The methods that are declared in the listener interfaces are often referred 
+to as 
+
+<emphasis id="em1043" effect="italics">
+event handler
+
+</emphasis>
+ methods or 
+
+<emphasis id="em1044" effect="italics">
+event handlers
+
+</emphasis>
+ for short. The 
+
+<emphasis id="strong1077" effect="bold">
+windowClosing
+
+</emphasis>
+ event handler method is shown in
+
+
+<link id="a1056" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. As 
+you can see, this method starts out by displaying a message. Then it 
+calls the 
+
+<emphasis id="strong1078" effect="bold">
+dispose
+
+</emphasis>
+ method on the 
+
+<emphasis id="strong1079" effect="bold">
+Frame 
+
+</emphasis>
+object. That is the 
+reason that a reference to the 
+
+<emphasis id="strong1080" effect="bold">
+Frame 
+
+</emphasis>
+object was required to be passed in 
+as a parameter. 
+
+</para>
+
+
+
+
+<para id="p1073">
+Calling the 
+
+<emphasis id="strong1081" effect="bold">
+dispose
+
+</emphasis>
+ method causes a 
+
+<emphasis id="strong1082" effect="bold">
+WindowClosed
+
+</emphasis>
+ event to be 
+fired. 
+
+<emphasis id="em1045" effect="italics">
+(As far as I know, that is the only way to cause a WindowClosed event 
+to be fired.)
+
+</emphasis>
+</para>
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - The windowClosing event handler.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">  public void windowClosing(WindowEvent e){
+    System.out.println("WProc1 windowClosing test msg");
+    displayWindowRef.dispose();//generate WindowClosed
+  }//end windowClosing()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1074">
+<emphasis id="strong1083" effect="bold">
+The class named WProc2
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+The class definition shown in 
+
+<link id="a1057" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ does not 
+
+<emphasis id="em1046" effect="italics">
+implement 
+
+</emphasis>
+the 
+
+<emphasis id="strong1084" effect="bold">
+WindowListener 
+
+</emphasis>
+
+interface. Instead, it 
+
+<emphasis id="em1047" effect="italics">
+extends 
+
+</emphasis>
+the 
+
+<emphasis id="strong1085" effect="bold">
+WindowAdapter 
+
+</emphasis>
+class. 
+Therefore, it can selectively override only those methods that are of interest.
+
+</para>
+
+
+
+
+<para id="p1076">
+In this case, only two of the methods of the 
+
+<emphasis id="strong1086" effect="bold">
+WindowListener 
+
+</emphasis>
+interface 
+are overridden. These overridden methods display a message whenever they are 
+called. 
+
+</para>
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Definition for the class 
+				named WProc2.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">class WProc2 extends WindowAdapter{
+
+  public void windowIconified(WindowEvent e){
+    System.out.println(
+              "******** WProc2 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+            "******** WProc2 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+}//end class WProc2</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1077">
+<emphasis id="strong1087" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+<link id="a1058" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows a sample output from this program. The small 
+
+<emphasis id="strong1088" effect="bold">
+Frame
+
+</emphasis>
+ 
+in the upper-left corner is the graphic 
+
+<emphasis id="strong1089" effect="bold">
+Frame
+
+</emphasis>
+ object. A 
+command-line screen with text output is shown immediately below the Frame.
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1090" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Program output.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/event08a.jpg" width="676" height="545"/>
+</media>
+
+
+</para>
+
+
+
+	
+
+<para id="p1081">
+<emphasis id="strong1091" effect="bold">
+The text output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+The output from running this program for a variety of user actions is shown 
+below. You should be able to correlate the messages shown in the output with the 
+event handler methods discussed above and the user actions that caused those 
+event handlers to be called. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1092" effect="bold">
+Text output from Event08
+
+</emphasis>
+
+				
+
+<code id="pre1008" display="block">This program was tested using JDK 1.1.3 under Win95.
+
+When executed, this application places a simple empty
+Frame object on the screen.
+
+Starting the program produces the following output:
+WProc1 windowActivated test msg
+Wproc1 windowOpened test msg
+
+Pressing the minimize button on the Frame produces the
+following output:
+
+WProc1 windowIconified test msg
+******** WProc2 windowIconified test msg
+WProc1 windowDeactivated test msg
+
+Restoring the Frame after minimization produces the
+following output:
+
+WProc1 windowActivated test msg
+WProc1 windowDeiconified test msg
+******** WProc2 windowDeiconified test msg
+WProc1 windowActivated test msg
+
+Closing the Frame by pressing the X-icon in the upper
+right of the Frame produces the following output.
+
+WProc1 windowClosing test msg
+WProc1 windowDeactivated test msg
+WProc1 windowClosed test msg</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Program_Listing_for_Event08" effect="bold">
+
+Program Listing for Event08
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1083">
+A complete listing of the program is provided in 
+
+<link id="a1059" target-id="Listing_9">
+
+
+	Listing 9
+
+</link>
+
+. You can view the code that was not shown above in this 
+	listing.
+
+</para>
+
+
+	
+
+
+<para id="p1084">
+<emphasis id="strong1093" effect="bold">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Complete listing for 
+				Event08.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1009" display="block">/*File Event08.java Copyright 1997, R.G.Baldwin
+Rev 01/10/98
+
+Illustrates the use of Event Sources, Event Listeners, and
+Adapters in the Delegation Event Model.
+
+Briefly, this application instantiates an object that
+creates a user interface consisting of a simple Frame
+object.  This object is an Event Source that notifies two
+different Event Listener objects of Window events.
+
+One of the Listener objects implements the WindowListener
+interface and overrides all of the methods declared in
+that interface.
+
+The other Listener object extends the Adapter class named
+WindowAdapter.  The purpose of Adapter classes is to
+implement the  Listener interfaces and to define all of
+the methods with empty methods.  Classes that extend the
+Adapter classes can then selectively override only those
+methods of interest.  This Listener object overrides only
+two of the methods.
+
+Note that this application does not terminate and return
+control to the operating system.  You must forcefully
+terminate it.
+
+This program was tested using JDK 1.1.3 under Win95.
+
+When executed, this application places a simple empty
+Frame object on the screen.
+
+Starting the program produces the following output:
+WProc1 windowActivated test msg
+Wproc1 windowOpened test msg
+
+Pressing the minimize button on the Frame produces the
+following output:
+
+WProc1 windowIconified test msg
+******** WProc2 windowIconified test msg
+WProc1 windowDeactivated test msg
+
+Restoring the Frame after minimization produces the
+following output:
+
+WProc1 windowActivated test msg
+WProc1 windowDeiconified test msg
+******** WProc2 windowDeiconified test msg
+WProc1 windowActivated test msg
+
+Closing the Frame by pressing the X-icon in the upper
+right of the Frame produces the following output.
+
+WProc1 windowClosing test msg
+WProc1 windowDeactivated test msg
+WProc1 windowClosed test msg
+**********************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class Event08 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUInterface object
+  }//end main
+}//end class Event08
+//=======================================================//
+
+//The following class is used to instantiate a user
+// interface object, to instantiate two Listener objects,
+// and to register those two objects for notification
+// whenever a Window event occurs.
+class GUI{
+  public GUI(){//constructor
+    //Create a new Frame object
+    Frame displayWindow = new Frame();
+    displayWindow.setSize(300,200);
+    displayWindow.setTitle("Copyright 1997, R.G.Baldwin");
+
+    //Instantiate two Listener objects that will process
+    // Window events
+    WProc1 winProcCmd1 = new WProc1(displayWindow);
+    WProc2 winProcCmd2 = new WProc2();
+
+    //Register the Listener objects for notification of
+    // Window events. This object is the Event Source.
+    displayWindow.addWindowListener(winProcCmd1);
+    displayWindow.addWindowListener(winProcCmd2);
+
+    //windowActivated and windowOpened test messages
+    // are produced here
+    displayWindow.setVisible(true);
+
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+//The following two classes can be used to instantiate
+// Listener objects. Note that this class implements the
+// WindowListener interface.  This requires that all the
+// methods declared in the interface be overridden in this
+// class. This class overrides all of the methods  and
+// displays a descriptive message whenever one of the
+// methods is called.
+class WProc1 implements WindowListener{
+  //used to save a reference to the Frame object
+  Frame displayWindowRef;
+
+  WProc1(Frame windowIn){//constructor
+    // save ref to Frame object
+    this.displayWindowRef = windowIn;
+  }//end constructor
+
+  public void windowClosed(WindowEvent e){
+    System.out.println("WProc1 windowClosed test msg");
+  }//end windowClosed()
+
+  public void windowIconified(WindowEvent e){
+    System.out.println("WProc1 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowOpened(WindowEvent e){
+    System.out.println("WProc1 windowOpened test msg");
+  }//end windowOpened()
+
+  public void windowClosing(WindowEvent e){
+    System.out.println("WProc1 windowClosing test msg");
+    displayWindowRef.dispose();//generate WindowClosed
+  }//end windowClosing()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+                      "WProc1 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+  public void windowActivated(WindowEvent e){
+    System.out.println("WProc1 windowActivated test msg");
+  }//end windowActivated()
+
+  public void windowDeactivated(WindowEvent e){
+    System.out.println(
+                     "WProc1 windowDeactivated test msg");
+  }//end windowDeactivated()
+}//end class WProc1
+//=======================================================//
+
+//This and the previous class can be used to instantiate
+// Listener objects. Note that this class extends an
+// Adapter class that can be used to avoid the
+// requirement to define all of the methods of the
+// actual Listener class named WindowListener. This class
+// overrides only two of the methods declared in the
+// interface.  It displays a message whenever one of the
+// methods is called.
+class WProc2 extends WindowAdapter{
+
+  public void windowIconified(WindowEvent e){
+    System.out.println(
+              "******** WProc2 windowIconified test msg");
+  }//end windowIconified()
+
+  public void windowDeiconified(WindowEvent e){
+    System.out.println(
+            "******** WProc2 windowDeiconified test msg");
+  }//end windowDeiconified()
+
+}//end class WProc2</code>
+
+
+	
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="More_Detailed_Overview_of_the_Delegation_Model" effect="bold">
+
+More Detailed 
+	Overview of the Delegation Model
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+JDK 1.1 encapsulates events in a class hierarchy with the root class named 
+
+<emphasis id="strong1094" effect="bold">
+
+java.util.EventObject
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1086">
+The propagation of an event from a 
+
+<emphasis id="strong1095" effect="bold">
+Source 
+
+</emphasis>
+object to a 
+
+<emphasis id="strong1096" effect="bold">
+Listener 
+
+</emphasis>
+
+object involves calling a method on the 
+
+<emphasis id="strong1097" effect="bold">
+Listener 
+
+</emphasis>
+object and passing an 
+object that contains encapsulated information about the event. Note that each 
+event class may include more than one actual type of event 
+
+<emphasis id="em1048" effect="italics">
+(as determined by 
+the methods declared in the listener interface)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1098" effect="bold">
+An event listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1088">
+A 
+
+<emphasis id="strong1099" effect="bold">
+Listener 
+
+</emphasis>
+object is an instance of a class that 
+
+<emphasis id="em1049" effect="italics">
+implements 
+
+</emphasis>
+a 
+specific 
+
+<emphasis id="strong1100" effect="bold">
+EventListener 
+
+</emphasis>
+interface extended from the generic 
+
+<emphasis id="strong1101" effect="bold">
+
+java.util.EventListener
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1089">
+An 
+
+<emphasis id="strong1102" effect="bold">
+EventListener 
+
+</emphasis>
+interface declares one or more methods that must be 
+defined in the 
+
+<emphasis id="strong1103" effect="bold">
+Listener 
+
+</emphasis>
+class. Those methods are called by the event source in 
+response to each specific event type handled by the interface. 
+
+</para>
+
+
+
+
+<para id="p1090">
+The calling of these methods is the mechanism by which the 
+
+<emphasis id="strong1104" effect="bold">
+Source 
+
+</emphasis>
+
+notifies the 
+
+<emphasis id="strong1105" effect="bold">
+Listener 
+
+</emphasis>
+of the occurrence of an event of a specific type.
+
+
+</para>
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1106" effect="bold">
+An event source
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1092">
+An 
+
+<emphasis id="strong1107" effect="bold">
+Event Source
+
+</emphasis>
+ is an object that "originates" or "fires" events by 
+calling the methods of one or more 
+
+<emphasis id="strong1108" effect="bold">
+Listener 
+
+</emphasis>
+objects. The 
+
+<emphasis id="strong1109" effect="bold">
+Source 
+
+</emphasis>
+
+maintains a list containing a reference to all of the 
+
+<emphasis id="strong1110" effect="bold">
+Listener 
+
+</emphasis>
+objects 
+that have 
+
+<emphasis id="em1050" effect="italics">
+registered
+
+</emphasis>
+ to be notified of events of that class. 
+
+</para>
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1111" effect="bold">
+Registration of event listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1094">
+The programmer causes 
+
+<emphasis id="strong1112" effect="bold">
+Listener
+
+</emphasis>
+ objects to be added to this 
+list using 
+
+<emphasis id="strong1113" effect="bold">
+add
+
+<emphasis id="em1051" effect="italics">
+(EventType)
+
+</emphasis>
+Listener
+
+</emphasis>
+ 
+method calls. 
+
+</para>
+
+
+
+
+<para id="p1095">
+Placing references to 
+
+<emphasis id="strong1114" effect="bold">
+Listener 
+
+</emphasis>
+objects on the list is often referred 
+to as 
+
+<emphasis id="em1052" effect="italics">
+registering
+
+</emphasis>
+ specific 
+
+<emphasis id="strong1115" effect="bold">
+Listeners 
+
+</emphasis>
+to receive notification of 
+specific events. 
+
+</para>
+
+
+
+
+<para id="p1096">
+<emphasis id="strong1116" effect="bold">
+Notifying listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1097">
+Once the list is populated 
+
+<emphasis id="em1053" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1117" effect="bold">
+<emphasis id="em1054" effect="italics">
+Listener 
+
+</emphasis>
+</emphasis>
+<emphasis id="em1055" effect="italics">
+objects are 
+registered)
+
+</emphasis>
+, the 
+
+<emphasis id="strong1118" effect="bold">
+Source 
+
+</emphasis>
+object uses that list to notify each 
+
+<emphasis id="strong1119" effect="bold">
+
+Listener 
+
+</emphasis>
+of the occurrence of an event of the specified type without further 
+effort on the part of the programmer. 
+
+</para>
+
+
+
+
+<para id="p1098">
+<emphasis id="strong1120" effect="bold">
+Event sources and listeners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1099">
+The 
+
+<emphasis id="strong1121" effect="bold">
+Event Source 
+
+</emphasis>
+is often a 
+
+<emphasis id="strong1122" effect="bold">
+GUI 
+
+</emphasis>
+component and the 
+
+<emphasis id="strong1123" effect="bold">
+Listener
+
+
+</emphasis>
+is commonly an object of a class that implements the appropriate listener 
+interface, but this is not a requirement. For example we will learn later how to 
+cause a program to generate events without any physical involvement on the part 
+of a user and a 
+
+<emphasis id="strong1124" effect="bold">
+GUI 
+
+</emphasis>
+component. 
+
+</para>
+
+
+
+
+<para id="p1100">
+The 
+
+<emphasis id="strong1125" effect="bold">
+Listener 
+
+</emphasis>
+object could also be another AWT component that 
+implements one or more 
+
+<emphasis id="strong1126" effect="bold">
+Listener 
+
+</emphasis>
+interfaces for the purpose of hooking 
+
+<emphasis id="strong1127" effect="bold">
+
+GUI 
+
+</emphasis>
+objects up to each other.
+
+</para>
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="Event_Hierarchy" effect="bold">
+
+Event Hierarchy
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1101">
+As mentioned earlier, each specific event type is a member of a class of 
+event types and these classes form a hierarchy of event classes. 
+
+</para>
+
+
+
+
+<para id="p1102">
+Since a single event class may be used to represent more than one event type
+
+
+<emphasis id="em1056" effect="italics">
+(i.e. 
+
+</emphasis>
+<emphasis id="strong1128" effect="bold">
+<emphasis id="em1057" effect="italics">
+MouseEvent 
+
+</emphasis>
+</emphasis>
+<emphasis id="em1058" effect="italics">
+represents mouse up, mouse down, 
+mouse drag, mouse move, etc.)
+
+</emphasis>
+, some event classes may also contain an "id"
+
+
+<emphasis id="em1059" effect="italics">
+(unique within that class)
+
+</emphasis>
+ that maps to its specific event types. 
+
+</para>
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1129" effect="bold">
+Setter and getter methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1104">
+There are no public fields in the event classes. Rather the data in the event 
+is encapsulated and available only through the use of appropriate 
+
+<emphasis id="em1060" effect="italics">
+setter
+
+</emphasis>
+ 
+and 
+
+<emphasis id="em1061" effect="italics">
+getter
+
+</emphasis>
+ methods. 
+
+</para>
+
+
+
+
+<para id="p1105">
+The 
+
+<emphasis id="em1062" effect="italics">
+setter 
+
+</emphasis>
+methods only exist for attributes on an event that can be 
+modified by a listener. If you continue with your studies in Java, you will 
+learn that the 
+
+<emphasis id="em1063" effect="italics">
+setter
+
+</emphasis>
+ and 
+
+<emphasis id="em1064" effect="italics">
+getter
+
+</emphasis>
+ methods match a 
+
+<emphasis id="em1065" effect="italics">
+design 
+pattern
+
+</emphasis>
+ 
+for Java Beans. 
+
+</para>
+
+
+
+
+<para id="p1106">
+A concrete set of event classes is defined by the AWT. In addition, 
+programmers may define their own event types by subclassing either 
+
+<emphasis id="strong1130" effect="bold">
+
+java.util.EventObject
+
+</emphasis>
+ or one of the AWT event classes.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Low-level_vs._Semantic_Events" effect="bold">
+
+Low-level vs. Semantic Events
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1107">
+The AWT provides two conceptual types of events: 
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1064">
+low-level events
+
+</item>
+
+
+	
+
+<item id="li1065">
+semantic events
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<para id="p1108">
+<emphasis id="strong1131" effect="bold">
+Low-level events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1109">
+A 
+
+<emphasis id="em1066" effect="italics">
+low-level
+
+</emphasis>
+ event is one that represents a low-level input or 
+	window-system occurrence on a visual component on the screen. As of February 
+	1997, JDK 1.1 defined the following low-level event classes: 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+<note id="note1003" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1132" effect="bold">
+Low-level event classes
+
+</emphasis>
+
+	
+
+<list id="ul1015" list-type="bulleted">
+
+		
+
+<item id="li1066">
+java.util.EventObject
+
+<list id="ul1016" list-type="bulleted">
+
+			
+
+<item id="li1067">
+java.awt.AWTEvent
+
+<list id="ul1017" list-type="bulleted">
+
+				
+
+<item id="li1068">
+java.awt.event.ComponentEvent (component resized, moved,etc.)
+
+<list id="ul1018" list-type="bulleted">
+
+					
+
+<item id="li1069">
+java.awt.event.FocusEvent (component got focus, lost focus)
+
+</item>
+
+
+					
+
+<item id="li1070">
+java.awt.event.InputEvent
+
+<list id="ul1019" list-type="bulleted">
+
+						
+
+<item id="li1071">
+java.awt.event.KeyEvent (component got key-press, key-release,etc.)
+
+</item>
+
+
+						
+
+<item id="li1072">
+java.awt.event.MouseEvent (component got mouse-down, mouse-move,etc.)
+
+</item>
+
+
+					
+
+</list>
+
+
+					
+
+</item>
+
+
+					
+
+<item id="li1073">
+java.awt.event.ContainerEvent
+
+</item>
+
+
+					
+
+<item id="li1074">
+java.awt.event.WindowEvent
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1110">
+As indicated earlier, some of the event classes encompass several different 
+event types. Generally, there are corresponding 
+
+<emphasis id="strong1133" effect="bold">
+Listener 
+
+</emphasis>
+interfaces for 
+each of the event classes, and corresponding interface methods for each of the 
+different event types in each event class.
+
+</para>
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1134" effect="bold">
+Semantic events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="em1067" effect="italics">
+Semantic 
+
+</emphasis>
+events are defined at a higher-level to encapsulate the 
+semantics of a user interface component's model. As of February 1997, the 
+semantic event classes defined by the JDK 1.1 version of the AWT were as 
+follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1004" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1135" effect="bold">
+Semantic event classes
+
+</emphasis>
+
+	
+
+<list id="ul1020" list-type="bulleted">
+
+		
+
+<item id="li1075">
+java.util.EventObject
+
+<list id="ul1021" list-type="bulleted">
+
+			
+
+<item id="li1076">
+java.awt.AWTEvent
+
+<list id="ul1022" list-type="bulleted">
+
+				
+
+<item id="li1077">
+java.awt.event.ActionEvent ("do a command")
+
+</item>
+
+
+				
+
+<item id="li1078">
+java.awt.event.AdjustmentEvent ("value was adjusted")
+
+</item>
+
+
+				
+
+<item id="li1079">
+java.awt.event.ItemEvent ("item state has changed")
+
+</item>
+
+
+				
+
+<item id="li1080">
+java.awt.event.TextEvent ("the value of the text object changed")
+
+</item>
+
+
+			
+
+</list>
+
+
+			
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1113">
+<emphasis id="strong1136" effect="bold">
+A more general event type
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1114">
+The 
+
+<emphasis id="em1068" effect="italics">
+semantic 
+
+</emphasis>
+events are not tied to specific screen-based component 
+classes, but may apply across a set of components that implement a similar 
+semantic model. For example, a 
+
+<emphasis id="strong1137" effect="bold">
+Button 
+
+</emphasis>
+object will fire an 
+
+<emphasis id="em1069" effect="italics">
+"action"
+
+</emphasis>
+ 
+event when it is pressed and a 
+
+<emphasis id="strong1138" effect="bold">
+List 
+
+</emphasis>
+object will fire an 
+
+<emphasis id="em1070" effect="italics">
+"action"
+
+</emphasis>
+ 
+event when an item is double-clicked.
+
+</para>
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1139" effect="bold">
+Not tied to user actions
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1116">
+Even though the above discussion seems to tie these event classes to user 
+actions on screen components 
+
+<emphasis id="em1071" effect="italics">
+(because that is the norm)
+
+</emphasis>
+, you need to remember 
+that there is nothing to prevent you from having your code generate events of 
+these types completely independent of such user actions. For example, you can 
+easily cause an 
+
+<emphasis id="strong1140" effect="bold">
+ActionEvent 
+
+</emphasis>
+to be generated and attributed to some 
+component whenever a software timer expires. We will learn how to do this sort 
+of thing in subsequent modules.
+
+</para>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Event_Listeners" effect="bold">
+
+Event Listeners
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1117">
+An 
+
+<emphasis id="strong1141" effect="bold">
+EventListener 
+
+</emphasis>
+interface will typically have a separate method 
+	for each distinct event type that the event class represents. For example, 
+	the 
+
+<emphasis id="strong1142" effect="bold">
+FocusEventListener 
+
+</emphasis>
+interface defines two methods, 
+
+<emphasis id="strong1143" effect="bold">
+focusGained
+
+</emphasis>
+ 
+	and 
+
+<emphasis id="strong1144" effect="bold">
+focusLost
+
+</emphasis>
+, one for each event type that the 
+
+<emphasis id="strong1145" effect="bold">
+FocusEvent 
+
+</emphasis>
+
+	class represents. 
+
+</para>
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1146" effect="bold">
+Low-level listener interfaces
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1119">
+As of February 1997, the low-level listener interfaces defined by the JDK 1.1 
+version of the AWT were as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1005" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1147" effect="bold">
+Low-level listener interfaces
+
+</emphasis>
+
+	
+
+<list id="ul1023" list-type="bulleted">
+
+		
+
+<item id="li1081">
+java.util.EventListener
+
+<list id="ul1024" list-type="bulleted">
+
+			
+
+<item id="li1082">
+java.awt.event.ComponentListener
+
+</item>
+
+
+			
+
+<item id="li1083">
+java.awt.event.ContainerListener
+
+</item>
+
+
+			
+
+<item id="li1084">
+java.awt.event.FocusListener
+
+</item>
+
+
+			
+
+<item id="li1085">
+java.awt.event.KeyListener
+
+</item>
+
+
+			
+
+<item id="li1086">
+java.awt.event.MouseListener
+
+</item>
+
+
+			
+
+<item id="li1087">
+java.awt.event.MouseMotionListener
+
+</item>
+
+
+			
+
+<item id="li1088">
+java.awt.event.WindowListener
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1120">
+If you match this up with the previous list of 
+
+<emphasis id="em1072" effect="italics">
+low-level 
+
+</emphasis>
+event 
+classes, you will see that there is a listener interface defined for each of the 
+"leaf" classes in the hierarchy of event classes. 
+
+<emphasis id="em1073" effect="italics">
+(In fact, there are two 
+different listener interfaces defined for the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1148" effect="bold">
+<emphasis id="em1074" effect="italics">
+MouseEvent
+
+</emphasis>
+</emphasis>
+<emphasis id="em1075" effect="italics">
+ class. This will 
+be discussed further at the appropriate point in time.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1149" effect="bold">
+Semantic listener interfaces
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+As of February 1997, the semantic listener interfaces defined by the AWT were as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1006" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1150" effect="bold">
+Semantic event listener interfaces
+
+</emphasis>
+
+	
+
+<list id="ul1025" list-type="bulleted">
+
+		
+
+<item id="li1089">
+java.util.EventListener
+
+<list id="ul1026" list-type="bulleted">
+
+			
+
+<item id="li1090">
+java.awt.event.ActionListener
+
+</item>
+
+
+			
+
+<item id="li1091">
+java.awt.event.AdjustmentListener
+
+</item>
+
+
+			
+
+<item id="li1092">
+java.awt.event.ItemListener
+
+</item>
+
+
+			
+
+<item id="li1093">
+java.awt.event.TextListener
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1123">
+There is a one-to-one correspondence between 
+
+<emphasis id="em1076" effect="italics">
+semantic 
+
+</emphasis>
+listener 
+interfaces and 
+
+<emphasis id="em1077" effect="italics">
+semantic 
+
+</emphasis>
+event classes.
+
+</para>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Event_Sources" effect="bold">
+
+Event Sources
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1124">
+All AWT event sources support a 
+
+<emphasis id="em1078" effect="italics">
+multicast 
+
+</emphasis>
+model for listeners. This 
+means that multiple listeners can be added and removed from a single source. In 
+other words, notification of the occurrence of the same event can be sent to one 
+or more listener objects. 
+
+</para>
+
+
+
+
+<para id="p1125">
+According to JDK 1.1 documentation, 
+
+</para>
+
+
+	
+
+<para id="p1126">
+<emphasis id="em1079" effect="italics">
+"The API makes no guarantees about the order in which the events are 
+	delivered to a set of registered listeners for a given event on a given 
+	source. Additionally, any event which allows its properties to be modified 
+	(via setXXX() methods) will be explicitly copied such that each listener 
+	receives a replica of the original event. If the order in which events are 
+	delivered to listeners is a factor for your program, you should chain the 
+	listeners off a single listener which is registered on the source (the fact 
+	that the event data is encapsulated in a single object makes propagating the 
+	event extremely simple)."
+
+</emphasis>
+</para>
+
+
+	
+	
+
+<para id="p1127">
+<emphasis id="strong1151" effect="bold">
+Low-level event sources
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1128">
+As before, a distinction is drawn between 
+
+<emphasis id="em1080" effect="italics">
+low-level
+
+</emphasis>
+ and 
+
+<emphasis id="em1081" effect="italics">
+
+	semantic 
+
+</emphasis>
+events. The source for 
+
+<emphasis id="em1082" effect="italics">
+low-level
+
+</emphasis>
+ events will often be 
+	one of the visual component classes 
+
+<emphasis id="em1083" effect="italics">
+(
+
+</emphasis>
+<emphasis id="strong1152" effect="bold">
+<emphasis id="em1084" effect="italics">
+Button
+
+</emphasis>
+</emphasis>
+<emphasis id="em1085" effect="italics">
+,
+	
+
+</emphasis>
+<emphasis id="strong1153" effect="bold">
+<emphasis id="em1086" effect="italics">
+Scrollbar
+
+</emphasis>
+</emphasis>
+<emphasis id="em1087" effect="italics">
+, etc.)
+
+</emphasis>
+ because the event is bound to 
+	the actual component on the screen 
+
+<emphasis id="em1088" effect="italics">
+(but counterfeit events can be 
+	generated)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1129">
+As of February 1997, JDK 1.1 defined low-level listeners on the following 
+components. 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1007" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1154" effect="bold">
+Low-level listener components
+
+</emphasis>
+
+	
+
+<list id="ul1027" list-type="bulleted">
+
+		
+
+<item id="li1094">
+java.awt.Component
+
+<list id="ul1028" list-type="bulleted">
+
+			
+
+<item id="li1095">
+addComponentListener(ComponentListener l)
+
+</item>
+
+
+			
+
+<item id="li1096">
+addFocusListener(FocusListener l)
+
+</item>
+
+
+			
+
+<item id="li1097">
+addKeyListener(KeyListener l)
+
+</item>
+
+
+			
+
+<item id="li1098">
+addMouseListener(MouseListener l)
+
+</item>
+
+
+			
+
+<item id="li1099">
+addMouseMotionListener(MouseMotionListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1100">
+java.awt.Container
+
+<list id="ul1029" list-type="bulleted">
+
+			
+
+<item id="li1101">
+addContainerListener(ContainerListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1102">
+java.awt.Dialog
+
+<list id="ul1030" list-type="bulleted">
+
+			
+
+<item id="li1103">
+addWindowListener(WindowListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1104">
+java.awt.Frame
+
+<list id="ul1031" list-type="bulleted">
+
+			
+
+<item id="li1105">
+addWindowListener(WindowListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1130">
+<emphasis id="strong1155" effect="bold">
+Must take inheritance into account
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1131">
+To determine all of the specific event types 
+that can be communicated from a source object to a listener object, you must 
+take inheritance into account. 
+
+</para>
+
+
+
+
+<para id="p1132">
+For example, as you will see in a sample program 
+later in this module, a source object can detect 
+
+<emphasis id="strong1156" effect="bold">
+mouse events
+
+</emphasis>
+ on a 
+
+<emphasis id="strong1157" effect="bold">
+
+Frame 
+
+</emphasis>
+object and notify a 
+
+<emphasis id="strong1158" effect="bold">
+MouseListener 
+
+</emphasis>
+object of the occurrence of 
+those events even though the above list does not show a 
+
+<emphasis id="strong1159" effect="bold">
+MouseListener 
+
+</emphasis>
+on 
+a 
+
+<emphasis id="strong1160" effect="bold">
+Frame
+
+</emphasis>
+. This is possible because a 
+
+<emphasis id="strong1161" effect="bold">
+Frame 
+
+</emphasis>
+object indirectly 
+extends the 
+
+<emphasis id="strong1162" effect="bold">
+Component 
+
+</emphasis>
+class, and 
+
+<emphasis id="strong1163" effect="bold">
+MouseListener 
+
+</emphasis>
+is defined for the
+
+
+<emphasis id="strong1164" effect="bold">
+Component 
+
+</emphasis>
+class.
+
+</para>
+
+
+
+
+<para id="p1133">
+<emphasis id="strong1165" effect="bold">
+Semantic event sources
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1134">
+As of February 1997, JDK 1.1 defined the following semantic listeners for AWT 
+components: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1008" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1166" effect="bold">
+Semantic listener components
+
+</emphasis>
+
+	
+
+<list id="ul1032" list-type="bulleted">
+
+		
+
+<item id="li1106">
+java.awt.Button
+
+		
+
+<list id="ul1033" list-type="bulleted">
+
+			
+
+<item id="li1107">
+<emphasis id="em1089" effect="italics">
+addActionListener(ActionListener l)
+
+</emphasis>
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1108">
+java.awt.Choice (implements java.awt.ItemSelectable)
+		
+
+<list id="ul1034" list-type="bulleted">
+
+			
+
+<item id="li1109">
+addItemListener(ItemListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1110">
+java.awt.Checkbox (implements java.awt.ItemSelectable)
+		
+
+<list id="ul1035" list-type="bulleted">
+
+			
+
+<item id="li1111">
+addItemListener(ItemListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1112">
+java.awt.CheckboxMenuItem (implements java.awt.ItemSelectable)
+		
+
+<list id="ul1036" list-type="bulleted">
+
+			
+
+<item id="li1113">
+addItemListener(ItemListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1114">
+java.awt.List (implements java.awt.ItemSelectable)
+		
+
+<list id="ul1037" list-type="bulleted">
+
+			
+
+<item id="li1115">
+<emphasis id="em1090" effect="italics">
+addActionListener(ActionListener l)
+
+</emphasis>
+</item>
+
+
+			
+
+<item id="li1116">
+addItemListener(ItemListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1117">
+java.awt.MenuItem
+
+		
+
+<list id="ul1038" list-type="bulleted">
+
+			
+
+<item id="li1118">
+<emphasis id="em1091" effect="italics">
+addActionListener(ActionListener l)
+
+</emphasis>
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1119">
+java.awt.Scrollbar (implements java.awt.Adjustable)
+		
+
+<list id="ul1039" list-type="bulleted">
+
+			
+
+<item id="li1120">
+addAdjustmentListener(AdjustmentListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1121">
+java.awt.TextArea
+
+		
+
+<list id="ul1040" list-type="bulleted">
+
+			
+
+<item id="li1122">
+addTextListener(TextListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1123">
+java.awt.TextField
+
+		
+
+<list id="ul1041" list-type="bulleted">
+
+			
+
+<item id="li1124">
+<emphasis id="em1092" effect="italics">
+addActionListener(ActionListener l)
+
+</emphasis>
+</item>
+
+
+			
+
+<item id="li1125">
+addTextListener(TextListener l)
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1135">
+<emphasis id="strong1167" effect="bold">
+The nature of semantic events
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1136">
+The nature of 
+
+<emphasis id="em1093" effect="italics">
+semantic
+
+</emphasis>
+ event types can be inferred by noticing that 
+in some cases, different types of components support the same type of 
+
+<emphasis id="em1094" effect="italics">
+
+semantic
+
+</emphasis>
+ event. For example, four different types of components are 
+identified in the above list that can register and service 
+
+<emphasis id="em1095" effect="italics">
+action events
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1137">
+A single 
+
+<emphasis id="strong1168" effect="bold">
+ActionEvent
+
+</emphasis>
+ listener object could be registered to be 
+notified of 
+
+<emphasis id="em1096" effect="italics">
+action events
+
+</emphasis>
+ on one or more components of all of these 
+types. Of course, it would then be necessary for the code in that event handler 
+to determine which source was responsible for generating the event if such 
+identification is important.
+
+</para>
+
+
+
+
+<para id="p1138">
+An important difference between 
+
+<emphasis id="em1097" effect="italics">
+low level
+
+</emphasis>
+ events and 
+
+<emphasis id="em1098" effect="italics">
+semantic
+
+</emphasis>
+ 
+events has to do with where the classes that define those events plug into the 
+class hierarchy. 
+
+<emphasis id="em1099" effect="italics">
+Low level
+
+</emphasis>
+ events plug in further down the class 
+hierarchy and inherit more methods that can be used to process the event object 
+than is the case with 
+
+<emphasis id="em1100" effect="italics">
+semantic
+
+</emphasis>
+ events.
+
+</para>
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="adapters" effect="bold">
+
+Adapters
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1139">
+Many 
+
+<emphasis id="strong1169" effect="bold">
+EventListener 
+
+</emphasis>
+interfaces are designed to listen to multiple 
+	event classes. For example, the 
+
+<emphasis id="strong1170" effect="bold">
+MouseListener 
+
+</emphasis>
+listens to 
+
+<emphasis id="em1101" effect="italics">
+
+	mouse-down, mouse-up, mouse-enter
+
+</emphasis>
+, etc. The 
+
+<emphasis id="strong1171" effect="bold">
+MouseListener 
+
+</emphasis>
+
+	interface declares a method for each of these subtypes. 
+
+</para>
+
+
+
+
+<para id="p1140">
+When you implement an interface, you are required to define all of the 
+methods that are declared in the interface, even if you define them with empty 
+methods. In some cases, the requirement to define all the methods declared in an 
+interface can be burdensome. 
+
+</para>
+
+
+
+
+<para id="p1141">
+For this reason (and possibly for some other reasons as well), the AWT 
+provides a set of abstract 
+
+<emphasis id="em1102" effect="italics">
+adapter
+
+</emphasis>
+ classes that match up with the defined 
+interfaces. Each adapter class implements one interface and defines all of the 
+methods declared by that interface as empty methods, thus satisfying the 
+requirement to define all of the methods. 
+
+</para>
+
+
+
+
+<para id="p1142">
+You can then define your listener classes by 
+
+<emphasis id="em1103" effect="italics">
+extending 
+
+</emphasis>
+the adapter 
+classes instead of 
+
+<emphasis id="em1104" effect="italics">
+implementing 
+
+</emphasis>
+the listener interfaces.. This allows you 
+the freedom to override only those methods of the interface that interest you.
+
+
+</para>
+
+
+
+
+<para id="p1143">
+Again, recall that the methods declared within an interface correspond to the 
+individual event types contained within a corresponding event class, and the 
+
+<emphasis id="strong1172" effect="bold">
+
+Source 
+
+</emphasis>
+object notifies your 
+
+<emphasis id="strong1173" effect="bold">
+Listener 
+
+</emphasis>
+object of the occurrence of an 
+event of a specific type by calling your interface method. 
+
+</para>
+
+
+
+
+<para id="p1144">
+As of February 1997, the Adapter classes provided by the JDK 1.1 version of 
+the AWT were as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1009" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1174" effect="bold">
+Adapter classes
+
+</emphasis>
+
+	
+
+<list id="ul1042" list-type="bulleted">
+
+		
+
+<item id="li1126">
+java.awt.event.ComponentAdapter
+
+</item>
+
+
+		
+
+<item id="li1127">
+java.awt.event.FocusAdapter
+
+</item>
+
+
+		
+
+<item id="li1128">
+java.awt.event.KeyAdapter
+
+</item>
+
+
+		
+
+<item id="li1129">
+java.awt.event.MouseAdapter
+
+</item>
+
+
+		
+
+<item id="li1130">
+java.awt.event.MouseMotionAdapter
+
+</item>
+
+
+		
+
+<item id="li1131">
+java.awt.event.WindowAdapter
+
+</item>
+
+
+	
+
+</list>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="Filtering_for_Performance" effect="bold">
+
+Filtering for Performance
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1145">
+Since listeners are registered to handle specific event types, they are 
+notified only of the occurrence of those event types and are not required to 
+deal with event types for which they are not registered. That was not the case 
+in JDK 1.0.2 where all events passed through a common set of event handler code 
+whether those events were of interest or not. 
+
+</para>
+
+
+
+
+<para id="p1146">
+This filtering of events should improve performance, especially with high 
+frequency events, such as mouse-moves. 
+
+</para>
+
+
+
+
+<para id="p1147">
+According to the JDK 1.1 documentation, 
+
+</para>
+
+
+	
+	
+
+<para id="p1148">
+<emphasis id="em1105" effect="italics">
+"All platforms should see some performance improvement from reduced 
+	event traffic, but the Solaris implementation should gain exceptional 
+	improvement since it's a network-based window system."
+
+</emphasis>
+</para>
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Another_Sample_Program" effect="bold">
+
+Another Sample Program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1149">
+The previous program did not terminate when the user closed the window. The 
+following program does terminate when the user closes the window by executing a
+
+
+<emphasis id="strong1175" effect="bold">
+System.exit(0)
+
+</emphasis>
+ statement in the 
+
+<emphasis id="em1106" effect="italics">
+closing
+
+</emphasis>
+ event handler.. 
+
+</para>
+
+
+
+
+<para id="p1150">
+The previous program implemented an 
+
+<emphasis id="strong1176" effect="bold">
+Event Source
+
+</emphasis>
+ object that notified 
+two different 
+
+<emphasis id="strong1177" effect="bold">
+Listener 
+
+</emphasis>
+objects of the occurrence of an event in the 
+
+<emphasis id="strong1178" effect="bold">
+
+Window 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+
+<para id="p1151">
+The following program implements an 
+
+<emphasis id="strong1179" effect="bold">
+Event Source
+
+</emphasis>
+ object that notifies 
+one 
+
+<emphasis id="strong1180" effect="bold">
+Listener 
+
+</emphasis>
+object of the occurrence of an event in the 
+
+<emphasis id="strong1181" effect="bold">
+Window 
+
+</emphasis>
+
+class and notifies another 
+
+<emphasis id="strong1182" effect="bold">
+Listener 
+
+</emphasis>
+object of the occurrence of an event 
+in the 
+
+<emphasis id="strong1183" effect="bold">
+Mouse 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+
+<para id="p1152">
+This program implements a 
+
+<emphasis id="strong1184" effect="bold">
+MouseListener 
+
+</emphasis>
+
+interface on a 
+
+<emphasis id="strong1185" effect="bold">
+Frame 
+
+</emphasis>
+object, which is possible because the 
+
+<emphasis id="strong1186" effect="bold">
+Frame 
+
+</emphasis>
+
+class indirectly extends the 
+
+<emphasis id="strong1187" effect="bold">
+Component 
+
+</emphasis>
+class, and 
+
+<emphasis id="strong1188" effect="bold">
+addMouseListener 
+
+</emphasis>
+
+is defined on the 
+
+<emphasis id="strong1189" effect="bold">
+Component 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1190" effect="bold">
+Program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1154">
+If you compile and execute this program, whenever you click the mouse inside 
+the 
+
+<emphasis id="strong1191" effect="bold">
+Frame
+
+</emphasis>
+, you should see the coordinates of the mouse pointer displayed 
+above the mouse pointer as shown in 
+
+<link id="a1060" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+<para id="p1155">
+<emphasis id="strong1192" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Screen output from Event09.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1156">
+<media id="media1001" alt="Missing image." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/event09a.jpg" width="301" height="301"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="Event09_Interesting_Code_Fragments" effect="bold">
+
+Event09 Interesting Code Fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1157">
+The first interesting code fragment is the definition of the controlling 
+class. The 
+
+<emphasis id="strong1193" effect="bold">
+main
+
+</emphasis>
+ method for this class instantiates a 
+
+<emphasis id="strong1194" effect="bold">
+GUI
+
+</emphasis>
+ object where 
+all the real work is done. 
+
+<link id="a1061" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ shows the 
+class named 
+
+<emphasis id="strong1195" effect="bold">
+Event09
+
+</emphasis>
+ including the 
+
+<emphasis id="strong1196" effect="bold">
+main
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Beginning of the class 
+				named Event09.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1010" display="block">public class Event09 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class Event09</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1158">
+<emphasis id="strong1197" effect="bold">
+The paint and repaint methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1159">
+Various tutorial lessons on my website discuss the relationship between the 
+
+<emphasis id="strong1198" effect="bold">
+paint
+
+</emphasis>
+ method and the 
+
+<emphasis id="strong1199" effect="bold">
+
+repaint
+
+</emphasis>
+ method. If you are unfamiliar with that relationship, you may need to go 
+back and review it.
+
+</para>
+
+
+
+
+<para id="p1160">
+In this program, we are going to override the 
+
+<emphasis id="strong1200" effect="bold">
+paint
+
+</emphasis>
+ method to make it 
+possible for us to draw coordinate information on the screen. 
+
+</para>
+
+
+
+
+<para id="p1161">
+In order to override the 
+
+<emphasis id="strong1201" effect="bold">
+paint
+
+</emphasis>
+ method, we need to extend the 
+
+<emphasis id="strong1202" effect="bold">
+
+Frame 
+
+</emphasis>
+class. By doing so, we can define our own version of the 
+
+<emphasis id="strong1203" effect="bold">
+Frame 
+
+</emphasis>
+class where we 
+have the ability to override the 
+
+<emphasis id="strong1204" effect="bold">
+paint
+
+</emphasis>
+ method. 
+
+<link id="a1062" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ 
+
+<emphasis id="em1107" effect="italics">
+extends 
+
+</emphasis>
+<emphasis id="strong1205" effect="bold">
+Frame 
+
+</emphasis>
+into 
+
+<emphasis id="strong1206" effect="bold">
+MyFrame 
+
+</emphasis>
+and overrides the 
+
+<emphasis id="strong1207" effect="bold">
+
+paint
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - The class named 
+				MyFrame.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1011" display="block">class MyFrame extends Frame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+             "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1162">
+<emphasis id="strong1208" effect="bold">
+Storing and using coordinate information
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1163">
+For future reference, note that this class contains a couple of instance 
+variables that will be used to store X and Y coordinate information.
+
+</para>
+
+
+
+
+<para id="p1164">
+The overridden version of the 
+
+<emphasis id="strong1209" effect="bold">
+paint
+
+</emphasis>
+ method causes the coordinate 
+values stored in 
+
+<emphasis id="strong1210" effect="bold">
+clickX
+
+</emphasis>
+ and 
+
+<emphasis id="strong1211" effect="bold">
+clickY
+
+</emphasis>
+ to be displayed in the client 
+area of the 
+
+<emphasis id="strong1212" effect="bold">
+Frame
+
+</emphasis>
+ object at the location specified by the values of those 
+two instance variables. 
+
+</para>
+
+
+
+
+<para id="p1165">
+<emphasis id="strong1213" effect="bold">
+The drawString method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1166">
+The 
+
+<emphasis id="strong1214" effect="bold">
+drawString
+
+</emphasis>
+ method requires three parameters. The first parameter is the string to draw on the 
+screen. The next two parameters are the coordinate values in pixels where the 
+string is to be drawn. 
+
+</para>
+
+
+
+
+<para id="p1167">
+As is normally the case, coordinate values are specified relative to the 
+upper left corner of the object being drawn on. The above overridden 
+version of the 
+
+<emphasis id="strong1215" effect="bold">
+drawString
+
+</emphasis>
+ method converts the coordinate values to a 
+
+
+<emphasis id="strong1216" effect="bold">
+String
+
+</emphasis>
+, and draws that string at the location specified by the coordinate 
+values. 
+
+</para>
+
+
+
+
+<para id="p1168">
+<emphasis id="strong1217" effect="bold">
+The class named GUI
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1169">
+As before, the 
+
+<emphasis id="strong1218" effect="bold">
+GUI 
+
+</emphasis>
+class is rather long. Therefore, I will break it up 
+and discuss it in fragments. 
+
+</para>
+
+
+
+
+<para id="p1170">
+The first fragment that I will discuss is the constructor that begins in
+
+
+<link id="a1063" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The important 
+thing to note here is that we are not instantiating an object of type 
+
+<emphasis id="strong1219" effect="bold">
+Frame
+
+</emphasis>
+. 
+Instead, we are instantiating an object of type 
+
+<emphasis id="strong1220" effect="bold">
+MyFrame 
+
+</emphasis>
+that is our 
+extended version of 
+
+<emphasis id="strong1221" effect="bold">
+Frame
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1171">
+Other than that, you should be familiar with the code in
+
+
+<link id="a1064" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ by now.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1010" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - Beginning of the class 
+				named GUI.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1012" display="block">class GUI {
+  public GUI(){//constructor
+    //Create a new Frame object, set size, title, etc.
+    MyFrame displayWindow = new MyFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Copyright 1997, R.G.Baldwin");
+    displayWindow.setVisible(true);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1172">
+<emphasis id="strong1222" effect="bold">
+Register two listener objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1173">
+<link id="a1065" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ uses standard syntax to instantiate and register two 
+different 
+
+<emphasis id="strong1223" effect="bold">
+Listener 
+
+</emphasis>
+objects on the 
+
+<emphasis id="strong1224" effect="bold">
+MyFrame 
+
+</emphasis>
+object. The first is a
+
+
+<emphasis id="strong1225" effect="bold">
+WindowListener 
+
+</emphasis>
+object that will terminate the program when the user 
+closes the 
+
+<emphasis id="strong1226" effect="bold">
+MyFrame 
+
+</emphasis>
+object.
+
+</para>
+
+
+
+
+<para id="p1174">
+The second is a 
+
+<emphasis id="strong1227" effect="bold">
+MouseListener 
+
+</emphasis>
+object that will process 
+
+<emphasis id="em1108" effect="italics">
+mouse events
+
+</emphasis>
+ 
+on the 
+
+<emphasis id="strong1228" effect="bold">
+MyFrame 
+
+</emphasis>
+object. 
+
+</para>
+
+
+
+
+<para id="p1175">
+It is typical to register listener objects as 
+
+<emphasis id="em1109" effect="italics">
+anonymous objects
+
+</emphasis>
+ in those 
+cases where a specific reference to the listener object is not otherwise needed.
+
+
+<emphasis id="em1110" effect="italics">
+(Don't confuse anonymous objects with anonymous classes, which is the topic 
+of a future module.)
+
+</emphasis>
+</para>
+
+
+
+	
+	
+
+<table id="table1011" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - Register two listener objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1013" display="block">    displayWindow.addWindowListener(new WProc1());
+    displayWindow.addMouseListener(
+                             new MouseProc(displayWindow));
+  }//end constructor
+}//end class GUI definition</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1176">
+<link id="a1066" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ ends the definition of the 
+
+<emphasis id="strong1229" effect="bold">
+GUI 
+
+</emphasis>
+class. That 
+brings us to the definition of 
+
+<emphasis id="strong1230" effect="bold">
+Listener 
+
+</emphasis>
+classes for the 
+
+<emphasis id="strong1231" effect="bold">
+WindowListener
+
+
+</emphasis>
+and the 
+
+<emphasis id="strong1232" effect="bold">
+MouseListener
+
+</emphasis>
+ interfaces.
+
+</para>
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1233" effect="bold">
+The MouseListener class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1178">
+I will begin with the 
+
+<emphasis id="strong1234" effect="bold">
+MouseListener 
+
+</emphasis>
+class named 
+
+<link id="a1067" target-id="Listing_14">
+
+MouseProc
+
+</link>
+
+. 
+This class 
+
+<emphasis id="em1111" effect="italics">
+
+extends 
+
+</emphasis>
+the 
+
+<emphasis id="strong1235" effect="bold">
+MouseAdapter 
+
+</emphasis>
+class and does not directly 
+
+<emphasis id="em1112" effect="italics">
+implement
+
+</emphasis>
+ 
+the 
+
+<emphasis id="em1113" effect="italics">
+MouseListener 
+
+</emphasis>
+interface. This saves us the trouble of having to 
+create empty methods for event types that we are not interested in. 
+
+</para>
+
+
+
+
+<para id="p1179">
+Objects of this class that are registered on the 
+
+<emphasis id="strong1236" effect="bold">
+Source
+
+</emphasis>
+ will be 
+notified whenever a 
+
+<emphasis id="strong1237" effect="bold">
+mousePressed()
+
+</emphasis>
+ event occurs on the 
+
+<emphasis id="strong1238" effect="bold">
+Source. 
+
+</emphasis>
+
+This will cause the 
+
+<emphasis id="strong1239" effect="bold">
+mousePressed
+
+</emphasis>
+ method to be called. The 
+
+<emphasis id="strong1240" effect="bold">
+mousePressed
+
+</emphasis>
+ 
+method will display the coordinates of the mouse pointer when the mouse is 
+pressed on the source object.
+
+</para>
+
+
+
+
+<para id="p1180">
+<emphasis id="strong1241" effect="bold">
+The mousePressed method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1181">
+When the 
+
+<emphasis id="strong1242" effect="bold">
+mousePressed
+
+</emphasis>
+ method is called, it receives a reference to an object of 
+type 
+
+<emphasis id="strong1243" effect="bold">
+MouseEvent
+
+</emphasis>
+ as a parameter. Different types of events encapsulate 
+different types of information in the object that is passed as a parameter to 
+the event handler method. This 
+particular object contains a variety of information, including the coordinates 
+of the mouse pointer when the event occurred. 
+
+</para>
+
+
+
+
+<para id="p1182">
+<emphasis id="strong1244" effect="bold">
+Extract and save mouse pointer coordinates
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1183">
+The code in the overridden 
+
+<emphasis id="strong1245" effect="bold">
+mousePressed()
+
+</emphasis>
+ method extracts that 
+coordinate information from the object and stores it in the instance variables 
+named 
+
+<emphasis id="strong1246" effect="bold">
+clickX
+
+</emphasis>
+ and 
+
+<emphasis id="strong1247" effect="bold">
+clickY
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1248" effect="bold">
+Source 
+
+</emphasis>
+object. 
+
+</para>
+
+
+
+
+<para id="p1184">
+Then it calls the 
+
+<emphasis id="strong1249" effect="bold">
+repaint
+
+</emphasis>
+ method on the source object, causing the 
+source object to be repainted on the screen. This in turn causes the overridden 
+
+<emphasis id="strong1250" effect="bold">
+
+paint
+
+</emphasis>
+ method discussed earlier to be called, which displays the new 
+coordinate information on the screen in the proper location. 
+
+</para>
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1251" effect="bold">
+The class named MouseProc
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1186">
+<link id="a1068" target-id="Listing_14">
+
+Listing 14
+
+</link>
+
+ contain the definition of the 
+	MouseProc class, including the overridden 
+
+<emphasis id="strong1252" effect="bold">
+mousePressed
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+	
+	
+
+<table id="table1012" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_14" effect="bold">
+
+Listing 14
+
+</emphasis>
+
+ - The class named MouseProc.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1014" display="block">class MouseProc extends MouseAdapter{
+  MyFrame refToWin; //save a reference to the source here
+
+  MouseProc(MyFrame inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  public void mousePressed(MouseEvent e){
+    refToWin.clickX = e.getX();
+    refToWin.clickY = e.getY();
+
+    refToWin.repaint();
+  }//end mousePressed()
+}//end class MouseProc</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1187">
+<emphasis id="strong1253" effect="bold">
+The class named WProc1
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1188">
+Finally, we come to the class that is used to instantiate a listener object 
+that terminates the program when the user closes the 
+
+<emphasis id="strong1254" effect="bold">
+MyFrame 
+
+</emphasis>
+object 
+
+<emphasis id="em1114" effect="italics">
+
+(see 
+
+<link id="a1069" target-id="Listing_15">
+
+Listing 15
+
+</link>
+
+)
+
+</emphasis>
+. You 
+will be seeing this class over and over as you review the sample programs in 
+upcoming modules. 
+
+</para>
+
+
+
+	
+	
+
+<table id="table1013" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_15" effect="bold">
+
+Listing 15
+
+</emphasis>
+
+ - The class named WProc1.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1015" display="block">class WProc1 extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class WProc1</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1189">
+The 
+
+<emphasis id="strong1255" effect="bold">
+WProc1
+
+</emphasis>
+ class extends the 
+
+<emphasis id="strong1256" effect="bold">
+WindowAdapter
+
+</emphasis>
+ 
+	class and overrides the method named 
+
+<emphasis id="strong1257" effect="bold">
+windowClosing
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1190">
+The 
+
+<emphasis id="strong1258" effect="bold">
+windowClosing
+
+</emphasis>
+ method is called when the user clicks the 
+red X in the upper right corner of 
+
+<link id="a1070" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.That causes 
+the static 
+
+<emphasis id="strong1259" effect="bold">
+exit
+
+</emphasis>
+ method of the 
+
+<emphasis id="strong1260" effect="bold">
+System
+
+</emphasis>
+ class to 
+be called, which in turn causes the program to terminate.
+
+</para>
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="Event09_Program_Listing" effect="bold">
+
+Event09 Program Listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1191">
+A complete listing of the program named 
+
+<emphasis id="strong1261" effect="bold">
+Event09
+
+</emphasis>
+ is provided 
+in 
+
+<link id="a1071" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+
+<para id="p1192">
+<emphasis id="strong1262" effect="bold">
+<emphasis id="Listing_16" effect="bold">
+
+Listing 16
+
+</emphasis>
+
+ - Complete listing of 
+				Event09.
+
+</emphasis>
+</para>
+
+
+
+				
+
+<code id="pre1016" display="block">/*File Event09.java Copyright 1997, R.G.Baldwin
+This program is designed to be compiled under JDK 1.1
+
+Illustrates the use of Event Sources, Event Listeners, and
+Adapters in the Delegation Event Model.
+
+This program instantiates a Listener object to process
+mouse events. When a mouse press occurs in a Frame object,
+the program gets the coordinates and then displays those
+coordinates near the point of the mouse press.
+
+This program was tested using JDK 1.1.3 under Win95.
+**********************************************************/
+import java.awt.*;
+import java.awt.event.*;
+
+public class Event09 {
+  public static void main(String[] args){
+    GUI gui = new GUI();//instantiate a GUI
+  }//end main
+}//end class Event09
+//=======================================================//
+
+//Subclass Frame in order to override the paint method.
+class MyFrame extends Frame{
+  int clickX;
+  int clickY;
+
+  public void paint(Graphics g){
+    g.drawString(
+             "" + clickX + ", " + clickY, clickX, clickY);
+  }//end paint()
+}//end class MyFrame
+//=======================================================//
+
+//The following class is used to instantiate a
+// graphical user interface object.
+class GUI {
+  public GUI(){//constructor
+    //Create a new Frame object, set size, title, etc.
+    MyFrame displayWindow = new MyFrame();
+    displayWindow.setSize(300,300);
+    displayWindow.setTitle("Copyright 1997, R.G.Baldwin");
+    displayWindow.setVisible(true);
+
+    //Instantiate and register an anonymous Listener
+    // object that will terminate the program when the
+    // user closes the Frame.
+    displayWindow.addWindowListener(new WProc1());
+
+    //Instantiate and register an anonymous Listener
+    // object that will process mouse events to determine
+    // and display the coordinates when the user presses
+    // the mouse button in the client area of the Frame.
+    displayWindow.addMouseListener(
+                             new MouseProc(displayWindow));
+  }//end constructor
+}//end class GUI definition
+//=======================================================//
+
+//This listener class monitors for mouse presses and
+// displays the coordinates of the mouse pointer when the
+// mouse is pressed on the source object. Note that this
+// class extends is an adapter class.
+class MouseProc extends MouseAdapter{
+  MyFrame refToWin; //save a reference to the source here
+
+  MouseProc(MyFrame inWin){//constructor
+    refToWin = inWin;//save ref to window
+  }//end constructor
+
+  //Override the mousePressed method to determine and
+  // display the coordinates when the mouse is pressed.
+  public void mousePressed(MouseEvent e){
+    //Get X and Y coordinates of mouse pointer and store
+    // in an instance variable of the Frame object
+    refToWin.clickX = e.getX();
+    refToWin.clickY = e.getY();
+
+    //Force the Frame object to be repainted in order to
+    // display the coordinate information.
+    refToWin.repaint();
+  }//end mousePressed()
+}//end class MouseProc
+//=======================================================//
+
+//The following listener is used to terminate the program
+// when the user closes the frame.  Note that this class
+// extends an adapter class.
+class WProc1 extends WindowAdapter{
+  public void windowClosing(WindowEvent e){
+    System.exit(0);
+  }//end windowClosing()
+}//end class WProc1
+//=======================================================//</code>
+
+
+	
+
+</section>
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1193">
+In the simplest case, you can handle events as defined in JDK 1.1 with the following steps.
+
+</para>
+
+
+
+
+<section id="h21012">
+<title>
+Step 1
+
+</title>
+
+
+
+
+<para id="p1194">
+Define a 
+
+<emphasis id="strong1263" effect="bold">
+Listener 
+
+</emphasis>
+class for a specific class of events by either 
+
+<emphasis id="em1115" effect="italics">
+
+implementing 
+
+</emphasis>
+the listener interface that matches that class of events, or 
+
+<emphasis id="em1116" effect="italics">
+
+extending 
+
+</emphasis>
+the corresponding adapter class.
+
+</para>
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+Step 2
+
+</title>
+
+
+
+
+<para id="p1195">
+Define or override the interface methods in the 
+
+<emphasis id="strong1264" effect="bold">
+Listener 
+
+</emphasis>
+class, for 
+each specific event type in the event class, to implement the desired behavior 
+of the program upon occurrence of an event. 
+
+</para>
+
+
+
+
+<para id="p1196">
+If you 
+
+<emphasis id="em1117" effect="italics">
+implement 
+
+</emphasis>
+the listener interface, you must define all interface 
+methods. If instead you 
+
+<emphasis id="em1118" effect="italics">
+extend 
+
+</emphasis>
+the corresponding adapter class, you can 
+override only those methods that tie to event types of interest.
+
+</para>
+
+
+
+
+</section>
+<section id="h21014">
+<title>
+Step 3
+
+</title>
+
+
+
+
+<para id="p1197">
+Write code that instantiates objects of the 
+
+<emphasis id="strong1265" effect="bold">
+Source 
+
+</emphasis>
+class and the
+
+
+<emphasis id="strong1266" effect="bold">
+Listener 
+
+</emphasis>
+class and 
+
+<emphasis id="em1119" effect="italics">
+registers 
+
+</emphasis>
+the listener object on the source 
+object for notification of events generated by the source 
+object.
+
+</para>
+
+
+
+
+<para id="p1198">
+You can use code such as the following for registration:
+
+</para>
+
+
+
+
+<para id="p1199">
+displayWindow.
+
+<emphasis id="strong1267" effect="bold">
+addMouseListener
+
+</emphasis>
+(mouseProcCmd);
+
+</para>
+
+
+
+
+<para id="p1200">
+In this code fragment,
+
+</para>
+
+
+
+
+<list id="ul1043" list-type="bulleted">
+
+	
+
+<item id="li1132">
+<emphasis id="strong1268" effect="bold">
+displayWindow
+
+</emphasis>
+ is a reference to the object that fires the event,
+
+</item>
+
+
+	
+
+<item id="li1133">
+<emphasis id="strong1269" effect="bold">
+mouseProcCmd
+
+</emphasis>
+ is the name of a reference to the listener object, and
+
+</item>
+
+
+	
+
+<item id="li1134">
+<emphasis id="strong1270" effect="bold">
+addMouseListener 
+
+</emphasis>
+is the method that registers the listener object 
+	to receive mouse events from the object referred to by 
+
+<emphasis id="strong1271" effect="bold">
+displayWindow
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1201">
+This statement will cause the object named 
+
+<emphasis id="strong1272" effect="bold">
+mouseProcCmd
+
+</emphasis>
+ to be notified of 
+all events generated by 
+
+<emphasis id="strong1273" effect="bold">
+displayWindow
+
+</emphasis>
+ which are part of the class of 
+
+<emphasis id="em1120" effect="italics">
+
+mouse
+
+</emphasis>
+ events.
+
+</para>
+
+
+
+
+<para id="p1202">
+The notification takes the form of calling a method in the 
+
+<emphasis id="strong1274" effect="bold">
+mouseProcCmd
+
+</emphasis>
+ 
+object where there must be a corresponding method for each specific event type 
+in the class of 
+
+<emphasis id="em1121" effect="italics">
+mouse
+
+</emphasis>
+ events. 
+
+<emphasis id="em1122" effect="italics">
+(Some of those methods can be empty 
+shells if you have no interest in some of the event types).
+
+</emphasis>
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+Comments
+
+</title>
+
+
+
+
+<para id="p1203">
+As mentioned earlier, this is the procedure for the simplest cases. It is 
+possible to make the situation more complicated. For example, a single 
+
+<emphasis id="strong1275" effect="bold">
+Source 
+
+</emphasis>
+object 
+can be required to notify two or more different 
+
+<emphasis id="strong1276" effect="bold">
+Listener 
+
+</emphasis>
+
+objects of the occurrence of an event of the same class on a single screen 
+object. 
+
+</para>
+
+
+
+
+<para id="p1204">
+The 
+
+<emphasis id="strong1277" effect="bold">
+Source 
+
+</emphasis>
+object can also be required to notify two 
+or more different 
+
+<emphasis id="strong1278" effect="bold">
+Listener 
+
+</emphasis>
+objects of the occurrence of events of two different 
+classes on a single screen object. 
+
+</para>
+
+
+
+
+<para id="p1205">
+A single 
+
+<emphasis id="strong1279" effect="bold">
+Listener 
+
+</emphasis>
+object can be registered 
+to receive notification of the occurrence of events of a given class on more 
+than one source object. In that case, it is normally necessary for the code in 
+the 
+
+<emphasis id="strong1280" effect="bold">
+Listener 
+
+</emphasis>
+object to crack open the event object to determine which 
+screen object was responsible for the event 
+
+<emphasis id="em1123" effect="italics">
+(if it matters)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1206">
+Also, the JDK 1.1 documentation indicates that it is possible to have 
+event-style communication between objects that are not screen objects. 
+Subsequent modules will investigate a number of these possibilities.
+
+</para>
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Review" effect="bold">
+
+Review
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1207">
+The 
+
+<link id="a1072" url="http://cnx.org/content/m45597/latest/Java080.htm">
+
+original HTML version
+
+</link>
+
+ of this module contains a number of review questions with answers. If interested, you can take a look 
+	at those 
+
+<link id="a1073" url="http://cnx.org/content/m45597/latest/Java080.htm#review">
+
+review questions
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1208">
+I encourage you to copy the code from 
+
+<link id="a1074" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ and
+
+
+<link id="a1075" target-id="Listing_16">
+
+Listing 16
+
+</link>
+
+. Compile the code and execute it. 
+Experiment with the code, making changes, and observing the results of your 
+changes. Make certain that you can explain why your changes behave as they do.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1209">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1010" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1281" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1044" list-type="bulleted">
+
+					
+
+<item id="li1135">
+Module name: Java OOP: Event Handling in JDK 1.1, A First Look, Delegation Event Model
+
+</item>
+
+
+					
+
+<item id="li1136">
+File: Java0080.htm
+
+
+</item>
+
+
+					
+
+<item id="li1137">
+Published: 11/17/13
+
+</item>
+
+
+
+
+<item id="li1138">
+Revised: 02/06/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1011" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1282" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1210">
+<emphasis id="strong1283" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1211">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1212">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1213">
+<emphasis id="strong1284" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1214">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

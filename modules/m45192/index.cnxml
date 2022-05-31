@@ -1,0 +1,779 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Jb0220: Java OOP: Statements and Expressions</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45192</md:content-id>
+  <md:title>Jb0220: Java OOP: Statements and Expressions</md:title>
+  <md:abstract>Java programs are composed of statements, and statements are constructed from expressions. This module takes a very brief look at Java statements and expressions.</md:abstract>
+  <md:uuid>d7ff1721-14d7-4758-ae2f-8d71c34ecc4c</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Mon Mar 28 14:22:16 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/EHRr6hjR:pDHzTeQb">
+
+
+<emphasis id="em1001" effect="italics">
+Programming Fundamentals with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_:kFS-maG_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Introduction">
+
+Introduction
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Expressions">
+
+Expressions
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Statements">
+
+Statements
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Further_reading">
+
+Further reading
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+Java programs are composed of statements, and statements are constructed 
+	from expressions. This module takes a very brief look at Java statements and 
+	expressions. 
+
+</para>
+
+
+
+	
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Introduction" effect="bold">
+
+Introduction
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1003">
+<emphasis id="strong1000" effect="bold">
+The first step
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+The first step in learning to use a new programming language is usually to 
+learn the foundation concepts such as variables, types, expressions, 
+flow-of-control, etc. This module concentrates on expressions and statements.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Expressions" effect="bold">
+
+Expressions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1001" effect="bold">
+The hierarchy
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+Java programs are composed of statements, and statements are constructed from 
+expressions. 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+An expression is a specific combination of operators and operands, that 
+evaluates to a single value. The operands can be variables, constants, or method 
+calls. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+A method call evaluates to the value returned by the method. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1002" effect="bold">
+Named constants
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+Java supports named constants that are implemented through the use of the 
+
+<emphasis id="strong1003" effect="bold">
+
+final
+
+</emphasis>
+ keyword. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+The syntax for creating a named constant in Java is as follows: 
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1004" effect="bold">
+<emphasis id="Named_constants" effect="bold">
+
+Named constants
+
+</emphasis>
+
+
+</emphasis>
+
+				
+
+<code id="pre1000" display="block">
+final float PI = 3.14159;</code>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1012">
+While this is not a constant type, it does produce a value that can be 
+	referenced in the program and which cannot be modified. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+The 
+
+<emphasis id="strong1005" effect="bold">
+final
+
+</emphasis>
+ keyword prevents the value of 
+
+<emphasis id="strong1006" effect="bold">
+PI
+
+</emphasis>
+ from being modified 
+in 
+
+<link id="a1008" target-id="Named_constants">
+
+this case
+
+</link>
+
+. You will learn later that there are 
+some other uses for the 
+
+<emphasis id="strong1007" effect="bold">
+final
+
+</emphasis>
+ keyword in Java as well. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+<emphasis id="strong1008" effect="bold">
+Operator precedence
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1015">
+The order in which the operations are performed determines the 
+result. You can control the order of evaluation by the use of matching 
+parentheses. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+If you don't provide such parentheses, the order will be determined by the 
+precedence of the operators 
+
+<emphasis id="em1003" effect="italics">
+(you should find and review a table of Java 
+operator precedence)
+
+</emphasis>
+ with the operations having higher precedence being 
+evaluated first. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Statements" effect="bold">
+
+Statements
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+According to
+
+
+<link id="a1009" url="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html">
+
+
+The Java Tutorials
+
+</link>
+
+, 
+
+<emphasis id="em1004" effect="italics">
+"A statement forms a complete unit of execution."
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+A statement is constructed by combining one or more expressions into a 
+compound expression and terminating that expression with a semicolon.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Further_reading" effect="bold">
+
+Further reading
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1019">
+As of November 2012, a good tutorial on this topic is available on the Oracle 
+website titled
+
+
+<link id="a1010" url="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html">
+
+
+Expressions, Statements, and Blocks
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1020">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1009" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1002" list-type="bulleted">
+
+					
+
+<item id="li1008">
+Module name: Jb0220: Java OOP: Statements and 
+					Expressions
+
+</item>
+
+
+					
+
+<item id="li1009">
+File: Jb0220.htm
+
+
+</item>
+
+
+					
+
+<item id="li1010">
+Originally published: 1997
+
+</item>
+
+
+					
+
+<item id="li1011">
+Published at cnx.org: 11/24/12
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1010" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1021">
+<emphasis id="strong1011" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1022">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1023">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1024">
+<emphasis id="strong1012" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1025">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

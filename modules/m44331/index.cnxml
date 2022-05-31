@@ -1,0 +1,1368 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java0073 Java OOP The AWT and Swing, A Preview</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44331</md:content-id>
+  <md:title>Java0073 Java OOP The AWT and Swing, A Preview</md:title>
+  <md:abstract>This module provides a very brief preview of some of what you can expect to find in subsequent modules regarding the Abstract Windows Toolkit (AWT) and the Swing component set.</md:abstract>
+  <md:uuid>53431427-5531-406c-bb01-2b9c579b4e93</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu May 12 10:07:20 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Discussion_and_sample_code">
+
+Discussion
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is part of a collection of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+
+
+<para id="p1003">
+<emphasis id="em1003" effect="italics">
+(Editor's note: As you will see when you read this module, the original 
+version was written about eighteen years ago. However, despite numerous 
+improvements that have occurred in Java since then, most of what was true on 
+this topic in 1998 is still true in 2012. A wise man once said, "If it ain't 
+broke, don't fix it." 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1004">
+<emphasis id="em1004" effect="italics">
+One of the changes that you will see in subsequent modules is that the 
+name of the package that contains the 
+
+<emphasis id="strong1000" effect="bold">
+Swing
+
+</emphasis>
+ classes has been 
+changed to 
+
+<emphasis id="strong1001" effect="bold">
+javax.swing
+
+</emphasis>
+.)
+
+</emphasis>
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+
+<para id="p1005">
+This module provides a very brief preview of some of what you can 
+expect to find in subsequent modules regarding the Abstract Windows Toolkit (
+
+<emphasis id="strong1002" effect="bold">
+AWT
+
+</emphasis>
+) 
+and the 
+
+<emphasis id="strong1003" effect="bold">
+Swing
+
+</emphasis>
+ component set. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+The user interface of a modern computer program often involves techniques to 
+activate many of the human senses. We use 
+
+<emphasis id="em1005" effect="italics">
+icons, text boxes, images, sound, 
+boardroom graphics, etc.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+We weren't too concerned with these aspects of 
+programming in the prerequisite course 
+
+<emphasis id="em1006" effect="italics">
+(ITSE 2321)
+
+</emphasis>
+ because there was a lot that you needed to learn to prepare yourself 
+for understanding material of this sort. That is about to change. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+Much of the actual programming that you will do with Java will involve those 
+aspects of the interface that we commonly refer to as the 
+
+<emphasis id="strong1004" effect="bold">
+Graphical User 
+Interface (GUI)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+As of 5/10/98, there are two primary packages that are used for 
+
+<emphasis id="strong1005" effect="bold">
+GUI 
+
+</emphasis>
+
+
+programming under JDK 1.1.6:
+
+</para>
+
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1006">
+java.
+
+<emphasis id="strong1006" effect="bold">
+awt
+
+</emphasis>
+.*
+
+</item>
+
+
+	
+
+<item id="li1007">
+com.sun.java.
+
+<emphasis id="strong1007" effect="bold">
+swing
+
+</emphasis>
+.*
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+There are, of course, numerous other packages that are used in support of 
+these two packages. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+The 
+
+<emphasis id="strong1008" effect="bold">
+AWT
+
+</emphasis>
+ material was made available to Java programmers early in the 
+life of Java. This was the original material that was used to create graphical 
+user interfaces. Major improvements to the 
+
+<emphasis id="strong1009" effect="bold">
+AWT
+
+</emphasis>
+ were introduced with the 
+release of JDK 1.1. 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+The 
+
+<emphasis id="strong1010" effect="bold">
+Swing
+
+</emphasis>
+ components became available in released form for use with 
+JDK 1.1 around the beginning of 1998. These components added significantly to 
+the ability of the programmer to create GUIs, both in terms of functionality and 
+cosmetics. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+The capability and cosmetics of the 
+
+<emphasis id="strong1011" effect="bold">
+AWT
+
+</emphasis>
+ were very limited but 
+
+<emphasis id="strong1012" effect="bold">
+Swing
+
+</emphasis>
+ 
+made GUI programming in Java competitive in the real world. A Java programmer no 
+longer need apologize for the quality of the GUIs that she can create. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+We expect that these two packages may become more integrated (causing changes 
+in your 
+
+<emphasis id="strong1013" effect="bold">
+import
+
+</emphasis>
+ directives) with the release of JDK 1.2, 
+
+<emphasis id="em1007" effect="italics">
+(probably 
+sometime in 1998)
+
+</emphasis>
+ but hopefully the concepts involved won't be greatly 
+different. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+As of 3/5/97, there were more than fifty classes defined in package 
+
+<emphasis id="strong1014" effect="bold">
+
+java.awt
+
+</emphasis>
+. We will discuss some of the more important 
+
+<emphasis id="strong1015" effect="bold">
+AWT
+
+</emphasis>
+ classes in 
+subsequent modules. 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+As of 5/10/98, the 
+
+<emphasis id="em1008" effect="italics">
+com.sun.java.swing
+
+</emphasis>
+ package contains more than 75 
+classes and about 20 interfaces. You might expect, therefore, that learning to 
+use this material effectively won't be a trivial task. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+It is very important to understand that 
+
+<emphasis id="strong1016" effect="bold">
+Swing
+
+</emphasis>
+ is an extension of, and
+not a replacement for the 
+
+<emphasis id="strong1017" effect="bold">
+AWT
+
+</emphasis>
+. While it is true that there is some 
+overlap 
+
+<emphasis id="em1009" effect="italics">
+(for example a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1018" effect="bold">
+<emphasis id="em1010" effect="italics">
+Swing JButton
+
+</emphasis>
+</emphasis>
+<emphasis id="em1011" effect="italics">
+ component might be viewed as an 
+improved functional replacement for an 
+
+</emphasis>
+ 
+
+<emphasis id="strong1019" effect="bold">
+<emphasis id="em1012" effect="italics">
+AWT Button
+
+</emphasis>
+</emphasis>
+<emphasis id="em1013" effect="italics">
+ component, and once you 
+begin using 
+
+</emphasis>
+ 
+
+<emphasis id="strong1020" effect="bold">
+<emphasis id="em1014" effect="italics">
+Swing
+
+</emphasis>
+</emphasis>
+<emphasis id="em1015" effect="italics">
+ buttons you may choose to never again use an 
+
+
+</emphasis>
+ 
+
+<emphasis id="strong1021" effect="bold">
+<emphasis id="em1016" effect="italics">
+AWT
+
+</emphasis>
+</emphasis>
+<emphasis id="em1017" effect="italics">
+ 
+button)
+
+</emphasis>
+, the basic functionality of 
+
+<emphasis id="strong1022" effect="bold">
+Swing
+
+</emphasis>
+ is built upon the functionality 
+of the 
+
+<emphasis id="strong1023" effect="bold">
+AWT
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+Therefore, as students, we cannot simply skip over an understanding of the 
+
+<emphasis id="strong1024" effect="bold">
+
+AWT
+
+</emphasis>
+ and move on to 
+
+<emphasis id="strong1025" effect="bold">
+Swing
+
+</emphasis>
+. The 
+
+<emphasis id="strong1026" effect="bold">
+AWT
+
+</emphasis>
+ is the foundation for
+
+
+<emphasis id="strong1027" effect="bold">
+Swing
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+We must first understand the 
+
+<emphasis id="strong1028" effect="bold">
+AWT
+
+</emphasis>
+ and then understand how 
+
+<emphasis id="strong1029" effect="bold">
+Swing
+
+</emphasis>
+ 
+extends and improves on the 
+
+<emphasis id="strong1030" effect="bold">
+AWT
+
+</emphasis>
+. I will attempt to integrate an 
+understanding of both the 
+
+<emphasis id="strong1031" effect="bold">
+AWT
+
+</emphasis>
+ and 
+
+<emphasis id="strong1032" effect="bold">
+Swing
+
+</emphasis>
+ in the remaining modules 
+in this collection. 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+We will begin by introducing you to a few simple components of each type and 
+use these components to teach you about such topics as event-driven programming, 
+layout, graphics, etc. Then, time permitting, we will dig a little deeper into 
+the more complex aspects of both the 
+
+<emphasis id="strong1033" effect="bold">
+AWT
+
+</emphasis>
+ and 
+
+<emphasis id="strong1034" effect="bold">
+Swing 
+
+</emphasis>
+components and 
+other features. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+What I won't do is show you a lot of pictures of various 
+
+<emphasis id="strong1035" effect="bold">
+AWT
+
+</emphasis>
+ and 
+
+<emphasis id="strong1036" effect="bold">
+
+Swing
+
+</emphasis>
+ components as is the case with many books and other tutorials 
+
+
+<emphasis id="em1018" effect="italics">
+(although such pictures can be important for an appreciation of GUI 
+programming)
+
+</emphasis>
+. 
+
+<emphasis id="em1019" effect="italics">
+(Have you noticed how many Java books use copies of the JavaSoft 
+documentation as filler material to make the book appear to contain more 
+information than it actually contains? At least half of many of the books 
+currently in print is nothing more than a reproduction of the documentation that 
+you can download for free from JavaSoft. Oh well, enough of that!) 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+If you want to see some pictures of 
+
+<emphasis id="strong1037" effect="bold">
+AWT
+
+</emphasis>
+ and 
+
+<emphasis id="strong1038" effect="bold">
+Swing
+
+</emphasis>
+ components 
+
+
+<emphasis id="em1020" effect="italics">
+(which would be only natural)
+
+</emphasis>
+, you can create them yourself on your own computer 
+screen. 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+For examples of the 
+
+<emphasis id="strong1039" effect="bold">
+AWT
+
+</emphasis>
+ components, simply look in the folders in the 
+software that you downloaded from JavaSoft. When you install JDK 1.1.6, a folder 
+named "demo" will be created that contains about two-dozen sample programs. Many 
+of these sample programs have graphical user interfaces that make use of the 
+
+<emphasis id="strong1040" effect="bold">
+
+AWT
+
+</emphasis>
+. Just run the programs to see examples of the use of the 
+
+<emphasis id="strong1041" effect="bold">
+AWT
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+When you download and install 
+
+<emphasis id="strong1042" effect="bold">
+Swing
+
+</emphasis>
+ 1.0.1, a folder named "examples" 
+will be created. This folder contains about nine folders, each of which contains 
+a demonstration application or applet that makes use of 
+
+<emphasis id="strong1043" effect="bold">
+Swing
+
+</emphasis>
+. You can 
+run these programs to see the examples on your computer screen. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+A particularly interesting demonstration application is the one named 
+
+<emphasis id="strong1044" effect="bold">
+
+SwingSet
+
+</emphasis>
+. One of the new components in 
+
+<emphasis id="strong1045" effect="bold">
+Swing
+
+</emphasis>
+ is a tabbed pane that 
+looks much like a common cardboard file folder with a labeled tab on the top, 
+bottom, left, or right. The 
+
+<emphasis id="strong1046" effect="bold">
+AWT
+
+</emphasis>
+ doesn't contain such a component. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+This demonstration starts with about twenty such tabbed panes on the screen, 
+each one of which demonstrates one aspect of the use of 
+
+<emphasis id="strong1047" effect="bold">
+Swing
+
+</emphasis>
+. By 
+clicking on each of the labeled tabs, you can select and exercise one aspect of
+
+
+<emphasis id="strong1048" effect="bold">
+Swing
+
+</emphasis>
+. In addition, there are five menus that contain selections, some of 
+which impact the behavior of some aspect of the demonstration. 
+
+</para>
+
+
+
+
+
+<para id="p1027">
+While you are there, pay attention to the fact that virtually all of the 
+
+<emphasis id="strong1049" effect="bold">
+
+Swing
+
+</emphasis>
+ components are also containers, so it is possible to cause other items 
+
+
+<emphasis id="em1021" effect="italics">
+(such as images)
+
+</emphasis>
+ to be contained in components such as buttons and menus. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Take a look at the pane labeled 
+
+<emphasis id="em1022" effect="italics">
+RadioButtons
+
+</emphasis>
+ and see how two different 
+images of JavaSoft's little creature named Duke can be made to function as a 
+radio button. In this case, the selected Duke is waving while the unselected 
+Dukes aren't waving. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+Duke shows up again under 
+
+<emphasis id="em1023" effect="italics">
+ToggleButtons
+
+</emphasis>
+ where the button which has 
+been toggled has Duke animated in a child's swing. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+The 
+
+<emphasis id="em1024" effect="italics">
+Checkboxes
+
+</emphasis>
+ pane uses light bulbs that either are or are not 
+illuminated to illustrate selection of 
+
+<emphasis id="strong1050" effect="bold">
+Checkbox
+
+</emphasis>
+ items. 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+The examples on the 
+
+<emphasis id="em1025" effect="italics">
+Slider
+
+</emphasis>
+ pane are truly impressive 
+
+<emphasis id="em1026" effect="italics">
+(the 
+
+</emphasis>
+ 
+
+<emphasis id="strong1051" effect="bold">
+
+
+
+<emphasis id="em1027" effect="italics">
+AWT
+
+</emphasis>
+</emphasis>
+<emphasis id="em1028" effect="italics">
+ 
+doesn't have a slider component, although it is possible to use a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1052" effect="bold">
+
+
+
+<emphasis id="em1029" effect="italics">
+ScrollBar
+
+</emphasis>
+</emphasis>
+<emphasis id="em1030" effect="italics">
+ 
+as a crude slider)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+Take a look at the 
+
+<emphasis id="em1031" effect="italics">
+ListBox
+
+</emphasis>
+ pane to see another example of using images 
+inside of a component. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="em1032" effect="italics">
+DebugGraphics
+
+</emphasis>
+ pane demonstrates how to run your program in slow 
+motion so that you can see how the components are assembled for debugging 
+purposes. Note that a 
+
+<emphasis id="strong1053" effect="bold">
+Slider
+
+</emphasis>
+ is used to control the speed of assembly of 
+the components. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+And of course, every where you turn in this demo, you will see 
+
+<emphasis id="em1033" effect="italics">
+tool tips
+
+</emphasis>
+ 
+that are not a part of the 
+
+<emphasis id="strong1054" effect="bold">
+AWT
+
+</emphasis>
+. For a little comic relief, take a look at 
+the 
+
+<emphasis id="em1034" effect="italics">
+ToolTips
+
+</emphasis>
+ pane. 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Don't forget to pull down the 
+
+<emphasis id="em1035" effect="italics">
+Options
+
+</emphasis>
+ menu and select the "look and 
+feel" of the different panes as you view them. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Actually, words are inadequate to describe what you are going to find when 
+you install and run the 
+
+<emphasis id="strong1055" effect="bold">
+SwingSet
+
+</emphasis>
+ demonstration. To use a corny phrase 
+made famous by an old TV commercial 
+
+<emphasis id="em1036" effect="italics">
+(which many of you are probably too young to 
+remember)
+
+</emphasis>
+, "Try it, you'll like it." 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+The next module in the collection will take a first look at 
+
+<emphasis id="em1037" effect="italics">
+callbacks
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1038">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1056" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1002" list-type="bulleted">
+
+					
+
+<item id="li1008">
+Module name: Java OOP: The AWT and Swing, A Preview
+
+</item>
+
+
+					
+
+<item id="li1009">
+File: Java0073.htm
+
+
+</item>
+
+
+					
+
+<item id="li1010">
+Published: 1998
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1057" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1039">
+<emphasis id="strong1058" effect="bold">
+Financial
+
+</emphasis>
+: 
+				Although the Connexions site makes it possible for you to 
+				download a PDF file for this module at no charge, and also makes 
+				it possible for you to purchase a pre-printed version of the PDF 
+				file, you should be aware that some of the HTML elements in this 
+				module may not translate well into PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1040">
+I also want you to know that, I receive no financial 
+				compensation from the Connexions website even if you purchase 
+				the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1041">
+In the past, unknown individuals have copied my modules from 
+				cnx.org, converted them to Kindle books, and placed them for 
+				sale on Amazon.com showing me as the author. I neither receive 
+				compensation for those sales nor do I know who does receive 
+				compensation. If you purchase such a book, please be aware that 
+				it is a copy of a module that is freely available on cnx.org and 
+				that it was made and published without my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1042">
+<emphasis id="strong1059" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+				Information Technology at Austin Community College in Austin, 
+				TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1043">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

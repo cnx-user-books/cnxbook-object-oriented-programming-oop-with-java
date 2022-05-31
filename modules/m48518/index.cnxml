@@ -1,0 +1,3606 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4535: Introduction to Servlet Code</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m48518</md:content-id>
+  <md:title>Java4535: Introduction to Servlet Code</md:title>
+  <md:abstract>This module introduces you to the coding of Java servlets.</md:abstract>
+  <md:uuid>9bd02ae6-fd57-4b8d-9e56-a64aa8b01928</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="The_program_named_Servlet01java">
+
+The program named Servlet01.java
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Interesting_code_fragments">
+
+Interesting code fragments
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="But_wait_theres_more">
+
+But wait, there's more
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output from Servlet01.java.  
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Import directives.
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the class definition. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the overridden doGet method.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Preparing to return a response. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Construct and return an HTML file.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Servlet01.java.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1002">
+Servlets are modules that run inside 
+
+<emphasis id="em1000" effect="italics">
+request/response-oriented
+
+</emphasis>
+ servers, such as Java-enabled web servers, and extend them in some manner. For example, a servlet might be responsible for taking data in an HTML order-entry form and applying the business logic used to update a company's order database.
+
+</para>
+
+
+
+
+<para id="p1003">
+Servlets are to servers what applets are to browsers. 
+The Servlet API, which you use to write servlets, assumes nothing about how a servlet is loaded, the server environment in which the servlet runs, or the protocol used to transmit data to and from the user. This allows servlets to be embedded in many different web servers. 
+
+
+</para>
+
+
+
+
+<para id="p1004">
+Servlets are an effective substitute for CGI scripts. They provide a way to generate dynamic documents that is both easier to write and faster to run. They also address the problem of doing server-side programming with platform-specific APIs.
+
+</para>
+
+
+
+
+<para id="p1005">
+In some ways, a servlet is similar to an applet. An applet is a chunk of Java code that executes under control of a browser. A servlet is a chunk of Java code that executes under control of a server program.
+
+
+</para>
+
+
+
+
+<para id="p1006">
+You must run your servlet under the control of a Java-enabled server program. 
+The first few modules in this sub-collection will use the
+
+
+<link id="a1019" url="http://cnx.org/content/m48488/latest/?collection=col11441/latest">
+
+
+Apache Tomcat
+
+</link>
+
+ server for that purpose.
+
+</para>
+
+
+
+
+<para id="p1007">
+Please note that the use of servlets is not restricted to HTTP servers. However, the discussion in this lesson 
+and most of the follow-on modules will generally apply only to HTTP servers.
+
+</para>
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<section id="h21001">
+<title>
+<emphasis id="The_program_named_Servlet01java" effect="bold">
+
+The program named 
+	Servlet01.java
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1008">
+In this module, I will discuss servlets using a sample servlet program named 
+
+
+<emphasis id="strong1001" effect="bold">
+Servlet01.java
+
+</emphasis>
+ as a guide. A complete listing of the program is shown in 
+
+
+<link id="a1020" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+
+</para>
+
+
+
+
+<para id="p1009">
+This program will illustrate some, but not all of material that I will discuss 
+in this module. The purpose of this program is to illustrate a very simple servlet and to serve as a vehicle for discussion of 
+various aspects of servlets.
+
+
+</para>
+
+
+
+
+<para id="p1010">
+The servlet produces the screen output in the browser shown in 
+
+<link id="a1021" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+
+</para>
+
+
+
+	
+
+
+
+<para id="p1011">
+<emphasis id="strong1002" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Output from Servlet01.java.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1012">
+<media id="media1000" alt="Missing Figure" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/4535-01.jpg" width="511" height="253"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Interesting_code_fragments" effect="bold">
+
+Interesting code fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1003" effect="bold">
+Import directives
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1014">
+I will explain the program code in fragments. The first fragment in
+
+
+<link id="a1022" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the import directives 
+necessary to support servlet programming.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Import directives.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1004" effect="bold">
+The Servlet interface
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1016">
+All servlets must implement the 
+
+<emphasis id="strong1005" effect="bold">
+Servlet
+
+</emphasis>
+ interface. You can implement it directly. However, it is more common to implement it indirectly by extending a class that implements the interface 
+
+
+<emphasis id="em1001" effect="italics">
+(such as 
+
+</emphasis>
+<emphasis id="strong1006" effect="bold">
+<emphasis id="em1002" effect="italics">
+HttpServlet
+
+</emphasis>
+</emphasis>
+). 
+
+
+</para>
+
+
+
+
+<para id="p1017">
+The 
+
+<emphasis id="strong1007" effect="bold">
+Servlet
+
+</emphasis>
+ interface declares methods for managing the servlet and its communications with clients. You will need to 
+override some or all of those methods when you write your servlet.
+
+
+</para>
+
+
+
+
+<para id="p1018">
+<link id="a1023" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the beginning of the controlling class for the servlet. 
+Note that the servlet class extends 
+
+
+<emphasis id="strong1008" effect="bold">
+HttpServlet
+
+</emphasis>
+. By extending the 
+
+<emphasis id="strong1009" effect="bold">
+HttpServlet
+
+</emphasis>
+ 
+class, the servlet implements the 
+
+<emphasis id="strong1010" effect="bold">
+Servlet
+
+</emphasis>
+ interface indirectly.
+
+</para>
+
+
+
+	
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the class 
+				definition.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">public class Servlet01 extends HttpServlet{
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1019">
+<emphasis id="strong1011" effect="bold">
+Request and response objects
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1020">
+Two object references are passed to a servlet when it called by a client: 
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1019">
+<emphasis id="strong1012" effect="bold">
+ServletRequest - 
+
+</emphasis>
+encapsulates the communication from 
+	the client to the server. 
+
+</item>
+
+
+	
+
+<item id="li1020">
+<emphasis id="strong1013" effect="bold">
+ServletResponse - 
+
+</emphasis>
+encapsulates the communication from 
+	the servlet back to the client 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1021">
+Access to these objects can be accomplished in more than one way. This 
+servlet overrides the 
+
+<emphasis id="strong1014" effect="bold">
+doGet
+
+</emphasis>
+ method, which receives references 
+to the two objects as incoming parameters.
+
+</para>
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1015" effect="bold">
+The overridden doGet method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+The beginning of the overridden 
+
+<emphasis id="strong1016" effect="bold">
+doGet
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1024" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the overridden doGet method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">  public void doGet(HttpServletRequest req, 
+                    HttpServletResponse res)
+                      throws ServletException, IOException{
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1024">
+Note that the 
+
+<emphasis id="strong1017" effect="bold">
+doGet
+
+</emphasis>
+ method throws an exception of type
+
+
+<emphasis id="strong1018" effect="bold">
+ServletException
+
+</emphasis>
+. In this servlet, some of the code inside the 
+
+
+<emphasis id="strong1019" effect="bold">
+doGet
+
+</emphasis>
+ method also throws an 
+
+<emphasis id="strong1020" effect="bold">
+IOException
+
+</emphasis>
+, which is not handled inside the method. 
+Thus, it is declared in the method signature.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1021" effect="bold">
+Browser commands and servlet methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+A Java-enabled server provide a method corresponding to each of the commands that an HTTP client can send to its server. When the server receives a command from the client, the corresponding method is called on the servlet. 
+
+</para>
+
+
+
+
+<para id="p1027">
+As the servlet programmer, you override some or all of those methods to provide the desired behavior.
+
+
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1022" effect="bold">
+The doGet method and the HTTP GET command
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+The 
+
+<emphasis id="strong1023" effect="bold">
+doGet
+
+</emphasis>
+ method corresponds to the HTTP 
+
+<emphasis id="strong1024" effect="bold">
+GET
+
+</emphasis>
+ 
+command. If you don't override the method, the default implementation reports an 
+
+
+<emphasis id="strong1025" effect="bold">
+HTTP BAD_REQUEST
+
+</emphasis>
+ error when the browser sends a 
+
+<emphasis id="strong1026" effect="bold">
+GET
+
+</emphasis>
+ 
+command.
+
+
+
+</para>
+
+
+
+
+<para id="p1030">
+Overriding the 
+
+<emphasis id="strong1027" effect="bold">
+doGet
+
+</emphasis>
+ method to support the 
+
+<emphasis id="strong1028" effect="bold">
+GET
+
+</emphasis>
+ 
+command also automatically supports the HTTP 
+
+<emphasis id="strong1029" effect="bold">
+HEAD
+
+</emphasis>
+ command. 
+
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="em1003" effect="italics">
+(The 
+
+</emphasis>
+ 
+
+<emphasis id="strong1030" effect="bold">
+<emphasis id="em1004" effect="italics">
+HEAD
+
+</emphasis>
+</emphasis>
+<emphasis id="em1005" effect="italics">
+ command is a 
+
+</emphasis>
+ 
+
+<emphasis id="strong1031" effect="bold">
+
+
+
+<emphasis id="em1006" effect="italics">
+GET
+
+</emphasis>
+</emphasis>
+<emphasis id="em1007" effect="italics">
+ command that returns no body in the response. It just returns the requested header fields.) 
+
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1032">
+The fundamental purpose of the 
+
+<emphasis id="strong1032" effect="bold">
+GET
+
+</emphasis>
+ command makes it possible for the client to 
+
+
+<emphasis id="em1008" effect="italics">
+get something
+
+</emphasis>
+ from the server. When you override the 
+
+<emphasis id="strong1033" effect="bold">
+doGet
+
+</emphasis>
+ method, you should
+
+    
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1021">
+Read data from the request
+
+</item>
+
+
+	
+
+<item id="li1022">
+Construct the proper headers in the response
+
+</item>
+
+
+	
+
+<item id="li1023">
+Gain access to either the writer or the output stream 
+
+<emphasis id="em1009" effect="italics">
+(depending on 
+	whether the material to be returned is text or binary data)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1024">
+Write the response data
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1034" effect="bold">
+Responding to the request
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1034">
+The headers should include content type and encoding. The content type must be set before the writer is accessed.
+
+
+
+</para>
+
+
+
+
+<para id="p1035">
+This servlet constructs and returns a simple HTML file containing formatted text. 
+
+
+<link id="a1025" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the use of 
+
+<emphasis id="strong1035" effect="bold">
+setContentType
+
+</emphasis>
+ 
+method of the response object to set the content type being returned before accessing the writer. Then the 
+
+
+<emphasis id="strong1036" effect="bold">
+getWriter
+
+</emphasis>
+ method of the response object is used to get access 
+to the output stream.
+
+</para>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Preparing to return a 
+				response.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    res.setContentType("text/html");
+    PrintWriter out = res.getWriter()</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+<para id="p1036">
+You will need to do some research on your own to learn about the different content types that can be returned by a servlet.
+
+</para>
+
+
+
+
+<para id="p1037">
+The 
+
+<emphasis id="strong1037" effect="bold">
+PrintWriter
+
+</emphasis>
+ object referred to by 
+
+<emphasis id="strong1038" effect="bold">
+out
+
+</emphasis>
+ 
+is used to construct output text in 
+
+<link id="a1026" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1039" effect="bold">
+Construct and return an HTML file
+
+</emphasis>
+</para>
+
+
+	
+
+<para id="p1039">
+That brings us to the fragment in 
+
+<link id="a1027" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, which constructs and returns the various elements of 
+	an HTML page and then terminates the 
+	
+
+<emphasis id="strong1040" effect="bold">
+doGet
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Construct and return an HTML file.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Servlet01&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+    
+    out.println("&lt;h1 align=\"center\"&gt;"
+               +"&lt;font color=\"#FF0000\"&gt;");
+    out.println("Hello Big Red World");
+    out.println("&lt;/font&gt;&lt;/h1&gt;");
+
+    out.println("&lt;/body&gt;&lt;/html&gt;");
+  }//end doGet()
+}//end class Servlet01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1041" effect="bold">
+Constructing the HTML code
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1041">
+The code in 
+
+<link id="a1028" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ constructs a series of 
+
+<emphasis id="strong1042" effect="bold">
+
+String
+
+</emphasis>
+ objects and passes them as parameters to the 
+
+<emphasis id="strong1043" effect="bold">
+println
+
+</emphasis>
+ 
+method of the 
+
+<emphasis id="strong1044" effect="bold">
+PrintWriter
+
+</emphasis>
+ object referred to by 
+
+<emphasis id="strong1045" effect="bold">
+out
+
+</emphasis>
+. 
+The content of the 
+
+<emphasis id="strong1046" effect="bold">
+String
+
+</emphasis>
+ objects is raw HTML code.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1047" effect="bold">
+A tedious process:
+
+</emphasis>
+
+				
+
+<para id="p1042">
+Constructing raw HTML code as a series of Java String objects 
+				can be a very tedious and error-prone process, due particularly 
+				to the frequent need to use the backslash escape character for 
+				quotation marks inside the strings. 
+
+<emphasis id="em1010" effect="italics">
+(All attribute values in 
+				HTML must be surrounded by quotation marks.)
+
+</emphasis>
+</para>
+
+
+				
+
+<para id="p1043">
+This is one of the arguments for the use of JSP that you 
+				learned about in the
+				
+
+<link id="a1029" url="http://cnx.org/content/m48057/latest/?collection=col11441/latest">
+
+
+				prerequisite course
+
+</link>
+
+.. One of the benefits of JSP is that it 
+				can greatly reduce the amount of raw HTML code that you must 
+				construct to send back a typical HTML web page.
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+	
+
+<para id="p1044">
+If you have written any raw HTML code, you will probably recognize the construction 
+	of the HTML code in 
+
+<link id="a1030" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+
+<emphasis id="em1011" effect="italics">
+(and you may also 
+	recognize the HTML code as being vintage 1999 when the servlet program was 
+	written)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+<para id="p1045">
+If you haven't written any HTML, you will need to do a little research on your own to learn about the various parts of an HTML page. At this level, it is 
+fairly simple. 
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1012" effect="italics">
+(An HTML element often consists of text content surrounded by opening and 
+closing tags of a particular type. Elements can also be nested inside of other 
+elements creating a hierarchical tree of elements.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1046">
+The content between the opening and closing 
+
+<emphasis id="strong1048" effect="bold">
+body
+
+</emphasis>
+ tags in 
+
+<link id="a1031" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ represents the real information content of the page. The rest is mostly formatting information. 
+
+</para>
+
+
+
+
+<para id="p1047">
+This body content in 
+
+<link id="a1032" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ says to 
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Set the text to style h1 
+
+<emphasis id="em1013" effect="italics">
+(which is a maximum size header).
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1026">
+Center it on the page.
+
+</item>
+
+
+	
+
+<item id="li1027">
+Set the color to hexadecimal FF0000, which is the color value for pure red 	
+
+<emphasis id="em1014" effect="italics">
+(in a red, green, blue color system)
+
+</emphasis>
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1048">
+Most 
+
+<emphasis id="em1015" effect="italics">
+(but not all)
+
+</emphasis>
+ HTML elements, such as the 
+
+<emphasis id="strong1049" effect="bold">
+body
+
+</emphasis>
+ 
+element, require an opening tag and a closing tag.
+Thus, most tag types come in pairs.
+
+</para>
+
+
+
+
+<para id="p1049">
+An HTML page is pure text with the various elements specifying how the browser is to interpret and display that text.
+
+
+<emphasis id="em1016" effect="italics">
+(The text can also refer to other files such as image files and cause the 
+content of those files to be included in the rendered output produced by the 
+browser.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1050">
+The Java code in this servlet simply prints the requisite HTML text to the output stream 
+referred to by 
+
+<emphasis id="strong1050" effect="bold">
+out
+
+</emphasis>
+. Recall from 
+
+<link id="a1033" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+that the reference to the output stream was obtained by calling the 
+
+<emphasis id="strong1051" effect="bold">
+getWriter
+
+</emphasis>
+ method on the 
+
+
+<emphasis id="strong1052" effect="bold">
+HttpServerResponse
+
+</emphasis>
+ object. That object takes care of transporting the text back to the client 
+browser.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="But_wait_theres_more" effect="bold">
+
+But wait, there's more
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1051">
+Usually in most modules, when I complete the discussion of the last sample 
+program, that is the end of the module. In this module, however, there are several 
+other 
+important topics that I want to discuss before ending the module.
+
+</para>
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1053" effect="bold">
+The ServletRequest object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+One of the incoming objects to the servlet is of type 
+
+<emphasis id="strong1054" effect="bold">
+ServletRequest
+
+</emphasis>
+. This is not the name of a class. Instead, this is a type 
+defined by an interface of the 
+same name. This interface declares more than 30 methods by which the servlet can 
+extract incoming information from the object. This framework provides the 
+servlet's only access to incoming data.
+
+</para>
+
+
+
+
+<para id="p1054">
+The data provided by the 
+
+<emphasis id="strong1055" effect="bold">
+ServletRequest
+
+</emphasis>
+ o object includes 
+parameter names and values, attributes, and an input stream. 
+
+</para>
+
+
+
+
+<para id="p1055">
+Interfaces that extend
+
+
+<emphasis id="strong1056" effect="bold">
+ServletRequest
+
+</emphasis>
+ can provide additional protocol-specific data. 
+For example, HTTP data is provided by the interface 
+
+<emphasis id="strong1057" effect="bold">
+HttpServletRequest
+
+</emphasis>
+, 
+which extends 
+
+<emphasis id="strong1058" effect="bold">
+ServletRequest
+
+</emphasis>
+. 
+
+<emphasis id="em1017" effect="italics">
+(Recall from
+
+
+<link id="a1034" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ t that the 
+
+<emphasis id="strong1059" effect="bold">
+doGet
+
+</emphasis>
+ method receives a reference to 
+an 
+
+<emphasis id="strong1060" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ object as an incoming parameter.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1056">
+Suffice it to say that it is possible for the servlet to obtain a great deal 
+of information in order to carry out its duties.
+
+<emphasis id="em1018" effect="italics">
+(I will refer you to the
+
+
+<link id="a1035" url="http://docs.oracle.com/javaee/7/api/">
+
+online documentation
+
+</link>
+
+  for more 
+information about the available methods.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1057">
+<emphasis id="strong1061" effect="bold">
+The ServletResponse object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1058">
+The other incoming object to the servlet is an object of type 
+
+<emphasis id="strong1062" effect="bold">
+ServletResponse
+
+</emphasis>
+. This 
+is also a type defined by an interface of the same name. This interface 
+declares more than 15 methods by which the servlet can return data to the 
+client.
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="strong1063" effect="bold">
+The content type
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+Recall that 
+
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the 
+
+<emphasis id="strong1064" effect="bold">
+
+setContentType
+
+</emphasis>
+ m method on the response object to set the type of the 
+data being returned by this servlet to "text/html". It is also possible to set 
+the character encoding in a call to 
+
+<emphasis id="strong1065" effect="bold">
+setContentType
+
+</emphasis>
+ with something like
+
+</para>
+
+
+
+
+<para id="p1061">
+text/html;charset=UTF-8
+
+</para>
+
+
+
+
+<para id="p1062">
+The rules for doing that are fairly complicated, so you would do well to 
+consult the Java documentation for the 
+
+<emphasis id="strong1066" effect="bold">
+setContentType
+
+</emphasis>
+ method 
+before trying to deal with that possibility.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1067" effect="bold">
+Persistence
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+We have discussed the classes and interfaces that make up a basic Servlet. HTTP servlets have additional objects that provide session-tracking capabilities. The servlet writer can use these APIs to maintain state between the servlet and the client that persists across multiple connections during some time period. 
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1068" effect="bold">
+The servlet life cycle
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+Servlets have a prescribed life cycle. Servers load and run servlets. Servers accept requests from clients, and may use their servlets to return data to the clients. 
+
+</para>
+
+
+
+
+<para id="p1067">
+Servers can also remove servlets. So, the stages of a servlet's life cycle are:
+
+    
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1028">
+The servlet is loaded and initialized.
+    
+
+</item>
+
+
+	
+
+<item id="li1029">
+The servlet is used to satisfy client requests.
+    
+
+</item>
+
+
+	
+
+<item id="li1030">
+The servlet is removed or unloaded. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1068">
+A server runs the servlet's 
+
+<emphasis id="strong1069" effect="bold">
+init
+
+</emphasis>
+ method when it loads the servlet. Most servlets are run in multi-threaded servers. However, there are no concurrency issues during servlet initialization. The server calls the 
+
+
+<emphasis id="strong1070" effect="bold">
+init
+
+</emphasis>
+ method when it loads the servlet, and does not call it again unless it is reloading the servlet. 
+
+</para>
+
+
+
+
+<para id="p1069">
+The server cannot reload a servlet until after it has removed the servlet by calling the 
+
+
+<emphasis id="strong1071" effect="bold">
+destroy
+
+</emphasis>
+ method. Initialization is allowed to complete before client requests are handled or the servlet is destroyed. 
+
+</para>
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1072" effect="bold">
+A practical problem
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+This can be a problem when you are developing a servlet and repeatedly testing it with a server. Once the servlet is initially loaded from the class file, for some servers simply providing a new class file does not cause the server to remove the old version of the servlet and load the new version. 
+
+
+<emphasis id="em1019" effect="italics">
+(This appears to be the case with the
+ 
+
+<link id="a1037" url="http://cnx.org/content/m48509/latest/?collection=col11441/latest">
+
+Apache Tomcat
+
+</link>
+
+ server that we will be using for some of these modules.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1072">
+<emphasis id="em1020" effect="italics">
+With the
+
+
+<link id="a1038" url="http://cnx.org/content/m48488/latest/?collection=col11441/latest">
+
+
+Apache Tomcat
+
+</link>
+
+ server
+
+</emphasis>
+, you must stop and restart the server to cause it to load the new version of 
+a servlet. 
+
+<emphasis id="em1021" effect="italics">
+(It may be possible to use some feature of the administration tool to force the server to remove an old version and load a new version of a servlet without 
+stopping and restarting the server but I have never investigated that 
+possibility.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1073">
+<emphasis id="strong1073" effect="bold">
+The second stage
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1074">
+The second stage in the life of the servlet begins after the servlet has been loaded and initialized. At 
+that point, the server may call upon the servlet to respond to client requests. In so doing, the servlet handles client requests by processing them in its 
+
+
+<emphasis id="strong1074" effect="bold">
+service
+
+</emphasis>
+ method, which is called by the server. Normally, the service request from each client is run in a separate thread by the servlet. 
+
+</para>
+
+
+
+
+<para id="p1075">
+<emphasis id="strong1075" effect="bold">
+Generic versus HTTP servlets
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1076">
+If you are writing a generic servlet, you will probably override the 
+
+<emphasis id="strong1076" effect="bold">
+service
+
+</emphasis>
+ method. However, if you are writing servlets to be used with HTTP servers, you probably won't 
+need to override 
+
+<emphasis id="strong1077" effect="bold">
+service
+
+</emphasis>
+. The 
+
+<emphasis id="strong1078" effect="bold">
+service
+
+</emphasis>
+ method of the
+
+
+<emphasis id="strong1079" effect="bold">
+HttpServlet
+
+</emphasis>
+ class handles the setup and dispatches the request to methods such as 
+
+
+<emphasis id="strong1080" effect="bold">
+doGet
+
+</emphasis>
+ and 
+
+<emphasis id="strong1081" effect="bold">
+doPost
+
+</emphasis>
+. When writing HTTP servlets, you will normally 
+extend the 
+
+<emphasis id="strong1082" effect="bold">
+HttpServlet
+
+</emphasis>
+ class and override the 
+
+<emphasis id="strong1083" effect="bold">
+doXXX
+
+</emphasis>
+ methods instead of 
+overriding the 
+
+<emphasis id="strong1084" effect="bold">
+service
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="strong1085" effect="bold">
+Multithreaded operation
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+Servlets can process requests from multiple clients concurrently in a multithreaded manner. This means that the service methods should be written to be thread safe. One description that I have seen for how to write a thread-safe method is to:
+
+    
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+<emphasis id="em1022" effect="italics">
+Use the fewest possible number of instance variables, and synchronize access to them 
+if you use them.
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1086" effect="bold">
+Single-threaded operation
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+In some cases and for some reason known only to you, you may decide to prevent your servlet from processing concurrent client requests. In this case, you should cause your servlet to implement the 
+
+
+<emphasis id="strong1087" effect="bold">
+SingleThreadModel
+
+</emphasis>
+ interface. This interface guarantees that no two threads will execute the servlet's service methods concurrently. Implementing the interface does not require writing any extra methods. Merely declaring that the servlet implements the interface is sufficient to prevent the server from making concurrent calls to the service method. 
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+<emphasis id="em1023" effect="italics">
+(This may not make you popular with the server administrator because it 
+could cause your single-threaded servlet to become a bottleneck.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1081">
+<emphasis id="strong1088" effect="bold">
+The third stage
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1082">
+The third and last stage of a servlet's life cycle is removal. When a server removes a servlet, it runs the servlet's 
+
+
+<emphasis id="strong1089" effect="bold">
+destroy
+
+</emphasis>
+ method. This method is run only once. The server will not run it again until after it reloads and reinitializes the servlet. When the 
+
+
+<emphasis id="strong1090" effect="bold">
+destroy
+
+</emphasis>
+ method runs, other threads might be running service requests. If it is necessary to access shared resources while doing cleanup, that access should be synchronized. 
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1091" effect="bold">
+The javax.servlet.Servlet interface
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1084">
+Servlets must implement the 
+
+<emphasis id="strong1092" effect="bold">
+javax.servlet.Servlet
+
+</emphasis>
+ interface. For writing servlets that run under control of servers that use the HTTP protocol, the most common way to write servlets is to extend the 
+
+
+<emphasis id="strong1093" effect="bold">
+javax.servlet.http.HttpServlet
+
+</emphasis>
+ class which is a way to indirectly implement the 
+
+
+<emphasis id="strong1094" effect="bold">
+Servlet
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+<emphasis id="em1024" effect="italics">
+The HttpServlet class implements the Servlet interface by 
+	extending the GenericServlet base class, and provides a framework for 
+	handling the HTTP protocol. 
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1095" effect="bold">
+Four methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1086">
+For servlets that extend the 
+
+<emphasis id="strong1096" effect="bold">
+HttpServlet
+
+</emphasis>
+ class, the following four methods may be overridden to cause your servlet to interact with the client.
+
+    
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1031">
+<emphasis id="strong1097" effect="bold">
+doGet
+
+</emphasis>
+ - for handling GET, conditional GET and HEAD requests
+	
+
+</item>
+
+
+	
+
+<item id="li1032">
+<emphasis id="strong1098" effect="bold">
+doPost
+
+</emphasis>
+ - for handling POST requests 
+
+</item>
+
+
+	
+
+<item id="li1033">
+<emphasis id="strong1099" effect="bold">
+doPut
+
+</emphasis>
+ - for handling PUT requests 
+
+</item>
+
+
+	
+
+<item id="li1034">
+<emphasis id="strong1100" effect="bold">
+doDelete
+
+</emphasis>
+ - for handling DELETE requests 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1087">
+You may need to do some outside research on the HTTP protocol to learn about the nature of each type of client request listed above. 
+You may also want to go back and review
+
+
+<link id="a1039" url="http://cnx.org/content/m48085/latest/?collection=col11441/latest">
+
+
+Java4350: Form Processing with JSP
+
+</link>
+
+ for information regarding the differences 
+between the HTML GET and POST methods.
+
+</para>
+
+
+
+
+<para id="p1088">
+By default, if called but not overridden, these methods return a BAD_REQUEST (400) error.
+
+
+
+</para>
+
+
+
+
+<para id="p1089">
+The servlet discussed earlier used the 
+
+<emphasis id="strong1101" effect="bold">
+doGet
+
+</emphasis>
+ method to 
+handle GET requests.
+
+</para>
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1102" effect="bold">
+Differences between doGet and doPost
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1091">
+I will describe a couple of differences between the two methods that you may 
+find useful. Assume there is a servlet named 
+
+<emphasis id="strong1103" effect="bold">
+Java4550a 
+
+</emphasis>
+on a 
+localhost web server. You can execute that servlet by typing the following 
+address into the address field of the browser and pressing the 
+
+
+<emphasis id="Enter_key" effect="bold">
+
+Enter key
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<para id="p1092">
+http://localhost:8080/Java4550a
+
+</para>
+
+
+
+
+<para id="p1093">
+First consider the contents of the browser's address window. When an HTML 
+page calls the 
+
+<emphasis id="strong1104" effect="bold">
+doGet
+
+</emphasis>
+ method of a servlet named 
+
+<emphasis id="strong1105" effect="bold">
+
+Java4550a
+
+</emphasis>
+, you will often see something like the following in the 
+address window:
+
+</para>
+
+
+
+
+<para id="p1094">
+http://localhost:8080/Java4550a?firstName=Dick...
+
+</para>
+
+
+
+
+<para id="p1095">
+As you can see, some information has been appended onto the end of the 
+address with the ? character being used to separate the two.
+
+</para>
+
+
+
+
+<para id="p1096">
+However, if the HTML page calls the 
+
+<emphasis id="strong1106" effect="bold">
+doPost
+
+</emphasis>
+ method of the 
+same servlet, this is what you should see:
+
+</para>
+
+
+
+
+<para id="p1097">
+http://localhost:8080/Java4550a
+
+</para>
+
+
+
+
+<quote id="blockquote1004" display="block">
+<emphasis id="em1025" effect="italics">
+(Note that some browsers don't display the http:// portion of 
+the address.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1098">
+In other words, with the 
+
+<emphasis id="strong1107" effect="bold">
+doPost
+
+</emphasis>
+ method, no visible 
+information is appended onto the actual address as is the case with the 
+
+<emphasis id="strong1108" effect="bold">
+
+doGet
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1099">
+It is probably also safe to say that the 
+
+<emphasis id="strong1109" effect="bold">
+doGet
+
+</emphasis>
+ method is the 
+default. By this, I mean that if you enter address given 
+
+<link id="a1040" target-id="Enter_key">
+
+
+above
+
+</link>
+
+ into the browser's 
+address field and press the Enter key, the 
+
+<emphasis id="strong1110" effect="bold">
+doGet
+
+</emphasis>
+ method 
+
+<emphasis id="em1026" effect="italics">
+
+(and not the 
+
+<emphasis id="strong1111" effect="bold">
+doPost
+
+</emphasis>
+ method)
+
+</emphasis>
+ belonging to the servlet named
+
+
+<emphasis id="strong1112" effect="bold">
+Java4550a
+
+</emphasis>
+ will be called. 
+
+</para>
+
+
+
+
+<quote id="blockquote1005" display="block">
+<emphasis id="em1027" effect="italics">
+(The same is true if you put this address into a simple hyperlink 
+when creating a web page.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1100">
+If you want to manually enter an address into the address field and cause the
+
+
+<emphasis id="strong1113" effect="bold">
+doPost
+
+</emphasis>
+ method to be called, you must find some other way to do 
+it. 
+
+</para>
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1114" effect="bold">
+Arguments
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1102">
+Each of the methods requires two arguments. The first, a reference to an
+
+
+<emphasis id="strong1115" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ object, encapsulates the data from the client. The second, 
+a reference to an 
+
+<emphasis id="strong1116" effect="bold">
+HttpServletResponse
+
+</emphasis>
+ object encapsulates the response to the client. 
+
+</para>
+
+
+
+
+<para id="p1103">
+The 
+
+<emphasis id="strong1117" effect="bold">
+HttpServletRequest
+
+</emphasis>
+ object provides a large number of 
+methods that the servlet can use to obtain information about the request. 
+
+</para>
+
+
+
+
+<para id="p1104">
+Similarly, the 
+
+<emphasis id="strong1118" effect="bold">
+HttpServletResponse
+
+</emphasis>
+ object provides a large 
+number of methods that the servlet can use to return data to the client. 
+
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1119" effect="bold">
+The init and destroy methods
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+You may also find that you need to override the 
+
+<emphasis id="strong1120" effect="bold">
+init
+
+</emphasis>
+ and 
+
+
+<emphasis id="strong1121" effect="bold">
+destroy
+
+</emphasis>
+ methods in your servlet. Recall that each of these methods is called only once. The 
+
+
+<emphasis id="strong1122" effect="bold">
+init
+
+</emphasis>
+ method is called when the server loads the servlet class. The 
+
+
+<emphasis id="strong1123" effect="bold">
+destroy
+
+</emphasis>
+ method is called when the server removes the servlet class. 
+
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1124" effect="bold">
+Overriding the init method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+The servlet should use the 
+
+<emphasis id="strong1125" effect="bold">
+init
+
+</emphasis>
+ method to prepare the resources it manages and to make the servlet ready to handle client requests. It can do this without regard for multi-threading issues because it is guaranteed that there is only a single thread running during initialization. If the 
+
+
+<emphasis id="strong1126" effect="bold">
+init
+
+</emphasis>
+ method is unable to run to a successful completion, it should throw an 
+
+
+<emphasis id="strong1127" effect="bold">
+UnavailableException
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+<para id="p1109">
+The 
+
+<emphasis id="strong1128" effect="bold">
+init
+
+</emphasis>
+ method receives a 
+
+<emphasis id="strong1129" effect="bold">
+ServletConfig
+
+</emphasis>
+ object as a parameter. For reasons that I won't bother to discuss here, the overridden 
+
+
+<emphasis id="strong1130" effect="bold">
+init
+
+</emphasis>
+ method should call 
+
+<emphasis id="strong1131" effect="bold">
+super.init
+
+</emphasis>
+ and pass this configuration object as a parameter. If you are curious as to the reasons, you can look it up in the documentation. 
+
+</para>
+
+
+
+
+<para id="p1110">
+<emphasis id="strong1132" effect="bold">
+Overriding the destroy method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1111">
+Overriding the destroy method is more problematic, particularly if it is necessary to deal with resources that may be shared by service threads that are still running when the server decides to remove the servlet and 
+call its 
+
+<emphasis id="strong1133" effect="bold">
+destroy
+
+</emphasis>
+ method. I'm going to punt on this one, and 
+suggest that if you find yourself in this situation, you should find a good book 
+with an example similar to your situation and use that example for guidance.
+
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1134" effect="bold">
+The getServletInfo method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+Some applications may want to display information about a servlet, such as a short description of the purpose of the servlet, its author, and perhaps its version number. The 
+
+
+<emphasis id="strong1135" effect="bold">
+Servlet
+
+</emphasis>
+ API provides a method named 
+
+<emphasis id="strong1136" effect="bold">
+getServletInfo
+
+</emphasis>
+ to return this 
+kind of information about the servlet. By default, this method returns null. You can override this method to return a 
+
+
+<emphasis id="strong1137" effect="bold">
+String
+
+</emphasis>
+ containing information about your servlet.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1114">
+The next module in the series will take on forms and databases.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1115">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1138" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1035">
+Module name: Java4535: Introduction to Servlet Code
+
+</item>
+
+
+					
+
+<item id="li1036">
+File: Java4535.htm
+
+
+</item>
+
+
+					
+
+<item id="li1037">
+Published: 12/20/13
+
+</item>
+
+
+					
+
+<item id="li1038">
+Revised: 01/31/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1002" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1139" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1116">
+<emphasis id="strong1140" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1117">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1118">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1119">
+<emphasis id="strong1141" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Servlet01.java.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+
+
+<code id="pre1005" display="block">
+/*File Servlet01.java, Copyright 1999, R.G.Baldwin
+
+The purpose of this program is to illustrate a very 
+simple servlet.
+
+The servlet produces the following text in the browser 
+window in large red letters.
+
+Hello Big Red World
+**********************************************************/
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Servlet01 extends HttpServlet{
+  public void doGet(HttpServletRequest req, 
+                    HttpServletResponse res)
+                      throws ServletException, IOException{
+
+    //Establish the type of output
+    res.setContentType("text/html");
+    
+    //Get an output stream
+    PrintWriter out = res.getWriter();
+    
+    //Construct an html page to return to the client
+    out.println("&lt;html&gt;");
+    out.println("&lt;head&gt;&lt;title&gt;Servlet01&lt;/title&gt;&lt;/head&gt;");
+    out.println("&lt;body&gt;");
+    
+    out.println("&lt;h1 align=\"center\"&gt;"
+               +"&lt;font color=\"#FF0000\"&gt;");
+    out.println("Hello Big Red World");
+    out.println("&lt;/font&gt;&lt;/h1&gt;");
+
+    out.println("&lt;/body&gt;&lt;/html&gt;");
+  }//end doGet()
+}//end class Servlet01
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1120">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

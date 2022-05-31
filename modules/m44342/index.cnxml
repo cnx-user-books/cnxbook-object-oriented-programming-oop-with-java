@@ -1,0 +1,7930 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1640 Java OOP Anonymous Classes</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44342</md:content-id>
+  <md:title>Java1640 Java OOP Anonymous Classes</md:title>
+  <md:abstract>Baldwin explains anonymous classes from a practical viewpoint, including a comparison between anonymous classes and local classes.</md:abstract>
+  <md:uuid>f0f81fa4-4b34-4c81-90eb-8fd9089724ef</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Wed May 11 15:54:45 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/Rl23r3Lw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Purpose_of_this_module_">
+
+Purpose of this module
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1006">
+<link id="a1006" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+	
+
+<list id="ul1004" list-type="bulleted">
+
+
+
+<item id="li1008">
+<link id="a1008" target-id="What_can_you_include_in_a_class_definition">
+
+What can you include in a class definition?
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1009">
+<link id="a1009" target-id="What_is_an_anonymous_class">
+
+What is an anonymous class?
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1010">
+<link id="a1010" target-id="What_about_an_anonymous_interface">
+
+What about an anonymous interface?
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1011">
+<link id="a1011" target-id="Why_use_anonymous_classes">
+
+Why use anonymous classes?
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1012">
+<link id="a1012" target-id="Anonymous_classes_versus_local_classes_">
+
+Anonymous classes versus local classes
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1013">
+<link id="a1013" target-id="Restrictions_on_the_use_of_anonymous_classes_">
+
+Restrictions on the use of anonymous classes
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+<item id="li1014">
+<link id="a1014" target-id="Smoke_and_mirrors">
+
+Smoke and mirrors
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1015">
+<link id="a1015" target-id="Syntax_for_anonymous_classes">
+
+Syntax for anonymous classes
+
+</link>
+
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1016">
+<link id="a1016" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+
+
+<item id="li1017">
+<link id="a1017" target-id="Class_file_names">
+
+Class file names
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1018">
+<link id="a1018" target-id="Program_structure_and_behavior">
+
+Program structure and behavior
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="A_local_class">
+
+A local class
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Three_anonymous_classes">
+
+Three anonymous classes
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1021">
+<link id="a1021" target-id="The_screen_output_">
+
+The screen output
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1022">
+<link id="a1022" target-id="The_controlling_class">
+
+The controlling class
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1023">
+<link id="a1023" target-id="Local_and_anonymous_classes_inside_GUI_constructor">
+
+Local and anonymous classes inside GUI constructor
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="The_GUI_class">
+
+The GUI class
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="An_anonymous_inner_class_for_lowLevel_event_handling">
+
+An anonymous inner class for low-level event handling
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1026" target-id="Instantiating_and_registering_a_MouseListener_object">
+
+Instantiating and registering a MouseListener object
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1027">
+<link id="a1027" target-id="Extending_the_WindowAdapter_class">
+
+Extending the WindowAdapter class
+
+</link>
+
+
+</item>
+
+
+
+
+
+</list>
+
+
+		
+
+</item>
+
+
+
+
+<item id="li1028">
+<link id="a1028" target-id="The_GUI_remains_on_the_screen_until_terminated">
+
+The GUI remains on the screen until terminated
+
+</link>
+
+
+</item>
+
+
+
+
+<item id="li1029">
+<link id="a1029" target-id="Simple_event_handlers_">
+
+Simple event handlers
+
+</link>
+
+
+</item>
+
+
+
+	
+		
+		
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1031" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1032">
+<link id="a1032" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1033">
+<link id="a1033" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1034">
+<link id="a1034" target-id="Figures01">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1035">
+<link id="a1035" target-id="Listings01">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one in a collection of modules designed for teaching 
+
+<emphasis id="em1003" effect="italics">
+
+	ITSE2317 - Java Programming (Intermediate)
+
+</emphasis>
+ at Austin Community College 
+	in Austin, TX.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1000" display="block">
+
+	
+
+<emphasis id="em1004" effect="italics">
+(Editor's note: As you read this module, you will see that it was 
+	originally written around 2003. However, despite many improvements in Java 
+	since then, most of what was true then is still true in 2013.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1003">
+This module makes several references to my website, which is located at
+
+
+<link id="a1036" url="http://www.dickbaldwin.com/toc.htm">
+
+http://www.dickbaldwin.com/toc.htm
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="Purpose_of_this_module_" effect="bold">
+
+Purpose of this module 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+This module explains anonymous classes from a practical viewpoint, including 
+a comparison between anonymous classes and local classes.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+	and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1036">
+<link id="a1037" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Syntax for anonymous classes.
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1038" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Program GUI.
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1039" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Class file names.
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1040" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1041" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1042" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1043" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1044" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1045" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+. Screen output.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1045">
+<link id="a1046" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. The controlling 
+class.
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1047" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the GUI class.
+
+</item>
+
+
+		
+
+<item id="li1047">
+<link id="a1048" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the BaldButton 
+		class. 
+
+</item>
+
+
+		
+
+<item id="li1048">
+<link id="a1049" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The processMouseEvent method.
+
+</item>
+
+
+		
+
+<item id="li1049">
+<link id="a1050" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Beginning of anonymous inner 
+		class.
+
+</item>
+
+
+		
+
+<item id="li1050">
+<link id="a1051" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Overridden processMouseEvent 
+		method.
+
+</item>
+
+
+		
+
+<item id="li1051">
+<link id="a1052" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Register a MouseListener object.
+
+</item>
+
+
+		
+
+<item id="li1052">
+<link id="a1053" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Implementing the interface.
+
+</item>
+
+
+		
+
+<item id="li1053">
+<link id="a1054" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Registering a WindowListener on 
+		the Frame .
+
+</item>
+
+
+		
+
+<item id="li1054">
+<link id="a1055" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21002">
+<title>
+<emphasis id="What_can_you_include_in_a_class_definition" effect="bold">
+
+What can you include in a class definition
+
+</emphasis>
+
+? 
+
+
+</title>
+
+
+
+
+<para id="p1006">
+There are several different kinds of items that can be included in a class 
+definition. As you learned in the earlier modules in this series, the list 
+includes: 
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1055">
+Static variables
+
+</item>
+
+
+	
+
+<item id="li1056">
+Instance variables
+
+</item>
+
+
+	
+
+<item id="li1057">
+Static methods
+
+</item>
+
+
+	
+
+<item id="li1058">
+Instance methods
+
+</item>
+
+
+	
+
+<item id="li1059">
+Constructors
+
+</item>
+
+
+	
+
+<item id="li1060">
+Static initializer blocks
+
+</item>
+
+
+	
+
+<item id="li1061">
+Instance initializers 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+<emphasis id="strong1000" effect="bold">
+Can also contain other class definitions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+As you also learned in previous modules, a class definition can also contain 
+the following kinds of 
+
+<emphasis id="em1005" effect="italics">
+inner classes:
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1062">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1063">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1064">
+Anonymous classes
+
+</item>
+
+
+	
+
+<item id="li1065">
+Nested top-level classes and interfaces
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+The previous two modules explained member classes and local classes. 
+This module will explain anonymous classes.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="What_is_an_anonymous_class" effect="bold">
+
+What is an anonymous class
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1010">
+I'm going to begin my discussion with a quotation from one of my favorite 
+authors, David Flanagan, author of 
+
+<emphasis id="em1006" effect="italics">
+Java in a Nutshell
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1001" display="block">
+
+	
+
+<emphasis id="em1007" effect="italics">
+"An anonymous class is essentially a local class without a name."
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1011">
+If you have read the previous module, you should know quite a lot about local 
+classes at this point in time. Continuing with Flanagan's words, 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1002" display="block">
+
+	
+
+<emphasis id="em1008" effect="italics">
+"Instead of defining a local class and then instantiating it, you can 
+	often use an anonymous class to combine these two steps... an anonymous 
+	class is defined by a Java 
+
+<emphasis id="strong1001" effect="bold">
+expression
+
+</emphasis>
+, not a Java 
+
+<emphasis id="strong1002" effect="bold">
+statement
+
+</emphasis>
+. This means 
+	that an anonymous class definition can be included within a larger Java 
+	expression..."
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1012">
+As you will see from the sample program in this module, anonymous class 
+definitions are often included as arguments to method calls. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+As is the case for an object of a member class or a local class 
+
+<emphasis id="em1009" effect="italics">
+(discussed 
+in previous modules),
+
+</emphasis>
+ an object of an anonymous class must be internally 
+linked to an object of the enclosing class. 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+Thus, an anonymous class is truly an inner class, because an object of the 
+anonymous class cannot exist in the absence of an object of the enclosing class.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="What_about_an_anonymous_interface" effect="bold">
+
+What about an anonymous interface
+
+</emphasis>
+
+? 
+
+
+</title>
+
+
+
+
+<para id="p1015">
+Interfaces defined within classes are implicitly static. This means 
+that they are always 
+
+<emphasis id="em1010" effect="italics">
+top-level.
+
+</emphasis>
+ There is no such thing as a member 
+interface, a local interface, or an anonymous interface. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="Why_use_anonymous_classes" effect="bold">
+
+Why use anonymous classes
+
+</emphasis>
+
+? 
+
+</title>
+
+
+
+
+<para id="p1016">
+As with local classes, objects instantiated from anonymous classes share many 
+of the characteristics of objects instantiated from member classes. 
+However, in some cases, an anonymous class can be defined closer to its point of 
+use than would be possible with a member class or a local class. Once you 
+become accustomed to the somewhat cryptic syntax used with anonymous classes, 
+this can often lead to improved code readability. 
+
+</para>
+
+
+
+
+
+<para id="p1017">
+Probably the most important benefit of anonymous classes has to do with 
+accessing the members of enclosing classes. Just like with member classes 
+and local classes, methods of an anonymous class have direct access to all the 
+members of the enclosing classes, including private members. Thus the use 
+of anonymous classes can often eliminate the requirement to connect objects 
+together via constructor parameters. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+In addition, although not demonstrated in this module, as with local classes, 
+objects of anonymous classes have access to 
+
+<emphasis id="strong1003" effect="bold">
+final
+
+</emphasis>
+ local variables that 
+are declared within the scope of the anonymous class. 
+
+</para>
+
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1004" effect="bold">
+Can be particularly useful when ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1020">
+An anonymous class can be particularly useful in those cases where 
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1066">
+There is no reason for an object of the anonymous class to exist in the 
+	absence of an object of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1067">
+There is no reason for an object of the anonymous class to exist outside 
+	a method of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1068">
+Methods of the object of the anonymous class need access to members of 
+	the object of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1069">
+Methods of the object of the anonymous class need access to 
+
+<emphasis id="strong1005" effect="bold">
+final 
+
+</emphasis>
+
+	local variables and method parameters belonging to the method in which the 
+	anonymous class is defined.
+
+</item>
+
+
+	
+
+<item id="li1070">
+Only one instance of the anonymous class is needed.
+
+</item>
+
+
+	
+
+<item id="li1071">
+There is no need for the class to have a name that is accessible 
+	elsewhere in the program. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Anonymous_classes_versus_local_classes_" effect="bold">
+
+Anonymous classes versus local classes
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+Once again, according to David Flanagan, 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1003" display="block">
+
+	
+
+<emphasis id="em1011" effect="italics">
+"...an anonymous class behaves just like a local class, and is 
+	distinguished from a local class merely in the syntax used to define and 
+	instantiate it."
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1022">
+Unlike a local class, however, an anonymous class cannot define a 
+constructor. However, an anonymous class can define an instance initializer, which can 
+provide some of the benefits of a constructor. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1004" display="block">
+
+	
+
+<emphasis id="em1012" effect="italics">
+(I discussed instance initializers in detail in an earlier tutorial 
+	titled 
+
+<link id="a1056" url="http://cnx.org/content/m45597/latest/Java1634.htm">
+
+The Essence of OOP using Java, Instance Initializers
+
+</link>
+
+. As you may 
+	recall, a primary shortcoming of an instance initializer as compared to a 
+	constructor is that an instance initializer cannot accept incoming 
+	parameters.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Restrictions_on_the_use_of_anonymous_classes_" effect="bold">
+
+Restrictions on the use of anonymous classes
+
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1023">
+Because an anonymous class has no name, and the definition and instantiation 
+of the class appear in a single expression, only one instance of each anonymous 
+class can be created. If you need more than one instance of the class, you 
+should probably use a local class, a member class, or a top-level class instead.
+
+
+</para>
+
+
+
+
+
+<para id="p1024">
+As mentioned above, it is not possible to define constructors for anonymous 
+classes. If you need to use a constructor when you instantiate the class, 
+you should probably use a local class, a member class, or a top-level class 
+instead. 
+
+</para>
+
+
+
+
+
+<para id="p1025">
+As with member classes and local classes, anonymous classes cannot contain 
+
+<emphasis id="strong1006" effect="bold">
+
+static
+
+</emphasis>
+ members. 
+
+</para>
+
+
+
+
+
+<para id="p1026">
+As with local variables and local classes, anonymous classes cannot be 
+declared 
+
+<emphasis id="strong1007" effect="bold">
+public
+
+</emphasis>
+,
+
+<emphasis id="strong1008" effect="bold">
+ protected
+
+</emphasis>
+,
+
+<emphasis id="strong1009" effect="bold">
+ private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1010" effect="bold">
+static
+
+</emphasis>
+. 
+In fact, no modifiers can be specified in the definition of an anonymous class.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Smoke_and_mirrors" effect="bold">
+
+Smoke and mirrors
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1027">
+As I told you in my earlier modules on local classes, the methods in an 
+anonymous class don't really have access to local variables and method 
+parameters. Rather, when an object of the anonymous class is instantiated, 
+copies of the 
+
+<emphasis id="strong1011" effect="bold">
+final
+
+</emphasis>
+ local variables and method parameters referred to by 
+the object's methods are stored as instance variables in the object. The 
+methods in the object of the anonymous class really access those hidden instance 
+variables. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+Thus, the local variables and method parameters accessed by the methods of 
+the local class must be declared 
+
+<emphasis id="strong1012" effect="bold">
+final
+
+</emphasis>
+ to prevent their values from 
+changing after the object is instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+There are some additional activities involving 
+
+<emphasis id="em1013" effect="italics">
+smoke and mirrors
+
+</emphasis>
+ 
+taking place behind the scenes when you define and instantiate an anonymous 
+class. Generally speaking, this involves the automatic generation of code 
+to cause things to behave as they do. The good news is that you don't have 
+to write that extra code, and you don't have to maintain it. The extra 
+code is written for you, and if you modify your class structure, the extra code 
+is automatically modified accordingly. 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+You can read about the code that is automatically generated in my earlier 
+modules on local classes and member classes. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21009">
+<title>
+<emphasis id="Syntax_for_anonymous_classes" effect="bold">
+
+Syntax for anonymous classes
+
+</emphasis>
+
+ 
+
+
+</title>
+
+
+
+
+<para id="p1031">
+Before getting into actual code in the sample program, I want to explain the 
+syntax used to define and instantiate an anonymous class. 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+The definition and instantiation of an anonymous class uses one or the other 
+of the two expressions shown in 
+
+<link id="a1057" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+Usually, this expression is included inside a larger overall expression, such 
+as an argument to a method call. 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+<emphasis id="strong1013" effect="bold">
+What does the first expression mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+Here is how I usually explain this syntax to my students. The first 
+expression in 
+
+<link id="a1058" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ starts out fairly normal, but becomes cryptic very 
+quickly. 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+This expression instantiates a new object from an unnamed and 
+previously undefined class. That class automatically 
+
+<emphasis id="em1014" effect="italics">
+extends 
+
+</emphasis>
+the class named
+
+
+<emphasis id="strong1014" effect="bold">
+className
+
+</emphasis>
+, and cannot explicitly implement any interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+The 
+body of the new class is given by 
+
+<emphasis id="strong1015" effect="bold">
+classBody
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+The result of executing this 
+expression is that:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1072">
+a new class that extends 
+
+<emphasis id="strong1016" effect="bold">
+className
+
+</emphasis>
+ is defined,
+
+</item>
+
+
+	
+
+<item id="li1073">
+a new 
+object of the new class is instantiated, and 
+
+</item>
+
+
+	
+
+<item id="li1074">
+the expression is replaced by a 
+reference to the new object. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1017" effect="bold">
+Example usage
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+If this expression appears as 
+the right operand of an assignment operator, the new object's reference is saved in 
+the left operand of the assignment operator. 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+If the expression 
+appears as an argument in a method call, the new object's reference is passed to the 
+method. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+If the expression appears in some other form of larger overall 
+expression, the new object's reference is handed over to the surrounding expression 
+to be used appropriately. 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+<emphasis id="strong1018" effect="bold">
+What about instantiating an interface?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+The 
+second expression in 
+
+<link id="a1059" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ starts out very weird. To my knowledge, there is 
+no other situation in Java where you apply the 
+
+<emphasis id="strong1019" effect="bold">
+new
+
+</emphasis>
+ operator to the name 
+of an interface. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+From the beginning, you have been told 
+
+<emphasis id="em1015" effect="italics">
+(or should have been told)
+
+</emphasis>
+ that you cannot 
+instantiate an object of an interface. 
+
+<emphasis id="em1016" effect="italics">
+(An interface is implicitly 
+abstract and it doesn't have a constructor, not even a default constructor.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+However, you can instantiate an object of a class that implements none, one, or 
+more interfaces. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+The correct interpretation of the second expression in 
+
+<link id="a1060" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ 
+is as follows. This expression instantiates a new object from an 
+unnamed and previously undefined class. That class automatically 
+
+<emphasis id="em1017" effect="italics">
+implements 
+
+</emphasis>
+
+the interface named 
+
+<emphasis id="strong1020" effect="bold">
+interfaceName
+
+</emphasis>
+, and it automatically 
+
+<emphasis id="em1018" effect="italics">
+extends
+
+</emphasis>
+ the 
+class named 
+
+<emphasis id="strong1021" effect="bold">
+Object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+The class can explicitly implement one, 
+and only one interface, and cannot extend any class other than 
+
+<emphasis id="strong1022" effect="bold">
+Object
+
+</emphasis>
+. 
+
+
+</para>
+
+
+
+
+
+<para id="p1049">
+Once again, the body of the new class is given by 
+
+<emphasis id="strong1023" effect="bold">
+classBody
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+As in the 
+case of the first expression in 
+
+<link id="a1061" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, the result of executing this 
+second expression 
+is that 
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1075">
+a new class that implements 
+
+<emphasis id="strong1024" effect="bold">
+interfaceName
+
+</emphasis>
+ is defined, 
+
+</item>
+
+
+	
+
+<item id="li1076">
+a new 
+object of the new class is instantiated, and 
+
+</item>
+
+
+	
+
+<item id="li1077">
+the expression is replaced by a 
+reference to the new object. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1051">
+That reference is handed over to the 
+surrounding expression to be used appropriately. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1025" effect="bold">
+What about constructor 
+parameters?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+As mentioned earlier in this module, since the new class doesn't 
+have a name, it isn't possible to define a constructor for the new class. 
+
+
+</para>
+
+
+
+
+
+<para id="p1054">
+According to Flanagan 
+
+<emphasis id="em1019" effect="italics">
+(with regard to the first expression in 
+
+<link id="a1062" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+, 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1005" display="block">
+
+	
+
+<emphasis id="em1020" effect="italics">
+"Any arguments you specify between the parentheses following the 
+	superclass name in an anonymous class definition are implicitly passed to 
+	the superclass constructor."
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1055">
+Thus, it is possible to define an anonymous class that extends a class whose 
+constructor requires parameters, and to pass those parameters to the superclass 
+constructor when the anonymous class is instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1056">
+The parentheses following
+
+
+<emphasis id="strong1026" effect="bold">
+interfaceName
+
+</emphasis>
+ in the second expression in 
+
+<link id="a1063" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ must always be empty. 
+In this case, the superclass is always 
+
+<emphasis id="strong1027" effect="bold">
+Object
+
+</emphasis>
+, which never expects 
+constructor parameters.
+
+</para>
+
+
+
+	
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+
+<para id="p1057">
+The paragraphs that follow will explain a program named 
+
+<emphasis id="strong1028" effect="bold">
+InnerClasses08
+
+</emphasis>
+. 
+This program is designed specifically to illustrate anonymous classes, and to compare 
+anonymous classes with local classes. 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+I will discuss the program in 
+fragments. A complete listing of the program is provided in 
+
+<link id="a1064" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1059">
+When the program is executed, it produces the GUI shown in 
+
+<link id="a1065" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. I will 
+refer back to this image during the discussion of the program. 
+
+</para>
+
+
+
+
+
+<section id="h21010">
+<title>
+<emphasis id="Class_file_names" effect="bold">
+
+Class file names
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1060">
+This program consists of a total of six classes: 
+
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1078">
+Two top-level classes
+
+<list id="ul1015" list-type="bulleted">
+
+		
+
+<item id="li1079">
+InnerClasses08.class
+
+</item>
+
+
+		
+
+<item id="li1080">
+GUI.class
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1081">
+One local class
+
+<list id="ul1016" list-type="bulleted">
+
+		
+
+<item id="li1082">
+ GUI$1$BaldButton.class
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1083">
+Three anonymous classes 
+	
+
+<list id="ul1017" list-type="bulleted">
+
+		
+
+<item id="li1084">
+ GUI$1.class
+
+</item>
+
+
+		
+
+<item id="li1085">
+ GUI$2.class
+
+</item>
+
+
+		
+
+<item id="li1086">
+ GUI$3.class
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1061">
+When compiled, the program produces the class files shown in 
+
+<link id="a1066" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1006" display="block">
+
+	
+
+<emphasis id="em1021" effect="italics">
+(As you can see, the anonymous classes are not truly anonymous, since the 
+	files that represent them must have names. Generally, however, the 
+	establishment of the individual names is beyond the control of the 
+	programmer, and the names are not known to the program in a way that makes 
+	it possible to refer to them by name.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+</section>
+<section id="h21011">
+<title>
+<emphasis id="Program_structure_and_behavior" effect="bold">
+
+Program structure and behavior
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1062">
+This program is designed to illustrate 
+the use of local classes and anonymous classes in a very practical way. It 
+illustrates one implementation of a local class and three different 
+implementations of anonymous classes. The program compares the local class with 
+an anonymous class designed to accomplish the same purpose. The program 
+also illustrates the use of instance initializers as an alternative to 
+constructors.
+
+</para>
+
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="A_local_class" effect="bold">
+
+A local class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1063">
+The program defines and uses a local class to 
+instantiate an object to handle 
+
+<emphasis id="em1022" effect="italics">
+mouse clicked
+
+</emphasis>
+ events on a button with 
+
+
+<emphasis id="em1023" effect="italics">
+<emphasis id="strong1029" effect="bold">
+low-level
+
+</emphasis>
+</emphasis>
+ 
+event handling. This class uses a constructor to enable mouse events on a new 
+extended 
+
+<emphasis id="strong1030" effect="bold">
+Button 
+
+</emphasis>
+class. It also uses a constructor to display the name of 
+the class file. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Three_anonymous_classes" effect="bold">
+
+Three anonymous classes
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1031" effect="bold">
+An anonymous class to compare with the local class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The 
+program also defines and uses an anonymous class to instantiate an object to 
+handle 
+
+<emphasis id="em1024" effect="italics">
+mouse clicked
+
+</emphasis>
+ events on a button with 
+
+<emphasis id="em1025" effect="italics">
+low-level
+
+</emphasis>
+ event handling. 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+This 
+class uses an instance initializer to enable mouse events on a new extended 
+
+<emphasis id="strong1032" effect="bold">
+
+Button 
+
+</emphasis>
+class. It also uses an instance initializer to display the name of 
+the class file. 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+This class and the local class described above provide a 
+direct comparison between the use of local classes and anonymous classes to 
+serve the same purpose. 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1033" effect="bold">
+An anonymous class that implements an interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1069">
+The program illustrates the use of an anonymous class that implements the 
+
+<emphasis id="strong1034" effect="bold">
+
+MouseListener
+
+</emphasis>
+ interface, to instantiate an object to handle mouse clicked 
+events using the source-listener event model 
+
+<emphasis id="em1026" effect="italics">
+(sometimes referred to as the 
+delegation event model or the JavaBeans event model).
+
+</emphasis>
+ The anonymous class 
+uses an instance initializer to display the name of the class file. 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+<emphasis id="strong1035" effect="bold">
+An 
+anonymous class that extends an existing class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1071">
+The program illustrates the use of an anonymous class that extends the 
+
+<emphasis id="strong1036" effect="bold">
+WindowAdapter
+
+</emphasis>
+ class, to 
+instantiate an object to handle window events fired by the close button in the 
+upper-right corner of the 
+
+<emphasis id="strong1037" effect="bold">
+Frame
+
+</emphasis>
+ object shown in 
+
+<link id="a1067" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. This class 
+also uses the source-listener event model, and uses an instance initializer to 
+display the name of the class file. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_screen_output_" effect="bold">
+
+The screen output 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1072">
+The program 
+produces the screen output shown in 
+
+<link id="a1068" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ when 
+
+</para>
+
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1087">
+The program is started
+
+</item>
+
+
+	
+
+<item id="li1088">
+Each button shown in 
+
+<link id="a1069" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is clicked once in succession, going from 
+	left to right 
+
+</item>
+
+
+	
+
+<item id="li1089">
+The close button in the upper-right corner of the 
+
+<emphasis id="strong1038" effect="bold">
+Frame 
+
+</emphasis>
+object in 
+	
+
+<link id="a1070" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is clicked 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1073">
+When the close button is clicked, the program produces the last line of text 
+in 
+
+<link id="a1071" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ and terminates. I will identify the code that produces each line of 
+output text in the discussion of the program that follows.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="The_controlling_class" effect="bold">
+
+The controlling class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+The controlling class for the program is shown in 
+
+<link id="a1072" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+As you can see, the controlling class is very simple, with the 
+
+<emphasis id="strong1039" effect="bold">
+main
+
+</emphasis>
+ 
+method instantiating an object of the 
+
+<emphasis id="strong1040" effect="bold">
+GUI 
+
+</emphasis>
+class. This results in 
+the GUI that is pictured in 
+
+<link id="a1073" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Local_and_anonymous_classes_inside_GUI_constructor" effect="bold">
+
+Local and anonymous classes inside GUI 
+constructor
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1076">
+The local class and the three anonymous classes are defined 
+inside the constructor for the 
+
+<emphasis id="strong1041" effect="bold">
+GUI 
+
+</emphasis>
+class. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1007" display="block">
+
+	
+
+<emphasis id="em1027" effect="italics">
+(Recall that local classes and anonymous classes are defined inside code 
+	blocks, which often place them inside methods and constructors, but you can 
+	also place them inside static initializer blocks and instance initializers.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1077">
+The first four lines of the output text in 
+
+<link id="a1074" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ are produced by 
+constructors and instance initializers in the local and anonymous classes. 
+Therefore, those four lines of text are produced when the new object of the 
+
+<emphasis id="strong1042" effect="bold">
+
+GUI
+
+</emphasis>
+ class is instantiated. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="The_GUI_class" effect="bold">
+
+The GUI class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1078">
+As is often the case, the 
+
+<emphasis id="strong1043" effect="bold">
+
+GUI
+
+</emphasis>
+ class used to create the visual GUI shown in 
+
+<link id="a1075" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ consists 
+solely of a constructor. Basically, this constructor
+
+</para>
+
+
+
+
+
+<list id="ul1019" list-type="bulleted">
+
+	
+
+<item id="li1090">
+places three buttons 
+in the frame and 
+
+</item>
+
+
+	
+
+<item id="li1091">
+registers event handlers on the buttons and on the frame.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1079">
+Once the 
+
+<emphasis id="strong1044" effect="bold">
+GUI 
+
+</emphasis>
+object is constructed and appears on the screen, all further 
+activity in the program occurs under control of the event handlers associated 
+with the buttons and the frame.
+
+<emphasis id="em1028" effect="italics">
+ 
+
+</emphasis>
+</para>
+
+
+
+
+
+<quote id="blockquote1008" display="block">
+
+	
+
+<emphasis id="em1029" effect="italics">
+(You can learn more about event handling
+	
+
+<link id="a1076" url="http://cnx.org/content/m47842/latest/?collection=col11441/latest">
+
+
+	here
+
+</link>
+
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1045" effect="bold">
+The GUI constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+The 
+
+<emphasis id="strong1046" effect="bold">
+GUI
+
+</emphasis>
+ class, and the constructor for that 
+class begin in 
+
+<link id="a1077" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<para id="p1082">
+As you can see, the 
+
+<emphasis id="strong1047" effect="bold">
+GUI
+
+</emphasis>
+ class extends 
+
+<emphasis id="strong1048" effect="bold">
+Frame
+
+</emphasis>
+, so that an object 
+of the class 
+
+<emphasis id="em1030" effect="italics">
+is a
+
+</emphasis>
+ frame. 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+The constructor code shown in 
+
+<link id="a1078" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ simply sets 
+values for the 
+
+<emphasis id="em1031" effect="italics">
+layout, size,
+
+</emphasis>
+ and 
+
+<emphasis id="em1032" effect="italics">
+title 
+
+</emphasis>
+properties of the frame.
+
+</para>
+
+
+
+
+
+<para id="p1084">
+<emphasis id="strong1049" effect="bold">
+
+The BaldButton class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+The definition of the 
+
+<emphasis id="strong1050" effect="bold">
+BaldButton
+
+</emphasis>
+ class begins in 
+
+
+<link id="a1079" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. This is a local class that extends 
+
+<emphasis id="strong1051" effect="bold">
+Button
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+Extending the
+
+
+<emphasis id="strong1052" effect="bold">
+Button
+
+</emphasis>
+ class makes it possible to override the 
+
+<emphasis id="strong1053" effect="bold">
+processMouseEvent
+
+</emphasis>
+ 
+method in order to handle mouse events that are fired by the button.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+This is a 
+form of low-level event handling that will be contrasted with source-listener 
+event handling later in the program. 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<link id="a1080" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the constructor for the 
+
+<emphasis id="strong1054" effect="bold">
+
+BaldButton
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="strong1055" effect="bold">
+Enable mouse events
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+The most important code in the constructor is the 
+statement that enables mouse events on the button.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+If you are unfamiliar 
+with the 
+
+<emphasis id="strong1056" effect="bold">
+enableEvents
+
+</emphasis>
+ method, you should look it up in the Sun 
+documentation. Briefly, this method must be called on the button to cause the 
+overridden 
+
+<emphasis id="strong1057" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method to be called later when the button 
+fires a mouse event.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+<emphasis id="strong1058" effect="bold">
+The remaining constructor code
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+The remaining code in 
+the constructor 
+
+</para>
+
+
+
+
+
+<list id="ul1020" list-type="bulleted">
+
+	
+
+<item id="li1092">
+Sets the text value on the face of the button
+
+</item>
+
+
+	
+
+<item id="li1093">
+Gets and displays the name of the class file that represents this local 
+	class
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1059" effect="bold">
+The screen output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1095">
+Construction of the button by the code in 
+
+<link id="a1081" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+causes the text shown in 
+
+<link id="a1082" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ to appear on the screen. This is how I 
+was able to identify the name of the class file that represents the local class 
+in my earlier discussion of class file names. 
+
+</para>
+
+
+
+
+
+
+<para id="p1096">
+We will see later that this button will be added as the leftmost button in 
+the GUI shown in 
+
+<link id="a1083" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1060" effect="bold">
+The processMouseEvent method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+Continuing with 
+the constructor for the 
+
+<emphasis id="strong1061" effect="bold">
+GUI
+
+</emphasis>
+ class, 
+
+<link id="a1084" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the overridden
+
+
+<emphasis id="strong1062" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method for an object of the 
+
+<emphasis id="strong1063" effect="bold">
+BaldButton
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+This method is called each time an object instantiated from this class fires 
+a mouse event. That is why I refer to the method as an event handler for 
+the button. 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+<emphasis id="strong1064" effect="bold">
+Different kinds of mouse events
+
+</emphasis>
+ A button can fire a variety 
+of different kinds or subcategories of 
+
+<emphasis id="mouse_events" effect="bold">
+
+mouse events
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+
+<list id="ul1021" list-type="bulleted">
+
+	
+
+<item id="li1094">
+MOUSE_CLICKED 
+
+</item>
+
+
+	
+
+<item id="li1095">
+MOUSE_DRAGGED 
+
+</item>
+
+
+	
+
+<item id="li1096">
+MOUSE_ENTERED 
+
+</item>
+
+
+	
+
+<item id="li1097">
+MOUSE_EXITED 
+
+</item>
+
+
+	
+
+<item id="li1098">
+MOUSE_MOVED 
+
+</item>
+
+
+	
+
+<item id="li1099">
+MOUSE_PRESSED 
+
+</item>
+
+
+	
+
+<item id="li1100">
+MOUSE_RELEASED 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1101">
+In this case, I elected to ignore all but 
+
+<emphasis id="strong1065" effect="bold">
+MOUSE_CLICKED
+
+</emphasis>
+. This 
+subcategory of mouse event occurs when a mouse button is pressed and then 
+released.
+
+</para>
+
+
+
+
+
+<para id="p1102">
+The code in the event handler of 
+
+<link id="a1085" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ first confirms that 
+the event was of the MOUSE_CLICKED variety. If so, it displays a message 
+that matches the fifth line of text in the output shown in 
+
+<link id="a1086" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1066" effect="bold">
+Call 
+processMouseEvent on the superclass
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+Without getting into the details of why 
+this is required, I'm simply going to tell you that when you use this low-level 
+event model to handle events, your overridden 
+
+<emphasis id="strong1067" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method 
+must call the same method in the superclass, passing the incoming parameter of 
+type 
+
+<emphasis id="strong1068" effect="bold">
+MouseEvent
+
+</emphasis>
+ as a parameter to the superclass version of the method.
+
+
+</para>
+
+
+
+
+
+<para id="p1105">
+<emphasis id="strong1069" effect="bold">
+Add a button to the frame
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1106">
+The last statement in 
+
+<link id="a1087" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ instantiates a 
+new 
+
+<emphasis id="strong1070" effect="bold">
+BaldButton
+
+</emphasis>
+ object, setting the text on the face of the button to 
+
+<emphasis id="strong1071" effect="bold">
+A
+
+</emphasis>
+, 
+and adds that new object to the frame.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+Because the layout property of the 
+frame has been set to 
+
+<link id="a1088" url="http://cnx.org/content/m45597/latest/Java116.htm">
+
+FlowLayout
+
+</link>
+
+, and because this is the first component 
+added to the frame, this button appears as the leftmost button in the GUI shown 
+in 
+
+<link id="a1089" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1072" effect="bold">
+Could instantiate multiple buttons of this type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+Although I 
+instantiated the button object as an anonymous object in this case, that wasn't 
+necessary. Using this local class, I could instantiate more than one 
+object of this type, saving the object's references in reference variables of 
+the appropriate type. Later we will see that this is not possible for 
+anonymous classes.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+It is interesting to note, however, that with this event 
+handling model, if I were to instantiate multiple buttons of this type, the same
+
+
+<emphasis id="strong1073" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method would be called no matter which of the buttons 
+fired a mouse event. If I wanted different behavior as a result of the 
+different buttons firing mouse events, I would have to write code inside the 
+
+<emphasis id="strong1074" effect="bold">
+
+processMouseEvent
+
+</emphasis>
+ method to deal with that issue.
+
+</para>
+
+
+
+
+
+<para id="p1111">
+The source-listener 
+event model that I will illustrate later doesn't suffer from that restriction.
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="An_anonymous_inner_class_for_lowLevel_event_handling" effect="bold">
+
+An anonymous inner class for low-level event handling
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1112">
+<link id="a1090" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the 
+beginning of an anonymous class to perform low-level event handling similar to 
+that shown in 
+
+<link id="a1091" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+This code defines an anonymous inner class that implicitly 
+extends 
+
+<emphasis id="strong1075" effect="bold">
+Button
+
+</emphasis>
+ and has mouse events enabled. I provided this 
+class primarily for comparison with the local class named 
+
+<emphasis id="strong1076" effect="bold">
+BaldButton
+
+</emphasis>
+. 
+This class is an anonymous alternative to the local 
+
+<emphasis id="strong1077" effect="bold">
+BaldButton
+
+</emphasis>
+ class. 
+
+</para>
+
+
+
+
+
+
+<para id="p1114">
+<emphasis id="strong1078" effect="bold">
+An argument to the add method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1115">
+Note that the definition of this 
+anonymous class appears as an argument to the 
+
+<emphasis id="strong1079" effect="bold">
+add
+
+</emphasis>
+ method for the frame. 
+Thus, the anonymous object instantiated from the anonymous class is added as the 
+second 
+
+<emphasis id="em1033" effect="italics">
+(middle)
+
+</emphasis>
+ button in 
+
+<link id="a1092" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1116">
+<emphasis id="strong1080" effect="bold">
+Extends the Button class
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1117">
+Note 
+also that this form of anonymous class implicitly extends the 
+
+<emphasis id="strong1081" effect="bold">
+Button
+
+</emphasis>
+ 
+class. Once again, this makes it possible to override the 
+
+<emphasis id="strong1082" effect="bold">
+
+processMouseEvent
+
+</emphasis>
+ method belonging to the 
+
+<emphasis id="strong1083" effect="bold">
+Button
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1118">
+<emphasis id="strong1084" effect="bold">
+An 
+instance initializer
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1119">
+As I mentioned earlier in this module, it is not possible to define a 
+constructor for an anonymous class. However, it is possible to define an 
+instance initializer.
+
+</para>
+
+
+
+
+
+<quote id="blockquote1009" display="block">
+<emphasis id="em1034" effect="italics">
+(In 
+
+<link id="a1093" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, the instance initializer 
+consists of two statements enclosed by matching curly brackets.)
+
+</emphasis>
+</quote>
+
+
+
+
+<para id="p1120">
+This class defines an instance initializer that 
+
+</para>
+
+
+
+
+
+<list id="ul1022" list-type="bulleted">
+
+	
+
+<item id="li1101">
+Enables mouse events on an anonymous object instantiated from the 
+	anonymous class.
+
+</item>
+
+
+	
+
+<item id="li1102">
+Gets and displays the name of the class file that represents the 
+	anonymous class.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1121">
+<emphasis id="strong1085" effect="bold">
+The screen output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1122">
+Therefore, the instantiation of this anonymous 
+object causes the text shown in 
+
+<link id="a1094" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+ to appear on the screen. About all 
+you can tell by looking at this class name is that it is the name of a file that 
+represents an anonymous class. 
+
+</para>
+
+
+
+
+
+
+<para id="p1123">
+<emphasis id="strong1086" effect="bold">
+Overridden processMouseEvent method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1124">
+The remaining code in the 
+anonymous class definition is shown in 
+
+<link id="a1095" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The 
+code in 
+
+<link id="a1096" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ consists of 
+
+</para>
+
+
+
+
+
+<list id="ul1023" list-type="bulleted">
+
+	
+
+<item id="li1103">
+an overridden 
+
+<emphasis id="strong1087" effect="bold">
+processMouseEvent
+
+</emphasis>
+ 
+method, plus
+
+</item>
+
+
+	
+
+<item id="li1104">
+the curly brackets, parentheses, and semicolon necessary to complete 
+the expression and the statement. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1125">
+<emphasis id="strong1088" effect="bold">
+Same code as before
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1126">
+The code in this 
+overridden 
+
+<emphasis id="strong1089" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method is essentially the same as that shown 
+for the local class in 
+
+<link id="a1097" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, except that it produces a different message on 
+the screen when the user clicks the button.
+
+</para>
+
+
+
+
+
+<para id="p1127">
+Clicking the middle button in 
+
+<link id="a1098" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+ 
+produces the screen output shown by the sixth line in 
+
+<link id="a1099" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Instantiating_and_registering_a_MouseListener_object" effect="bold">
+
+Instantiating and registering a MouseListener object
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1128">
+<emphasis id="strong1090" effect="bold">
+Implementing 
+a listener interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1129">
+Now I'm going to switch from 
+
+<emphasis id="strong1091" effect="bold">
+<emphasis id="em1035" effect="italics">
+low-level
+
+</emphasis>
+</emphasis>
+ event handling 
+to 
+
+<emphasis id="strong1092" effect="bold">
+<emphasis id="em1036" effect="italics">
+source-listener
+
+</emphasis>
+</emphasis>
+ event handling. The code to 
+accomplish this begins in 
+
+<link id="a1100" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+With this event handling model:
+
+</para>
+
+
+
+
+
+<list id="ul1024" list-type="bulleted">
+
+	
+
+<item id="li1105">
+A listener object is instantiated from a class that implements a 
+	specific listener interface. In this case, that interface will be the 
+
+<emphasis id="strong1093" effect="bold">
+
+	MouseListener
+
+</emphasis>
+ interface.
+
+</item>
+
+
+	
+
+<item id="li1106">
+The listener object is 
+
+<emphasis id="em1037" effect="italics">
+registered 
+
+</emphasis>
+on an object that knows how to 
+	fire events of a type that is associated with the listener interface. In 
+	this case, that will be events of type 
+
+<emphasis id="strong1094" effect="bold">
+MouseEvent
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1107">
+When the source object fires an event of the specified type, one of the 
+	methods belonging to the registered listener object will be called to handle 
+	the event. The different methods belonging to the listener object are 
+	declared in the implemented listener interface.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+<para id="p1131">
+<link id="a1101" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ begins by instantiating a 
+new 
+
+<emphasis id="strong1095" effect="bold">
+Button
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1010" display="block">
+
+	
+
+<emphasis id="em1038" effect="italics">
+(Note that with this event model, it is not necessary to extend the 
+
+<emphasis id="strong1096" effect="bold">
+
+	Button
+
+</emphasis>
+ class, because it is not necessary to override methods belonging 
+	to the 
+
+<emphasis id="strong1097" effect="bold">
+Button
+
+</emphasis>
+ object.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1132">
+<emphasis id="strong1098" effect="bold">
+Register a MouseListener object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1133">
+After instantiating the 
+
+<emphasis id="strong1099" effect="bold">
+Button
+
+</emphasis>
+ object, the code in 
+
+<link id="a1102" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ calls 
+the 
+
+<emphasis id="strong1100" effect="bold">
+addMouseListener
+
+</emphasis>
+ method to register a 
+
+<emphasis id="strong1101" effect="bold">
+MouseListener
+
+</emphasis>
+ object on 
+that button. The argument to the 
+
+<emphasis id="strong1102" effect="bold">
+addMouseListener
+
+</emphasis>
+ method must be a 
+reference to an object instantiated from a class that implements the 
+
+<emphasis id="strong1103" effect="bold">
+
+MouseListener
+
+</emphasis>
+ interface. 
+
+</para>
+
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1104" effect="bold">
+Instantiate the listener object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+In this case, that listener object is 
+created by 
+
+</para>
+
+
+
+
+
+<list id="ul1025" list-type="bulleted">
+
+	
+
+<item id="li1108">
+writing an expression to instantiate an anonymous object from an 
+anonymous class and 
+
+</item>
+
+
+	
+
+<item id="li1109">
+placing that expression as an argument to the 
+
+<emphasis id="strong1105" effect="bold">
+addMouseListener
+
+</emphasis>
+ method. 
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1136">
+<emphasis id="strong1106" effect="bold">
+Implement the MouseListener interface
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+The 
+definition of the anonymous class in this example uses the syntax that 
+implements an interface. 
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1107" effect="bold">
+An instance initializer
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+As before, an instance 
+initializer is used to get and display the name of the class file that 
+represents the anonymous class. Thus, when the new anonymous object of the 
+anonymous class is instantiated, the text shown in 
+
+<link id="a1103" target-id="Figure_7">
+
+Figure 7
+
+</link>
+
+ appears on the 
+screen.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+Note the similarity of this class file name to that shown earlier in 
+
+
+<link id="a1104" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. 
+
+<emphasis id="em1039" effect="italics">
+(You can also compare them in
+
+
+<link id="a1105" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+.)
+
+</emphasis>
+ The names of the two class files differ only with respect to a number 
+that is provided by the compiler to guarantee that each class file name is 
+unique. 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1108" effect="bold">
+Implementing the interface
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+Whenever a class implements an interface, 
+it must provide a concrete definition for each of the methods declared in the 
+interface, even if some of those methods are empty. 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+Continuing with the 
+definition of the anonymous class, 
+
+<link id="a1106" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ provides definitions for all five 
+of the methods declared in the 
+
+<emphasis id="strong1109" effect="bold">
+MouseListener
+
+</emphasis>
+ interface. Four of those 
+methods are defined as empty methods. 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1110" effect="bold">
+Separation of event subcategories
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+One of the major differences between 
+the 
+
+<emphasis id="em1040" effect="italics">
+low-level
+
+</emphasis>
+ event model discussed earlier and the 
+
+<emphasis id="em1041" effect="italics">
+source-listener
+
+</emphasis>
+ model being 
+discussed here has to do with where the separation between the different 
+subcategories 
+
+<emphasis id="em1042" effect="italics">
+(mouseClicked, mousePressed, mouseReleased, etc.)
+
+</emphasis>
+ of a 
+given event type is accomplished.
+
+</para>
+
+
+
+
+
+<para id="p1146">
+In the low-level model, the separation must be 
+accomplished by code in the overridden event handler method, such as with the 
+
+<emphasis id="strong1111" effect="bold">
+
+if
+
+</emphasis>
+ statement in the 
+
+<emphasis id="strong1112" effect="bold">
+processMouseEvent
+
+</emphasis>
+ method defined in 
+
+<link id="a1107" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1147">
+In 
+the source-listener model, the separation is accomplished before the event 
+handler method is called, and a specific event handler method, such as the 
+
+<emphasis id="strong1113" effect="bold">
+
+mouseClicked
+
+</emphasis>
+ method is called on the listener object. 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+<emphasis id="strong1114" effect="bold">
+When the button 
+fires a mouse event ...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1149">
+In this case, whenever the button fires a 
+
+<emphasis id="strong1115" effect="bold">
+
+MouseEvent
+
+</emphasis>
+ of the 
+
+<emphasis id="strong1116" effect="bold">
+MOUSE_CLICKED
+
+</emphasis>
+ 
+
+<link id="a1108" target-id="mouse_events">
+
+subcategory
+
+</link>
+
+, the 
+
+<emphasis id="strong1117" effect="bold">
+mouseClicked
+
+</emphasis>
+ 
+method defined in 
+
+<link id="a1109" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ will be called 
+automatically, causing the seventh line of text in 
+
+
+<link id="a1110" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ to appear on the screen.
+
+</para>
+
+
+
+
+
+<para id="p1150">
+Whenever the button fires a 
+
+<emphasis id="strong1118" effect="bold">
+MouseEvent
+
+</emphasis>
+ 
+of one of the other 
+
+<link id="a1111" target-id="mouse_events">
+
+subcategories
+
+</link>
+
+, one of the empty methods defined in 
+
+<link id="a1112" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+will be called. This method will return immediately, doing nothing but 
+wasting a little computer time. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1011" display="block">
+
+	
+
+<emphasis id="em1043" effect="italics">
+(In case you are wondering what happened to the 
+
+<emphasis id="strong1119" effect="bold">
+mouseMoved
+
+</emphasis>
+ and 
+
+<emphasis id="strong1120" effect="bold">
+
+	mouseDragged 
+
+</emphasis>
+methods, they are defined in the 
+
+<emphasis id="strong1121" effect="bold">
+MouseMotionListener 
+
+</emphasis>
+
+	interface instead of the 
+
+<emphasis id="strong1122" effect="bold">
+MouseListener 
+
+</emphasis>
+interface.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1123" effect="bold">
+Add the button to the frame
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1152">
+Finally, the last statement in 
+
+<link id="a1113" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+adds the new button to the 
+
+<emphasis id="strong1124" effect="bold">
+Frame
+
+</emphasis>
+ as the rightmost button in 
+
+<link id="a1114" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="strong1125" effect="bold">
+A 
+disclaimer
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1154">
+I wrote this code the way that I did in 
+
+<link id="a1115" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ to illustrate 
+an anonymous class that implements an interface. In real life, I would 
+probably cause the anonymous class to extend the 
+
+<emphasis id="strong1126" effect="bold">
+MouseAdapter
+
+</emphasis>
+ class and 
+override the 
+
+<emphasis id="strong1127" effect="bold">
+mouseClicked
+
+</emphasis>
+ method instead of implementing the 
+
+<emphasis id="strong1128" effect="bold">
+
+MouseListener
+
+</emphasis>
+ interface. That would eliminate the requirement for me 
+to define the four empty methods in 
+
+<link id="a1116" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Extending_the_WindowAdapter_class" effect="bold">
+
+Extending the WindowAdapter 
+class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1155">
+The above disclaimer provides a perfect lead-in to the definition of 
+the anonymous class shown in 
+
+<link id="a1117" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1129" effect="bold">
+Registering a WindowListener on the Frame
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1157">
+The code in 
+
+<link id="a1118" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+instantiates an anonymous object of an anonymous class that extends the 
+
+<emphasis id="strong1130" effect="bold">
+
+WindowAdapter
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1158">
+That anonymous object is registered as a 
+
+<emphasis id="strong1131" effect="bold">
+
+WindowListener
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1132" effect="bold">
+Frame
+
+</emphasis>
+ by passing the object's reference to the 
+
+<emphasis id="strong1133" effect="bold">
+
+addWindowListener
+
+</emphasis>
+ method belonging to the 
+
+<emphasis id="strong1134" effect="bold">
+Frame
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<quote id="blockquote1012" display="block">
+
+	
+
+<emphasis id="em1044" effect="italics">
+(The 
+
+<emphasis id="strong1135" effect="bold">
+addWindowListener
+
+</emphasis>
+ method requires an incoming parameter of 
+	type 
+
+<emphasis id="strong1136" effect="bold">
+WindowListener
+
+</emphasis>
+. This is satisfied by the fact that the 
+
+<emphasis id="strong1137" effect="bold">
+
+	WindowAdapter
+
+</emphasis>
+ class implements the 
+
+<emphasis id="strong1138" effect="bold">
+WindowListener
+
+</emphasis>
+ interface. 
+	Thus, an object instantiated from a class that extends 
+
+<emphasis id="strong1139" effect="bold">
+WindowAdapter
+
+</emphasis>
+ 
+	can also be treated as type 
+
+<emphasis id="strong1140" effect="bold">
+WindowListener
+
+</emphasis>
+.)
+
+</emphasis>
+
+
+
+</quote>
+
+
+
+
+<para id="p1159">
+<emphasis id="strong1141" effect="bold">
+The screen output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1160">
+This anonymous class definition uses an instance 
+initializer to get and display the name of the class that represents the 
+anonymous class. Thus, when the anonymous object of the anonymous class is 
+instantiated, the text shown in 
+
+<link id="a1119" target-id="Figure_8">
+
+Figure 8
+
+</link>
+
+ appears on the screen. 
+
+</para>
+
+
+
+
+
+
+<quote id="blockquote1013" display="block">
+<emphasis id="em1045" effect="italics">
+(In an earlier module explaining member classes, I 
+told you that it is possible to examine the names of the class files that 
+represent the member classes and to determine quite a lot about the structure of 
+the program in terms of which classes are members of which other classes. 
+However, in the case of local classes and anonymous classes, about all that you 
+can determine from the name of the class file is that the file either represents 
+a local class or represents an anonymous class (see the summary of class 
+names in 
+
+</emphasis>
+ 
+
+<link id="a1120" target-id="Figure_3">
+
+
+<emphasis id="em1046" effect="italics">
+Figure 3
+
+</emphasis>
+</link>
+
+
+<emphasis id="em1047" effect="italics">
+).)
+
+</emphasis>
+</quote>
+
+
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1142" effect="bold">
+The windowClosing method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1162">
+The code in 
+
+<link id="a1121" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+overrides the 
+
+<emphasis id="strong1143" effect="bold">
+windowClosing
+
+</emphasis>
+ method inherited from the 
+
+<emphasis id="strong1144" effect="bold">
+WindowAdapter
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1163">
+Clicking the 
+
+<emphasis id="em1048" effect="italics">
+close
+
+</emphasis>
+ button with the X in the upper right hand 
+corner of 
+
+<link id="a1122" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ causes the 
+
+<emphasis id="strong1145" effect="bold">
+windowClosing
+
+</emphasis>
+ method to be called on any 
+
+<emphasis id="strong1146" effect="bold">
+
+WindowListener
+
+</emphasis>
+ objects that have been registered on the frame.
+
+</para>
+
+
+
+
+
+<para id="p1164">
+In this 
+case, the overridden 
+
+<emphasis id="strong1147" effect="bold">
+windowClosing
+
+</emphasis>
+ method in 
+
+<link id="a1123" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+causes the last 
+line of text in 
+
+<link id="a1124" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ to be displayed on the screen.
+
+</para>
+
+
+
+
+
+<para id="p1165">
+Following that, the 
+overridden 
+
+<emphasis id="strong1148" effect="bold">
+windowClosing
+
+</emphasis>
+ method calls the 
+
+<emphasis id="strong1149" effect="bold">
+System.exit
+
+</emphasis>
+ method to 
+terminate the program.
+
+</para>
+
+
+
+
+
+<para id="p1166">
+<emphasis id="strong1150" effect="bold">
+The remaining code
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1167">
+The remaining code in 
+
+<link id="a1125" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+
+
+
+</para>
+
+
+
+
+
+<list id="ul1026" list-type="bulleted">
+
+	
+
+<item id="li1110">
+Causes the frame to become visible
+
+</item>
+
+
+	
+
+<item id="li1111">
+Signals the end of the constructor
+
+</item>
+
+
+	
+
+<item id="li1112">
+Signals the end of the 
+
+<emphasis id="strong1151" effect="bold">
+GUI
+
+</emphasis>
+ class
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+</section>
+<section id="h21012">
+<title>
+<emphasis id="The_GUI_remains_on_the_screen_until_terminated" effect="bold">
+
+The GUI remains on the screen until terminated
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1168">
+Once the constructor is 
+executed, the GUI simply remains on the screen waiting for someone to click one 
+of the buttons or to click the close button in the upper right corner of the 
+frame. When these buttons are clicked, the event handlers are called, 
+causing text such as that shown in 
+
+<link id="a1126" target-id="Figure_9">
+
+Figure 9
+
+</link>
+
+ to appear on the screen. 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21013">
+<title>
+<emphasis id="Simple_event_handlers_" effect="bold">
+
+Simple event handlers 
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1169">
+In this demo program, the event handlers simply 
+display messages on the screen, and in the case of the close button, terminate 
+the program. In a real world program, the behavior of the event handlers would 
+likely be much more substantive, but the overall skeleton of the program need 
+not be any different from that illustrated here. 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1170">
+I encourage you to copy the code from 
+
+<link id="a1127" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1171">
+In addition to a number of other items, a class definition can contain: 
+
+</para>
+
+
+
+
+
+<list id="ul1027" list-type="bulleted">
+
+	
+
+<item id="li1113">
+Member classes
+
+</item>
+
+
+	
+
+<item id="li1114">
+Local classes
+
+</item>
+
+
+	
+
+<item id="li1115">
+Anonymous classes
+
+</item>
+
+
+	
+
+<item id="li1116">
+Nested top-level classes and interfaces
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1172">
+Member classes and local classes were explained in previous modules. 
+This module explains anonymous classes.
+
+</para>
+
+
+
+
+
+<para id="p1173">
+Although there are some differences, an 
+anonymous class is very similar to a local class without a name. Instead of 
+defining a local class and then instantiating it, you can often use an anonymous 
+class to combine these two steps.
+
+</para>
+
+
+
+
+
+<para id="p1174">
+An anonymous class is defined by a Java 
+expression, not a statement. Therefore, an anonymous class definition can 
+be included within a larger overall Java expression.
+
+</para>
+
+
+
+
+
+<para id="p1175">
+Anonymous class definitions 
+are often included as arguments to method calls, or as the right operand of 
+assignment operators.
+
+</para>
+
+
+
+
+
+<para id="p1176">
+An object of an anonymous class must be internally linked 
+to an object of the enclosing class.
+
+</para>
+
+
+
+
+
+<para id="p1177">
+There is no such thing as an anonymous 
+interface, a local interface, or a member interface.
+
+</para>
+
+
+
+
+
+<para id="p1178">
+An anonymous class can 
+often be defined very close to its point of use. Once you become accustomed to 
+the somewhat cryptic syntax used with anonymous classes, this can lead to 
+improved code readability.
+
+</para>
+
+
+
+
+
+<para id="p1179">
+Probably the most important benefit of anonymous 
+classes has to do with accessing the members of enclosing classes. As with 
+member classes and local classes, methods of an anonymous class have direct 
+access to all the members of the enclosing classes, including private members. 
+Thus the use of anonymous classes can sometimes eliminate the requirement to 
+connect objects together via constructor parameters. In addition, objects of 
+anonymous classes have access to 
+
+<emphasis id="strong1152" effect="bold">
+final
+
+</emphasis>
+ local variables that are declared 
+within the scope of the anonymous class. 
+
+</para>
+
+
+
+
+
+<para id="p1180">
+An anonymous class can be particularly useful in those cases where 
+
+</para>
+
+
+
+
+
+<list id="ul1028" list-type="bulleted">
+
+	
+
+<item id="li1117">
+There is no reason for an object of the anonymous class to exist in the 
+	absence of an object of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1118">
+There is no reason for an object of the anonymous class to exist outside 
+	a method of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1119">
+Methods of the object of the anonymous class need access to members of 
+	the object of the enclosing class.
+
+</item>
+
+
+	
+
+<item id="li1120">
+Methods of the object of the anonymous class need access to 
+
+<emphasis id="strong1153" effect="bold">
+final 
+
+</emphasis>
+
+	local variables and method parameters belonging to the method in which the 
+	anonymous class is defined.
+
+</item>
+
+
+	
+
+<item id="li1121">
+Only one instance of the anonymous class is needed.
+
+</item>
+
+
+	
+
+<item id="li1122">
+There is no need for the class to have a name that is accessible 
+	elsewhere in the program.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1181">
+An anonymous class cannot define a constructor. However, it can define 
+an instance initializer.
+
+</para>
+
+
+
+
+
+<para id="p1182">
+Any arguments that you specify between the 
+parentheses following the superclass name in an anonymous class definition are 
+implicitly passed to the superclass constructor.
+
+</para>
+
+
+
+
+
+<para id="p1183">
+Only one instance of an 
+anonymous class can be created.
+
+</para>
+
+
+
+
+
+<para id="p1184">
+As with member classes and local classes, 
+anonymous classes cannot contain 
+
+<emphasis id="strong1154" effect="bold">
+static
+
+</emphasis>
+ members.
+
+</para>
+
+
+
+
+
+<para id="p1185">
+As with local variables 
+and local classes, anonymous classes cannot be declared 
+
+<emphasis id="strong1155" effect="bold">
+public
+
+</emphasis>
+,
+
+<emphasis id="strong1156" effect="bold">
+ 
+protected
+
+</emphasis>
+,
+
+<emphasis id="strong1157" effect="bold">
+ private
+
+</emphasis>
+, or 
+
+<emphasis id="strong1158" effect="bold">
+static
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1186">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1159" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1029" list-type="bulleted">
+
+					
+
+<item id="li1123">
+Module name: Java OOP: Anonymous Classes
+
+</item>
+
+
+					
+
+<item id="li1124">
+File: Java1640.htm
+
+
+</item>
+
+
+					
+
+<item id="li1125">
+Published: 11/20/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1160" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1187">
+<emphasis id="strong1161" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1188">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1189">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1190">
+<emphasis id="strong1162" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1191">
+A complete listing of the program discussed in this module is show in 
+
+
+<link id="a1128" target-id="Listing_10">
+
+Listing 
+10
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Figures01" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - Syntax for anonymous classes.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+							
+
+<code id="pre1000" display="block">
+new className(optional argument list){classBody}
+
+new interfaceName(){classBody}</code>
+
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+<note id="note1002" type="">
+
+
+
+
+
+<para id="p1192">
+<emphasis id="strong1163" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Program GUI.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1193">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/gif" src="../../media/java1640a.gif" width="251" height="76"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</note>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - Class file names.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+							
+
+<code id="pre1001" display="block">GUI$1$BaldButton.class
+GUI$1.class
+GUI$2.class
+GUI$3.class
+GUI.class
+InnerClasses08.class</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1002" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+							
+
+<code id="pre1002" display="block">Local class name: GUI$1$BaldButton
+Anonymous class B name: GUI$1
+Anonymous class C name: GUI$2
+Anonymous window listener class name: GUI$3
+buttonA clicked
+buttonB clicked
+buttonC clicked
+Close button clicked</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1003" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+							
+
+<code id="pre1003" display="block">Local class name: GUI$1$BaldButton</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1004" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+							
+
+<code id="pre1004" display="block">Anonymous class B name: GUI$1</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+
+
+	
+
+	
+
+<table id="table1005" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Figure_7" effect="bold">
+
+Figure 7
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+							
+
+<code id="pre1005" display="block">Anonymous class C name: GUI$2</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+
+
+	
+
+	
+
+<table id="table1006" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Figure_8" effect="bold">
+
+Figure 8
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+							
+
+<code id="pre1006" display="block">Anonymous window listener class name: GUI$3</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+
+
+	
+
+	
+
+<table id="table1007" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Figure_9" effect="bold">
+
+Figure 9
+
+</emphasis>
+
+ - Screen output.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+							
+
+<code id="pre1007" display="block">buttonA clicked
+buttonB clicked
+buttonC clicked
+Close button clicked</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Listings01" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - The controlling class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">public class InnerClasses08 {
+  public static void main(String[] args){
+    new GUI();
+  }//end main
+}//end class InnerClasses08</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1009" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - Beginning of the GUI 
+				class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">class GUI extends Frame{
+  public GUI(){//constructor
+    setLayout(new FlowLayout());
+    setSize(250,75);
+    setTitle("Copyright 2003 R.G.Baldwin");</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1010" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the BaldButton class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1010" display="block">    class BaldButton extends Button{
+      BaldButton(String text){//constructor
+        enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+        setLabel(text);
+        System.out.println("Local class name: " +
+                           getClass().getName());
+      }//end constructor</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1011" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - The processMouseEvent method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1011" display="block">
+      public void processMouseEvent(MouseEvent e){
+        if (e.getID() == MouseEvent.MOUSE_CLICKED){
+          System.out.println("buttonA clicked");
+        }//end if
+
+        //The following is required of overridden
+        // processMouseEvent method.
+        super.processMouseEvent(e);
+      }//end processMouseEvent
+    }//end class BaldButton
+
+    //Add button to Frame
+    add(new BaldButton("A"));</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1012" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Beginning of anonymous 
+				inner class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1012" display="block">    add(new Button("B")
+      {//Begin class definition
+        {//Instance initializer
+          enableEvents(
+                      AWTEvent.MOUSE_EVENT_MASK);
+          System.out.println(
+                     "Anonymous class B name: " +
+                           getClass().getName());
+        }//end instance initializer</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+	
+
+	
+
+<table id="table1013" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Overridden processMouseEvent method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+				
+
+<code id="pre1013" display="block">        public void processMouseEvent(
+                                    MouseEvent e){
+          if (e.getID() ==
+                        MouseEvent.MOUSE_CLICKED){
+            System.out.println("buttonB clicked");
+          }//end if
+
+          //Required of overridden
+          // processMouseEvent method.
+          super.processMouseEvent(e);
+        }//end processMouseEvent
+      }//end class definition
+    );//end add method call</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1014" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - Register a MouseListener object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1014" display="block">    Button buttonC = new Button("C");
+
+    buttonC.addMouseListener(new MouseListener()
+      {//begin class definition
+        //Instance initializer
+        {System.out.println(
+                     "Anonymous class C name: " +
+                          getClass().getName());}</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1015" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - Implementing the interface.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+				
+
+<code id="pre1015" display="block">        public void mouseClicked(MouseEvent e){
+          System.out.println("buttonC clicked");
+        }//end mouseClicked
+
+        //All interface methods must be defined
+        public void mousePressed(MouseEvent e){}
+        public void mouseReleased(MouseEvent e){}
+        public void mouseEntered(MouseEvent e){}
+        public void mouseExited(MouseEvent e){}
+
+      }//end class definition
+    );//end addMouseListener call
+
+    add(buttonC);//add button to frame</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+	
+
+	
+
+<table id="table1016" summary="A table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - Registering a WindowListener on the Frame .
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1016" display="block">    addWindowListener(new WindowAdapter()
+      {//begin class definition
+        //Instance initializer
+        {System.out.println(
+             "Anonymous window listener class " +
+               "name: " + getClass().getName());}
+
+        public void windowClosing(WindowEvent e){
+          System.out.println(
+                         "Close button clicked");
+          System.exit(0);
+        }//end windowClosing
+      }//end class definition
+    );//end addWindowListener
+
+    setVisible(true);
+
+  }//end constructor
+}//end GUI class</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<note id="note1003" type="">
+
+
+
+
+
+<para id="p1194">
+<emphasis id="strong1164" effect="bold">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Complete program 
+				listing.
+
+</emphasis>
+</para>
+
+
+
+
+				
+
+<code id="pre1017" display="block">/*File InnerClasses08.java
+Copyright 2003 R.G.Baldwin
+
+This program is designed to illustrate the use
+of local classes, and anonymous classes.  It
+illustrates three different implementations of
+anonymous classes.  It also illustrates the use
+of instance initializers as an alternative to
+constructors.
+
+Illustrates use of local class to instantiate
+object to handle mouse clicked event with
+low-level event handling.  This class uses
+constructor to enable mouse events on a new
+extended Button class.  Also uses constructor
+to display the class file name.
+
+Illustrates use of anonymous class to instantiate
+object to handle mouse clicked event with
+low-level event handling.  This class uses an
+instance initializer to enable mouse events on a
+new extended Button class.  Also uses instance
+initializer to display name of class file.
+
+Illustrates use of anonymous class, which
+implements MouseListener interface, to
+instantiate object to handle mouse clicked event
+using source-listener event model.  Uses instance
+initializer to display name of class file.
+
+Illustrates use of anonymous class, which extends
+WindowAdapter class, to instantiate object to
+handle window events fired by the close button in
+the upper-right corner of a Frame object, using
+source-listener event model.  Uses instance
+initializer to display name of class file.
+
+This program produces the following class files
+when compiled:
+
+GUI$1$BaldButton.class
+GUI$1.class
+GUI$2.class
+GUI$3.class
+GUI.class
+InnerClasses08.class
+
+The program produces the following output when
+the program is started, each button is clicked
+once in succession, and then the close button
+in the upper-right corner of the Frame is
+clicked:
+
+Local class name: GUI$1$BaldButton
+Anonymous class B name: GUI$1
+Anonymous class C name: GUI$2
+Anonymous window listener class name: GUI$3
+buttonA clicked
+buttonB clicked
+buttonC clicked
+Close button clicked
+
+Tested using JDK 1.4.1 under Win
+************************************************/
+
+import java.awt.*;
+import java.awt.event.*;
+
+public class InnerClasses08 {
+  public static void main(String[] args){
+    new GUI();
+  }//end main
+}//end class InnerClasses08
+//=============================================//
+
+class GUI extends Frame{
+
+  public GUI(){//constructor
+    setLayout(new FlowLayout());
+    setSize(250,75);
+    setTitle("Copyright 2003 R.G.Baldwin");
+
+    //Local class w/mouse events enabled. The new
+    // class extends Button, and uses low-level
+    // event handling to handle mouse clicked
+    // events on the button.
+    class BaldButton extends Button{
+      BaldButton(String text){//constructor
+        enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+        setLabel(text);
+        //Display the name of the class file
+        System.out.println("Local class name: " +
+                           getClass().getName());
+      }//end constructor
+
+      //This is the event handling method.
+      public void processMouseEvent(
+                                   MouseEvent e){
+        if (e.getID() ==
+                       MouseEvent.MOUSE_CLICKED){
+          System.out.println("buttonA clicked");
+        }//end if
+        //The following is required of overridden
+        // processMouseEvent method.
+        super.processMouseEvent(e);
+      }//end processMouseEvent
+    }//end class BaldButton
+
+    //Add button to Frame
+    add(new BaldButton("A"));
+
+
+    //This code defines an anonymous Inner Class
+    // w/mouse events enabled.  The new class
+    // extends Button.  This class uses low-level
+    // event handling to handle mouse clicked
+    // events on the button.  This is an
+    // anonymous alternative to the local class
+    // defined above.
+    add(new Button("B")
+      {//Begin class definition
+        {//Instance initializer
+          enableEvents(
+                      AWTEvent.MOUSE_EVENT_MASK);
+          System.out.println(
+                     "Anonymous class B name: " +
+                           getClass().getName());
+        }//end instance initializer
+
+        //Override the inherited
+        // processMouseEvent method.
+        public void processMouseEvent(
+                                   MouseEvent e){
+          if (e.getID() ==
+                       MouseEvent.MOUSE_CLICKED){
+            System.out.println(
+                              "buttonB clicked");
+          }//end if
+          //Required of overridden
+          // processMouseEvent method.
+          super.processMouseEvent(e);
+        }//end processMouseEvent
+      }//end class definition
+    );//end add method call
+
+
+    Button buttonC = new Button("C");
+    //Anonymous inner class that implements
+    // MouseListener interface
+    buttonC.addMouseListener(new MouseListener()
+      {//begin class definition
+        //Instance initializer
+        {System.out.println(
+                     "Anonymous class C name: " +
+                          getClass().getName());}
+
+        public void mouseClicked(MouseEvent e){
+          System.out.println("buttonC clicked");
+        }//end mouseClicked
+
+        //All interface methods must be defined
+        public void mousePressed(MouseEvent e){}
+        public void mouseReleased(MouseEvent e){}
+        public void mouseEntered(MouseEvent e){}
+        public void mouseExited(MouseEvent e){}
+
+      }//end class definition
+    );//end addMouseListener call
+
+    add(buttonC);//add button to frame
+
+
+    //Use an anonymous class to register a window
+    // listener on the Frame.  This class extends
+    // WindowAdapter
+    addWindowListener(new WindowAdapter()
+      {//begin class definition
+        //Instance initializer
+        {System.out.println(
+             "Anonymous window listener class " +
+               "name: " + getClass().getName());}
+
+        public void windowClosing(WindowEvent e){
+          System.out.println(
+                         "Close button clicked");
+          System.exit(0);
+        }//end windowClosing
+      }//end class definition
+    );//end addWindowListener
+
+    setVisible(true);
+
+  }//end constructor
+
+}//end GUI class
+//=============================================//</code>
+
+
+
+
+
+</note>
+
+
+
+
+
+
+<para id="p1195">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

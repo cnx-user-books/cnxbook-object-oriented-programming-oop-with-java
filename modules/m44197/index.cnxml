@@ -1,0 +1,7871 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java1620: Static Members</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44197</md:content-id>
+  <md:title>Java1620: Static Members</md:title>
+  <md:abstract>According to Baldwin, static members can be useful in some situations, but the overuse of static members can lead to problems similar to those experienced in languages that support global variables and global functions.</md:abstract>
+  <md:uuid>be37341f-eff9-4dcb-9cfa-5f77a14c2fc4</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Thu Mar 31 15:56:25 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java.
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Output date and time. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Five seconds later. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. Same date and time as before.
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. A new date and time. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. Same date and time as before. 
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. Output from overridden toString method in Date class.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named MyClass01.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Signature of the main method. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Display some text. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Display date information. 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. A five-second delay.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Instantiate a new object.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Display the new Date object.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Accessing class variable via an object.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. Another new object.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Display the date and time.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Display date information.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Revisiting System.out.println.
+
+</item>
+
+
+		
+
+<item id="li1030">
+<link id="a1030" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Complete program listing.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+<emphasis id="strong1000" effect="bold">
+Static members
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1005">
+There is another aspect of OOP in Java that I have avoided up to this point 
+in the discussion: 
+
+<emphasis id="em1003" effect="italics">
+<emphasis id="strong1001" effect="bold">
+static
+
+</emphasis>
+</emphasis>
+ variables and 
+
+<emphasis id="em1004" effect="italics">
+<emphasis id="strong1002" effect="bold">
+static
+
+</emphasis>
+</emphasis>
+ methods. 
+
+</para>
+
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1003" effect="bold">
+Tends to complicate ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1007">
+I have avoided this topic because, while not particularly difficult, the 
+existence of 
+
+<emphasis id="strong1004" effect="bold">
+static
+
+</emphasis>
+ members tends to break up the simple structures that I have 
+discussed in previous modules in this collection. 
+
+</para>
+
+
+
+
+
+<para id="p1008">
+While 
+
+<emphasis id="strong1005" effect="bold">
+static
+
+</emphasis>
+ members can be useful in some situations, the existence of 
+
+
+<emphasis id="strong1006" effect="bold">
+static
+
+</emphasis>
+ members tends to complicate the overall object-oriented structure of 
+Java. 
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1007" effect="bold">
+Avoid overuse of 
+
+<emphasis id="strong1008" effect="bold">
+static
+
+</emphasis>
+ members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1010">
+Furthermore, the overuse of 
+
+<emphasis id="strong1009" effect="bold">
+static
+
+</emphasis>
+ members can lead to problems similar to 
+those experienced in languages like C and C++ that support global variables and 
+global functions. 
+
+</para>
+
+
+
+
+
+<para id="p1011">
+<emphasis id="strong1010" effect="bold">
+When to use static members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1012">
+I will discuss the use of 
+
+<emphasis id="strong1011" effect="bold">
+static
+
+</emphasis>
+ members in this module, and will provide 
+some guidelines for their use. 
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<emphasis id="strong1012" effect="bold">
+The class named Class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1014">
+I will also introduce the class named 
+
+<emphasis id="strong1013" effect="bold">
+Class
+
+</emphasis>
+ and discuss how 
+it enters into the use of 
+
+<emphasis id="strong1014" effect="bold">
+static
+
+</emphasis>
+ variables and methods. 
+
+</para>
+
+
+
+
+
+<para id="p1015">
+<emphasis id="strong1015" effect="bold">
+Instance members versus class members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1016">
+I will describe the differences between 
+
+<emphasis id="em1005" effect="italics">
+instance
+
+</emphasis>
+ members and 
+
+<emphasis id="em1006" effect="italics">
+
+class
+
+</emphasis>
+ members with particular emphasis being placed on their accessibility.
+
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1016" effect="bold">
+Three kinds of objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+From a conceptual viewpoint, there are at least three kinds of objects 
+involved in a Java program:
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1031">
+Ordinary objects
+
+</item>
+
+
+	
+
+<item id="li1032">
+Array objects
+
+</item>
+
+
+	
+
+<item id="li1033">
+Class objects
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1019">
+<emphasis id="strong1017" effect="bold">
+Ordinary objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+All 
+
+<emphasis id="em1007" effect="italics">
+(or at least most)
+
+</emphasis>
+ of the discussion up to this point in the 
+collection deals with what I have referred to in the above list as 
+
+<emphasis id="em1008" effect="italics">
+ordinary 
+objects
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1021">
+These are the objects that you instantiate in you code by applying the
+
+
+<emphasis id="strong1018" effect="bold">
+new
+
+</emphasis>
+ operator to a constructor for a class in order to create a 
+new instance 
+
+<emphasis id="em1009" effect="italics">
+(object)
+
+</emphasis>
+ of that class. 
+
+<emphasis id="em1010" effect="italics">
+(There are also a couple of 
+other ways to create ordinary objects, but I'm not going to get into that at 
+this time.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1019" effect="bold">
+Array objects
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1023">
+I haven't discussed 
+
+<emphasis id="em1011" effect="italics">
+array objects
+
+</emphasis>
+ thus far in this collection. 
+
+<emphasis id="em1012" effect="italics">
+
+(I will discuss them in a future module.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+Suffice it for now to say that array objects are objects whose purpose is to 
+encapsulate a one-dimensional array structure that can contain either primitive 
+values, or references to other objects 
+
+<emphasis id="em1013" effect="italics">
+(including other array objects).
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1025">
+I will discuss Class objects in this module.
+
+</para>
+
+
+
+	
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1026">
+<emphasis id="strong1020" effect="bold">
+Class objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1027">
+Let me emphasize at the beginning that the following discussion is 
+
+<emphasis id="strong1021" effect="bold">
+
+
+
+<emphasis id="em1014" effect="italics">
+conceptual
+
+</emphasis>
+</emphasis>
+ in nature. In this discussion, I will describe how 
+the Java system behaves, not necessarily how it is implemented. In other words, 
+however it is implemented, it behaves as though it is implemented in the manner 
+described below. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1022" effect="bold">
+The class named Class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1029">
+There is a class whose name is 
+
+<emphasis id="strong1023" effect="bold">
+Class
+
+</emphasis>
+. The purpose of this 
+class is to encapsulate information about some other class 
+
+<emphasis id="em1015" effect="italics">
+(actually, it can 
+also be used to encapsulate information about primitive types as well as class 
+types).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1030">
+Here is part of what Sun has to say about this class: 
+
+</para>
+
+
+
+
+
+<para id="p1031">
+<emphasis id="em1016" effect="italics">
+"Instances of the class 
+
+<emphasis id="strong1024" effect="bold">
+Class
+
+</emphasis>
+ represent classes and 
+interfaces in a running Java application. ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1032">
+<emphasis id="em1017" effect="italics">
+<emphasis id="strong1025" effect="bold">
+Class
+
+</emphasis>
+ has no public constructor. Instead 
+
+<emphasis id="strong1026" effect="bold">
+Class
+
+</emphasis>
+ 
+objects are constructed automatically by the Java Virtual Machine as classes are 
+loaded ..."
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1033">
+<emphasis id="strong1027" effect="bold">
+What does this mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1034">
+As a practical matter, when one or more objects are instantiated from a given 
+class, an extra object of the 
+
+<emphasis id="strong1028" effect="bold">
+Class
+
+</emphasis>
+ class is also instantiated 
+automatically. This object contains information about the class from which the 
+objects were instantiated. 
+
+<emphasis id="em1018" effect="italics">
+(Note that it is also possible to cause a 
+
+<emphasis id="strong1029" effect="bold">
+
+Class
+
+</emphasis>
+ object that describes a specific class to be created in the 
+absence of objects of that class, but that is a topic that will be reserved for 
+more advanced modules.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1030" effect="bold">
+A real-world analogy
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1036">
+Here is an attempt to describe a real-world analogy. Remember that a class 
+definition contains the blueprint for objects instantiated from that class. 
+
+</para>
+
+
+
+
+
+<para id="p1037">
+A certain large construction company is in the business of building 
+condominium projects. This contractor builds condos of many different sizes, 
+types, and price ranges. However, each different condo project contains condos 
+of only two or three different types or price ranges. 
+
+</para>
+
+
+
+
+
+<para id="p1038">
+<emphasis id="strong1031" effect="bold">
+A library of blueprints
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1039">
+There is a large library of blueprints at the contractor's central office. 
+This library contains blueprints for all of the different types of condos that 
+the contractor has built or is building. 
+
+<emphasis id="em1019" effect="italics">
+(This library is analogous to the 
+class libraries available to the Java programmer.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1040">
+<emphasis id="strong1032" effect="bold">
+A subset from the blueprint library
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1041">
+When a condo project begins, the contractor delivers copies of several sets 
+of blueprints to the construction site. The blueprints delivered to that site 
+describe only the types of condos being constructed on that site. 
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1033" effect="bold">
+Condo is analogous to an object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1043">
+Each condo unit is analogous to an 
+
+<emphasis id="em1020" effect="italics">
+ordinary Java object
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1044">
+Each set of blueprints delivered to the construction site is roughly 
+analogous to an 
+
+<emphasis id="em1021" effect="italics">
+object of the class named 
+
+<emphasis id="strong1034" effect="bold">
+Class
+
+</emphasis>
+.
+
+</emphasis>
+ In 
+other words, each set of blueprints describes one or more condo units 
+constructed from that set of blueprints. 
+
+</para>
+
+
+
+
+
+<para id="p1045">
+<emphasis id="strong1035" effect="bold">
+When construction is complete
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1046">
+When the construction project is complete, the contractor delivers a set of 
+blueprints for each type of condo unit to the management firm that has been 
+hired to manage the condo complex. Each set of blueprints continues to be 
+analogous to an object of the class named 
+
+<emphasis id="strong1036" effect="bold">
+Class
+
+</emphasis>
+. The blueprints 
+remain at the site of the condo units. 
+
+</para>
+
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1037" effect="bold">
+RTTI
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1048">
+Thus, information regarding the construction, wiring, plumbing, air 
+conditioning, etc., for each condo unit 
+
+<emphasis id="em1022" effect="italics">
+(object)
+
+</emphasis>
+ continues to be 
+available at the site even after the construction has been completed. 
+
+<emphasis id="em1023" effect="italics">
+(This 
+is somewhat analogous to something called runtime type information and often 
+abbreviated as RTTI. A Class object contains RTTI for objects instantiated from 
+that class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1038" effect="bold">
+What are those analogies again?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1050">
+In the above scenario, each condo unit is 
+
+<emphasis id="em1024" effect="italics">
+(roughly)
+
+</emphasis>
+ analogous to an 
+object instantiated from a specific class 
+
+<emphasis id="em1025" effect="italics">
+(set of blueprints).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1051">
+Each set of blueprints remaining onsite after construction is complete is 
+roughly analogous to a 
+
+<emphasis id="strong1039" effect="bold">
+Class
+
+</emphasis>
+ object that describes the 
+characteristics of one or more condo units. 
+
+</para>
+
+
+
+
+
+<para id="p1052">
+<emphasis id="strong1040" effect="bold">
+What do you care?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1053">
+Until you get involved in such advanced topics as 
+
+<emphasis id="em1026" effect="italics">
+reflection
+
+</emphasis>
+ and 
+
+<emphasis id="em1027" effect="italics">
+
+introspection
+
+</emphasis>
+, you don't usually have much involvement or much interest in
+
+
+<emphasis id="strong1041" effect="bold">
+Class
+
+</emphasis>
+ objects. They are created automatically, and are 
+primarily used by the Java virtual machine during runtime to help it do the 
+things that it needs to do. 
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1042" effect="bold">
+An exception to that rule
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1055">
+However, there is one area where you will be interested in the use of these
+
+
+<emphasis id="strong1043" effect="bold">
+Class
+
+</emphasis>
+ objects from early on. You will be interested whenever 
+variables or methods in the class definition are declared to be 
+
+<emphasis id="strong1044" effect="bold">
+static
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1045" effect="bold">
+Class variables and class methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1057">
+According to the current jargon, declaring a member variable to be 
+
+<emphasis id="strong1046" effect="bold">
+
+static
+
+</emphasis>
+ causes it to be a 
+
+<emphasis id="em1028" effect="italics">
+class variable
+
+</emphasis>
+. 
+
+<emphasis id="em1029" effect="italics">
+(Note that local 
+variables cannot be declared 
+
+<emphasis id="strong1047" effect="bold">
+static
+
+</emphasis>
+. Only member variables can 
+be declared 
+
+<emphasis id="strong1048" effect="bold">
+static
+
+</emphasis>
+.)
+
+</emphasis>
+ Similarly, declaring a method to be
+
+
+<emphasis id="strong1049" effect="bold">
+static
+
+</emphasis>
+ causes it to be a 
+
+<emphasis id="em1030" effect="italics">
+class method.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1058">
+<emphasis id="strong1050" effect="bold">
+Instance variables and methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1059">
+On the other hand, according to the current jargon, not declaring a variable 
+to be 
+
+<emphasis id="strong1051" effect="bold">
+static
+
+</emphasis>
+ causes it to be an 
+
+<emphasis id="em1031" effect="italics">
+instance variable
+
+</emphasis>
+, and 
+not declaring a method to be 
+
+<emphasis id="strong1052" effect="bold">
+static
+
+</emphasis>
+ causes it to be an 
+
+<emphasis id="em1032" effect="italics">
+
+instance method
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1060">
+In general, we can refer to them as 
+
+<emphasis id="em1033" effect="italics">
+class members
+
+</emphasis>
+ and 
+
+<emphasis id="em1034" effect="italics">
+instance 
+members
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1061">
+<emphasis id="strong1053" effect="bold">
+What is the difference?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1062">
+Here are some of the differences between 
+
+<emphasis id="em1035" effect="italics">
+class
+
+</emphasis>
+ and 
+
+<emphasis id="em1036" effect="italics">
+instance
+
+</emphasis>
+ 
+members insofar as this discussion is concerned. 
+
+</para>
+
+
+
+
+
+<para id="p1063">
+<emphasis id="strong1054" effect="bold">
+How many copies of member variables exist?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1064">
+Every object instantiated from a given class has its own copy of each 
+
+<emphasis id="em1037" effect="italics">
+
+instance variable
+
+</emphasis>
+ defined in the class. 
+
+<emphasis id="em1038" effect="italics">
+(Instance variables are not 
+shared among objects.)
+
+</emphasis>
+ However, every object instantiated from a given 
+class shares the same copy of each 
+
+<emphasis id="em1039" effect="italics">
+class variable
+
+</emphasis>
+ defined in the class.
+
+
+<emphasis id="em1040" effect="italics">
+(It is as though the class variable belongs to the single 
+
+<emphasis id="strong1055" effect="bold">
+Class
+
+</emphasis>
+ 
+object and not to the individual objects instantiated from that class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1056" effect="bold">
+Access to an instance variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1066">
+Every object has its own copy of each instance variable 
+
+<emphasis id="em1041" effect="italics">
+(the object owns 
+the instance variable).
+
+</emphasis>
+ Therefore, the only way that you can access an 
+instance variable is to use that object's reference to send a message to the 
+object requesting access to the variable 
+
+<emphasis id="em1042" effect="italics">
+(even then, you may not be given 
+access, depending on access modifiers).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1067">
+<emphasis id="strong1057" effect="bold">
+Why call it an instance variable?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1068">
+According to the current jargon, 
+
+<emphasis id="em1043" effect="italics">
+<emphasis id="strong1058" effect="bold">
+an object is an instance of a 
+class
+
+</emphasis>
+.
+
+</emphasis>
+ 
+
+<emphasis id="em1044" effect="italics">
+(I probably told you that somewhere before in this 
+collection.)
+
+</emphasis>
+ Each object has its own copy of each non-static variable. 
+Hence, they are often called instance variables. 
+
+<emphasis id="em1045" effect="italics">
+(Every instance of the 
+class owns one and they are not implicitly shared among instances.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1069">
+<emphasis id="strong1059" effect="bold">
+Access to a class variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1070">
+You can also send a message to an object requesting access to a class 
+variable that the object shares with other objects instantiated from the same 
+class. 
+
+<emphasis id="em1046" effect="italics">
+(Again, you may or may not gain access, depending the access 
+modifiers).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1060" effect="bold">
+Access using the Class object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1072">
+More importantly, you can also access a class variable without a requirement 
+to go through an object instantiated from the class. 
+
+<emphasis id="em1047" effect="italics">
+(In fact, a class 
+variable can be accessed in the total absence of objects of that class.)
+
+</emphasis>
+
+
+
+<emphasis id="em1048" effect="italics">
+(Remember, this discussion is conceptual in nature, and may not represent an 
+actual implementation.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1073">
+Assuming that a class variable is otherwise accessible, you can access the 
+class variable by sending an access request message to the 
+
+<emphasis id="strong1061" effect="bold">
+Class
+
+</emphasis>
+ 
+object to which the variable belongs. 
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1062" effect="bold">
+One way to think of this
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1075">
+To help you keep track of things in a message-passing sense, you can pretend 
+that there is a global reference variable whose name is the same as the name of 
+a class. 
+
+</para>
+
+
+
+
+
+<para id="p1076">
+This 
+
+<emphasis id="em1049" effect="italics">
+(hypothetical)
+
+</emphasis>
+ reference variable contains a reference to the
+
+
+<emphasis id="strong1063" effect="bold">
+Class
+
+</emphasis>
+ object that owns the class variable. Using standard Java 
+message-passing syntax, you can access the class variable by joining the name of 
+the reference variable to the name of the class variable with a period. Example 
+syntax is shown below: 
+
+</para>
+
+
+
+
+
+<code id="pre1000" display="block">ReferenceVariableName.ClassVariableName</code>
+
+
+
+
+<para id="p1077">
+As a result of the hypothetical substitution process that I described above, 
+this is equivalent to the following: 
+
+</para>
+
+
+
+
+
+<code id="pre1001" display="block">ClassName.ClassVariableName</code>
+
+
+
+
+<para id="p1078">
+We will see an example of this in the sample program that I will discuss 
+later. 
+
+</para>
+
+
+
+
+
+<para id="p1079">
+<emphasis id="strong1064" effect="bold">
+<emphasis id="em1050" effect="italics">
+Be careful with this thought process
+
+</emphasis>
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="em1051" effect="italics">
+While this thought process may be useful when thinking about 
+
+<emphasis id="strong1065" effect="bold">
+static
+
+</emphasis>
+ 
+variables and methods, I want to point out, that the thought process breaks down 
+very quickly when dealing with 
+
+<emphasis id="strong1066" effect="bold">
+Class
+
+</emphasis>
+ objects in a deeper sense.
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1081">
+<emphasis id="em1052" effect="italics">
+For example, when calling the 
+
+<emphasis id="strong1067" effect="bold">
+getName
+
+</emphasis>
+ method on a
+
+
+<emphasis id="strong1068" effect="bold">
+Class
+
+</emphasis>
+ object, an actual reference of type 
+
+<emphasis id="strong1069" effect="bold">
+Class
+
+</emphasis>
+ 
+is required to access the members of the 
+
+<emphasis id="strong1070" effect="bold">
+Class
+
+</emphasis>
+ object. The name 
+of the class will not suffice.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1082">
+<emphasis id="em1053" effect="italics">
+If this discussion of a global reference variable whose name matches the 
+name of the class is confusing to you, just forget it. Simply remember that you 
+can access class variables by joining the name of the class to the name of the 
+class variable using a period as the joining operator.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1071" effect="bold">
+
+Characteristics of class methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1084">
+I'm not going to talk very much about instance methods and class methods in 
+this module. However, there are a couple of characteristics of class methods 
+that deserve a brief discussion in this context. 
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1072" effect="bold">
+Cannot access instance members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1086">
+First, the code in a class method has direct access only to other 
+
+<emphasis id="strong1073" effect="bold">
+
+static
+
+</emphasis>
+ members of the class. 
+
+<emphasis id="em1054" effect="italics">
+(A class method does not have direct 
+access to instance variables or instance methods of the class.)
+
+</emphasis>
+ This is 
+sort of like saying that a class method has access to the methods and variables 
+belonging to the 
+
+<emphasis id="strong1074" effect="bold">
+Class
+
+</emphasis>
+ object, but does not have access to the 
+methods and variables belonging to the 
+
+<emphasis id="em1055" effect="italics">
+ordinary objects
+
+</emphasis>
+ instantiated 
+from the class described by the 
+
+<emphasis id="strong1075" effect="bold">
+Class
+
+</emphasis>
+ object.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1076" effect="bold">
+<emphasis id="em1056" effect="italics">
+Once 
+again, be careful
+
+</emphasis>
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1088">
+<emphasis id="em1057" effect="italics">
+Once again, this thinking breaks down very quickly once you get beyond 
+
+
+<emphasis id="strong1077" effect="bold">
+static
+
+</emphasis>
+ members. A 
+
+<emphasis id="strong1078" effect="bold">
+Class
+
+</emphasis>
+ object also has instance methods, such 
+as 
+
+<emphasis id="strong1079" effect="bold">
+getName
+
+</emphasis>
+, which can only be accessed using an actual 
+reference to the 
+
+<emphasis id="strong1080" effect="bold">
+Class
+
+</emphasis>
+ object.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1089">
+<emphasis id="em1058" effect="italics">
+Now you are probably beginning to understand why I deferred this 
+discussion until after I finished discussing the easy stuff.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1090">
+<emphasis id="strong1081" effect="bold">
+No 
+object required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1091">
+Another important characteristic is that a class method can be accessed 
+without a requirement for an object of the class to exist. 
+
+</para>
+
+
+
+
+
+<para id="p1092">
+As with class variables, class methods can be accessed by joining the name of 
+the class to the name of the method with a period. 
+
+</para>
+
+
+
+
+
+<para id="p1093">
+I will illustrate much of this with a sample program named 
+
+<emphasis id="strong1082" effect="bold">
+MyClass01
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1094">
+<emphasis id="strong1083" effect="bold">
+Discuss in fragments
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1095">
+I will discuss the program in fragments. You will find a complete listing of 
+the program in 
+
+<link id="a1031" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ near the end of the module. 
+
+</para>
+
+
+
+
+
+<para id="p1096">
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the class definition. 
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of the class 
+				named MyClass01.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1002" display="block">class MyClass01{
+ static Date v1 = new Date();
+ Date v2 = new Date();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1097">
+<emphasis id="strong1084" effect="bold">
+Two member variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1098">
+The code in 
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ declares two member variables, 
+named 
+
+<emphasis id="strong1085" effect="bold">
+v1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1086" effect="bold">
+v2
+
+</emphasis>
+, and initializes each of those 
+variables with a reference to a new object of the 
+
+<emphasis id="strong1087" effect="bold">
+Date
+
+</emphasis>
+ class.
+
+
+<emphasis id="em1059" effect="italics">
+(When instantiated using the constructor with no arguments, the new 
+
+<emphasis id="strong1088" effect="bold">
+
+Date
+
+</emphasis>
+ object encapsulates the current date and time from the system 
+clock.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1099">
+<emphasis id="strong1089" effect="bold">
+Note the static keyword
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1100">
+The important thing to note here is the use of the 
+
+<emphasis id="strong1090" effect="bold">
+static
+
+</emphasis>
+ 
+keyword when declaring the variable named 
+
+<emphasis id="strong1091" effect="bold">
+v1
+
+</emphasis>
+. This causes
+
+
+<emphasis id="strong1092" effect="bold">
+v1
+
+</emphasis>
+ to be a 
+
+<emphasis id="em1060" effect="italics">
+class variable
+
+</emphasis>
+, exhibiting the 
+characteristics of class variables described earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1093" effect="bold">
+An instance variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1102">
+On the other hand, the variable named 
+
+<emphasis id="strong1094" effect="bold">
+v2
+
+</emphasis>
+ is not declared
+
+
+<emphasis id="strong1095" effect="bold">
+static
+
+</emphasis>
+. This causes it to be an 
+
+<emphasis id="em1061" effect="italics">
+instance variable
+
+</emphasis>
+, as 
+described above. 
+
+</para>
+
+
+
+
+
+<para id="p1103">
+<emphasis id="strong1096" effect="bold">
+The main method is a class method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1104">
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the signature for the 
+
+<emphasis id="strong1097" effect="bold">
+main
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Signature of the main 
+				method.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1003" display="block">public static void main(String[] args){</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1105">
+The important thing to note here is that the 
+
+<emphasis id="strong1098" effect="bold">
+main
+
+</emphasis>
+ method 
+	is declared 
+
+<emphasis id="strong1099" effect="bold">
+static
+
+</emphasis>
+. That causes it to be a 
+
+<emphasis id="em1062" effect="italics">
+class method
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1106">
+As a result, the 
+
+<emphasis id="strong1100" effect="bold">
+main
+
+</emphasis>
+ method can be called without a 
+requirement for an object of the class to exist. 
+
+<emphasis id="em1063" effect="italics">
+(Also, the main method has 
+direct access only to other 
+
+<emphasis id="strong1101" effect="bold">
+static
+
+</emphasis>
+ members.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1107">
+<emphasis id="strong1102" effect="bold">
+How a Java application starts running
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1108">
+In fact, that is how the Java Virtual Machine starts an application running.
+
+
+</para>
+
+
+
+
+
+<para id="p1109">
+First the JVM finds the specified file having an extension of
+
+<emphasis id="strong1103" effect="bold">
+<emphasis id="em1064" effect="italics">
+ 
+.class.
+
+</emphasis>
+</emphasis>
+ Then it examines that file to see if it has a 
+
+<emphasis id="strong1104" effect="bold">
+main
+
+</emphasis>
+ 
+method with the correct signature. If not, an error occurs. 
+
+</para>
+
+
+
+
+
+<para id="p1110">
+If the JVM finds a 
+
+<emphasis id="strong1105" effect="bold">
+main
+
+</emphasis>
+ method with the correct signature, 
+it calls that method without instantiating an object of the class. That is how 
+the Java Virtual Machine causes a Java application to start running. 
+
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1106" effect="bold">
+<emphasis id="em1065" effect="italics">
+A side note regarding applets
+
+</emphasis>
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1112">
+<emphasis id="em1066" effect="italics">
+For those of you who are familiar with Java applets, you should know that 
+this is not the case for an applet. An applet does not use a 
+
+<emphasis id="strong1107" effect="bold">
+main
+
+</emphasis>
+ method. When an applet is started, an object of the 
+controlling class is instantiated by the browser, by the 
+
+<emphasis id="strong1108" effect="bold">
+appletviewer
+
+</emphasis>
+ 
+program, or by whatever program is being used to control the execution of the 
+applet.
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1109" effect="bold">
+A poor programming technique
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1114">
+Basically, this entire sample program is coded inside the 
+
+<emphasis id="strong1110" effect="bold">
+main
+
+</emphasis>
+ 
+method. As a practical manner, this is a very poor programming technique, but it 
+works well for this example. 
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1111" effect="bold">
+Display some text
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1116">
+The code in 
+
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, which is the first executable statement in the 
+
+<emphasis id="strong1112" effect="bold">
+
+main
+
+</emphasis>
+ method, causes the words 
+
+<emphasis id="strong1113" effect="bold">
+Static variable
+
+</emphasis>
+ to 
+appear on the computer screen. I will come back and discuss the details of this 
+and similar statements later in the module. 
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Display some text.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1004" display="block"> System.out.println("Static variable");</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1117">
+<emphasis id="strong1114" effect="bold">
+Display date information
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1118">
+Continuing with the code in the 
+
+<emphasis id="strong1115" effect="bold">
+main
+
+</emphasis>
+ method, the 
+code in 
+
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ causes the current contents of the 
+
+<emphasis id="strong1116" effect="bold">
+Date
+
+</emphasis>
+ 
+object referred to by the contents of the class variable named 
+
+<emphasis id="strong1117" effect="bold">
+v1
+
+</emphasis>
+ 
+to be displayed on the computer screen. 
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Display date information.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1005" display="block"> System.out.println(MyClass01.v1);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1119">
+<emphasis id="strong1118" effect="bold">
+No object required
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1120">
+For the moment, concentrate on the text inside the parentheses in the 
+statement in 
+
+<link id="a1037" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1121">
+Because the variable named 
+
+<emphasis id="strong1119" effect="bold">
+v1
+
+</emphasis>
+ is 
+a class variable, it's value is accessed by joining the name of the class to the 
+name of the variable with a period. 
+
+</para>
+
+
+
+
+
+<para id="p1122">
+<emphasis id="strong1120" effect="bold">
+What was the output?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1123">
+I will discuss the remaining portion of statements of this sort later. For 
+now, just be aware that the code in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ caused 
+the output shown in 
+
+<link id="a1039" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ to be displayed on my computer screen when I ran 
+the program. 
+
+</para>
+
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Output date and time.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+
+							
+
+<code id="pre1006" display="block">Mon Sep 17 09:52:27 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1124">
+<emphasis id="strong1121" effect="bold">
+Displays date and time
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1125">
+Obviously, the date and time displayed will depend on when you run the 
+program. As you can see, I first wrote this module and ran this program in 2001.
+
+</para>
+
+
+
+
+
+<para id="p1126">
+Pay particular attention to the seconds portion of the time. I will refer 
+back to this later. 
+
+</para>
+
+
+
+
+
+<para id="p1127">
+<emphasis id="strong1122" effect="bold">
+A five-second delay
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1128">
+The code in 
+
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+
+<emphasis id="em1067" effect="italics">
+(still in the 
+
+<emphasis id="strong1123" effect="bold">
+main
+
+</emphasis>
+ method)
+
+</emphasis>
+ 
+causes the main thread of the program to go to sleep for five seconds. Don't 
+worry about it if you don't understand this code. The only reason that I 
+included it in the program was to force a five-second delay in the execution of 
+the program. 
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. A five-second delay.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1007" display="block"> try{
+  Thread.currentThread().sleep(5000);
+ }catch(InterruptedException e){}</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1129">
+<emphasis id="strong1124" effect="bold">
+Instantiate a new object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1130">
+Having caused the program to sleep for five seconds, the code in 
+
+
+<link id="a1041" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ 
+instantiates a new object of the class named 
+
+<emphasis id="strong1125" effect="bold">
+MyClass01
+
+</emphasis>
+. This 
+code stores the new object's reference in the reference variable named 
+
+<emphasis id="strong1126" effect="bold">
+
+ref1
+
+</emphasis>
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Instantiate a new object
+.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1008" display="block"> MyClass01 ref1 = new MyClass01();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1131">
+<emphasis id="strong1127" effect="bold">
+A new Date object also
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1132">
+Recall from 
+
+<link id="a1042" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ above that the class declares 
+an instance variable named 
+
+<emphasis id="strong1128" effect="bold">
+v2
+
+</emphasis>
+ of the type 
+
+<emphasis id="strong1129" effect="bold">
+Date
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1133">
+When the new object is instantiated by the code in 
+
+<link id="a1043" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, 
+a new 
+
+<emphasis id="strong1130" effect="bold">
+Date
+
+</emphasis>
+ object is also instantiated. A reference to that 
+object is stored in the instance variable named 
+
+<emphasis id="strong1131" effect="bold">
+v2
+
+</emphasis>
+. 
+
+<emphasis id="em1068" effect="italics">
+(In 
+other words, the new object of the class 
+
+<emphasis id="strong1132" effect="bold">
+MyClass01
+
+</emphasis>
+ owns a 
+reference to a new object of the class 
+
+<emphasis id="strong1133" effect="bold">
+Date
+
+</emphasis>
+. That reference is 
+stored in an instance variable named 
+
+<emphasis id="strong1134" effect="bold">
+v2
+
+</emphasis>
+ in the new 
+
+<emphasis id="strong1135" effect="bold">
+
+MyClass01
+
+</emphasis>
+ object.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1136" effect="bold">
+Display the new Date object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1135">
+The code in 
+
+<link id="a1044" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ causes a textual representation of the new 
+
+<emphasis id="strong1137" effect="bold">
+Date
+
+</emphasis>
+ 
+object referred to by the reference variable named 
+
+<emphasis id="strong1138" effect="bold">
+v2
+
+</emphasis>
+ belonging 
+to the object referred to by the reference variable named 
+
+<emphasis id="strong1139" effect="bold">
+ref1
+
+</emphasis>
+, 
+to be displayed on the standard output device. 
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Display the new Date object .
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1009" display="block"> System.out.println(ref1.v2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1136">
+<emphasis id="strong1140" effect="bold">
+Five seconds later
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1137">
+This code caused the date and time shown in 
+
+<link id="a1045" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ to appear on the 
+computer screen when I ran the program: 
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+. Five seconds later.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+
+							
+
+<code id="pre1010" display="block">Mon Sep 17 09:52:32 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1138">
+The date and time shown in 
+
+<link id="a1046" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ is five 
+	seconds later than the time reflected in the 
+
+<emphasis id="strong1141" effect="bold">
+Date
+
+</emphasis>
+ object 
+	referred to by the 
+
+<emphasis id="em1069" effect="italics">
+class variable
+
+</emphasis>
+ named 
+
+<emphasis id="strong1142" effect="bold">
+v1
+
+</emphasis>
+ 
+
+<emphasis id="em1070" effect="italics">
+(see
+	
+
+<link id="a1047" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+)
+
+</emphasis>
+. That time was displayed by the code 
+	in 
+
+<link id="a1048" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1139">
+<emphasis id="strong1143" effect="bold">
+So, what does this mean?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1140">
+It means that the 
+
+<emphasis id="strong1144" effect="bold">
+Date
+
+</emphasis>
+ object referred to by the 
+
+<emphasis id="strong1145" effect="bold">
+
+static
+
+</emphasis>
+ reference variable named 
+
+<emphasis id="strong1146" effect="bold">
+v1
+
+</emphasis>
+ was created five 
+seconds earlier than the 
+
+<emphasis id="strong1147" effect="bold">
+Date
+
+</emphasis>
+ object referred to by the 
+instance variable named 
+
+<emphasis id="strong1148" effect="bold">
+v2
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1149" effect="bold">
+When is a class variable created?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1142">
+I can't tell you precisely when a class variable comes into existence. All I 
+can say is that the virtual machine brings it into existence as soon as it is 
+needed. 
+
+</para>
+
+
+
+
+
+<para id="p1143">
+My guess is that it comes into existence at the first mention 
+
+<emphasis id="em1071" effect="italics">
+(in the 
+program)
+
+</emphasis>
+ of the class to which it belongs. 
+
+</para>
+
+
+
+
+
+<para id="p1144">
+<emphasis id="strong1150" effect="bold">
+When is an instance variable created?
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1145">
+An instance variable doesn't come into existence until the object to which it 
+belongs is created. 
+
+<emphasis id="em1072" effect="italics">
+(An instance variable cannot exist until the object to 
+which it belongs exists.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1146">
+If the instance variable is initialized with a reference to a new object 
+
+<emphasis id="em1073" effect="italics">
+
+(such as a new 
+
+<emphasis id="strong1151" effect="bold">
+Date
+
+</emphasis>
+ object in this sample program),
+
+</emphasis>
+ that 
+new object comes into existence when the object to which it belongs comes into 
+existence. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1152" effect="bold">
+A five-second delay
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1148">
+In this program, I purposely inserted a five-second delay between the first 
+mention of the class named 
+
+<emphasis id="strong1153" effect="bold">
+MyClass01
+
+</emphasis>
+ in 
+
+<link id="a1049" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+, and the instantiation of the object of the class named 
+
+<emphasis id="strong1154" effect="bold">
+
+MyClass01
+
+</emphasis>
+ in 
+
+<link id="a1050" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1149">
+As a result, the 
+
+<emphasis id="strong1155" effect="bold">
+Date
+
+</emphasis>
+ object referred to by the instance 
+variable named 
+
+<emphasis id="strong1156" effect="bold">
+v2
+
+</emphasis>
+ was created about five seconds later than the
+
+
+<emphasis id="strong1157" effect="bold">
+Date
+
+</emphasis>
+ object referred to by the class variable named 
+
+<emphasis id="strong1158" effect="bold">
+v1
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1150">
+This is reflected in the date and time values displayed and discussed above.
+
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1159" effect="bold">
+Accessing class variable via an object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1152">
+While it is possible to access a class variable using the name of the class 
+joined to the name of the variable, it is also possible to access a class 
+variable using a reference to any object instantiated from the class. 
+
+</para>
+
+
+
+
+
+<para id="p1153">
+<emphasis id="em1074" effect="italics">
+(As mentioned earlier, if two or more objects are instantiated from the 
+same class, they share the same class variable.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1154">
+The code in parentheses in 
+
+<link id="a1051" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ uses the reference variable named 
+
+<emphasis id="strong1160" effect="bold">
+ref1
+
+</emphasis>
+ 
+to access the class variable named 
+
+<emphasis id="strong1161" effect="bold">
+v1
+
+</emphasis>
+, and to cause the 
+contents of the 
+
+<emphasis id="strong1162" effect="bold">
+Date
+
+</emphasis>
+ object referred to by the class variable 
+to be displayed. 
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. Accessing class variable via an object.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1011" display="block"> System.out.println(ref1.v1);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1155">
+<emphasis id="strong1163" effect="bold">
+The output
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1156">
+This caused the date and time shown in 
+
+<link id="a1052" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ to be displayed on my 
+computer screen. 
+
+</para>
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+. Same date and time as 
+				before.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+
+							
+
+<code id="pre1012" display="block">Mon Sep 17 09:52:27 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1157">
+<emphasis id="strong1164" effect="bold">
+Same date and time as before
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1158">
+As you have probably already surmised, this is the same date and time shown 
+earlier in 
+
+<link id="a1053" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. This is because the code in
+
+
+<link id="a1054" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ refers to the same class variable as the code 
+in 
+
+<link id="a1055" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1159">
+Nothing has caused the contents of that class variable to change, so both
+
+
+<link id="a1056" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1057" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ display 
+the contents of the same 
+
+<emphasis id="strong1165" effect="bold">
+Date
+
+</emphasis>
+ object. 
+
+</para>
+
+
+
+
+
+<para id="p1160">
+<emphasis id="em1075" effect="italics">
+(Only one class variable exists and it doesn't matter how you access it. 
+Either way, you gain access to the same 
+
+<emphasis id="strong1166" effect="bold">
+Date
+
+</emphasis>
+ object whose 
+reference is stored in the class variable. Thus, the same date and time is shown 
+in both cases.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1161">
+<emphasis id="strong1167" effect="bold">
+Another new object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1162">
+If you examine the code in 
+
+<link id="a1058" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ near the end 
+of the program, you will see that an additional five-second delay is introduced 
+at this point in the program. 
+
+</para>
+
+
+
+
+
+<para id="p1163">
+Following that delay, the code in 
+
+<link id="a1059" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ 
+instantiates another new object of the class named 
+
+<emphasis id="strong1168" effect="bold">
+MyClass01
+
+</emphasis>
+, and stores the object's reference 
+in a new reference variable named 
+
+<emphasis id="strong1169" effect="bold">
+ref2
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1164">
+<emphasis id="em1076" effect="italics">
+(The object 
+referred to by 
+
+<emphasis id="strong1170" effect="bold">
+ref1
+
+</emphasis>
+ is a different object than the object 
+referred to by 
+
+<emphasis id="strong1171" effect="bold">
+ref2
+
+</emphasis>
+. Each object has its own instance variable 
+named 
+
+<emphasis id="strong1172" effect="bold">
+v2
+
+</emphasis>
+, and in this case, each instance variable is 
+initialized to instantiate and refer to a new 
+
+<emphasis id="strong1173" effect="bold">
+Date
+
+</emphasis>
+ object when 
+the new 
+
+<emphasis id="strong1174" effect="bold">
+MyClass01
+
+</emphasis>
+ object is instantiated.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. Another new object .
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1013" display="block"> MyClass01 ref2 = new MyClass01();</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1165">
+<emphasis id="strong1175" effect="bold">
+Display the date and time
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1166">
+Then, the code in 
+
+<link id="a1060" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ causes the contents of the 
+
+<emphasis id="strong1176" effect="bold">
+Date
+
+</emphasis>
+ 
+object referred to by the instance variable named 
+
+<emphasis id="strong1177" effect="bold">
+v2
+
+</emphasis>
+ in the 
+second object of the class named 
+
+<emphasis id="strong1178" effect="bold">
+MyClass01 
+
+</emphasis>
+to be displayed. 
+
+</para>
+
+
+
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Display the date and time
+.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1014" display="block"> System.out.println(ref2.v2);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1167">
+This caused the output shown in 
+
+<link id="a1061" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ to be displayed on my computer 
+	screen when I ran the program.
+
+</para>
+
+
+
+
+
+<para id="p1168">
+<emphasis id="em1077" effect="italics">
+(Once again, you will get different results if 
+	you compile and run the program because the date and time shown is the date 
+	and time that you run the program.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+	
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1013">
+
+			
+
+<row id="tr1026">
+
+				
+
+<entry id="th1013">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+. A new date and time.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1013">
+
+			
+
+<row id="tr1027">
+
+				
+
+<entry id="td1013">
+
+
+							
+
+<code id="pre1015" display="block">Mon Sep 17 09:52:37 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1169">
+<emphasis id="strong1179" effect="bold">
+Five seconds later
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1170">
+As you have probably figured out by now, the time encapsulated in this
+
+
+<emphasis id="strong1180" effect="bold">
+Date
+
+</emphasis>
+ object is five seconds later than the time encapsulated in 
+the 
+
+<emphasis id="strong1181" effect="bold">
+Date
+
+</emphasis>
+ object displayed in 
+
+<link id="a1062" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. 
+This is because the program was put to sleep for five seconds between the 
+instantiation of the two objects referred to by 
+
+<emphasis id="strong1182" effect="bold">
+ref1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1183" effect="bold">
+ref2
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1171">
+<emphasis id="strong1184" effect="bold">
+Every object has one
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1172">
+Every object instantiated from a given class has its own copy of each 
+instance variable declared in the class definition. There is no sharing of 
+instance variables among objects. 
+
+</para>
+
+
+
+
+
+<para id="p1173">
+Each instance variable comes into existence when the object to which it 
+belongs comes into existence, and ceases to exist when the object to which it 
+belongs ceases to exist. 
+
+</para>
+
+
+
+
+
+<para id="p1174">
+<emphasis id="strong1185" effect="bold">
+<emphasis id="em1078" effect="italics">
+Eligible for garbage collection
+
+</emphasis>
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1175">
+<emphasis id="em1079" effect="italics">
+If the instance variables are reference variables holding references to 
+other objects, as is the case here, and if there are no other reference 
+variables holding references to those same objects, the secondary objects cease 
+to exist when the primary objects cease to exist.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1176">
+<emphasis id="em1080" effect="italics">
+Technically, the objects may not actually cease to exist. Technically 
+they become eligible for garbage collection, which means that the memory that 
+they occupy becomes eligible for reuse. However, as a practical matter, they 
+cease to exist insofar as the program is concerned because they are no longer 
+accessible.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1177">
+<emphasis id="strong1186" effect="bold">
+A five-second difference in the time of creation
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1178">
+Since the two objects referred to by 
+
+<emphasis id="strong1187" effect="bold">
+ref1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1188" effect="bold">
+ref2
+
+</emphasis>
+ 
+came into existence with a five-second delay, the 
+
+<emphasis id="strong1189" effect="bold">
+Date
+
+</emphasis>
+ objects 
+belonging to those two object reflect a five-second difference in the time 
+encapsulated in the objects. 
+
+</para>
+
+
+
+
+
+<para id="p1179">
+<emphasis id="strong1190" effect="bold">
+Only one copy of class variable exists
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1180">
+Also remember that if a variable is a class variable, only one copy of the 
+variable exists, and all objects instantiated from the class share that one 
+copy. 
+
+</para>
+
+
+
+
+
+<para id="p1181">
+This is illustrated by the code in 
+
+<link id="a1063" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+, which uses the reference to 
+the second object instantiated from the class named 
+
+<emphasis id="strong1191" effect="bold">
+MyClass01
+
+</emphasis>
+, 
+to cause the contents of the class variable named 
+
+<emphasis id="strong1192" effect="bold">
+v1
+
+</emphasis>
+ to be 
+displayed. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1014" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1014">
+
+			
+
+<row id="tr1028">
+
+				
+
+<entry id="th1014">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Display date 
+				information.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1014">
+
+			
+
+<row id="tr1029">
+
+				
+
+<entry id="td1014">
+
+				
+
+<code id="pre1016" display="block">  System.out.println(ref2.v1);
+ }//end main</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1182">
+The output produced by the code in 
+
+<link id="a1064" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ is shown in 
+	
+
+<link id="a1065" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1015" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1015">
+
+			
+
+<row id="tr1030">
+
+				
+
+<entry id="th1015">
+<emphasis id="Figure_5" effect="bold">
+
+Figure 5
+
+</emphasis>
+
+. Same date and time as 
+				before.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1015">
+
+			
+
+<row id="tr1031">
+
+				
+
+<entry id="td1015">
+
+
+							
+
+<code id="pre1017" display="block">Mon Sep 17 09:52:27 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1183">
+<emphasis id="strong1193" effect="bold">
+Same output as before
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1184">
+As you can see, this is the same as the output shown in 
+
+<link id="a1066" target-id="Figure_1">
+
+
+Figure 1
+
+</link>
+
+ and 
+
+<link id="a1067" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+ earlier. 
+
+</para>
+
+
+
+
+
+<para id="p1185">
+<emphasis id="strong1194" effect="bold">
+Accessing the same physical class variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1186">
+Since only one class variable named 
+
+<emphasis id="strong1195" effect="bold">
+v1
+
+</emphasis>
+ exists, and all 
+objects instantiated from the class named 
+
+<emphasis id="strong1196" effect="bold">
+MyClass01
+
+</emphasis>
+ share that 
+single copy, it doesn't matter whether you access the class variable using the 
+name of the class, or access it using a reference to either of the objects 
+instantiated from the class. In all three cases, you are accessing the same 
+physical class variable. 
+
+</para>
+
+
+
+
+
+<para id="p1187">
+Since nothing was done to cause the contents of the class variable to change 
+after it came into existence and was initialized, 
+
+<link id="a1068" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+,
+
+
+<link id="a1069" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+, and 
+
+<link id="a1070" target-id="Figure_5">
+
+Figure 5
+
+</link>
+
+ are 
+simply three different displays of the date and time encapsulated in the same
+
+
+<emphasis id="strong1197" effect="bold">
+Date
+
+</emphasis>
+ object whose reference is stored in the class variable. 
+
+</para>
+
+
+
+
+
+<para id="p1188">
+<emphasis id="strong1198" effect="bold">
+Let's revisit System.out.println...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1189">
+Now, I want to revisit the statement originally shown in 
+
+<link id="a1071" target-id="Listing_8">
+
+
+Listing 8
+
+</link>
+
+ and repeated in 
+
+<link id="a1072" target-id="Listing_12">
+
+Listing 
+12
+
+</link>
+
+ for viewing convenience. 
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1016" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1016">
+
+			
+
+<row id="tr1032">
+
+				
+
+<entry id="th1016">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Revisiting System.out.println.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1016">
+
+			
+
+<row id="tr1033">
+
+				
+
+<entry id="td1016">
+
+				
+
+<code id="pre1018" display="block"> System.out.println(ref1.v1);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1190">
+<emphasis id="strong1199" effect="bold">
+Java programmer wanted
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1191">
+I sometimes tell my students that if I were out in industry interviewing 
+prospective Java programmers, my first question would be to ask the prospective 
+employee to tell me everything that she knows about the statement in 
+
+<link id="a1073" target-id="Listing_12">
+
+Listing 
+12
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1192">
+<emphasis id="strong1200" effect="bold">
+Covers a lot of Java OOP technology
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1193">
+This is not because there is a great demand for the use of this statement in 
+real-world problems. 
+
+<emphasis id="em1081" effect="italics">
+(In fact, in a GUI-driven software product world, there 
+is probably very little demand for the use of this statement.)
+
+</emphasis>
+ Rather, it 
+is because a lot of Java object-oriented technology is embodied in this single 
+statement. 
+
+</para>
+
+
+
+
+
+<para id="p1194">
+In that scenario, I would expect to receive a verbal dissertation of fifteen 
+to twenty minutes in length to cover all the important points. 
+
+</para>
+
+
+
+
+
+<para id="p1195">
+<emphasis id="strong1201" effect="bold">
+The short version
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1196">
+Let me give you the short version. There is a class named 
+
+<emphasis id="strong1202" effect="bold">
+System
+
+</emphasis>
+. 
+The 
+
+<emphasis id="strong1203" effect="bold">
+System
+
+</emphasis>
+ class declares three 
+
+<emphasis id="strong1204" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="em1082" effect="italics">
+
+(class)
+
+</emphasis>
+ variables having the following types, names, and modifiers:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1034">
+public static final PrintStream 
+
+<emphasis id="strong1205" effect="bold">
+out
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1035">
+public static final InputStream 
+
+<emphasis id="strong1206" effect="bold">
+in
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1036">
+public static final PrintStream 
+
+<emphasis id="strong1207" effect="bold">
+err
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1197">
+<emphasis id="em1083" effect="italics">
+(Note that these class variables are also declared 
+
+<emphasis id="strong1208" effect="bold">
+final
+
+</emphasis>
+, 
+causing them to behave as constants.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1198">
+A
+
+<emphasis id="strong1209" effect="bold">
+ccess the out variable 
+without an object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1199">
+Because 
+
+<emphasis id="strong1210" effect="bold">
+out
+
+</emphasis>
+ is a class variable, 
+
+<emphasis id="strong1211" effect="bold">
+System.out
+
+</emphasis>
+ 
+returns the contents of the class variable named 
+
+<emphasis id="strong1212" effect="bold">
+out 
+
+</emphasis>
+<emphasis id="em1084" effect="italics">
+(an 
+object of the 
+
+<emphasis id="strong1213" effect="bold">
+System
+
+</emphasis>
+ class is not required in order to access a class variable 
+of the 
+
+<emphasis id="strong1214" effect="bold">
+System
+
+</emphasis>
+ class).
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1200">
+In general, 
+
+<emphasis id="em1085" effect="italics">
+(ignoring the possibility of subclasses and interfaces)
+
+</emphasis>
+ 
+because 
+
+<emphasis id="strong1215" effect="bold">
+out
+
+</emphasis>
+ is a reference variable of type 
+
+<emphasis id="strong1216" effect="bold">
+PrintStream
+
+</emphasis>
+, 
+the returned value must either be 
+
+<emphasis id="strong1217" effect="bold">
+null
+
+</emphasis>
+ 
+
+<emphasis id="em1086" effect="italics">
+(no object 
+reference)
+
+</emphasis>
+ or a reference to a valid 
+
+<emphasis id="strong1218" effect="bold">
+PrintStream
+
+</emphasis>
+ object.
+
+
+</para>
+
+
+
+
+
+<para id="p1201">
+<emphasis id="strong1219" effect="bold">
+Object of the PrintStream class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1202">
+When the Java Virtual Machine starts an application running, it automatically instantiates 
+an object of the 
+
+<emphasis id="strong1220" effect="bold">
+PrintStream
+
+</emphasis>
+ class and connects it to the
+
+
+<emphasis id="strong1221" effect="bold">
+standard output device
+
+</emphasis>
+. 
+
+<emphasis id="em1087" effect="italics">
+(By default, the standard output 
+device is typically the computer screen, but it can be redirected at the 
+operating system level to be some other device. The following discussion assumes 
+that the screen is the standard output device.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1203">
+<emphasis id="strong1222" effect="bold">
+Assign object's 
+reference to out variable
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1204">
+When the 
+
+<emphasis id="strong1223" effect="bold">
+PrintStream
+
+</emphasis>
+ object is instantiated by the virtual 
+machine, the object's reference is assigned to the class variable of the 
+
+<emphasis id="strong1224" effect="bold">
+
+System
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1225" effect="bold">
+out
+
+</emphasis>
+. 
+
+<emphasis id="em1088" effect="italics">
+(Because the variable 
+named 
+
+<emphasis id="strong1226" effect="bold">
+out
+
+</emphasis>
+ is final, the contents of the variable cannot be 
+modified later.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1205">
+<emphasis id="strong1227" effect="bold">
+Reference to a PrintStream object
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1206">
+Therefore, the expression 
+
+<emphasis id="strong1228" effect="bold">
+System.out
+
+</emphasis>
+ returns a reference to 
+the 
+
+<emphasis id="strong1229" effect="bold">
+PrintStream
+
+</emphasis>
+ object, which is connected to the standard 
+output device. 
+
+</para>
+
+
+
+
+
+<para id="p1207">
+<emphasis id="strong1230" effect="bold">
+Many instance methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1208">
+An object of the 
+
+<emphasis id="strong1231" effect="bold">
+PrintStream
+
+</emphasis>
+ class contains many instance 
+methods. This includes numerous overloaded versions of a method named 
+
+<emphasis id="strong1232" effect="bold">
+
+println
+
+</emphasis>
+. The signature of one of those overloaded 
+
+
+<emphasis id="versions_of_the_println_method_follows" effect="bold">
+
+versions of the
+
+
+<emphasis id="strong1233" effect="bold">
+println
+
+</emphasis>
+ method follows
+
+</emphasis>
+
+: 
+
+</para>
+
+
+
+
+
+<code id="pre1019" display="block">public void println(Object x)</code>
+
+
+
+
+<para id="p1209">
+<emphasis id="strong1234" effect="bold">
+Textual representation of an object 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1210">
+The purpose of this overloaded version of the 
+
+<emphasis id="strong1235" effect="bold">
+println
+
+</emphasis>
+ method 
+is to:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1037">
+Create a textual representation of the object referred to by the 
+	incoming parameter of type 
+
+<emphasis id="strong1236" effect="bold">
+Object 
+
+</emphasis>
+<emphasis id="em1089" effect="italics">
+(because 
+
+<emphasis id="strong1237" effect="bold">
+
+	Object
+
+</emphasis>
+ is a totally generic type, this version of the 
+
+<emphasis id="strong1238" effect="bold">
+
+	println
+
+</emphasis>
+ method can accept an incoming parameter that is a reference 
+	to any type of object)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1038">
+Send that textual representation to the output device
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1211">
+<emphasis id="strong1239" effect="bold">
+In general...
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1212">
+A new 
+
+<emphasis id="strong1240" effect="bold">
+PrintStream
+
+</emphasis>
+ object can be connected to a variety of output devices when 
+it is instantiated. However, in the special case of the 
+
+<emphasis id="strong1241" effect="bold">
+PrintStream
+
+</emphasis>
+ 
+object instantiated by the virtual machine when the program starts, whose 
+reference is stored in the class variable named 
+
+<emphasis id="strong1242" effect="bold">
+out
+
+</emphasis>
+ of the
+
+
+<emphasis id="strong1243" effect="bold">
+System
+
+</emphasis>
+ class, the purpose of the object is to provide a display 
+path to the standard output device. 
+
+</para>
+
+
+
+
+
+<para id="p1213">
+<emphasis id="strong1244" effect="bold">
+Our old friend, the toString method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1214">
+To accomplish this, the code in the version of the 
+
+<emphasis id="strong1245" effect="bold">
+println
+
+</emphasis>
+ method shown
+
+
+<link id="a1074" target-id="versions_of_the_println_method_follows">
+
+above
+
+</link>
+
+ calls the
+
+
+<emphasis id="strong1246" effect="bold">
+toString
+
+</emphasis>
+ method on the incoming reference. 
+
+<emphasis id="em1090" effect="italics">
+(I discussed the
+
+
+<emphasis id="strong1247" effect="bold">
+toString
+
+</emphasis>
+ method in detail in earlier modules in this 
+collection.)
+
+</emphasis>
+ The 
+
+<emphasis id="strong1248" effect="bold">
+toString
+
+</emphasis>
+ method may, or may not, have 
+been overridden in the definition of the class from which the object was 
+instantiated, or in some superclass of the class from which the object was 
+instantiated. 
+
+</para>
+
+
+
+
+
+<para id="p1215">
+<emphasis id="strong1249" effect="bold">
+Default version of toString
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1216">
+If not overridden, the default version of the 
+
+<emphasis id="strong1250" effect="bold">
+toString
+
+</emphasis>
+ 
+method defined in the 
+
+<emphasis id="strong1251" effect="bold">
+Object
+
+</emphasis>
+ class is used to produce a textual 
+representation of the object. As we learned in an earlier module, that textual 
+representation looks something like the following: 
+
+</para>
+
+
+
+
+
+<code id="pre1020" display="block">ClassName@HexHashCode</code>
+
+
+
+
+<para id="p1217">
+<emphasis id="strong1252" effect="bold">
+Overridden version of toString method
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1218">
+If the class from which the object was instantiated 
+
+<emphasis id="em1091" effect="italics">
+(or some superclass 
+of that class)
+
+</emphasis>
+ contains an overridden version of the 
+
+<emphasis id="strong1253" effect="bold">
+toString
+
+</emphasis>
+ 
+method, runtime polymorphism kicks in and the overridden version of the method 
+is executed to produce the textual representation of the object. 
+
+</para>
+
+
+
+
+
+<para id="p1219">
+<emphasis id="strong1254" effect="bold">
+The Date class overrides toString
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1220">
+In the case of this sample program, the object was instantiated from the
+
+
+<emphasis id="strong1255" effect="bold">
+Date
+
+</emphasis>
+ class. The 
+
+<emphasis id="strong1256" effect="bold">
+Date
+
+</emphasis>
+ class does override the
+
+
+<emphasis id="strong1257" effect="bold">
+toString
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1221">
+When the overridden 
+
+<emphasis id="strong1258" effect="bold">
+toString
+
+</emphasis>
+ method is called on a 
+
+<emphasis id="strong1259" effect="bold">
+
+Date
+
+</emphasis>
+ object's reference, the 
+
+<emphasis id="strong1260" effect="bold">
+String
+
+</emphasis>
+ returned by the 
+method looks something like that shown in 
+
+<link id="a1075" target-id="Figure_6">
+
+Figure 6
+
+</link>
+
+. 
+
+</para>
+
+
+
+	
+
+<table id="table1017" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1017">
+
+			
+
+<row id="tr1034">
+
+				
+
+<entry id="th1017">
+<emphasis id="Figure_6" effect="bold">
+
+Figure 6
+
+</emphasis>
+
+. Output from overridden 
+				toString method in Date class.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1017">
+
+			
+
+<row id="tr1035">
+
+				
+
+<entry id="td1017">
+
+
+							
+
+<code id="pre1021" display="block">Mon Sep 17 09:52:27 CDT 2001</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1222">
+You will recall that this is the output that was produced by the code 
+	shown in 
+
+<link id="a1076" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ and 
+
+<link id="a1077" target-id="Listing_12">
+
+
+	Listing 12
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+<para id="p1223">
+<emphasis id="strong1261" effect="bold">
+More than you ever wanted to know ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1224">
+And that is probably more than you ever wanted to know about the expression
+
+
+<emphasis id="strong1262" effect="bold">
+System.out.println...
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1225">
+It is also probably more than you ever wanted to know about class variables, 
+class methods, instance variables, and instance methods. 
+
+</para>
+
+
+
+
+
+<para id="p1226">
+<emphasis id="strong1263" effect="bold">
+Some cautions
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1227">
+Before leaving this topic, I do want to express some cautions. Basically, I 
+want to suggest that you use 
+
+<emphasis id="em1092" effect="italics">
+<emphasis id="strong1264" effect="bold">
+static
+
+</emphasis>
+</emphasis>
+ members very sparingly, if at all.
+
+
+</para>
+
+
+
+
+
+<para id="p1228">
+<emphasis id="strong1265" effect="bold">
+Static variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1229">
+To begin with, don't ever use 
+
+<emphasis id="strong1266" effect="bold">
+static
+
+</emphasis>
+ variables without 
+declaring them 
+
+<emphasis id="strong1267" effect="bold">
+final
+
+</emphasis>
+ unless you understand exactly why you are declaring them 
+
+<emphasis id="strong1268" effect="bold">
+static
+
+</emphasis>
+.
+
+
+</para>
+
+
+
+
+
+<para id="p1230">
+<emphasis id="em1093" effect="italics">
+(
+
+<emphasis id="strong1269" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="strong1270" effect="bold">
+final
+
+</emphasis>
+ variables, or constants, are often very 
+appropriate. See the fields in the 
+
+<emphasis id="strong1271" effect="bold">
+Color
+
+</emphasis>
+ class for example.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1231">
+I can think of only a very a few situations in which the use of a 
+non-final 
+
+<emphasis id="strong1272" effect="bold">
+static
+
+</emphasis>
+ variable might be appropriate. 
+
+</para>
+
+
+
+
+
+<para id="p1232">
+<emphasis id="em1094" effect="italics">
+(One appropriate use might be to count the number of objects instantiated 
+from a specific class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1233">
+<emphasis id="strong1273" effect="bold">
+Static methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1234">
+Don't declare methods 
+
+<emphasis id="strong1274" effect="bold">
+static
+
+</emphasis>
+ if there is any requirement for 
+the method to remember anything from one call to the next. 
+
+</para>
+
+
+
+
+
+<para id="p1235">
+There are many appropriate uses for 
+
+<emphasis id="strong1275" effect="bold">
+static
+
+</emphasis>
+ methods, but in 
+most cases, the purpose of the method will be to completely perform some action 
+with no requirement to remember anything from that call to the next. 
+
+</para>
+
+
+
+
+
+<para id="p1236">
+The method should probably also be self-contained. By this I mean that all 
+information that the method needs to do its job should either come from incoming 
+parameters or from 
+
+<emphasis id="strong1276" effect="bold">
+final
+
+</emphasis>
+ 
+
+<emphasis id="strong1277" effect="bold">
+static
+
+</emphasis>
+ member 
+variables 
+
+<emphasis id="em1095" effect="italics">
+(constants).
+
+</emphasis>
+ The method probably should not depend on the 
+values stored in non-final 
+
+<emphasis id="strong1278" effect="bold">
+static
+
+</emphasis>
+ member variables, which are subject to change 
+over time.
+
+</para>
+
+
+
+
+
+<para id="p1237">
+<emphasis id="em1096" effect="italics">
+(A 
+
+<emphasis id="strong1279" effect="bold">
+static
+
+</emphasis>
+ method only has access to other 
+
+<emphasis id="strong1280" effect="bold">
+static
+
+</emphasis>
+ members of the class, so 
+it cannot depend on instance variables defined in the class.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1238">
+An appropriate example of a 
+
+<emphasis id="strong1281" effect="bold">
+static
+
+</emphasis>
+ method is the 
+
+<emphasis id="strong1282" effect="bold">
+sqrt 
+
+</emphasis>
+method 
+of the 
+
+<emphasis id="strong1283" effect="bold">
+Math
+
+</emphasis>
+ class. This method computes and 
+
+<emphasis id="em1097" effect="italics">
+"Returns the 
+correctly rounded positive square root of a double"
+
+</emphasis>
+ where the 
+
+<emphasis id="strong1284" effect="bold">
+double
+
+</emphasis>
+ value 
+is provided as a parameter to the method. Each time the method is called, it 
+completes its task and doesn't attempt to save any values from that call to the 
+next. Furthermore, it gets all the information that it needs to do its job from 
+an incoming parameter.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1239">
+<emphasis id="strong1285" effect="bold">
+Added complexity
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1240">
+The existence of 
+
+<emphasis id="strong1286" effect="bold">
+static
+
+</emphasis>
+ members tends to break up the simple OOP structures 
+that I have discussed in previous modules in this collection. 
+
+</para>
+
+
+
+
+
+<para id="p1241">
+While 
+
+<emphasis id="strong1287" effect="bold">
+static
+
+</emphasis>
+ members can be useful in some situations, the existence of 
+
+
+<emphasis id="strong1288" effect="bold">
+static
+
+</emphasis>
+ members tends to complicate the overall object-oriented structure of 
+Java. 
+
+</para>
+
+
+
+
+
+<para id="p1242">
+Furthermore, the overuse of 
+
+<emphasis id="strong1289" effect="bold">
+static
+
+</emphasis>
+ members can lead to problems similar to 
+those experienced in languages like C and C++ that support global variables and 
+global functions. 
+
+</para>
+
+
+
+
+
+<para id="p1243">
+<emphasis id="strong1290" effect="bold">
+The class named Class
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1244">
+I discussed the class named 
+
+<emphasis id="strong1291" effect="bold">
+Class
+
+</emphasis>
+ and how a 
+
+<emphasis id="em1098" effect="italics">
+conceptual
+
+</emphasis>
+ 
+object of type 
+
+<emphasis id="strong1292" effect="bold">
+Class
+
+</emphasis>
+ exists in memory following a reference to 
+a specific class in the program code. 
+
+</para>
+
+
+
+
+
+<para id="p1245">
+The 
+
+<emphasis id="strong1293" effect="bold">
+Class
+
+</emphasis>
+ object represents the referenced class in memory, 
+and contains the 
+
+<emphasis id="strong1294" effect="bold">
+static
+
+</emphasis>
+ variables and 
+
+<emphasis id="strong1295" effect="bold">
+static
+
+</emphasis>
+ methods belonging to that class.
+
+
+<emphasis id="em1099" effect="italics">
+(It contains some other information as well, such as the name of the 
+superclass.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1246">
+<emphasis id="strong1296" effect="bold">
+Class members and instance members
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1247">
+<emphasis id="em1100" effect="italics">
+Class variables
+
+</emphasis>
+ and 
+
+<emphasis id="em1101" effect="italics">
+class methods
+
+</emphasis>
+ are declared 
+
+<emphasis id="strong1297" effect="bold">
+static
+
+</emphasis>
+ 
+
+<emphasis id="em1102" effect="italics">
+(declaring a member 
+
+
+<emphasis id="strong1298" effect="bold">
+static
+
+</emphasis>
+ in the class definition causes to be called a class member)
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1248">
+Instance variables and instance methods are not declared 
+
+<emphasis id="strong1299" effect="bold">
+static
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1249">
+<emphasis id="strong1300" effect="bold">
+Each object has its own copy ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1250">
+Every object instantiated from a given class has its own copy of each 
+instance variable declared in the class definition. 
+
+<emphasis id="em1103" effect="italics">
+(Instance variables are 
+not shared among objects.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1251">
+Every object instantiated from a given class acts like it has its own copy of 
+every instance method declared in the class definition. 
+
+<emphasis id="em1104" effect="italics">
+(Although instance 
+methods are actually shared among objects in order to reduce the amount of 
+memory required, they are shared in such a way that they don't appear to be 
+shared.)
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1252">
+<emphasis id="strong1301" effect="bold">
+Every object shares ...
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1253">
+Every object instantiated from a given class shares the same single copy of 
+each class variable declared in the class definition. Similarly, every object 
+instantiated from a given class shares the same copy of each class method. 
+
+</para>
+
+
+
+
+
+<para id="p1254">
+<emphasis id="strong1302" effect="bold">
+Accessing an instance member
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1255">
+An instance variable or an instance method can only be accessed by using a 
+reference to the object that owns it. Even then, it may or may not be accessible 
+depending on the access modifier assigned by the programmer. 
+
+</para>
+
+
+
+
+
+<para id="p1256">
+<emphasis id="strong1303" effect="bold">
+Accessing a class member
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1257">
+The single shared copy of a class variable or a class method can be accessed 
+in either of two ways:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1039">
+Via a reference to any object instantiated from the class.
+
+</item>
+
+
+	
+
+<item id="li1040">
+By simply joining the name of the class to the name of the class 
+	variable or the class method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1258">
+Again, the variable or method may or may not be accessible, depending on the 
+access modifiers assigned by the programmer.
+
+</para>
+
+
+
+
+
+<para id="p1259">
+<emphasis id="strong1304" effect="bold">
+When to use class variables
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1260">
+It is very often appropriate to use 
+
+<emphasis id="strong1305" effect="bold">
+final
+
+</emphasis>
+ 
+
+<emphasis id="strong1306" effect="bold">
+static
+
+</emphasis>
+ variables, as constants in 
+your programs. It is rarely, if ever, appropriate to use non-final 
+
+<emphasis id="strong1307" effect="bold">
+static
+
+</emphasis>
+ 
+variables in your programs. The use of non-final 
+
+<emphasis id="strong1308" effect="bold">
+static
+
+</emphasis>
+ variables should 
+definitely be minimized. 
+
+</para>
+
+
+
+
+
+<para id="p1261">
+<emphasis id="strong1309" effect="bold">
+When to use 
+
+<emphasis id="strong1310" effect="bold">
+static
+
+</emphasis>
+ methods
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+
+<para id="p1262">
+It is often appropriate to use 
+
+<emphasis id="strong1311" effect="bold">
+static
+
+</emphasis>
+ methods in your programs, provided 
+there is no requirement for the method to remember anything from one call to the 
+next. 
+
+<emphasis id="strong1312" effect="bold">
+Static
+
+</emphasis>
+ methods should be self-contained.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1263">
+The next module in this collection will address the special case of Array 
+Objects.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1264">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1313" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1010" list-type="bulleted">
+
+					
+
+<item id="li1041">
+Module name: Java OOP: Static Members
+
+</item>
+
+
+					
+
+<item id="li1042">
+File: Java1620.htm
+
+
+</item>
+
+
+					
+
+<item id="li1043">
+Published: 04/24/02 
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1314" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1265">
+<emphasis id="strong1315" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1266">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1267">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1268">
+<emphasis id="strong1316" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1269">
+A complete listing of the sample program is shown in 
+
+<link id="a1078" target-id="Listing_13">
+
+
+Listing 13
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+
+
+
+<table id="table1018" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1018">
+
+
+
+<row id="tr1036">
+
+
+
+<entry id="th1018">
+
+
+
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1317" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1018">
+
+
+
+<row id="tr1037">
+
+
+
+<entry id="td1018">
+
+
+
+<code id="pre1022" display="block">/*File MyClass01.java
+Copyright 2002, R.G.Baldwin
+
+This program illustrates static
+members of a class. Output is:
+
+Static variable
+Mon Sep 17 09:52:27 CDT 2001
+
+Instance variable
+Mon Sep 17 09:52:32 CDT 2001
+Static variable
+Mon Sep 17 09:52:27 CDT 2001
+
+
+Instance variable
+Mon Sep 17 09:52:37 CDT 2001
+Static variable
+Mon Sep 17 09:52:27 CDT 2001
+**************************************/
+import java.util.Date;
+class MyClass01{
+ static Date v1 = new Date();
+ Date v2 = new Date();
+
+ public static void main(
+ String[] args){
+ //Display static variable
+ System.out.println(
+ "Static variable");
+ System.out.println(MyClass01.v1);
+
+ //Delay for five seconds
+ try{
+ Thread.currentThread().sleep(5000);
+ }catch(InterruptedException e){}
+
+ //Instantiate an object and
+ // display instance variable
+ MyClass01 ref1 = new MyClass01();
+ System.out.println();//blank line
+ System.out.println(
+ "Instance variable");
+ System.out.println(ref1.v2);
+
+ //Now, display the static
+ // variable using object reference
+ System.out.println(
+ "Static variable");
+ System.out.println(ref1.v1);
+
+ System.out.println();//blank line
+
+ //Delay for five seconds
+ try{
+ Thread.currentThread().sleep(5000);
+ }catch(InterruptedException e){}
+
+ //Instantiate another object
+ MyClass01 ref2 = new MyClass01();
+ System.out.println();//blank line
+ System.out.println(
+ "Instance variable");
+ System.out.println(ref2.v2);
+
+ //Now, display the same static
+ // variable using object reference
+ System.out.println(
+ "Static variable");
+ System.out.println(ref2.v1);
+ }//end main
+}//end class MyClass01</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1270">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

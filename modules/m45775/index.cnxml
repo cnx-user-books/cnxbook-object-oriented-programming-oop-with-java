@@ -1,0 +1,1673 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3012r Review</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45775</md:content-id>
+  <md:title>Java3012r Review</md:title>
+  <md:abstract>This module contains review questions and answers keyed to the module titled Java3012: Using Nested Loops to Process Pixels.</md:abstract>
+  <md:uuid>282e3bb0-072c-448d-8515-15ad9b597d6e</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Apr 03 11:21:18 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Questions">
+
+Questions
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1004">
+<link id="a1004" target-id="question01">
+
+1
+
+</link>
+
+, 
+
+<link id="a1005" target-id="question02">
+
+2
+
+</link>
+
+,
+		
+
+<link id="a1006" target-id="question03">
+
+3
+
+</link>
+
+, 
+
+<link id="a1007" target-id="question04">
+
+4
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1008" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1009" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1010" target-id="Answers">
+
+Answers
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+This module contains review questions and answers keyed to the module titled 
+
+
+<link id="a1012" url="http://cnx.org/content/m44207">
+
+Java3012: Using Nested Loops to Process 
+Pixels
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1003">
+The questions and the answers are connected by hyperlinks to make it easy for 
+you to navigate from the question to the answer and back again.
+
+</para>
+
+
+
+
+
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Questions" effect="bold">
+
+Questions
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<section id="h21000">
+<title>
+<emphasis id="question01" effect="bold">
+
+Question 1
+
+</emphasis>
+
+
+<emphasis id="strong1000" effect="bold">
+. 
+
+</emphasis>
+ 
+
+</title>
+
+
+
+
+<para id="p1004">
+True or False? The code shown in 
+
+<link id="a1013" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ will 
+transform the image shown in 
+
+<link id="a1014" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ into the image shown 
+in 
+
+<link id="a1015" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1000">
+
+
+
+<row id="tr1000">
+
+
+
+<entry id="th1000">
+
+
+
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1001" effect="bold">
+Question 1.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1000">
+
+
+
+<row id="tr1001">
+
+
+
+<entry id="td1000">
+
+
+
+<code id="pre1000" display="block">
+/*File Java3012ra Copyright 2008 R.G.Baldwin
+Revised 02/14/13
+*********************************************************/
+
+public class Java3012ra{
+  public static void main(String[] args){
+    new Java3012raRunner().run();
+  }//end main method
+}//end class Java3012ra
+//======================================================//
+
+class Java3012raRunner{
+  public Java3012raRunner(){
+    System.out.println("Display your name here.");
+  }//end constructor
+  //----------------------------------------------------//
+  public void run(){
+    Picture pix = new Picture("Java3012ra.jpg");
+
+    //Call the mirrorUpperQuads method to modify the top
+    // half of the picture.
+    pix = mirrorUpperQuads(pix);
+    //Mirror the top half into the bottom half.
+    pix = mirrorHoriz(pix);
+    //Add your name and display the output picture.
+    pix.addMessage("Display your name here.",10,20);
+    pix.explore();
+
+  }//end run
+  //----------------------------------------------------//
+
+  //This method mirrors the upper-left quadrant of a
+  // picture into the upper-right quadrant.
+  private Picture mirrorUpperQuads(Picture pix){
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int midpoint = pix.getWidth()/2;
+    int width = pix.getWidth();
+    for(int row = 0;row &lt; pix.getHeight()/2;row++){
+      for(int col = 0;col &lt; midpoint;col++){
+        leftPixel = pix.getPixel(col,row);
+        rightPixel =
+                   pix.getPixel(width-1-col,row);
+        rightPixel.setColor(leftPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorUpperQuads
+  //----------------------------------------------------//
+
+  //This method mirrors the top half of a picture into
+  // the bottom half.
+  private Picture mirrorHoriz(Picture pix){
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int midpoint = pix.getHeight()/2;
+    int height = pix.getHeight();
+    for(int col = 0;col &lt; pix.getWidth();col++){
+      for(int row = 0;row &lt; midpoint;row++){
+        topPixel = pix.getPixel(col,row);
+        bottomPixel =
+                   pix.getPixel(col,height-1-row);
+        bottomPixel.setColor(topPixel.getColor());
+      }//end inner loop
+    }//end outer loop
+
+    return pix;
+  }//end mirrorHoriz
+  //----------------------------------------------------//
+}//end class Java3012raRunner
+</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+<para id="p1005">
+<emphasis id="Figure_1" effect="bold">
+
+
+<emphasis id="strong1002" effect="bold">
+<link id="a1016" target-id="Figure_1">
+
+ Figure 1
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1003" effect="bold">
+ - Image from the file named Java3012ra.jpg.
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+<media id="media1000" alt="This is a wireframe image of a 3d sphere that is used as input to the program." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/Java3012ra.jpg" width="314" height="269"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+<para id="p1007">
+<emphasis id="Figure_2" effect="bold">
+
+
+<emphasis id="strong1004" effect="bold">
+<link id="a1017" target-id="Figure_2">
+
+ Figure 2
+
+</link>
+
+
+</emphasis>
+</emphasis>
+
+
+<emphasis id="strong1005" effect="bold">
+ - Possible output produced by the program 
+in 
+
+<link id="a1018" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+. 
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1008">
+<media id="media1001" alt="This is a possible output image from the program." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java3012ra01.jpg" width="326" height="412"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+<para id="p1009">
+<link id="a1019" target-id="answer01">
+
+Answer 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21001">
+<title>
+<emphasis id="question02" effect="bold">
+
+Question 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+True or False? The code in 
+
+<link id="a1020" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates an 
+object of an anonymous class.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. Question 2.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+
+
+<code id="pre1001" display="block">
+ new Java3012raRunner().run();</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1011">
+<link id="a1021" target-id="answer02">
+
+Answer 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="question03" effect="bold">
+
+Question 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1012">
+True or False? The code in 
+
+<link id="a1022" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates an 
+anonymous object..
+
+</para>
+
+
+
+
+
+<para id="p1013">
+<link id="a1023" target-id="answer03">
+
+Answer 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="question04" effect="bold">
+
+Question 4
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+True or False? The statement shown in 
+
+<link id="a1024" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ will 
+return a reference to a 
+
+<emphasis id="strong1006" effect="bold">
+Pixel
+
+</emphasis>
+ object that represents a physical 
+pixel located at a horizontal coordinate of 
+
+<emphasis id="strong1007" effect="bold">
+col
+
+</emphasis>
+ and a vertical 
+coordinate of 
+
+<emphasis id="strong1008" effect="bold">
+row
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Question 4.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+
+
+<code id="pre1002" display="block">
+leftPixel = pix.getPixels(col,row);</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1015">
+<link id="a1025" target-id="answer04">
+
+Answer 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1003" list-type="bulleted">
+
+	
+
+<item id="li1009">
+<link id="a1026" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Image from the file named Java3012ra.jpg. 
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1027" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Possible output produced by the program in 
+
+<link id="a1028" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<list id="ul1004" list-type="bulleted">
+
+	
+
+<item id="li1011">
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Question 1.
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1030" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Question 2. 
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1031" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Question 4. 
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1032" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Answer 4. 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+<para id="p1016">
+<emphasis id="strong1009" effect="bold">
+What is the meaning of the following two images?
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1017">
+This image was inserted here simply to insert some space between the 
+questions and the answers to keep them from being visible on the screen at the 
+same time. 
+
+</para>
+
+
+
+
+
+<para id="p1018">
+The image is also an example of the kinds of things that we do in my course 
+titled ITSE 2321, Object-Oriented Programming.
+
+</para>
+
+
+
+
+
+
+<media id="media1002" alt="Spacer image of a rabbit and a penguin." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/Spacer01.jpg" width="339" height="290"/>
+</media>
+
+
+
+
+
+<para id="p1019">
+This image was also inserted for the purpose of inserting space between the questions and the answers.
+
+</para>
+
+
+
+
+
+<para id="p1020">
+
+
+
+<media id="media1003" alt="Spacer image of a penguin in the snow in front of some houses." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/Spacer02.jpg" width="374" height="308"/>
+</media>
+
+
+</para>
+
+
+
+
+
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Answers" effect="bold">
+
+Answers
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="answer04" effect="bold">
+
+Answer 4
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1021">
+False. The code in 
+
+<link id="a1033" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ has the wrong spelling 
+for the method that returns the 
+
+<emphasis id="strong1010" effect="bold">
+Pixel
+
+</emphasis>
+ object. The correct 
+spelling is shown in 
+
+<link id="a1034" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. You learned about the 
+spelling 
+
+<emphasis id="em1003" effect="italics">
+(with no parameters)
+
+</emphasis>
+ shown in 
+
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+in an earlier module. 
+
+</para>
+
+
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. Answer 4.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+
+
+<code id="pre1003" display="block">
+leftPixel = pix.getPixel(col,row);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+<para id="p1022">
+<link id="a1036" target-id="question04">
+
+Back to Question 4
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="answer03" effect="bold">
+
+Answer 3
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1023">
+True. The object instantiated from the class named 
+
+<emphasis id="strong1011" effect="bold">
+Java3012raRunner
+
+</emphasis>
+ 
+is an anonymous object because its reference is not saved in a named reference 
+variable in the current scope. Anonymous classes and anonymous objects are 
+entirely different topics.
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<link id="a1037" target-id="question03">
+
+Back to Question 3
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21006">
+<title>
+<emphasis id="answer02" effect="bold">
+
+Answer 2
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+False. A discussion of anonymous classes would be a somewhat advanced topic. 
+That topic is not explained in the module named 
+
+
+<link id="a1038" url="http://cnx.org/content/m44207">
+
+Java3012: Using Nested Loops to Process 
+Pixels
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+<link id="a1039" target-id="question02">
+
+Back to Question 2
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="answer01" effect="bold">
+
+Answer 1
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1027">
+True. 
+
+</para>
+
+
+
+
+
+<para id="p1028">
+<link id="a1040" target-id="question01">
+
+Back to Question 1
+
+</link>
+
+ 
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+This section contains a variety of miscellaneous information. 
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1012" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+			
+
+<list id="ul1005" list-type="bulleted">
+
+				
+
+<item id="li1015">
+Module name: Java3012r Review
+
+</item>
+
+
+				
+
+<item id="li1016">
+File: Java3012r.htm 
+
+</item>
+
+
+				
+
+<item id="li1017">
+Published: 02/14/13
+
+</item>
+
+
+
+			
+
+</list>
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+<emphasis id="strong1013" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1030">
+<emphasis id="strong1014" effect="bold">
+Financial
+
+</emphasis>
+: 
+			Although the Connexions site makes it possible for you to download a 
+			PDF file for this module at no charge, and also makes it possible 
+			for you to purchase a pre-printed version of the PDF file, you 
+			should be aware that some of the HTML elements in this module may 
+			not translate well into PDF.
+
+</para>
+
+
+
+			
+
+<para id="p1031">
+I also want you to know that, I receive no financial compensation 
+			from the Connexions website even if you purchase the PDF version of 
+			the module.
+
+</para>
+
+
+
+			
+
+<para id="p1032">
+In the past, unknown individuals have copied my modules from 
+			cnx.org, converted them to Kindle books, and placed them for sale on 
+			Amazon.com showing me as the author. I neither receive compensation 
+			for those sales nor do I know who does receive compensation. If you 
+			purchase such a book, please be aware that it is a copy of a module 
+			that is freely available on cnx.org and that it was made and 
+			published without my prior knowledge.
+
+</para>
+
+
+
+			
+
+<para id="p1033">
+<emphasis id="strong1015" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer 
+			Information Technology at Austin Community College in Austin, TX.
+			
+
+</para>
+
+
+
+			
+
+</note>
+
+		
+
+
+
+
+
+
+
+	
+
+<para id="p1034">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

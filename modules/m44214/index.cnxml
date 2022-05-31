@@ -1,0 +1,5762 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java3020: Interfaces, Object Arrays, etc.</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m44214</md:content-id>
+  <md:title>Java3020: Interfaces, Object Arrays, etc.</md:title>
+  <md:abstract>Learn about interfaces, arrays of type Object, etc.</md:abstract>
+  <md:uuid>cc0934cb-5d56-4665-9a69-28eaf0b76da3</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+<para id="p1000">
+Revised: Sun Apr 03 17:27:47 CDT 2016
+
+</para>
+
+
+
+
+<para id="p1001">
+<emphasis id="em1000" effect="italics">
+This page is included in the following Books:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+
+	
+
+<link id="a1000" url="http://cnx.org/contents/dzOvxPFw">
+
+
+<emphasis id="em1001" effect="italics">
+ITSE 2321 - Object-Oriented Programming (Java)
+
+</emphasis>
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1001">
+
+	
+
+<link id="a1001" url="http://cnx.org/contents/-2RmHFs_">
+
+
+<emphasis id="em1002" effect="italics">
+Object-Oriented Programming (OOP) with Java 
+	
+
+</emphasis>
+ 
+	
+
+</link>
+
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1001" list-type="bulleted">
+
+	
+
+<item id="li1002">
+<link id="a1002" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1002" list-type="bulleted">
+
+		
+
+<item id="li1003">
+<link id="a1003" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+			
+
+<item id="li1004">
+<link id="a1004" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1005">
+<link id="a1005" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Online_video_links">
+
+Online video links
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1014">
+<link id="a1014" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1002">
+This module is one of a series of modules designed to teach you about Object-Oriented Programming (OOP) using Java. 
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1003">
+I recommend that you open another copy of this document in a separate 
+browser window and use the following links to easily find and view the Figures and Listings while you are reading about them.
+
+</para>
+
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. Command line output for Prob05. 
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of driver class for Prob05.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The interface named Prob05X. 
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the class named Prob05MyClassA. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The method named getModifiedData. 
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The method named getData.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Overridden toString method.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Beginning of the class named Prob05MyClassB.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The method named getModifiedData.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The getData and toString methods.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Print three items of information.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Three more print statements.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. Print the references to the two objects.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Complete program listing
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+In this module, you will learn about :
+
+</para>
+
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Interface definitions
+
+</item>
+
+
+	
+
+<item id="li1030">
+Implementing an interface in a class definition
+
+</item>
+
+
+	
+
+<item id="li1031">
+Defining interface methods in a class definition
+
+</item>
+
+
+	
+
+<item id="li1032">
+Storing references to new objects in elements of an array of type 
+
+<emphasis id="strong1000" effect="bold">
+
+	Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1033">
+Casting elements to an interface type in order to call interface methods
+
+</item>
+
+
+	
+
+<item id="li1034">
+Parameterized constructors
+
+</item>
+
+
+	
+
+<item id="li1035">
+Overridden 
+
+<emphasis id="strong1001" effect="bold">
+toString
+
+</emphasis>
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+<emphasis id="strong1002" effect="bold">
+Program specifications
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1006">
+Write a program named 
+
+<emphasis id="strong1003" effect="bold">
+Prob05
+
+</emphasis>
+ that uses the class definition shown in
+
+
+<link id="a1029" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ to produce the output shown in
+
+
+<link id="a1030" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ on the command line screen.
+
+</para>
+
+
+
+	
+
+<table id="table1000" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+. Command line output for Prob05.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+
+							
+
+<code id="pre1000" display="block">Prob05
+Put your first name here
+Put your last name here
+-18 -17 -16
+-17 -17 -17
+-12 -12 -12</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1007">
+<emphasis id="strong1004" effect="bold">
+No graphic output images required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1008">
+There are no graphic output images required by this program. Therefore, it 
+can be compiled and executed without a requirement to have Ericson's media 
+library on the classpath.
+
+</para>
+
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1005" effect="bold">
+Required text output
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1010">
+The output, which appears on the command line screen, consists of the six 
+lines of text shown in 
+
+<link id="a1031" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1011">
+Because the program generates random data for testing, the actual values will 
+differ from one run to the next. However, in all cases:
+
+</para>
+
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1036">
+The values in the first row of numbers will be a sequence of consecutive 
+	integers in increasing algebraic order from left to right.
+
+</item>
+
+
+	
+
+<item id="li1037">
+All three values in the second row of numbers will match the value of 
+	the center number in the first row of numbers.
+
+</item>
+
+
+	
+
+<item id="li1038">
+All three values in the third row of numbers will be algebraically five 
+	greater than the values in the second row of numbers.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1006" effect="bold">
+New classes
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1013">
+You may define new classes as necessary to cause your program to behave as 
+required, but you may not modify the class definition for the class named 
+
+<emphasis id="strong1007" effect="bold">
+
+Prob05
+
+</emphasis>
+ shown in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1014">
+Among other things, this program illustrates:
+
+</para>
+
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1039">
+Interface definitions
+
+</item>
+
+
+	
+
+<item id="li1040">
+Implementing an interface in a class definition
+
+</item>
+
+
+	
+
+<item id="li1041">
+Defining interface methods in a class definition
+
+</item>
+
+
+	
+
+<item id="li1042">
+Storing references to new objects in elements of an array of type 
+
+<emphasis id="strong1008" effect="bold">
+
+	Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1043">
+Casting elements to an interface type in order to call interface methods
+
+</item>
+
+
+	
+
+<item id="li1044">
+Parameterized constructors
+
+</item>
+
+
+	
+
+<item id="li1045">
+Overridden 
+
+<emphasis id="strong1009" effect="bold">
+toString
+
+</emphasis>
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1015">
+<emphasis id="strong1010" effect="bold">
+Will explain in fragments
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1016">
+I will explain this program in fragments. A complete listing of the program 
+is provided in 
+
+<link id="a1033" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ near the end of the module.
+
+</para>
+
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1011" effect="bold">
+Beginning of driver class for Prob05
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1018">
+The driver class for 
+
+<emphasis id="strong1012" effect="bold">
+Prob05
+
+</emphasis>
+ begins in 
+
+<link id="a1034" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1001" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+. Beginning of driver class for Prob05.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">import java.util.*;
+
+class Prob05{
+  public static void main(String[] args){
+
+    Random generator = new Random(new Date().getTime());
+    int randomData = (byte)generator.nextInt();
+
+    Object[] var1 = new Object[2];
+
+    var1[0] = new Prob05MyClassA(randomData);
+    var1[1] = new Prob05MyClassB(randomData);</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1019">
+<emphasis id="strong1013" effect="bold">
+Behavior of the code in 
+
+<link id="a1035" target-id="Listing_1">
+
+ Listing 1
+
+</link>
+
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1020">
+<link id="a1036" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ does the following:
+
+</para>
+
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1046">
+Gets and saves a random value of type 
+
+<emphasis id="strong1014" effect="bold">
+int
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1047">
+Instantiates a new two-element array object of type 
+
+<emphasis id="strong1015" effect="bold">
+Object
+
+</emphasis>
+. 
+
+<emphasis id="em1003" effect="italics">
+(A 
+	reference to any object of any class or interface type can be stored in an 
+	array element of type 
+
+<emphasis id="strong1016" effect="bold">
+Object
+
+</emphasis>
+.)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1048">
+Populates the array object with references to objects of the classes:
+
+<list id="ul1010" list-type="bulleted">
+
+		
+
+<item id="li1049">
+Prob05MyClassA
+
+</item>
+
+
+		
+
+<item id="li1050">
+Prob05MyClassB
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1021">
+The same random value is passed to the constructor for both objects when they 
+are instantiated.
+
+</para>
+
+
+
+
+
+<para id="p1022">
+<emphasis id="strong1017" effect="bold">
+Put the driver class on temporary hold
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1023">
+At this point, I am going to put the driver class named 
+
+<emphasis id="strong1018" effect="bold">
+Prob05
+
+</emphasis>
+ on 
+temporary hold and explain the class named 
+
+<emphasis id="strong1019" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+
+<para id="p1024">
+<emphasis id="strong1020" effect="bold">
+The interface named Prob05X
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1025">
+Having glanced ahead, I know that the class named 
+
+<emphasis id="strong1021" effect="bold">
+Prob05MyClassA 
+
+</emphasis>
+
+implements the interface named 
+
+<emphasis id="strong1022" effect="bold">
+Prob05X
+
+</emphasis>
+ so I will explain that interface 
+first.
+
+</para>
+
+
+
+
+
+<para id="p1026">
+The interface named 
+
+<emphasis id="strong1023" effect="bold">
+Prob05X
+
+</emphasis>
+ is shown in its entirety in 
+
+
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1002" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+. The interface named Prob05X.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">interface Prob05X{
+  public int getModifiedData();
+  public int getData();
+}//end interface</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1027">
+<emphasis id="strong1024" effect="bold">
+An interface definition
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1028">
+An interface definition can contain only two kinds of members:
+
+</para>
+
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1051">
+Constants
+
+</item>
+
+
+	
+
+<item id="li1052">
+Method declarations
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1029">
+By now, you should have studied interfaces in my online tutorials. Therefore, 
+this explanation will be very brief.
+
+</para>
+
+
+
+
+
+<para id="p1030">
+<emphasis id="strong1025" effect="bold">
+Method declarations
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1031">
+<link id="a1038" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ contains two method declarations.
+
+</para>
+
+
+
+
+
+<para id="p1032">
+A method declaration does not have a body. Its purpose is to establish the 
+programming interface for that method in any class that implements the interface 
+
+<emphasis id="em1004" effect="italics">
+(return type, name, arguments, etc.)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1033">
+A method declaration provides no information about the behavior of the 
+method.
+
+</para>
+
+
+
+
+
+<para id="p1034">
+A method declaration in an interface is implicitly abstract.
+
+</para>
+
+
+
+
+
+<para id="p1035">
+<emphasis id="strong1026" effect="bold">
+A concrete definition is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1036">
+Any class that implements an interface:
+
+</para>
+
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1053">
+Must provide a 
+
+<emphasis id="concrete" effect="bold">
+
+concrete
+
+</emphasis>
+
+ version of every method 
+	that is declared in the interface, or
+
+</item>
+
+
+	
+
+<item id="li1054">
+The class must be declared 
+
+<emphasis id="strong1027" effect="bold">
+abstract
+
+</emphasis>
+. 
+
+<emphasis id="em1005" effect="italics">
+(In this case, abstract 
+	essentially means incomplete.)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1037">
+<emphasis id="strong1028" effect="bold">
+The class named Prob05MyClassA
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1038">
+The class named 
+
+<emphasis id="strong1029" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+, which implements the interface named
+
+
+<emphasis id="strong1030" effect="bold">
+Prob05X
+
+</emphasis>
+, must provide concrete versions of the methods named:
+
+</para>
+
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1055">
+public int getModifiedData()
+
+</item>
+
+
+	
+
+<item id="li1056">
+public int getData()
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1031" effect="bold">
+Beginning of the class named Prob05MyClassA
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1040">
+The class named 
+
+<emphasis id="strong1032" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ begins in 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1003" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+. Beginning of the class named Prob05MyClassA.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">class Prob05MyClassA implements Prob05X{
+  private int data;//instance variable
+
+  Prob05MyClassA(int inData){//constructor
+    System.out.println("Prob05");
+    System.out.println("Put your first name here");
+    data = inData;
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1041">
+This class implements the interface named 
+
+<emphasis id="strong1033" effect="bold">
+Prob05X
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1034" effect="bold">
+A private instance variable
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1043">
+<link id="a1040" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ begins by declaring a private instance 
+variable of type 
+
+<emphasis id="strong1035" effect="bold">
+int
+
+</emphasis>
+ 
+named 
+
+<emphasis id="strong1036" effect="bold">
+data
+
+</emphasis>
+. As a private instance variable, it is accessible by any 
+method or constructor defined within the class but is not accessible to methods 
+from outside the class.
+
+</para>
+
+
+
+
+
+<para id="p1044">
+<emphasis id="strong1037" effect="bold">
+The constructor
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1045">
+The constructor for the class is shown in its entirety in
+
+
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1046">
+The constructor begins by displaying the problem number and the student's 
+first name on the command line screen.
+
+</para>
+
+
+
+
+
+<para id="p1047">
+Then it assigns the value of the incoming parameter named 
+
+<emphasis id="strong1038" effect="bold">
+inData
+
+</emphasis>
+ to 
+the variable named 
+
+<emphasis id="strong1039" effect="bold">
+data
+
+</emphasis>
+. This makes that value available to the methods 
+that are defined within the class.
+
+</para>
+
+
+
+
+
+<para id="p1048">
+<emphasis id="strong1040" effect="bold">
+The method named getModifiedData
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1049">
+We learned 
+
+<link id="a1042" url="Java3020old.htm#concrete">
+
+earlier
+
+</link>
+
+ that the class 
+named 
+
+<emphasis id="strong1041" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1057">
+must provide a concrete definition of the method named 
+
+<emphasis id="strong1042" effect="bold">
+
+	getModifiedData
+
+</emphasis>
+,
+
+</item>
+
+
+	
+
+<item id="li1058">
+because that method is declared in the interface named 
+
+<emphasis id="strong1043" effect="bold">
+Prob05X
+
+</emphasis>
+,
+
+</item>
+
+
+	
+
+<item id="li1059">
+which is implemented by the class.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1050">
+With the exception of some very subtle differences 
+
+<emphasis id="em1006" effect="italics">
+(that are beyond the 
+scope of this course)
+
+</emphasis>
+, that concrete definition must match the signature of 
+the declared method.
+
+</para>
+
+
+
+
+
+<para id="p1051">
+<emphasis id="strong1044" effect="bold">
+Code for the method named getModifiedData
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1052">
+The method named 
+
+<emphasis id="strong1045" effect="bold">
+getModifiedData
+
+</emphasis>
+ is shown in its entirety in
+
+
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1053">
+When this method is called, it
+
+</para>
+
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1060">
+subtracts a value of 1 from the value stored in the instance variable 
+	named 
+
+<emphasis id="strong1046" effect="bold">
+data
+
+</emphasis>
+, and
+
+</item>
+
+
+	
+
+<item id="li1061">
+returns that modified value.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<table id="table1004" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+. The method named getModifiedData.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">  public int getModifiedData(){
+    return data - 1;
+  }//end getModifiedData()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1054">
+<emphasis id="strong1047" effect="bold">
+The method named getData
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1055">
+We also learned earlier that the class named 
+
+<emphasis id="strong1048" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+</para>
+
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1062">
+must provide a concrete definition of the method named 
+
+<emphasis id="strong1049" effect="bold">
+getData,
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1063">
+which is also declared in the interface named 
+
+<emphasis id="strong1050" effect="bold">
+Prob05X
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1056">
+<emphasis id="strong1051" effect="bold">
+Code for the method named getData 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1057">
+The method named 
+
+<emphasis id="strong1052" effect="bold">
+getData
+
+</emphasis>
+ is shown in its entirety in 
+
+
+<link id="a1044" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1058">
+This method returns a copy of the value stored in the variable named 
+
+<emphasis id="strong1053" effect="bold">
+data
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1005" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+. The method named getData.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">  public int getData(){
+    return data;
+  }//end getData()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1059">
+<emphasis id="strong1054" effect="bold">
+A round trip
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1060">
+When the code in 
+
+<link id="a1045" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ instantiates an object of 
+the 
+
+<emphasis id="strong1055" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ 
+class, it passes a random value as a parameter to the constructor.
+
+</para>
+
+
+
+
+
+<para id="p1061">
+The constructor shown in 
+
+<link id="a1046" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ stores that 
+random value in the instance variable named 
+
+<emphasis id="strong1056" effect="bold">
+data
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1062">
+When the method named 
+
+<emphasis id="strong1057" effect="bold">
+getModifiedData
+
+</emphasis>
+ is called, it returns a value 
+that is the original random value less 1.
+
+</para>
+
+
+
+
+
+<para id="p1063">
+When the method named 
+
+<emphasis id="strong1058" effect="bold">
+getData
+
+</emphasis>
+ is called, it returns a copy of the 
+original random value.
+
+</para>
+
+
+
+
+
+<para id="p1064">
+<emphasis id="strong1059" effect="bold">
+The toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1065">
+The class named 
+
+<emphasis id="strong1060" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ extends the class named 
+
+<emphasis id="strong1061" effect="bold">
+Object
+
+</emphasis>
+ 
+by default. It inherits a method named 
+
+<emphasis id="strong1062" effect="bold">
+toString
+
+</emphasis>
+ from the class named 
+
+<emphasis id="strong1063" effect="bold">
+
+Object
+
+</emphasis>
+. The inherited method has very specific behavior.
+
+</para>
+
+
+
+
+
+<para id="p1066">
+<emphasis id="strong1064" effect="bold">
+Overridden toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1067">
+The code in 
+
+<link id="a1047" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ overrides the inherited method 
+to provide a different behavior when the method is executed in conjunction with 
+an object of the 
+
+<emphasis id="strong1065" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1068">
+The new behavior is to construct and return a string version of the value 
+obtained by adding 5 to the value stored in 
+
+<emphasis id="strong1066" effect="bold">
+data
+
+</emphasis>
+, which is the original 
+random value.
+
+</para>
+
+
+
+	
+
+<table id="table1006" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+. Overridden toString method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">  public String toString(){
+    return "" + (data + 5);
+  }//end toString()
+  
+}//end class Prob05MyClassA</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1069">
+<emphasis id="strong1067" effect="bold">
+The end of the class named Prob05MyClassA 
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1070">
+ 
+
+<link id="a1048" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ also signals the end of the class 
+definition for the class named 
+
+<emphasis id="strong1068" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1071">
+<emphasis id="strong1069" effect="bold">
+The class named Prob05MyClassB
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1072">
+Referring back to the code in the driver class in 
+
+<link id="a1049" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+, we see that the driver also instantiates an object of the class 
+named 
+
+<emphasis id="strong1070" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+, 
+passing the same random value to the constructor for the class.
+
+</para>
+
+
+
+
+
+<para id="p1073">
+The reference to the object is stored in the second element of the array 
+object of type 
+
+<emphasis id="strong1071" effect="bold">
+Object
+
+</emphasis>
+ referred to by the reference variable named 
+
+<emphasis id="strong1072" effect="bold">
+var1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1073" effect="bold">
+Beginning of the class named Prob05MyClassB
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1075">
+The beginning of the class named 
+
+<emphasis id="strong1074" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1050" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1007" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+. Beginning of the class named Prob05MyClassB.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">class Prob05MyClassB implements Prob05X{
+  private int data;
+
+  Prob05MyClassB(int inData){
+    System.out.println("Put your last name here");
+    data = inData;
+  }//end constructor</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1076">
+<emphasis id="strong1075" effect="bold">
+Implements Prob05X
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1077">
+The first thing we notice is that this class also implements the interface 
+named 
+
+<emphasis id="strong1076" effect="bold">
+Prob05X
+
+</emphasis>
+. This requires that the class provide concrete definitions 
+of the two methods declared in that interface.
+
+</para>
+
+
+
+
+
+<para id="p1078">
+<emphasis id="strong1077" effect="bold">
+Save the incoming parameter value
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1079">
+The constructor for the 
+
+<emphasis id="strong1078" effect="bold">
+Prob05MyClassB 
+
+</emphasis>
+class, which is shown in 
+
+
+<link id="a1051" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+, saves the incoming parameter value in a 
+private instance variable named 
+
+<emphasis id="strong1079" effect="bold">
+data
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1080" effect="bold">
+Unrelated to the variable named data from before
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1081">
+It is important to note that this variable named 
+
+<emphasis id="strong1081" effect="bold">
+data
+
+</emphasis>
+ is completely 
+unrelated to the private instance variable named 
+
+<emphasis id="strong1082" effect="bold">
+data
+
+</emphasis>
+ that is declared in
+
+
+<link id="a1052" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+, even though they are the same type and they 
+have the same name.
+
+</para>
+
+
+
+
+
+<para id="p1082">
+They belong to two different objects. Objects do not share instance 
+variables.
+
+</para>
+
+
+
+
+
+<para id="p1083">
+<emphasis id="strong1083" effect="bold">
+The two objects are related
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1084">
+However, even though the two objects instantiated in 
+
+<link id="a1053" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ are instantiated from different classes, they are related in the 
+sense that they have two ancestors in common. They both extend the class named
+
+
+<emphasis id="strong1084" effect="bold">
+Object
+
+</emphasis>
+ by 
+default and they both explicitly implement the interface named 
+
+<emphasis id="strong1085" effect="bold">
+Prob05X
+
+</emphasis>
+. 
+That means that they can both be treated as either type 
+
+<emphasis id="strong1086" effect="bold">
+Object
+
+</emphasis>
+ or type 
+
+<emphasis id="strong1087" effect="bold">
+
+Prob05X
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1085">
+<emphasis id="strong1088" effect="bold">
+Related through the interface by design
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1086">
+Because all classes are direct or indirect subclasses of the class named 
+
+<emphasis id="strong1089" effect="bold">
+
+Object
+
+</emphasis>
+, all objects instantiated for any class are related at the 
+
+<emphasis id="strong1090" effect="bold">
+Object
+
+</emphasis>
+ 
+level. However, the objects in this program are related through the 
+
+<emphasis id="strong1091" effect="bold">
+Prob05X
+
+</emphasis>
+ 
+interface only because I designed the program that way.
+
+</para>
+
+
+
+
+
+<para id="p1087">
+<emphasis id="strong1092" effect="bold">
+The method named getModifiedData
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1088">
+The method named 
+
+<emphasis id="strong1093" effect="bold">
+getModifiedData
+
+</emphasis>
+ is shown in 
+
+
+<link id="a1054" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+.
+
+</para>
+
+
+
+	
+
+<table id="table1008" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+. The method named getModifiedData.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">  public int getModifiedData(){
+    return data + 1;
+  }//end getModifiedData()</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1089">
+<emphasis id="strong1094" effect="bold">
+Same behavior is not required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1090">
+A comparison of 
+
+
+<link id="a1055" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ with 
+
+<link id="a1056" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+exposes a very important aspect of interface implementation.
+
+</para>
+
+
+
+
+
+<para id="p1091">
+If two different classes implement the same interface, they each must provide 
+concrete definitions of all the method declared in the interface. When providing 
+such concrete definitions, both classes must match the method signatures of the 
+declared methods.
+
+</para>
+
+
+
+
+
+<para id="p1092">
+However, the behavior of a method as defined in one class is not required to 
+be the same as the behavior of the method having the same signature in the other 
+class.
+
+</para>
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1095" effect="bold">
+The behavior is different
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1094">
+For example, the code in 
+
+<link id="a1057" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ 
+
+<emphasis id="em1007" effect="italics">
+subtracts 1
+
+</emphasis>
+ 
+from the value of 
+
+<emphasis id="strong1096" effect="bold">
+data
+
+</emphasis>
+ and returns that modified value.
+
+</para>
+
+
+
+
+
+<para id="p1095">
+The code in 
+
+
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ 
+
+<emphasis id="em1008" effect="italics">
+adds 1
+
+</emphasis>
+ to the value of 
+
+<emphasis id="strong1097" effect="bold">
+data
+
+</emphasis>
+ 
+and returns that modified value.
+
+</para>
+
+
+
+
+
+<para id="p1096">
+Therefore, the behavior of the method named 
+
+<emphasis id="strong1098" effect="bold">
+getModifiedData
+
+</emphasis>
+ in an 
+object instantiated from the class named 
+
+<emphasis id="strong1099" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ is completely 
+different from the behavior of the method having the same signature in an object 
+of the class named 
+
+<emphasis id="strong1100" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1097">
+<emphasis id="strong1101" effect="bold">
+The getData and toString methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1098">
+<link id="a1059" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1102" effect="bold">
+getData
+
+</emphasis>
+ and 
+
+<emphasis id="strong1103" effect="bold">
+toString
+
+</emphasis>
+ methods as defined in 
+the class named 
+
+<emphasis id="strong1104" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+.
+
+</para>
+
+
+
+	
+
+<table id="table1009" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+. The getData and toString methods.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">  public int getData(){
+    return data;
+  }//end getData()
+
+  public String toString(){
+    return "" + (data + 5);
+  }//end toString()
+  
+}//end class Prob05MyClassB</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1099">
+<emphasis id="strong1105" effect="bold">
+The behavior is the same
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1100">
+If you compare 
+
+<link id="a1060" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ with 
+
+<link id="a1061" target-id="Listing_5">
+
+
+Listing 5
+
+</link>
+
+ and 
+
+<link id="a1062" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, you will see that these 
+two methods are defined the same in both classes. Therefore, these two methods 
+have the same behavior regardless of which of the two objects instantiated in
+
+
+<link id="a1063" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ they are called on.
+
+</para>
+
+
+
+
+
+<para id="p1101">
+<emphasis id="strong1106" effect="bold">
+Back to the driver class named Prob05
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1102">
+Returning now to the driver class named 
+
+<emphasis id="strong1107" effect="bold">
+Prob05
+
+</emphasis>
+ where we left off in
+
+
+<link id="a1064" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+, 
+
+<link id="a1065" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+contains three statements that print information on the command line screen.
+
+</para>
+
+
+
+	
+
+<table id="table1010" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1010">
+
+			
+
+<row id="tr1020">
+
+				
+
+<entry id="th1010">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+. Print three items of information.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1010">
+
+			
+
+<row id="tr1021">
+
+				
+
+<entry id="td1010">
+
+				
+
+<code id="pre1010" display="block">    System.out.print(
+              ((Prob05X)var1[0]).getModifiedData() + " ");
+              
+    System.out.print(randomData + " ");
+    
+    System.out.println(
+                    ((Prob05X)var1[1]).getModifiedData());</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1103">
+<emphasis id="strong1108" effect="bold">
+Three print statements
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1104">
+The first two statements in 
+
+<link id="a1066" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+call the 
+
+<emphasis id="strong1109" effect="bold">
+print
+
+</emphasis>
+ method and the last statement 
+calls the 
+
+<emphasis id="strong1110" effect="bold">
+println
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+
+<para id="p1105">
+When the 
+
+<emphasis id="strong1111" effect="bold">
+println
+
+</emphasis>
+ method is called, the onscreen cursor advances to the 
+left side of the next line after the material has been printed.
+
+</para>
+
+
+
+
+
+<para id="p1106">
+However, when the 
+
+<emphasis id="strong1112" effect="bold">
+print
+
+</emphasis>
+ method is called, the cursor remains at the 
+right end of the printed material.
+
+</para>
+
+
+
+
+
+<para id="p1107">
+Therefore, calling 
+
+<emphasis id="strong1113" effect="bold">
+print print println
+
+</emphasis>
+ in succession will cause three 
+items of information to be printed on the same line.
+
+</para>
+
+
+
+
+
+<para id="p1108">
+<emphasis id="strong1114" effect="bold">
+A cast is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1109">
+Recall that the reference to each object instantiated in 
+
+<link id="a1067" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ is stored in an array element as type 
+
+<emphasis id="strong1115" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1110">
+A reference to any object can be stored in a reference of type 
+
+<emphasis id="strong1116" effect="bold">
+Object
+
+</emphasis>
+ 
+because the 
+
+<emphasis id="strong1117" effect="bold">
+Object
+
+</emphasis>
+ class is the superclass of all classes. 
+
+<emphasis id="em1009" effect="italics">
+(References 
+to array objects can also be stored as type 
+
+<emphasis id="strong1118" effect="bold">
+Object
+
+</emphasis>
+ but that fact is not 
+germane to this program.)
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1111">
+<emphasis id="strong1119" effect="bold">
+Only eleven methods can be called on type Object
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1112">
+However, once an object's reference is stored as type 
+
+<emphasis id="strong1120" effect="bold">
+Object
+
+</emphasis>
+, the only 
+methods that can be called on that object 
+
+<emphasis id="em1010" effect="italics">
+(without casting)
+
+</emphasis>
+ are the 
+eleven methods that are defined in the 
+
+<emphasis id="strong1121" effect="bold">
+Object
+
+</emphasis>
+ class. That group of eleven 
+methods includes the method named 
+
+<emphasis id="strong1122" effect="bold">
+toString
+
+</emphasis>
+ but it does not include the 
+methods named 
+
+<emphasis id="strong1123" effect="bold">
+getData
+
+</emphasis>
+ and 
+
+<emphasis id="strong1124" effect="bold">
+getModifiedData
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1113">
+<emphasis id="strong1125" effect="bold">
+Must change the type of the reference
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1114">
+Therefore, the first statement in 
+
+<link id="a1068" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+requires that a 
+
+<emphasis id="strong1126" effect="bold">
+cast
+
+</emphasis>
+ to 
+be used to change the type of the reference back to a type on which the method 
+can be called. There are a couple of choices in this regard.
+
+</para>
+
+
+
+
+
+<para id="p1115">
+<emphasis id="strong1127" effect="bold">
+Could cast to the class type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1116">
+First, it is always possible to cast the reference back to the class from 
+which the object was instantiated. Therefore, it would work to cast the 
+reference from array element 0 in 
+
+<link id="a1069" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+to type 
+
+<emphasis id="strong1128" effect="bold">
+Prob05MyClassA
+
+</emphasis>
+ and 
+to cast the reference from array element 1 to type 
+
+<emphasis id="strong1129" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1117">
+<emphasis id="strong1130" effect="bold">
+Cast to the interface type
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1118">
+In this program, there is another choice. Because both classes implement the 
+interface named 
+
+<emphasis id="strong1131" effect="bold">
+Prob05X
+
+</emphasis>
+, and the method named 
+
+<emphasis id="strong1132" effect="bold">
+getModifiedData
+
+</emphasis>
+ is 
+declared in that interface, it also works to cast both references to the common 
+interface type 
+
+<emphasis id="strong1133" effect="bold">
+Prob05X
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1119">
+That is what was done in 
+
+<link id="a1070" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Both 
+references were cast to the interface type 
+
+<emphasis id="strong1134" effect="bold">
+Prob05X
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1120">
+<emphasis id="strong1135" effect="bold">
+The printed values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1121">
+The first statement in 
+
+<link id="a1071" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+calls the method named 
+
+<emphasis id="strong1136" effect="bold">
+getModifiedData
+
+</emphasis>
+ as defined in 
+
+<link id="a1072" target-id="Listing_4">
+
+
+Listing 4
+
+</link>
+
+. This causes the original random value 
+
+<emphasis id="em1011" effect="italics">
+less 1
+
+</emphasis>
+ to be 
+printed.
+
+</para>
+
+
+
+
+
+<para id="p1122">
+The second statement in 
+
+<link id="a1073" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ simply prints 
+the original random value that was saved in the variable named 
+
+<emphasis id="strong1137" effect="bold">
+randomData
+
+</emphasis>
+ 
+in 
+
+<link id="a1074" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1123">
+The third statement in 
+
+<link id="a1075" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ calls the method 
+named 
+
+<emphasis id="strong1138" effect="bold">
+getModifiedData
+
+</emphasis>
+ as defined in 
+
+<link id="a1076" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. 
+This causes the original random value 
+
+<emphasis id="em1012" effect="italics">
+plus 1
+
+</emphasis>
+ to be printed.
+
+</para>
+
+
+
+
+
+<para id="p1124">
+Because this is a call to the 
+
+<emphasis id="strong1139" effect="bold">
+println
+
+</emphasis>
+ method, the onscreen cursor 
+advances to the left side of the next line after the value is printed.
+
+</para>
+
+
+
+
+
+<para id="p1125">
+The three statements in 
+
+<link id="a1077" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ cause the first 
+three values shown in 
+
+<link id="a1078" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ to be printed on the 
+command line screen.
+
+</para>
+
+
+
+
+
+<para id="p1126">
+<emphasis id="strong1140" effect="bold">
+Three more print statements
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1127">
+Continuing with the driver class named 
+
+<emphasis id="strong1141" effect="bold">
+Prob05
+
+</emphasis>
+, 
+
+<link id="a1079" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ shows three 
+more print statements.
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1011" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1011">
+
+			
+
+<row id="tr1022">
+
+				
+
+<entry id="th1011">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+. Three more print statements.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1011">
+
+			
+
+<row id="tr1023">
+
+				
+
+<entry id="td1011">
+
+				
+
+<code id="pre1011" display="block">    System.out.print(((Prob05X)var1[0]).getData() + " ");
+    System.out.print(randomData + " ");
+    System.out.println(((Prob05X)var1[1]).getData());</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1128">
+<emphasis id="strong1142" effect="bold">
+A cast is required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1129">
+In this case, the 
+
+<emphasis id="strong1143" effect="bold">
+getData
+
+</emphasis>
+ method belonging to each of the objects is 
+called in the first and third statements. 
+
+<emphasis id="em1013" effect="italics">
+(Once again a cast is required.)
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+
+<para id="p1130">
+<emphasis id="strong1144" effect="bold">
+Behavior of the getData methods is the same
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1131">
+Recall that the behavior of the 
+
+<emphasis id="strong1145" effect="bold">
+getData
+
+</emphasis>
+ method is the same in both 
+objects. It simply returns a copy of the original random value that was passed 
+to the constructor when each of the objects was instantiated.
+
+</para>
+
+
+
+
+
+<para id="p1132">
+The three statements in 
+
+<link id="a1080" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ produce the 
+second set of three matching values shown in 
+
+<link id="a1081" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1133">
+These three values match because all three print statements are printing 
+essentially the same value. The original random value is printed in the middle 
+statement in 
+
+<link id="a1082" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. A copy of the original random 
+value is printed in the first and third statements.
+
+</para>
+
+
+
+
+
+<para id="p1134">
+<emphasis id="strong1146" effect="bold">
+Print the references to the two objects
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1135">
+Things get a little bit more complicated in 
+
+<link id="a1083" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+	
+
+<table id="table1012" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1012">
+
+			
+
+<row id="tr1024">
+
+				
+
+<entry id="th1012">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+. Print the references to the two objects.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1012">
+
+			
+
+<row id="tr1025">
+
+				
+
+<entry id="td1012">
+
+				
+
+<code id="pre1012" display="block">    System.out.print(((Prob05X)var1[0]) + " ");
+    System.out.print(randomData + 5 + " ");
+    System.out.println(((Prob05X)var1[1]));
+
+  }//end main
+}//end class Prob05</code>
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+	
+
+<para id="p1136">
+<emphasis id="strong1147" effect="bold">
+An automatic call to the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1137">
+Whenever an object's reference is passed to either the 
+
+<emphasis id="strong1148" effect="bold">
+print
+
+</emphasis>
+ method or 
+the 
+
+<emphasis id="strong1149" effect="bold">
+println
+
+</emphasis>
+ method, the first thing that happens is that the 
+
+<emphasis id="strong1150" effect="bold">
+toString
+
+</emphasis>
+ 
+method is called on the reference. The 
+
+<emphasis id="strong1151" effect="bold">
+toString
+
+</emphasis>
+ method always returns a 
+reference to an object of the 
+
+<emphasis id="strong1152" effect="bold">
+String
+
+</emphasis>
+ class, and it is that string that is 
+printed.
+
+</para>
+
+
+
+
+
+<para id="p1138">
+<emphasis id="strong1153" effect="bold">
+Inherited default behavior of the toString method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1139">
+As I mentioned earlier, the 
+
+<emphasis id="strong1154" effect="bold">
+toString
+
+</emphasis>
+ method is defined with default 
+behavior in the 
+
+<emphasis id="strong1155" effect="bold">
+Object
+
+</emphasis>
+ class. Since every class is a subclass of the 
+
+<emphasis id="strong1156" effect="bold">
+
+Object
+
+</emphasis>
+ class, every class inherits that method.
+
+</para>
+
+
+
+
+
+<para id="p1140">
+If the 
+
+<emphasis id="strong1157" effect="bold">
+toString
+
+</emphasis>
+ method is not overridden in a class or in any of the 
+superclasses of a given class and the 
+
+<emphasis id="strong1158" effect="bold">
+toString
+
+</emphasis>
+ method is called on an 
+object of the given class, the default behavior of the 
+
+<emphasis id="strong1159" effect="bold">
+toString
+
+</emphasis>
+ method 
+will occur.
+
+</para>
+
+
+
+
+
+<para id="p1141">
+<emphasis id="strong1160" effect="bold">
+Can override to change the behavior
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1142">
+However, any class can override the 
+
+<emphasis id="strong1161" effect="bold">
+toString
+
+</emphasis>
+ method to produce 
+different behavior and can pass that behavior down the inheritance hierarchy to 
+subclasses of the class that overrides the method.
+
+</para>
+
+
+
+
+
+<para id="p1143">
+<emphasis id="strong1162" effect="bold">
+The toString method is overridden
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1144">
+In this program, the 
+
+<emphasis id="strong1163" effect="bold">
+toString
+
+</emphasis>
+ method is overridden in exactly the same 
+way in both the 
+
+<emphasis id="strong1164" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ class and the 
+
+<emphasis id="strong1165" effect="bold">
+Prob05MyClassB
+
+</emphasis>
+ class.
+
+
+<emphasis id="em1014" effect="italics">
+(See 
+
+<link id="a1084" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and 
+
+<link id="a1085" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.)
+
+</emphasis>
+ 
+Therefore, when the 
+
+<emphasis id="strong1166" effect="bold">
+toString
+
+</emphasis>
+ method is called on an object of either 
+class, it will return a string representation of the value stored in the 
+variable named 
+
+<emphasis id="strong1167" effect="bold">
+data
+
+</emphasis>
+ plus 5.
+
+</para>
+
+
+
+
+
+<para id="p1145">
+<emphasis id="strong1168" effect="bold">
+Pass object references to the print and println methods
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1146">
+The first statement in 
+
+<link id="a1086" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ passes the 
+reference to the object stored in the first element of the array to the 
+
+<emphasis id="strong1169" effect="bold">
+print
+
+</emphasis>
+ method and the third 
+statement passes the reference to the object stored in the second element of the 
+array to the 
+
+<emphasis id="strong1170" effect="bold">
+println
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+
+<para id="p1147">
+<emphasis id="strong1171" effect="bold">
+Execute overridden toString methods and print the returned values
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1148">
+The 
+
+<emphasis id="strong1172" effect="bold">
+print
+
+</emphasis>
+ and 
+
+<emphasis id="strong1173" effect="bold">
+println
+
+</emphasis>
+ methods cause the code in
+
+
+<link id="a1087" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and 
+
+<link id="a1088" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ to be 
+executed. In both cases, this code returns a string that represents the original 
+random value plus 5. This is the value that is displayed.
+
+</para>
+
+
+
+
+
+<para id="p1149">
+<emphasis id="strong1174" effect="bold">
+Print the random value plus 5
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1150">
+The second statement in 
+
+<link id="a1089" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ adds five to the 
+original random number and prints the result. These three statements produce the 
+third line of text in 
+
+<link id="a1090" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ where all three values 
+are the algebraic sum of the original random number plus 5.
+
+</para>
+
+
+
+
+
+<para id="p1151">
+<emphasis id="strong1175" effect="bold">
+Important - The cast is not required
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1152">
+Even though the references extracted from the array in the first and third 
+statements in 
+
+<link id="a1091" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ are cast to the interface 
+type 
+
+<emphasis id="strong1176" effect="bold">
+Prob05X
+
+</emphasis>
+, that 
+cast is unnecessary.
+
+</para>
+
+
+
+
+
+<para id="p1153">
+Because the original definition of the 
+
+<emphasis id="strong1177" effect="bold">
+toString
+
+</emphasis>
+ method appears in the 
+class named 
+
+<emphasis id="strong1178" effect="bold">
+Object
+
+</emphasis>
+, the 
+
+<emphasis id="strong1179" effect="bold">
+toString
+
+</emphasis>
+ method can be called on those 
+objects even while they are being treated as though they are of type 
+
+<emphasis id="strong1180" effect="bold">
+Object
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<para id="p1154">
+<emphasis id="strong1181" effect="bold">
+Runtime polymorphism
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1155">
+Furthermore, a very powerful capability of OOP known as runtime polymorphism 
+would cause the overridden versions of the methods defined in
+
+
+<link id="a1092" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ and 
+
+<link id="a1093" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ to be 
+executed instead of the default version of the method defined in the 
+
+<emphasis id="strong1182" effect="bold">
+Object
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+
+<para id="p1156">
+<emphasis id="strong1183" effect="bold">
+The end of the main method
+
+</emphasis>
+</para>
+
+
+
+
+
+<para id="p1157">
+ 
+
+<link id="a1094" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+ signals the end of the 
+
+<emphasis id="strong1184" effect="bold">
+main
+
+</emphasis>
+ method and the end of the class 
+named 
+
+<emphasis id="strong1185" effect="bold">
+Prob05
+
+</emphasis>
+. When the 
+
+<emphasis id="strong1186" effect="bold">
+main
+
+</emphasis>
+ method has nothing further to do, it 
+terminates causing the program to terminate and return control to the operating 
+system.
+
+</para>
+
+
+
+
+	
+
+
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1158">
+I encourage you to copy the code from 
+
+<link id="a1095" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. 
+Compile the code and execute it. Experiment with the code, making changes, and 
+observing the results of your changes. Make certain that you can explain why 
+your changes behave as they do.
+
+</para>
+
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1159">
+In this module, you learned about :
+
+</para>
+
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1064">
+Interface definitions
+
+</item>
+
+
+	
+
+<item id="li1065">
+Implementing an interface in a class definition
+
+</item>
+
+
+	
+
+<item id="li1066">
+Defining interface methods in a class definition
+
+</item>
+
+
+	
+
+<item id="li1067">
+Storing references to new objects in elements of an array of type 
+
+<emphasis id="strong1187" effect="bold">
+
+	Object
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1068">
+Casting elements to an interface type in order to call interface methods
+
+</item>
+
+
+	
+
+<item id="li1069">
+Parameterized constructors
+
+</item>
+
+
+	
+
+<item id="li1070">
+Overridden 
+
+<emphasis id="strong1188" effect="bold">
+toString
+
+</emphasis>
+ method
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1160">
+You will learn how to scale images and how to rotate and translate images 
+using the AffineTransform class in the next module.
+
+</para>
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Online_video_links" effect="bold">
+
+Online video links
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1161">
+While not a requirement of the course, you can select the following links to view 
+optional online video lectures on the material in this 
+module.
+
+</para>
+
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1071">
+<link id="a1096" url="http://www.youtube.com/playlist?list=PL3DB0B7840C943C4C">
+
+ITSE 
+	2321 Lecture 10
+
+</link>
+
+
+<list id="ul1019" list-type="bulleted">
+
+		
+
+<item id="li1072">
+<link id="a1097" url="http://www.youtube.com/watch?v=10R_Xgo9QEo">
+
+Part01
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1073">
+<link id="a1098" url="http://www.youtube.com/watch?v=vNPd6Sd7Wk8">
+
+Part02
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1074">
+<link id="a1099" url="http://www.youtube.com/watch?v=_JFcPromgGk">
+
+Part03
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1075">
+<link id="a1100" url="http://www.youtube.com/watch?v=A3bgpy5dCtQ">
+
+Part04
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1162">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1189" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1020" list-type="bulleted">
+
+					
+
+<item id="li1076">
+Module name: Java OOP: Interfaces, Object Arrays, etc.
+
+</item>
+
+
+					
+
+<item id="li1077">
+File: Java3020.htm
+
+
+</item>
+
+
+					
+
+<item id="li1078">
+Published: 08/02/12
+
+</item>
+
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1190" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1163">
+<emphasis id="strong1191" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+
+				
+
+<para id="p1164">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+
+				
+
+<para id="p1165">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+
+				
+
+<para id="p1166">
+<emphasis id="strong1192" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11010">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1167">
+A complete listing of the program discussed in this module is shown in
+
+
+<link id="a1101" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ below.
+
+</para>
+
+
+
+
+
+
+
+
+
+
+<table id="table1013" summary="A table." pgwide="0">
+<tgroup cols="1">
+
+
+
+
+
+<thead id="thead1013">
+
+
+
+<row id="tr1026">
+
+
+
+<entry id="th1013">
+
+
+
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+. 
+
+<emphasis id="strong1193" effect="bold">
+Complete program listing.
+
+</emphasis>
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</thead>
+
+
+
+
+
+<tbody id="tbody1013">
+
+
+
+<row id="tr1027">
+
+
+
+<entry id="td1013">
+
+
+
+<code id="pre1013" display="block">/*File Prob05 Copyright 2008 R.G.Baldwin
+*********************************************************/
+
+import java.util.*;
+
+class Prob05{
+  public static void main(String[] args){
+
+    Random generator = new Random(new Date().getTime());
+    int randomData = (byte)generator.nextInt();
+
+    Object[] var1 = new Object[2];
+
+    var1[0] = new Prob05MyClassA(randomData);
+    var1[1] = new Prob05MyClassB(randomData);
+
+    System.out.print(
+              ((Prob05X)var1[0]).getModifiedData() + " ");
+    System.out.print(randomData + " ");
+    System.out.println(
+                    ((Prob05X)var1[1]).getModifiedData());
+
+    System.out.print(((Prob05X)var1[0]).getData() + " ");
+    System.out.print(randomData + " ");
+    System.out.println(((Prob05X)var1[1]).getData());
+
+    System.out.print(((Prob05X)var1[0]) + " ");
+    System.out.print(randomData + 5 + " ");
+    System.out.println(((Prob05X)var1[1]));
+
+  }//end main
+}//end class Prob05
+//======================================================//
+
+interface Prob05X{
+  public int getModifiedData();
+  public int getData();
+}//end interface
+//======================================================//
+
+class Prob05MyClassA implements Prob05X{
+  private int data;
+
+  Prob05MyClassA(int inData){
+    System.out.println("Prob05");
+    System.out.println("Put your first name here");
+    data = inData;
+  }//end constructor
+  //----------------------------------------------------//
+
+  public int getModifiedData(){
+    return data - 1;
+  }//end getModifiedData()
+  //----------------------------------------------------//
+
+  public int getData(){
+    return data;
+  }//end getData()
+  //----------------------------------------------------//
+
+  public String toString(){
+    return "" + (data + 5);
+  }//end toString()
+}//end class Prob05MyClassA
+//======================================================//
+
+class Prob05MyClassB implements Prob05X{
+  private int data;
+
+  Prob05MyClassB(int inData){
+    System.out.println("Put your last name here");
+    data = inData;
+  }//end constructor
+
+  public int getModifiedData(){
+    return data + 1;
+  }//end getModifiedData()
+
+  public int getData(){
+    return data;
+  }//end getData()
+
+  public String toString(){
+    return "" + (data + 5);
+  }//end toString()
+}//end class Prob05MyClassB</code>
+
+
+
+
+
+</entry>
+
+
+
+</row>
+
+
+
+</tbody>
+
+
+
+
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1168">
+-end- 
+
+</para>
+
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

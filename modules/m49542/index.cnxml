@@ -1,0 +1,3825 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Java4655: A Rendering Web Browser</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m49542</md:content-id>
+  <md:title>Java4655: A Rendering Web Browser</md:title>
+  <md:abstract>The purpose of this module is to show students how to use Java Swing to render a web page in a JFrame object.</md:abstract>
+  <md:uuid>231924cd-e9ea-44fc-843e-ee4ed193b9b7</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Figures">
+
+Figures
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="A_skeleton_program">
+
+A skeleton program - Java4655c
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="The_program_named_Java4655b">
+
+The program named Java4655b
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="The_program_named_Java4655a">
+
+The program named Java4655a
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1008">
+<link id="a1008" target-id="Whats_missing">
+
+What's missing?
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+
+	
+
+<item id="li1010">
+<link id="a1010" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1012">
+<link id="a1012" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed for teaching 
+	
+
+<emphasis id="strong1000" effect="bold">
+INEW 2338 Advanced Java (Web)
+
+</emphasis>
+ at Austin 
+	Community College in Austin, TX. More specifically, it is one in a 
+	sub-collection of modules designed for teaching network programming in that 
+	course. The purpose of this module is to show students how to use Java Swing 
+	to render a web page in a JFrame object.  
+
+</para>
+
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1001">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the Figures 
+and Listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Figures" effect="bold">
+
+Figures
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+. JFrame output from the program named Java4655c. 
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+. Command line output from the program named Java4655c. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+. JFrame output from the program named Java4655b. 
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+. JFrame output from the program named Java4655a.
+
+</item>
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the program named 
+		Java4655c.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The method named runner. 
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the class named Java4655cHtmlHandler.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Open the URL object in a JEditorPane object. 
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Register a hyperlink listener.
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Display the JEditorPane.
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. The hyperlinkUpdate method.
+
+</item>
+
+
+		
+
+<item id="li1024">
+<link id="a1024" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The constructor for the Java4655bHtmlHandler class.
+
+</item>
+
+
+		
+
+<item id="li1025">
+<link id="a1025" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The HyperlinkEvent handler for Java4655b.
+
+</item>
+
+
+		
+
+<item id="li1026">
+<link id="a1026" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Scrolling code in Java4655a.
+
+</item>
+
+
+		
+
+<item id="li1027">
+<link id="a1027" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. The program named Java4655c.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1028" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. The program named Java4655b.
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1029" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. The program named Java4655a.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1002">
+In an earlier module, you learned how to connect to a website and cause a raw 
+text version of a file to be downloaded and displayed. However, the display of raw HTML 
+text isn't very useful, which is why rendering web browsers were invented.
+
+</para>
+
+
+
+
+<para id="p1003">
+In this module, you will learn how to connect to a website and cause an HTML 
+file to be downloaded and rendered in a 
+
+<emphasis id="strong1001" effect="bold">
+JFrame
+
+</emphasis>
+ object. We will 
+develop a program that makes it possible to follow hyperlinks much as you would 
+expect with a commercial web browser.
+
+</para>
+
+	
+	
+
+<section id="h21001">
+<title>
+<emphasis id="A_skeleton_program" effect="bold">
+
+A skeleton program - Java4655c
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1004">
+I will begin this explanation with a skeleton program that illustrates four 
+important aspects of rendering a webpage in a 
+
+<emphasis id="Swing_JFrame_object" effect="bold">
+
+Swing 
+
+<emphasis id="strong1002" effect="bold">
+JFrame 
+
+</emphasis>
+object
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1030">
+Getting a URL object that is connected to a webpage.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Opening the URL object in a 
+
+<emphasis id="strong1003" effect="bold">
+JEditorPane
+
+</emphasis>
+ object.
+
+</item>
+
+
+	
+
+<item id="li1032">
+Displaying the 
+
+<emphasis id="strong1004" effect="bold">
+JEditorPane
+
+</emphasis>
+ in a rendered format.
+
+</item>
+
+
+	
+
+<item id="li1033">
+Handling hyperlink events on the 
+
+<emphasis id="strong1005" effect="bold">
+JEditorPane
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1005">
+<emphasis id="em1000" effect="italics">
+(Note that there are alternatives to the first two items in the above 
+list, which we will see later.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1006">
+To keep the code simple, two important aspects of webpage rendering will be 
+omitted from this program:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1034">
+Scrolling large web pages.
+
+</item>
+
+
+	
+
+<item id="li1035">
+Following hyperlinks.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1007">
+These capabilities will be added to other programs later in this module.
+
+</para>
+
+
+
+
+<para id="p1008">
+<emphasis id="strong1006" effect="bold">
+Beginning of the program named Java4655c
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1009">
+I will explain this program in fragments. A complete listing of the program 
+is provided in 
+
+<link id="a1030" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1010">
+<link id="a1031" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the program.
+
+</para>
+
+
+
+
+	
+
+<table id="table1000" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1000">
+
+			
+
+<row id="tr1000">
+
+				
+
+<entry id="th1000">
+<emphasis id="Listing_1" effect="bold">
+
+Listing 1
+
+</emphasis>
+
+ - Beginning of the program named Java4655c.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1000">
+
+			
+
+<row id="tr1001">
+
+				
+
+<entry id="td1000">
+
+				
+
+<code id="pre1000" display="block">import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.html.*;
+import java.net.*;
+import java.awt.*;
+
+class Java4655c{
+  
+  public static void main(String[] args){
+    new Java4655c().runner(
+                        "http://www.austincc.edu/baldwin");
+  }//end main
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+<para id="p1011">
+There is nothing new in 
+
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. This code simply calls a method named 
+runner passing a string description of a URL as a parameter.
+
+</para>
+
+
+
+
+<para id="p1012">
+<emphasis id="strong1007" effect="bold">
+The method named runner
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1013">
+The method named 
+
+<emphasis id="strong1008" effect="bold">
+runner
+
+</emphasis>
+ is shown in 
+
+<link id="a1033" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<table id="table1001" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1001">
+
+			
+
+<row id="tr1002">
+
+				
+
+<entry id="th1001">
+<emphasis id="Listing_2" effect="bold">
+
+Listing 2
+
+</emphasis>
+
+ - The method named runner.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1001">
+
+			
+
+<row id="tr1003">
+
+				
+
+<entry id="td1001">
+
+				
+
+<code id="pre1001" display="block">  void runner(String webSiteLink){
+    try{
+      //Create a new URL object from the website string
+      URL website = new URL(webSiteLink);
+      //Instantiate an overall web page handler
+      new Java4655cHtmlHandler(website);
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end runner
+}//end class Java4655c
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1014">
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ begins by getting a URL object that is connected to the 
+	specified webpage to satisfy the first item in the above
+	
+
+<link id="a1035" target-id="Swing_JFrame_object">
+
+list
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1015">
+Then 
+
+<link id="a1036" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates a new object of the class named 
+
+<emphasis id="strong1009" effect="bold">
+
+Java4655cHtmlHandler
+
+</emphasis>
+ passing the URL object's reference as a parameter 
+to the constructor. From this point forward, the behavior of the program will be 
+controlled by the 
+object of the 
+
+<emphasis id="strong1010" effect="bold">
+
+Java4655cHtmlHandler
+
+</emphasis>
+ class.
+
+</para>
+
+
+
+
+<para id="p1016">
+<link id="a1037" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ also signals the end of the class named 
+
+
+<emphasis id="strong1011" effect="bold">
+Java4655c
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1017">
+<emphasis id="strong1012" effect="bold">
+Beginning of the class named
+Java4655cHtmlHandler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1018">
+The beginning of the class named 
+
+<emphasis id="strong1013" effect="bold">
+
+Java4655cHtmlHandler
+
+</emphasis>
+ and the beginning of the constructor for that 
+class is shown in 
+
+<link id="a1038" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ 
+
+</para>
+
+
+	
+
+<table id="table1002" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1002">
+
+			
+
+<row id="tr1004">
+
+				
+
+<entry id="th1002">
+<emphasis id="Listing_3" effect="bold">
+
+Listing 3
+
+</emphasis>
+
+ - Beginning of the class named Java4655cHtmlHandler.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1002">
+
+			
+
+<row id="tr1005">
+
+				
+
+<entry id="td1002">
+
+				
+
+<code id="pre1002" display="block">class Java4655cHtmlHandler extends JFrame 
+                              implements HyperlinkListener{
+  //Constructor
+  public Java4655cHtmlHandler(URL website) {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setTitle("Copyright 2014, R.G.Baldwin");
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1019">
+There is nothing new or unusual in 
+
+<link id="a1039" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ with the possible exception 
+	of the fact that the class implements the interface named 
+
+<emphasis id="strong1014" effect="bold">
+
+	HyperlinkListener
+
+</emphasis>
+. This has two important ramifications:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1036">
+The class must provide concrete implementations of all the methods 
+	declared in the interface.
+
+</item>
+
+
+	
+
+<item id="li1037">
+An object of the class can serve as a listener for events of type
+	
+
+<emphasis id="strong1015" effect="bold">
+HyperlinkEvent
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1020">
+As you will see later, the 
+
+<emphasis id="strong1016" effect="bold">
+HyperlinkListener 
+
+</emphasis>
+interface 
+declares only one method and it is named 
+
+<emphasis id="strong1017" effect="bold">
+hyperlinkUpdate
+
+</emphasis>
+. The method receives one incoming parameter of 
+type 
+
+<emphasis id="strong1018" effect="bold">
+HyperlinkEvent
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1021">
+<emphasis id="strong1019" effect="bold">
+The hyperlinkUpdate method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1022">
+The documentation for the 
+
+<emphasis id="strong1020" effect="bold">
+hyperlinkUpdate
+
+</emphasis>
+ method is rather sparse, stating only that the method is 
+
+<emphasis id="em1001" effect="italics">
+
+"Called when a hypertext link is updated"
+
+</emphasis>
+ and that the incoming parameter 
+represents 
+
+<emphasis id="em1002" effect="italics">
+"the event responsible for the update."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1023">
+As you will see later, an event occurs whenever the user touches a hyperlink 
+in the webpage with the mouse. The 
+
+<emphasis id="strong1021" effect="bold">
+HyperlinkEvent
+
+</emphasis>
+ object 
+encapsulates information identifying the event as being one of the following 
+types:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1038">
+ENTERED
+
+</item>
+
+
+	
+
+<item id="li1039">
+EXITED
+
+</item>
+
+
+	
+
+<item id="li1040">
+ACTIVATED
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1024">
+I will pursue the three types of hyperlink events in more detail later.
+
+</para>
+
+
+
+
+<para id="p1025">
+<emphasis id="strong1022" effect="bold">
+Open the URL object in a JEditorPane object
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+<link id="a1040" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ opens the URL object in a 
+
+<emphasis id="strong1023" effect="bold">
+JEditorPane
+
+</emphasis>
+ object to 
+satisfy the second item in the above
+	
+
+<link id="a1041" target-id="Swing_JFrame_object">
+
+list
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<quote id="blockquote1000" display="block">
+<emphasis id="em1003" effect="italics">
+(I will ignore the exception handling code while explaining this 
+program.)
+
+</emphasis>
+</quote>
+
+
+
+
+	
+
+<table id="table1003" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1003">
+
+			
+
+<row id="tr1006">
+
+				
+
+<entry id="th1003">
+<emphasis id="Listing_4" effect="bold">
+
+Listing 4
+
+</emphasis>
+
+ - Open the URL object in a 
+				JEditorPane object.
+
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1003">
+
+			
+
+<row id="tr1007">
+
+				
+
+<entry id="td1003">
+
+				
+
+<code id="pre1003" display="block">    try{
+      if(website != null) {
+        //Create a JEditorPane containing the web page.
+        JEditorPane html = new JEditorPane(website);
+        html.setEditable(false);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1027">
+Fortunately, the online
+	
+
+<link id="a1042" url="http://docs.oracle.com/javase/7/docs/api/javax/swing/JEditorPane.html">
+
+
+	documentation
+
+</link>
+
+ for the 
+
+<emphasis id="strong1024" effect="bold">
+JEditorPane
+
+</emphasis>
+ is fairly detailed. I will refer you to that documentation for more information. 
+
+</para>
+
+
+
+
+<para id="p1028">
+<emphasis id="strong1025" effect="bold">
+The JEditorPane constructor
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1029">
+<link id="a1043" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls an overloaded 
+
+<emphasis id="strong1026" effect="bold">
+JEditorPane
+
+</emphasis>
+ constructor that is described 
+in the documentation as 
+follows:
+
+</para>
+
+
+
+
+<quote id="blockquote1001" display="block">
+"Creates a JEditorPane based on a specified URL for input."
+
+</quote>
+
+
+
+
+<para id="p1030">
+<emphasis id="em1004" effect="italics">
+(
+
+<emphasis id="Note_that_there_is_another_constructor" effect="bold">
+
+Note that there is another constructor
+
+</emphasis>
+
+ that would allow us to create the
+
+
+<emphasis id="strong1027" effect="bold">
+JEditorPane
+
+</emphasis>
+ object passing a URL string to the constructor. Had 
+I used that constructor, it wouldn't have been necessary to 
+create the URL object. For illustration, I will use that constructor in a later 
+program in this module.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1031">
+<emphasis id="strong1028" effect="bold">
+Documentation snippets
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1032">
+There are a 
+	couple of snippets from that documentation that are particularly important to this 
+	module. The first snippet is:
+
+</para>
+
+
+
+
+<quote id="blockquote1002" display="block">
+"Some kinds of content may provide hyperlink support by generating hyperlink events. The HTML EditorKit will generate hyperlink events if the JEditorPane is not editable (JEditorPane.setEditable(false); has been called)."
+
+</quote>
+
+
+
+
+<para id="p1033">
+Since we are definitely interested in hyperlink events, 
+
+<link id="a1044" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ calls the
+
+
+<emphasis id="strong1029" effect="bold">
+setEditable
+
+</emphasis>
+ method on the new 
+
+<emphasis id="strong1030" effect="bold">
+JEditorPane
+
+</emphasis>
+ 
+object 
+passing false as a parameter.
+
+</para>
+
+
+
+
+<para id="p1034">
+A second snippet that will be important later in this module reads:
+
+</para>
+
+
+
+
+<quote id="blockquote1003" display="block">
+"The 
+
+<emphasis id="strong1031" effect="bold">
+setPage
+
+</emphasis>
+ method can be used to initialize the component from a URL."
+
+</quote>
+
+
+
+
+<para id="p1035">
+We will use this capability later to cause a hyperlink event handler to 
+follow a link in a webpage when we click on the hyperlink.
+
+</para>
+
+
+
+
+<para id="p1036">
+<emphasis id="strong1032" effect="bold">
+Register a hyperlink listener
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1037">
+<link id="a1045" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ uses standard Java event handling code to register a hyperlink 
+listener object on the 
+
+<emphasis id="strong1033" effect="bold">
+JEditorPane
+
+</emphasis>
+ object. As I mentioned earlier, 
+
+<emphasis id="strong1034" effect="bold">
+this
+
+</emphasis>
+ 
+object is suitable for use as a listener object.
+
+</para>
+
+
+	
+
+<table id="table1004" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1004">
+
+			
+
+<row id="tr1008">
+
+				
+
+<entry id="th1004">
+<emphasis id="Listing_5" effect="bold">
+
+Listing 5
+
+</emphasis>
+
+ - Register a hyperlink listener.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1004">
+
+			
+
+<row id="tr1009">
+
+				
+
+<entry id="td1004">
+
+				
+
+<code id="pre1004" display="block">        html.addHyperlinkListener(this);
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1038">
+I will explain the hyperlink listener code shortly.
+
+</para>
+
+
+
+
+<para id="p1039">
+<emphasis id="strong1035" effect="bold">
+Display the JEditorPane
+
+</emphasis>
+</para>
+
+
+	
+
+
+<para id="p1040">
+<link id="a1046" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ uses standard Swing code to display the 
+
+<emphasis id="strong1036" effect="bold">
+JEditorPane
+
+</emphasis>
+ in a 
+
+
+<emphasis id="strong1037" effect="bold">
+JFrame
+
+</emphasis>
+ 
+object. There is nothing new or interesting about this code so I won't discuss 
+it further.
+
+</para>
+
+
+	
+
+
+	
+
+<table id="table1005" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1005">
+
+			
+
+<row id="tr1010">
+
+				
+
+<entry id="th1005">
+<emphasis id="Listing_6" effect="bold">
+
+Listing 6
+
+</emphasis>
+
+ - Display the JEditorPane.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1005">
+
+			
+
+<row id="tr1011">
+
+				
+
+<entry id="td1005">
+
+				
+
+<code id="pre1005" display="block">        this.getContentPane().add(html);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end constructor
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+
+
+
+<para id="p1041">
+<link id="a1047" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+ also signals the end of the constructor for the class named 
+
+<emphasis id="strong1038" effect="bold">
+Java4655cHtmlHandler
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1042">
+<emphasis id="strong1039" effect="bold">
+The event handler method
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1043">
+<link id="a1048" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ shows the event handler method named 
+
+<emphasis id="strong1040" effect="bold">
+hyperlinkUpdate
+
+</emphasis>
+ 
+in its entirety.
+
+</para>
+
+
+	
+
+<table id="table1006" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1006">
+
+			
+
+<row id="tr1012">
+
+				
+
+<entry id="th1006">
+<emphasis id="Listing_7" effect="bold">
+
+Listing 7
+
+</emphasis>
+
+ - The hyperlinkUpdate 
+				method.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1006">
+
+			
+
+<row id="tr1013">
+
+				
+
+<entry id="td1006">
+
+				
+
+<code id="pre1006" display="block">  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if (e.getEventType() == 
+                         HyperlinkEvent.EventType.ENTERED){
+      System.out.println("ENTERED");
+    }else if (e.getEventType() == 
+                          HyperlinkEvent.EventType.EXITED){
+      System.out.println("EXITED");
+    }else if (e.getEventType() == 
+                       HyperlinkEvent.EventType.ACTIVATED){
+      System.out.println("ACTIVATED");
+    }//end if
+  }//end hyperlinkUpdate method 
+ //------------------------------------------------------//
+
+}//end class Java4655cHtmlHandler
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1044">
+This hyperlink event handler simply displays the
+    type of event on the command-line screen as the mouse pointer touches 
+	hyperlinks on the webpage. The possible types of events and the actions that 
+	cause them are as follows:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1041">
+ENTERED - touch a hyperlink with the mouse
+
+</item>
+
+
+	
+
+<item id="li1042">
+EXITED - move the mouse pointer away from a touched hyperlink
+
+</item>
+
+
+	
+
+<item id="li1043">
+ACTIVATED - click a hyperlink with the mouse
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1045">
+The code in 
+
+<link id="a1049" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is straightforward and shouldn't require further 
+explanation.
+
+</para>
+
+
+
+
+<para id="p1046">
+<link id="a1050" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ also signals the end of the class named 
+
+<emphasis id="strong1041" effect="bold">
+Java4655cHtmlHandler
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1047">
+<emphasis id="strong1042" effect="bold">
+The program output
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1048">
+<link id="a1051" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ shows the output that you should see if you compile and run this 
+program. Note however that the content of this page changes each semester so you 
+may see something a little different.
+
+</para>
+
+
+
+
+
+<para id="p1049">
+<emphasis id="strong1043" effect="bold">
+<emphasis id="Figure_1" effect="bold">
+
+Figure 1
+
+</emphasis>
+
+ - JFrame output from the program named Java4655c.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1050">
+<media id="media1000" alt="Missing image" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/java4655-01.jpg" width="670" height="670"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1051">
+As I mentioned earlier, this program doesn't allow scrolling 
+	for web pages that are too large to fit in the 
+
+<emphasis id="strong1044" effect="bold">
+JEditorPane
+
+</emphasis>
+. 
+	As you can see in 
+
+<link id="a1052" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+, the webpage simply spills outside the viewing 
+area. We will deal with that later in this module.
+
+</para>
+
+
+
+
+<para id="p1052">
+This program also doesn't support link following. If you touch or click 
+a link, the code in 
+
+<link id="a1053" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ simply reports that fact on the command line 
+screen. We will also deal with that later in this module.
+
+</para>
+
+
+
+
+<para id="p1053">
+<link id="a1054" target-id="Figure_2">
+
+Figure 2
+
+</link>
+
+ shows the result of moving the mouse around inside the hyperlinks in 
+
+
+<link id="a1055" target-id="Figure_1">
+
+Figure 1
+
+</link>
+
+ and finally clicking on one of those links to 
+create an ACTIVATED event.
+
+</para>
+
+
+
+
+
+<para id="p1054">
+<emphasis id="strong1045" effect="bold">
+<emphasis id="Figure_2" effect="bold">
+
+Figure 2
+
+</emphasis>
+
+ - Command line output from the program 
+	named Java4655c.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1055">
+<media id="media1001" alt="Missing image" display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/java4655-02.jpg" width="669" height="332"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1056">
+Now that you know the basics, we can put some meat on the skeleton.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_program_named_Java4655b" effect="bold">
+
+The program named Java4655b
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+This program is similar to the previous program except that it allows you to 
+follow hyperlinks. However, I will continue to defer scrolling until later in 
+the module.
+
+</para>
+
+
+
+
+<para id="p1058">
+Once again, I will explain this program in fragments. However, rather than to 
+explain the complete program, I will explain only those things that are 
+significantly different from the previous program.
+
+</para>
+
+
+
+
+<para id="p1059">
+A complete listing of the program is provided in 
+
+<link id="a1056" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="strong1046" effect="bold">
+The constructor for the Java4655bHtmlHandler class
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+<link id="a1057" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ shows the beginning of the 
+
+<emphasis id="strong1047" effect="bold">
+Java4655bHtmlHandler
+
+</emphasis>
+ class including the 
+entire constructor.
+
+</para>
+
+
+
+
+	
+
+<table id="table1007" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1007">
+
+			
+
+<row id="tr1014">
+
+				
+
+<entry id="th1007">
+<emphasis id="Listing_8" effect="bold">
+
+Listing 8
+
+</emphasis>
+
+ - The constructor for the 
+				Java4655bHtmlHandler class.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1007">
+
+			
+
+<row id="tr1015">
+
+				
+
+<entry id="td1007">
+
+				
+
+<code id="pre1007" display="block">class Java4655bHtmlHandler extends JFrame 
+                              implements HyperlinkListener{
+  JEditorPane html;
+
+  //Constructor
+  public Java4655bHtmlHandler(String websiteString) {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setTitle("Copyright 2014, R.G.Baldwin");
+
+    try{
+      if(websiteString != null) {
+        html = new JEditorPane(websiteString);
+        html.setEditable(false);
+        html.addHyperlinkListener(this);
+
+        this.getContentPane().add(html,BorderLayout.CENTER);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end constructor
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1062">
+<emphasis id="strong1048" effect="bold">
+Differences from the previous program
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1063">
+One difference between the code in 
+
+<link id="a1058" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ and the corresponding code in the previous 
+	program is that this version requires the website
+	to be specified as a 
+
+<emphasis id="strong1049" effect="bold">
+String
+
+</emphasis>
+
+	
+
+<link id="a1059" target-id="Note_that_there_is_another_constructor">
+
+instead of a URL
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1064">
+Another difference is that this version declares the 
+
+<emphasis id="strong1050" effect="bold">
+JEditorPane
+
+</emphasis>
+ 
+reference as an instance variable to make it accessible to the 
+
+<emphasis id="strong1051" effect="bold">
+
+HyperlinkEvent 
+
+</emphasis>
+handler discussed below.
+
+</para>
+
+
+
+
+<para id="p1065">
+<emphasis id="strong1052" effect="bold">
+The HyperlinkEvent handler
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1066">
+<link id="a1060" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ shows the 
+
+<emphasis id="strong1053" effect="bold">
+HyperlinkEvent
+
+</emphasis>
+ handler in its entirety.
+
+</para>
+
+
+
+
+	
+
+<table id="table1008" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1008">
+
+			
+
+<row id="tr1016">
+
+				
+
+<entry id="th1008">
+<emphasis id="Listing_9" effect="bold">
+
+Listing 9
+
+</emphasis>
+
+ - The HyperlinkEvent 
+				handler for Java4655b.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1008">
+
+			
+
+<row id="tr1017">
+
+				
+
+<entry id="td1008">
+
+				
+
+<code id="pre1008" display="block">  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if (e.getEventType() == 
+                      HyperlinkEvent.EventType.ACTIVATED){
+      //Ignore ENTERED and EXITED events and process only
+      // ACTIVATED events.
+      if (e instanceof HTMLFrameHyperlinkEvent) {
+        //Ignore events in HTML frames
+        System.out.println(
+                          "HTML Frame events are ignored");
+      } else {
+        try {
+          //Display page defined by the HyperlinkEvent.
+          html.setPage(e.getURL());
+        } catch (Exception ex) {
+          ex.printStackTrace();
+        }//end catch
+      }//end else
+    }//end if
+  }//end hyperlinkUpdate method
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1067">
+This code makes it possible to follow links by clicking the hyperlinks in 
+	the HTML page that is displayed. Note that only ACTIVATED events are 
+	processed and even those events are not processed if they are contained in 
+	an HTML frame.
+
+</para>
+
+
+
+
+<para id="p1068">
+<emphasis id="strong1054" effect="bold">
+Following links
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1069">
+The code in 
+
+<link id="a1061" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ is straightforward. The statement that causes the 
+program to follow links is the call to the 
+
+<emphasis id="strong1055" effect="bold">
+setPage
+
+</emphasis>
+ method 
+passing a URL as a parameter. The documentation for this message reads 
+
+<emphasis id="em1005" effect="italics">
+"Sets the current URL being displayed."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1070">
+The URL to be displayed is obtained by calling the 
+
+<emphasis id="strong1056" effect="bold">
+getURL
+
+</emphasis>
+ 
+method on the incoming 
+
+<emphasis id="strong1057" effect="bold">
+HyperlinkEvent
+
+</emphasis>
+ object. The documentation 
+for this method simply reads 
+
+<emphasis id="em1006" effect="italics">
+"Gets the URL that the link refers to."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1071">
+As you can see, therefore, writing a simple browser that will access a web 
+page and follow links is not difficult. The output from running this program is 
+shown in 
+
+<link id="a1062" target-id="Figure_3">
+
+Figure 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+<para id="p1072">
+<emphasis id="strong1058" effect="bold">
+<emphasis id="Figure_3" effect="bold">
+
+Figure 3
+
+</emphasis>
+
+ - JFrame output from the program named 
+	Java4655b.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1073">
+<media id="media1002" alt="Missing Figure" display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/java4655-03.jpg" width="670" height="670"/>
+</media>
+
+
+</para>
+
+
+
+
+
+<para id="p1074">
+<emphasis id="strong1059" effect="bold">
+Scrolling
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1075">
+You should be able to run the program and follow the links from one page to 
+the next. We are still missing something, however. If you click on a link to an 
+anchor that is on the same page but not visible in the 
+
+<emphasis id="strong1060" effect="bold">
+JFrame
+
+</emphasis>
+, 
+nothing happens. This is because this version of the program is incapable of 
+scrolling to and displaying that location on the page. Our next task will be to 
+correct that issue.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="The_program_named_Java4655a" effect="bold">
+
+The program named Java4655a
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1076">
+<emphasis id="strong1061" effect="bold">
+Scrolling code in Java4655a
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+<link id="a1063" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+ provides a complete listing of a program that incorporates 
+scrolling. The only difference between this program and the previous program is 
+shown in 
+
+<link id="a1064" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+.
+
+</para>
+
+
+	
+
+<table id="table1009" summary="This is a table." pgwide="677">
+<tgroup cols="1">
+
+
+		
+
+<thead id="thead1009">
+
+			
+
+<row id="tr1018">
+
+				
+
+<entry id="th1009">
+<emphasis id="Listing_10" effect="bold">
+
+Listing 10
+
+</emphasis>
+
+ - Scrolling code in 
+				Java4655a.
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</thead>
+
+
+		
+
+<tbody id="tbody1009">
+
+			
+
+<row id="tr1019">
+
+				
+
+<entry id="td1009">
+
+				
+
+<code id="pre1009" display="block">      if(websiteString != null) {
+        html = new JEditorPane(websiteString);
+        html.setEditable(false);
+        html.addHyperlinkListener(this);
+  
+        JScrollPane scroller = new JScrollPane();
+        JViewport vp = scroller.getViewport();
+        vp.add(html);
+        this.getContentPane().add(
+                             scroller,BorderLayout.CENTER);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+</code>
+
+
+
+				
+
+</entry>
+
+			
+
+</row>
+
+		
+
+</tbody>
+
+
+	
+
+</tgroup>
+</table>
+
+
+
+
+	
+
+<para id="p1078">
+The code in 
+
+<link id="a1065" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ that provides scrolling has nothing to do with 
+	network programming so I will leave it up to the student to find an 
+	explanation of this code 
+	
+
+<link id="a1066" url="http://docs.oracle.com/javase/tutorial/uiswing/components/scrollpane.html">
+
+somewhere else
+
+</link>
+
+ on the web.
+
+</para>
+
+
+
+
+<para id="p1079">
+<link id="a1067" target-id="Figure_4">
+
+Figure 4
+
+</link>
+
+ shows the initial output from running this program. Note the vertical 
+scroll bar on the right side of the image.
+
+</para>
+
+
+
+
+
+<para id="p1080">
+<emphasis id="strong1062" effect="bold">
+<emphasis id="Figure_4" effect="bold">
+
+Figure 4
+
+</emphasis>
+
+ - JFrame output from the program named Java4655a.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+<media id="media1003" alt="Missing image" display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/java4655-04.jpg" width="670" height="670"/>
+</media>
+
+
+</para>
+
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Whats_missing" effect="bold">
+
+What's missing?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+There are at least three features that we would need to add to turn this 
+program into a 
+simple but functional web browser.
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1044">
+A way for the user to enter the website of interest and to change it at 
+	will.
+
+</item>
+
+
+	
+
+<item id="li1045">
+A "Back" button.
+
+</item>
+
+
+	
+
+<item id="li1046">
+A "Forward" button.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1083">
+Adding these features is not particularly difficult, but I will leave it as 
+an exercise for the student to add these features and 
+convert this program into a functional web browser.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1084">
+I encourage you to copy the code from 
+
+<link id="a1068" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+,
+
+
+<link id="a1069" target-id="Listing_12">
+
+Listing 12
+
+</link>
+
+, and 
+
+<link id="a1070" target-id="Listing_13">
+
+Listing 13
+
+</link>
+
+. Compile the code and 
+execute it. Experiment with the code, 
+making changes, and observing the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1085">
+The next module will introduce sockets for network programming.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1086">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1063" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1012" list-type="bulleted">
+
+					
+
+<item id="li1047">
+Module name: Java4655: A Rendering Web Browser
+
+</item>
+
+
+					
+
+<item id="li1048">
+File: Java4655.htm
+
+
+</item>
+
+
+					
+
+<item id="li1049">
+Published: 03/02/14
+
+</item>
+
+
+
+
+<item id="li1050">
+Revised: 02/07/16
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1064" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1087">
+<emphasis id="strong1065" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1088">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1089">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1090">
+<emphasis id="strong1066" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1091">
+<emphasis id="strong1067" effect="bold">
+<emphasis id="Listing_11" effect="bold">
+
+Listing 11
+
+</emphasis>
+
+ - The program named 
+				Java4655c.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1010" display="block">
+/*File Java4655c.java
+Copyright 2014, R.G.Baldwin
+Rev 01/07/14
+
+This is a skeleton program that illustrates how to load 
+a web page into a JEditorPane and illustrates how to 
+identify the three types of hyperlink events:
+
+ENTERED
+EXITED
+ACTIVATED
+**********************************************************/
+
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.html.*;
+import java.net.*;
+import java.awt.*;
+
+class Java4655c{
+  
+  public static void main(String[] args){
+    new Java4655c().runner(
+                        "http://www.austincc.edu/baldwin");
+  }//end main
+  //-----------------------------------------------------//
+  
+  void runner(String webSiteLink){
+    try{
+      //Create a new URL object from the website string
+      URL website = new URL(webSiteLink);
+      //Instantiate an overall web page handler
+      new Java4655cHtmlHandler(website);
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end runner
+}//end class Java4655c
+//=======================================================//
+
+class Java4655cHtmlHandler extends JFrame 
+                              implements HyperlinkListener{
+
+  //Constructor
+  public Java4655cHtmlHandler(URL website) {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    setTitle("Copyright 2014, R.G.Baldwin");
+
+    try{
+      if(website != null) {
+        //Create a JEditorPane containing the web page.
+        JEditorPane html = new JEditorPane(website);
+        html.setEditable(false);
+        
+        //Register a listener to listen for hyperlink
+        // events.
+        html.addHyperlinkListener(this);
+
+        //Display the JEditorPane
+        this.getContentPane().add(html);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end constructor
+  //-----------------------------------------------------//
+
+  //This hyperlink event listener simply displays the
+  // type of event on the command-line screen.
+  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if (e.getEventType() == 
+                         HyperlinkEvent.EventType.ENTERED){
+      System.out.println("ENTERED");
+    }else if (e.getEventType() == 
+                          HyperlinkEvent.EventType.EXITED){
+      System.out.println("EXITED");
+    }else if (e.getEventType() == 
+                       HyperlinkEvent.EventType.ACTIVATED){
+      System.out.println("ACTIVATED");
+    }//end if
+  }//end hyperlinkUpdate method 
+ //------------------------------------------------------//
+
+}//end class Java4655cHtmlHandler
+
+</code>
+
+
+
+	
+
+
+<para id="p1092">
+<emphasis id="strong1068" effect="bold">
+<emphasis id="Listing_12" effect="bold">
+
+Listing 12
+
+</emphasis>
+
+ - The program named 
+				Java4655b.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1011" display="block">
+/*File Java4655b.java
+Copyright 2014, R.G.Baldwin
+Rev 01/05/14
+
+This is a simple web browser that can follow links.
+
+Uses website string to create JEditPane object.
+
+Ignores ENTERED and EXITED hyperlink events. Uses 
+ACTIVATED events to follow links.
+
+Ignores links in HTML frames.
+**********************************************************/
+
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.html.*;
+import java.net.*;
+import java.awt.*;
+
+class Java4655b{
+  public static void main(String[] args){
+    new Java4655b().runner("http://www.dickbaldwin.com");
+  }//end main
+  //-----------------------------------------------------//
+  
+  void runner(String websiteString){
+    try{
+      //Pass the website string to the constructor
+      new Java4655bHtmlHandler(websiteString);
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end runner
+}//end class Java4655b
+//=======================================================//
+
+//This version of the website handler requires the website
+// to be specified as a String instead of a URL.
+class Java4655bHtmlHandler extends JFrame 
+                              implements HyperlinkListener{
+  JEditorPane html;
+
+  //Constructor
+  public Java4655bHtmlHandler(String websiteString) {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setTitle("Copyright 2014, R.G.Baldwin");
+
+    try{
+      if(websiteString != null) {
+        html = new JEditorPane(websiteString);
+        html.setEditable(false);
+        html.addHyperlinkListener(this);
+
+        this.getContentPane().add(html,BorderLayout.CENTER);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if (e.getEventType() == 
+                      HyperlinkEvent.EventType.ACTIVATED){
+      //Ignore ENTERED and EXITED events and process only
+      // ACTIVATED events.
+      if (e instanceof HTMLFrameHyperlinkEvent) {
+        //Ignore events in HTML frames
+        System.out.println(
+                          "HTML Frame events are ignored");
+      } else {
+        try {
+          //Display page defined by the HyperlinkEvent.
+          html.setPage(e.getURL());
+        } catch (Exception ex) {
+          ex.printStackTrace();
+        }//end catch
+      }//end else
+    }//end if
+  }//end hyperlinkUpdate method
+ //------------------------------------------------------//
+
+}//end class Java4655bHtmlHandler
+
+</code>
+
+
+
+
+
+
+<para id="p1093">
+<emphasis id="strong1069" effect="bold">
+<emphasis id="Listing_13" effect="bold">
+
+Listing 13
+
+</emphasis>
+
+ - The program named 
+				Java4655a.
+
+</emphasis>
+</para>
+
+
+
+
+
+<code id="pre1012" display="block">
+/*File Java4655a.java
+Copyright 2014, R.G.Baldwin
+Rev 01/05/14
+
+This is a simple web browser that can follow
+links.
+
+It ignores links in HTML frames.
+**********************************************************/
+
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.text.html.*;
+import java.net.*;
+import java.awt.*;
+
+class Java4655a{
+  public static void main(String[] args){
+    new Java4655a().runner("http://www.dickbaldwin.com");
+  }//end main
+  //-----------------------------------------------------//
+  
+  void runner(String websiteString){
+    try{
+      new Java4655aHtmlHandler(websiteString);
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end runner
+}//end class Java4655a
+//=======================================================//
+
+class Java4655aHtmlHandler extends JFrame 
+                              implements HyperlinkListener{
+  JEditorPane html;
+
+  //Constructor
+  public Java4655aHtmlHandler(String websiteString) {
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setTitle("Copyright 2014, R.G.Baldwin");
+
+    try{
+      if(websiteString != null) {
+        html = new JEditorPane(websiteString);
+        html.setEditable(false);
+        html.addHyperlinkListener(this);
+  
+        JScrollPane scroller = new JScrollPane();
+        JViewport vp = scroller.getViewport();
+        vp.add(html);
+        this.getContentPane().add(
+                             scroller,BorderLayout.CENTER);
+        this.setSize(669,669);
+        this.setVisible(true);
+      }//end if
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }//end catch
+  }//end constructor
+  //-----------------------------------------------------//
+
+  public void hyperlinkUpdate(HyperlinkEvent e) {
+    if (e.getEventType() == 
+                      HyperlinkEvent.EventType.ACTIVATED){
+      //Ignore ENTERED and EXITED events and process only
+      // ACTIVATED events.
+      if (e instanceof HTMLFrameHyperlinkEvent) {
+        //Ignore events in HTML frames
+        System.out.println(
+                          "HTML Frame events are ignored");
+      } else {
+        try {
+          //Display page defined by the HyperlinkEvent.
+          html.setPage(e.getURL());
+        } catch (Exception ex) {
+          ex.printStackTrace();
+        }//end catch
+      }//end else
+    }//end if
+  }//end hyperlinkUpdate method
+ //------------------------------------------------------//
+
+}//end class Java4655aHtmlHandler
+
+</code>
+
+
+
+
+
+
+<para id="p1094">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>
